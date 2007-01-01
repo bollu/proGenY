@@ -19,7 +19,9 @@ struct RenderNode{
 	enum Type{
 		Sprite,
 		Text,
-		Shape
+		Shape,
+		Trail,
+		Particles,
 	} type_;
 
 	union {
