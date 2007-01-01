@@ -16,16 +16,19 @@ void AIProcessor::_Process(Object *obj, float dt){
 	vector2 objPos = *obj->getPrimitive<vector2>(Hash::getHash("position"));
 	vector2 targetPos = *ai->target->getPrimitive<vector2>(Hash::getHash("position"));
 	
-	float k = 1; float q = 1;
+	float k = ai->separationCoeff; float q = ai->separationCoeff;
 
 	vector2 dist = objPos - targetPos;
+	float distLength = dist.Length();
+
+	if (distLength > ai->maxLockonRange) { return; }
 	//this is the "x" in F = -kx
-	float stretch = dist.Length() - ai->separation;
+	float stretch = distLength - ai->separation;
 
 	vector2 stretchVec = k * dist.Normalize() * stretch;
 	vector2 velVec = 1 * vector2::cast(body->GetLinearVelocity());
 
 	vector2 force = -1 * (stretchVec + velVec);
 	
-	body->ApplyLinearImpulse(ai->speed * force * dt, body->GetWorldCenter(), true);
+	body->ApplyLinearImpulse(ai->forceScaling * force * dt, body->GetWorldCenter(), true);
 };

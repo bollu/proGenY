@@ -126,7 +126,7 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 
 	b2Filter collisionFilter;
 	collisionFilter.categoryBits = CollisionGroups::ENEMY;
-	collisionFilter.maskBits =  CollisionGroups::BULLET | CollisionGroups::PLAYER;
+	collisionFilter.maskBits =  CollisionGroups::BULLET | CollisionGroups::PLAYER | CollisionGroups::TERRAIN;
 
 
 	b2FixtureDef fixtureDef;
@@ -154,10 +154,12 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 	//AI--------------------------------------------------------------------------
 	AIData aiData;
 	aiData.target = info.target;
+	aiData.maxLockonRange = 10;
+
 	//HACK
 	aiData.separation = 1;
-	aiData.speed = 3;
-
+	aiData.separationCoeff = 1;
+	aiData.forceScaling = 30;
 	//HP-----------------------------------------------------------------------------
 	HealthData healthData;
 	healthData.maxHP = 10; //<-HACK
@@ -312,11 +314,15 @@ Object *ObjectFactories::CreatePlayer(PlayerFactoryInfo &info) {
 	b2CircleShape playerBoundingBox;
 	playerBoundingBox.m_radius = 1.0f;
 
+	b2Filter collisionFilter;
+	collisionFilter.categoryBits =  CollisionGroups::PLAYER;
+
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &playerBoundingBox;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
-
+	fixtureDef.filter = collisionFilter;
+	
 	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
 	phy.collisionType = Hash::getHash("player");
 

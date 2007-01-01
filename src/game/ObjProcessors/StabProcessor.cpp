@@ -7,8 +7,7 @@ bool isEnemy(std::unordered_set<const Hash*> &enemyCollisions, const Hash *objCo
 	return enemyCollisions.find(objCollisionType) != enemyCollisions.end();
 }
 void stabCollisionCallback(CollisionData &collision, void *data){
-	IO::infoLog<<"in ccollision callbak";
-
+	
 	Object *obj = collision.me;
 	assert(obj != NULL);
 

@@ -15,14 +15,28 @@
 
 
 struct AIData{
+public:
 	Object *target;
+
+	float maxLockonRange;
+
+	//minimum separation from player
 	float separation;
-	float speed;
 	
 	float separationCoeff;
 	float velCoeff;
-	
 
+	//the final calculated spring force is scaled by this amount
+	float forceScaling;
+
+	AIData() {
+		maxLockonRange = separation = 0;
+		separationCoeff = velCoeff = 1;
+
+	}
+	
+private:
+	
 };
 
 

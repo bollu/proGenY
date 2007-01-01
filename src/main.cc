@@ -155,6 +155,7 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/PickupProcessor.h"
 #include "game/ObjProcessors/AIProcessor.h"
 #include "game/ObjProcessors/StabProcessor.h"
+
 void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,
                            Settings &settings, EventManager &eventManager){
 
