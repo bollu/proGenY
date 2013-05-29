@@ -1,0 +1,1584 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"create",
+				"createPolyShape"
+			],
+			[
+				"dum",
+				"dummyShape"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"toS",
+				"toString  (function)"
+			],
+			[
+				"toStr",
+				"toLocaleString  (function)"
+			],
+			[
+				"log",
+				"login_page"
+			],
+			[
+				"si",
+				"siddharth123"
+			],
+			[
+				"draw",
+				"drawableProp"
+			],
+			[
+				"b2Body",
+				"b2BodyDefProp"
+			],
+			[
+				"get",
+				"getBaseProperty"
+			],
+			[
+				"o",
+				"objMap"
+			],
+			[
+				"c",
+				"cObjMapIt"
+			],
+			[
+				"_",
+				"_genUniqueName"
+			],
+			[
+				"Obj",
+				"objectMgr"
+			],
+			[
+				"thresh",
+				"thresholdLevel"
+			],
+			[
+				"obj",
+				"objProcessors"
+			],
+			[
+				"data",
+				"dataIt"
+			],
+			[
+				"prope",
+				"propertyName"
+			],
+			[
+				"end",
+				"endl"
+			],
+			[
+				"in",
+				"include"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "runner.py",
+			"settings":
+			{
+				"buffer_size": 532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/ObjProcessors/renderProcessor.h",
+			"settings":
+			{
+				"buffer_size": 1427,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.cc",
+			"settings":
+			{
+				"buffer_size": 2661,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/renderUtil.h",
+			"settings":
+			{
+				"buffer_size": 287,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/renderUtil.cpp",
+			"settings":
+			{
+				"buffer_size": 1108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/vector.h",
+			"settings":
+			{
+				"buffer_size": 9567,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/util/strHelper.h",
+			"settings":
+			{
+				"buffer_size": 281,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/util/strHelper.cpp",
+			"settings":
+			{
+				"buffer_size": 80,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/util/logObject.h",
+			"settings":
+			{
+				"buffer_size": 1253,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/Object.cpp",
+			"settings":
+			{
+				"buffer_size": 1645,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "makefile",
+			"settings":
+			{
+				"buffer_size": 2604,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "make",
+	"command_palette":
+	{
+		"height": 359.0,
+		"selected_items":
+		[
+			[
+				"clea",
+				"Build: clean"
+			],
+			[
+				"clean",
+				"Build: clean"
+			],
+			[
+				"cta",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"C++",
+				"Set Syntax: C++"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"rebuild ",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"main",
+				"Snippet: main()"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"toggle side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"side",
+				"Side Bar: Disable Syncing"
+			],
+			[
+				"rebuild",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"set syC++",
+				"Set Syntax: C++"
+			],
+			[
+				"delet",
+				"File: Delete"
+			],
+			[
+				"GDB",
+				"SublimeGDB: Stop Debugging"
+			],
+			[
+				"key bin",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"make",
+				"Set Syntax: Makefile"
+			],
+			[
+				"gdb",
+				"SublimeGDB: Stop Debugging"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"moveta",
+				"Preferences: MoveTabs Settings – Default"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"bracke",
+				"BracketHighlighter: Fold Bracket Content"
+			],
+			[
+				"path",
+				"File: Copy Path"
+			],
+			[
+				"brack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"keyCo",
+				"FindKeyConflicts: All Conflicts"
+			],
+			[
+				"conflict",
+				"FindKeyConflicts: Command Search"
+			],
+			[
+				"find ",
+				"FindKeyConflicts: All Conflicts"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"show",
+				"CTags: Show Symbols (all)"
+			],
+			[
+				"ctags",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"brac",
+				"BracketHighlighter: Toggle High Visibility Mode"
+			],
+			[
+				"br",
+				"BracketHighlighter: Toggle Global Enable"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Ctags",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"run",
+				"Build: run"
+			],
+			[
+				"buid",
+				"Build: run"
+			],
+			[
+				"old",
+				"Build: oldSkool"
+			],
+			[
+				"o",
+				"Set Syntax: Objective-C++"
+			],
+			[
+				" viw",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"vie",
+				"View: Toggle Status Bar"
+			],
+			[
+				"Voe",
+				"View: Toggle Minimap"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 507.0
+	},
+	"console":
+	{
+		"height": 250.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Network/Socket.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderUtil.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/runner.py~",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.cpp",
+		"/home/siddharth/Data/programming/Node.js/autopost/LinkedList.js",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
+		"/home/siddharth/Data/programming/Node.js/autopost/loginPage.html",
+		"/home/siddharth/Data/programming/Node.js/autopost/autopost.js",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
+		"/home/siddharth/Data/programming/libs/game engines/SFML-2.0-source/SFML-2.0/doc/mainpage.hpp",
+		"/home/siddharth/Data/programming/libs/game engines/SFML-2.0-source/SFML-2.0/Makefile",
+		"/home/siddharth/Data/notes/toCook.note",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
+		"/usr/local/include/SFML/Graphics/Drawable.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/box2d_test.sublime-project",
+		"/home/siddharth/.xprofile",
+		"/etc/apt/sources.list",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Model.cpp",
+		"/home/siddharth/Data/Debugging/Gateone/GateOne/gateone/static/gateone.js",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Model.h",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/Model.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/Contacts/b2Contact.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/object.cpp",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/SublimeGDB.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
+		"/home/siddharth/.config/sublime-text-2/Packages/FuzzyFileNav/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-2/Packages/sublime-text-move-tabs/MoveTabs.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/aasdqwe",
+		"/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile__",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2Shape.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2ChainShape.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2ChainShape.h +99",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2ChainShape.h +98",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/makefile",
+		"/home/siddharth/Data/programming/C_C++/basic libs setup/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/basic libs setup/src/a.out",
+		"/home/siddharth/Data/programming/C_C++/box2d test/src/makefile",
+		"/home/siddharth/Data/programming/C_C++/box2d test/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/box2d test/makefile_old",
+		"/home/siddharth/Data/programming/C_C++/box2d test/makefile",
+		"/home/siddharth/Data/programming/C_C++/box2d test/box2d_test.sublime-project",
+		"/home/siddharth/Data/programming/C_C++/box2d test/src/include/Box2D/Dynamics/b2World.cpp",
+		"/home/siddharth/Data/programming/C_C++/box2d test/src/.tags",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+		"/home/siddharth/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/siddharth/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-2/Packages/C++/C++.sublime-build",
+		"/home/siddharth/Data/programming/C_C++/box2d test/main.cc",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Pretty JSON.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/box2d test/box2d_test.sublime-workspace",
+		"/home/siddharth/?",
+		"/home/siddharth/Data/programming/C_C++/box2d test/src/include/Box2D/Dynamics/b2Body.h",
+		"/home/siddharth/Data/programming/C_C++/box2d test/main.cpp",
+		"/home/siddharth/Data/programming/idk/a.html",
+		"/home/siddharth/.config/sublime-text-2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"}\n",
+			"no",
+			"http://ppa.launchpad.net/webapps/preview/ubuntu/dists/raring/main/binary-i386/Packages",
+			"dummy.",
+			"BlobBuilder",
+			"obj",
+			"\n",
+			"ctrl",
+			"n",
+			"t",
+			"key",
+			"keyss",
+			"keys",
+			"key",
+			"key\n        ",
+			"\n        ",
+			"\"],\n",
+			"LogLevel",
+			"Hash",
+			"$CC",
+			"CC",
+			"clang++",
+			"clang++\n",
+			"}}\",\n",
+			"f7",
+			"f5",
+			"groundBody"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"dummy->",
+			"logLevel",
+			"$(CC)",
+			"$CC",
+			"CC"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "runner.py",
+					"settings":
+					{
+						"buffer_size": 532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "a11201c2",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/core/ObjProcessors/renderProcessor.h",
+					"settings":
+					{
+						"buffer_size": 1427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								326,
+								326
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "60dc6aa0",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/main.cc",
+					"settings":
+					{
+						"buffer_size": 2661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2517,
+								2517
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "9fd8762e",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1290.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/core/renderUtil.h",
+					"settings":
+					{
+						"buffer_size": 287,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "fec0ed8b",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/core/renderUtil.cpp",
+					"settings":
+					{
+						"buffer_size": 1108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								715,
+								715
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "24ba8a49",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/core/vector.h",
+					"settings":
+					{
+						"buffer_size": 9567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								518,
+								518
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "e27ef098",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/util/strHelper.h",
+					"settings":
+					{
+						"buffer_size": 281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "ed00f26c",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/util/strHelper.cpp",
+					"settings":
+					{
+						"buffer_size": 80,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								80
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "646afa8e",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/util/logObject.h",
+					"settings":
+					{
+						"buffer_size": 1253,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "4fafb911",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/core/Object.cpp",
+					"settings":
+					{
+						"buffer_size": 1645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1168,
+								1168
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "56e56981",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "makefile",
+					"settings":
+					{
+						"buffer_size": 2604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1026,
+								1026
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "39063d91",
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 215.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"",
+				"src/core/renderUtil.h"
+			],
+			[
+				"log",
+				"src/util/logObject.h"
+			],
+			[
+				"renderutil",
+				"src/core/ObjProcessors/renderUtil.cpp"
+			],
+			[
+				"main",
+				"src/main.cc"
+			],
+			[
+				"vector",
+				"src/core/vector.h"
+			],
+			[
+				"prope",
+				"src/core/Property.h"
+			],
+			[
+				"objectpro",
+				"src/core/objectProcessor.h"
+			],
+			[
+				"logob",
+				"src/util/logObject.cpp"
+			],
+			[
+				"render",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"objectm",
+				"src/core/objectMgr.h"
+			],
+			[
+				"object",
+				"src/core/Object.cpp"
+			],
+			[
+				"obje",
+				"src/core/Object.h"
+			],
+			[
+				"proper",
+				"src/core/Property.h"
+			],
+			[
+				"rende",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"main.cc",
+				"src/main.cc"
+			],
+			[
+				"vec",
+				"src/core/vector.h"
+			],
+			[
+				"object.h",
+				"src/core/objectMgr.h"
+			],
+			[
+				"process",
+				"src/core/objectProcessor.h"
+			],
+			[
+				"obj",
+				"src/core/objectMgr.h"
+			],
+			[
+				"oj",
+				"src/core/Object.cpp"
+			],
+			[
+				"ob",
+				"src/core/Object.h"
+			],
+			[
+				"logo",
+				"src/util/logObject.h"
+			],
+			[
+				"mae",
+				"makefile"
+			],
+			[
+				"include/sfml/window",
+				"src/include/SFML/Window.hpp"
+			],
+			[
+				"v",
+				"src/core/vector.h"
+			],
+			[
+				"objec",
+				"src/core/objectProcessor.h"
+			],
+			[
+				"model",
+				"src/core/Model.h"
+			],
+			[
+				"mod",
+				"src/core/Model.h"
+			],
+			[
+				"objm",
+				"src/core/objectMgr.h"
+			],
+			[
+				"hash",
+				"core/Hash.h"
+			],
+			[
+				"hash.h",
+				"core/Hash.h"
+			],
+			[
+				"lo",
+				"util/logObject.h"
+			],
+			[
+				"o",
+				"core/objectMgr.h"
+			],
+			[
+				"objectpr",
+				"core/objectProcessor"
+			],
+			[
+				"hash.",
+				"core/Hash.cpp"
+			],
+			[
+				"hash.cpp",
+				"core/Hash.cpp"
+			],
+			[
+				"main.",
+				"main.cc"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": false
+}

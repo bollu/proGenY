@@ -1,0 +1,41 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make", "build"
+			],
+			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+			"name": "make",
+			
+			"variants":
+			[
+				{
+					"cmd":
+					[
+						"make", "run"
+					],
+					"name": "run",
+					"working_dir": "${project_path:${folder}}"
+				},
+				{
+					"cmd":
+					[
+						"make", "clean"
+					],
+					"name": "clean",
+					"working_dir": "${project_path:${folder}}"
+				}
+			],
+			"working_dir": "${project_path:${folder}}"
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "/home/siddharth/Data/programming/C_C++/basic_libs_setup",
+			"file_exclude_patterns": [".*", "*.sublime*", "*.exclude"]
+		}
+	]
+}
