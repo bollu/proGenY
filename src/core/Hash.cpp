@@ -1,4 +1,6 @@
 #include "Hash.h"
+#include "../util/logObject.h"
+
 
 std::map<std::string, Hash* > Hash::hashMap;
 unsigned int Hash::seed;
@@ -29,6 +31,19 @@ const Hash* Hash::getHash(std::string str){
 		return (it->second);
 	}
 }
+
+std::string Hash::Hash2Str(const Hash *hash){
+	for(auto it = hashMap.begin(); it != hashMap.end(); ++it){
+		if(it->second == hash){
+			return it->first;
+		}
+	}
+
+	util::msgLog("unable to convert hash to string.", util::logLevel::logLevelError);
+	return "NO HASH AVAILAIBLE";
+
+};
+
 
 void Hash::setSeed(unsigned int seed){
 	Hash::seed = seed;

@@ -36,8 +36,8 @@ public:
 		b2Fixture *fixture = body->CreateFixture(&fixtureDef);
 
 
-		obj->addProperty(Hash::getHash("b2Body"), new Prop<b2Body *>(body));
-		obj->addProperty(Hash::getHash("b2Fixture"), new Prop<b2Fixture *>(fixture));
+		obj->addProp(Hash::getHash("b2Body"), new Prop<b2Body *>(body));
+		obj->addProp(Hash::getHash("b2Fixture"), new Prop<b2Fixture *>(fixture));
 		
 	}
 
@@ -53,13 +53,10 @@ public:
 			auto b2BodyProp = obj->getProp<b2Body *>(Hash::getHash("b2Body"));
 
 			if(b2BodyProp == NULL){
-				util::msgLog("no b2Body attached");
 				return;
 			}
-		util::msgLog("b2Body attached");
+		
 			vector2 newPos = vector2::cast( b2BodyProp->getVal()->GetPosition() );
-			PRINTVECTOR2(newPos);
-
 			posProp->setVal(newPos);
 		}
 	}

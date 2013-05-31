@@ -15,21 +15,22 @@ public:
 
 	std::string getName();
 
-	void addProperty(const Hash *name, baseProperty *value);
+	void addProp(const Hash *name, baseProperty *value);
 	
 
-	baseProperty *getBaseProperty(const Hash *name);
+	baseProperty *getBaseProp(const Hash *name);
 
 	template<typename Type>
 	Prop<Type> *getProp(const Hash *name){
-		return reinterpret_cast<Prop<Type> *>(this->getBaseProperty(name));
+		return reinterpret_cast<Prop<Type> *>(this->getBaseProp(name));
 	}
 
 	template<typename Type>
 	managedProp<Type> *getManagedProp(const Hash *name){
-		return reinterpret_cast<managedProp<Type> *>(this->getBaseProperty(name));
+		return reinterpret_cast<managedProp<Type> *>(this->getBaseProp(name));
 	}
 	
+
 	/*
 	//not to be used publicly. ONLY FOR OBJECT PROCESSORS
 	void _addData(const Hash *name, baseProperty*);

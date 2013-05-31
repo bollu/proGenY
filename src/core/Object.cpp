@@ -9,7 +9,7 @@ Object::Object(std::string _name){
 	//create a unique name from the generic name given
 	this->_genUniqueName(_name, this->name);
 
-	this->addProperty(Hash::getHash("position"), new Prop <vector2>(vector2(0, 0)));
+	this->addProp(Hash::getHash("position"), new Prop <vector2>(vector2(0, 0)));
 
 };
 
@@ -22,7 +22,7 @@ Object::~Object(){
 
 
 //public-------------------------------------------
-void Object::addProperty(const Hash *name, baseProperty *value){
+void Object::addProp(const Hash *name, baseProperty *value){
 	propertyIt it;
 	
 	if( ( it = propertyMap.find(name)) == propertyMap.end() ){
@@ -30,11 +30,14 @@ void Object::addProperty(const Hash *name, baseProperty *value){
 		
 		return;
 	}
-	util::msgLog("trying to add a property twice to object " + this->getName(), 
+
+	util::msgLog(std::string("trying to add property twice to object\n") + 
+		std::string("Property: ") + Hash::Hash2Str(name) + 
+		std::string("\nObject Name: ") + this->getName(), 
 		util::logLevel::logLevelError);
 }
 
-baseProperty *Object::getBaseProperty(const Hash *name){
+baseProperty *Object::getBaseProp(const Hash *name){
 
 	propertyIt it;
 

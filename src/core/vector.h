@@ -17,7 +17,7 @@ public:
 	float x, y;
  
 	vector2(){ this->x = this->y = 0;};
-
+	~vector2(){};
 
 	template<typename T>
 	static vector2 cast(const T &otherVec){
