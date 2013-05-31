@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"o",
+				"observerMap"
+			],
+			[
+				"obser",
+				"observerMap"
+			],
+			[
+				"obse",
+				"observerMap"
+			],
+			[
+				"observ",
+				"observerList"
+			],
+			[
 				"create",
 				"createPolyShape"
 			],
@@ -42,10 +58,6 @@
 			[
 				"get",
 				"getBaseProperty"
-			],
-			[
-				"o",
-				"objMap"
 			],
 			[
 				"c",
@@ -87,94 +99,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "runner.py",
-			"settings":
-			{
-				"buffer_size": 532,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/core/ObjProcessors/renderProcessor.h",
-			"settings":
-			{
-				"buffer_size": 1427,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/main.cc",
-			"settings":
-			{
-				"buffer_size": 2661,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/core/renderUtil.h",
-			"settings":
-			{
-				"buffer_size": 287,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/core/renderUtil.cpp",
-			"settings":
-			{
-				"buffer_size": 1108,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/core/vector.h",
-			"settings":
-			{
-				"buffer_size": 9567,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/util/strHelper.h",
-			"settings":
-			{
-				"buffer_size": 281,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/util/strHelper.cpp",
-			"settings":
-			{
-				"buffer_size": 80,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/util/logObject.h",
-			"settings":
-			{
-				"buffer_size": 1253,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/core/Object.cpp",
-			"settings":
-			{
-				"buffer_size": 1645,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "makefile",
-			"settings":
-			{
-				"buffer_size": 2604,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "make",
 	"command_palette":
@@ -182,6 +106,34 @@
 		"height": 359.0,
 		"selected_items":
 		[
+			[
+				"",
+				"About"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"rebui",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"rebuid",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"side bar",
+				"Side Bar: Enable Syncing"
+			],
 			[
 				"clea",
 				"Build: clean"
@@ -195,16 +147,8 @@
 				"CTags: Rebuild Tags"
 			],
 			[
-				"dele",
-				"File: Delete"
-			],
-			[
 				"C++",
 				"Set Syntax: C++"
-			],
-			[
-				"rena",
-				"File: Rename"
 			],
 			[
 				"rein",
@@ -219,20 +163,12 @@
 				"Set Syntax: JavaScript"
 			],
 			[
-				"rename",
-				"File: Rename"
-			],
-			[
 				"rebuild ",
 				"CTags: Rebuild Tags"
 			],
 			[
 				"build",
 				"Build: Build"
-			],
-			[
-				"",
-				"About"
 			],
 			[
 				"main",
@@ -432,30 +368,49 @@
 	},
 	"file_history":
 	[
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.cpp",
+		"/home/siddharth/Data/programming/Node.js/autopost/autopost.js",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventData.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/ProcessMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/runner.py",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/Event.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/event.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/readme",
+		"/usr/include/c++/4.7/bits/stl_map.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Network/Socket.hpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderUtil.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/runner.py~",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.cpp",
 		"/home/siddharth/Data/programming/Node.js/autopost/LinkedList.js",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
 		"/home/siddharth/Data/programming/Node.js/autopost/loginPage.html",
-		"/home/siddharth/Data/programming/Node.js/autopost/autopost.js",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
 		"/home/siddharth/Data/programming/libs/game engines/SFML-2.0-source/SFML-2.0/doc/mainpage.hpp",
 		"/home/siddharth/Data/programming/libs/game engines/SFML-2.0-source/SFML-2.0/Makefile",
 		"/home/siddharth/Data/notes/toCook.note",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
 		"/usr/local/include/SFML/Graphics/Drawable.hpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/box2d_test.sublime-project",
 		"/home/siddharth/.xprofile",
 		"/etc/apt/sources.list",
@@ -472,8 +427,6 @@
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/Contacts/b2Contact.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/object.cpp",
 		"/home/siddharth/.config/sublime-text-2/Packages/User/SublimeGDB.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
 		"/home/siddharth/.config/sublime-text-2/Packages/FuzzyFileNav/Default (Linux).sublime-keymap",
 		"/home/siddharth/.config/sublime-text-2/Packages/sublime-text-move-tabs/MoveTabs.sublime-settings",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/aasdqwe",
@@ -523,6 +476,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"	\n",
+			"addProperty",
+			"!",
+			"  \n",
 			"}\n",
 			"no",
 			"http://ppa.launchpad.net/webapps/preview/ubuntu/dists/raring/main/binary-i386/Packages",
@@ -557,6 +514,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"addProp",
 			"dummy->",
 			"logLevel",
 			"$(CC)",
@@ -572,798 +530,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "runner.py",
-					"settings":
-					{
-						"buffer_size": 532,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								224,
-								224
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "a11201c2",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/core/ObjProcessors/renderProcessor.h",
-					"settings":
-					{
-						"buffer_size": 1427,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								326,
-								326
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "60dc6aa0",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/main.cc",
-					"settings":
-					{
-						"buffer_size": 2661,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2517,
-								2517
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "9fd8762e",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1290.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/core/renderUtil.h",
-					"settings":
-					{
-						"buffer_size": 287,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								147,
-								147
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "fec0ed8b",
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/core/renderUtil.cpp",
-					"settings":
-					{
-						"buffer_size": 1108,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								715,
-								715
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "24ba8a49",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 225.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/core/vector.h",
-					"settings":
-					{
-						"buffer_size": 9567,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								518,
-								518
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "e27ef098",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/util/strHelper.h",
-					"settings":
-					{
-						"buffer_size": 281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								226,
-								226
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "ed00f26c",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/util/strHelper.cpp",
-					"settings":
-					{
-						"buffer_size": 80,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								80,
-								80
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "646afa8e",
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/util/logObject.h",
-					"settings":
-					{
-						"buffer_size": 1253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								140
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "4fafb911",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/core/Object.cpp",
-					"settings":
-					{
-						"buffer_size": 1645,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1168,
-								1168
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "56e56981",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "makefile",
-					"settings":
-					{
-						"buffer_size": 2604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1026,
-								1026
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "39063d91",
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 720.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1413,12 +581,84 @@
 		"selected_items":
 		[
 			[
+				"main",
+				"src/main.cc"
+			],
+			[
 				"make",
 				"makefile"
 			],
 			[
+				"event",
+				"src/core/Process/eventMgr.h"
+			],
+			[
 				"",
-				"src/core/renderUtil.h"
+				"src/core/Process/eventMgr.h"
+			],
+			[
+				"pro",
+				"src/core/Process/Process.h"
+			],
+			[
+				"proc",
+				"src/core/Process/ProcessMgr.h"
+			],
+			[
+				"proces",
+				"src/core/Process/ProcessMgr.h"
+			],
+			[
+				"proce",
+				"src/core/Process/ProcessMgr.h"
+			],
+			[
+				"process",
+				"src/core/Process/Process.h"
+			],
+			[
+				"phy",
+				"src/core/ObjProcessors/phyProcessor.h"
+			],
+			[
+				"renderpro",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"obj",
+				"src/core/Object.h"
+			],
+			[
+				"hash",
+				"src/core/Hash.cpp"
+			],
+			[
+				"oj",
+				"src/core/Object.cpp"
+			],
+			[
+				"logo",
+				"src/util/logObject.h"
+			],
+			[
+				"ob",
+				"src/core/Object.h"
+			],
+			[
+				"prop",
+				"src/core/Property.h"
+			],
+			[
+				"phyp",
+				"src/core/ObjProcessors/phyProcessor.h"
+			],
+			[
+				"rend",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"obje",
+				"src/core/Object.cpp"
 			],
 			[
 				"log",
@@ -1427,10 +667,6 @@
 			[
 				"renderutil",
 				"src/core/ObjProcessors/renderUtil.cpp"
-			],
-			[
-				"main",
-				"src/main.cc"
 			],
 			[
 				"vector",
@@ -1461,10 +697,6 @@
 				"src/core/Object.cpp"
 			],
 			[
-				"obje",
-				"src/core/Object.h"
-			],
-			[
 				"proper",
 				"src/core/Property.h"
 			],
@@ -1483,26 +715,6 @@
 			[
 				"object.h",
 				"src/core/objectMgr.h"
-			],
-			[
-				"process",
-				"src/core/objectProcessor.h"
-			],
-			[
-				"obj",
-				"src/core/objectMgr.h"
-			],
-			[
-				"oj",
-				"src/core/Object.cpp"
-			],
-			[
-				"ob",
-				"src/core/Object.h"
-			],
-			[
-				"logo",
-				"src/util/logObject.h"
 			],
 			[
 				"mae",
@@ -1531,10 +743,6 @@
 			[
 				"objm",
 				"src/core/objectMgr.h"
-			],
-			[
-				"hash",
-				"core/Hash.h"
 			],
 			[
 				"hash.h",
