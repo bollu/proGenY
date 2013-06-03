@@ -26,10 +26,20 @@ LFLAGS = -Llib/
 LIBS = -lBox2D -lsfml-graphics -lsfml-window -lsfml-system
 
 # define the C source files
-SRCS = src/main.cc src/core/Hash.cpp src/util/logObject.cpp src/core/Object.cpp src/core/renderUtil.cpp \
-	   src/util/strHelper.cpp src/core/Messaging/eventMgr.cpp  \
-	   src/core/Process/processMgr.cpp    src/core/Process/eventProcess.cpp
-	
+SRCS = src/main.cc src/core/Hash.cpp \
+		src/util/logObject.cpp \
+		src/core/Object.cpp \
+		src/core/renderUtil.cpp \
+		src/util/strHelper.cpp \
+		src/core/Messaging/eventMgr.cpp  \
+		src/core/Process/processMgr.cpp \
+		src/core/Process/eventProcess.cpp \
+		src/game/States/gameState.cpp \
+		src/core/ObjProcessors/renderProcessor.cpp \
+		src/core/ObjProcessors/phyProcessor.cpp \
+		src/game/eventHandlers/WSADHandler.cpp \
+		src/game/ObjProcessors/groundMoveProcessor.cpp \
+		src/game/ObjProcessors/cameraProcessor.cpp \
 
 # define the C object files 
 #

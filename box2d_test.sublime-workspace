@@ -4,6 +4,134 @@
 		"selected_items":
 		[
 			[
+				"player",
+				"playerShapeRenderer"
+			],
+			[
+				"_",
+				"_Render"
+			],
+			[
+				"drawa",
+				"drawableType"
+			],
+			[
+				"boundary",
+				"boundaryObject"
+			],
+			[
+				"bottom",
+				"bottomFixtureDef"
+			],
+			[
+				"fix",
+				"fixtureDef"
+			],
+			[
+				"get",
+				"getBaseProp"
+			],
+			[
+				"render2",
+				"render2ScreenScale"
+			],
+			[
+				"b2",
+				"b2Fixture"
+			],
+			[
+				"proce",
+				"processName"
+			],
+			[
+				"logLev",
+				"logLevelError"
+			],
+			[
+				"proc",
+				"processName"
+			],
+			[
+				"vecto",
+				"vector2"
+			],
+			[
+				"window",
+				"windowDim"
+			],
+			[
+				"windo",
+				"windowDim"
+			],
+			[
+				"de",
+				"defaultView"
+			],
+			[
+				"se",
+				"settingsMap"
+			],
+			[
+				"objM",
+				"objMgrProc"
+			],
+			[
+				"pro",
+				"propertyName"
+			],
+			[
+				"_create",
+				"_createEnemies"
+			],
+			[
+				"add",
+				"addObjectProcessor"
+			],
+			[
+				"object",
+				"objectMgr"
+			],
+			[
+				"st",
+				"stateSaveLaoder"
+			],
+			[
+				"_handle",
+				"_handleKeyboardReleased"
+			],
+			[
+				"_handleMouse",
+				"_handleMouseButtonReleased"
+			],
+			[
+				"mo",
+				"mouseButton"
+			],
+			[
+				"state",
+				"stateProcess"
+			],
+			[
+				"even",
+				"eventManager"
+			],
+			[
+				"change",
+				"changeState"
+			],
+			[
+				"obj",
+				"objectManagerProcess"
+			],
+			[
+				"lo",
+				"logLevelError"
+			],
+			[
+				"objManag",
+				"objManagerProcess"
+			],
+			[
 				"o",
 				"observerMap"
 			],
@@ -56,16 +184,8 @@
 				"b2BodyDefProp"
 			],
 			[
-				"get",
-				"getBaseProperty"
-			],
-			[
 				"c",
 				"cObjMapIt"
-			],
-			[
-				"_",
-				"_genUniqueName"
 			],
 			[
 				"Obj",
@@ -74,10 +194,6 @@
 			[
 				"thresh",
 				"thresholdLevel"
-			],
-			[
-				"obj",
-				"objProcessors"
 			],
 			[
 				"data",
@@ -99,16 +215,176 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/core/ObjProcessors/phyProcessor.h",
+			"settings":
+			{
+				"buffer_size": 1689,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/ObjProcessors/phyProcessor.cpp",
+			"settings":
+			{
+				"buffer_size": 38,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/ObjProcessors/keyControlProcessor.h",
+			"settings":
+			{
+				"buffer_size": 409,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/ObjProcessors/renderProcessor.h",
+			"settings":
+			{
+				"buffer_size": 2218,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/objectProcessor.h",
+			"settings":
+			{
+				"buffer_size": 644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/ObjProcessors/renderProcessor.cpp",
+			"settings":
+			{
+				"buffer_size": 2288,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "makefile",
+			"settings":
+			{
+				"buffer_size": 2849,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/States/gameState.cpp",
+			"settings":
+			{
+				"buffer_size": 3484,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/States/gameState.h",
+			"settings":
+			{
+				"buffer_size": 1029,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/Property.h",
+			"settings":
+			{
+				"buffer_size": 2594,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.cc",
+			"settings":
+			{
+				"buffer_size": 7942,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/core/Process/viewProcess.h",
+			"settings":
+			{
+				"buffer_size": 1223,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "make",
 	"command_palette":
 	{
-		"height": 359.0,
+		"height": 56.0,
 		"selected_items":
 		[
 			[
+				"rebuild",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"clean",
+				"Build: clean"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rebui",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"rebu",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"clea",
+				"Build: clean"
+			],
+			[
 				"",
-				"About"
+				"BracketHighlighter: Jump to Left Bracket"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"C++",
+				"Set Syntax: C++"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"cta",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"setSC++",
+				"Set Syntax: C++"
 			],
 			[
 				"dele",
@@ -119,40 +395,12 @@
 				"File: Rename"
 			],
 			[
-				"rena",
-				"File: Rename"
-			],
-			[
-				"rebui",
-				"CTags: Rebuild Tags"
-			],
-			[
 				"rebuid",
 				"CTags: Rebuild Tags"
 			],
 			[
 				"side bar",
 				"Side Bar: Enable Syncing"
-			],
-			[
-				"clea",
-				"Build: clean"
-			],
-			[
-				"clean",
-				"Build: clean"
-			],
-			[
-				"cta",
-				"CTags: Rebuild Tags"
-			],
-			[
-				"C++",
-				"Set Syntax: C++"
-			],
-			[
-				"rein",
-				"Indentation: Reindent Lines"
 			],
 			[
 				"inde",
@@ -175,20 +423,12 @@
 				"Snippet: main()"
 			],
 			[
-				"reinde",
-				"Indentation: Reindent Lines"
-			],
-			[
 				"toggle side",
 				"View: Toggle Side Bar"
 			],
 			[
 				"side",
 				"Side Bar: Disable Syncing"
-			],
-			[
-				"rebuild",
-				"CTags: Rebuild Tags"
 			],
 			[
 				"set syC++",
@@ -223,20 +463,12 @@
 				"SublimeGDB: Stop Debugging"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"moveta",
 				"Preferences: MoveTabs Settings – Default"
 			],
 			[
 				"disa",
 				"Package Control: Disable Package"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			],
 			[
 				"package",
@@ -345,10 +577,6 @@
 			[
 				"packa",
 				"Package Control: List Packages"
-			],
-			[
-				"install ",
-				"Package Control: Install Package"
 			]
 		],
 		"width": 507.0
@@ -363,35 +591,70 @@
 		"show_minimap": false,
 		"show_open_files": false,
 		"show_tabs": false,
-		"side_bar_visible": false,
+		"side_bar_visible": true,
 		"status_bar_visible": false
 	},
 	"file_history":
 	[
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/engine/latex/df/d30/classProcess.tex",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Common/b2Draw.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/viewProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventProcess.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/terrainProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/keyControlProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/State.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/processMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/stateProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/objectMgrProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Settings.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window/Window.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/windowProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/worldProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/processMgr.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window/Keyboard.hpp",
+		"/home/siddharth/Data/programming/basic_libs_setup/src/main.cc",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window/Event.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/dummyStateSaveLoader.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/stateSaveLoader.h",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/engine/Doxyfile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/game/Doxyfile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/mainMenuState.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/dummyStateSaveLoader",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/System/ThreadLocal.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/objMgrProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/objManagerProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/ProcessMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/objManagerProcess",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.cpp",
 		"/home/siddharth/Data/programming/Node.js/autopost/autopost.js",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventData.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/ProcessMgr.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/runner.py",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventMgr.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/Event.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/event.h",
@@ -401,7 +664,6 @@
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderUtil.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/runner.py~",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.cpp",
 		"/home/siddharth/Data/programming/Node.js/autopost/LinkedList.js",
 		"/home/siddharth/Data/programming/Node.js/autopost/loginPage.html",
@@ -409,7 +671,6 @@
 		"/home/siddharth/Data/programming/libs/game engines/SFML-2.0-source/SFML-2.0/Makefile",
 		"/home/siddharth/Data/notes/toCook.note",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
 		"/usr/local/include/SFML/Graphics/Drawable.hpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/box2d_test.sublime-project",
 		"/home/siddharth/.xprofile",
@@ -419,9 +680,7 @@
 		"/home/siddharth/Data/Debugging/Gateone/GateOne/gateone/static/gateone.js",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/Object.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window.hpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Model.h",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/Object.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/Model.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/Contacts/b2Contact.h",
@@ -476,6 +735,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";\n",
+			" \n",
+			"objectProcessor",
+			"renderPos",
+			"EXTRACT_ALL",
+			" \n",
+			"  \n",
+			"AUTOBRIEF",
+			"BRIEF",
+			"BRIED",
+			"exclude",
+			"exculde",
+			"INCLUDE",
 			"	\n",
 			"addProperty",
 			"!",
@@ -530,8 +802,872 @@
 	"groups":
 	[
 		{
+			"selected": 8,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/core/ObjProcessors/phyProcessor.h",
+					"settings":
+					{
+						"buffer_size": 1689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								937,
+								937
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "0b1565eb",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/core/ObjProcessors/phyProcessor.cpp",
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "fec9ce10",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/game/ObjProcessors/keyControlProcessor.h",
+					"settings":
+					{
+						"buffer_size": 409,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								409
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "c45b9ee8",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/core/ObjProcessors/renderProcessor.h",
+					"settings":
+					{
+						"buffer_size": 2218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2166,
+								2166
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "60dc6aa0",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 75.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/core/objectProcessor.h",
+					"settings":
+					{
+						"buffer_size": 644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								569,
+								569
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "4f1f2b09",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 116.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/core/ObjProcessors/renderProcessor.cpp",
+					"settings":
+					{
+						"buffer_size": 2288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1501,
+								1501
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "e1f910e7",
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 825.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "makefile",
+					"settings":
+					{
+						"buffer_size": 2849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1267,
+								1267
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "39063d91",
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/game/States/gameState.cpp",
+					"settings":
+					{
+						"buffer_size": 3484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								511,
+								511
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "8c32c442",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/game/States/gameState.h",
+					"settings":
+					{
+						"buffer_size": 1029,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1026,
+								1026
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "1a1d26c9",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/core/Property.h",
+					"settings":
+					{
+						"buffer_size": 2594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2022,
+								2022
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "6d85cef5",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/main.cc",
+					"settings":
+					{
+						"buffer_size": 7942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2415,
+								2412
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "9fd8762e",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 258.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/core/Process/viewProcess.h",
+					"settings":
+					{
+						"buffer_size": 1223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								704,
+								704
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "18ed87ea",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -581,7 +1717,27 @@
 		"selected_items":
 		[
 			[
-				"main",
+				"game",
+				"src/game/States/gameState.cpp"
+			],
+			[
+				"view",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"renderproc",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"renderpro",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"games",
+				"src/game/States/gameState.cpp"
+			],
+			[
+				"main.",
 				"src/main.cc"
 			],
 			[
@@ -589,16 +1745,156 @@
 				"makefile"
 			],
 			[
-				"event",
-				"src/core/Process/eventMgr.h"
+				"main",
+				"src/main.cc"
 			],
 			[
-				"",
-				"src/core/Process/eventMgr.h"
+				"phy",
+				"src/core/ObjProcessors/phyProcessor.h"
+			],
+			[
+				"obj",
+				"src/core/Object.h"
 			],
 			[
 				"pro",
-				"src/core/Process/Process.h"
+				"src/core/Property.h"
+			],
+			[
+				"objectro",
+				"src/core/objectProcessor.h"
+			],
+			[
+				"objectm",
+				"src/core/objectMgr.h"
+			],
+			[
+				"objpro",
+				"src/core/objectProcessor.h"
+			],
+			[
+				"processorphy",
+				"src/core/ObjProcessors/phyProcessor.h"
+			],
+			[
+				"viewpro",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"",
+				"src/core/Process/processMgr.h"
+			],
+			[
+				"vi",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"vie",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"window",
+				"src/include/SFML/Window/Window.hpp"
+			],
+			[
+				"window.",
+				"src/include/SFML/Window.hpp"
+			],
+			[
+				"processvi",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"viewr",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"/processvi",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"mai",
+				"src/main.cc"
+			],
+			[
+				"se",
+				"src/core/Settings.h"
+			],
+			[
+				"process/",
+				"src/core/Process/worldProcess.h"
+			],
+			[
+				"set",
+				"src/core/Settings.h"
+			],
+			[
+				"o",
+				"src/core/Object.h"
+			],
+			[
+				"wind",
+				"src/core/Process/windowProcess.h"
+			],
+			[
+				"prop",
+				"src/core/Property.h"
+			],
+			[
+				"windo",
+				"src/core/Process/windowProcess.h"
+			],
+			[
+				"sta",
+				"src/core/State/State.h"
+			],
+			[
+				"eventmg",
+				"src/core/Messaging/eventMgr.h"
+			],
+			[
+				"log",
+				"src/util/logObject.h"
+			],
+			[
+				"hash",
+				"src/core/Hash.h"
+			],
+			[
+				"eventm",
+				"src/core/Messaging/eventMgr.h"
+			],
+			[
+				"processor",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"logo",
+				"src/util/logObject.h"
+			],
+			[
+				"logobj",
+				"src/util/logObject.h"
+			],
+			[
+				"stat",
+				"src/core/State/State.h"
+			],
+			[
+				"event",
+				"src/include/SFML/Window/Event.hpp"
+			],
+			[
+				"process",
+				"src/core/Process/processMgr.cpp"
+			],
+			[
+				"processm",
+				"src/core/Process/processMgr.cpp"
+			],
+			[
+				"sett",
+				"src/core/Settings.h"
 			],
 			[
 				"proc",
@@ -613,40 +1909,12 @@
 				"src/core/Process/ProcessMgr.h"
 			],
 			[
-				"process",
-				"src/core/Process/Process.h"
-			],
-			[
-				"phy",
-				"src/core/ObjProcessors/phyProcessor.h"
-			],
-			[
-				"renderpro",
-				"src/core/ObjProcessors/renderProcessor.h"
-			],
-			[
-				"obj",
-				"src/core/Object.h"
-			],
-			[
-				"hash",
-				"src/core/Hash.cpp"
-			],
-			[
 				"oj",
 				"src/core/Object.cpp"
 			],
 			[
-				"logo",
-				"src/util/logObject.h"
-			],
-			[
 				"ob",
 				"src/core/Object.h"
-			],
-			[
-				"prop",
-				"src/core/Property.h"
 			],
 			[
 				"phyp",
@@ -659,10 +1927,6 @@
 			[
 				"obje",
 				"src/core/Object.cpp"
-			],
-			[
-				"log",
-				"src/util/logObject.h"
 			],
 			[
 				"renderutil",
@@ -687,10 +1951,6 @@
 			[
 				"render",
 				"src/core/ObjProcessors/renderProcessor.h"
-			],
-			[
-				"objectm",
-				"src/core/objectMgr.h"
 			],
 			[
 				"object",
@@ -753,10 +2013,6 @@
 				"util/logObject.h"
 			],
 			[
-				"o",
-				"core/objectMgr.h"
-			],
-			[
 				"objectpr",
 				"core/objectProcessor"
 			],
@@ -767,10 +2023,6 @@
 			[
 				"hash.cpp",
 				"core/Hash.cpp"
-			],
-			[
-				"main.",
-				"main.cc"
 			]
 		],
 		"width": 0.0
@@ -787,6 +2039,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 237.0,
-	"status_bar_visible": false
+	"side_bar_width": 328.0,
+	"status_bar_visible": true
 }
