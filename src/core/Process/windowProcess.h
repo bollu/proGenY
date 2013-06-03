@@ -10,7 +10,10 @@ class windowProcess : public Process{
 public:
 	windowProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) : 
 	Process("windowProcess"){
-		this->window = new sf::RenderWindow(sf::VideoMode(1280, 720), "ProGenY");
+		
+		vector2 *screenDim = settings.getProp<vector2>(Hash::getHash("screenDimensions"));
+
+		this->window = new sf::RenderWindow(sf::VideoMode(screenDim->x, screenDim->y), "ProGenY");
 	}
 
 	virtual void preUpdate(){

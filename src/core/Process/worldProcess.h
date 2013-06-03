@@ -27,17 +27,28 @@ public:
 	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :
 	 Process("worldProcess"){
 		//world = new b2World(settings.getProp<vector2>("worldGravity")->getVal());
-		world = new b2World(vector2(0, -9.8));
+		
+	 	vector2 *gravity = settings.getProp<vector2>(Hash::getHash("gravity"));
+	 	this->stepSize = *settings.getProp<float>(Hash::getHash("stepSize"));
 
-		this->stepSize = 1.0 / 60.0;
+	 	this->velIterations = *settings.getProp<int>(Hash::getHash("velIterations"));
+	 	this->collisionIterations = *settings.getProp<int>(Hash::getHash("collisionIterations"));
+
+		world = new b2World(*gravity);
+
 
 		this->dtAccumilator = 0;
-
 		maxAccumilation = this->stepSize * 10;
 
-		velIterations = collisionIterations = 5;
-
 	};
+
+	float getStepSize(){
+		return this->stepSize;
+	}
+
+	float getMaxAccumilation(){
+		return this->maxAccumilation;
+	}
 
 	 void Pause(){
 	 	this->paused = true;

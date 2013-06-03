@@ -6,13 +6,14 @@ class mainMenuState : public State{
 public:
 	mainMenuState() : State("mainMenuState"){};
 	
-	void Update(){};
+	void Update(float dt){};
 	
 	void Draw(){};
 
 	stateSaveLoader *createSaveLoader(){
 		return new dummyStateSaveLoader();
 	}
-private:
 
+private:
+	
 };

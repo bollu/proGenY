@@ -17,6 +17,8 @@ public:
 		this->settings = &_settings;
 		this->eventManager = &_eventManager;
 
+		this->_Init();
+
 	}
 	
 	virtual ~State(){};
@@ -24,7 +26,7 @@ public:
 	//create the saver and loader for this particular state
 	virtual	stateSaveLoader *createSaveLoader() = 0;
 
-	virtual void Update() = 0;
+	virtual void Update(float dt) = 0;
 	virtual void Draw() = 0;
 
 	const Hash* getHashedName(){
@@ -50,6 +52,8 @@ protected:
 		this->nextStateName = _nextStateName;
 		this->changingState = true;
 	}
+
+	virtual void _Init(){};
 
 	processMgr *processManager;
 	eventMgr *eventManager;

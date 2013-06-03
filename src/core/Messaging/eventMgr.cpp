@@ -33,8 +33,8 @@ void eventMgr::sendEvent(const Hash *eventName, baseProperty *eventData){
 	auto mapIt = this->observerMap.find(eventName);
 
 	if(mapIt == this->observerMap.end()){
-		util::msgLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
+		//util::msgLog("no subscribers to event.\nEventName: " \
+		//		+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
 
 		return;
 	}

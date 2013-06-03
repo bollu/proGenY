@@ -75,11 +75,11 @@ public:
 	}
 
 
-	void Process(){
+	void Process(float dt){
 		
 		for(objProcessorIt it = this->objProcessors.begin(); it != this->objProcessors.end(); ++it){
 
-			(*it)->Process();
+			(*it)->Process(dt);
 		}
 	};
 };

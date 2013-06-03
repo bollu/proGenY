@@ -76,6 +76,9 @@ Process *processMgr::_getProcess(const Hash* processName){
 	if( it != processes.end()){
 		return it->second;
 	};
-	std::cout<<"Unable to find process"<<std::endl;
+	
+	util::msgLog("trying to get a process that does not exist.\nProcess name: "+ 
+		Hash::Hash2Str(processName), util::logLevel::logLevelError);
+
 	return NULL;
 };

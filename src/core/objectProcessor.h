@@ -8,14 +8,17 @@ typedef std::map<std::string, Object *> objectMap;
 typedef objectMap::iterator objMapIt;
 typedef objectMap::const_iterator cObjMapIt;
 
+/*!Used to process Object classes 
+
+*/ 
 class objectProcessor{
 protected:
 	//a pointer to a vector of objects. it's owned by objectManager  
-	  const objectMap *objMap;
+	  objectMap *objMap;
 
 	  virtual void _Init(){};
 public:
-	void Init(const objectMap *_objMap){
+	void Init(objectMap *_objMap){
 		this->objMap = _objMap;
 		
 	}
@@ -23,7 +26,7 @@ public:
 	virtual void onObjectAdd(Object *obj){};
 	virtual void onObjectRemove(Object *obj){};
 	
-	virtual void Process() = 0;
+	virtual void Process(float dt) = 0;
 
 	virtual ~objectProcessor(){};
 

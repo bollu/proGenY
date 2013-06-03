@@ -11,9 +11,9 @@ a string that it has hashes before, it simply returns the Hash object.
 if it's a new string, then it creates a new Hash object and stores it.
 
 Since the class consists of Flyweight objects, const Hash* can be directly used 
-as a key for any associative constainer (such as std::map). This is because
+as a key for any associative container (such as std::map). This is because
 no new Hash objects are created. They are simply reused. So, a direct pointer comparison
-is sufficient to check wether two Hashes are the same. This makes it extremely powerful
+is sufficient to check whether two Hashes are the same. This makes it extremely powerful
 to store objects that are constantly queried by name    
 */ 
 class Hash{

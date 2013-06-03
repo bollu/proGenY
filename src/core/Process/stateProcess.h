@@ -7,6 +7,13 @@
 
 #include <map>
 
+/*!Manages State. a simplified Finite State Machine implementation.
+
+stateProcess manages State classes. it's responsibility is to 
+transition between different States and to execute the current State
+
+\sa State
+*/  
 
 class stateProcess : public Process{
 public:
@@ -18,7 +25,12 @@ public:
 	 
 	 };
 
-	 void addState(State *state, bool currentState){
+	 /*!Adds a state to the State Machine
+
+	 @param [in] state A state to be added
+	 @param [in] currentState whether state is the default state to begin with 
+	 */
+ 	 void addState(State *state, bool currentState){
 	 	this->states[state->getHashedName()] = state;
 
 	 	state->Init(processManager, settings, eventManager);
@@ -26,16 +38,18 @@ public:
 	 	this->currentState = state;
 	 };
 
-	 void Update(){
+	 /*!Updates the current State */
+	 void Update(float dt){
 	 	assert(this->currentState != NULL);
-	 	this->currentState->Update();
+	 	this->currentState->Update(dt);
 	 };
-
+	 /*!Draws the current State */
 	 void Draw(){
 	 	assert(this->currentState != NULL);
 	 	this->currentState->Draw();
 	 };
 
+	 /*!Saves and destroys all states owned*/
 	 void Shutdown(){
 	 	assert(this->currentState != NULL);
 		

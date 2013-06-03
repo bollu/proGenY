@@ -9,13 +9,18 @@
 
 
 namespace util{
-	/*! an Enum of various Logging levels available 
+	/*! \enum logLevel
+		an Enum of various Logging levels available 
 	*/
 	enum logLevel{
-		logLevelInfo = 0, /*! Information. used for debugging / printing to the console*/
-		logLevelWarning, /*! Warnings. The program can continue running, but is not ideal */
-		logLevelError, /*! Errors. The program will print the error to the console and _halt execution_ */
-		logLevelNoEmit, /*! The log level to be set that will ensure that _no log message_ will be emitted */
+		/*! Information. used for debugging / printing to the console*/
+		logLevelInfo = 0, 
+		/*! Warnings. The program can continue running, but is not ideal */
+		logLevelWarning, 
+		/*! Errors. The program will print the error to the console and halt execution_ */
+		logLevelError, 
+		/*! The log level to be set that will ensure that no log message_ will be emitted */
+		logLevelNoEmit, 
 	};
 
 	/*! a base class used to represent Logging objects 

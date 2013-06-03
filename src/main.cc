@@ -22,6 +22,7 @@
 #include "core/Process/Process.h"
 #include "core/Process/processMgr.h"
 
+//processes---------------------------------------
 #include "core/Process/windowProcess.h"
 #include "core/Process/eventProcess.h"
 #include "core/Process/objectMgrProcess.h"
@@ -32,9 +33,16 @@
 
 //GAME STATES----------------------------------------------------
 #include "game/States/mainMenuState.h"
+#include "game/States/gameState.h"
+
+
+void _loadSettings(Settings &settings);
+void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager);
+void _createObjectProcessors(objectMgrProcess*, processMgr&);
+void _createStates(stateProcess *);
+
 
 void _createDummy(objectMgr *);
-void _createStates(stateProcess *);
 
 int main(){
     processMgr processManager;
@@ -43,7 +51,51 @@ int main(){
     sf::Clock Clock;
 
 
-    settings.loadSettingsFromFile(".settings.ini");
+    _loadSettings(settings);
+    //settings.loadSettingsFromFile(".settings.ini");
+
+    _addProcesses(processManager, settings, eventManager);
+
+
+    bool done = false;
+    float dt = 0.0;
+
+    while(!done){
+       sf::Time elapsed = Clock.restart();
+       dt = elapsed.asSeconds();
+
+
+       processManager.preUpdate();
+       processManager.Update(dt);
+       processManager.Draw();
+       processManager.postDraw();
+
+       sf::sleep( sf::milliseconds(rand() % 30) );
+   }
+
+   processManager.Shutdown();
+
+   return 0;
+}
+
+
+void _loadSettings(Settings &settings){
+    //TODO: actually load settings here. for now, just create the settings
+    //and just load it back.
+
+    settings.addProp(Hash::getHash("screenDimensions"), new v2Prop(vector2(1280, 720)));
+
+    settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -15.0)));
+     settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
+    settings.addProp(Hash::getHash("velIterations"), new iProp(5));
+    settings.addProp(Hash::getHash("collisionIterations"), new iProp(5));
+
+    
+
+};
+
+
+void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){
 
 
     //DO NOT CHANGE THE ORDER. SOME COMPONENTS DEPEND ON OTHERS
@@ -56,44 +108,54 @@ int main(){
 
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
-     processManager.addProcess(new objectMgrProcess(processManager, settings, eventManager));
+    objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
+    _createObjectProcessors(objMgrProc, processManager);
+    processManager.addProcess(objMgrProc);
+
+    //_createDummy(objMgrProc->getObjectMgr());
 
 
      //KEEP THIS ONE THE LAST ONE> it depends on all other processes.
-     stateProcess *stateProc = new stateProcess(processManager, settings, eventManager);
+    stateProcess *stateProc = new stateProcess(processManager, settings, eventManager);
      //create the game states
-     _createStates(stateProc);
+    _createStates(stateProc);
      //add the stateProcess
-     processManager.addProcess(stateProc);
+    processManager.addProcess(stateProc);
+};
 
-
-     bool done = false;
-     float dt = 0.0;
-
-     while(!done){
-         sf::Time elapsed = Clock.restart();
-         dt = elapsed.asSeconds();
-         std::cout<<"\ndt: "<<dt;
-
-        processManager.preUpdate();
-        processManager.Update(dt);
-        processManager.Draw();
-        processManager.postDraw();
-
-        
-
-
-     }
-
-     processManager.Shutdown();
-
-    return 0;
-}
 
 
 void _createStates(stateProcess *stateProc){
-    stateProc->addState(new mainMenuState(), true);
+    stateProc->addState(new mainMenuState(), false);
+    stateProc->addState(new gameState(), true);
 }
+
+
+#include "game/ObjProcessors/terrainProcessor.h"
+#include "game/ObjProcessors/cameraProcessor.h"
+
+void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager){
+
+
+    windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));
+    worldProcess *worldProc = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
+    viewProcess *viewProc =  processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
+
+    b2World &world = *worldProc->getWorld();
+    sf::RenderWindow &window = *windowProc->getWindow();
+
+    objMgrProc->addObjectProcessor(new groundMoveProcessor() );
+    objMgrProc->addObjectProcessor( new terrainProcessor(world, window, *viewProc));
+    objMgrProc->addObjectProcessor( new cameraProcessor(*worldProc, window, *viewProc));
+
+    objMgrProc->addObjectProcessor( new renderProcessor(window, *viewProc));
+    objMgrProc->addObjectProcessor( new phyProcessor(world, *viewProc));
+   
+
+};
+
+
+
 
 /*
 //global objects---------------------------------------------------------

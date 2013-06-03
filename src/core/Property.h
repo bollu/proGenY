@@ -45,9 +45,10 @@ class Prop : public baseProperty{
 
 	\return the value stored within
 	*/
-	T getVal() const{
-		return this->val;
+	T *getVal(){
+		return &this->val;
 	}
+
 
 	/*! used to set the value stored by the Property
 
@@ -61,6 +62,23 @@ class Prop : public baseProperty{
 
 };
 
+template<typename T>
+class ptrProp : public baseProperty{
+private:
+	T* val;
+public:
+	ptrProp(T *value){
+		this->val = value;
+	}
+
+	/*! returns the object stored by the managedProp
+	
+	\return the object stored inside.
+	*/
+	T* getVal() const{
+		return this->val;
+	}
+};
 
 /*! used to store pointers with a controlled life cycle
 
@@ -96,6 +114,12 @@ public:
 };
 
 
+class dummyProp : public baseProperty{
+public:
+	dummyProp(){};
+	~dummyProp(){};
+};
+
 
 
 typedef Prop<int> iProp;
@@ -104,4 +128,4 @@ typedef Prop<std::string> sProp;
 typedef Prop<vector2> v2Prop;
 
 //can be used as a dummy to "TAG" certain obects.
-typedef Prop<char> dummyProp;
+//typedef Prop<char> dummyProp;
