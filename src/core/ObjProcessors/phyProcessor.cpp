@@ -32,6 +32,16 @@ void phyProcessor::onObjectAdd(Object *obj){
 }
 
 void phyProcessor::preProcess(){
+	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
+		Object *obj = it->second;
+
+		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+		if(data == NULL){
+			continue;
+		}
+		
+		data->collisions.clear();
+	};
 	//this->_processContacts();
 };
 
@@ -42,16 +52,16 @@ void phyProcessor::Process(float dt){
 		Object *obj = it->second;
 
 		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
-		
+
 		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
 
 		if(data == NULL){
 			continue;
 		}
-		
+
 		vector2 newPos = vector2::cast(data->body->GetPosition());
 		*pos = (newPos);
-		
+
 	};
 
 }

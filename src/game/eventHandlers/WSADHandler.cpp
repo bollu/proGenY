@@ -86,11 +86,5 @@ void WSADHandler::Update(){
 			}
 		}
 	}
-	/*for(auto it = phy->collisions.begin(); it != phy->collisions.end(); ++it){
-		if(it->data->collisionType == Hash::getHash("terrain")){
-			if(it->type == collisionData::Type::onBegin){
-				data->resetJump();
-			}
-		}
-	}*/
+
 };

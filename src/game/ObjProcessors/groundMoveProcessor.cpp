@@ -29,18 +29,18 @@ void groundMoveProcessor::Process(float dt){
 	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		
+
 		moveData *data = obj->getProp<moveData>(Hash::getHash("moveData"));
 
 		if(data == NULL) continue;
-		
-		
+
+
 		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
-		
-		
+
+
 		b2Body *body = physicsData->body;
 
-		
+
 		
 		assert(physicsData != NULL);
 		assert(body != NULL);
@@ -98,7 +98,7 @@ void groundMoveProcessor::Process(float dt){
 vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, float dt){
 
 	util::msgLog("jumping");
-
+	
 	vector2 impulse;
 
 	if(data->moveHalted){
