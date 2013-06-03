@@ -1,7 +1,7 @@
 #pragma once
 #include "../../core/Messaging/eventMgr.h"
+#include "../../core/ObjProcessors/phyProcessor.h"
 #include "../ObjProcessors/groundMoveProcessor.h"
-
 
 struct WSADHandlerData{
 	sf::Keyboard::Key up;
@@ -10,6 +10,8 @@ struct WSADHandlerData{
 	sf::Keyboard::Key right;
 
 	moveData *objMoveData;
+	phyData *physicsData;
+
 };
 
 class WSADHandler : public Observer{

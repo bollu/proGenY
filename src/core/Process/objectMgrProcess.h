@@ -27,12 +27,19 @@ public:
 		this->objManager = new objectMgr();
 		//this->_createObjectProcessors(processManager);
 	}
+	
+	void preUpdate(){
+		objManager->preProcess();
+	};
 
 	/*!causes the objManager to Process*/
 	void Update(float dt){
 		objManager->Process(dt);
 	}
 
+	void postDraw(){
+		objManager->postProcess();
+	}
 	/*!add an objectProcessor to the objectMgr
 	@param [in] processor the objectProcessor to be added
 	*/

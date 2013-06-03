@@ -9,7 +9,7 @@
 CC = clang++
 
 # define any compile-time flags
-CFLAGS = -std=c++11
+CFLAGS = -std=c++11 -DDEBUG -g
 
 # define any directories containing header files other than /usr/include
 #
@@ -40,6 +40,7 @@ SRCS = src/main.cc src/core/Hash.cpp \
 		src/game/eventHandlers/WSADHandler.cpp \
 		src/game/ObjProcessors/groundMoveProcessor.cpp \
 		src/game/ObjProcessors/cameraProcessor.cpp \
+		src/core/ObjProcessors/objContactListener.cpp \
 
 # define the C object files 
 #
@@ -52,7 +53,7 @@ SRCS = src/main.cc src/core/Hash.cpp \
 OBJS = $(SRCS:.c=.o)
 
 # define the executable file 
-MAIN = box2dTest.out
+MAIN = a.out
 #define folder where the executable file resides
 DEST_FOLDER=bin/
 
@@ -97,4 +98,6 @@ run:
 	#$(DEST_FOLDER)$(EXE_NAME)
 	#xterm -e "$(DEST_FOLDER)$(MAIN); echo 'press any key to continue..';read -n 1 c"
 
+buildAndRun: build 
+	make run
 # DO NOT DELETE THIS LINE -- make depend needs it

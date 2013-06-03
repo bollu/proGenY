@@ -2100,16 +2100,39 @@ Observer	src/core/Messaging/eventMgr.h	/^class Observer{$/;"	c
 eventMgr	src/core/Messaging/eventMgr.h	/^class eventMgr{$/;"	c
 observerList	src/core/Messaging/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
 observerMap	src/core/Messaging/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
+BeginContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
+EndContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
+_extractPhyData	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
+objContactListener	src/core/ObjProcessors/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
+objContactListener	src/core/ObjProcessors/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
+~objContactListener	src/core/ObjProcessors/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
 Process	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::Process(float dt){$/;"	f	class:phyProcessor
+_processContacts	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_processContacts(){$/;"	f	class:phyProcessor
+addCollision	src/core/ObjProcessors/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
 onObjectAdd	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
 onObjectRemove	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectRemove(Object *obj){$/;"	f	class:phyProcessor
+postProcess	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::postProcess(){$/;"	f	class:phyProcessor
+preProcess	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::preProcess(){$/;"	f	class:phyProcessor
+removeCollision	src/core/ObjProcessors/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
+Type	src/core/ObjProcessors/phyProcessor.h	/^	enum Type{$/;"	g	struct:collisionData
 body	src/core/ObjProcessors/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:phyData
 bodyDef	src/core/ObjProcessors/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
+collisionData	src/core/ObjProcessors/phyProcessor.h	/^struct collisionData{$/;"	s
+collisionType	src/core/ObjProcessors/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
+collisions	src/core/ObjProcessors/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
+contactListener	src/core/ObjProcessors/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
+data	src/core/ObjProcessors/phyProcessor.h	/^	phyData *data;$/;"	m	struct:collisionData
 fixtureDef	src/core/ObjProcessors/phyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:phyData
 fixtures	src/core/ObjProcessors/phyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:phyData
+maxVel	src/core/ObjProcessors/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
+obj	src/core/ObjProcessors/phyProcessor.h	/^	Object *obj;	$/;"	m	struct:collisionData
+onBegin	src/core/ObjProcessors/phyProcessor.h	/^		onBegin,$/;"	e	enum:collisionData::Type
+onEnd	src/core/ObjProcessors/phyProcessor.h	/^		onEnd,$/;"	e	enum:collisionData::Type
 phyData	src/core/ObjProcessors/phyProcessor.h	/^struct phyData{$/;"	s
-phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^	phyProcessor(b2World &_world, viewProcess &_view) : world(_world), view(_view){}$/;"	f	class:phyProcessor
+phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^	phyProcessor(b2World &_world, viewProcess &_view) : world(_world), view(_view){$/;"	f	class:phyProcessor
 phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
+type	src/core/ObjProcessors/phyProcessor.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
+velClamped	src/core/ObjProcessors/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
 view	src/core/ObjProcessors/phyProcessor.h	/^	viewProcess &view;$/;"	m	class:phyProcessor
 world	src/core/ObjProcessors/phyProcessor.h	/^	b2World &world;$/;"	m	class:phyProcessor
 Process	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::Process(float dt){$/;"	f	class:renderProcessor
@@ -2187,6 +2210,8 @@ getObjectMgr	src/core/Process/objectMgrProcess.h	/^	objectMgr *getObjectMgr(){$/
 objManager	src/core/Process/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
 objectMgrProcess	src/core/Process/objectMgrProcess.h	/^	objectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:objectMgrProcess
 objectMgrProcess	src/core/Process/objectMgrProcess.h	/^class objectMgrProcess : public Process{$/;"	c
+postDraw	src/core/Process/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
+preUpdate	src/core/Process/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
 Draw	src/core/Process/processMgr.cpp	/^void processMgr::Draw(){$/;"	f	class:processMgr
 PauseProcess	src/core/Process/processMgr.cpp	/^void processMgr::PauseProcess(const Hash* processName){$/;"	f	class:processMgr
 ResumePorcess	src/core/Process/processMgr.cpp	/^void processMgr::ResumePorcess(const Hash* processName){$/;"	f	class:processMgr
@@ -2218,6 +2243,7 @@ game2RenderScale	src/core/Process/viewProcess.h	/^	float game2RenderScale;$/;"	m
 game2ScreenCoord	src/core/Process/viewProcess.h	/^	vector2 game2ScreenCoord(vector2 gameCoord){$/;"	f	class:viewProcess
 getCenter	src/core/Process/viewProcess.h	/^	vector2 getCenter(){$/;"	f	class:viewProcess
 getGame2RenderScale	src/core/Process/viewProcess.h	/^	float getGame2RenderScale(){$/;"	f	class:viewProcess
+getRender2GameScale	src/core/Process/viewProcess.h	/^	float getRender2GameScale(){$/;"	f	class:viewProcess
 move	src/core/Process/viewProcess.h	/^	void move(vector2 offset){$/;"	f	class:viewProcess
 render2GameCoord	src/core/Process/viewProcess.h	/^	vector2 render2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
 render2ScreenCoord	src/core/Process/viewProcess.h	/^	vector2 render2ScreenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
@@ -2241,6 +2267,8 @@ Shutdown	src/core/Process/worldProcess.h	/^	 void Shutdown(){};$/;"	f	class:worl
 Update	src/core/Process/worldProcess.h	/^	 void Update(float dt){$/;"	f	class:worldProcess
 collisionIterations	src/core/Process/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
 dtAccumilator	src/core/Process/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
+getMaxAccumilation	src/core/Process/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
+getStepSize	src/core/Process/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
 getWorld	src/core/Process/worldProcess.h	/^	 b2World *getWorld(){$/;"	f	class:worldProcess
 maxAccumilation	src/core/Process/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
 paused	src/core/Process/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
@@ -2316,6 +2344,8 @@ objProcessorIt	src/core/objectMgr.h	/^	typedef std::vector<objectProcessor *>::i
 objProcessors	src/core/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
 objectMgr	src/core/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
 objectMgr	src/core/objectMgr.h	/^class objectMgr{$/;"	c
+postProcess	src/core/objectMgr.h	/^	void postProcess(){$/;"	f	class:objectMgr
+preProcess	src/core/objectMgr.h	/^	void preProcess(){$/;"	f	class:objectMgr
 removeObject	src/core/objectMgr.h	/^	void removeObject(Object &obj){$/;"	f	class:objectMgr
 removeObject	src/core/objectMgr.h	/^	void removeObject(Object *obj){$/;"	f	class:objectMgr
 removeObject	src/core/objectMgr.h	/^	void removeObject(std::string name){$/;"	f	class:objectMgr
@@ -2330,6 +2360,8 @@ objectMap	src/core/objectProcessor.h	/^typedef std::map<std::string, Object *> o
 objectProcessor	src/core/objectProcessor.h	/^class objectProcessor{$/;"	c
 onObjectAdd	src/core/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
 onObjectRemove	src/core/objectProcessor.h	/^	virtual void onObjectRemove(Object *obj){};$/;"	f	class:objectProcessor
+postProcess	src/core/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
+preProcess	src/core/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
 ~objectProcessor	src/core/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
 createCircleShape	src/core/renderUtil.cpp	/^sf::Shape *renderUtil::createCircleShape(b2CircleShape *b2Shape, float game2RenderScale){$/;"	f	class:renderUtil
 createPolyShape	src/core/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, float game2RenderScale){$/;"	f	class:renderUtil
@@ -2399,36 +2431,70 @@ y	src/core/vector.h	/^	float x, y;$/;"	m	class:vector2
 z	src/core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 ~vector2	src/core/vector.h	/^	~vector2(){};$/;"	f	class:vector2
 Process	src/game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::Process(float dt){$/;"	f	class:cameraProcessor
+_calcCameraMoveAmt	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
+_limitCameraCoord	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
+_limitMoveAmt	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
+_simulateCamera	src/game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
 onObjectAdd	src/game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
+accumilator	src/game/ObjProcessors/cameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
+boxHalfH	src/game/ObjProcessors/cameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
+boxHalfW	src/game/ObjProcessors/cameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
 cameraCenter	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
 cameraData	src/game/ObjProcessors/cameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
 cameraData	src/game/ObjProcessors/cameraProcessor.h	/^struct cameraData{$/;"	s
-cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(b2World &_world, sf::RenderWindow &_window, viewProcess &_view) : $/;"	f	class:cameraProcessor
+cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(worldProcess &world, sf::RenderWindow &_window, viewProcess &_view) : $/;"	f	class:cameraProcessor
 cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^class cameraProcessor : public objectProcessor{$/;"	c
 enabled	src/game/ObjProcessors/cameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
+maxAccumilation	src/game/ObjProcessors/cameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
+maxCoord	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
+maxMoveAmt	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 maxMoveAmt;$/;"	m	struct:cameraData
+minCoord	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
+stepSize	src/game/ObjProcessors/cameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
+v	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
 view	src/game/ObjProcessors/cameraProcessor.h	/^	viewProcess &view;$/;"	m	class:cameraProcessor
 window	src/game/ObjProcessors/cameraProcessor.h	/^	sf::RenderWindow &window;$/;"	m	class:cameraProcessor
-world	src/game/ObjProcessors/cameraProcessor.h	/^	b2World &world;$/;"	m	class:cameraProcessor
+Jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::Jump(){$/;"	f	class:moveData
 Process	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::Process(float dt){$/;"	f	class:groundMoveProcessor
-_jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_jump(Object *obj, moveData *data, float dt){};$/;"	f	class:groundMoveProcessor
+_jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_jump(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
 _moveLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_moveLeft(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
 _moveRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_moveRight(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
 _stopMoving	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_stopMoving(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
+isJumpEnabled	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isJumpEnabled(){$/;"	f	class:moveData
+isMidJump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMidJump(){$/;"	f	class:moveData
+isMovingLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMovingLeft(){$/;"	f	class:moveData
+isMovingRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMovingRight(){$/;"	f	class:moveData
+onObjectAdd	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
+resetJump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::resetJump(){$/;"	f	class:moveData
+setMoveLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMoveLeft(bool enabled){$/;"	f	class:moveData
+setMoveRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMoveRight(bool enabled){$/;"	f	class:moveData
+setMovementHalt	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMovementHalt(bool enabled){$/;"	f	class:moveData
+groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveProcessor(b2World &_world) : world(_world){}$/;"	f	class:groundMoveProcessor
 groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^class groundMoveProcessor : public objectProcessor{$/;"	c
-jump	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool jump;$/;"	m	struct:moveData
-moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^	moveData() : moveLeft(false), moveRight(false), jump(false), stopMoving(false){};$/;"	f	struct:moveData
+jumpAngle	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpAngle;$/;"	m	struct:moveData
+jumpHeight	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:moveData
+jumpImpulse	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:moveData
+jumpRange	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:moveData
+jumpTimeOfFlight	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpTimeOfFlight;$/;"	m	struct:moveData
+jumping	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:moveData
+mass	src/game/ObjProcessors/groundMoveProcessor.h	/^	float mass;$/;"	m	struct:moveData
+moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), jumpTimeOfFlight(0),$/;"	f	struct:moveData
 moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^struct moveData{$/;"	s
-moveLeft	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveLeft;$/;"	m	struct:moveData
-moveRight	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveRight;$/;"	m	struct:moveData
-stopMoving	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool stopMoving;$/;"	m	struct:moveData
-stopStrength	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 stopStrength;$/;"	m	struct:moveData
-strength	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 strength;$/;"	m	struct:moveData
+moveHalted	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveHalted;$/;"	m	struct:moveData
+moveImpulse	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:moveData
+movementDamping	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:moveData
+movingLeft	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:moveData
+movingRight	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:moveData
+onGround	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:moveData
+world	src/game/ObjProcessors/groundMoveProcessor.h	/^	b2World &world;$/;"	m	class:groundMoveProcessor
+xAccel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:moveData
+xVel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:moveData
 Process	src/game/ObjProcessors/terrainProcessor.h	/^	void Process(float dt){};$/;"	f	class:terrainProcessor
 terrainProcessor	src/game/ObjProcessors/terrainProcessor.h	/^	terrainProcessor(b2World &_world, sf::RenderWindow &_window, viewProcess &_view) : $/;"	f	class:terrainProcessor
 terrainProcessor	src/game/ObjProcessors/terrainProcessor.h	/^class terrainProcessor : public objectProcessor{$/;"	c
 view	src/game/ObjProcessors/terrainProcessor.h	/^	viewProcess &view;$/;"	m	class:terrainProcessor
 window	src/game/ObjProcessors/terrainProcessor.h	/^	sf::RenderWindow &window;$/;"	m	class:terrainProcessor
 world	src/game/ObjProcessors/terrainProcessor.h	/^	b2World &world;$/;"	m	class:terrainProcessor
+_createDummy	src/game/States/gameState.cpp	/^void gameState::_createDummy(){$/;"	f	class:gameState
 _createEnemies	src/game/States/gameState.cpp	/^void gameState::_createEnemies(){};$/;"	f	class:gameState
 _createPlayer	src/game/States/gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos){$/;"	f	class:gameState
 _generateBoundary	src/game/States/gameState.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
@@ -2458,9 +2524,8 @@ WSADHandlerData	src/game/eventHandlers/WSADHandler.h	/^struct WSADHandlerData{$/
 down	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key down;$/;"	m	struct:WSADHandlerData
 eventManager	src/game/eventHandlers/WSADHandler.h	/^	eventMgr *eventManager;$/;"	m	class:WSADHandler
 left	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key left;$/;"	m	struct:WSADHandlerData
-movingLeft	src/game/eventHandlers/WSADHandler.h	/^	bool movingLeft, movingRight;$/;"	m	class:WSADHandler
-movingRight	src/game/eventHandlers/WSADHandler.h	/^	bool movingLeft, movingRight;$/;"	m	class:WSADHandler
 objMoveData	src/game/eventHandlers/WSADHandler.h	/^	moveData *objMoveData;$/;"	m	struct:WSADHandlerData
+physicsData	src/game/eventHandlers/WSADHandler.h	/^	phyData *physicsData;$/;"	m	struct:WSADHandlerData
 right	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key right;$/;"	m	struct:WSADHandlerData
 up	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key up;$/;"	m	struct:WSADHandlerData
 BOX2D_H	src/include/Box2D/Box2D.h	20;"	d

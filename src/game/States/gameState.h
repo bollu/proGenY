@@ -36,6 +36,8 @@ protected:
 		for(int i = 0; i < 10; i++){
 			this->_createDummy();
 		}
+
+		util::msgLog("inited");
 		
 
 	}

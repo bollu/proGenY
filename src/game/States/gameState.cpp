@@ -27,13 +27,13 @@ void gameState::_createPlayer(vector2 playerInitPos){
 	cameraData camera;
 
 	//phy---------------------------------------------------------------------
+	phy.collisionType = Hash::getHash("player");
+
 	Object *playerObj = new Object("player");
 
 	vector2 *pos = playerObj->getProp<vector2>(Hash::getHash("position"));
 	*pos = playerInitPos;
 
-
-	
 	phy.bodyDef.type = b2_dynamicBody;
 
 
@@ -46,7 +46,8 @@ void gameState::_createPlayer(vector2 playerInitPos){
 
 	b2FixtureDef playerFixtureDef;
 	playerFixtureDef.shape = &playerBoundingBox;
-	playerFixtureDef.friction = 1.0;
+	playerFixtureDef.friction = 0.0;
+	playerFixtureDef.restitution = 0.0;
 
 	phy.fixtureDef.push_back(playerFixtureDef);
 
@@ -62,9 +63,13 @@ void gameState::_createPlayer(vector2 playerInitPos){
 	render.addRenderer(playerShapeRenderer);
 	
 	//movement-----------------------------------------------------------
-	move.strength = vector2(60, 60);
-	move.stopStrength = vector2(4, 0);
-
+	move.xVel = 20;
+	move.xAccel = 1;
+	move.movementDamping = vector2(0.07	, 0.0);
+	move.jumpRange = viewProc->getRender2GameScale() * 2048;
+	move.jumpHeight = viewProc->getRender2GameScale() * 32;
+	move.jumpTimeOfFlight = 5;
+	
 	//camera---------------------------------------------------------------
 	camera.enabled = true;
 	camera.maxCoord = vector2(1280 * 2, 720 * 3);
@@ -86,6 +91,7 @@ void gameState::_createPlayer(vector2 playerInitPos){
 	WSADdata.up = sf::Keyboard::Key::W;
 
 	WSADdata.objMoveData = playerObj->getProp<moveData>(Hash::getHash("moveData"));
+	WSADdata.physicsData = playerObj->getProp<phyData>(Hash::getHash("phyData"));
 
 	this->playerMoveHandler = new WSADHandler(this->eventManager, WSADdata);
 
@@ -124,12 +130,15 @@ void gameState::_generateBoundary(vector2 levelDim){
 	phyData physicsData;
 	renderData render;
 
+
+
 	Object *boundaryObject = new Object("boundary");
 
 	vector2 *pos = boundaryObject->getProp<vector2>(Hash::getHash("position"));
 	*pos = levelDim * 0.5;
 
 	physicsData.bodyDef.type = b2_staticBody;
+	physicsData.collisionType = Hash::getHash("terrain");
 
 	{
 	//BOTTOM---------------------------------------------------------
@@ -159,7 +168,8 @@ void gameState::_generateBoundary(vector2 levelDim){
 
 	b2FixtureDef topFixtureDef;
 	topFixtureDef.shape = &top;
-	topFixtureDef.friction = 2.0;
+	topFixtureDef.friction = 0.0;
+	topFixtureDef.restitution = 0.0;
 
 	physicsData.fixtureDef.push_back(topFixtureDef);
 

@@ -68,7 +68,6 @@ private:
 public:
 	/*! Add a Renderer the renderData */
 	void addRenderer(Renderer &renderer){
-		util::msgLog("renderer type:");
 		this->renderers.push_back(renderer);
 	}
 };

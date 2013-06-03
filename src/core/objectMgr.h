@@ -37,10 +37,9 @@ public:
 			this->objMap.erase(it);
 			Object *obj = it->second;
 
-			for(objProcessorIt pIt = this->objProcessors.begin(); pIt != this->objProcessors.end(); ++pIt){
-
-			(*pIt)->onObjectRemove(obj);
-		}
+			for(objectProcessor* processor : objProcessors){
+				processor->onObjectRemove(obj);
+			}
 
 		}
 	}
@@ -74,12 +73,22 @@ public:
 		//this->objProcessors.push_back(processor);
 	}
 
+	void preProcess(){
+		for(objectProcessor* processor : objProcessors){
+			processor->preProcess();
+		}
+	}
+
+	void postProcess(){
+		for(objectProcessor* processor : objProcessors){
+			processor->postProcess();
+		}
+	}
 
 	void Process(float dt){
 		
-		for(objProcessorIt it = this->objProcessors.begin(); it != this->objProcessors.end(); ++it){
-
-			(*it)->Process(dt);
+		for(objectProcessor* processor : objProcessors){
+			processor->Process(dt);
 		}
 	};
 };

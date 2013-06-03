@@ -70,7 +70,7 @@ int main(){
        processManager.Draw();
        processManager.postDraw();
 
-       sf::sleep( sf::milliseconds(rand() % 30) );
+      // sf::sleep( sf::milliseconds(rand() % 30) );
    }
 
    processManager.Shutdown();
@@ -144,12 +144,15 @@ void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processMa
     b2World &world = *worldProc->getWorld();
     sf::RenderWindow &window = *windowProc->getWindow();
 
-    objMgrProc->addObjectProcessor(new groundMoveProcessor() );
+   
     objMgrProc->addObjectProcessor( new terrainProcessor(world, window, *viewProc));
     objMgrProc->addObjectProcessor( new cameraProcessor(*worldProc, window, *viewProc));
-
+     
+     
     objMgrProc->addObjectProcessor( new renderProcessor(window, *viewProc));
     objMgrProc->addObjectProcessor( new phyProcessor(world, *viewProc));
+
+    objMgrProc->addObjectProcessor(new groundMoveProcessor(world) );
    
 
 };

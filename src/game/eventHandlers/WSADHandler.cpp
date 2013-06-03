@@ -28,26 +28,26 @@ void WSADHandler::recieveEvent(const Hash *eventName, baseProperty *eventData){
 
 
 void WSADHandler::_handleKeyPress(sf::Event::KeyEvent *event){
-	util::msgLog("key pressed");
-
 	sf::Keyboard::Key key = event->code;
 
 	if(key == this->WSADData.up){
-		WSADData.objMoveData->jump = true;
+		WSADData.objMoveData->Jump();
+		
 	}
 
 	if(key == this->WSADData.left){
-		WSADData.objMoveData->moveLeft = true;
+		WSADData.objMoveData->setMoveLeft(true);
+		WSADData.objMoveData->setMoveRight(false);
 		
 	}
 
 	if(key == this->WSADData.right){
-		WSADData.objMoveData->moveRight = true;
+		WSADData.objMoveData->setMoveRight(true);
+		WSADData.objMoveData->setMoveLeft(false);
 		
 	}
 };
 void WSADHandler::_handleKeyRelease(sf::Event::KeyEvent *event){
-	util::msgLog("key released");
 
 	sf::Keyboard::Key key = event->code;
 
@@ -56,13 +56,11 @@ void WSADHandler::_handleKeyRelease(sf::Event::KeyEvent *event){
 	}
 
 	if(key == this->WSADData.left){
-		WSADData.objMoveData->moveLeft = false;
-
-
+		WSADData.objMoveData->setMoveLeft(false);
 	}
 
 	if(key == this->WSADData.right){
-		WSADData.objMoveData->moveRight = false;
+		WSADData.objMoveData->setMoveRight(false);
 	}
 };
 
@@ -70,11 +68,29 @@ void WSADHandler::Update(){
 
 
 	moveData *data = WSADData.objMoveData;
-	//you're not moving left or right
-	if(!data->moveLeft && !data->moveRight ){
-		data->stopMoving = true;
+	
+	if(!data->isMovingLeft() && !data->isMovingRight() && !data->isMidJump()){
+		data->setMovementHalt(true);
 		
 	}else{
-		data->stopMoving = false;
+		data->setMovementHalt(false);
 	}
+
+	phyData *phy = WSADData.physicsData;
+
+	
+	for(collisionData collision : phy->collisions){
+		if(collision.data->collisionType == Hash::getHash("terrain")){
+			if(collision.type == collisionData::Type::onBegin){
+				data->resetJump();
+			}
+		}
+	}
+	/*for(auto it = phy->collisions.begin(); it != phy->collisions.end(); ++it){
+		if(it->data->collisionType == Hash::getHash("terrain")){
+			if(it->type == collisionData::Type::onBegin){
+				data->resetJump();
+			}
+		}
+	}*/
 };

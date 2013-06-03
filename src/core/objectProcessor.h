@@ -26,7 +26,9 @@ public:
 	virtual void onObjectAdd(Object *obj){};
 	virtual void onObjectRemove(Object *obj){};
 	
+	virtual void preProcess(){};
 	virtual void Process(float dt) = 0;
+	virtual void postProcess(){};
 
 	virtual ~objectProcessor(){};
 

@@ -91,6 +91,7 @@ BadCommandSequence	src/include/SFML/Network/Ftp.hpp	/^            BadCommandSequ
 BadGateway	src/include/SFML/Network/Http.hpp	/^            BadGateway          = 502, \/\/\/< The gateway server has received an error from the source server$/;"	e	enum:sf::Http::Response::Status
 BadRequest	src/include/SFML/Network/Http.hpp	/^            BadRequest          = 400, \/\/\/< The server couldn't understand the request (syntax error)$/;"	e	enum:sf::Http::Response::Status
 Balance	src/include/Box2D/Collision/b2DynamicTree.cpp	/^int32 b2DynamicTree::Balance(int32 iA)$/;"	f	class:b2DynamicTree
+BeginContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
 BeginContact	src/include/Box2D/Dynamics/b2WorldCallbacks.h	/^	virtual void BeginContact(b2Contact* contact) { B2_NOT_USED(contact); }$/;"	f	class:b2ContactListener
 Binary	src/include/SFML/Network/Ftp.hpp	/^        Binary, \/\/\/< Binary mode (file is transfered as a sequence of bytes)$/;"	e	enum:sf::Ftp::TransferMode
 Black	src/include/SFML/Graphics/Color.hpp	/^    static const Color Black;       \/\/\/< Black predefined color$/;"	m	class:sf::Color
@@ -284,6 +285,7 @@ EnableMotor	src/include/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp	/^void b2Pris
 EnableMotor	src/include/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp	/^void b2RevoluteJoint::EnableMotor(bool flag)$/;"	f	class:b2RevoluteJoint
 EnableMotor	src/include/Box2D/Dynamics/Joints/b2WheelJoint.cpp	/^void b2WheelJoint::EnableMotor(bool flag)$/;"	f	class:b2WheelJoint
 End	src/include/SFML/Window/Keyboard.hpp	/^        End,          \/\/\/< The End key$/;"	e	enum:sf::Keyboard::Key
+EndContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
 EndContact	src/include/Box2D/Dynamics/b2WorldCallbacks.h	/^	virtual void EndContact(b2Contact* contact) { B2_NOT_USED(contact); }$/;"	f	class:b2ContactListener
 EnteringPassiveMode	src/include/SFML/Network/Ftp.hpp	/^            EnteringPassiveMode   = 227, \/\/\/< Entering passive mode$/;"	e	enum:sf::Ftp::Response::Status
 Enumeration Type Documentation	docs/engine/latex/d6/d72/namespaceutil.tex	/^\\subsection{Enumeration Type Documentation}$/;"	u
@@ -679,6 +681,7 @@ JoystickConnected	src/include/SFML/Window/Event.hpp	/^        JoystickConnected,
 JoystickDisconnected	src/include/SFML/Window/Event.hpp	/^        JoystickDisconnected,   \/\/\/< A joystick was disconnected (data in event.joystickConnect)$/;"	e	enum:sf::Event::EventType
 JoystickMoveEvent	src/include/SFML/Window/Event.hpp	/^    struct JoystickMoveEvent$/;"	s	class:sf::Event
 JoystickMoved	src/include/SFML/Window/Event.hpp	/^        JoystickMoved,          \/\/\/< The joystick moved along an axis (data in event.joystickMove)$/;"	e	enum:sf::Event::EventType
+Jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::Jump(){$/;"	f	class:moveData
 K	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Mat22 K;$/;"	m	struct:b2ContactVelocityConstraint
 K	src/include/SFML/Window/Keyboard.hpp	/^        K,            \/\/\/< The K key$/;"	e	enum:sf::Keyboard::Key
 Key	src/include/SFML/Window/Keyboard.hpp	/^    enum Key$/;"	g	class:sf::Keyboard
@@ -1335,6 +1338,7 @@ Transparent	src/include/SFML/Graphics/Color.hpp	/^    static const Color Transpa
 Triangles	src/include/SFML/Graphics/PrimitiveType.hpp	/^    Triangles,      \/\/\/< List of individual triangles$/;"	e	enum:sf::PrimitiveType
 TrianglesFan	src/include/SFML/Graphics/PrimitiveType.hpp	/^    TrianglesFan,   \/\/\/< List of connected triangles, a point uses the common center and the previous point to form a triangle$/;"	e	enum:sf::PrimitiveType
 TrianglesStrip	src/include/SFML/Graphics/PrimitiveType.hpp	/^    TrianglesStrip, \/\/\/< List of connected triangles, a point uses the two previous points to form a triangle$/;"	e	enum:sf::PrimitiveType
+Type	src/core/ObjProcessors/phyProcessor.h	/^	enum Type{$/;"	g	struct:collisionData
 Type	src/core/ObjProcessors/renderProcessor.h	/^	enum Type{$/;"	g	class:Renderer
 Type	src/include/Box2D/Collision/Shapes/b2Shape.h	/^	enum Type$/;"	g	class:b2Shape
 Type	src/include/Box2D/Collision/b2CollideEdge.cpp	/^	enum Type$/;"	g	struct:b2EPAxis	file:
@@ -1428,10 +1432,13 @@ _Init	src/game/States/gameState.h	/^	void _Init(){$/;"	f	class:gameState
 _MurmurHash64B	src/core/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
 _Render	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, renderData *data){$/;"	f	class:renderProcessor
 _addProcesses	src/main.cc	/^void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){$/;"	f
+_calcCameraMoveAmt	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
+_createDummy	src/game/States/gameState.cpp	/^void gameState::_createDummy(){$/;"	f	class:gameState
 _createEnemies	src/game/States/gameState.cpp	/^void gameState::_createEnemies(){};$/;"	f	class:gameState
 _createObjectProcessors	src/main.cc	/^void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager){$/;"	f
 _createPlayer	src/game/States/gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos){$/;"	f	class:gameState
 _createStates	src/main.cc	/^void _createStates(stateProcess *stateProc){$/;"	f
+_extractPhyData	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
 _genUniqueName	src/core/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
 _generateBoundary	src/game/States/gameState.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
 _generateTerrain	src/game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, vector2 playerInitPos){$/;"	f	class:gameState
@@ -1445,11 +1452,15 @@ _handleMouseButtonPressed	src/core/Process/eventProcess.cpp	/^void eventProcess:
 _handleMouseButtonReleased	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseButtonReleased(){$/;"	f	class:eventProcess
 _handleMouseMove	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseMove(){$/;"	f	class:eventProcess
 _handleWindowCloseEvent	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleWindowCloseEvent(){$/;"	f	class:eventProcess
-_jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_jump(Object *obj, moveData *data, float dt){};$/;"	f	class:groundMoveProcessor
+_jump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_jump(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
+_limitCameraCoord	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
+_limitMoveAmt	src/game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
 _loadSettings	src/main.cc	/^void _loadSettings(Settings &settings){$/;"	f
 _moveLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_moveLeft(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
 _moveRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_moveRight(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
+_processContacts	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_processContacts(){$/;"	f	class:phyProcessor
 _setStateTransition	src/core/State/State.h	/^	void _setStateTransition(std::string _nextStateName){$/;"	f	class:State
+_simulateCamera	src/game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
 _stopMoving	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_stopMoving(Object *obj, moveData *data, float dt){$/;"	f	class:groundMoveProcessor
 a	src/include/Box2D/Collision/b2Distance.cpp	/^	float32 a;		\/\/ barycentric coordinate for closest point$/;"	m	struct:b2SimplexVertex	file:
 a	src/include/Box2D/Common/b2Math.h	/^	float32 a0, a;		\/\/\/< world angles$/;"	m	struct:b2Sweep
@@ -1458,8 +1469,10 @@ a	src/include/SFML/Graphics/Color.hpp	/^    Uint8 a; \/\/\/< Alpha (opacity) com
 a0	src/include/Box2D/Common/b2Math.h	/^	float32 a0, a;		\/\/\/< world angles$/;"	m	struct:b2Sweep
 aabb	src/include/Box2D/Collision/b2DynamicTree.h	/^	b2AABB aabb;$/;"	m	struct:b2TreeNode
 aabb	src/include/Box2D/Dynamics/b2Fixture.h	/^	b2AABB aabb;$/;"	m	struct:b2FixtureProxy
+accumilator	src/game/ObjProcessors/cameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
 active	src/include/Box2D/Dynamics/b2Body.h	/^	bool active;$/;"	m	struct:b2BodyDef
 add -Object -Processor	docs/engine/latex/d9/d13/classobjectMgrProcess.tex	/^\\subsubsection[{add\\-Object\\-Processor}]{\\setlength{\\rightskip}{0pt plus 5cm}void object\\-Mgr\\-Process\\-::add\\-Object\\-Processor ($/;"	b
+addCollision	src/core/ObjProcessors/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
 addObject	src/core/objectMgr.h	/^	void addObject(Object *obj){$/;"	f	class:objectMgr
 addObjectProcessor	src/core/Process/objectMgrProcess.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgrProcess
 addObjectProcessor	src/core/objectMgr.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
@@ -1800,6 +1813,8 @@ bodyA	src/include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyA;$/;"	m	struct
 bodyB	src/include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyB;$/;"	m	struct:b2JointDef
 bodyDef	src/core/ObjProcessors/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
 bounds	src/include/SFML/Graphics/Glyph.hpp	/^    IntRect bounds;      \/\/\/< Bounding rectangle of the glyph, in coordinates relative to the baseline$/;"	m	class:sf::Glyph
+boxHalfH	src/game/ObjProcessors/cameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
+boxHalfW	src/game/ObjProcessors/cameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
 broadPhase	src/include/Box2D/Dynamics/b2World.cpp	/^	const b2BroadPhase* broadPhase;$/;"	m	struct:b2WorldQueryWrapper	file:
 broadPhase	src/include/Box2D/Dynamics/b2World.cpp	/^	const b2BroadPhase* broadPhase;$/;"	m	struct:b2WorldRayCastWrapper	file:
 broadphase	src/include/Box2D/Dynamics/b2TimeStep.h	/^	float32 broadphase;$/;"	m	struct:b2Profile
@@ -1816,7 +1831,7 @@ callback	src/include/Box2D/Dynamics/b2World.cpp	/^	b2RayCastCallback* callback;$
 cameraCenter	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
 cameraData	src/game/ObjProcessors/cameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
 cameraData	src/game/ObjProcessors/cameraProcessor.h	/^struct cameraData{$/;"	s
-cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(b2World &_world, sf::RenderWindow &_window, viewProcess &_view) : $/;"	f	class:cameraProcessor
+cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(worldProcess &world, sf::RenderWindow &_window, viewProcess &_view) : $/;"	f	class:cameraProcessor
 cameraProcessor	src/game/ObjProcessors/cameraProcessor.h	/^class cameraProcessor : public objectProcessor{$/;"	c
 cast	src/core/vector.h	/^	T cast(){$/;"	f	class:vector2
 cast	src/core/vector.h	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
@@ -1847,11 +1862,15 @@ clamp	src/core/vector.h	/^	vector2 clamp(vector2 minVec, vector2 maxVec){$/;"	f	
 code	src/include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code of the key that has been pressed$/;"	m	struct:sf::Event::KeyEvent
 collide	src/include/Box2D/Dynamics/b2TimeStep.h	/^	float32 collide;$/;"	m	struct:b2Profile
 collideConnected	src/include/Box2D/Dynamics/Joints/b2Joint.h	/^	bool collideConnected;$/;"	m	struct:b2JointDef
+collisionData	src/core/ObjProcessors/phyProcessor.h	/^struct collisionData{$/;"	s
 collisionIterations	src/core/Process/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
+collisionType	src/core/ObjProcessors/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
+collisions	src/core/ObjProcessors/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
 color	src/include/SFML/Graphics/Vertex.hpp	/^    Color     color;     \/\/\/< Color of the vertex$/;"	m	class:sf::Vertex
 command	runner.py	/^command = xTermCmd + doubleQuote +  sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote$/;"	v
 contact	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 contactIndex	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	int32 contactIndex;$/;"	m	struct:b2ContactVelocityConstraint
+contactListener	src/core/ObjProcessors/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
 contacts	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Contact** contacts;$/;"	m	struct:b2ContactSolverDef
 control	src/include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 convertToId	docs/engine/html/search/search.js	/^function convertToId(search)$/;"	f
@@ -1880,6 +1899,7 @@ dampingRatio	src/include/Box2D/Dynamics/Joints/b2DistanceJoint.h	/^	float32 damp
 dampingRatio	src/include/Box2D/Dynamics/Joints/b2MouseJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2MouseJointDef
 dampingRatio	src/include/Box2D/Dynamics/Joints/b2WeldJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2WeldJointDef
 dampingRatio	src/include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2WheelJointDef
+data	src/core/ObjProcessors/phyProcessor.h	/^	phyData *data;$/;"	m	struct:collisionData
 data	src/core/ObjProcessors/renderProcessor.h	/^	 } data;$/;"	m	class:Renderer	typeref:union:Renderer::__anon1
 data	src/include/Box2D/Common/b2StackAllocator.h	/^	char* data;$/;"	m	struct:b2StackEntry
 defaultView	src/core/Process/viewProcess.h	/^	sf::View defaultView;$/;"	m	class:viewProcess
@@ -2049,6 +2069,7 @@ getGame2RenderScale	src/core/Process/viewProcess.h	/^	float getGame2RenderScale(
 getHash	src/core/Hash.cpp	/^const Hash* Hash::getHash(std::string str){$/;"	f	class:Hash
 getHashedName	src/core/State/State.h	/^	const Hash* getHashedName(){$/;"	f	class:State
 getManagedProp	src/core/Object.h	/^	Type* getManagedProp(const Hash *name){$/;"	f	class:Object
+getMaxAccumilation	src/core/Process/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
 getName	src/core/Object.cpp	/^std::string Object::getName(){$/;"	f	class:Object
 getNameHash	src/core/Process/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
 getNextStateName	src/core/State/State.h	/^	std::string getNextStateName(){$/;"	f	class:State
@@ -2058,6 +2079,8 @@ getProcess	src/core/Process/processMgr.h	/^	processType *getProcess(const Hash* 
 getProp	src/core/Object.h	/^	Type* getProp(const Hash *name){$/;"	f	class:Object
 getProp	src/core/Settings.h	/^	T* getProp(const Hash *propertyName){$/;"	f	class:Settings
 getPtrProp	src/core/Object.h	/^	Type* getPtrProp(const Hash *name){$/;"	f	class:Object
+getRender2GameScale	src/core/Process/viewProcess.h	/^	float getRender2GameScale(){$/;"	f	class:viewProcess
+getStepSize	src/core/Process/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
 getVal	src/core/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
 getVal	src/core/Property.h	/^	T *getVal(){$/;"	f	class:Prop
 getVal	src/core/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
@@ -2074,6 +2097,7 @@ gravity	src/include/Box2D/Rope/b2Rope.h	/^	b2Vec2 gravity;$/;"	m	struct:b2RopeDe
 gravityScale	src/include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 groundAnchorA	src/include/Box2D/Dynamics/Joints/b2PulleyJoint.h	/^	b2Vec2 groundAnchorA;$/;"	m	struct:b2PulleyJointDef
 groundAnchorB	src/include/Box2D/Dynamics/Joints/b2PulleyJoint.h	/^	b2Vec2 groundAnchorB;$/;"	m	struct:b2PulleyJointDef
+groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveProcessor(b2World &_world) : world(_world){}$/;"	f	class:groundMoveProcessor
 groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^class groundMoveProcessor : public objectProcessor{$/;"	c
 groupIndex	src/include/Box2D/Dynamics/b2Fixture.h	/^	int16 groupIndex;$/;"	m	struct:b2Filter
 hasProperty	src/core/Object.h	/^	bool hasProperty(const Hash *name){$/;"	f	class:Object
@@ -2184,6 +2208,10 @@ invMassB	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 invMas
 inv_dt	src/include/Box2D/Dynamics/b2TimeStep.h	/^	float32 inv_dt;		\/\/ inverse time step (0 if dt == 0).$/;"	m	struct:b2TimeStep
 isDoneLoading	src/core/State/stateSaveLoader.h	/^	bool isDoneLoading(){$/;"	f	class:stateSaveLoader
 isDoneSaving	src/core/State/stateSaveLoader.h	/^	bool isDoneSaving(){$/;"	f	class:stateSaveLoader
+isJumpEnabled	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isJumpEnabled(){$/;"	f	class:moveData
+isMidJump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMidJump(){$/;"	f	class:moveData
+isMovingLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMovingLeft(){$/;"	f	class:moveData
+isMovingRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^bool moveData::isMovingRight(){$/;"	f	class:moveData
 isSensor	src/include/Box2D/Dynamics/b2Fixture.h	/^	bool isSensor;$/;"	m	struct:b2FixtureDef
 iterations	src/include/Box2D/Collision/b2Distance.h	/^	int32 iterations;	\/\/\/< number of GJK iterations used$/;"	m	struct:b2DistanceOutput
 joint	src/include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Joint* joint;			\/\/\/< the joint$/;"	m	struct:b2JointEdge
@@ -2195,7 +2223,12 @@ joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int   joystickId
 joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
 joystickMove	src/include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon5
-jump	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool jump;$/;"	m	struct:moveData
+jumpAngle	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpAngle;$/;"	m	struct:moveData
+jumpHeight	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:moveData
+jumpImpulse	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:moveData
+jumpRange	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:moveData
+jumpTimeOfFlight	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpTimeOfFlight;$/;"	m	struct:moveData
+jumping	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:moveData
 k2	src/include/Box2D/Rope/b2Rope.h	/^	float32 k2;$/;"	m	struct:b2RopeDef
 k3	src/include/Box2D/Rope/b2Rope.h	/^	float32 k3;$/;"	m	struct:b2RopeDef
 key	src/include/Box2D/Collision/b2Collision.h	/^	uint32 key;					\/\/\/< Used to quickly compare contact ids.$/;"	m	union:b2ContactID
@@ -4321,9 +4354,12 @@ managed  -Prop$  $ T $  $ Class Template Reference	docs/engine/latex/d2/da5/clas
 managedProp	src/core/Property.h	/^	managedProp(T *value){$/;"	f	class:managedProp
 managedProp	src/core/Property.h	/^class managedProp : public baseProperty{$/;"	c
 maskBits	src/include/Box2D/Dynamics/b2Fixture.h	/^	uint16 maskBits;$/;"	m	struct:b2Filter
+mass	src/game/ObjProcessors/groundMoveProcessor.h	/^	float mass;$/;"	m	struct:moveData
 mass	src/include/Box2D/Collision/Shapes/b2Shape.h	/^	float32 mass;$/;"	m	struct:b2MassData
 masses	src/include/Box2D/Rope/b2Rope.h	/^	float32* masses;$/;"	m	struct:b2RopeDef
 maxAccumilation	src/core/Process/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
+maxAccumilation	src/game/ObjProcessors/cameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
+maxCoord	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
 maxForce	src/include/Box2D/Dynamics/Joints/b2FrictionJoint.h	/^	float32 maxForce;$/;"	m	struct:b2FrictionJointDef
 maxForce	src/include/Box2D/Dynamics/Joints/b2MouseJoint.h	/^	float32 maxForce;$/;"	m	struct:b2MouseJointDef
 maxFraction	src/include/Box2D/Collision/b2Collision.h	/^	float32 maxFraction;$/;"	m	struct:b2RayCastInput
@@ -4331,8 +4367,11 @@ maxLength	src/include/Box2D/Dynamics/Joints/b2RopeJoint.h	/^	float32 maxLength;$
 maxMotorForce	src/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 maxMotorForce;$/;"	m	struct:b2PrismaticJointDef
 maxMotorTorque	src/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2RevoluteJointDef
 maxMotorTorque	src/include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2WheelJointDef
+maxMoveAmt	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 maxMoveAmt;$/;"	m	struct:cameraData
 maxTorque	src/include/Box2D/Dynamics/Joints/b2FrictionJoint.h	/^	float32 maxTorque;$/;"	m	struct:b2FrictionJointDef
+maxVel	src/core/ObjProcessors/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
 metric	src/include/Box2D/Collision/b2Distance.h	/^	float32 metric;		\/\/\/< length or area$/;"	m	struct:b2SimplexCache
+minCoord	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
 minor	src/include/Box2D/Common/b2Settings.h	/^	int32 minor;		\/\/\/< incremental changes$/;"	m	struct:b2Version
 minorVersion	src/include/SFML/Window/ContextSettings.hpp	/^    unsigned int minorVersion;      \/\/\/< Minor number of the context version to create$/;"	m	struct:sf::ContextSettings
 motorSpeed	src/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 motorSpeed;$/;"	m	struct:b2PrismaticJointDef
@@ -4342,12 +4381,13 @@ mouseButton	src/include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mou
 mouseMove	src/include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon5
 mouseWheel	src/include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon5
 move	src/core/Process/viewProcess.h	/^	void move(vector2 offset){$/;"	f	class:viewProcess
-moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^	moveData() : moveLeft(false), moveRight(false), jump(false), stopMoving(false){};$/;"	f	struct:moveData
+moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), jumpTimeOfFlight(0),$/;"	f	struct:moveData
 moveData	src/game/ObjProcessors/groundMoveProcessor.h	/^struct moveData{$/;"	s
-moveLeft	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveLeft;$/;"	m	struct:moveData
-moveRight	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveRight;$/;"	m	struct:moveData
-movingLeft	src/game/eventHandlers/WSADHandler.h	/^	bool movingLeft, movingRight;$/;"	m	class:WSADHandler
-movingRight	src/game/eventHandlers/WSADHandler.h	/^	bool movingLeft, movingRight;$/;"	m	class:WSADHandler
+moveHalted	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool moveHalted;$/;"	m	struct:moveData
+moveImpulse	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:moveData
+movementDamping	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:moveData
+movingLeft	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:moveData
+movingRight	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:moveData
 msg -Log	docs/engine/latex/de/d3f/classutil_1_1msgLog.tex	/^\\subsubsection[{msg\\-Log}]{\\setlength{\\rightskip}{0pt plus 5cm}util\\-::msg\\-Log\\-::msg\\-Log ($/;"	b
 msgLog	src/util/logObject.h	/^		msgLog(std::string msg, logLevel level = logLevelInfo){$/;"	f	class:util::msgLog
 msgLog	src/util/logObject.h	/^	class msgLog : public baseLog{$/;"	c	namespace:util
@@ -4400,6 +4440,9 @@ normalImpulses	src/include/Box2D/Dynamics/b2WorldCallbacks.h	/^	float32 normalIm
 normalMass	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Mat22 normalMass;$/;"	m	struct:b2ContactVelocityConstraint
 normalMass	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 normalMass;$/;"	m	struct:b2VelocityConstraintPoint
 normals	src/include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 normals[b2_maxPolygonVertices];$/;"	m	struct:b2TempPolygon	file:
+obj	src/core/ObjProcessors/phyProcessor.h	/^	Object *obj;	$/;"	m	struct:collisionData
+objContactListener	src/core/ObjProcessors/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
+objContactListener	src/core/ObjProcessors/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
 objManager	src/core/Process/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
 objMap	src/core/objectMgr.h	/^	objectMap objMap;$/;"	m	class:objectMgr
 objMap	src/core/objectProcessor.h	/^	  objectMap *objMap;$/;"	m	class:objectProcessor
@@ -4420,11 +4463,15 @@ objectMgrProcess	src/core/Process/objectMgrProcess.h	/^class objectMgrProcess : 
 objectProcessor	src/core/objectProcessor.h	/^class objectProcessor{$/;"	c
 observerList	src/core/Messaging/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
 observerMap	src/core/Messaging/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
+onBegin	src/core/ObjProcessors/phyProcessor.h	/^		onBegin,$/;"	e	enum:collisionData::Type
 onDestroyMsg	src/util/logObject.h	/^		std::string onDestroyMsg;$/;"	m	class:util::scopedLog
+onEnd	src/core/ObjProcessors/phyProcessor.h	/^		onEnd,$/;"	e	enum:collisionData::Type
+onGround	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:moveData
 onObjectAdd	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
 onObjectAdd	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
 onObjectAdd	src/core/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
 onObjectAdd	src/game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
+onObjectAdd	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
 onObjectRemove	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectRemove(Object *obj){$/;"	f	class:phyProcessor
 onObjectRemove	src/core/ObjProcessors/renderProcessor.h	/^	void onObjectRemove(Object *obj){};$/;"	f	class:renderProcessor
 onObjectRemove	src/core/objectProcessor.h	/^	virtual void onObjectRemove(Object *obj){};$/;"	f	class:objectProcessor
@@ -4495,8 +4542,9 @@ parent	src/include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union
 paused	src/core/Process/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
 phy  -Processor Class Reference	docs/engine/latex/d3/d27/classphyProcessor.tex	/^\\hypertarget{classphyProcessor}{\\section{phy\\-Processor Class Reference}$/;"	s
 phyData	src/core/ObjProcessors/phyProcessor.h	/^struct phyData{$/;"	s
-phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^	phyProcessor(b2World &_world, viewProcess &_view) : world(_world), view(_view){}$/;"	f	class:phyProcessor
+phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^	phyProcessor(b2World &_world, viewProcess &_view) : world(_world), view(_view){$/;"	f	class:phyProcessor
 phyProcessor	src/core/ObjProcessors/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
+physicsData	src/game/eventHandlers/WSADHandler.h	/^	phyData *physicsData;$/;"	m	struct:WSADHandlerData
 playerMoveHandler	src/game/States/gameState.h	/^	WSADHandler *playerMoveHandler;$/;"	m	class:gameState
 point	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	b2Vec2 point;$/;"	m	struct:b2PositionSolverManifold	file:
 pointA	src/include/Box2D/Collision/b2Distance.h	/^	b2Vec2 pointA;		\/\/\/< closest point on shapeA$/;"	m	struct:b2DistanceOutput
@@ -4514,12 +4562,20 @@ positionIterations	src/include/Box2D/Dynamics/b2TimeStep.h	/^	int32 positionIter
 positions	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Position* positions;$/;"	m	struct:b2ContactSolverDef
 positions	src/include/Box2D/Dynamics/b2TimeStep.h	/^	b2Position* positions;$/;"	m	struct:b2SolverData
 postDraw	src/core/Process/Process.h	/^	virtual void postDraw(){};$/;"	f	class:Process
+postDraw	src/core/Process/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
 postDraw	src/core/Process/processMgr.cpp	/^void processMgr::postDraw(){$/;"	f	class:processMgr
 postDraw	src/core/Process/windowProcess.h	/^	virtual void postDraw(){$/;"	f	class:windowProcess
+postProcess	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::postProcess(){$/;"	f	class:phyProcessor
+postProcess	src/core/objectMgr.h	/^	void postProcess(){$/;"	f	class:objectMgr
+postProcess	src/core/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
 pre -Update	docs/engine/latex/d0/d5b/classwindowProcess.tex	/^\\subsubsection[{pre\\-Update}]{\\setlength{\\rightskip}{0pt plus 5cm}virtual void window\\-Process\\-::pre\\-Update ($/;"	b
 pre -Update	docs/engine/latex/df/d30/classProcess.tex	/^\\subsubsection[{pre\\-Update}]{\\setlength{\\rightskip}{0pt plus 5cm}virtual void Process\\-::pre\\-Update ($/;"	b
+preProcess	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::preProcess(){$/;"	f	class:phyProcessor
+preProcess	src/core/objectMgr.h	/^	void preProcess(){$/;"	f	class:objectMgr
+preProcess	src/core/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
 preUpdate	src/core/Process/Process.h	/^	virtual void preUpdate(){};$/;"	f	class:Process
 preUpdate	src/core/Process/eventProcess.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
+preUpdate	src/core/Process/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
 preUpdate	src/core/Process/processMgr.cpp	/^void processMgr::preUpdate(){$/;"	f	class:processMgr
 preUpdate	src/core/Process/windowProcess.h	/^	virtual void preUpdate(){$/;"	f	class:windowProcess
 prev	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge* prev;	\/\/\/< the previous contact edge in the body's contact list$/;"	m	struct:b2ContactEdge
@@ -4608,6 +4664,7 @@ recieveEvent	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::recieveE
 referenceAngle	src/include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 referenceAngle;$/;"	m	struct:b2PrismaticJointDef
 referenceAngle	src/include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 referenceAngle;$/;"	m	struct:b2RevoluteJointDef
 referenceAngle	src/include/Box2D/Dynamics/Joints/b2WeldJoint.h	/^	float32 referenceAngle;$/;"	m	struct:b2WeldJointDef
+removeCollision	src/core/ObjProcessors/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
 removeObject	src/core/objectMgr.h	/^	void removeObject(Object &obj){$/;"	f	class:objectMgr
 removeObject	src/core/objectMgr.h	/^	void removeObject(Object *obj){$/;"	f	class:objectMgr
 removeObject	src/core/objectMgr.h	/^	void removeObject(std::string name){$/;"	f	class:objectMgr
@@ -4621,6 +4678,7 @@ renderProcessor	src/core/ObjProcessors/renderProcessor.cpp	/^renderProcessor::re
 renderProcessor	src/core/ObjProcessors/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
 renderUtil	src/core/renderUtil.h	/^class renderUtil{$/;"	c
 renderers	src/core/ObjProcessors/renderProcessor.h	/^	std::vector<Renderer>renderers;$/;"	m	class:renderData
+resetJump	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::resetJump(){$/;"	f	class:moveData
 restitution	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 restitution;$/;"	m	struct:b2ContactVelocityConstraint
 restitution	src/include/Box2D/Dynamics/b2Fixture.h	/^	float32 restitution;$/;"	m	struct:b2FixtureDef
 revision	src/include/Box2D/Common/b2Settings.h	/^	int32 revision;		\/\/\/< bug fixes$/;"	m	struct:b2Version
@@ -4752,6 +4810,9 @@ setClassAttr	docs/engine/html/search/search.js	/^function setClassAttr(elem,attr
 setClassAttr	docs/game/html/search/search.js	/^function setClassAttr(elem,attr)$/;"	f
 setKeyActions	docs/engine/html/search/search.js	/^function setKeyActions(elem,action)$/;"	f
 setKeyActions	docs/game/html/search/search.js	/^function setKeyActions(elem,action)$/;"	f
+setMoveLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMoveLeft(bool enabled){$/;"	f	class:moveData
+setMoveRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMoveRight(bool enabled){$/;"	f	class:moveData
+setMovementHalt	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMovementHalt(bool enabled){$/;"	f	class:moveData
 setSeed	src/core/Hash.cpp	/^void Hash::setSeed(unsigned int seed){$/;"	f	class:Hash
 setThreshold	src/util/logObject.h	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:util::baseLog
 setVal	src/core/Property.h	/^	void setVal(T val){$/;"	f	class:Prop
@@ -4859,10 +4920,8 @@ step	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2TimeStep step;$/
 step	src/include/Box2D/Dynamics/b2TimeStep.h	/^	b2TimeStep step;$/;"	m	struct:b2SolverData
 step	src/include/Box2D/Dynamics/b2TimeStep.h	/^	float32 step;$/;"	m	struct:b2Profile
 stepSize	src/core/Process/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
-stopMoving	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool stopMoving;$/;"	m	struct:moveData
-stopStrength	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 stopStrength;$/;"	m	struct:moveData
+stepSize	src/game/ObjProcessors/cameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
 strHelper	src/util/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
-strength	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 strength;$/;"	m	struct:moveData
 subdirs	docs/engine/html/dir_68267d1309a1af8e8297ef4c3efbcdba.html	/^<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="subdirs"><\/a>$/;"	a
 subdirs	docs/engine/html/dir_aebb8dcc11953d78e620bbef0b9e2183.html	/^<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="subdirs"><\/a>$/;"	a
 subdirs	docs/game/html/dir_1699be727a800b1d059c6f7f2b91d2ee.html	/^<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="subdirs"><\/a>$/;"	a
@@ -4905,6 +4964,7 @@ transform	src/include/SFML/Graphics/RenderStates.hpp	/^    Transform      transf
 transformA	src/include/Box2D/Collision/b2Distance.h	/^	b2Transform transformA;$/;"	m	struct:b2DistanceInput
 transformB	src/include/Box2D/Collision/b2Distance.h	/^	b2Transform transformB;$/;"	m	struct:b2DistanceInput
 transitioning	src/core/Process/stateProcess.h	/^	bool transitioning;$/;"	m	class:stateProcess
+type	src/core/ObjProcessors/phyProcessor.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
 type	src/core/ObjProcessors/renderProcessor.h	/^	 Renderer::Type type;$/;"	m	class:Renderer
 type	src/include/Box2D/Collision/b2CollideEdge.cpp	/^	Type type;$/;"	m	struct:b2EPAxis	file:
 type	src/include/Box2D/Collision/b2Collision.h	/^	Type type;$/;"	m	struct:b2Manifold
@@ -4944,6 +5004,7 @@ util  -   -  msg  -Log Class Reference	docs/engine/latex/de/d3f/classutil_1_1msg
 util  -   -  scoped  -Log Class Reference	docs/engine/latex/d0/d01/classutil_1_1scopedLog.tex	/^\\hypertarget{classutil_1_1scopedLog}{\\section{util\\-:\\-:scoped\\-Log Class Reference}$/;"	s
 util  -   -  str  -Helper Class Reference	docs/engine/latex/dc/d1c/classutil_1_1strHelper.tex	/^\\hypertarget{classutil_1_1strHelper}{\\section{util\\-:\\-:str\\-Helper Class Reference}$/;"	s
 util Namespace Reference	docs/engine/latex/d6/d72/namespaceutil.tex	/^\\hypertarget{namespaceutil}{\\section{util Namespace Reference}$/;"	s
+v	src/game/ObjProcessors/cameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
 v	src/include/Box2D/Collision/b2Collision.h	/^	b2Vec2 v;$/;"	m	struct:b2ClipVertex
 v	src/include/Box2D/Dynamics/b2TimeStep.h	/^	b2Vec2 v;$/;"	m	struct:b2Velocity
 v1	src/include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 v1, v2;$/;"	m	struct:b2ReferenceFace	file:
@@ -4962,6 +5023,7 @@ vector3	src/core/vector.h	/^	vector3(float x, float y, float z){$/;"	f	class:vec
 vector3	src/core/vector.h	/^	vector3(vector2 vec2, float z){$/;"	f	class:vector3
 vector3	src/core/vector.h	/^class vector3{$/;"	c
 vector3 Class Reference	docs/engine/latex/db/dc5/classvector3.tex	/^\\hypertarget{classvector3}{\\section{vector3 Class Reference}$/;"	s
+velClamped	src/core/ObjProcessors/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
 velIterations	src/core/Process/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
 velocities	src/include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Velocity* velocities;$/;"	m	struct:b2ContactSolverDef
 velocities	src/include/Box2D/Dynamics/b2TimeStep.h	/^	b2Velocity* velocities;$/;"	m	struct:b2SolverData
@@ -5001,7 +5063,7 @@ windowProcess	src/core/Process/windowProcess.h	/^	windowProcess(processMgr &proc
 windowProcess	src/core/Process/windowProcess.h	/^class windowProcess : public Process{$/;"	c
 world	src/core/ObjProcessors/phyProcessor.h	/^	b2World &world;$/;"	m	class:phyProcessor
 world	src/core/Process/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProcess
-world	src/game/ObjProcessors/cameraProcessor.h	/^	b2World &world;$/;"	m	class:cameraProcessor
+world	src/game/ObjProcessors/groundMoveProcessor.h	/^	b2World &world;$/;"	m	class:groundMoveProcessor
 world	src/game/ObjProcessors/terrainProcessor.h	/^	b2World &world;$/;"	m	class:terrainProcessor
 world  -Process Class Reference	docs/engine/latex/d8/d38/classworldProcess.tex	/^\\hypertarget{classworldProcess}{\\section{world\\-Process Class Reference}$/;"	s
 worldProcess	src/core/Process/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
@@ -5015,7 +5077,9 @@ x	src/include/SFML/System/Vector3.hpp	/^    T x; \/\/\/< X coordinate of the vec
 x	src/include/SFML/Window/Event.hpp	/^        int           x;      \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseButtonEvent
 x	src/include/SFML/Window/Event.hpp	/^        int x;     \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseWheelEvent
 x	src/include/SFML/Window/Event.hpp	/^        int x; \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseMoveEvent
+xAccel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:moveData
 xTermCmd	runner.py	/^xTermCmd = "xterm -e"$/;"	v
+xVel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:moveData
 y	src/core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 y	src/core/vector.h	/^	float x, y;$/;"	m	class:vector2
 y	src/include/Box2D/Common/b2Math.h	/^	float32 x, y, z;$/;"	m	struct:b2Vec3
@@ -5066,6 +5130,7 @@ z	src/include/SFML/System/Vector3.hpp	/^    T z; \/\/\/< Z coordinate of the vec
 ~dummyProp	src/core/Property.h	/^	~dummyProp(){};$/;"	f	class:dummyProp
 ~dummyStateSaveLoader	src/core/State/dummyStateSaveLoader.h	/^	~dummyStateSaveLoader(){};$/;"	f	class:dummyStateSaveLoader
 ~managedProp	src/core/Property.h	/^	~managedProp(){$/;"	f	class:managedProp
+~objContactListener	src/core/ObjProcessors/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
 ~objectMgr	src/core/objectMgr.h	/^	~objectMgr(){};$/;"	f	class:objectMgr
 ~objectProcessor	src/core/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
 ~scopedLog	src/util/logObject.h	/^		~scopedLog(){$/;"	f	class:util::scopedLog
