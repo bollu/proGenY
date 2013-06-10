@@ -14,13 +14,16 @@ void groundMoveProcessor::onObjectAdd(Object *obj){
 	data->mass = *mass;
 	data->moveImpulse.x = *mass * abs(data->xVel);
 
-	float g = this->world.GetGravity().y;
+	float g = this->world->GetGravity().y;
 
+	data->jumpImpulse.y = *mass *  sqrt(abs(2 * g * data->jumpHeight));
+
+	float halfTime = std::abs(data->jumpImpulse.y / g);
 
 	//u cos theta= R / (t)
-	data->jumpImpulse.x = *mass * data->jumpRange / (data->jumpTimeOfFlight);
+	data->jumpImpulse.x = *mass * std::abs(data->jumpRange / (halfTime * 2));
 	//u sin theta = sqrt(2 * g * h)
-	data->jumpImpulse.y = *mass *  sqrt(abs(2 * g * data->jumpHeight));
+
 
 
 };
@@ -32,7 +35,9 @@ void groundMoveProcessor::Process(float dt){
 
 		moveData *data = obj->getProp<moveData>(Hash::getHash("moveData"));
 
-		if(data == NULL) continue;
+		if(data == NULL){
+			continue;
+		} 
 
 
 		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
@@ -62,19 +67,20 @@ void groundMoveProcessor::Process(float dt){
 			
 		}
 
-		else if(data->movingLeft){
+		if(data->movingLeft){
 			desiredVelX = std::max(-data->xVel, 
 				currentVelX - data->xAccel);
 		}
 
-		else if(data->movingRight){
+		if(data->movingRight){
 			desiredVelX = std::min(data->xVel, 
 				currentVelX + data->xAccel);
 		}
 
 
-		//you're still moving, AND you're not jumping
-		if(!data->moveHalted && !data->jumping){
+		//you're still moving, AND you're not jumping,
+		//apply the required impulse
+		if((data->movingLeft || data->movingRight) && !data->jumping){
 
 	    	//delta v = desired - current	
 			float dvX = desiredVelX - currentVelX;
@@ -84,7 +90,7 @@ void groundMoveProcessor::Process(float dt){
 	    	impulse.x += impulseX;
 	    }
 
-	    //you're not jumping in the air
+	    //you're not jumping in the air, apply friction
 	    if(!data->jumping){
 	    	float frictionX = data->mass * currentVelX * data->movementDamping.x;
 	    	impulse.x -= frictionX;
@@ -101,8 +107,9 @@ vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, float dt){
 	
 	vector2 impulse;
 
-	if(data->moveHalted){
+	if(!(data->movingLeft || data->movingRight)){
 		impulse.y = data->jumpImpulse.y;
+		impulse.x = 0;
 	}
 	else{
 
@@ -124,10 +131,6 @@ void moveData::setMoveLeft(bool enabled){
 
 void moveData::setMoveRight(bool enabled){
 	this->movingRight = enabled;
-};
-
-void moveData::setMovementHalt(bool enabled){
-	this->moveHalted = enabled;
 };
 
 void moveData::Jump(){

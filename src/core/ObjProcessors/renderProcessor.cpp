@@ -45,9 +45,13 @@ Renderer::Renderer(const Renderer &other){
 	}
 };
 
+renderProcessor::renderProcessor(processMgr &processManager, 
+	Settings &settings, eventMgr &_eventManager){
 
-renderProcessor::renderProcessor(sf::RenderWindow &_window, viewProcess &_view) : 
-	window(_window), view(_view){};
+	this->window = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
+	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
+
+};
 
 
 void renderProcessor::onObjectAdd(Object *obj){
@@ -59,7 +63,7 @@ void renderProcessor::Process(float dt){
 		Object *obj = it->second;
 
 		vector2* pos = obj->getProp<vector2>(Hash::getHash("position"));
-		vector2 renderPos = view.game2ScreenCoord(*pos);
+		vector2 renderPos = view->game2ScreenCoord(*pos);
 
 		renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
 
@@ -83,7 +87,7 @@ void renderProcessor::_Render(vector2 pos, renderData *data){
 			{
 				sf::Sprite *sprite = renderer.data.sprite;
 				sprite->setPosition(pos);
-				window.draw(*sprite);
+				window->draw(*sprite);
 			
 			}
 			break;
@@ -92,7 +96,7 @@ void renderProcessor::_Render(vector2 pos, renderData *data){
 			{
 				sf::Shape *shape = renderer.data.shape;
 				shape->setPosition(pos);
-				window.draw(*shape);
+				window->draw(*shape);
 			}
 			break;
 
@@ -100,7 +104,7 @@ void renderProcessor::_Render(vector2 pos, renderData *data){
 			{
 				sf::Text *text = renderer.data.text;
 				text->setPosition(pos);
-				window.draw(*text);
+				window->draw(*text);
 			}
 			break;
 		};

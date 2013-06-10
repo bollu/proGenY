@@ -16,7 +16,25 @@ uint64_t Hash::getVal() const{
 }
 
 
-const Hash* Hash::getHash(std::string str){
+const Hash* Hash::getHash(const char* str){
+	std::string stdString = std::string(str);
+
+	hashMapIt it = hashMap.find(stdString);
+
+		//the hash is not present in the map. time to create a new Hash
+	if(it == hashMap.end()){
+		Hash *h = new Hash(stdString, seed);
+		hashMap[str] = h;
+
+		return h;
+
+	}else{
+			//the map has the hash, so return it 
+		return (it->second);
+	}
+}
+
+const Hash* Hash::getHash(std::string &str){
 	hashMapIt it = hashMap.find(str);
 
 		//the hash is not present in the map. time to create a new Hash
@@ -30,7 +48,9 @@ const Hash* Hash::getHash(std::string str){
 			//the map has the hash, so return it 
 		return (it->second);
 	}
-}
+
+};
+
 
 std::string Hash::Hash2Str(const Hash *hash){
 	for(auto it = hashMap.begin(); it != hashMap.end(); ++it){

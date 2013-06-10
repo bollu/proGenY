@@ -1,0 +1,26 @@
+
+# define the C compiler to use
+CC = clang++
+
+# define any compile-time flags
+CFLAGS = -std=c++11 -DDEBUG -g
+
+# define any directories containing header files other than /usr/include
+#
+INCLUDES = -I../src/include/   -I../src/core/
+
+
+# define any libraries to link into executable:
+#   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
+#   option, something like -llibname (this will link  to libname.so)
+LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system
+
+#name of the output file
+OUTPUT = a.out
+
+!cc = |>  clang++ $(CFLAGS) $(INCLUDES) -c %f -o %o |> %B.o
+
+
+
+
+

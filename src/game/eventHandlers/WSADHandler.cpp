@@ -68,13 +68,7 @@ void WSADHandler::Update(){
 
 
 	moveData *data = WSADData.objMoveData;
-	
-	if(!data->isMovingLeft() && !data->isMovingRight() && !data->isMidJump()){
-		data->setMovementHalt(true);
-		
-	}else{
-		data->setMovementHalt(false);
-	}
+
 
 	phyData *phy = WSADData.physicsData;
 

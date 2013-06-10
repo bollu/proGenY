@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "../util/logObject.h"
 #include <vector>
+#include "../util/mathUtil.h"
 
 
 typedef std::map<std::string, Object *> objectMap;
@@ -15,7 +16,7 @@ class objectProcessor{
 protected:
 	//a pointer to a vector of objects. it's owned by objectManager  
 	  objectMap *objMap;
-
+	  
 	  virtual void _Init(){};
 public:
 	void Init(objectMap *_objMap){

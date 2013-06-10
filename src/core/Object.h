@@ -106,8 +106,22 @@ public:
 	}
 	
 
+	/*!returns whether the Object has the property with name */
 	bool hasProperty(const Hash *name){
 		return this->getBaseProp(name) == NULL ? false : true;
+	}
+
+	/*!kills the Object. 
+	The Object destruction will be notified to all
+	objectProcessor classes. It will then be destroyed
+	*/
+	void Kill(){
+		this->dead = true;
+	}
+
+	/*!returns whether the Object has died */
+	bool isDead(){
+		return this->dead;
 	}
 
 private:
@@ -127,6 +141,10 @@ private:
 	//to ensure all names are unique. The way war3 used to do it.
 	static std::map<std::string, unsigned int>nameMap;
 	typedef std::map<std::string, unsigned int>::iterator nameIt;
+
+
+	//stores whether the Object is dead or not
+	bool dead;
 
 	void _genUniqueName(std::string genericName, std::string &out);
 	

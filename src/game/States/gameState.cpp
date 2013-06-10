@@ -5,6 +5,7 @@
 
 #include "../ObjProcessors/groundMoveProcessor.h"
 #include "../ObjProcessors/cameraProcessor.h"
+#
 
 
 void gameState::_generateTerrain(unsigned long long seed, vector2 playerInitPos){
@@ -16,73 +17,47 @@ void gameState::_generateTerrain(unsigned long long seed, vector2 playerInitPos)
 	terrainObj->addProp(Hash::getHash("Terrain"), new dummyProp());
 
 	objectManager->addObject(terrainObj);
+	
 
 };
 
+#include "../factory/playerCreator.h"
+#include "../factory/boundaryCreator.h"
+#include "../factory/dummyCreator.h"
+#include "../factory/bulletCreator.h"
+
+void gameState::_initFactory(){
+
+	
+	this->objFactory.attachObjectCreator(Hash::getHash("dummy"),
+				new dummyCreator(this->viewProc));
+
+	this->objFactory.attachObjectCreator(Hash::getHash("player"),
+				new playerCreator(this->viewProc));
+
+	this->objFactory.attachObjectCreator(Hash::getHash("boundary"),
+				new boundaryCreator(this->viewProc));
+
+	this->objFactory.attachObjectCreator(Hash::getHash("bullet"),
+				new bulletCreator(this->viewProc));
+};
+
+
 void gameState::_createPlayer(vector2 playerInitPos){
 
-	phyData phy;
-	renderData render;
-	moveData move;
+	playerCreator *creator = (playerCreator*)objFactory.getCreator(
+		Hash::getHash("player"));
+
 	cameraData camera;
-
-	//phy---------------------------------------------------------------------
-	phy.collisionType = Hash::getHash("player");
-
-	Object *playerObj = new Object("player");
-
-	vector2 *pos = playerObj->getProp<vector2>(Hash::getHash("position"));
-	*pos = playerInitPos;
-
-	phy.bodyDef.type = b2_dynamicBody;
-
-
-	//b2PolygonShape playerBoundingBox; 
-	//playerBoundingBox.SetAsBox(1.0f, 1.0f);
-
-	b2CircleShape playerBoundingBox;
-	playerBoundingBox.m_radius = 1.0f;
-
-
-	b2FixtureDef playerFixtureDef;
-	playerFixtureDef.shape = &playerBoundingBox;
-	playerFixtureDef.friction = 0.0;
-	playerFixtureDef.restitution = 0.0;
-
-	phy.fixtureDef.push_back(playerFixtureDef);
-
-
-	//renderer----------------------------------------------------------------	
-	sf::Shape *playerSFMLShape = renderUtil::createShape(&playerBoundingBox, 
-		viewProc->getGame2RenderScale());
-
-	playerSFMLShape->setFillColor(sf::Color::Green);
-
-	Renderer playerShapeRenderer(playerSFMLShape);
-	
-	render.addRenderer(playerShapeRenderer);
-	
-	//movement-----------------------------------------------------------
-	move.xVel = 20;
-	move.xAccel = 1;
-	move.movementDamping = vector2(0.07	, 0.0);
-	move.jumpRange = viewProc->getRender2GameScale() * 2048;
-	move.jumpHeight = viewProc->getRender2GameScale() * 32;
-	move.jumpTimeOfFlight = 5;
-	
-	//camera---------------------------------------------------------------
 	camera.enabled = true;
 	camera.maxCoord = vector2(1280 * 2, 720 * 3);
 	camera.maxMoveAmt = vector2(30, 60);
 	camera.boxHalfW = 360;
 	camera.boxHalfH = 300;
 
-	//final creation--------------------------------------------------------
-	playerObj->addProp(Hash::getHash("phyData"), new Prop<phyData>(phy));
-	playerObj->addProp(Hash::getHash("renderData"), new Prop<renderData>(render));
-	playerObj->addProp(Hash::getHash("moveData"), new Prop<moveData>(move));
-	playerObj->addProp(Hash::getHash("cameraData"), new Prop<cameraData>(camera));
-	objectManager->addObject(playerObj);
+	creator->setCameraData(camera);
+
+	Object *playerObj = creator->createObject(playerInitPos);
 
 	//players handlers--------------------------------------------------
 	WSADHandlerData WSADdata;
@@ -93,18 +68,43 @@ void gameState::_createPlayer(vector2 playerInitPos){
 	WSADdata.objMoveData = playerObj->getProp<moveData>(Hash::getHash("moveData"));
 	WSADdata.physicsData = playerObj->getProp<phyData>(Hash::getHash("phyData"));
 
+	
 	this->playerMoveHandler = new WSADHandler(this->eventManager, WSADdata);
+	
 
+	objectManager->addObject(playerObj);
+	
 };
 
 void gameState::_createDummy(){
-	renderData render;
 
+
+	dummyCreator *creator = (dummyCreator*)objFactory.getCreator(
+		Hash::getHash("dummy"));
+
+	
+	creator->setRadius(1.0f);
+
+	vector2 randPos = vector2(400, 200);
+	
+	randPos *= viewProc->getRender2GameScale();
+	Object *dummy = creator->createObject(randPos);
+
+
+	objectManager->addObject(dummy);
+
+	/*
+	renderData render;
+	phyData phy;
 	
 	Object *dummy = new Object("dummy");
 
 	vector2 *pos = dummy->getProp<vector2>(Hash::getHash("position"));
-	*pos = viewProc->getRender2GameScale() * vector2(rand() % 700, rand() % 600);
+	*pos = viewProc->getRender2GameScale() * 
+		vector2(700 + rand() % 1280, rand() % 600);
+
+	//physics-----------------------------------
+
 
 	//renderer----------------------------------------------------------------	
 	sf::Shape *shape = new sf::CircleShape(10);
@@ -112,119 +112,47 @@ void gameState::_createDummy(){
 
 	Renderer shapeRenderer(shape);
 	render.addRenderer(shapeRenderer);
+	
+
 	//final---------------------------------
 	dummy->addProp(Hash::getHash("renderData"), new Prop<renderData>(render));
 	objectManager->addObject(dummy);
-
+	*/
 
 };
 
 
 void gameState::_generateBoundary(vector2 levelDim){
 
+	boundaryCreator *creator = (boundaryCreator*)objFactory.getCreator(
+		Hash::getHash("boundary"));
 
-	vector2 bottomLeft = vector2(0, 0);
-	vector2 topRight = levelDim;
-	float thickness = 4.0f;
+	creator->setBoundaryThickness(1.0f);
+	creator->setDimensions(levelDim);
 
-	phyData physicsData;
-	renderData render;
-
-
-
-	Object *boundaryObject = new Object("boundary");
-
-	vector2 *pos = boundaryObject->getProp<vector2>(Hash::getHash("position"));
-	*pos = levelDim * 0.5;
-
-	physicsData.bodyDef.type = b2_staticBody;
-	physicsData.collisionType = Hash::getHash("terrain");
-
-	{
-	//BOTTOM---------------------------------------------------------
-	b2PolygonShape bottom; 
-	vector2 bottomCenter = vector2(0, -levelDim.y / 2.0);//vector2(levelDim.x / 2.0, 0);
-	bottom.SetAsBox(levelDim.x / 2.0, thickness, bottomCenter, 0);
-
-	b2FixtureDef bottomFixtureDef;
-	bottomFixtureDef.shape = &bottom;
-	bottomFixtureDef.friction = 1.0;
-
-	physicsData.fixtureDef.push_back(bottomFixtureDef);
-
-	sf::Shape *shape = renderUtil::createShape(&bottom, 
-		viewProc->getGame2RenderScale());
-	shape->setFillColor(sf::Color::Blue);
-	Renderer renderer(shape);
-	render.addRenderer(renderer);
-
-	}
-	
-	{
-	//TOP---------------------------------------------------------
-	b2PolygonShape top; 
-	vector2 topCenter = vector2(0, levelDim.y / 2.0);//vector2(levelDim.x / 2.0, levelDim.y / 2.0);
-	top.SetAsBox(levelDim.x / 2.0, thickness, topCenter, 0);
-
-	b2FixtureDef topFixtureDef;
-	topFixtureDef.shape = &top;
-	topFixtureDef.friction = 0.0;
-	topFixtureDef.restitution = 0.0;
-
-	physicsData.fixtureDef.push_back(topFixtureDef);
+	Object *boundary = creator->createObject(vector2(0, 0));
 
 
-	sf::Shape *shape = renderUtil::createShape(&top, 
-	viewProc->getGame2RenderScale());
-	shape->setFillColor(sf::Color::Blue);
-	Renderer renderer(shape);
-	render.addRenderer(renderer);
-
-	}
-
-
-	{
-	//LEFT---------------------------------------------------------
-	b2PolygonShape left; 
-	vector2 leftCenter = vector2(-levelDim.x / 2.0, 0);
-	left.SetAsBox(thickness, levelDim.y / 2.0, leftCenter, 0);
-
-	b2FixtureDef leftFixtureDef;
-	leftFixtureDef.shape = &left;
-	leftFixtureDef.friction = 1.0;
-
-	physicsData.fixtureDef.push_back(leftFixtureDef);
-
-	sf::Shape *shape = renderUtil::createShape(&left, 
-		viewProc->getGame2RenderScale());
-	shape->setFillColor(sf::Color::Blue);
-	Renderer renderer(shape);
-	render.addRenderer(renderer);
-	}
-
-	{
-	//RIGHT---------------------------------------------------------
-	b2PolygonShape right; 
-	vector2 rightCenter = vector2(levelDim.x / 2.0, 0);
-	right.SetAsBox(thickness, levelDim.y / 2.0, rightCenter, 0);
-
-	b2FixtureDef rightFixtureDef;
-	rightFixtureDef.shape = &right;
-	rightFixtureDef.friction = 1.0;
-
-	physicsData.fixtureDef.push_back(rightFixtureDef);
-
-	sf::Shape *shape = renderUtil::createShape(&right, 
-		viewProc->getGame2RenderScale());
-	shape->setFillColor(sf::Color::Blue);
-	Renderer renderer(shape);
-	render.addRenderer(renderer);
-	}
-
-	boundaryObject->addProp(Hash::getHash("phyData"), new Prop<phyData>(physicsData));
-	boundaryObject->addProp(Hash::getHash("renderData"), new Prop<renderData>(render));
-	objectManager->addObject(boundaryObject);
+	objectManager->addObject(boundary);
 
 }
 
-void gameState::_createEnemies(){};
+void gameState::_createEnemies(){
+
+	bulletCreator *creator = (bulletCreator *)objFactory.getCreator(
+		Hash::getHash("bullet"));
+
+	creator->setRadius(0.8f);
+	vector2 pos = vector2(400, 400);
+	
+	creator->setBeginVel(vector2(0, 4.8));
+
+	creator->setEnemyCollision(Hash::getHash("dummy"));
+
+	pos *= viewProc->getRender2GameScale();
+	Object *obj = creator->createObject(pos);
+
+
+	objectManager->addObject(obj);
+
+};

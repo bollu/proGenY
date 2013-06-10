@@ -21,14 +21,13 @@ public:
 
 	void addObject(Object *obj){
 		this->objMap[obj->getName()] = obj;
-
 		for(objProcessorIt it = this->objProcessors.begin(); it != this->objProcessors.end(); ++it){
 
 			(*it)->onObjectAdd(obj);
 		}
 
 	}
-
+	
 
 	void removeObject(std::string name){
 		objMapIt it = this->objMap.find(name);
@@ -83,6 +82,24 @@ public:
 		for(objectProcessor* processor : objProcessors){
 			processor->postProcess();
 		}
+
+		
+		for(auto it = this->objMap.begin(); it != this->objMap.end(); ){
+			Object *obj = it->second;
+
+			if(obj->isDead()){
+				it = objMap.erase(it);
+
+				for(objectProcessor* processor : objProcessors){
+					processor->onObjectRemove(obj);
+				}
+
+				delete(obj);
+			}else{
+				it++;
+			}
+		}
+		
 	}
 
 	void Process(float dt){

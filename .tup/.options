@@ -1,0 +1,4 @@
+updater.warnings = '0'
+display.progress = '0'
+display.job_numbers = '0'
+display.job_time = '0'

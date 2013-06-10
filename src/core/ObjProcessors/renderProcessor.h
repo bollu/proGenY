@@ -2,10 +2,13 @@
 #include "../objectProcessor.h"
 #include "../include/SFML/Graphics.hpp"
 #include "../vector.h"
-#include "../Process/viewProcess.h"
 #include <vector>
 #include "../../util/strHelper.h"
 
+#include "../Process/processMgr.h"
+#include "../Settings.h"
+#include "../Messaging/eventMgr.h"
+#include "../Process/viewProcess.h"
 
 /*Represents an entity that can be rendered
 Anything in the Engine that has to be rendered has to be one of these
@@ -29,11 +32,11 @@ public:
 	Renderer(sf::Sprite *sprite);
 	/*! Construct a Renderer with a Text */
 	Renderer(sf::Text *text);
-	
+
 
 
 	Renderer(const Renderer &other);
-	
+
 private:
 	friend class renderProcessor;
 	friend class renderData;
@@ -46,9 +49,9 @@ private:
 
 	 Renderer::Type type;
 
-	 /*! Deletes the pointer that it owns. called by renderData 
+	 /*! Deletes the pointer that it owns. called by renderData
 	This can't be done in the destructor since the Renderer
-	is supposed to be created on the stack, and then passed
+is supposed to be created on the stack, and then passed
 	on to renderData.  */
 	void deleteData();
 };
@@ -60,7 +63,7 @@ multiple things, the renderData class acts as a "bag" to hold multiple Renderer
 objects
 
 \sa renderProcesor Renderer
-*/ 
+*/
 class renderData{
 private:
 	friend class renderProcessor;
@@ -81,12 +84,13 @@ uses renderData to draw the Object
 */
 class renderProcessor : public objectProcessor{
 private:
-	sf::RenderWindow &window;
-	viewProcess &view;
+	sf::RenderWindow *window;
+	viewProcess *view;
 
 	void _Render(vector2 pos, renderData *data);
-public: 
-	renderProcessor(sf::RenderWindow &_window, viewProcess &_view);
+public:
+
+	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 	void onObjectAdd(Object *obj);
 	void Process(float dt);
 	void onObjectRemove(Object *obj){};

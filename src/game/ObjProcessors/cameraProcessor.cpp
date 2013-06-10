@@ -12,7 +12,7 @@ void cameraProcessor::onObjectAdd(Object *obj){
 	if(!data->enabled){
 		return;
 	}	
-	data->cameraCenter = view.getCenter();
+	data->cameraCenter = view->getCenter();
 	data->accumilator = 0;
 
 
@@ -83,11 +83,11 @@ vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){
 
 vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 
-	vector2 windowDim = vector2::cast(window.getSize());
+	vector2 windowDim = vector2::cast(window->getSize());
 	vector2 *gamePos = obj->getProp<vector2>(Hash::getHash("position"));
-	vector2 screenPos = this->view.game2ScreenCoord(*gamePos);
+	vector2 screenPos = this->view->game2ScreenCoord(*gamePos);
 
-	vector2 currentCameraCenter = view.getCenter();
+	vector2 currentCameraCenter = view->getCenter();
 	vector2 boxBottomLeft = currentCameraCenter - vector2(data->boxHalfW, data->boxHalfH);
 	vector2 boxtopRight = currentCameraCenter + vector2(data->boxHalfW, data->boxHalfH);
 
@@ -114,7 +114,7 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 };
 
 void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){
-	vector2 newCameraCenter = view.getCenter();
+	vector2 newCameraCenter = view->getCenter();
 
 	data->accumilator += dt;
 
@@ -139,5 +139,5 @@ void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraDat
 	};
 
 	newCameraCenter = _limitCameraCoord(newCameraCenter, data);
-	view.setCenter(newCameraCenter);
+	view->setCenter(newCameraCenter);
 };

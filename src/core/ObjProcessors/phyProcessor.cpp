@@ -1,5 +1,6 @@
 #pragma once
 #include "phyProcessor.h"
+#include <type_traits>
 
 void phyProcessor::onObjectAdd(Object *obj){
 
@@ -9,26 +10,30 @@ void phyProcessor::onObjectAdd(Object *obj){
 
 
 	//it doesn't have either, so chill and move on
-	if(data == NULL){
+	if(data == NULL){	
 		return;
 	}
-
-
+	
 	data->bodyDef.position = *gamePos;
-	b2Body *body = world.CreateBody(&data->bodyDef);
+	b2Body *body = world->CreateBody(&data->bodyDef);
 	data->body = body;
 	data->body->SetUserData(obj);
 
 
+
 	for(auto it = data->fixtureDef.begin(); it != data->fixtureDef.end(); ++it){
 		b2FixtureDef fixtureDef = *it;
-		b2Fixture *fixture = body->CreateFixture(&fixtureDef);
 
+		b2Fixture *fixture = body->CreateFixture(&fixtureDef);
 		data->fixtures.push_back(fixture);
+		
+		//the fixture def's shape. the fixture def's shape
+		//has to be_ created on the heap.
+		delete(fixtureDef.shape);
 	}
 
 	obj->addProp(Hash::getHash("mass"), new fProp(body->GetMass()) );
-	
+
 }
 
 void phyProcessor::preProcess(){
@@ -51,13 +56,14 @@ void phyProcessor::Process(float dt){
 	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
 		Object *obj = it->second;
 
-		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
-
+		
 		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
 
 		if(data == NULL){
 			continue;
 		}
+
+		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
 
 		vector2 newPos = vector2::cast(data->body->GetPosition());
 		*pos = (newPos);
@@ -74,15 +80,17 @@ void phyProcessor::postProcess(){
 
 
 void phyProcessor::onObjectRemove(Object *obj){
-	phyData *data = obj->getPtrProp<phyData>(Hash::getHash("phyData"));
+	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+
 
 	if(data != NULL){
-		world.DestroyBody(data->body);
+		util::msgLog("destroying body");
+		world->DestroyBody(data->body);
 	}
 }
 
 void phyProcessor::_processContacts(){
-	for(auto contact = world.GetContactList(); contact != NULL; contact = contact->GetNext()){
+	for(auto contact = world->GetContactList(); contact != NULL; contact = contact->GetNext()){
 
 		if(!contact->IsTouching()){
 			continue;

@@ -25,7 +25,7 @@ public:
 	}
 
 	template<typename T>
-	T cast(){
+	T cast() const{
 		return T(this->x, this->y);
 	}
 
@@ -43,7 +43,7 @@ public:
 	};
 
 	//get the normalized vector
-	vector2 Normalize(){	
+	vector2 Normalize() const{	
 		float length = this->Length(); 
 		length  = (length == 0 ? 1 : length);
 		return (vector2(this->x / length, this->y / length));
@@ -51,7 +51,7 @@ public:
 
 
 	//convert the vector to an angle 
-	float toAngle() {
+	float toAngle() const{
 		return atan2(this->y, this->x);
 	}
 
@@ -68,7 +68,7 @@ public:
 	};
 
 	//get the length of the vector
-	inline float Length(){ return (sqrt(x * x  +  y * y)); };
+	inline float Length() const{ return (sqrt(x * x  +  y * y)); };
 	/// Get the length squared. For performance, use this instead of vector2::Length (if possible).
 	inline float LengthSquared() const{ return (x * x + y * y); };
 

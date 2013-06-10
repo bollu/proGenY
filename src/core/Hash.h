@@ -31,8 +31,13 @@ public:
 	\return
 	 The const Hash* that is a flyweight hash of the given string
 	*/ 
-	static const Hash* getHash(std::string str);
+	static const Hash* getHash(const char* str);
 
+	static const Hash* getHash(std::string &str);
+
+	/*static const Hash* getHash(std::string& str){
+		Hash::getHash(str.c_str());
+	};*/
 	/*! converts a Hash object to the actual string
 	
 	The hash is searched for internally. Once found, the corresponding string 

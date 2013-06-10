@@ -5,7 +5,7 @@
 
 std::map<std::string, unsigned int> Object::nameMap;
 
-Object::Object(std::string _name){
+Object::Object(std::string _name) : dead(false){
 	//create a unique name from the generic name given
 	this->_genUniqueName(_name, this->name);
 
@@ -32,7 +32,7 @@ void Object::addProp(const Hash *name, baseProperty *value){
 	}
 
 	util::msgLog(std::string("trying to add property twice to object\n") + 
-		std::string("Property: ") + Hash::Hash2Str(name) + 
+		std::string("\nProperty: ") + Hash::Hash2Str(name) + 
 		std::string("\nObject Name: ") + this->getName(), 
 		util::logLevel::logLevelError);
 }

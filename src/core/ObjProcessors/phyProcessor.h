@@ -1,23 +1,30 @@
 #pragma once
 #include "../objectProcessor.h"
 #include "../../util/logObject.h"
-#include "../../include/Box2D/Box2D.h"
+
 #include "../Process/viewProcess.h"
+#include "../Process/worldProcess.h"
+
+#include "../Process/processMgr.h"
+#include "../Settings.h"
+#include "../Messaging/eventMgr.h"
 
 #include "objContactListener.h"
-
-
 
 struct collisionData{
 	enum Type{
 		onBegin,
 		onEnd,
 	} type;
+	
 	phyData *data;
 	Object *obj;	
 };
 
 
+
+
+//ALYWAS CREATE THE FIXTURE DEF's SHAPE ON THE STACK
 struct phyData{
 	b2BodyDef bodyDef;
 	std::vector<b2FixtureDef> fixtureDef;
@@ -43,14 +50,18 @@ struct phyData{
 
 class phyProcessor : public objectProcessor{
 private:
-	b2World &world;
-	viewProcess &view;
+	b2World *world;
+	viewProcess *view;
 	objContactListener contactListener;
 
 	void _processContacts();
 public:
-	phyProcessor(b2World &_world, viewProcess &_view) : world(_world), view(_view){
-		world.SetContactListener(&this->contactListener);
+	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
+	{
+		this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
+		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+
+		world->SetContactListener(&this->contactListener);
 	}
 
 	void onObjectAdd(Object *obj);

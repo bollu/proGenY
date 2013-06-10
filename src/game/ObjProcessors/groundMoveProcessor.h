@@ -1,17 +1,20 @@
 #pragma once
-#include "../../core/objectProcessor.h"
 #include "../../core/vector.h"
 #include "../../include/SFML/Graphics.hpp"
+
+#include "../../core/objectProcessor.h"
+#include "../../core/Process/processMgr.h"
+#include "../../core/Process/worldProcess.h"
+#include "../../core/Settings.h"
 #include "../../core/Messaging/eventMgr.h"
-#include "../../include/Box2D/Box2D.h"
+
+
 
 struct moveData{
 private:
 	bool movingLeft;
 	bool movingRight;
 	bool jumping;
-
-	bool moveHalted;
 
 	bool onGround;
 
@@ -24,9 +27,9 @@ private:
 
 public:
 		
-	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), jumpTimeOfFlight(0),
+	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
 				movingLeft(false), movingRight(false), 
-				jumping(false), moveHalted(false), onGround(true){}
+				jumping(false), onGround(true){}
 
 	//max vel. with which to move in the x coordinate
 	float xVel;
@@ -36,7 +39,6 @@ public:
 
 	float jumpRange;
 	float jumpHeight;
-	float jumpTimeOfFlight;
 	
 	void setMoveLeft(bool enabled);
 	void setMoveRight(bool enabled);
@@ -45,10 +47,6 @@ public:
 	bool isMovingRight();
 	bool isMidJump();
 	bool isJumpEnabled();
-
-	//!whether movement should be damped based on stopStrength, and caused to stop
-	void setMovementHalt(bool enabled);
-
 
 	void Jump();
 	void resetJump();
@@ -59,13 +57,15 @@ public:
 
 class groundMoveProcessor : public objectProcessor{
 public:
-	groundMoveProcessor(b2World &_world) : world(_world){}
+	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
+		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+	}
 
 	void onObjectAdd(Object *obj);
 	void Process(float dt);
 private:
 
-	b2World &world;
+	b2World *world;
 	vector2 _calcJumpImpulse(moveData *data, float dt);
 	
 };

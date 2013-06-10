@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <assert.h>
+#include "strHelper.h"
 /*!
 	@file logObject.h
 	Logging objects are present on this file

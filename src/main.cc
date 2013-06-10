@@ -36,10 +36,12 @@
 #include "game/States/gameState.h"
 
 
-void _loadSettings(Settings &settings);
-void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager);
-void _createObjectProcessors(objectMgrProcess*, processMgr&);
+void _loadSettings(Settings &);
+void _addProcesses(processMgr &, Settings &, eventMgr &);
+void _createObjectProcessors(objectMgrProcess*, processMgr&, Settings &, eventMgr&);
 void _createStates(stateProcess *);
+
+
 
 
 void _createDummy(objectMgr *);
@@ -109,10 +111,10 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
     objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
-    _createObjectProcessors(objMgrProc, processManager);
-    processManager.addProcess(objMgrProc);
 
-    //_createDummy(objMgrProc->getObjectMgr());
+    //create the object processors that are responsible for creating objects
+    _createObjectProcessors(objMgrProc, processManager, settings, eventManager);
+    processManager.addProcess(objMgrProc);
 
 
      //KEEP THIS ONE THE LAST ONE> it depends on all other processes.
@@ -130,30 +132,26 @@ void _createStates(stateProcess *stateProc){
     stateProc->addState(new gameState(), true);
 }
 
-
+//OBJECT PROCESSORS------------------------------------------------------------
 #include "game/ObjProcessors/terrainProcessor.h"
 #include "game/ObjProcessors/cameraProcessor.h"
+#include "game/ObjProcessors/bulletProcessor.h"
+#include "game/ObjProcessors/healthProcessor.h"
 
-void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager){
+void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,
+                           Settings &settings, eventMgr &eventManager){
 
 
-    windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));
-    worldProcess *worldProc = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
-    viewProcess *viewProc =  processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
-
-    b2World &world = *worldProc->getWorld();
-    sf::RenderWindow &window = *windowProc->getWindow();
-
-   
-    objMgrProc->addObjectProcessor( new terrainProcessor(world, window, *viewProc));
-    objMgrProc->addObjectProcessor( new cameraProcessor(*worldProc, window, *viewProc));
+    objMgrProc->addObjectProcessor( new terrainProcessor(processManager, settings, eventManager));
+    objMgrProc->addObjectProcessor( new cameraProcessor(processManager, settings, eventManager));
      
      
-    objMgrProc->addObjectProcessor( new renderProcessor(window, *viewProc));
-    objMgrProc->addObjectProcessor( new phyProcessor(world, *viewProc));
+    objMgrProc->addObjectProcessor( new renderProcessor(processManager, settings, eventManager));
+    objMgrProc->addObjectProcessor( new phyProcessor(processManager, settings, eventManager));
 
-    objMgrProc->addObjectProcessor(new groundMoveProcessor(world) );
-   
+    objMgrProc->addObjectProcessor(new groundMoveProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new bulletProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
 
 };
 

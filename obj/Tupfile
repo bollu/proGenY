@@ -1,0 +1,30 @@
+include_rules
+
+# %o - output file name with extension
+# %f - input file name with extension
+# %B - basename. input file name without extension
+
+
+: foreach ../src/*.c* |> !cc |> %B.o
+
+: foreach ../src/core/*.c* |> !cc |> 
+: foreach ../src/core/Messaging/*.c* |> !cc |> 
+: foreach ../src/core/ObjProcessors/*.c* |> !cc |> 
+: foreach ../src/core/Process/*.c* |> !cc |> 
+: foreach ../src/core/State/*.c* |> !cc |>
+
+
+: foreach ../src/game/eventHandlers/*.c* |> !cc |> 
+: foreach ../src/game/factory/*.c* |>  !cc |> 
+: foreach ../src/game/ObjProcessors/*.c* |> !cc |> 
+: foreach ../src/game/States/*.c* |> !cc |> 
+
+
+
+: foreach ../src/util/*.c* |> !cc |> %B.o
+
+
+
+
+
+

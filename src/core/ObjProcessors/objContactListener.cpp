@@ -18,8 +18,7 @@ void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object 
 }
 
 void objContactListener::BeginContact(b2Contact* contact){
-	util::msgLog("contact began");
-
+	
 	Object *a, *b;
 	collisionData collision;
 
@@ -45,8 +44,7 @@ void objContactListener::BeginContact(b2Contact* contact){
 
 };
 void objContactListener::EndContact(b2Contact* contact){
-	util::msgLog("contact ended");
-
+	
 	Object *a, *b;
 	collisionData collision;
 
