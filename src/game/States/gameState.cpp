@@ -25,7 +25,7 @@ void gameState::_generateTerrain(unsigned long long seed, vector2 playerInitPos)
 #include "../factory/boundaryCreator.h"
 #include "../factory/dummyCreator.h"
 #include "../factory/bulletCreator.h"
-
+#include "../factory/gunCreator.h"
 void gameState::_initFactory(){
 
 	
@@ -40,7 +40,11 @@ void gameState::_initFactory(){
 
 	this->objFactory.attachObjectCreator(Hash::getHash("bullet"),
 				new bulletCreator(this->viewProc));
+
+		this->objFactory.attachObjectCreator(Hash::getHash("gun"),
+					new gunCreator(this->viewProc));
 };
+
 
 
 void gameState::_createPlayer(vector2 playerInitPos){
@@ -59,20 +63,25 @@ void gameState::_createPlayer(vector2 playerInitPos){
 
 	Object *playerObj = creator->createObject(playerInitPos);
 
+
+	//gun creation--------------------------------------------------------
+	Object *currentGun = this->_createGuns(playerObj);
+
+	
 	//players handlers--------------------------------------------------
 	WSADHandlerData WSADdata;
 	WSADdata.left = sf::Keyboard::Key::A;
 	WSADdata.right = sf::Keyboard::Key::D;
 	WSADdata.up = sf::Keyboard::Key::W;
 
-	WSADdata.objMoveData = playerObj->getProp<moveData>(Hash::getHash("moveData"));
-	WSADdata.physicsData = playerObj->getProp<phyData>(Hash::getHash("phyData"));
 
-	
-	this->playerMoveHandler = new WSADHandler(this->eventManager, WSADdata);
-	
+	WSADdata.player = playerObj;
+	WSADdata.currentGun = currentGun;
+	this->playerMoveHandler = new WSADHandler(this->eventManager, WSADdata);	
 
 	objectManager->addObject(playerObj);
+
+	
 	
 };
 
@@ -93,32 +102,26 @@ void gameState::_createDummy(){
 
 	objectManager->addObject(dummy);
 
-	/*
-	renderData render;
-	phyData phy;
+
+};
+
+
+Object* gameState::_createGuns(Object *player){
+	gunCreator *creator = (gunCreator*)objFactory.getCreator(
+		Hash::getHash("gun"));
+
 	
-	Object *dummy = new Object("dummy");
+	creator->setParent(player);
 
-	vector2 *pos = dummy->getProp<vector2>(Hash::getHash("position"));
-	*pos = viewProc->getRender2GameScale() * 
-		vector2(700 + rand() % 1280, rand() % 600);
-
-	//physics-----------------------------------
-
-
-	//renderer----------------------------------------------------------------	
-	sf::Shape *shape = new sf::CircleShape(10);
-	shape->setFillColor(sf::Color::Blue);
-
-	Renderer shapeRenderer(shape);
-	render.addRenderer(shapeRenderer);
+	vector2 pos = vector2(400, 200);
 	
+	pos *= viewProc->getRender2GameScale();
+	Object *dummy = creator->createObject(pos);
 
-	//final---------------------------------
-	dummy->addProp(Hash::getHash("renderData"), new Prop<renderData>(render));
+
 	objectManager->addObject(dummy);
-	*/
 
+	return dummy;
 };
 
 

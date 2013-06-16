@@ -1,25 +1,40 @@
 #pragma once
-
-#pragma once
 #include "Process.h"
 #include "processMgr.h"
 #include "../include/SFML/Graphics.hpp"
-
+#include "../Messaging/eventMgr.h"
+#include "../util/mathUtil.h"
 #include "windowProcess.h"
 
-/*!
+ /*!Acts as a wrapper around the projection Matrix.
+	
+	Provides conversion functions between Game, Rendering and Screen coordinates
 
-*/
+	Game coordinates corresponds to box2d coordinates. all high-level game
+	processing is done in game coordinates. 
+	The origin is bottom left.Positive x axis is rightwards. Positive y axis is upwards
 
-/*
+	Rendering coordinates is an intermediate between screen and game coordinates.
+	It is a scaled version of the game coordinates. The rendering layers use the rendering
+	coordinate system before converting to screen coordinates 
+	The origin is bottom left. Positive x axis is rightward. Positive y axis is upwards
+	
+	The screen coordinates corresponds to actual SDML coordinates. The most low-level layers
+	such as the event processing layer and the the final rendering step use screen coordinates.
+	All SFML related computation occurs is screen coordinates. anything that has to be used by
+	higher level layers *must be converted* to game coordinates.
+	The origin is top left. Positive x axis is rightward. Positive y axis is *downwards*.  
+
+
 	Game Coord - box2d coordinates
 	Render Coord - box2d coordinates * scaling
 	Screen Coord - box2d coordinates * scaling + inverted
 
 
-*/
- 
-class viewProcess : public Process{
+	
+
+ */ 
+class viewProcess : public Process, public Observer{
 	sf::RenderWindow *window;
 	float windowHeight;
 
@@ -27,74 +42,81 @@ class viewProcess : public Process{
 
 	float game2RenderScale;
 
+	eventMgr &eventManager;
+
 public:
-	viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
-	 Process("viewProcess"){
-		
-	 	windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));
-		this->window = windowProc->getWindow();
-		
-		vector2 windowDim = vector2::cast<sf::Vector2u>(this->window->getSize());
-		this->windowHeight = windowDim.y;
+	viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 
-		this->game2RenderScale = 26;
-
-		vector2 center = windowDim * 0.5;
+	void Update(float dt);
 	
+	/*!converts game coordinates to rendering coordinates
+
+	@param [in] gameCoord: the coordinates in-game to be converted
+			to the rendering Coordinate system
+
+
+	*/
+	vector2 game2RenderCoord(vector2 gameCoord);
+
+	/*!converts render coordinates to game coordinates
+	@param [in] gameCoord: the coordinates in the rendering Coordinate system
+		 to be converted to the game Coordinate system
+	*/
+	vector2 render2GameCoord(vector2 renderCoord);
+
+	/*!converts rendering coordinates to screen coordiantes*/
+	vector2 render2ScreenCoord(vector2 renderCoord);
+
+	/*!converts from screen to rendering coordinates*/
+	vector2 screen2RenderCoord(vector2 screenCoord);
+
+	/*!converts from game to screen coordinates*/
+	vector2 game2ScreenCoord(vector2 gameCoord);
+
+	/*!converts from screen to game coordinates*/
+	vector2 screen2GameCoord(vector2 screenCoord);
+
+	/*!moves the viewport by the offset value
+
+	@param [in] offset: the offset in screen coordinates 
+		by which to move the viewport
+	*/
+	void move(vector2 offset);
+
+	/*!sets the center of the viewport
+
+	@param [in] center: the center of the viewport in screen
+					coordinates
+	*/
+	void setCenter(vector2 center);
+
+	/*!sets the angle of the viewport
+
+	@param [in] angle : sets the angle of the viewport
+	*/
+	void setRotation(util::Angle angle);
 	
-		defaultView.setCenter(center.x, center.y);
-		defaultView.setSize(windowDim.x, windowDim.y);
-		
-	}
+	/*!returns the center of the viewport
 
-	void Update(float dt){
-		window->setView(defaultView);
-	};
+	\return the center of the viewport in screen coordinates
+	*/
+	vector2 getCenter();
+
+	/*!gives the scaling value to convert the game to the rendering
+		coordinate system.
+
+	\return the amount by which game coordinates are scaled to convert to
+		render coordinates
+	*/
+	float getGame2RenderScale();
+
+	/*!gives the scaling value to convert the rendering to the game
+		coordinate system.
+
+	\return the amount by rendering coordinates are scaled to convert to
+		game coordinates
+	*/
+	float getRender2GameScale();
 	
-	
-	vector2 game2RenderCoord(vector2 gameCoord){
-		return gameCoord * game2RenderScale;
-	};
-
-	vector2 render2GameCoord(vector2 renderCoord){
-		return renderCoord * (1.0 / game2RenderScale);
-	};
-
-	vector2 render2ScreenCoord(vector2 renderCoord){
-		return vector2(renderCoord.x, this->windowHeight - renderCoord.y);
-	}
-
-
-	vector2 screen2RenderCoord(vector2 screenCoord){
-		return vector2(screenCoord.x, this->windowHeight - screenCoord.y);
-	}
-
-	vector2 game2ScreenCoord(vector2 gameCoord){
-		return this->render2ScreenCoord(this->game2RenderCoord(gameCoord));
-	}
-
-	vector2 screen2GameCoord(vector2 screenCoord){
-		return this->render2GameCoord(screen2RenderCoord(screenCoord));
-	}
-
-	void move(vector2 offset){
-		this->defaultView.move(offset.x, offset.y);
-	}
-
-	void setCenter(vector2 center){
-		this->defaultView.setCenter(center.x, center.y);
-	}
-
-	vector2 getCenter(){
-		return vector2::cast(this->defaultView.getCenter());
-	}
-
-	float getGame2RenderScale(){
-		return this->game2RenderScale;
-	}
-
-	float getRender2GameScale(){
-		return 1.0f / this->game2RenderScale;
-	}
-	
+	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 };

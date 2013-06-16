@@ -3,6 +3,7 @@
 #include <vector>
 #include "Property.h"
 #include "Hash.h"
+#include "../util/mathUtil.h"
 
 
 /*!Represents a game Object. 

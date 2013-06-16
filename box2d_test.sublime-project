@@ -8,6 +8,7 @@
 			],
 			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 			"name": "make",
+			"working_dir": "${project_path:${folder}}",
 			
 			"variants":
 			[
@@ -19,16 +20,26 @@
 					"name": "run",
 					"working_dir": "${project_path:${folder}}"
 				},
+
 				{
 					"cmd":
 					[
-						"make", "clean"
+						"make", "monitor"
 					],
-					"name": "clean",
+					"name": "monitor",
+					"working_dir": "${project_path:${folder}}"
+				},
+
+				{
+					"cmd":
+					[
+						"make", "docs"
+					],
+					"name": "docs",
 					"working_dir": "${project_path:${folder}}"
 				}
-			],
-			"working_dir": "${project_path:${folder}}"
+			]
+			
 		}
 	],
 	"folders":

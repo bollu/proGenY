@@ -1,6 +1,7 @@
 #pragma once
 #include "processMgr.h"
 #include "Process.h"
+#include <typeinfo>
 
 
 void processMgr::addProcess(Process *p){
@@ -21,7 +22,8 @@ void processMgr::preUpdate(){
 
 void processMgr::Update(float dt){
 	for(auto it = this->processes.begin(); it != this->processes.end(); ++it){
-		it->second->Update(dt);
+		//util::msgLog("Update: " + std::string(typeid(it->second).name()) );
+				it->second->Update(dt);
 	}
 };
 

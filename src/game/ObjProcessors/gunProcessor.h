@@ -13,10 +13,14 @@
 
 #include "../factory/bulletCreator.h"
 
+#include "../../util/mathUtil.h"
 
 
 struct gunData{
 private:
+
+	friend class gunProcessor;
+
 	int totalClipSize;
 	//ticks down from currentAmmo to zero
 	int currentClipSize;
@@ -35,9 +39,22 @@ private:
 
 	bool shotOnCooldown;
 
+	util::Angle facing;
 
+	bool firing;
+
+	void _fireShot();
 public:
+	gunData(){
+		this->shotOnCooldown = false;
+		this->clipOnCooldown = false;
 
+		this->totalClipSize = this->currentClipSize = 0;
+		this->totalClipCooldown = this->currentClipCooldown = 0;
+		this->totalShotCooldown = this->currrentShotCooldown = 0;
+		
+		this->firing = false;
+	}
 	bulletCreator *bullet;
 
 	void setClipSize(int totalClipSize){
@@ -52,14 +69,24 @@ public:
 		this->totalShotCooldown = totalShotCooldown;
 	}
 
-	void fireShot();
+	void setFacing(util::Angle facing){
+		this->facing = facing;
+	}
+
+	
 
 	void Tick();
+
+	bool shouldFire(){
+		return this->firing;
+	}
 };
 
 
-class gunProcessor : public objProcessor{
+class gunProcessor : public objectProcessor{
 public:
+	gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){};
+	
 	void Process(float dt);
 	void postProcess();
 };

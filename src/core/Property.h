@@ -4,6 +4,7 @@
 #include "vector.h"
 #include <iostream>
 
+
 /*! Base class to represent properties
 
 This class can be used to send and receive it's derived classes in a
@@ -38,6 +39,10 @@ class Prop : public baseProperty{
 		this->val = value;
 	}
 
+	Prop(const Prop<T> &other){
+		this->val = other.val;
+	}
+
 	~Prop(){
 	}
 
@@ -62,6 +67,9 @@ class Prop : public baseProperty{
 
 };
 
+
+
+/*!DEPRECATED. */
 template<typename T>
 class ptrProp : public baseProperty{
 private:
@@ -80,7 +88,7 @@ public:
 	}
 };
 
-/*! used to store pointers with a controlled life cycle
+/*! DEPRECATED. used to store pointers with a controlled life cycle
 
 managedProp automatically destroys pointers that it is constructed with.
 Hence, it ensures that the pointer it is assigned to _never lives longer than itself_.

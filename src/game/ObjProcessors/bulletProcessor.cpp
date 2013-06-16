@@ -52,13 +52,10 @@ void bulletProcessor::Process(float dt){
 		vector2 vel = vector2::cast(body->GetLinearVelocity());
 		body->SetTransform(body->GetPosition(), vel.toAngle());
 
-		util::msgLog("damage: " + util::strHelper::toStr(data->damage));
-
+		
 		for(collisionData collision : physicsData->collisions){
 
-			util::msgLog("collison type: " + Hash::Hash2Str(collision.data->collisionType));
-			util::msgLog("collison type expected: " + Hash::Hash2Str(data->enemyCollision));
-
+			
 			if(collision.data->collisionType == data->enemyCollision){
 				//TODO: implement damage, not really sure how to go about this
 				//this solution is good enough for now
@@ -68,9 +65,7 @@ void bulletProcessor::Process(float dt){
 				if(health == NULL){
 					return;
 				}
-
-				util::msgLog(collision.obj->getName() + "damaged for " + 
-					util::strHelper::toStr(data->damage));
+				
 				health->Damage(data->damage);
 
 			}

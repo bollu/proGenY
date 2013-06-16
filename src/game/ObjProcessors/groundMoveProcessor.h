@@ -37,6 +37,7 @@ public:
 	float xAccel;
 	vector2 movementDamping;
 
+
 	float jumpRange;
 	float jumpHeight;
 	

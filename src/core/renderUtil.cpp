@@ -44,5 +44,5 @@ sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, float game2Rende
 };
 
 sf::Shape *renderUtil::createCircleShape(b2CircleShape *b2Shape, float game2RenderScale){
-	return new sf::CircleShape(b2Shape->m_radius * game2RenderScale, 4);
+	return new sf::CircleShape(b2Shape->m_radius * game2RenderScale, 20);
 };

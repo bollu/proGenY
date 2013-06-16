@@ -2,6 +2,7 @@
 #include "eventProcess.h"
 #include "../Property.h"
 
+
 void eventProcess::preUpdate(){
 
 	while(window->pollEvent(event)){
@@ -47,41 +48,41 @@ void eventProcess::_handleWindowCloseEvent(){
 
 
 void eventProcess::_handleMouseButtonPressed(){
-	static const Hash *mouseLeftPressed = Hash::getHash("mouseLeftPressed"); 
-	static const Hash *mouseRightPressed = Hash::getHash("mouseRightPressed"); 
+	static const Hash *mouseLeftPressed = Hash::getHash("mouseLeftPressedScreen"); 
+	static const Hash *mouseRightPressed = Hash::getHash("mouseRightPressedScreen"); 
 	
 
 	
-	v2Prop mousePos = v2Prop(vector2(event.mouseButton.x, event.mouseButton.y));
-
+	vector2 mousePos = vector2(event.mouseButton.x, event.mouseButton.y);
+	
 	if(event.mouseButton.button == sf::Mouse::Button::Left){
-		eventManager.sendEvent(mouseLeftPressed, &mousePos);
+		eventManager.sendEvent(mouseLeftPressed, mousePos);
 	}
 	else if(event.mouseButton.button == sf::Mouse::Button::Right){
-		eventManager.sendEvent(mouseRightPressed, &mousePos);
+		eventManager.sendEvent(mouseRightPressed, mousePos);
 	}
 
 };
 void eventProcess::_handleMouseButtonReleased(){
-	static const Hash *mouseLeftReleased = Hash::getHash("mouseLeftReleased"); 
-	static const Hash *mouseRightReleased = Hash::getHash("mouseRightReleased"); 
+	static const Hash *mouseLeftReleased = Hash::getHash("mouseLeftReleasedScreen"); 
+	static const Hash *mouseRightReleased = Hash::getHash("mouseRightReleasedScreen"); 
 
-	v2Prop mousePos = v2Prop(vector2(event.mouseButton.x, event.mouseButton.y));
-
+	vector2 mousePos = vector2(event.mouseButton.x, event.mouseButton.y);
+	
 	if(event.mouseButton.button == sf::Mouse::Button::Left){
-		eventManager.sendEvent(mouseLeftReleased, &mousePos);
+		eventManager.sendEvent(mouseLeftReleased, mousePos);
 	}
 	else if(event.mouseButton.button == sf::Mouse::Button::Right){
-		eventManager.sendEvent(mouseRightReleased, &mousePos);
+		eventManager.sendEvent(mouseRightReleased, mousePos);
 	}
 };
 
 void eventProcess::_handleMouseMove(){
-	static const Hash *mouseMoved = Hash::getHash("mouseMoved"); 
+	static const Hash *mouseMoved = Hash::getHash("mouseMovedScreen"); 
 
-	v2Prop mousePos = v2Prop(vector2(event.mouseMove.x, event.mouseMove.y));
-
-	eventManager.sendEvent(mouseMoved, &mousePos);
+	vector2 mousePos = vector2(event.mouseMove.x, event.mouseMove.y);
+	
+	eventManager.sendEvent(mouseMoved, mousePos);
 
 };
 
@@ -89,15 +90,13 @@ void eventProcess::_handleKeyboardPressed(){
 	static const Hash *keyPressed = Hash::getHash("keyPressed"); 
 
 	sf::Event::KeyEvent keyEvent = event.key;
-	auto keyEventProp = Prop<sf::Event::KeyEvent>(event.key);
-
-	eventManager.sendEvent(keyPressed, &keyEventProp);
+	
+	eventManager.sendEvent(keyPressed, keyEvent);
 };
 void eventProcess::_handleKeyboardReleased(){
 	static const Hash *keyReleased = Hash::getHash("keyReleased"); 
 
 	sf::Event::KeyEvent keyEvent = event.key;
-	auto keyEventProp = Prop<sf::Event::KeyEvent>(event.key);
-
-	eventManager.sendEvent(keyReleased, &keyEventProp);
+	
+	eventManager.sendEvent(keyReleased, keyEvent);
 };

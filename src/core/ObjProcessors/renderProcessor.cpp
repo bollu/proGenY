@@ -62,21 +62,35 @@ void renderProcessor::Process(float dt){
 	for(auto it= objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		vector2* pos = obj->getProp<vector2>(Hash::getHash("position"));
-		vector2 renderPos = view->game2ScreenCoord(*pos);
-
 		renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
 
 		if(data == NULL){
 			continue;
 		}
 
-		this->_Render(renderPos, data);
+
+		//for box2d, +ve x axis is 0 degree clockwise
+		//ffor SFML, -ve y axis 0 degree. weird...
+		//box2dClockwise = 360 - box2d
+		//gameClockwise = 90 - box2dClockwise
+		//				= 90 - (360 - box2d)
+		//				= -270 + box2d
+
+
+		const util::Angle game2RenderAngle = util::Angle::Deg(270);
+
+		vector2* pos = obj->getProp<vector2>(Hash::getHash("position"));
+		vector2 renderPos = view->game2ScreenCoord(*pos);
+
+		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
+		util::Angle gameAngle = util::Angle::Deg(0);//*angle - game2RenderAngle;
+		
+		this->_Render(renderPos, gameAngle, data);
 	};
 }
 
 
-void renderProcessor::_Render(vector2 pos, renderData *data){
+void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data){
 		//loop through the renderers
 	for(auto it = data->renderers.begin(); it != data->renderers.end(); ++it){
 		Renderer &renderer = *it;
@@ -87,15 +101,18 @@ void renderProcessor::_Render(vector2 pos, renderData *data){
 			{
 				sf::Sprite *sprite = renderer.data.sprite;
 				sprite->setPosition(pos);
+				//sprite->setRotation(angle.toDeg());
 				window->draw(*sprite);
 			
 			}
 			break;
 
+
 			case Renderer::Type::Shape:
 			{
 				sf::Shape *shape = renderer.data.shape;
 				shape->setPosition(pos);
+				//shape->setRotation(angle.toDeg());
 				window->draw(*shape);
 			}
 			break;
@@ -104,6 +121,7 @@ void renderProcessor::_Render(vector2 pos, renderData *data){
 			{
 				sf::Text *text = renderer.data.text;
 				text->setPosition(pos);
+				//text->setRotation(angle.toDeg());
 				window->draw(*text);
 			}
 			break;

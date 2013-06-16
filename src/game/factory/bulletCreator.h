@@ -1,6 +1,10 @@
+#pragma once
 #include "objectFactory.h"
 #include "../../core/Process/viewProcess.h"
 #include "../ObjProcessors/bulletProcessor.h"
+#include "../../core/ObjProcessors/renderProcessor.h"
+#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/renderUtil.h"
 
 class bulletCreator : public objectCreator{
 private:

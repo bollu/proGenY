@@ -64,6 +64,8 @@ void phyProcessor::Process(float dt){
 		}
 
 		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
+		angle->setRad(data->body->GetAngle()); 
 
 		vector2 newPos = vector2::cast(data->body->GetPosition());
 		*pos = (newPos);

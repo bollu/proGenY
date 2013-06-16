@@ -140,4 +140,5 @@ void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraDat
 
 	newCameraCenter = _limitCameraCoord(newCameraCenter, data);
 	view->setCenter(newCameraCenter);
+	//view->setRotation(util::Angle::Deg(0));
 };

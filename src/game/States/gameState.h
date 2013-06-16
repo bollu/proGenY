@@ -38,7 +38,7 @@ protected:
 		
 		
 		
-		 this->_generateBoundary(levelDim);
+		this->_generateBoundary(levelDim);
 		this->_generateTerrain(0, playerInitPos);
 		this->_createPlayer(playerInitPos);
 		this->_createEnemies();
@@ -57,6 +57,7 @@ protected:
 	void _createPlayer(vector2 playerInitPos);
 	void _createEnemies();
 	void _createDummy();
+	Object* _createGuns(Object *player);
 
 	objectMgr *objectManager;
 	viewProcess *viewProc;

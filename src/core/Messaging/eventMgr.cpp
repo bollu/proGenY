@@ -1,8 +1,11 @@
 #pragma once
 #include "eventMgr.h"
 #include "../../util/logObject.h"
+#include "../../util/strHelper.h"
 
+eventMgr::eventMgr(){
 
+};
 
 void eventMgr::Register(const Hash *eventName, Observer *observer){
 	this->observerMap[eventName].push_back(observer);
@@ -29,22 +32,52 @@ void eventMgr::Unregister(const Hash *eventName, Observer *observer){
 
 };
 
-void eventMgr::sendEvent(const Hash *eventName, baseProperty *eventData){
-	auto mapIt = this->observerMap.find(eventName);
 
-	if(mapIt == this->observerMap.end()){
-		//util::msgLog("no subscribers to event.\nEventName: " \
-		//		+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
 
+
+bool eventMgr::_observersPresent(const Hash *eventName){
+	return  this->observerMap.find(eventName) != this->observerMap.end();
+};
+
+void eventMgr::_sendEvent(Event &event){
+
+	const Hash *currentEventName = event.name;
+	baseProperty *currentData = event.data;
+
+	auto mapIt = this->observerMap.find(currentEventName);
+	
+	observerList list = mapIt->second;
+	for(auto listIt = list.begin(); listIt != list.end(); ++listIt){
+		(*listIt)->recieveEvent(currentEventName, currentData);
+	}
+	
+
+	if(currentData != NULL){
+		delete(currentData);
+	}
+};
+
+void eventMgr::_Dispatch(Event &newEvent){
+	
+	this->events.push(newEvent);
+
+	//there already is an event that's running. so just include this one
+	//in the queue and return. 
+	if(this->events.size() > 1){
 		return;
 	}
 
-	observerList list = mapIt->second;
-	for(auto listIt = list.begin(); listIt != list.end(); ++listIt){
-		(*listIt)->recieveEvent(eventName, eventData);
-	}
+	while(!this->events.empty()){
+		Event &currentEvent = this->events.front();
 
+		this->_sendEvent(currentEvent);
 
+		this->events.pop();
+	};
+	//there are no pending events. just send the event
+	
+	
 };
+
 
 

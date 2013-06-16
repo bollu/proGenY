@@ -47,6 +47,7 @@ void _createStates(stateProcess *);
 void _createDummy(objectMgr *);
 
 int main(){
+    
     processMgr processManager;
     Settings settings;
     eventMgr eventManager;
@@ -137,7 +138,8 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/cameraProcessor.h"
 #include "game/ObjProcessors/bulletProcessor.h"
 #include "game/ObjProcessors/healthProcessor.h"
-
+#include "game/ObjProcessors/gunProcessor.h"
+#include "game/ObjProcessors/offsetProcessor.h"
 void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,
                            Settings &settings, eventMgr &eventManager){
 
@@ -152,6 +154,8 @@ void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processMa
     objMgrProc->addObjectProcessor(new groundMoveProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new bulletProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new gunProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new offsetProcessor(processManager, settings, eventManager) );
 
 };
 

@@ -4,8 +4,18 @@
 void WSADHandler::recieveEvent(const Hash *eventName, baseProperty *eventData){
 	static const Hash *keyPressedHash = Hash::getHash("keyPressed");
 	static const Hash *keyReleasedHash = Hash::getHash("keyReleased");
+	static const Hash *mouseMovedGameHash = Hash::getHash("mouseMovedGame");
 
-	if(eventName == keyPressedHash){
+
+	if(eventName == mouseMovedGameHash){
+		
+		v2Prop *mousePos = dynamic_cast<v2Prop *>(eventData); 
+		assert(mousePos != NULL);
+			
+		this->_updateGunFacing(*mousePos->getVal());
+	}
+
+	else if(eventName == keyPressedHash){
 		Prop<sf::Event::KeyEvent> *eventProp = dynamic_cast< Prop<sf::Event::KeyEvent> *>(eventData); 
 
 		
@@ -24,6 +34,8 @@ void WSADHandler::recieveEvent(const Hash *eventName, baseProperty *eventData){
 		this->_handleKeyRelease(eventProp->getVal());
 
 	}
+
+
 };
 
 
@@ -82,3 +94,20 @@ void WSADHandler::Update(){
 	}
 
 };
+
+void WSADHandler::_updateGunFacing(vector2 gameMousePos){
+	 
+
+	
+	vector2 delta = (gameMousePos - *this->WSADData.playerPos).Normalize();
+	util::Angle facing = util::Angle(delta);
+	PRINTVECTOR2(delta);
+	PRINTANGLE(facing);
+
+	float rad = 1;
+	vector2 offset = facing.polarProjection(3);
+
+	WSADData.gunOffsetData->posOffset = offset;
+};
+
+void WSADHandler::_fireGun(){};

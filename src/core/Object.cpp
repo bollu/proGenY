@@ -2,6 +2,7 @@
 #include "Object.h"
 #include <sstream>
 #include "../util/logObject.h"
+#include "../util/mathUtil.h"
 
 std::map<std::string, unsigned int> Object::nameMap;
 
@@ -10,6 +11,9 @@ Object::Object(std::string _name) : dead(false){
 	this->_genUniqueName(_name, this->name);
 
 	this->addProp(Hash::getHash("position"), new Prop <vector2>(vector2(0, 0)));
+	this->addProp(Hash::getHash("facing"), new Prop <util::Angle>(util::Angle::Deg(0)));
+
+
 
 };
 

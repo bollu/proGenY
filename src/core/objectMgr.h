@@ -95,6 +95,7 @@ public:
 				}
 
 				delete(obj);
+				obj = NULL;
 			}else{
 				it++;
 			}

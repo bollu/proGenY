@@ -75,10 +75,7 @@ public:
 	}
 };
 
-
-
-/*! an objectProcessor that handles Rendering Object classes
-the renderProcessor helps to render objects. To Render objects,
+/*! an objectProcessor that handles rendering Object
 the Object must be attached with renderData. the objectProcessor
 uses renderData to draw the Object
 */
@@ -87,7 +84,7 @@ private:
 	sf::RenderWindow *window;
 	viewProcess *view;
 
-	void _Render(vector2 pos, renderData *data);
+	void _Render(vector2 pos, util::Angle &angle , renderData *data);
 public:
 
 	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);

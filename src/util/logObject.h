@@ -2,6 +2,8 @@
 #include <iostream>
 #include <assert.h>
 #include "strHelper.h"
+#include <typeinfo>
+
 /*!
 	@file logObject.h
 	Logging objects are present on this file
@@ -136,5 +138,6 @@ namespace util{
 		}
 	}; //end scopedLog
 
+	
 
 } //end namespace
