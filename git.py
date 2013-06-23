@@ -7,8 +7,11 @@ def ga(files):
 
 
 def commit():
-	os.system("git commit -m " + sys.argv[1])
+	os.system("git commit -m " + "'" + sys.argv[1] + "'")
 
+
+def push():
+	os.system("git push origin master")
 
 if len(sys.argv) < 2:
 	sys.exit('Usage: git.py [commit-message]')
@@ -38,3 +41,4 @@ ga("git.py")
 
 
 commit();
+push();
