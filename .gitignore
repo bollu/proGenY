@@ -1,5 +1,4 @@
 *.out
 *.o
-*.py
-*_old
+*old
 

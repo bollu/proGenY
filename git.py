@@ -7,14 +7,13 @@ def ga(files):
 
 
 def commit():
-	os.system("git commit -m " + "'" + sys.argv[1] + "'")
+	os.system("git commit")
 
 
 def push():
 	os.system("git push origin master")
 
-if len(sys.argv) < 2:
-	sys.exit('Usage: git.py [commit-message]')
+
 
 ga("box2d_test.sublime-project")
 ga("box2d_test.sublime-workspace")
@@ -38,6 +37,7 @@ ga("Tuprules.tup")
 ga(".tup/*")
 
 ga("git.py")
+ga(".gitignore")
 
 
 commit();
