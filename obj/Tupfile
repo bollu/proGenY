@@ -7,17 +7,17 @@ include_rules
 
 : foreach ../src/*.c* |> !cc |> %B.o
 
-: foreach ../src/core/*.c* |> !cc |> 
-: foreach ../src/core/Messaging/*.c* |> !cc |> 
-: foreach ../src/core/ObjProcessors/*.c* |> !cc |> 
-: foreach ../src/core/Process/*.c* |> !cc |> 
-: foreach ../src/core/State/*.c* |> !cc |>
+: foreach ../src/core/*.c* |> !cc |> %B.o
+: foreach ../src/core/Messaging/*.c* |> !cc |> %B.o
+: foreach ../src/core/ObjProcessors/*.c* |> !cc |> %B.o
+: foreach ../src/core/Process/*.c* |> !cc |> %B.o
+: foreach ../src/core/State/*.c* |> !cc |>%B.o
 
 
-: foreach ../src/game/eventHandlers/*.c* |> !cc |> 
-: foreach ../src/game/factory/*.c* |>  !cc |> 
-: foreach ../src/game/ObjProcessors/*.c* |> !cc |> 
-: foreach ../src/game/States/*.c* |> !cc |> 
+: foreach ../src/game/eventHandlers/*.c* |> !cc |> %B.o
+: foreach ../src/game/factory/*.c* |>  !cc |> %B.o
+: foreach ../src/game/ObjProcessors/*.c* |> !cc |> %B.o
+: foreach ../src/game/States/*.c* |> !cc |> %B.o
 
 
 

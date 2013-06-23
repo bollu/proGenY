@@ -492,18 +492,26 @@
 			}
 		},
 		{
-			"file": "/home/siddharth/Data/scripts/downloadTorrents.py",
+			"file": "git.py",
 			"settings":
 			{
-				"buffer_size": 69,
+				"buffer_size": 502,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
+			"file": "/home/siddharth/Data/programming/tools/buildSys/cpp.py",
 			"settings":
 			{
-				"buffer_size": 1514,
+				"buffer_size": 3639,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -519,9 +527,13 @@
 	"build_system": "make",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 102.0,
 		"selected_items":
 		[
+			[
+				"python",
+				"Set Syntax: Python"
+			],
 			[
 				"rebui",
 				"CTags: Rebuild Tags"
@@ -928,6 +940,13 @@
 	},
 	"file_history":
 	[
+		"/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+		"/home/siddharth/Data/programming/tools/buildSys/help",
+		"/home/siddharth/Data/programming/tools/buildSys/Cpp.py",
+		"/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
+		"/home/siddharth/Data/scripts/downloadTorrents.py",
 		"/home/siddharth/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/bulletProcessor.cpp",
@@ -935,7 +954,6 @@
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/gunCreator.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.h",
-		"/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
 		"/home/siddharth/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.cpp",
@@ -984,7 +1002,6 @@
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/processMgr.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/box2d_test.sublime-project",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/Tuprules.tup",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/obj/Tupfile",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/groundMoveProcessor.h",
@@ -1005,7 +1022,6 @@
 		"/home/siddharth/.bashr",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/cameraProcessor.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/help",
 		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/groundMoveProcessor.h",
 		"/home/siddharth/Data/programming/C_C++/src/core/ObjProcessors/renderProcessor.h",
@@ -1051,11 +1067,7 @@
 		"/home/siddharth/.config/sublime-text-2/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
 		"/home/siddharth/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tags",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Settings.h",
-		"/home/siddharth/a",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/a",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/b2Body.cpp",
-		"/home/siddharth/.config/sublime-text-2/Packages/sublime-text-move-tabs/MoveTabs.sublime-settings"
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Settings.h"
 	],
 	"find":
 	{
@@ -1063,7 +1075,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 			"*.h, *.cpp",
@@ -1077,6 +1089,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fullDestPath",
+			"folderPath",
 			"space",
 			"\"shift+",
 			"\"shift+alt",
@@ -1200,6 +1214,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"destFolderPath",
 			"gun",
 			"angleInRad",
 			"world->",
@@ -1220,13 +1235,13 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1387,8 +1402,8 @@
 						"selection":
 						[
 							[
-								419,
-								419
+								215,
+								215
 							]
 						],
 						"settings":
@@ -1450,18 +1465,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/home/siddharth/Data/scripts/downloadTorrents.py",
+					"file": "git.py",
 					"settings":
 					{
-						"buffer_size": 69,
+						"buffer_size": 502,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
+								162,
+								162
 							]
 						],
 						"settings":
@@ -1510,7 +1525,7 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"buffer_scroll_name": "20f2132a",
+							"buffer_scroll_name": "bf0f2d20",
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1521,18 +1536,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
+					"file": "/home/siddharth/Data/programming/tools/buildSys/cpp.py",
 					"settings":
 					{
-						"buffer_size": 1514,
+						"buffer_size": 3639,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1060,
-								1060
+								3639,
+								3639
 							]
 						],
 						"settings":
@@ -1581,10 +1596,79 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"buffer_scroll_name": "9230d2ad",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"buffer_scroll_name": "efc0c749",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1734.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"buffer_scroll_name": "873ade5c",
+							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1593,7 +1677,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/game/ObjProcessors/bulletProcessor.h",
 					"settings":
 					{
@@ -1659,7 +1743,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
