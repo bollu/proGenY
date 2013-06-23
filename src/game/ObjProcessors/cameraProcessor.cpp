@@ -85,26 +85,26 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	vector2 *gamePos = obj->getProp<vector2>(Hash::getHash("position"));
-	vector2 screenPos = this->view->game2ScreenCoord(*gamePos);
+	vector2 viewPos = this->view->game2ViewCoord(*gamePos);
 
 	vector2 currentCameraCenter = view->getCenter();
 	vector2 boxBottomLeft = currentCameraCenter - vector2(data->boxHalfW, data->boxHalfH);
 	vector2 boxtopRight = currentCameraCenter + vector2(data->boxHalfW, data->boxHalfH);
 
 	vector2 cameraMoveAmt = vector2(0, 0);
-	if(screenPos.x < boxBottomLeft.x){
-		cameraMoveAmt.x = screenPos.x - boxBottomLeft.x;
+	if(viewPos.x < boxBottomLeft.x){
+		cameraMoveAmt.x = viewPos.x - boxBottomLeft.x;
 	}
-	if(screenPos.x > boxtopRight.x){
-		cameraMoveAmt.x = screenPos.x - boxtopRight.x;
-	}
-
-	if(screenPos.y < boxBottomLeft.y){
-		cameraMoveAmt.y = screenPos.y - boxBottomLeft.y;
+	if(viewPos.x > boxtopRight.x){
+		cameraMoveAmt.x = viewPos.x - boxtopRight.x;
 	}
 
-	if(screenPos.y > boxtopRight.y){
-		cameraMoveAmt.y = screenPos.y - boxtopRight.y;
+	if(viewPos.y < boxBottomLeft.y){
+		cameraMoveAmt.y = viewPos.y - boxBottomLeft.y;
+	}
+
+	if(viewPos.y > boxtopRight.y){
+		cameraMoveAmt.y = viewPos.y - boxtopRight.y;
 	}
 
 

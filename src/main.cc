@@ -73,7 +73,7 @@ int main(){
        processManager.Draw();
        processManager.postDraw();
 
-      // sf::sleep( sf::milliseconds(rand() % 30) );
+       sf::sleep( sf::milliseconds(rand() % 30) );
    }
 
    processManager.Shutdown();
@@ -112,10 +112,11 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
     objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
-
+    processManager.addProcess(objMgrProc);
+    
     //create the object processors that are responsible for creating objects
     _createObjectProcessors(objMgrProc, processManager, settings, eventManager);
-    processManager.addProcess(objMgrProc);
+   
 
 
      //KEEP THIS ONE THE LAST ONE> it depends on all other processes.

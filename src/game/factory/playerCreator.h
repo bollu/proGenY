@@ -65,7 +65,6 @@ public:
 		
 
 	//final creation--------------------------------------------------------
-	util::msgLog("adding phyData");
 		playerObj->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
 

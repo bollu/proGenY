@@ -33,12 +33,13 @@ public:
 		phy.collisionType = Hash::getHash("dummy");
 		phy.bodyDef.type = b2_dynamicBody;
 
-		b2CircleShape *dummyShape = new b2CircleShape();
-		dummyShape->m_radius = this->radius;
+		b2PolygonShape *dummyShape = new b2PolygonShape();
+		dummyShape->SetAsBox(this->radius,
+							this->radius);
 
 		b2FixtureDef fixtureDef;
 		fixtureDef.shape = dummyShape;
-		fixtureDef.friction = 0.0;
+		fixtureDef.friction = 1.0;
 		fixtureDef.restitution = 0.0;
 
 		phy.fixtureDef.push_back(fixtureDef);

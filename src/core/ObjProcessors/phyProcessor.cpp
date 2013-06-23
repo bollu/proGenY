@@ -64,6 +64,7 @@ void phyProcessor::Process(float dt){
 		}
 
 		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		
 		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
 		angle->setRad(data->body->GetAngle()); 
 
@@ -81,16 +82,18 @@ void phyProcessor::postProcess(){
 
 
 
+
 void phyProcessor::onObjectRemove(Object *obj){
 	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
 
 
 	if(data != NULL){
-		util::msgLog("destroying body");
+		util::msgLog("destroying body owned by " + obj->getName());
 		world->DestroyBody(data->body);
 	}
 }
 
+/*
 void phyProcessor::_processContacts(){
 	for(auto contact = world->GetContactList(); contact != NULL; contact = contact->GetNext()){
 
@@ -120,7 +123,7 @@ void phyProcessor::_processContacts(){
 
 
 	};
-}
+}*/
 
 void phyData::addCollision(collisionData &collision){
 

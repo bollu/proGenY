@@ -55,6 +55,7 @@ renderProcessor::renderProcessor(processMgr &processManager,
 
 
 void renderProcessor::onObjectAdd(Object *obj){
+
 }
 
 void renderProcessor::Process(float dt){
@@ -77,13 +78,17 @@ void renderProcessor::Process(float dt){
 		//				= -270 + box2d
 
 
-		const util::Angle game2RenderAngle = util::Angle::Deg(270);
+		const util::Angle game2RenderAngle = util::Angle::Deg(360);
 
 		vector2* pos = obj->getProp<vector2>(Hash::getHash("position"));
-		vector2 renderPos = view->game2ScreenCoord(*pos);
+
+		vector2 viewPos = view->game2ViewCoord(*pos);
+		vector2 renderPos = view->view2RenderCoord(viewPos);
 
 		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
-		util::Angle gameAngle = util::Angle::Deg(0);//*angle - game2RenderAngle;
+		float fAngle = angle->toDeg();
+
+		util::Angle gameAngle = util::Angle::Deg(360 - fAngle);
 		
 		this->_Render(renderPos, gameAngle, data);
 	};
@@ -100,7 +105,11 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data)
 			case Renderer::Type::Sprite:
 			{
 				sf::Sprite *sprite = renderer.data.sprite;
-				sprite->setPosition(pos);
+				sf::FloatRect AABB = sprite->getLocalBounds();
+
+				vector2 renderPos = pos - 
+								vector2(AABB.width, AABB.height) * 0.5;
+				sprite->setPosition(pos - renderPos);
 				//sprite->setRotation(angle.toDeg());
 				window->draw(*sprite);
 			
@@ -111,8 +120,12 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data)
 			case Renderer::Type::Shape:
 			{
 				sf::Shape *shape = renderer.data.shape;
+				sf::FloatRect AABB = shape->getLocalBounds();
+
+				vector2 renderPos = pos - 
+									vector2(AABB.width, AABB.height) * 0.5;
 				shape->setPosition(pos);
-				//shape->setRotation(angle.toDeg());
+				shape->setRotation(angle.toDeg());
 				window->draw(*shape);
 			}
 			break;

@@ -27,9 +27,9 @@
 
 
 	Game Coord - box2d coordinates
-	Render Coord - box2d coordinates * scaling
-	Screen Coord - box2d coordinates * scaling + inverted
-
+	View  Coord - box2d coordinates * scaling
+	Render Coord - box2d coordinates * scaling + inverted
+	Screen Coord - direct 1:1 mapping to screen. (0, 0) to (sceenWidth, screenHeight)
 
 	
 
@@ -56,25 +56,29 @@ public:
 
 
 	*/
-	vector2 game2RenderCoord(vector2 gameCoord);
+	vector2 game2ViewCoord(vector2 gameCoord);
 
 	/*!converts render coordinates to game coordinates
 	@param [in] gameCoord: the coordinates in the rendering Coordinate system
 		 to be converted to the game Coordinate system
 	*/
-	vector2 render2GameCoord(vector2 renderCoord);
+	vector2 view2GameCoord(vector2 renderCoord);
 
 	/*!converts rendering coordinates to screen coordiantes*/
-	vector2 render2ScreenCoord(vector2 renderCoord);
+	vector2 view2RenderCoord(vector2 renderCoord);
 
 	/*!converts from screen to rendering coordinates*/
+	vector2 render2ViewCoord(vector2 screenCoord);
+
+	
+	/*!converts from screen coordinates to render coordinates
+	\sa viewProcess*/
 	vector2 screen2RenderCoord(vector2 screenCoord);
+	
+	/*!converts from rendering coordinates to screen coordinates
+	\sa viewProcess*/ 
+	vector2 render2ScreeenCoord(vector2 renderCoord);
 
-	/*!converts from game to screen coordinates*/
-	vector2 game2ScreenCoord(vector2 gameCoord);
-
-	/*!converts from screen to game coordinates*/
-	vector2 screen2GameCoord(vector2 screenCoord);
 
 	/*!moves the viewport by the offset value
 

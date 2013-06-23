@@ -3318,11 +3318,20 @@ seed	src/core/Hash.h	/^	static unsigned int seed;$/;"	m	class:Hash
 uint64_t	src/core/Hash.h	/^typedef unsigned long long uint64_t;$/;"	t
 Register	src/core/Messaging/eventMgr.cpp	/^void eventMgr::Register(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
 Unregister	src/core/Messaging/eventMgr.cpp	/^void eventMgr::Unregister(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
-sendEvent	src/core/Messaging/eventMgr.cpp	/^void eventMgr::sendEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:eventMgr
+_Dispatch	src/core/Messaging/eventMgr.cpp	/^void eventMgr::_Dispatch(Event &newEvent){$/;"	f	class:eventMgr
+_observersPresent	src/core/Messaging/eventMgr.cpp	/^bool eventMgr::_observersPresent(const Hash *eventName){$/;"	f	class:eventMgr
+_sendEvent	src/core/Messaging/eventMgr.cpp	/^void eventMgr::_sendEvent(Event &event){$/;"	f	class:eventMgr
+eventMgr	src/core/Messaging/eventMgr.cpp	/^eventMgr::eventMgr(){$/;"	f	class:eventMgr
+Event	src/core/Messaging/eventMgr.h	/^	struct Event{$/;"	s	class:eventMgr
 Observer	src/core/Messaging/eventMgr.h	/^class Observer{$/;"	c
+data	src/core/Messaging/eventMgr.h	/^		baseProperty *data;$/;"	m	struct:eventMgr::Event
 eventMgr	src/core/Messaging/eventMgr.h	/^class eventMgr{$/;"	c
+events	src/core/Messaging/eventMgr.h	/^	std::queue <Event>events;$/;"	m	class:eventMgr
+name	src/core/Messaging/eventMgr.h	/^		const Hash *name;$/;"	m	struct:eventMgr::Event
 observerList	src/core/Messaging/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
 observerMap	src/core/Messaging/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
+sendEvent	src/core/Messaging/eventMgr.h	/^	void sendEvent(const Hash *eventName){$/;"	f	class:eventMgr
+sendEvent	src/core/Messaging/eventMgr.h	/^	void sendEvent(const Hash *eventName, T &eventData){$/;"	f	class:eventMgr
 BeginContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
 EndContact	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
 _extractPhyData	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
@@ -3330,7 +3339,6 @@ objContactListener	src/core/ObjProcessors/objContactListener.h	/^	objContactList
 objContactListener	src/core/ObjProcessors/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
 ~objContactListener	src/core/ObjProcessors/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
 Process	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::Process(float dt){$/;"	f	class:phyProcessor
-_processContacts	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_processContacts(){$/;"	f	class:phyProcessor
 addCollision	src/core/ObjProcessors/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
 onObjectAdd	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
 onObjectRemove	src/core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::onObjectRemove(Object *obj){$/;"	f	class:phyProcessor
@@ -3463,21 +3471,22 @@ stateProcess	src/core/Process/stateProcess.h	/^class stateProcess : public Proce
 states	src/core/Process/stateProcess.h	/^	std::map<const Hash*, State*> states;$/;"	m	class:stateProcess
 transitioning	src/core/Process/stateProcess.h	/^	bool transitioning;$/;"	m	class:stateProcess
 Update	src/core/Process/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
-game2RenderCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::game2RenderCoord(vector2 gameCoord){$/;"	f	class:viewProcess
-game2ScreenCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::game2ScreenCoord(vector2 gameCoord){$/;"	f	class:viewProcess
+game2ViewCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::game2ViewCoord(vector2 gameCoord){$/;"	f	class:viewProcess
 getCenter	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::getCenter(){$/;"	f	class:viewProcess
 getGame2RenderScale	src/core/Process/viewProcess.cpp	/^float viewProcess::getGame2RenderScale(){$/;"	f	class:viewProcess
 getRender2GameScale	src/core/Process/viewProcess.cpp	/^float viewProcess::getRender2GameScale(){$/;"	f	class:viewProcess
 move	src/core/Process/viewProcess.cpp	/^void viewProcess::move(vector2 offset){$/;"	f	class:viewProcess
 recieveEvent	src/core/Process/viewProcess.cpp	/^void viewProcess::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:viewProcess
-render2GameCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::render2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
-render2ScreenCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::render2ScreenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
-screen2GameCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::screen2GameCoord(vector2 screenCoord){$/;"	f	class:viewProcess
+render2ScreeenCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::render2ScreeenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
+render2ViewCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::render2ViewCoord(vector2 screenCoord){$/;"	f	class:viewProcess
 screen2RenderCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){$/;"	f	class:viewProcess
 setCenter	src/core/Process/viewProcess.cpp	/^void viewProcess::setCenter(vector2 center){$/;"	f	class:viewProcess
 setRotation	src/core/Process/viewProcess.cpp	/^void viewProcess::setRotation(util::Angle angle){$/;"	f	class:viewProcess
+view2GameCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::view2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
+view2RenderCoord	src/core/Process/viewProcess.cpp	/^vector2 viewProcess::view2RenderCoord(vector2 renderCoord){$/;"	f	class:viewProcess
 viewProcess	src/core/Process/viewProcess.cpp	/^viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:viewProcess
 defaultView	src/core/Process/viewProcess.h	/^	sf::View defaultView;$/;"	m	class:viewProcess
+eventManager	src/core/Process/viewProcess.h	/^	eventMgr &eventManager;$/;"	m	class:viewProcess
 game2RenderScale	src/core/Process/viewProcess.h	/^	float game2RenderScale;$/;"	m	class:viewProcess
 viewProcess	src/core/Process/viewProcess.h	/^class viewProcess : public Process, public Observer{$/;"	c
 window	src/core/Process/viewProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:viewProcess
@@ -3506,6 +3515,7 @@ world	src/core/Process/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProces
 worldProcess	src/core/Process/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
 worldProcess	src/core/Process/worldProcess.h	/^class worldProcess : public Process{$/;"	c
 Prop	src/core/Property.h	/^	Prop(T value){$/;"	f	class:Prop
+Prop	src/core/Property.h	/^	Prop(const Prop<T> &other){$/;"	f	class:Prop
 Prop	src/core/Property.h	/^class Prop : public baseProperty{$/;"	c
 baseProperty	src/core/Property.h	/^	baseProperty(){};$/;"	f	class:baseProperty
 baseProperty	src/core/Property.h	/^class baseProperty{$/;"	c
@@ -3723,12 +3733,17 @@ onGround	src/game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	st
 world	src/game/ObjProcessors/groundMoveProcessor.h	/^	b2World *world;$/;"	m	class:groundMoveProcessor
 xAccel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:moveData
 xVel	src/game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:moveData
+Fire	src/game/ObjProcessors/gunProcessor.cpp	/^void gunData::Fire(){$/;"	f	class:gunData
 Process	src/game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::Process(float dt){$/;"	f	class:gunProcessor
-Tick	src/game/ObjProcessors/gunProcessor.cpp	/^void gunData::Tick(){};$/;"	f	class:gunData
-_fireShot	src/game/ObjProcessors/gunProcessor.cpp	/^void gunData::_fireShot(){};$/;"	f	class:gunData
+_Cooldown	src/game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Cooldown(){$/;"	f	class:gunData
+_Tick	src/game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Tick(){$/;"	f	class:gunData
+_fireShot	src/game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_fireShot(gunData *data, vector2 pos){$/;"	f	class:gunProcessor
+gunProcessor	src/game/ObjProcessors/gunProcessor.cpp	/^gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){$/;"	f	class:gunProcessor
 postProcess	src/game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::postProcess(){};$/;"	f	class:gunProcessor
-bullet	src/game/ObjProcessors/gunProcessor.h	/^	bulletCreator *bullet;$/;"	m	struct:gunData
+_shouldFire	src/game/ObjProcessors/gunProcessor.h	/^	bool _shouldFire(){$/;"	f	struct:gunData
+bulletPos	src/game/ObjProcessors/gunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:gunData
 clipOnCooldown	src/game/ObjProcessors/gunProcessor.h	/^	bool clipOnCooldown;$/;"	m	struct:gunData
+creator	src/game/ObjProcessors/gunProcessor.h	/^	bulletCreator *creator;$/;"	m	struct:gunData
 currentClipCooldown	src/game/ObjProcessors/gunProcessor.h	/^	int currentClipCooldown;$/;"	m	struct:gunData
 currentClipSize	src/game/ObjProcessors/gunProcessor.h	/^	int currentClipSize;$/;"	m	struct:gunData
 currrentShotCooldown	src/game/ObjProcessors/gunProcessor.h	/^	int currrentShotCooldown;$/;"	m	struct:gunData
@@ -3736,14 +3751,16 @@ facing	src/game/ObjProcessors/gunProcessor.h	/^	util::Angle facing;$/;"	m	struct
 firing	src/game/ObjProcessors/gunProcessor.h	/^	bool firing;$/;"	m	struct:gunData
 gunData	src/game/ObjProcessors/gunProcessor.h	/^	gunData(){$/;"	f	struct:gunData
 gunData	src/game/ObjProcessors/gunProcessor.h	/^struct gunData{$/;"	s
-gunProcessor	src/game/ObjProcessors/gunProcessor.h	/^	gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){};$/;"	f	class:gunProcessor
 gunProcessor	src/game/ObjProcessors/gunProcessor.h	/^class gunProcessor : public objectProcessor{$/;"	c
+objectManager	src/game/ObjProcessors/gunProcessor.h	/^	objectMgr *objectManager;$/;"	m	class:gunProcessor
+setBulletCreator	src/game/ObjProcessors/gunProcessor.h	/^	void setBulletCreator(bulletCreator *creator){$/;"	f	struct:gunData
 setClipCooldown	src/game/ObjProcessors/gunProcessor.h	/^	void setClipCooldown(int totalClipCooldown){$/;"	f	struct:gunData
 setClipSize	src/game/ObjProcessors/gunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:gunData
+setCreationPos	src/game/ObjProcessors/gunProcessor.h	/^	void setCreationPos(vector2 pos){$/;"	f	struct:gunData
 setFacing	src/game/ObjProcessors/gunProcessor.h	/^	void setFacing(util::Angle facing){$/;"	f	struct:gunData
 setShotCooldown	src/game/ObjProcessors/gunProcessor.h	/^	void setShotCooldown(int totalShotCooldown){$/;"	f	struct:gunData
+setShotRadius	src/game/ObjProcessors/gunProcessor.h	/^	void setShotRadius(float radius){$/;"	f	struct:gunData
 shotOnCooldown	src/game/ObjProcessors/gunProcessor.h	/^	bool shotOnCooldown;$/;"	m	struct:gunData
-shouldFire	src/game/ObjProcessors/gunProcessor.h	/^	bool shouldFire(){$/;"	f	struct:gunData
 totalClipCooldown	src/game/ObjProcessors/gunProcessor.h	/^	int totalClipCooldown;$/;"	m	struct:gunData
 totalClipSize	src/game/ObjProcessors/gunProcessor.h	/^	int totalClipSize;$/;"	m	struct:gunData
 totalShotCooldown	src/game/ObjProcessors/gunProcessor.h	/^	int totalShotCooldown;$/;"	m	struct:gunData
@@ -3796,21 +3813,26 @@ createSaveLoader	src/game/States/mainMenuState.h	/^	stateSaveLoader *createSaveL
 mainMenuState	src/game/States/mainMenuState.h	/^	mainMenuState() : State("mainMenuState"){};$/;"	f	class:mainMenuState
 mainMenuState	src/game/States/mainMenuState.h	/^class mainMenuState : public State{$/;"	c
 Update	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::Update(){$/;"	f	class:WSADHandler
-_fireGun	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_fireGun(){};$/;"	f	class:WSADHandler
+_fireGun	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_fireGun(){$/;"	f	class:WSADHandler
 _handleKeyPress	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_handleKeyPress(sf::Event::KeyEvent *event){$/;"	f	class:WSADHandler
 _handleKeyRelease	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_handleKeyRelease(sf::Event::KeyEvent *event){$/;"	f	class:WSADHandler
-_updateGunFacing	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_updateGunFacing(vector2 gameMousePos){};$/;"	f	class:WSADHandler
+_updateGunFacing	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::_updateGunFacing(vector2 gameMousePos){$/;"	f	class:WSADHandler
 recieveEvent	src/game/eventHandlers/WSADHandler.cpp	/^void WSADHandler::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:WSADHandler
 WSADData	src/game/eventHandlers/WSADHandler.h	/^	WSADHandlerData WSADData;$/;"	m	class:WSADHandler
 WSADHandler	src/game/eventHandlers/WSADHandler.h	/^	WSADHandler(eventMgr *_eventManager, WSADHandlerData WSADData) : $/;"	f	class:WSADHandler
 WSADHandler	src/game/eventHandlers/WSADHandler.h	/^class WSADHandler : public Observer{$/;"	c
 WSADHandlerData	src/game/eventHandlers/WSADHandler.h	/^struct WSADHandlerData{$/;"	s
+_gunData	src/game/eventHandlers/WSADHandler.h	/^	gunData *_gunData;$/;"	m	struct:WSADHandlerData
 currentGun	src/game/eventHandlers/WSADHandler.h	/^	Object *currentGun;$/;"	m	struct:WSADHandlerData
 down	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key down;$/;"	m	struct:WSADHandlerData
 eventManager	src/game/eventHandlers/WSADHandler.h	/^	eventMgr *eventManager;$/;"	m	class:WSADHandler
+fireGun	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key fireGun;$/;"	m	struct:WSADHandlerData
+gunOffsetData	src/game/eventHandlers/WSADHandler.h	/^	offsetData *gunOffsetData;$/;"	m	struct:WSADHandlerData
 left	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key left;$/;"	m	struct:WSADHandlerData
 objMoveData	src/game/eventHandlers/WSADHandler.h	/^	moveData *objMoveData;$/;"	m	struct:WSADHandlerData
 physicsData	src/game/eventHandlers/WSADHandler.h	/^	phyData *physicsData;$/;"	m	struct:WSADHandlerData
+player	src/game/eventHandlers/WSADHandler.h	/^	Object *player;$/;"	m	struct:WSADHandlerData
+playerPos	src/game/eventHandlers/WSADHandler.h	/^	vector2 *playerPos;$/;"	m	struct:WSADHandlerData
 right	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key right;$/;"	m	struct:WSADHandlerData
 up	src/game/eventHandlers/WSADHandler.h	/^	sf::Keyboard::Key up;$/;"	m	struct:WSADHandlerData
 boundaryCreator	src/game/factory/boundaryCreator.h	/^	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:boundaryCreator
@@ -6465,15 +6487,16 @@ util	src/util/logObject.h	/^namespace util{$/;"	n
 ~scopedLog	src/util/logObject.h	/^		~scopedLog(){$/;"	f	class:util::scopedLog
 Angle	src/util/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
 Angle	src/util/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
+Angle	src/util/mathUtil.h	/^		Angle(vector2 vec){$/;"	f	class:util::Angle
 Angle	src/util/mathUtil.h	/^	class Angle{$/;"	c	namespace:util
-DEG2RAD	src/util/mathUtil.h	/^	const float DEG2RAD = 1.0f \/ RAD2DEG;$/;"	m	namespace:util
+DEG2RAD	src/util/mathUtil.h	/^	const double DEG2RAD = util::PI \/ 180.0;$/;"	m	namespace:util
 Deg	src/util/mathUtil.h	/^		static Angle Deg(float deg){$/;"	f	class:util::Angle
-PI	src/util/mathUtil.h	/^	const float PI = 3.1415926f;$/;"	m	namespace:util
+PI	src/util/mathUtil.h	/^	const double PI = 3.141592653589793238462;$/;"	m	namespace:util
 PIBy2	src/util/mathUtil.h	/^	const float PIBy2 = PI \/ 2.0;$/;"	m	namespace:util
 PRINTANGLE	src/util/mathUtil.h	6;"	d
-RAD2DEG	src/util/mathUtil.h	/^	const float RAD2DEG = 180.0 \/ util::PI;$/;"	m	namespace:util
+RAD2DEG	src/util/mathUtil.h	/^	const double RAD2DEG = 180.0 \/ util::PI;$/;"	m	namespace:util
 Rad	src/util/mathUtil.h	/^		static Angle Rad(float rad){$/;"	f	class:util::Angle
-TwoPI	src/util/mathUtil.h	/^	const float TwoPI = 2.0 * PI;$/;"	m	namespace:util
+TwoPI	src/util/mathUtil.h	/^	const double TwoPI = 2.0 * PI;$/;"	m	namespace:util
 angleInRad	src/util/mathUtil.h	/^		float angleInRad;$/;"	m	class:util::Angle
 cos	src/util/mathUtil.h	/^		float cos(){$/;"	f	class:util::Angle
 debugStr	src/util/mathUtil.h	/^		std::string debugStr(){$/;"	f	class:util::Angle
@@ -6491,6 +6514,7 @@ sin	src/util/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 tan	src/util/mathUtil.h	/^		float tan(){$/;"	f	class:util::Angle
 toDeg	src/util/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
 toRad	src/util/mathUtil.h	/^		float toRad(){$/;"	f	class:util::Angle
+toVector	src/util/mathUtil.h	/^		vector2 toVector(){$/;"	f	class:util::Angle
 util	src/util/mathUtil.h	/^namespace util{$/;"	n
 strHelper	src/util/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 toStr	src/util/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper

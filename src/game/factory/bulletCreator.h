@@ -45,6 +45,7 @@ public:
 		phy.collisionType = Hash::getHash("bullet");
 		phy.bodyDef.type = b2_dynamicBody;
 
+		
 		b2CircleShape *dummyShape = new b2CircleShape();
 		dummyShape->m_radius = this->radius;
 
@@ -52,6 +53,7 @@ public:
 		fixtureDef.shape = dummyShape;
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
+		fixtureDef.isSensor = true;
 
 		phy.fixtureDef.push_back(fixtureDef);
 

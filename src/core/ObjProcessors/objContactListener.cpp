@@ -24,6 +24,9 @@ void objContactListener::BeginContact(b2Contact* contact){
 
 	this->_extractPhyData(contact, &a, &b);
 
+
+	assert(a != NULL && b != NULL);
+
 	phyData *aPhyData = a->getProp<phyData>(Hash::getHash("phyData"));
 	phyData *bPhyData = b->getProp<phyData>(Hash::getHash("phyData"));
 
@@ -50,13 +53,19 @@ void objContactListener::EndContact(b2Contact* contact){
 
 	this->_extractPhyData(contact, &a, &b);
 
+	assert(a != NULL && b != NULL);
+	
 	phyData *aPhyData = a->getProp<phyData>(Hash::getHash("phyData"));
 	phyData *bPhyData = b->getProp<phyData>(Hash::getHash("phyData"));
+
+	assert(aPhyData != NULL && bPhyData != NULL);
 
 	collision.data = bPhyData;
 	collision.obj = b;
 	collision.type = collisionData::Type::onEnd;
 	
+	
+
 	aPhyData->addCollision(collision);
 
 	collision.data = aPhyData;

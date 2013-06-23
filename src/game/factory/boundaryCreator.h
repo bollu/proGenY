@@ -40,7 +40,7 @@ public:
 		{
 			//BOTTOM---------------------------------------------------------
 			b2PolygonShape *bottom = new b2PolygonShape(); 
-			vector2 bottomCenter = vector2(0, -levelDim.y / 2.0 + thickness / 2.0);//vector2(levelDim.x / 2.0, 0);
+			vector2 bottomCenter = vector2(0, -levelDim.y / 2.0);//vector2(levelDim.x / 2.0, 0);
 			bottom->SetAsBox(levelDim.x / 2.0, thickness, bottomCenter, 0);
 
 			b2FixtureDef bottomFixtureDef;
@@ -60,7 +60,7 @@ public:
 		{
 			//TOP---------------------------------------------------------
 			b2PolygonShape *top = new b2PolygonShape(); 
-			vector2 topCenter = vector2(0, levelDim.y / 2.0 + thickness / 2.0);//vector2(levelDim.x / 2.0, levelDim.y / 2.0);
+			vector2 topCenter = vector2(0, levelDim.y / 2.0);//vector2(levelDim.x / 2.0, levelDim.y / 2.0);
 			top->SetAsBox(levelDim.x / 2.0, thickness, topCenter, 0);
 
 			b2FixtureDef topFixtureDef;
@@ -83,7 +83,7 @@ public:
 		{
 			//LEFT---------------------------------------------------------
 			b2PolygonShape *left = new b2PolygonShape(); 
-			vector2 leftCenter = vector2(-levelDim.x / 2.0 -  thickness, 0);
+			vector2 leftCenter = vector2(-levelDim.x / 2.0, 0);
 			left->SetAsBox(thickness, levelDim.y / 2.0, leftCenter, 0);
 
 			b2FixtureDef leftFixtureDef;
@@ -102,7 +102,7 @@ public:
 		{
 			//RIGHT---------------------------------------------------------
 			b2PolygonShape *right = new b2PolygonShape(); 
-			vector2 rightCenter = vector2(levelDim.x / 2.0 -  thickness, 0);
+			vector2 rightCenter = vector2(levelDim.x / 2.0, 0);
 			right->SetAsBox(thickness, levelDim.y / 2.0, rightCenter, 0);
 
 			b2FixtureDef rightFixtureDef;

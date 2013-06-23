@@ -44,5 +44,9 @@ sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, float game2Rende
 };
 
 sf::Shape *renderUtil::createCircleShape(b2CircleShape *b2Shape, float game2RenderScale){
-	return new sf::CircleShape(b2Shape->m_radius * game2RenderScale, 20);
+	float renderRadius = b2Shape->m_radius * game2RenderScale;
+	sf::CircleShape *shape = new sf::CircleShape(renderRadius, 8);
+	//TODO: find why I need to fix the center of the circle. It shouldnt be this way
+	shape->setOrigin(renderRadius, renderRadius);
+	return shape;
 };

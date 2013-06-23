@@ -11,7 +11,7 @@ public:
 	sf::Keyboard::Key down;
 	sf::Keyboard::Key left;
 	sf::Keyboard::Key right;
-
+	sf::Keyboard::Key fireGun;
 	
 	Object *currentGun;
 	Object *player;
@@ -23,6 +23,7 @@ private:
 	phyData *physicsData;
 
 	offsetData *gunOffsetData;
+	gunData *_gunData;
 
 };
 
@@ -36,8 +37,7 @@ public:
 
 
 		eventManager->Register(Hash::getHash("mouseMovedGame"), this);
-		util::msgLog("registered to mouseMovedGame");
-		
+	
 		Object *player = WSADData.player;
 		Object *gun = WSADData.currentGun;
 
@@ -45,6 +45,7 @@ public:
 		this->WSADData.objMoveData =  player->getProp<moveData>(Hash::getHash("moveData"));
 		this->WSADData.physicsData =  player->getProp<phyData>(Hash::getHash("phyData"));
 		this->WSADData.gunOffsetData = gun->getProp<offsetData>(Hash::getHash("offsetData"));
+		this->WSADData._gunData = gun->getProp<gunData>(Hash::getHash("gunData"));
 	};
 
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);

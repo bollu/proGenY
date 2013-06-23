@@ -6,17 +6,17 @@
 #define PRINTANGLE(angle) util::msgLog(std::string(#angle) + angle.debugStr());
 
 namespace util{
-	const float PI = 3.1415926f;
+	const double PI = 3.141592653589793238462;
 	const float PIBy2 = PI / 2.0;
-	const float TwoPI = 2.0 * PI;
-	const float RAD2DEG = 180.0 / util::PI;
-	const float DEG2RAD = 1.0f / RAD2DEG;
+	const double TwoPI = 2.0 * PI;
+	const double RAD2DEG = 180.0 / util::PI;
+	const double DEG2RAD = util::PI / 180.0;
 
 
 	class Angle{
 	private:
 		Angle(float rad){
-			this->setRad(this->angleInRad);
+			this->setRad(rad);
 		}
 
 		float angleInRad;
@@ -60,6 +60,10 @@ namespace util{
 		float toRad(){
 			return this->angleInRad;
 		};
+
+		vector2 toVector(){
+			return vector2(this->cos(), this->sin());
+		}
 
 		void setRad(float angleInRad){
 			this->angleInRad = angleInRad;

@@ -50,11 +50,14 @@ public:
 			vector2 *parentPos = data->parent->getProp<vector2>(Hash::getHash("position"));
 			vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
 			(*pos) = *parentPos + data->posOffset;
-
+			
+			util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
+			*facing = data->angleOffset;
+			/*
 			util::Angle *parentFacing = data->parent->getProp<util::Angle>(Hash::getHash("facing"));
 			util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
 			*facing = *parentFacing + data->angleOffset;
-
+`			*/
 		};
 	};
 };

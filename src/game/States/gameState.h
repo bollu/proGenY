@@ -33,8 +33,8 @@ protected:
 		
 		this->_initFactory();
 
-		vector2 playerInitPos = viewProc->render2GameCoord(vector2(300, 300));
-		vector2 levelDim = viewProc->render2GameCoord(vector2(1280 * 2 , 720 * 2));
+		vector2 playerInitPos = viewProc->view2GameCoord(vector2(300, 300));
+		vector2 levelDim = viewProc->view2GameCoord(vector2(1280 * 2 , 720 * 2));
 		
 		
 		

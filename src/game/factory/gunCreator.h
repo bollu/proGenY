@@ -44,7 +44,7 @@ public:
 
 
 		//renderer------------------------------------
-		vector2 gunDim = vector2(1.0,3) * viewProc->getGame2RenderScale();
+		vector2 gunDim = vector2(2,1) * viewProc->getGame2RenderScale();
 		sf::Shape *shape = new sf::RectangleShape(vector2::cast<sf::Vector2f>(gunDim));
 
 			

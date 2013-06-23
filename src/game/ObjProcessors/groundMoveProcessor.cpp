@@ -98,6 +98,8 @@ void groundMoveProcessor::Process(float dt){
 
 	    body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
 
+	    body->SetAngularVelocity(-currentVelX  * 0.5);
+
 	};
 };
 

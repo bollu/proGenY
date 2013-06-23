@@ -58,6 +58,11 @@ void WSADHandler::_handleKeyPress(sf::Event::KeyEvent *event){
 		WSADData.objMoveData->setMoveLeft(false);
 		
 	}
+
+	if(key == this->WSADData.fireGun){
+		this->_fireGun();
+		
+	}
 };
 void WSADHandler::_handleKeyRelease(sf::Event::KeyEvent *event){
 
@@ -101,13 +106,19 @@ void WSADHandler::_updateGunFacing(vector2 gameMousePos){
 	
 	vector2 delta = (gameMousePos - *this->WSADData.playerPos).Normalize();
 	util::Angle facing = util::Angle(delta);
-	PRINTVECTOR2(delta);
-	PRINTANGLE(facing);
-
+	
 	float rad = 1;
 	vector2 offset = facing.polarProjection(3);
 
+	WSADData._gunData->setBulletPos(*WSADData.playerPos + offset);
+	WSADData._gunData->setFacing(facing);
+
 	WSADData.gunOffsetData->posOffset = offset;
+	WSADData.gunOffsetData->angleOffset = facing;
 };
 
-void WSADHandler::_fireGun(){};
+void WSADHandler::_fireGun(){
+
+	WSADData._gunData->Fire();
+	
+};

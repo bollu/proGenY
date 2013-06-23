@@ -11,9 +11,6 @@ void bulletProcessor::onObjectAdd(Object *obj){
 		return;
 	};
 	
-
-	util::msgLog(obj->getName() + " has bullet");
-	
 	phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
 	assert(physicsData != NULL);
 
@@ -49,9 +46,10 @@ void bulletProcessor::Process(float dt){
 
 		b2Body *body = physicsData->body;
 
+		/*
 		vector2 vel = vector2::cast(body->GetLinearVelocity());
 		body->SetTransform(body->GetPosition(), vel.toAngle());
-
+		*/
 		
 		for(collisionData collision : physicsData->collisions){
 
@@ -68,9 +66,10 @@ void bulletProcessor::Process(float dt){
 				
 				health->Damage(data->damage);
 
-			}
-			else{
 				obj->Kill();
+			}	
+			else{
+				//obj->Kill();
 			}
 		
 		}

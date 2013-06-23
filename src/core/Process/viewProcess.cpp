@@ -18,7 +18,6 @@ viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMg
 	defaultView.setSize(windowDim.x, windowDim.y);
 	
 	_eventManager.Register(Hash::getHash("mouseMovedScreen"), this);
-	_eventManager.Register(Hash::getHash("mouseMovedGame"), this);
 }
 
 void viewProcess::Update(float dt){
@@ -26,30 +25,34 @@ void viewProcess::Update(float dt){
 };
 
 
-vector2 viewProcess::game2RenderCoord(vector2 gameCoord){
+vector2 viewProcess::game2ViewCoord(vector2 gameCoord){
 	return gameCoord * game2RenderScale;
 };
 
-vector2 viewProcess::render2GameCoord(vector2 renderCoord){
+vector2 viewProcess::view2GameCoord(vector2 renderCoord){
 	return renderCoord * (1.0 / game2RenderScale);
 };
 
-vector2 viewProcess::render2ScreenCoord(vector2 renderCoord){
+vector2 viewProcess::view2RenderCoord(vector2 renderCoord){
 	return vector2(renderCoord.x, this->windowHeight - renderCoord.y);
 }
 
 
-vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){
+vector2 viewProcess::render2ViewCoord(vector2 screenCoord){
 	return vector2(screenCoord.x, this->windowHeight - screenCoord.y);
 }
 
-vector2 viewProcess::game2ScreenCoord(vector2 gameCoord){
-	return this->render2ScreenCoord(this->game2RenderCoord(gameCoord));
-}
+vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){
+	sf::Vector2f renderCoord = window->mapPixelToCoords(vector2::cast<sf::Vector2i>(screenCoord));
+	return vector2::cast(renderCoord);
+};
+ 
+vector2 viewProcess::render2ScreeenCoord(vector2 renderCoord){
+	sf::Vector2i screenCoord = window->mapCoordsToPixel(vector2::cast<sf::Vector2f>(renderCoord));
+	return vector2::cast(renderCoord);
+};
 
-vector2 viewProcess::screen2GameCoord(vector2 screenCoord){
-	return this->render2GameCoord(screen2RenderCoord(screenCoord));
-}
+
 
 void viewProcess::move(vector2 offset){
 	this->defaultView.move(offset.x, offset.y);
@@ -86,7 +89,8 @@ void viewProcess::recieveEvent(const Hash *eventName, baseProperty *eventData){
 		assert(mousePosProp != NULL);
 		vector2 *mousePos = mousePosProp->getVal();
 		
-		vector2 gameMousePos = screen2GameCoord(*mousePos);
+		vector2 renderMousePos = screen2RenderCoord(*mousePos);
+		vector2 gameMousePos = view2GameCoord(render2ViewCoord(renderMousePos));
 
 		eventManager.sendEvent(Hash::getHash("mouseMovedGame"), gameMousePos); 
 		

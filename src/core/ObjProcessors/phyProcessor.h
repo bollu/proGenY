@@ -54,7 +54,7 @@ private:
 	viewProcess *view;
 	objContactListener contactListener;
 
-	void _processContacts();
+	//void _processContacts();
 public:
 	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
 	{

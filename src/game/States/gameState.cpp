@@ -73,6 +73,7 @@ void gameState::_createPlayer(vector2 playerInitPos){
 	WSADdata.left = sf::Keyboard::Key::A;
 	WSADdata.right = sf::Keyboard::Key::D;
 	WSADdata.up = sf::Keyboard::Key::W;
+	WSADdata.fireGun = sf::Keyboard::Key::S;
 
 
 	WSADdata.player = playerObj;
@@ -107,18 +108,28 @@ void gameState::_createDummy(){
 
 
 Object* gameState::_createGuns(Object *player){
+	bulletCreator *_bulletCreator = (bulletCreator *)objFactory.getCreator(
+		Hash::getHash("bullet"));
+
 	gunCreator *creator = (gunCreator*)objFactory.getCreator(
 		Hash::getHash("gun"));
 
 	
-	creator->setParent(player);
+	gunData data;
+	data.setClipSize(100);
+	data.setClipCooldown(100);
+	data.setShotCooldown(3);
+	data.setBulletRadius(0.3);
+	data.setBulletCreator(_bulletCreator);
 
 	vector2 pos = vector2(400, 200);
-	
 	pos *= viewProc->getRender2GameScale();
+
+	creator->setGunData(data);
+	creator->setParent(player);
+
+
 	Object *dummy = creator->createObject(pos);
-
-
 	objectManager->addObject(dummy);
 
 	return dummy;
@@ -154,7 +165,7 @@ void gameState::_createEnemies(){
 
 	pos *= viewProc->getRender2GameScale();
 	Object *obj = creator->createObject(pos);
-
+	
 
 	objectManager->addObject(obj);
 
