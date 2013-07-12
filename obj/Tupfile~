@@ -19,12 +19,9 @@ include_rules
 : foreach ../src/game/ObjProcessors/*.c* |> !cc |> %B.o
 : foreach ../src/game/States/*.c* |> !cc |> %B.o
 : foreach ../src/game/bulletColliders/*.c* |> !cc |> %B.o
-: foreach ../src/game/gameStateHelpers/*.c* |> !cc |> %B.o
-: foreach ../src/game/level/*.c* |> !cc |> %B.o
-: foreach ../src/game/generators/*.c* |> !cc |> %B.o
+
 
 : foreach ../src/util/*.c* |> !cc |> %B.o
-
 
 
 
