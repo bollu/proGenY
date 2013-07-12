@@ -10,7 +10,7 @@
 #include "../Messaging/eventMgr.h"
 #include "../Process/viewProcess.h"
 
-/*Represents an entity that can be rendered
+/*!Represents an entity that can be rendered
 Anything in the Engine that has to be rendered has to be one of these
 types: a Sprite, a Shape, or Text. This class encapsulates all of the
 types that are used to Render.
@@ -73,6 +73,12 @@ public:
 	void addRenderer(Renderer &renderer){
 		this->renderers.push_back(renderer);
 	}
+
+	//whether the renderer should be shifted by half.
+	//useful when manually setting positions / screwing around
+	bool centered;
+
+	renderData() : centered(false){};
 };
 
 /*! an objectProcessor that handles rendering Object
@@ -84,11 +90,12 @@ private:
 	sf::RenderWindow *window;
 	viewProcess *view;
 
-	void _Render(vector2 pos, util::Angle &angle , renderData *data);
+	void _Render(vector2 pos, util::Angle &angle , renderData *data, bool centered);
 public:
 
 	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 	void onObjectAdd(Object *obj);
+	void preProcess(){};
 	void Process(float dt);
 	void onObjectRemove(Object *obj){};
 };

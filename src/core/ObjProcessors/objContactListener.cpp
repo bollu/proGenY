@@ -33,13 +33,13 @@ void objContactListener::BeginContact(b2Contact* contact){
 
 	assert(aPhyData != NULL && bPhyData != NULL);
 
-	collision.data = bPhyData;
+	collision.phy = bPhyData;
 	collision.obj = b;
 	collision.type = collisionData::Type::onBegin;
 
 	aPhyData->addCollision(collision);
 
-	collision.data = aPhyData;
+	collision.phy = aPhyData;
 	collision.obj = a;
 	collision.type = collisionData::Type::onBegin;
 
@@ -60,7 +60,7 @@ void objContactListener::EndContact(b2Contact* contact){
 
 	assert(aPhyData != NULL && bPhyData != NULL);
 
-	collision.data = bPhyData;
+	collision.phy = bPhyData;
 	collision.obj = b;
 	collision.type = collisionData::Type::onEnd;
 	
@@ -68,7 +68,7 @@ void objContactListener::EndContact(b2Contact* contact){
 
 	aPhyData->addCollision(collision);
 
-	collision.data = aPhyData;
+	collision.phy = aPhyData;
 	collision.obj = a;
 	collision.type = collisionData::Type::onEnd;
 

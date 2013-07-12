@@ -1,7 +1,7 @@
 #pragma once
 #include "bulletProcessor.h"
 #include "../../core/ObjProcessors/phyProcessor.h"
-#include "healthProcessor.h"
+
 
 void bulletProcessor::onObjectAdd(Object *obj){
 	
@@ -16,8 +16,6 @@ void bulletProcessor::onObjectAdd(Object *obj){
 
 	b2Body *body = physicsData->body;
 	assert(body != NULL);
-
-	PRINTVECTOR2(data->beginVel);
 
 	vector2 g = vector2::cast(world->GetGravity());
 	body->ApplyLinearImpulse(body->GetMass() * data->beginVel, body->GetWorldCenter());
@@ -52,27 +50,59 @@ void bulletProcessor::Process(float dt){
 		*/
 		
 		for(collisionData collision : physicsData->collisions){
-
-			
-			if(collision.data->collisionType == data->enemyCollision){
-				//TODO: implement damage, not really sure how to go about this
-				//this solution is good enough for now
-				
-				healthData *health = collision.obj->getProp<healthData>(Hash::getHash("healthData"));
-
-				if(health == NULL){
-					return;
-				}
-				
-				health->Damage(data->damage);
-
-				obj->Kill();
-			}	
-			else{
-				//obj->Kill();
-			}
-		
+			this->_handleCollision(collision, data, obj);
 		}
 	};
 
+};
+
+void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){
+
+	Object *other = collision.obj;
+	const Hash *collisionType = collision.phy->collisionType;
+	bool kill = true;
+
+	if(other->hasProperty(Hash::getHash("bulletData"))){
+		return;
+	}
+
+	/*for(const Hash* ignore : data->ignoreCollisions){
+		if(collisionType == ignore){
+			kill = false;
+			return;
+		}
+	}*/
+
+	if(data->ignoreCollisions.count(collisionType) > 0){
+		kill = false;
+		return;
+	}
+
+
+	if(data->enemyCollisions.count(collisionType) > 0){
+		kill = true;
+
+		for(bulletCollider *collider : data->colliders){
+			//only if ALL bullet colliders agree, kill the bullet
+			kill = kill && collider->onCollision(collision, bullet);
+		}
+
+	}
+	/*for(const Hash *enemy : data->enemyCollisions){
+
+		kill = true;
+
+		if(collisionType == enemy){
+
+			for(bulletCollider *collider : data->colliders){
+				//only if ALL bullet colliders agree, kill the bullet
+				kill = kill && collider->onCollision(collision, bullet);
+			}
+		}
+	}*/
+	
+
+	if(kill){
+		bullet->Kill();
+	};
 };

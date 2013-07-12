@@ -42,9 +42,11 @@ private:
 	util::Angle facing;
 	vector2 bulletPos;
 	float bulletRadius;
+	float buletVel;
 
 	bool firing;
 
+	bulletData bullet;
 
 	void _Cooldown();
 	void _Tick();
@@ -67,6 +69,7 @@ public:
 		this->creator = NULL;
 	}
 	
+	//functions to be called during initialization
 	void setClipSize(int totalClipSize){
 		this->totalClipSize = totalClipSize;
 		this->currentClipSize = this->totalClipSize;
@@ -83,13 +86,13 @@ public:
 		assert(this->totalShotCooldown >= 0);
 	}
 
-	void setFacing(util::Angle facing){
-		this->facing = facing;
-	}
-
-
+	
 	void setBulletCreator(bulletCreator *creator){
 		this->creator = creator;
+	}
+
+	void setBulletData(bulletData &data){
+		this->bullet = data;
 	}
 
 	
@@ -97,6 +100,16 @@ public:
 		this->bulletRadius = radius;
 		assert(this->bulletRadius > 0);
 	}
+
+	void setBulletVel(float vel){
+		this->buletVel = vel;
+	}
+	//functions to be called during processing
+	void setFacing(util::Angle facing){
+		this->facing = facing;
+	}
+
+
 
 	void setBulletPos(vector2 pos){
 		this->bulletPos = pos;

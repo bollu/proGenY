@@ -34,7 +34,10 @@
 //GAME STATES----------------------------------------------------
 #include "game/States/mainMenuState.h"
 #include "game/States/gameState.h"
+#include "game/States/gameSegmentLoader.h"
 
+//listeners-------------------------------------------------------
+#include "mainLoopListener.h"
 
 void _loadSettings(Settings &);
 void _addProcesses(processMgr &, Settings &, eventMgr &);
@@ -45,6 +48,7 @@ void _createStates(stateProcess *);
 
 
 void _createDummy(objectMgr *);
+
 
 int main(){
     
@@ -60,10 +64,13 @@ int main(){
     _addProcesses(processManager, settings, eventManager);
 
 
+    mainLoopListener listener(eventManager);
+
+
     bool done = false;
     float dt = 0.0;
 
-    while(!done){
+    while(!listener.isWindowClosed()){
        sf::Time elapsed = Clock.restart();
        dt = elapsed.asSeconds();
 
@@ -73,7 +80,7 @@ int main(){
        processManager.Draw();
        processManager.postDraw();
 
-       sf::sleep( sf::milliseconds(rand() % 30) );
+       //sf::sleep( sf::milliseconds(rand() % 30) );
    }
 
    processManager.Shutdown();
@@ -89,7 +96,7 @@ void _loadSettings(Settings &settings){
     settings.addProp(Hash::getHash("screenDimensions"), new v2Prop(vector2(1280, 720)));
 
     settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -15.0)));
-     settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
+    settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
     settings.addProp(Hash::getHash("velIterations"), new iProp(5));
     settings.addProp(Hash::getHash("collisionIterations"), new iProp(5));
 
@@ -131,6 +138,7 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
 
 void _createStates(stateProcess *stateProc){
     stateProc->addState(new mainMenuState(), false);
+    stateProc->addState(new gameSegmentLoader(), false);
     stateProc->addState(new gameState(), true);
 }
 
@@ -141,6 +149,8 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/healthProcessor.h"
 #include "game/ObjProcessors/gunProcessor.h"
 #include "game/ObjProcessors/offsetProcessor.h"
+#include "game/ObjProcessors/pickupProcessor.h"
+
 void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,
                            Settings &settings, eventMgr &eventManager){
 
@@ -157,6 +167,7 @@ void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processMa
     objMgrProc->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new gunProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new offsetProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new pickupProcessor(processManager, settings, eventManager) );
 
 };
 

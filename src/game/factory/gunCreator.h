@@ -45,21 +45,20 @@ public:
 
 		//renderer------------------------------------
 		vector2 gunDim = vector2(2,1) * viewProc->getGame2RenderScale();
-		sf::Shape *shape = new sf::RectangleShape(vector2::cast<sf::Vector2f>(gunDim));
-
-			
-
+		sf::Shape *shape = renderUtil::createRectangleShape(gunDim);
 		shape->setFillColor(sf::Color::Blue);
+		shape->setOutlineColor(sf::Color::White);
+		shape->setOutlineThickness(-2.0);
 
 		Renderer shapeRenderer(shape);
 		render.addRenderer(shapeRenderer);
+		//render.centered = true;
 		
 		//offset-------------------------------------
 		assert(this->parent != NULL);
 		offset.parent = this->parent;
-		offset.angleOffset = util::Angle::Deg(0);
-		offset.posOffset = vector2(this->radius, 0);
-		offset.centered = true;
+		offset.offsetAngle = false;
+		
 
 		//final---------------------------------
 		gun->addProp(Hash::getHash("renderData"), 

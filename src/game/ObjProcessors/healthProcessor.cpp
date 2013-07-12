@@ -14,7 +14,7 @@ void healthProcessor::postProcess(){
 			
 		}	
 
-		if(data->getHP() < 0){
+		if(data->getHP() <= 0){
 			obj->Kill();
 		}
 	};

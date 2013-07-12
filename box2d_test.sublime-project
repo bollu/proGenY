@@ -2,51 +2,42 @@
 	"build_systems":
 	[
 		{
-			"cmd":
-			[
-				"make", "build"
-			],
+			"cmd": [ "make", "build"],
 			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+			"syntax" : "",
 			"name": "make",
 			"working_dir": "${project_path:${folder}}",
 			
 			"variants":
 			[
 				{
-					"cmd":
-					[
-						"make", "run"
-					],
+					"cmd":["make", "run"],
 					"name": "run",
 					"working_dir": "${project_path:${folder}}"
 				},
 
 				{
-					"cmd":
-					[
-						"make", "monitor"
-					],
+					"cmd":["make", "monitor"],
 					"name": "monitor",
+					"shell" : true,
 					"working_dir": "${project_path:${folder}}"
 				},
 
 				{
-					"cmd":
-					[
-						"make", "docs"
-					],
+					"cmd":["make", "docs"],
 					"name": "docs",
 					"working_dir": "${project_path:${folder}}"
 				}
-			]
+			]//end variants
 			
-		}
-	],
+		}//end build systems flower brace
+	],//end build system
+
 	"folders":
 	[
 		{
 			"path": "/home/siddharth/Data/programming/C_C++/basic_libs_setup",
-			"file_exclude_patterns": [".*", "*.sublime*", "*.exclude"]
+			"file_exclude_patterns": [".*", "*.sublime*", "*.exclude, "]
 		}
 	]
 }

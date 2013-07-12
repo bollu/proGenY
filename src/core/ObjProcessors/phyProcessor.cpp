@@ -18,9 +18,7 @@ void phyProcessor::onObjectAdd(Object *obj){
 	b2Body *body = world->CreateBody(&data->bodyDef);
 	data->body = body;
 	data->body->SetUserData(obj);
-
-
-
+	
 	for(auto it = data->fixtureDef.begin(); it != data->fixtureDef.end(); ++it){
 		b2FixtureDef fixtureDef = *it;
 
@@ -138,4 +136,9 @@ void phyData::removeCollision(Object *obj){
 			break;
 		}
 	};
+};
+
+
+const Hash *collisionData::getCollidedObjectCollision(){
+	return this->phy->collisionType;
 };

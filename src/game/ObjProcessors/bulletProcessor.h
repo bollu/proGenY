@@ -10,11 +10,22 @@
 #include "../../core/Process/viewProcess.h"
 #include "../../core/Process/worldProcess.h"
 
+#include <unordered_set>
+
+struct collisionData;
 
 
 class bulletCollider{
-	public:
+protected:
 	bulletCollider(){};
+public:
+	virtual ~bulletCollider(){};
+
+	virtual void onCreate(Object *bullet){};
+	//return whether the bullet should be killed
+	virtual bool onCollision(collisionData &data, Object *bullet) = 0;
+	virtual void onDeath(collisionData &data, Object *bullet){};
+
 };
 
 
@@ -24,13 +35,27 @@ public:
 	/*!Angle to face in the beginning in degrees*/
 	util::Angle angle;
 
-	std::vector<bulletCollider> colliders;
+	//! bulletColliders that handle what happens during collision
+	std::vector<bulletCollider *> colliders;
 
-	const Hash* enemyCollision;
+	//collision types considered to be enemies
+	std::unordered_set<const Hash*> enemyCollisions;
+	//collision types to be ignored
+	std::unordered_set<const Hash*> ignoreCollisions;
+		
+	bulletData(){};
 
-	int damage;
+	void addEnemyCollision(const Hash *collision){
+		this->enemyCollisions.insert(collision);
+	}
 
-	bulletData() : damage(0){}
+	void addIgnoreCollision(const Hash *collision){
+		this->ignoreCollisions.insert(collision);
+	}
+
+	void addBulletCollder(bulletCollider *collider){
+		this->colliders.push_back(collider);
+	}
 };
 
 
@@ -42,8 +67,10 @@ public:
 
 	void onObjectAdd(Object *obj);
 	void Process(float dt);
-private:
 
+
+private:
+	void _handleCollision(collisionData &collision,bulletData *data, Object *obj);
 	b2World *world;
 
 };

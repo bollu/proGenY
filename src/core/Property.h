@@ -35,8 +35,8 @@ class Prop : public baseProperty{
 		T val;
 	public:
 
-	Prop(T value){
-		this->val = value;
+	Prop(T value) : val(value){
+		//this->val = value;
 	}
 
 	Prop(const Prop<T> &other){
@@ -59,7 +59,7 @@ class Prop : public baseProperty{
 
 	@param[in] val the new value to be stored
 	*/
-	void setVal(T val){
+	void setVal(T &val){
 		this->val = val;
 	}
 
@@ -121,7 +121,12 @@ public:
 	
 };
 
+/*!Property that is used to tag objects
 
+dummyProp can be added to an Object as a sentinel.
+The advantage of a dummyProp is that it consumes extra space, and 
+so can be used to tag objects of interest
+*/
 class dummyProp : public baseProperty{
 public:
 	dummyProp(){};

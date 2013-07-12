@@ -43,7 +43,7 @@ void eventProcess::_handleWindowCloseEvent(){
 	static const Hash *windowClosed = Hash::getHash("windowClosed"); 
 
 	eventManager.sendEvent(windowClosed);
-	window->close(); //<- HACK for now
+//	window->close(); //<- HACK for now
 };
 
 

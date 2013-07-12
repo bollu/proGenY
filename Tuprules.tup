@@ -3,7 +3,7 @@
 CC = clang++
 
 # define any compile-time flags
-CFLAGS = -std=c++11 -DDEBUG -g -Wall -DDEBUG -g -O0
+CFLAGS = -std=c++11 -DDEBUG -g  -w -Wfatal-errors -DDEBUG -g -O0
 #CFLAGS = -std=c++11 -Oz
 
 # define any directories containing header files other than /usr/include

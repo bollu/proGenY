@@ -46,7 +46,7 @@ public:
 
 	//renderer---------------------------------------------------------------
 		sf::Shape *playerSFMLShape = renderUtil::createShape(playerBoundingBox, 
-			viewProc->getGame2RenderScale());
+			viewProc);
 
 		playerSFMLShape->setFillColor(sf::Color::Green);
 
@@ -55,10 +55,10 @@ public:
 		render.addRenderer(playerShapeRenderer);
 
 	//movement-----------------------------------------------------------
-		move.xVel = 40;
-		move.xAccel = 2;
-		move.movementDamping = vector2(0.04, 0.0);
-		move.jumpRange = viewProc->getRender2GameScale() * 512;
+		move.xVel = 60;
+		move.xAccel = 3;
+		move.movementDamping = vector2(0.05, 0.0);
+		move.jumpRange = viewProc->getRender2GameScale() * 256;
 		move.jumpHeight = viewProc->getRender2GameScale() * 128;
 		
 	//camera---------------------------------------------------------------

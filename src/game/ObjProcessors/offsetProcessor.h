@@ -16,10 +16,13 @@ struct offsetData{
 public:
 	vector2 posOffset;
 	util::Angle angleOffset;
-	bool centered;
+	
+	bool offsetPos;
+	bool offsetAngle;
 
 	Object *parent;
 
+	offsetData() : offsetPos(true), offsetAngle(true){}
 };
 
 
@@ -40,24 +43,26 @@ public:
 			if(data == NULL){
 				continue;
 			}
-			
-
-			
-			//return;
 
 			assert(data->parent != NULL);
 
-			vector2 *parentPos = data->parent->getProp<vector2>(Hash::getHash("position"));
-			vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
-			(*pos) = *parentPos + data->posOffset;
+			if(data->offsetPos){
+				vector2 *parentPos = data->parent->getProp<vector2>(Hash::getHash("position"));
+				vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+
+				(*pos) = *parentPos + data->posOffset;
+			};
+
+			if(data->offsetAngle){
+				util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
+				util::Angle *parentFacing = data->parent->getProp<util::Angle>(
+						Hash::getHash("facing"));
+
+				*facing = *parentFacing+ data->angleOffset;
+			};
+
 			
-			util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
-			*facing = data->angleOffset;
-			/*
-			util::Angle *parentFacing = data->parent->getProp<util::Angle>(Hash::getHash("facing"));
-			util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
-			*facing = *parentFacing + data->angleOffset;
-`			*/
+
 		};
 	};
 };

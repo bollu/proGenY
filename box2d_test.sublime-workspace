@@ -4,11 +4,167 @@
 		"selected_items":
 		[
 			[
-				"totalClip",
-				"totalClipSize"
+				"game2",
+				"game2RenderScale"
+			],
+			[
+				"logLe",
+				"logLevel"
+			],
+			[
+				"PRINT",
+				"PRINTVECTOR2"
+			],
+			[
+				"chunk",
+				"chunkDim"
+			],
+			[
+				"quan",
+				"quantizecdCenter"
 			],
 			[
 				"total",
+				"totalChunkCount"
+			],
+			[
+				"top",
+				"topRight"
+			],
+			[
+				"terrai",
+				"terrainCreator"
+			],
+			[
+				"LogLe",
+				"logLevel"
+			],
+			[
+				"guns",
+				"gunsManager"
+			],
+			[
+				"curr",
+				"currentGun"
+			],
+			[
+				"eventMa",
+				"eventManager"
+			],
+			[
+				"playerCon",
+				"playerController.h"
+			],
+			[
+				"playerevent",
+				"playerEventHandler.h"
+			],
+			[
+				"gunsMa",
+				"gunsManager.h"
+			],
+			[
+				"playerC",
+				"playerController.h"
+			],
+			[
+				"playerEventHan",
+				"playerEventHandler.h"
+			],
+			[
+				"gameSt",
+				"gameStateHelpers/"
+			],
+			[
+				"gunManage",
+				"gunsManager.h"
+			],
+			[
+				"event",
+				"eventMgr.h"
+			],
+			[
+				"gunPro",
+				"gunProcessor.h"
+			],
+			[
+				"damage",
+				"damageCollider"
+			],
+			[
+				"damageC",
+				"damageCollider.h"
+			],
+			[
+				"impulse",
+				"impulseMagnitude"
+			],
+			[
+				"No",
+				"Normalize"
+			],
+			[
+				"GetLinea",
+				"GetLinearVelocity"
+			],
+			[
+				"push",
+				"pushCollider.h"
+			],
+			[
+				"bulletC",
+				"bulletColliders/"
+			],
+			[
+				"GetWorld",
+				"GetWorldCenter"
+			],
+			[
+				"imp",
+				"impulseMagnitude"
+			],
+			[
+				"App",
+				"ApplyLinearImpulse"
+			],
+			[
+				"obj",
+				"objProcessors"
+			],
+			[
+				"Log",
+				"logLevelError"
+			],
+			[
+				"bulletPro",
+				"bulletProcessor.cpp"
+			],
+			[
+				"vec",
+				"vector.h"
+			],
+			[
+				"cente",
+				"centered"
+			],
+			[
+				"cen",
+				"centered"
+			],
+			[
+				"offse",
+				"offsetAngle"
+			],
+			[
+				"setBullet",
+				"setBulletData"
+			],
+			[
+				"enemyCo",
+				"enemyCollisions"
+			],
+			[
+				"totalClip",
 				"totalClipSize"
 			],
 			[
@@ -54,10 +210,6 @@
 			[
 				"game",
 				"gameAngle"
-			],
-			[
-				"offse",
-				"offsetProcessor"
 			],
 			[
 				"pos",
@@ -150,10 +302,6 @@
 			[
 				"begin",
 				"beginVel"
-			],
-			[
-				"obj",
-				"objMap"
 			],
 			[
 				"ra",
@@ -366,160 +514,114 @@
 			[
 				"add",
 				"addObjectProcessor"
-			],
-			[
-				"_handle",
-				"_handleKeyboardReleased"
-			],
-			[
-				"_handleMouse",
-				"_handleMouseButtonReleased"
-			],
-			[
-				"state",
-				"stateProcess"
-			],
-			[
-				"change",
-				"changeState"
-			],
-			[
-				"lo",
-				"logLevelError"
-			],
-			[
-				"objManag",
-				"objManagerProcess"
-			],
-			[
-				"obser",
-				"observerMap"
-			],
-			[
-				"obse",
-				"observerMap"
-			],
-			[
-				"observ",
-				"observerList"
-			],
-			[
-				"create",
-				"createPolyShape"
-			],
-			[
-				"dum",
-				"dummyShape"
-			],
-			[
-				"l",
-				"log"
-			],
-			[
-				"toS",
-				"toString  (function)"
-			],
-			[
-				"toStr",
-				"toLocaleString  (function)"
-			],
-			[
-				"log",
-				"login_page"
-			],
-			[
-				"si",
-				"siddharth123"
-			],
-			[
-				"draw",
-				"drawableProp"
-			],
-			[
-				"b2Body",
-				"b2BodyDefProp"
-			],
-			[
-				"Obj",
-				"objectMgr"
-			],
-			[
-				"thresh",
-				"thresholdLevel"
-			],
-			[
-				"data",
-				"dataIt"
-			],
-			[
-				"prope",
-				"propertyName"
-			],
-			[
-				"end",
-				"endl"
-			],
-			[
-				"in",
-				"include"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/home/siddharth/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+			"contents": "Searching 164 files for \"posDelta\" (whole word)\n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/terrainCreator.cpp:\n  146  \n  147  \n  148: 	vector2 posDelta = (this->topRight - this->bottomLeft);\n  149: 	posDelta.x *= (1.0 / this->numChunks.x);\n  150: 	posDelta.y *= (1.0 / this->numChunks.y);\n  151  \n  152  \n  153: 	PRINTVECTOR2(posDelta);\n  154  \n  155  	for(int y = 0; y < this->numChunks.y; y++){\n  ...\n  158  			Chunk &c = this->_getChunk(vector2(x, y));\n  159  \n  160: 			vector2 gamePos = this->bottomLeft + vector2(posDelta.x * x\n  161: 													, posDelta.y * y);\n  162  \n  163  			b2PolygonShape *boundingBox = new b2PolygonShape();\n  164  \n  165: 			boundingBox->SetAsBox(posDelta.x / 2.0,\n  166: 								posDelta.y / 2.0);/*,\n  167  								vector2(gamePos.x, gamePos.y),\n  168  								util::Angle::Deg(0).toRad());\n\n8 matches in 1 file\n\n\nSearching 164 files for \"std::cout\" (whole word)\n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h:\n  105  \n  106  	~managedProp(){\n  107: 		std::cout<<\"deleted; val = \"<<this->val<<std::endl;\n  108  		delete(this->val);\n  109  	};\n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h:\n    3  \n    4  #ifndef PRINTVECTOR2\n    5: 	#define PRINTVECTOR2(vec) std::cout<<\"\\n\\t\"<<#vec<<\" X = \"<<((vec).x)<<\" Y = \"<<((vec).y)<<std::endl;\n    6  #endif\n    7  \n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.cpp:\n   20  	data->body->SetUserData(obj);\n   21  \n   22: 	std::cout<<\"Object: \"<<obj->getName()<<\"  gamePos = \";\n   23  	PRINTVECTOR2((*gamePos));\n   24  \n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.cpp:\n   82  \n   83  	\n   84: 		//std::cout<<\"drawing \"<<obj->getName();\n   85  \n   86  		static util::Angle game2RenderAngle = util::Angle::Deg(360);\n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/boundaryCreator.h:\n   94  			physicsData.fixtureDef.push_back(leftFixtureDef);\n   95  \n   96: 			std::cout<<\"LEFT\";\n   97  			sf::Shape *shape = renderUtil::createShape(left, \n   98  				viewProc);\n\n/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h:\n   81  		msgLog(std::string msg, logLevel level = logLevelInfo){\n   82  			if(level >= baseLog::thresholdLevel){\n   83: 				std::cout<<\"\\n\"<<msg<<std::endl;\n   84  \n   85  				if(level == logLevelError){\n   86: 					std::cout<<\"\\n\\n Quitting from logObject due to error\"<<std::endl;\n   87  					assert(false);\n   88  				}\n   ..\n  125  \n  126  			if(enabled){\n  127: 				std::cout<<\"\\n\"<<onCreateMsg<<std::endl;\n  128  			}\n  129  \n  ...\n  134  		~scopedLog(){\n  135  			if(enabled){\n  136: 				std::cout<<\"\\n\"<<onDestroyMsg<<std::endl;\n  137  			}\n  138  		}\n\n9 matches across 6 files\n",
 			"settings":
 			{
-				"buffer_size": 784,
+				"buffer_size": 2818,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "src/game/factory/boundaryCreator.h",
+			"settings":
+			{
+				"buffer_size": 3568,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/siddharth/.config/sublime-text-2/Packages/User/SublimeClang.sublime-settings",
+			"file": "src/include/Box2D/Collision/Shapes/b2PolygonShape.cpp",
 			"settings":
 			{
-				"buffer_size": 11052,
+				"buffer_size": 9491,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/game/factory/terrainCreator.cpp",
+			"settings":
+			{
+				"buffer_size": 6774,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/siddharth/.config/sublime-text-2/Packages/User/CTags.sublime-settings",
+			"file": "src/core/Process/viewProcess.cpp",
 			"settings":
 			{
-				"buffer_size": 526,
+				"buffer_size": 2814,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "git.py",
+			"file": "src/core/ObjProcessors/renderProcessor.cpp",
 			"settings":
 			{
-				"buffer_size": 502,
+				"buffer_size": 3469,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/siddharth/Data/programming/tools/buildSys/cpp.py",
+			"file": "src/core/ObjProcessors/phyProcessor.cpp",
 			"settings":
 			{
-				"buffer_size": 3639,
+				"buffer_size": 3128,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+			"file": "src/core/vector.h",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 8035,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/game/factory/dummyCreator.h",
+			"settings":
+			{
+				"buffer_size": 1649,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/game/ObjProcessors/bulletProcessor.h",
+			"file": "src/game/States/gameState.cpp",
 			"settings":
 			{
-				"buffer_size": 968,
+				"buffer_size": 5302,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/factory/terrainCreator.h",
+			"settings":
+			{
+				"buffer_size": 1163,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/ObjProcessors/cameraProcessor.cpp",
+			"settings":
+			{
+				"buffer_size": 3286,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/game/ObjProcessors/groundMoveProcessor.cpp",
+			"settings":
+			{
+				"buffer_size": 3472,
 				"line_ending": "Unix"
 			}
 		}
@@ -531,40 +633,192 @@
 		"selected_items":
 		[
 			[
-				"python",
-				"Set Syntax: Python"
-			],
-			[
 				"rebui",
 				"CTags: Rebuild Tags"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
 			],
 			[
 				"rebu",
 				"CTags: Rebuild Tags"
 			],
 			[
-				"reinde",
-				"Indentation: Reindent Lines"
-			],
-			[
 				"rebuild",
 				"CTags: Rebuild Tags"
 			],
 			[
-				"docs",
-				"Build: docs"
+				"tog",
+				"View: Toggle Side Bar"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"calc",
+				"Calculate"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"keybin",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"prefe",
+				"Preferences: Settings - Default"
+			],
+			[
+				"isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"rebuid",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"intsa",
+				"Package Control: Install Package"
+			],
+			[
+				"toggle",
+				"View: Toggle Side Bar"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
 			],
 			[
 				"moni",
 				"Build: monitor"
 			],
 			[
-				"reb",
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"monitor",
+				"Build: monitor"
+			],
+			[
+				"build ",
+				"Build: docs"
+			],
+			[
+				"book",
+				"Bookmarks: Toggle"
+			],
+			[
+				"bookclea",
+				"Bookmarks: Clear All"
+			],
+			[
+				"booknext",
+				"Bookmarks: Select Next"
+			],
+			[
+				"bo",
+				"Bookmarks: Toggle"
+			],
+			[
+				"bookm",
+				"Bookmarks: Toggle"
+			],
+			[
+				"boo",
+				"Bookmarks: Toggle"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"show",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"ctags",
 				"CTags: Rebuild Tags"
+			],
+			[
+				"TODO",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"cta",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
+			],
+			[
+				"sets C++",
+				"Set Syntax: C++"
 			],
 			[
 				"package",
 				"Package Control: List Packages"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"setSynC++",
+				"Set Syntax: C++"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"auto",
+				"Autocomplete file name"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"docs",
+				"Build: docs"
+			],
+			[
+				"reb",
+				"CTags: Rebuild Tags"
 			],
 			[
 				"enable sy",
@@ -573,10 +827,6 @@
 			[
 				"clean",
 				"Build: clean"
-			],
-			[
-				"reind",
-				"Indentation: Reindent Lines"
 			],
 			[
 				"rein",
@@ -595,18 +845,6 @@
 				"Set Syntax: SublimeClangErrorPanel"
 			],
 			[
-				"ctags",
-				"CTags: Rebuild Tags"
-			],
-			[
-				"list",
-				"Package Control: List Packages"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"clang",
 				"Preferences: SublimeClang Settings – User"
 			],
@@ -617,10 +855,6 @@
 			[
 				"insall",
 				"Package Control: Install Package"
-			],
-			[
-				"packa",
-				"Package Control: Enable Package"
 			],
 			[
 				"pack",
@@ -651,16 +885,8 @@
 				"File: Rename"
 			],
 			[
-				"side",
-				"View: Toggle Side Bar"
-			],
-			[
 				"Rein",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"bookm",
-				"Bookmarks: Select Next"
 			],
 			[
 				"depe",
@@ -675,24 +901,8 @@
 				"CTags: Rebuild Tags"
 			],
 			[
-				"cta",
-				"CTags: Rebuild Tags"
-			],
-			[
-				"",
-				"Package Control: Upgrade Package"
-			],
-			[
-				"disa",
-				"Package Control: Disable Package"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
-			],
-			[
-				"TODO",
-				"Show TODOs: Open files only"
 			],
 			[
 				"tabs",
@@ -727,24 +937,12 @@
 				"Indentation: Reindent Lines"
 			],
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"user",
 				"Preferences: Key Bindings - User"
 			],
 			[
 				"GD",
 				"SublimeGDB: Stop Debugging"
-			],
-			[
-				"key",
-				"Preferences: Key Bindings - User"
-			],
-			[
-				"settings",
-				"Preferences: Settings - User"
 			],
 			[
 				"rebuil",
@@ -763,20 +961,12 @@
 				"Package Control: Install Package"
 			],
 			[
-				"renam",
-				"File: Rename"
-			],
-			[
 				"setSC++",
 				"Set Syntax: C++"
 			],
 			[
 				"dele",
 				"File: Delete"
-			],
-			[
-				"rebuid",
-				"CTags: Rebuild Tags"
 			],
 			[
 				"side bar",
@@ -859,10 +1049,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"show",
-				"CTags: Show Symbols (all)"
-			],
-			[
 				"brac",
 				"BracketHighlighter: Toggle High Visibility Mode"
 			],
@@ -923,11 +1109,34 @@
 				"View: Toggle Minimap"
 			]
 		],
-		"width": 507.0
+		"width": 435.0
 	},
 	"console":
 	{
-		"height": 250.0
+		"height": 250.0,
+		"history":
+		[
+			"720 / 20",
+			"720 / 32",
+			"1280 / 32",
+			"1280 / 8",
+			"window.run_command('fileswitcher') ",
+			"window.run_command('fileSwitcher') ",
+			"window.run_command('example') ",
+			"wubdiw.run_command('example') ",
+			"view.run_command('example') ",
+			"window.run_command('example')",
+			"window.run_command('')",
+			"view.run_command('asd') ",
+			"view.run_command('') ",
+			"view.run_command('example') ",
+			"isFullScreen()",
+			"view.run_command('example') ",
+			"isFullScreen()",
+			"view.run_command('example') ",
+			">>> view.run_command('example') ",
+			"view.run_command('example')  "
+		]
 	},
 	"distraction_free":
 	{
@@ -940,134 +1149,134 @@
 	},
 	"file_history":
 	[
-		"/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
-		"/home/siddharth/Data/programming/tools/buildSys/help",
-		"/home/siddharth/Data/programming/tools/buildSys/Cpp.py",
-		"/home/siddharth/.config/sublime-text-2/Packages/CTags/Default.sublime-keymap",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.gitignore",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
-		"/home/siddharth/Data/scripts/downloadTorrents.py",
-		"/home/siddharth/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/bulletProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/bulletCreator.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/gunCreator.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.h",
-		"/home/siddharth/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/mathUtil.h",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/gunProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/State.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/objectMgrProcess.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/processMgr.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/main.cc",
-		"/home/siddharth/Data/programming/C_C++/src/include/Box2D/Collision/Shapes/b2ChainShape.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/playerCreator.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/dummyCreator.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Common/b2Settings.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/b2WorldCallbacks.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/objContactListener.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/offsetProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/viewProcess.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/objContactListener.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/bulletProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/windowProcess.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/viewProcess.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/cameraProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/boundaryCreator.h",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/groundMoveProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/core/Process/viewProcess.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/core/ObjProcessors/objContactListener.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventProcess.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/Process.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
-		"/home/siddharth/Data/programming/C_C++/src/core/Messaging/eventMgr.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window/Event.hpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/processMgr.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/boundaryCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/dummyCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/playerCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/bulletCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/bulletProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/renderUtil.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/gunCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/viewProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/viewProcess.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/terrainCreator.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.cpp",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/box2d_test.sublime-project",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/Tuprules.tup",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/obj/Tupfile",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/groundMoveProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/bin/Tupfile",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
-		"/etc/lightdm/lightdm.conf",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/util/mathUtil.h",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tup/object",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tup/options",
-		"/home/siddharth/Data/programming/C_C++/src/game/factory/bulletCreator.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/worldProcess.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/terrainProcessor.h",
-		"/home/siddharth/.bashrc",
-		"/home/siddharth/.bashr",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/cameraProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/help",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/groundMoveProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/src/core/ObjProcessors/renderProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/healthProcessor.h",
-		"/src/main.cc",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/myRegex",
-		"/home/siddharth/Data/programming/C_C++/src/main.cc",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/bulletProcessor.h",
-		"/src/include/Box2D/Collision/Shapes/b2ChainShape.h",
-		"/home/siddharth/Data/programming/C_C++/src/core/ObjProcessors/renderProcessor.cpp",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/CTags.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/bh_core.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/BufferScroll.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/SublimeFiles.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/Sublime Files/SublimeFiles.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/SublimeClang.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/cameraProcessor.h",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/cameraProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/terrainProcessor.h",
-		"/home/siddharth/.touchoptions",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/gunProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.cpp",
-		"/home/siddharth/Data/programming/C_C++/src/util/strHelper.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/b2Body.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tup/.options",
-		"/home/siddharth/Data/programming/C_C++/src/game/ObjProcessors/bulletProcessor.cpp",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/engine/latex/df/d30/classProcess.tex",
-		"/home/siddharth/Data/programming/Node.js/autopost/log",
-		"/home/siddharth/Data/programming/Node.js/makefile",
-		"/home/siddharth/Data/programming/Node.js/autopost/autoconnect.js",
-		"/home/siddharth/Data/programming/Node.js/autopost/autopost.js",
-		"/home/siddharth/Data/programming/Node.js/autopost/autologin.js",
 		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/objectFactory.h",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/objectFactory.cpp",
-		"/home/siddharth/.config/sublime-text-2/Packages/CTags/CTags.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/C++.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
-		"/home/siddharth/.config/sublime-text-2/Packages/SublimeClang/SublimeClang.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/helathProcessor.cpp",
-		"/home/siddharth/Data/programming/web programming/projects/d3-hello-world/index.html",
-		"/home/siddharth/.config/sublime-text-2/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
-		"/home/siddharth/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tags",
-		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Settings.h"
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/factory/terrainCreator.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2PolygonShape.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Graphics/RenderWindow.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/windowProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Object.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Collision/Shapes/b2Shape.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/b2Fixture.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/renderProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/engine/latex/df/d30/classProcess.tex",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window/ContextSettings.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/vector.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/SFML/Window.hpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/mapDump",
+		"/home/siddharth/Data/programming/log",
+		"/home/siddharth/.config/sublime-text-3/Packages/AutoFileName/autofilename.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/States/gameState.h",
+		"/home/siddharth/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/playerEventHandler.cpp",
+		"/home/siddharth/.config/sublime-text-3/Packages/fileSwitcher/fileSwitcher.py",
+		"/home/siddharth/.config/sublime-text-3/Packages/TabsLimiter/TabsLimiter.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/Side Bar.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/cameraProcessor.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/groundMoveProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/groundMoveProcessor.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/cameraProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/bulletProcessor.cpp",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Property.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/logObject.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/gunsManager.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/gunManager.cpp",
+		"/home/siddharth/.config/sublime-text-3/Packages/intrest/intrest.py",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/playerController.cpp",
+		"/home/siddharth/.config/sublime-text-3/Packages/Package Control/Package Control.py",
+		"/home/siddharth/.config/sublime-text-3/Packages/Package Control/package_control/cmd.py",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/makefile",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/Tuprules.tup",
+		"/home/siddharth/.config/sublime-text-3/Packages/CTags/Default.sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/objectProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/State.h",
+		"/home/siddharth/.config/sublime-text-3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/BracketHighlighter/Example.sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/bh_core.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/Terminal/Terminal.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Settings.h",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/BufferScroll.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/BufferScroll/BufferScroll.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/Terminal/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/CTags/Default.sublime-mousemap",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/playerController.h",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/AdvancedNewFile.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/AdvancedNewFile/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/CTags/CTags.sublime-settings",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/CTags.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/gameStateHelpers/playerEventHandler.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventMgr.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventProcess.cpp",
+		"/home/siddharth/Data/programming/C_C++/src/game/gameStateHelpers/playerController.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/worldProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.cpp",
+		"/home/siddharth/Data/programming/C_C++/src/game/States/gameState.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/eventHandlers/WSADHandler.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/objContactListener.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/phyProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/engine/style/doxygen.css",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/dummyStateSaveLoader.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/State/stateSaveLoader.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/docs/doxyStyle/a.txt",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/mathUtil.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util/strHelper.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Messaging/eventData.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/bulletColliders/pushCollider.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/bulletColliders/damageCollider.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/libpeerconnection.log",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/healthProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/bulletColliders/bulletCollider.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/gunProcessor.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/ObjProcessors/objContactListener.cpp",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/include/Box2D/Dynamics/b2Body.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Hash.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/.tup/options",
+		"/home/siddharth/.config/sublime-text-2/Packages/TabsLimiter/TabsLimiter.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/bulletColliders/bulletCollider.h",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/siddharth/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/siddharth/Data/programming/C_C++/src/game/eventHandlers/WSADHandler.cpp",
+		"/home/siddharth/Data/programming/C_C++/src/include/Box2D/Collision/Shapes/b2ChainShape.h",
+		"/home/siddharth/Data/programming/C_C++/src/core/ObjProcessors/phyProcessor.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/obj/Tupfile",
+		"/home/siddharth/.config/sublime-text-2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core/Process/eventProcess.h",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game/ObjProcessors/offsetProcessor.h",
+		"/home/siddharth/Data/programming/tools/buildSys/cpp.py",
+		"/home/siddharth/Data/programming/C_C++/basic_libs_setup/git.py",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/CTags.sublime-settings",
+		"/home/siddharth/.config/sublime-text-2/Packages/User/SublimeClang.sublime-settings",
+		"/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+		"/home/siddharth/Data/programming/tools/buildSys/help"
 	],
 	"find":
 	{
@@ -1075,7 +1284,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"*.h, *.cpp",
@@ -1089,6 +1298,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"std::cout",
+			"posDelta",
+			" ){",
+			"createRectangleShape",
+			"display",
+			"vector2",
+			"dummyShape",
+			"playerFixtureDef",
+			"playerBoundingBox",
+			"setBounds",
+			"auto",
+			"console",
+			"bookmar",
+			"Object",
+			"recieveEvent",
+			":\n",
+			"	\n",
+			" ,",
+			"\"},\n",
+			"addProp",
+			"update",
+			"_updateGunFacing",
+			"WSADdata",
+			"WSADData",
+			"createVectorFromAngle",
+			"collision.data",
+			"firing",
+			"PRINTVECTOR2(data->",
+			"font",
+			"spac",
+			"dummyShape",
+			"dummy",
 			"fullDestPath",
 			"folderPath",
 			"space",
@@ -1184,29 +1425,7 @@
 			"no",
 			"http://ppa.launchpad.net/webapps/preview/ubuntu/dists/raring/main/binary-i386/Packages",
 			"dummy.",
-			"BlobBuilder",
-			"obj",
-			"\n",
-			"ctrl",
-			"n",
-			"t",
-			"key",
-			"keyss",
-			"keys",
-			"key",
-			"key\n        ",
-			"\n        ",
-			"\"],\n",
-			"LogLevel",
-			"Hash",
-			"$CC",
-			"CC",
-			"clang++",
-			"clang++\n",
-			"}}\",\n",
-			"f7",
-			"f5",
-			"groundBody"
+			"BlobBuilder"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1214,6 +1433,14 @@
 		"regex": false,
 		"replace_history":
 		[
+			"gamePos",
+			"boundingBox",
+			"fixtureDef",
+			"boundingBox",
+			"playerData",
+			"collision.phy",
+			"shape",
+			"obj",
 			"destFolderPath",
 			"gun",
 			"angleInRad",
@@ -1236,368 +1463,144 @@
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": true,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 12,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/siddharth/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 784,
+						"buffer_size": 2818,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										174,
+										182
+									],
+									[
+										230,
+										238
+									],
+									[
+										279,
+										287
+									],
+									[
+										357,
+										365
+									],
+									[
+										550,
+										558
+									],
+									[
+										587,
+										595
+									],
+									[
+										714,
+										722
+									],
+									[
+										747,
+										755
+									],
+									[
+										1051,
+										1060
+									],
+									[
+										1288,
+										1297
+									],
+									[
+										1538,
+										1547
+									],
+									[
+										1764,
+										1773
+									],
+									[
+										2052,
+										2061
+									],
+									[
+										2356,
+										2365
+									],
+									[
+										2448,
+										2457
+									],
+									[
+										2603,
+										2612
+									],
+									[
+										2727,
+										2736
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								774,
-								774
+								2737,
+								2737
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "91a77a63",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 357.0,
+						"translation.y": 1024.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/siddharth/.config/sublime-text-2/Packages/User/SublimeClang.sublime-settings",
+					"file": "src/game/factory/boundaryCreator.h",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11052,
+						"buffer_size": 3568,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2536,
-								2536
+								3429,
+								3429
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "9cea42a9",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 733.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/siddharth/.config/sublime-text-2/Packages/User/CTags.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								215,
-								215
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "56dd7ab6",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "git.py",
-					"settings":
-					{
-						"buffer_size": 502,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								162,
-								162
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "bf0f2d20",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/siddharth/Data/programming/tools/buildSys/cpp.py",
-					"settings":
-					{
-						"buffer_size": 3639,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3639,
-								3639
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "efc0c749",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 1734.0,
@@ -1606,69 +1609,167 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/home/siddharth/Data/programming/C_C++/Monads/src/main.cc",
+					"buffer": 2,
+					"file": "src/include/Box2D/Collision/Shapes/b2PolygonShape.cpp",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 9491,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1496,
+								1496
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 8.0,
+						"translation.y": 416.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/game/factory/terrainCreator.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6774,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "873ade5c",
-							"syntax": "Packages/C++/C++.tmLanguage"
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 336.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/core/Process/viewProcess.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1000,
+								1000
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/core/ObjProcessors/renderProcessor.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1894,
+								1894
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1104.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/core/ObjProcessors/phyProcessor.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3128,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 48.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/core/vector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8035,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								101
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1677,73 +1778,141 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "src/game/ObjProcessors/bulletProcessor.h",
+					"buffer": 8,
+					"file": "src/game/factory/dummyCreator.h",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 968,
+						"buffer_size": 1649,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								582
+								838,
+								838
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 480.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/game/States/gameState.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5302,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"buffer_scroll_name": "1ef65a1a",
+								276,
+								276
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/game/factory/terrainCreator.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								277,
+								277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 48.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/game/ObjProcessors/cameraProcessor.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2148,
+								2148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1329.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/game/ObjProcessors/groundMoveProcessor.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2273,
+								2273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1200.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1753,7 +1922,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -1784,8 +1953,13 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 276.0
+		"height": 197.0
 	},
+	"output.panel":
+	{
+		"height": 0.0
+	},
+	"project": "box2d_test.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -1797,55 +1971,351 @@
 		"selected_items":
 		[
 			[
-				"bulletc",
-				"src/game/factory/bulletCreator.h"
+				"move",
+				"src/game/ObjProcessors/groundMoveProcessor.cpp"
 			],
 			[
-				"bullet",
-				"src/game/ObjProcessors/bulletProcessor.cpp"
-			],
-			[
-				"bul",
-				"src/game/ObjProcessors/bulletProcessor.cpp"
+				"camera",
+				"src/game/ObjProcessors/cameraProcessor.cpp"
 			],
 			[
 				"game",
 				"src/game/States/gameState.cpp"
 			],
 			[
-				"gun",
-				"src/game/ObjProcessors/gunProcessor.cpp"
+				"terrain",
+				"src/game/factory/terrainCreator.h"
 			],
 			[
-				"wsa",
-				"src/game/eventHandlers/WSADHandler.cpp"
+				"phy",
+				"src/core/ObjProcessors/phyProcessor.cpp"
 			],
 			[
-				"wsad",
-				"src/game/eventHandlers/WSADHandler.cpp"
+				"bounda",
+				"src/game/factory/boundaryCreator.h"
 			],
 			[
-				"gunpro",
-				"src/game/ObjProcessors/gunProcessor.h"
+				"dummy",
+				"src/game/factory/dummyCreator.h"
+			],
+			[
+				"render",
+				"src/core/ObjProcessors/renderProcessor.cpp"
+			],
+			[
+				"rend",
+				"src/core/renderUtil.cpp"
+			],
+			[
+				"view",
+				"src/core/Process/viewProcess.h"
+			],
+			[
+				"play",
+				"src/game/factory/playerCreator.h"
+			],
+			[
+				"bulletcrea",
+				"src/game/factory/bulletCreator.h"
+			],
+			[
+				"bul",
+				"src/game/ObjProcessors/bulletProcessor.h"
+			],
+			[
+				"terrai",
+				"src/game/factory/terrainCreator.cpp"
+			],
+			[
+				"rendr",
+				"src/core/renderUtil.cpp"
+			],
+			[
+				"ter",
+				"src/game/factory/terrainCreator.h"
+			],
+			[
+				"pla",
+				"src/game/factory/playerCreator.h"
+			],
+			[
+				"obj",
+				"src/core/Object.h"
+			],
+			[
+				"player",
+				"src/game/factory/playerCreator.h"
+			],
+			[
+				"terra",
+				"src/game/factory/terrainCreator.cpp"
+			],
+			[
+				"window",
+				"src/core/Process/windowProcess.h"
+			],
+			[
+				"terr",
+				"src/game/factory/terrainCreator.cpp"
+			],
+			[
+				"widnow",
+				"src/core/Process/windowProcess.h"
 			],
 			[
 				"gam",
 				"src/game/States/gameState.cpp"
 			],
 			[
-				"bulletpr",
-				"src/game/ObjProcessors/bulletProcessor.cpp"
+				"",
+				"src/game/factory/terrainCreator.cpp"
+			],
+			[
+				"bound",
+				"src/game/factory/boundaryCreator.h"
+			],
+			[
+				"map",
+				"mapDump"
+			],
+			[
+				"plaeyr",
+				"src/game/factory/playerCreator.h"
+			],
+			[
+				"gamestate.cpp",
+				"src/game/States/gameState.cpp"
+			],
+			[
+				"playercr",
+				"src/game/factory/playerCreator.h"
+			],
+			[
+				"gun",
+				"src/game/gameStateHelpers/gunManager.cpp"
+			],
+			[
+				"tup",
+				"Tuprules.tup"
+			],
+			[
+				"make",
+				"makefile"
+			],
+			[
+				"prop",
+				"src/core/Property.h"
+			],
+			[
+				"playercon",
+				"src/game/gameStateHelpers/playerController.cpp"
+			],
+			[
+				"hero",
+				"src/game/ObjProcessors/healthProcessor.cpp"
+			],
+			[
+				"playere",
+				"src/game/gameStateHelpers/playerEventHandler.cpp"
+			],
+			[
+				"playerc",
+				"src/game/gameStateHelpers/playerController.h"
+			],
+			[
+				"playerev",
+				"src/game/gameStateHelpers/playerEventHandler.cpp"
+			],
+			[
+				"eventpro",
+				"src/core/Process/eventProcess.cpp"
+			],
+			[
+				"playerevent",
+				"src/game/gameStateHelpers/playerEventHandler.h"
+			],
+			[
+				"guns",
+				"src/game/gameStateHelpers/gunsManager.h"
+			],
+			[
+				"rende",
+				"src/core/renderUtil.h"
+			],
+			[
+				"renderpro",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"world",
+				"src/core/Process/worldProcess.h"
+			],
+			[
+				"pro",
+				"src/core/Property.h"
+			],
+			[
+				"vector",
+				"src/core/vector.h"
+			],
+			[
+				"str",
+				"src/util/strHelper.h"
+			],
+			[
+				"dummysta",
+				"src/core/State/dummyStateSaveLoader.h"
+			],
+			[
+				"windowpro",
+				"src/core/Process/windowProcess.h"
+			],
+			[
+				"sta",
+				"src/core/State/State.h"
+			],
+			[
+				"eventmgr",
+				"src/core/Messaging/eventMgr.h"
+			],
+			[
+				"math",
+				"src/util/mathUtil.h"
+			],
+			[
+				"dam",
+				"src/game/bulletColliders/damageCollider.h"
+			],
+			[
+				"bulletco",
+				"src/game/factory/bulletCreator.h"
+			],
+			[
+				"dama",
+				"src/game/bulletColliders/damageCollider.h"
+			],
+			[
+				"bulletp",
+				"src/game/ObjProcessors/bulletProcessor.h"
 			],
 			[
 				"bull",
 				"src/game/factory/bulletCreator.h"
 			],
 			[
-				"bu",
+				"bullt",
 				"src/game/ObjProcessors/bulletProcessor.cpp"
 			],
 			[
+				"push",
+				"src/game/bulletColliders/pushCollider.h"
+			],
+			[
+				"healthp",
+				"src/game/ObjProcessors/healthProcessor.cpp"
+			],
+			[
+				"heal",
+				"src/game/ObjProcessors/healthProcessor.cpp"
+			],
+			[
+				"healt",
+				"src/game/ObjProcessors/healthProcessor.h"
+			],
+			[
+				"ga",
+				"src/game/States/gameState.cpp"
+			],
+			[
+				"bulle",
+				"src/game/bulletColliders/bulletCollider.cpp"
+			],
+			[
+				"bullet",
+				"src/game/ObjProcessors/bulletProcessor.h"
+			],
+			[
+				"wsad",
+				"src/game/eventHandlers/WSADHandler.cpp"
+			],
+			[
+				"objcon",
+				"src/core/ObjProcessors/objContactListener.cpp"
+			],
+			[
+				"bulletcollid",
+				"src/game/bulletColliders/bulletCollider.h"
+			],
+			[
+				"hash",
+				"src/core/Hash.h"
+			],
+			[
+				"gunc",
+				"src/game/factory/gunCreator.h"
+			],
+			[
+				"offse",
+				"src/game/ObjProcessors/offsetProcessor.h"
+			],
+			[
+				"renderp",
+				"src/core/ObjProcessors/renderProcessor.h"
+			],
+			[
+				"offsetprocess",
+				"src/game/ObjProcessors/offsetProcessor.h"
+			],
+			[
+				"eventp",
+				"src/core/Process/eventProcess.cpp"
+			],
+			[
+				"guncea",
+				"src/game/factory/gunCreator.h"
+			],
+			[
+				"gunpro",
+				"src/game/ObjProcessors/gunProcessor.cpp"
+			],
+			[
+				"wa",
+				"src/game/eventHandlers/WSADHandler.cpp"
+			],
+			[
+				"objec",
+				"src/core/Object.h"
+			],
+			[
+				"gamest",
+				"src/game/States/gameState.cpp"
+			],
+			[
 				"bulletpro",
+				"src/game/ObjProcessors/bulletProcessor.cpp"
+			],
+			[
+				"gunpr",
+				"src/game/ObjProcessors/gunProcessor.cpp"
+			],
+			[
+				"bulletproc.cpp",
+				"src/game/ObjProcessors/bulletProcessor.cpp"
+			],
+			[
+				"bulletc",
+				"src/game/factory/bulletCreator.h"
+			],
+			[
+				"wsa",
+				"src/game/eventHandlers/WSADHandler.cpp"
+			],
+			[
+				"bulletpr",
+				"src/game/ObjProcessors/bulletProcessor.cpp"
+			],
+			[
+				"bu",
 				"src/game/ObjProcessors/bulletProcessor.cpp"
 			],
 			[
@@ -1861,36 +2331,12 @@
 				"src/main.cc"
 			],
 			[
-				"sta",
-				"src/core/State/State.h"
-			],
-			[
 				"objectm",
 				"src/core/Process/objectMgrProcess.h"
 			],
 			[
-				"dummy",
-				"src/game/factory/dummyCreator.h"
-			],
-			[
-				"player",
-				"src/game/factory/playerCreator.h"
-			],
-			[
-				"bulle",
-				"src/game/factory/bulletCreator.h"
-			],
-			[
-				"phy",
-				"src/core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
 				"plya",
 				"src/include/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp"
-			],
-			[
-				"view",
-				"src/core/Process/viewProcess.cpp"
 			],
 			[
 				"off",
@@ -1913,34 +2359,6 @@
 				"src/game/ObjProcessors/groundMoveProcessor.cpp"
 			],
 			[
-				"bounda",
-				"src/game/factory/boundaryCreator.h"
-			],
-			[
-				"render",
-				"src/core/ObjProcessors/renderProcessor.cpp"
-			],
-			[
-				"gunc",
-				"src/game/factory/gunCreator.h"
-			],
-			[
-				"",
-				"src/core/ObjProcessors/renderProcessor.cpp"
-			],
-			[
-				"camera",
-				"src/game/ObjProcessors/cameraProcessor.cpp"
-			],
-			[
-				"renderpro",
-				"src/core/ObjProcessors/renderProcessor.cpp"
-			],
-			[
-				"offse",
-				"src/game/ObjProcessors/offsetProcessor.h"
-			],
-			[
 				"offset",
 				"src/game/ObjProcessors/offsetProcessor.h"
 			],
@@ -1953,32 +2371,12 @@
 				"src/core/Process/viewProcess.cpp"
 			],
 			[
-				"window",
-				"src/core/Process/windowProcess.h"
-			],
-			[
 				"viewpro",
 				"src/core/Process/viewProcess.cpp"
 			],
 			[
-				"obj",
-				"src/core/Object.h"
-			],
-			[
-				"eventpro",
-				"src/core/Process/eventProcess.cpp"
-			],
-			[
-				"eventmgr",
-				"src/core/Messaging/eventMgr.h"
-			],
-			[
 				"eventm",
 				"src/core/Messaging/eventMgr.h"
-			],
-			[
-				"prop",
-				"src/core/Property.h"
 			],
 			[
 				"proper",
@@ -1987,10 +2385,6 @@
 			[
 				"event",
 				"src/core/Messaging/eventMgr.cpp"
-			],
-			[
-				"pro",
-				"src/core/Property.h"
 			],
 			[
 				"eventpr",
@@ -2009,24 +2403,8 @@
 				"src/core/Process/Process.h"
 			],
 			[
-				"str",
-				"src/util/strHelper.h"
-			],
-			[
-				"eventp",
-				"src/core/Process/eventProcess.cpp"
-			],
-			[
 				"eventprocess",
 				"src/core/Process/eventProcess.cpp"
-			],
-			[
-				"math",
-				"src/util/mathUtil.h"
-			],
-			[
-				"make",
-				"makefile"
 			],
 			[
 				"bullproc",
@@ -2035,10 +2413,6 @@
 			[
 				"health",
 				"src/game/ObjProcessors/healthProcessor.cpp"
-			],
-			[
-				"tup",
-				"Tuprules.tup"
 			],
 			[
 				"proce",
@@ -2077,10 +2451,6 @@
 				"src/core/Object.h"
 			],
 			[
-				"rend",
-				"src/core/ObjProcessors/renderProcessor.h"
-			],
-			[
 				"re",
 				"src/core/ObjProcessors/renderProcessor.h"
 			],
@@ -2097,22 +2467,6 @@
 				"src/core/objectMgr.h"
 			],
 			[
-				"world",
-				"src/core/Process/worldProcess.h"
-			],
-			[
-				"hash",
-				"src/core/Hash.h"
-			],
-			[
-				"windowpro",
-				"src/core/Process/windowProcess.h"
-			],
-			[
-				"healt",
-				"src/game/ObjProcessors/healthProcessor.h"
-			],
-			[
 				"grou.cp",
 				"src/game/ObjProcessors/groundMoveProcessor.cpp"
 			],
@@ -2121,197 +2475,25 @@
 				"src/game/ObjProcessors/groundMoveProcessor.h"
 			],
 			[
-				"ter",
-				"src/game/ObjProcessors/terrainProcessor.h"
-			],
-			[
 				"du",
 				"src/game/factory/dummyCreator.h"
 			],
 			[
-				"heal",
-				"src/game/ObjProcessors/healthProcessor.h"
-			],
-			[
 				"bulletr",
 				"src/game/ObjProcessors/bulletProcessor.cpp"
-			],
-			[
-				"healthp",
-				"src/game/ObjProcessors/healthProcessor.h"
-			],
-			[
-				"hea",
-				"game/ObjProcessors/healthProcessor.h"
-			],
-			[
-				"he",
-				"game/ObjProcessors/helathProcessor.cpp"
-			],
-			[
-				"processor",
-				"src/game/ObjProcessors/bulletProcessor.h"
-			],
-			[
-				"phyp",
-				"src/core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
-				"objectmgr",
-				"src/core/objectMgr.h"
-			],
-			[
-				"contact",
-				"src/core/ObjProcessors/objContactListener.cpp"
-			],
-			[
-				"creator",
-				"src/game/factory/boundaryCreator.h"
-			],
-			[
-				"gamemo",
-				"src/game/ObjProcessors/groundMoveProcessor.cpp"
-			],
-			[
-				"play",
-				"src/game/factory/playerCreator.h"
-			],
-			[
-				"dum",
-				"src/game/factory/dummyCreator.h"
-			],
-			[
-				"b2shape",
-				"src/include/Box2D/Collision/Shapes/b2Shape.h"
-			],
-			[
-				"b2bod",
-				"src/include/Box2D/Dynamics/b2Body.h"
-			],
-			[
-				"ga",
-				"src/game/States/gameState.cpp"
-			],
-			[
-				"amake",
-				"docs/engine/latex/Makefile"
-			],
-			[
-				"p",
-				"src/core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
-				"gamehandler",
-				"src/game/eventHandlers/WSADHandler.cpp"
-			],
-			[
-				"processeve",
-				"src/core/Process/eventProcess.cpp"
-			],
-			[
-				"move",
-				"src/game/ObjProcessors/groundMoveProcessor.cpp"
-			],
-			[
-				"ma",
-				"src/main.cc"
-			],
-			[
-				"objmgr",
-				"src/core/objectMgr.h"
-			],
-			[
-				"phypro",
-				"src/core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
-				"mak",
-				"makefile"
-			],
-			[
-				"objcon",
-				"src/core/ObjProcessors/objContactListener.h"
-			],
-			[
-				"phys",
-				"src/core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
-				"came",
-				"src/game/ObjProcessors/cameraProcessor.h"
-			],
-			[
-				"state",
-				"src/core/Process/stateProcess.h"
-			],
-			[
-				"processevent",
-				"src/core/Process/eventProcess.cpp"
-			],
-			[
-				"vi",
-				"src/core/Process/viewProcess.h"
-			],
-			[
-				"renderproc",
-				"src/core/ObjProcessors/renderProcessor.h"
-			],
-			[
-				"main.",
-				"src/main.cc"
-			],
-			[
-				"objectro",
-				"src/core/objectProcessor.h"
-			],
-			[
-				"objpro",
-				"src/core/objectProcessor.h"
-			],
-			[
-				"processorphy",
-				"src/core/ObjProcessors/phyProcessor.h"
-			],
-			[
-				"vie",
-				"src/core/Process/viewProcess.h"
-			],
-			[
-				"window.",
-				"src/include/SFML/Window.hpp"
-			],
-			[
-				"processvi",
-				"src/core/Process/viewProcess.h"
-			],
-			[
-				"viewr",
-				"src/core/Process/viewProcess.h"
-			],
-			[
-				"/processvi",
-				"src/core/Process/viewProcess.h"
-			],
-			[
-				"mai",
-				"src/main.cc"
-			],
-			[
-				"se",
-				"src/core/Settings.h"
-			],
-			[
-				"process/",
-				"src/core/Process/worldProcess.h"
-			],
-			[
-				"set",
-				"src/core/Settings.h"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
 	{
 		"height": 0.0,
 		"selected_items":
@@ -2319,10 +2501,16 @@
 		],
 		"width": 0.0
 	},
-	"show_minimap": false,
+	"settings":
+	{
+	},
+	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 328.0,
-	"status_bar_visible": true
+	"side_bar_width": 293.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
 }

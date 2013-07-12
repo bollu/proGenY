@@ -1,0 +1,10 @@
+[display]
+	width = 40;
+	progress = 0;
+	job_numbers = 0;
+	job_time = 0;
+
+[monitor]
+	autoupdate = 1;
+	autoparse = 1;
+	foreground = 1;

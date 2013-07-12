@@ -47,7 +47,7 @@ public:
 
 		//renderer------------------------------------
 		sf::Shape *shape = renderUtil::createShape(dummyShape, 
-			viewProc->getGame2RenderScale());
+			viewProc);
 
 		shape->setFillColor(sf::Color::Red);
 
@@ -55,7 +55,7 @@ public:
 		render.addRenderer(shapeRenderer);
 		
 		//health-----------------------------------------
-		health.setHP(1);
+		health.setHP(10);
 
 		//final---------------------------------
 		dummy->addProp(Hash::getHash("renderData"), 

@@ -67,6 +67,6 @@ public:
 private:
 
 	b2World *world;
-	vector2 _calcJumpImpulse(moveData *data, float dt);
+	vector2 _calcJumpImpulse(moveData *data, vector2 currentVel, float dt);
 	
 };

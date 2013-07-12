@@ -23,7 +23,6 @@ void gunProcessor::Process(float dt){
 		data->_Tick();
 
 		if(data->_shouldFire()){
-			util::msgLog("firing");
 			this->_fireShot(data, data->bulletPos);
 
 			data->_Cooldown();
@@ -35,13 +34,14 @@ void gunProcessor::_fireShot(gunData *data, vector2 pos){
 	bulletCreator *creator = data->creator;
 	assert(creator != NULL);
 
-	vector2 beginVel = data->facing.toVector() * 10;
+	vector2 beginVel = data->facing.toVector() * data->buletVel;
 
-	creator->setBeginVel(beginVel);
-	creator->setRadius(data->bulletRadius);
-	creator->setEnemyCollision(Hash::getHash("dummy"));
+	data->bullet.beginVel = beginVel;
 
+	creator->setBulletData(data->bullet);
+	creator->setCollisionRadius(data->bulletRadius);
 	Object *bullet = creator->createObject(pos);
+	
 	this->objectManager->addObject(bullet);
 };
 

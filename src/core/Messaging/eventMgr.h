@@ -1,6 +1,6 @@
 #pragma once
 #include "../Hash.h"
-#include "eventData.h"
+
 #include "../Property.h"
 #include "../../util/logObject.h"
 #include "../../util/strHelper.h"
@@ -106,6 +106,25 @@ public:
 		Event e;
 		e.name = eventName;
 		e.data = NULL;
+
+		this->_Dispatch(e);
+	}
+
+	//the pointer eventData is HELD ONTO, so either MAKE SURE it stays, or copy it
+	void sendEvent_(const Hash *eventName, baseProperty *eventData){
+		
+		if(! _observersPresent(eventName)){
+
+			util::msgLog("no subscribers to event.\nEventName: " \
+				+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
+
+			return;
+		}
+
+	
+		Event e;
+		e.name = eventName;
+		e.data = eventData;
 
 		this->_Dispatch(e);
 	}

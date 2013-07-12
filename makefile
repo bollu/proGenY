@@ -2,7 +2,7 @@
 OUTPUT = bin/a.out
 
 build:
-	sudo tup upd
+	@sudo tup upd
 
 run: $(OUTPUT)
 	python runner.py $(OUTPUT)

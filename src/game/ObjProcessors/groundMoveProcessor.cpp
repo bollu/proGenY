@@ -62,7 +62,7 @@ void groundMoveProcessor::Process(float dt){
 			//set velocity to 0 for a perfect parabola
 			body->SetLinearVelocity(vector2(0, 0));
 
-			impulse += this->_calcJumpImpulse(data, dt);
+			impulse += this->_calcJumpImpulse(data, vel, dt);
 			data->onGround = false;
 			
 		}
@@ -78,7 +78,7 @@ void groundMoveProcessor::Process(float dt){
 		}
 
 
-		//you're still moving, AND you're not jumping,
+		//you're still moving
 		//apply the required impulse
 		if((data->movingLeft || data->movingRight) && !data->jumping){
 
@@ -88,41 +88,77 @@ void groundMoveProcessor::Process(float dt){
 	    	float impulseX = data->mass * dvX; //disregard time factor
 
 	    	impulse.x += impulseX;
+
+
+	    	//if you're jumping, damp the impulse;
+	    	/*if(data->jumping){
+	    		impulse.x *= 0.0;
+	    	}*/
 	    }
 
 	    //you're not jumping in the air, apply friction
 	    if(!data->jumping){
 	    	float frictionX = data->mass * currentVelX * data->movementDamping.x;
 	    	impulse.x -= frictionX;
+
+	    	body->SetAngularVelocity(-currentVelX  * 0.5);
 	    };
 
 	    body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
 
-	    body->SetAngularVelocity(-currentVelX  * 0.5);
+	  
 
 	};
 };
 
-vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, float dt){
+vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, vector2 currentVel, float dt){
 
 	util::msgLog("jumping");
 	
 	vector2 impulse;
+	
+	const float angledJumpThreshold = 0.1;
 
-	if(!(data->movingLeft || data->movingRight)){
+	
+	//if(!(data->movingLeft || data->movingRight)){
+	//if(abs(currentVel.x)  < angledJumpThreshold){
+	if(true){
+
+		float absCurrentVelX = abs(currentVel.x);
+
 		impulse.y = data->jumpImpulse.y;
-		impulse.x = 0;
+		
+
+		vector2 additionalImpulse;
+		additionalImpulse.x = std::min(absCurrentVelX, data->jumpImpulse.x);
+		additionalImpulse.x *= currentVel.x < 0 ? -1 : 1;
+
+		impulse += additionalImpulse;
 	}
+	/*
 	else{
 
-		if(data->movingRight){
-			impulse.x = data->jumpImpulse.x;
-		}else{
-			impulse.x = -data->jumpImpulse.x;
-		}
-		impulse.y += data->jumpImpulse.y;
-	}
+		float jumpFraction = std::abs(currentVel.x / data->jumpImpulse.x);
+		jumpFraction = jumpFraction < 1 ? jumpFraction : 1;  
 
+
+		//HACK
+		jumpFraction = 1;
+
+		if(currentVel.x > 0){
+
+			impulse.x = data->jumpImpulse.x * jumpFraction;
+		}else{
+			impulse.x = -data->jumpImpulse.x * jumpFraction; 
+		}
+		impulse.y += data->jumpImpulse.y * jumpFraction;
+	}*/
+
+	if(impulse.x < 0){
+		impulse.x = std::max(impulse.x, -data->jumpImpulse.x);
+	}else{
+		impulse.x = std::min(impulse.x, data->jumpImpulse.x);
+	}
 	return impulse;
 };
 

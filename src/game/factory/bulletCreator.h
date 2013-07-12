@@ -10,8 +10,9 @@ class bulletCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
+	bulletData bullet;
+
 	float radius;
-	vector2 beginVel;
 
 	const Hash *enemyCollision;
 
@@ -19,38 +20,34 @@ public:
 
 	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void setRadius(float gRadius){
-		this->radius = gRadius;
+	void setBulletData(bulletData data){
+		this->bullet = data;
 	}
 
-	void setBeginVel(vector2 vel){
-		this->beginVel = vel;
-	}
+	void setCollisionRadius(float radius){
+		this->radius = radius;
+	};
 
-	void setEnemyCollision(const Hash *enemyCollision){
-		this->enemyCollision = enemyCollision;
-	}
-
-	Object *createObject(vector2 dummyPos) const{
+	
+	Object *createObject(vector2 _pos) const{
 		renderData render;
 		phyData phy;
-		bulletData bullet;
 		
-		Object *dummy = new Object("bullet");
+		Object *obj = new Object("bullet");
 
-		vector2 *pos = dummy->getProp<vector2>(Hash::getHash("position"));
-		*pos = dummyPos;
+		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		*pos = _pos;
 
 		//physics------------------------------------------------------------
 		phy.collisionType = Hash::getHash("bullet");
 		phy.bodyDef.type = b2_dynamicBody;
 
 		
-		b2CircleShape *dummyShape = new b2CircleShape();
-		dummyShape->m_radius = this->radius;
+		b2CircleShape *shape = new b2CircleShape();
+		shape->m_radius = this->radius;
 
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = dummyShape;
+		fixtureDef.shape = shape;
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
 		fixtureDef.isSensor = true;
@@ -59,29 +56,23 @@ public:
 
 
 		//renderer------------------------------------
-		sf::Shape *shape = renderUtil::createShape(dummyShape, 
-			viewProc->getGame2RenderScale());
+		sf::Shape *sfShape = renderUtil::createShape(shape, 
+			viewProc);
 
-		shape->setFillColor(sf::Color::Red);
+		sfShape->setFillColor(sf::Color::Red);
 
-		Renderer shapeRenderer(shape);
+		Renderer shapeRenderer(sfShape);
 		render.addRenderer(shapeRenderer);
 		
-		//bullet-------------------------------------
-		bullet.beginVel = this->beginVel;
-		util::Angle angle = util::Angle::Rad(this->beginVel.toAngle());
-		bullet.enemyCollision = this->enemyCollision;
-		//TODO:add actual damage value
-		bullet.damage = 1;
-
+	
 		//final---------------------------------
-		dummy->addProp(Hash::getHash("renderData"), 
+		obj->addProp(Hash::getHash("renderData"), 
 			new Prop<renderData>(render));
-		dummy->addProp(Hash::getHash("phyData"), 
+		obj->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
-		dummy->addProp(Hash::getHash("bulletData"), 
-			new Prop<bulletData>(bullet));
+		obj->addProp(Hash::getHash("bulletData"), 
+			new Prop<bulletData>(this->bullet));
 		
-		return dummy;
+		return obj;
 	};
 };

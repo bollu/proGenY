@@ -3,6 +3,7 @@
 
 Renderer::Renderer(sf::Shape *shape){
 	this->data.shape = shape;
+	this->data.shape->setFillColor(sf::Color(0, 0, 0));
 	this->type = Renderer::Type::Shape;
 }
 
@@ -51,6 +52,9 @@ renderProcessor::renderProcessor(processMgr &processManager,
 	this->window = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
 
+	windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));
+	windowProc->setClearColor(sf::Color(255, 255, 255, 255));
+
 };
 
 
@@ -65,6 +69,7 @@ void renderProcessor::Process(float dt){
 
 		renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
 
+
 		if(data == NULL){
 			continue;
 		}
@@ -73,29 +78,27 @@ void renderProcessor::Process(float dt){
 		//for box2d, +ve x axis is 0 degree clockwise
 		//ffor SFML, -ve y axis 0 degree. weird...
 		//box2dClockwise = 360 - box2d
-		//gameClockwise = 90 - box2dClockwise
-		//				= 90 - (360 - box2d)
-		//				= -270 + box2d
 
 
-		const util::Angle game2RenderAngle = util::Angle::Deg(360);
 
-		vector2* pos = obj->getProp<vector2>(Hash::getHash("position"));
+		static util::Angle game2RenderAngle = util::Angle::Deg(360);
 
-		vector2 viewPos = view->game2ViewCoord(*pos);
+		vector2* gamePos = obj->getProp<vector2>(Hash::getHash("position"));
+		vector2 viewPos = view->game2ViewCoord(*gamePos);
 		vector2 renderPos = view->view2RenderCoord(viewPos);
 
 		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
 		float fAngle = angle->toDeg();
-
-		util::Angle gameAngle = util::Angle::Deg(360 - fAngle);
+		util::Angle gameAngle = game2RenderAngle - *angle;
 		
-		this->_Render(renderPos, gameAngle, data);
+
+		this->_Render(renderPos, gameAngle, data, data->centered);
 	};
 }
 
 
-void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data){
+void renderProcessor::_Render(vector2 pos, util::Angle &angle, 
+	renderData *data,  bool centered){
 		//loop through the renderers
 	for(auto it = data->renderers.begin(); it != data->renderers.end(); ++it){
 		Renderer &renderer = *it;
@@ -105,12 +108,8 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data)
 			case Renderer::Type::Sprite:
 			{
 				sf::Sprite *sprite = renderer.data.sprite;
-				sf::FloatRect AABB = sprite->getLocalBounds();
-
-				vector2 renderPos = pos - 
-								vector2(AABB.width, AABB.height) * 0.5;
-				sprite->setPosition(pos - renderPos);
-				//sprite->setRotation(angle.toDeg());
+				sprite->setPosition(pos);
+				sprite->setRotation(angle.toDeg());
 				window->draw(*sprite);
 			
 			}
@@ -120,10 +119,14 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data)
 			case Renderer::Type::Shape:
 			{
 				sf::Shape *shape = renderer.data.shape;
-				sf::FloatRect AABB = shape->getLocalBounds();
 
-				vector2 renderPos = pos - 
-									vector2(AABB.width, AABB.height) * 0.5;
+
+				
+				if(centered){
+					sf::FloatRect AABB = shape->getLocalBounds();
+					//pos -= vector2(AABB.width, AABB.height) * 0.5;
+				}
+						
 				shape->setPosition(pos);
 				shape->setRotation(angle.toDeg());
 				window->draw(*shape);
@@ -138,6 +141,10 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle, renderData *data)
 				window->draw(*text);
 			}
 			break;
+
+			default:
+				util::msgLog("renderer of unkown type detected.", 
+					util::logLevel::logLevelError);
 		};
 
 	}

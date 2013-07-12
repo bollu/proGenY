@@ -2,7 +2,7 @@
 #include <math.h>
 
 #ifndef PRINTVECTOR2
-	#define PRINTVECTOR2(vec) std::cout<<"\n\t"<<#vec<<" X = "<<vec.x<<" Y = "<<vec.y<<std::endl;
+	#define PRINTVECTOR2(vec) std::cout<<"\n\t"<<#vec<<" X = "<<((vec).x)<<" Y = "<<((vec).y)<<std::endl;
 #endif
 
 //HACK!--------------------------------------
@@ -11,24 +11,44 @@
 //class b2Vec2;
 
 
-
+/*!represents a 2-dimensional vector*/
 class vector2{
 public:
 	float x, y;
- 
+ 	
+ 	/*!created a null vector*/
 	vector2(){ this->x = this->y = 0;};
 	~vector2(){};
 
+	/*!typecast a vector of another type to a vector2
+	
+	the other vector *must* have x and y as public
+	member variables. otherwise, this function will not work
+
+	@param [in] otherVec the vector of another type
+	\return a vector2 with the same x and y coordinate
+	*/
 	template<typename T>
 	static vector2 cast(const T &otherVec){
 		return vector2(otherVec.x, otherVec.y);
 	}
 
+	/*!typecasts a vector2 to a vector of another type
+
+	the other vector *must* have a constructor of the form
+	otherVector(float x, float y). Otherwise, this function will not work
+	
+	\return a vector of the other type
+	*/
 	template<typename T>
 	T cast() const{
 		return T(this->x, this->y);
 	}
 
+	/*!construct a vector
+	@param [in] x the x-coordinate
+	@param [in] y the y-coordinate
+	*/
 	/*inline*/ vector2(float x, float y){
 		this->x = x; this->y = y;
 	};
@@ -37,12 +57,15 @@ public:
 		this->x = other.x;
 		this->y = other.y;
 	}
-	//creates a normalized vector which forms an angle **in radians** with the x-axis
-	static vector2 createVectorFromAngle(float angle){
-		return vector2(cos(angle),  sin(angle));
-	};
+	
 
-	//get the normalized vector
+	/*!normalize the vector
+	
+	creates a new vector which has the same direction 
+	as this vector, but has magnitude one
+
+	\return a new unit vector in this vector's direction
+	*/
 	vector2 Normalize() const{	
 		float length = this->Length(); 
 		length  = (length == 0 ? 1 : length);
@@ -50,12 +73,15 @@ public:
 	};
 
 
-	//convert the vector to an angle 
+	/*!return the angle made by this vector with the x axis in
+	counter clockwise direction *in radians*
+	*/
 	float toAngle() const{
 		return atan2(this->y, this->x);
 	}
 
-	//clamp this vector between -vec and +vec
+	/*!return a vector that is clamped between minVec and maxVec
+	*/   
 	vector2 clamp(vector2 minVec, vector2 maxVec){
 		vector2 clampedVec; clampedVec.x = x; clampedVec.y = y;
 		if(clampedVec.x < minVec.x) clampedVec.x = minVec.x;
@@ -67,20 +93,22 @@ public:
 		return clampedVec;
 	};
 
-	//get the length of the vector
+	/*!returns the length of the  vector*/
 	inline float Length() const{ return (sqrt(x * x  +  y * y)); };
-	/// Get the length squared. For performance, use this instead of vector2::Length (if possible).
+	/*!returns the length of the vector squared.
+	For performance, use this instead of vector2::Length to compare distances.
+	*/
 	inline float LengthSquared() const{ return (x * x + y * y); };
 
 	//---------operator overloads-------------------------------------------
 
-	//negate this vector
+	/*!negate this vector*/
 	inline vector2 operator -(){	return vector2(-x, -y); };
-	// Add a vector to this vector.
+	/*!Add a vector to this vector.*/
 	inline void operator += (const vector2& v){ x += v.x; y += v.y; };
-	// Subtract a vector from this vector.
+	/*!Subtract a vector from this vector.*/
 	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y; };
-	// Multiply this vector by a scalar.
+	/*!Multiply this vector by a scalar.*/
 	inline void operator *= (float a){ x *= a; y *= a; };
 
 	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };
@@ -93,9 +121,7 @@ public:
 	inline bool operator >= (const vector2& a) const { return (this->x >= a.x && this->y >= a.y); };
 	inline bool operator <= (const vector2& a) const { return (this->x <= a.x && this->y <= a.y); };
 	inline bool operator == (const vector2& a) const { return (this->x == a.x && this->y == a.y); };
-	//templatized function to typecast an object to another one by using the constructor -_^
-	 //template<class otherPhyVect> inline operator otherPhyVect(){ return otherPhyVect(this->x, this->y); }
-
+	
 	inline operator b2Vec2(){ return b2Vec2(this->x, this->y); }
 	
 	template <typename T>
@@ -112,39 +138,54 @@ inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x 
 inline bool    operator == (const vector2&a , vector2& b) { return (a.x == a.y) && (b.x == b.y);  };
 
 //------------------------------------------------------------------------------------------------
+
+/*!represents a 3-d vector*/
 class vector3{
 public:
 	float x, y, z;
 
+	/*!create a null vector*/
 	vector3(){ this->x = this->y = this->z = 0;};
+
+	/*!create a vector
+	@param [in] x the x-coordinate
+	@param [in] y the y-coordinate
+	@param [in] z the z-coordinate
+	*/
 	vector3(float x, float y, float z){
 		this->x = x; this->y = y;
 		this->z = z;
 	};
 
+	/*!create a vector
+	@param [in] vec2 the x and y coordinates 
+	@param [in] z the z coordinate 
+	*/
 	vector3(vector2 vec2, float z){
 		this->x = vec2.x;
 		this->y = vec2.y;
 		this->z = z;
 	}
-	//get the normalized vector
+
+	/*!normalize the vector
+
+	creates a new vector which has the same direction 
+	as this vector, but has magnitude one
+
+	\return a new unit vector in this vector's direction
+	*/
 	vector3 Normalize(){	
 		float length = this->Length(); 
 		length  = length == 0 ? 1 : length;
 		return (vector3(this->x / length, this->y / length, this->z / length));
 	};
 
-	//convert this vector to radians
-	/*float rad(){
-		vector2 v = vector2(this->x, this->y);
-		v.Normalize();
-		return atan2(v.y,v.x);
-	};*/
 
-
-	//get the length of the vector
+	/*!returns the length of the  vector*/
 	inline float Length(){ return (sqrt(x * x  +  y * y + z * z)); };
-	/// Get the length squared. For performance, use this instead of vector2::Length (if possible).
+	/*!returns the length of the vector squared.
+		For performance, use this instead of vector2::Length to compare distances.
+		*/
 	inline float LengthSquared() const{ return (x * x + y * y + z * z); };
 
 	//---------operator overloads-------------------------------------------
@@ -188,72 +229,3 @@ public:
 inline vector3 operator * (float s, const vector3& a)		   { return vector3(a.x * s  , a.y * s, a.z * s);    };	
 inline vector3 operator * (const vector3& a, float s)		   { return vector3(a.x * s  , a.y * s, a.z * s);	 };	
 inline bool    operator == (const vector3&a , vector3& b)	   { return (a.x == a.y) && (b.x == b.y) && (a.z == b.z);  };
-
-
-
-
-//template<class Type = float>
-//class vector2{
-//public:
-//	float x, y;
-//	
-//	vector2(){ this->x = this->y = 0; };
-//	vector2(float x, float y){
-//		this->x = x; this->y = y;
-//	};
-//	get the normalized vector
-//	vector2 Normalize(){	
-//		float length = this->Length(); 
-//		length  = length == 0 ? 1 : length;
-//		return (vector2(this->x / length, this->y / length));
-//	};
-//
-//	convert this vector to radians
-//	float rad(){
-//		vector2 v = vector2(this->x, this->y);
-//		v.Normalize();
-//		return atan2(v.y,v.x);
-//	};
-//
-//	clamp this vector between -vec and +vec
-//	vector2 clamp(vector2 minVec, vector2 maxVec){
-//		vector2 clampedVec; clampedVec.x = x; clampedVec.y = y;
-//		if(clampedVec.x < minVec.x) clampedVec.x = minVec.x;
-//		if(clampedVec.x > maxVec.x) clampedVec.x = maxVec.x;
-//
-//		if(clampedVec.y < minVec.y) clampedVec.y = minVec.y;
-//		if(clampedVec.y > maxVec.y) clampedVec.y = maxVec.y;
-//
-//		return clampedVec;
-//	};
-//
-//	get the length of the vector
-//	inline float Length(){ return (sqrt(x * x  +  y * y)); };
-//	 Get the length squared. For performance, use this instead of vector2::Length (if possible).
-//	inline float LengthSquared() const{ return (x * x + y * y); };
-//
-//	---------operator overloads-------------------------------------------
-//
-//	negate this vector
-//	inline vector2 operator -(){	return vector2(-x, -y); };
-//	 Add a vector to this vector.
-//	inline void operator += (const vector2& v){ x += v.x; y += v.y; };
-//	 Subtract a vector from this vector.
-//	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y; };
-//	 Multiply this vector by a scalar.
-//	inline void operator *= (float a){ x *= a; y *= a; };
-//
-//	inline vector2 operator + (const vector2& a) { return vector2(x + a.x, y + a.y); };
-//	inline vector2 operator - (const vector2& a) { return vector2(x - a.x, y - a.y);};
-//	inline vector2 operator / (const vector2& a) { return vector2(x / a.x, y / a.y); };
-//	
-//	
-//	inline bool    operator == (const vector2&a)	   { return (a.x == this->x) && (a.y == this->y);  };
-//
-//	templatized function to typecast an object to another one by using the constructor -_^
-//	template<class otherPhyVect> inline operator otherPhyVect(){ return otherPhyVect(this->x, this->y); }
-//
-//};
-//
-//inline vector2 operator * (const float s, vector2&a)		   { return vector2(a.x * s  , a.y * s);    };	
-//inline vector2 operator * (vector2&a, const float s)		   { return vector2(a.x * s  , a.y * s);    };	

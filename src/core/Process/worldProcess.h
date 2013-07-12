@@ -5,6 +5,11 @@
 
 
 
+/*!encapsulates the box2d simulation as a Process
+
+the worldProcess is responsible for the physics engine. So,
+it must ensure that the physics runs smoothly and is never corrupt.
+*/
 class worldProcess : public Process{
 private:
 	b2World *world;
@@ -42,18 +47,35 @@ public:
 
 	};
 
+	/*!returns the size of each simuation step
+	\return the step size of the simulation
+	*/
 	float getStepSize(){
 		return this->stepSize;
 	}
 
+	/*!returns the maximum accumulation of time possible
+		before it lapses
+
+	if time accumulates such that it becomes 
+	greater than this limit, rater than trying to catch up,
+	just lapse and start counting from the beginning again.
+	This is useful when, for example, we switch windows. on returning,
+	a lot of time will have elapsed. simulating those many steps will 
+	cause the whole simulation to "explode". So, just lapse and start counting anew
+
+	\return the maximum accumulation of time 
+	*/
 	float getMaxAccumilation(){
 		return this->maxAccumilation;
 	}
 
+	/*!pauses the simulation */
 	 void Pause(){
 	 	this->paused = true;
 	 };
 
+	 /*!Resumes the simulation*/
 	 void Resume(){
 	 	this->paused = false;
 	 };
@@ -85,8 +107,12 @@ public:
 	 void Draw(){};
 
 
-	 void Shutdown(){};
+	 void Shutdown(){
+	 	delete(this->world);
+	 };
 
+	 /*!returns the internal box2d World
+	 \return the box2d world pointer */
 	 b2World *getWorld(){
 	 	return this->world;
 	 }

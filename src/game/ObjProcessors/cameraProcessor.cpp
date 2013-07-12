@@ -15,6 +15,10 @@ void cameraProcessor::onObjectAdd(Object *obj){
 	data->cameraCenter = view->getCenter();
 	data->accumilator = 0;
 
+	vector2 windowDim = vector2::cast(window->getSize());
+	data->minCoord += windowDim * 0.5;
+	
+
 
 };
 
@@ -85,7 +89,10 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	vector2 *gamePos = obj->getProp<vector2>(Hash::getHash("position"));
-	vector2 viewPos = this->view->game2ViewCoord(*gamePos);
+	
+	vector2 viewPos = this->view->view2RenderCoord(
+		this->view->game2ViewCoord(*gamePos));
+
 
 	vector2 currentCameraCenter = view->getCenter();
 	vector2 boxBottomLeft = currentCameraCenter - vector2(data->boxHalfW, data->boxHalfH);
@@ -106,9 +113,6 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 	if(viewPos.y > boxtopRight.y){
 		cameraMoveAmt.y = viewPos.y - boxtopRight.y;
 	}
-
-
-
 
 	return cameraMoveAmt;
 };

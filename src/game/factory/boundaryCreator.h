@@ -28,7 +28,7 @@ public:
 
 		vector2 *pos = boundaryObject->getProp<vector2>(
 			Hash::getHash("position"));
-		*pos = levelDim * 0.5; //+ vector2(thickness, thickness);
+		*pos = vector2(0,0);//levelDim * 0.5; //+ vector2(thickness, thickness);
 
 		
 		phyData physicsData;
@@ -40,7 +40,7 @@ public:
 		{
 			//BOTTOM---------------------------------------------------------
 			b2PolygonShape *bottom = new b2PolygonShape(); 
-			vector2 bottomCenter = vector2(0, -levelDim.y / 2.0);//vector2(levelDim.x / 2.0, 0);
+			vector2 bottomCenter = vector2(levelDim.x / 2.0, 0);//vector2(levelDim.x / 2.0, 0);
 			bottom->SetAsBox(levelDim.x / 2.0, thickness, bottomCenter, 0);
 
 			b2FixtureDef bottomFixtureDef;
@@ -50,8 +50,9 @@ public:
 			physicsData.fixtureDef.push_back(bottomFixtureDef);
 
 			sf::Shape *shape = renderUtil::createShape(bottom, 
-				viewProc->getGame2RenderScale());
+				viewProc);
 			shape->setFillColor(sf::Color::Blue);
+			//shape->setL
 			Renderer renderer(shape);
 			render.addRenderer(renderer);
 
@@ -60,7 +61,7 @@ public:
 		{
 			//TOP---------------------------------------------------------
 			b2PolygonShape *top = new b2PolygonShape(); 
-			vector2 topCenter = vector2(0, levelDim.y / 2.0);//vector2(levelDim.x / 2.0, levelDim.y / 2.0);
+			vector2 topCenter = vector2(levelDim.x / 2.0, levelDim.y);//vector2(levelDim.x / 2.0, levelDim.y / 2.0);
 			top->SetAsBox(levelDim.x / 2.0, thickness, topCenter, 0);
 
 			b2FixtureDef topFixtureDef;
@@ -72,18 +73,18 @@ public:
 
 
 			sf::Shape *shape = renderUtil::createShape(top, 
-				viewProc->getGame2RenderScale());
+				viewProc);
 			shape->setFillColor(sf::Color::Blue);
 			Renderer renderer(shape);
 			render.addRenderer(renderer);
 
 		}
 
-
+		
 		{
 			//LEFT---------------------------------------------------------
 			b2PolygonShape *left = new b2PolygonShape(); 
-			vector2 leftCenter = vector2(-levelDim.x / 2.0, 0);
+			vector2 leftCenter = vector2(0, levelDim.y / 2.0);//vector2(0, levelDim.y / 2.0);
 			left->SetAsBox(thickness, levelDim.y / 2.0, leftCenter, 0);
 
 			b2FixtureDef leftFixtureDef;
@@ -93,8 +94,9 @@ public:
 			physicsData.fixtureDef.push_back(leftFixtureDef);
 
 			sf::Shape *shape = renderUtil::createShape(left, 
-				viewProc->getGame2RenderScale());
+				viewProc);
 			shape->setFillColor(sf::Color::Blue);
+			//shape->setOutlineThickness(100);
 			Renderer renderer(shape);
 			render.addRenderer(renderer);
 		}
@@ -102,7 +104,7 @@ public:
 		{
 			//RIGHT---------------------------------------------------------
 			b2PolygonShape *right = new b2PolygonShape(); 
-			vector2 rightCenter = vector2(levelDim.x / 2.0, 0);
+			vector2 rightCenter = vector2(levelDim.x, levelDim.y / 2.0);
 			right->SetAsBox(thickness, levelDim.y / 2.0, rightCenter, 0);
 
 			b2FixtureDef rightFixtureDef;
@@ -112,7 +114,7 @@ public:
 			physicsData.fixtureDef.push_back(rightFixtureDef);
 
 			sf::Shape *shape = renderUtil::createShape(right, 
-				viewProc->getGame2RenderScale());
+				viewProc);
 			shape->setFillColor(sf::Color::Blue);
 			Renderer renderer(shape);
 			render.addRenderer(renderer);

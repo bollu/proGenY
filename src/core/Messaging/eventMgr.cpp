@@ -45,13 +45,13 @@ void eventMgr::_sendEvent(Event &event){
 	baseProperty *currentData = event.data;
 
 	auto mapIt = this->observerMap.find(currentEventName);
+	assert(mapIt != this->observerMap.end());
 	
 	observerList list = mapIt->second;
 	for(auto listIt = list.begin(); listIt != list.end(); ++listIt){
 		(*listIt)->recieveEvent(currentEventName, currentData);
 	}
 	
-
 	if(currentData != NULL){
 		delete(currentData);
 	}

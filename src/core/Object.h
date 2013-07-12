@@ -4,6 +4,7 @@
 #include "Property.h"
 #include "Hash.h"
 #include "../util/mathUtil.h"
+#include "../util/logObject.h"
 
 
 /*!Represents a game Object. 
@@ -83,29 +84,34 @@ public:
 		};
 	}
 
-	
 	template<typename Type>
-	Type* getPtrProp(const Hash *name){
-		ptrProp<Type> *prop = dynamic_cast<ptrProp<Type> *>(this->getBaseProp(name));
+	void setProp(const Hash *name, Type *value){
+		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
 		
 		if(prop == NULL){
-			return NULL;
+			util::msgLog("unable to find property. \
+				\nObject: " +  this->getName() + 
+				"\nProperty: " + Hash::Hash2Str(name), 
+				util::logLevel::logLevelError);
 		}else{
-			return prop->getVal();
-		};
-	};
-
-	template<typename Type>
-	Type* getManagedProp(const Hash *name){
-		managedProp<Type> *prop = dynamic_cast<managedProp<Type> *>(this->getBaseProp(name));
-
-		if(prop == NULL){
-			return NULL;
-		}else{
-			return prop->getVal();
+			prop->setVal(*value);
 		};
 	}
-	
+
+	template<typename Type>
+	void setProp(const Hash *name, Type value){
+		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
+		
+		if(prop == NULL){
+			util::msgLog("unable to find property. \
+				\nObject: " +  this->getName() + 
+				"\nProperty: " + Hash::Hash2Str(name), 
+				util::logLevel::logLevelError);
+		}else{
+			prop->setVal(value);
+		};
+	}
+
 
 	/*!returns whether the Object has the property with name */
 	bool hasProperty(const Hash *name){

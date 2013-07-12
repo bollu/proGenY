@@ -15,7 +15,7 @@ struct cameraData{
 	vector2 maxCoord;
 
 	//the maximum amount the camera can be moved per frame
-	vector2 maxMoveAmt;
+	vector2 maxMoveAmt; 
 
 	//a bounding box is created from the center of the camera.
 	//if the object moves out of the bounding box, then the camera
