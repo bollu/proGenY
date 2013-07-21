@@ -66,7 +66,7 @@ public:
 
 			b2FixtureDef topFixtureDef;
 			topFixtureDef.shape = top;
-			topFixtureDef.friction = 0.0;
+			topFixtureDef.friction = 1.0;
 			topFixtureDef.restitution = 0.0;
 
 			physicsData.fixtureDef.push_back(topFixtureDef);

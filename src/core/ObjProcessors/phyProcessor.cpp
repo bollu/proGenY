@@ -2,6 +2,15 @@
 #include "phyProcessor.h"
 #include <type_traits>
 
+
+phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
+{
+	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
+	this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+
+	world->SetContactListener(&this->contactListener);
+}
+
 void phyProcessor::onObjectAdd(Object *obj){
 
 
@@ -86,7 +95,7 @@ void phyProcessor::onObjectRemove(Object *obj){
 
 
 	if(data != NULL){
-		util::msgLog("destroying body owned by " + obj->getName());
+		util::infoLog("destroying body owned by " + obj->getName());
 		world->DestroyBody(data->body);
 	}
 }
@@ -130,9 +139,8 @@ void phyData::addCollision(collisionData &collision){
 
 void phyData::removeCollision(Object *obj){
 	for(auto it = this->collisions.begin(); it != this->collisions.end(); ++it){
-		if(it->obj == obj){
+		if(it->otherObj == obj){
 			this->collisions.erase(it);
-			util::msgLog("erased");
 			break;
 		}
 	};
@@ -140,5 +148,5 @@ void phyData::removeCollision(Object *obj){
 
 
 const Hash *collisionData::getCollidedObjectCollision(){
-	return this->phy->collisionType;
+	return this->otherPhy->collisionType;
 };

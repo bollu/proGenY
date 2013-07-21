@@ -95,7 +95,7 @@ void _loadSettings(Settings &settings){
 
     settings.addProp(Hash::getHash("screenDimensions"), new v2Prop(vector2(1280, 720)));
 
-    settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -15.0)));
+    settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -50.0)));
     settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
     settings.addProp(Hash::getHash("velIterations"), new iProp(5));
     settings.addProp(Hash::getHash("collisionIterations"), new iProp(5));

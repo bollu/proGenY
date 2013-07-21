@@ -41,6 +41,8 @@ public:
 		//physics------------------------------------------------------------
 		phy.collisionType = Hash::getHash("bullet");
 		phy.bodyDef.type = b2_dynamicBody;
+		//phy.bodyDef.type = b2_kinematicBody;
+		phy.bodyDef.bullet = true;
 
 		
 		b2CircleShape *shape = new b2CircleShape();
@@ -51,6 +53,7 @@ public:
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
 		fixtureDef.isSensor = true;
+		
 
 		phy.fixtureDef.push_back(fixtureDef);
 

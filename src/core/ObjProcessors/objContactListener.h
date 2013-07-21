@@ -1,9 +1,34 @@
 #pragma once
 #include "../../include/Box2D/Box2D.h"
-
-
+#include "../vector.h"
+#include "../Hash.h"
 class phyData;
 class Object;
+
+/*!Stores collision related data*/
+struct collisionData{
+	/*!the type of collision*/
+	enum Type{
+		/*!the collision has just begun*/
+		onBegin,
+		/*!the collision has just ended*/
+		onEnd,
+	} type;
+	
+	/*!the physicsData of the *other* object that this object
+	has collided with */ 
+	phyData *otherPhy;
+	/*!the physicsData of *this* object */
+	phyData *myPhy;
+	/*!the *other* object that this object has collided with*/
+	Object *otherObj;	
+
+	vector2 normal;
+
+	const Hash *getCollidedObjectCollision();
+};
+
+
 
 /*!converts box2d collisions to high-level game collisions.
 
@@ -18,6 +43,15 @@ This class is responsible for filling phyData::collisions
 \sa phyProcessor
 */
 class objContactListener : public b2ContactListener{
+private:
+	void _extractPhyData(b2Contact *contact, Object **a, Object **b);
+
+	collisionData _fillCollisionData(b2Contact *contact,
+  Object *me, Object *other, phyData *myPhy, phyData *otherPhy);
+
+	//HACK! should be collisionData::Type, but this creates a
+	//cyclic dependency :(
+	void _handleCollision(collisionData::Type type, b2Contact *contact);
 public:
 	objContactListener(){};
 	~objContactListener(){};
@@ -27,5 +61,5 @@ public:
 
 
 
-	void _extractPhyData(b2Contact *contact, Object **a, Object **b);
+	
 };

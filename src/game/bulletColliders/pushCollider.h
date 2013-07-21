@@ -13,10 +13,9 @@ public:
 
 	~pushCollider(){};
 
-	bool onCollision(collisionData &collision, Object *bullet){
+	bool onEnemyCollision(collisionData &collision, Object *bullet){
 
-		util::msgLog("colliding");
-		phyData *other = collision.phy;
+		phyData *other = collision.otherPhy;
 		phyData *bulletPhy = bullet->getProp<phyData>(Hash::getHash("phyData"));
 
 		vector2 vel = vector2::cast(bulletPhy->body->GetLinearVelocity());

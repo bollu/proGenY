@@ -89,13 +89,25 @@ public:
 		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
 		
 		if(prop == NULL){
-			util::msgLog("unable to find property. \
+			util::errorLog("unable to find property. \
 				\nObject: " +  this->getName() + 
-				"\nProperty: " + Hash::Hash2Str(name), 
-				util::logLevel::logLevelError);
+				"\nProperty: " + Hash::Hash2Str(name));
 		}else{
 			prop->setVal(*value);
 		};
+	}
+
+	template<typename Type>
+	Prop<Type> *getPropPtr(const Hash *name){
+		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
+
+		if(prop == NULL){
+			util::errorLog("unable to find property. \
+				\nObject: " +  this->getName() + 
+				"\nProperty: " + Hash::Hash2Str(name));
+		}else{
+			return prop;
+		}
 	}
 
 	template<typename Type>
@@ -103,10 +115,9 @@ public:
 		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
 		
 		if(prop == NULL){
-			util::msgLog("unable to find property. \
+			util::errorLog("unable to find property. \
 				\nObject: " +  this->getName() + 
-				"\nProperty: " + Hash::Hash2Str(name), 
-				util::logLevel::logLevelError);
+				"\nProperty: " + Hash::Hash2Str(name));
 		}else{
 			prop->setVal(value);
 		};

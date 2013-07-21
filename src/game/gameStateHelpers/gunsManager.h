@@ -1,10 +1,17 @@
 #pragma once
 #include "../ObjProcessors/gunProcessor.h"
 #include "../../core/Messaging/eventMgr.h"
+#include "../factory/objectFactory.h"
+
+
+class gunCreator;
+class bulletCreator;
+class objectMgr;
 
 class gunsManager : public Observer{
 public:
-	gunsManager(eventMgr &eventManager, Object *player);
+	gunsManager(eventMgr &eventManager, objectFactory &factory, 
+		objectMgr &objectManager, Object *player);
 	void addGun(Object *gun, bool currentGun=false);
 
 
@@ -17,6 +24,10 @@ private:
 	Object *currentGun;
 	gunData *currentGunData;
 
+
+	gunCreator *_gunCreator;
+	bulletCreator *_bulletCreator;
+	objectMgr &objectManager;
 	//0 to guns.size() - 1
 	unsigned int currentGunIndex;
 

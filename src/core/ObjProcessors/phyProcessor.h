@@ -9,28 +9,12 @@
 #include "../Settings.h"
 #include "../Messaging/eventMgr.h"
 
+
 #include "objContactListener.h"
 
+struct phyData;
 
 
-/*!Stores collision related data*/
-struct collisionData{
-	/*!the type of collision*/
-	enum Type{
-		/*!the collision has just begun*/
-		onBegin,
-		/*!the collision has just ended*/
-		onEnd,
-	} type;
-	
-	/*!the physicsData of the *other* object that this object
-	has collided with */ 
-	phyData *phy;
-	/*!the *other* object that this object has collided with*/
-	Object *obj;	
-
-	const Hash *getCollidedObjectCollision();
-};
 
 
 
@@ -97,13 +81,7 @@ private:
 	objContactListener contactListener;
 
 public:
-	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
-	{
-		this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
-
-		world->SetContactListener(&this->contactListener);
-	}
+	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 
 	void onObjectAdd(Object *obj);
 

@@ -61,9 +61,10 @@ namespace util{
 	Otherwise, the message will be printed to the console and the program will
 	continue to execute
 	*/
-	class msgLog : public baseLog{
-	private:
 
+	template <logLevel level>
+	class msgLog : public baseLog{
+	
 	public:
 		/*! constructor used to create a msgLog
 
@@ -78,7 +79,7 @@ namespace util{
 		
 		\sa scopedLog
 		*/
-		msgLog(std::string msg, logLevel level = logLevelInfo){
+		msgLog(std::string msg){
 			if(level >= baseLog::thresholdLevel){
 				std::cout<<"\n"<<msg<<std::endl;
 
@@ -90,7 +91,20 @@ namespace util{
 
 			
 		};
+
+		template <typename T>
+		msgLog & operator << (T toWrite){
+			if(level >= baseLog::thresholdLevel){
+				std::cout<<toWrite;
+			}
+
+			return *this;
+		}
 	};
+
+	typedef  util::msgLog<logLevelInfo> infoLog;
+	typedef  util::msgLog<logLevelError> errorLog;
+	typedef  util::msgLog<logLevelWarning> warningLog;
 
 
 	/*! used to emit messages when a scope is entered and exited 

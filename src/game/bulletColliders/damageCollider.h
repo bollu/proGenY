@@ -12,8 +12,8 @@ public:
 
 	~damageCollider(){};
 
-	bool onCollision(collisionData &collision, Object *bullet){
-		Object *other = collision.obj;
+	bool onEnemyCollision(collisionData &collision, Object *bullet){
+		Object *other = collision.otherObj;
 
 		healthData *health = other->getProp<healthData>(Hash::getHash("healthData"));
 		if(health == NULL)

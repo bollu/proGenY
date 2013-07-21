@@ -12,14 +12,15 @@
 #include "../factory/playerCreator.h"
 #include "../../core/objectMgr.h"
 
-
+#include "../factory/objectFactory.h"
 
 
 playerController::playerController(eventMgr *eventManager, objectMgr *objectManager,
-	viewProcess *viewProc){
+	objectFactory *factory, viewProcess *viewProc){
 	
 	this->_eventManager = eventManager;
 	this->_objectManager = objectManager;
+	this->_objectFactory = factory; 
 	this->viewProc = viewProc;
 
 	//this->gunsMgr = new gunsManager(*_eventManager);
@@ -46,7 +47,7 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 
 	//player created--------------------------------------------
 	this->_createPlayer(initPos, creator);
-	util::msgLog("player created");
+	util::infoLog("player created");
 
 	//create guns
 	this->_createGunsManager(this->player);
@@ -54,11 +55,11 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 	//create playerEventHandler
 	playerData.player = this->player;
 	this->_createPlayerEventHandler(playerData);
-	util::msgLog("player event handler created");
+	util::infoLog("player event handler created");
 
 	//add player
 	this->_objectManager->addObject(this->player);
-	util::msgLog("added to object manager");
+	util::infoLog("added to object manager");
 
 };
 
@@ -82,7 +83,8 @@ void playerController::_createPlayer(vector2 initPos, playerCreator *creator){
 };
 
 void playerController::_createGunsManager(Object *player){
- 	this->gunsMgr = new gunsManager(*this->_eventManager, player);
+ 	this->gunsMgr = new gunsManager(*this->_eventManager, *this->_objectFactory, 
+ 			*this->_objectManager, player);
 };
 
 void playerController::_createPlayerEventHandler(playerHandlerData &playerData)

@@ -123,7 +123,7 @@ void playerEventHandler::Update(){
 	this->_updateGunFacing(this->lastMousePos);
 
 	for(collisionData collision : phy->collisions){
-		if(collision.phy->collisionType == Hash::getHash("terrain")){
+		if(collision.getCollidedObjectCollision() == Hash::getHash("terrain")){
 			if(collision.type == collisionData::Type::onBegin){
 				this->playerData.objMoveData->resetJump();
 				break;

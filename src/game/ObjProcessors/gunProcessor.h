@@ -87,15 +87,6 @@ public:
 	}
 
 	
-	void setBulletCreator(bulletCreator *creator){
-		this->creator = creator;
-	}
-
-	void setBulletData(bulletData &data){
-		this->bullet = data;
-	}
-
-	
 	void setBulletRadius(float radius){
 		this->bulletRadius = radius;
 		assert(this->bulletRadius > 0);
@@ -104,6 +95,16 @@ public:
 	void setBulletVel(float vel){
 		this->buletVel = vel;
 	}
+
+	void setBulletCreator(bulletCreator *creator){
+		this->creator = creator;
+	}
+
+	void setBulletData(bulletData &data){
+		this->bullet = data;
+	}
+
+
 	//functions to be called during processing
 	void setFacing(util::Angle facing){
 		this->facing = facing;

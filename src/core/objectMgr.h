@@ -36,7 +36,7 @@ public:
 	void addObject(Object *obj){
 
 		assert(obj != NULL);
-		util::msgLog(obj->getName()  + "  added to objectManager");
+		util::infoLog(obj->getName()  + "  added to objectManager");
 
 		this->objMap[obj->getName()] = obj;
 		for(objProcessorIt it = this->objProcessors.begin(); it != this->objProcessors.end(); ++it){

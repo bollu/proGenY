@@ -1,17 +1,36 @@
 #pragma once
 #include "../ObjProcessors/gunProcessor.h"
 #include "Generator.h"
+#include "bulletDataGenerator.h"
 
 
-class gunDataGenerator{
+
+
+class gunDataGenerator : public Generator{
+public:
+	enum Archetype{
+		machineGun = 0,
+		Rocket = 1,
+	};
+
+	gunDataGenerator(gunDataGenerator::Archetype archetype, 
+		unsigned int power, unsigned long seed);
+
+	gunData Generate();
+
+
+
 private:
+
+	
+
 	unsigned long seed;
 	unsigned int power;
+	Archetype archetype;
 
-	std::mt19937 generator;
+	void _genRocket(gunData &data);
+	void _genMachineGun(gunData &data);
 
-	void _createBulletCollider(unsigned long colliderSeed);
-public:
-	gunDataGenerator(unsigned int power, unsigned long seed);
-	gunData Generate();
+	void _genBulletData(gunData &data,
+			bulletDataGenerator::genData &generationData);
 };

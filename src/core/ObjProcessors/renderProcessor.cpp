@@ -143,8 +143,7 @@ void renderProcessor::_Render(vector2 pos, util::Angle &angle,
 			break;
 
 			default:
-				util::msgLog("renderer of unkown type detected.", 
-					util::logLevel::logLevelError);
+				util::errorLog("renderer of unkown type detected.");
 		};
 
 	}

@@ -114,7 +114,7 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 
 
 	this->_playerController = new playerController(this->eventManager, this->objectManager,
-						this->viewProc);
+						&this->objFactory, this->viewProc);
 
 	this->_playerController->createPlayer(levelDim, playerInitPos, creator,
 				playerData);
@@ -160,8 +160,11 @@ void gameState::_createDummy(vector2 levelDim){
 
 		pickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
-		data.eventData = new Prop<gunDataGenerator>(gunDataGenerator(0, 10));
 		data.addCollisionType(Hash::getHash("player"));
+		data.eventData = new Prop<gunDataGenerator>(
+			gunDataGenerator(gunDataGenerator::Archetype::Rocket, 
+				1, 10));
+		
 		
 	
 		creator->setPickupData(data);
@@ -177,6 +180,35 @@ void gameState::_createDummy(vector2 levelDim){
 
 	}
 
+
+	{	
+	
+		pickupCreator *creator = (pickupCreator*)objFactory.getCreator(
+			Hash::getHash("pickup"));
+
+		creator->setCollisionRadius(1.0f);
+
+		pickupData data;
+		data.onPickupEvent = Hash::getHash("addGun");
+		data.addCollisionType(Hash::getHash("player"));
+		data.eventData = new Prop<gunDataGenerator>(
+			gunDataGenerator(gunDataGenerator::Archetype::machineGun, 
+				1, 10));
+		
+		
+	
+		creator->setPickupData(data);
+
+
+		vector2 pos = vector2(1200, 100);
+		pos *= viewProc->getRender2GameScale();
+
+
+		Object *obj = creator->createObject(pos);
+		objectManager->addObject(obj);
+
+
+	}
 };
 
 

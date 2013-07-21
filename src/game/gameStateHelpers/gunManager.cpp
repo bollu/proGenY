@@ -1,6 +1,34 @@
 #pragma once
 #include "gunsManager.h"
+
+
 #include "../generators/gunDataGenerator.h"
+#include "../factory/gunCreator.h"
+#include "../factory/bulletCreator.h"
+#include "../../core/objectMgr.h"
+
+
+gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, 
+		objectMgr &_objectManager, Object *player) : objectManager(_objectManager){
+
+	eventManager.Register(Hash::getHash("nextGun"), this);
+	eventManager.Register(Hash::getHash("prevGun"), this);
+	eventManager.Register(Hash::getHash("playerFacingChanged"), this);
+	eventManager.Register(Hash::getHash("firePlayerGun"), this);
+	eventManager.Register(Hash::getHash("addGun"), this);
+
+
+	this->_gunCreator = (gunCreator *) _factory.getCreator(
+						Hash::getHash("gun"));
+
+	this->_bulletCreator = (bulletCreator *) _factory.getCreator(
+						Hash::getHash("bullet"));
+
+	this->player = player;
+	this->currentGun = NULL;
+
+};
+
 
 void gunsManager::_gotoNextGun(){
 
@@ -27,17 +55,7 @@ void gunsManager::_gotoPrevGun(){
 };
 	
 
-gunsManager::gunsManager(eventMgr &eventManager, Object *player){
-	eventManager.Register(Hash::getHash("nextGun"), this);
-	eventManager.Register(Hash::getHash("prevGun"), this);
-	eventManager.Register(Hash::getHash("playerFacingChanged"), this);
-	eventManager.Register(Hash::getHash("firePlayerGun"), this);
-	eventManager.Register(Hash::getHash("addGun"), this);
 
-	this->player = player;
-	this->currentGun = NULL;
-
-};
 
 
 void gunsManager::addGun(Object *gun, bool isCurrentGun){
@@ -98,10 +116,11 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 		this->_gotoPrevGun();
 	}
 	else if(eventName == playerFacingChanged){
+		assert(eventData != NULL);
 		Prop<util::Angle> *angleProp = dynamic_cast< Prop<util::Angle>* >(eventData);
 		util::Angle *angle = angleProp->getVal();
 
-		assert(eventData != NULL);
+		
 		this->_updateGunAngle(*angle);
 	}
 	else if(eventName == firePlayerGun){
@@ -109,15 +128,27 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 	}
 
 	else if(eventName == addGun){
-		Prop<gunDataGenerator> *gunDataGenProp = dynamic_cast< Prop<gunDataGenerator>* >(eventData);
-		
-		/*assert(gunDataGenProp != NULL);
-		
-		gunDataGenerator *gunDataGen = gunDataGenProp->getVal();
-		gunData data = gunDataGen->Generate();
+		assert(eventData != NULL);
 
-		util::msgLog("got the gunData");
-		*/
+		Prop<gunDataGenerator> *gunDataGenProp = dynamic_cast< Prop<gunDataGenerator>* >(eventData);
+		assert(gunDataGenProp != NULL);
+		gunDataGenerator *gunDataGen = gunDataGenProp->getVal();
+		
+
+		gunData data = (*gunDataGen).Generate();
+		data.setBulletCreator(this->_bulletCreator);
+
+		this->_gunCreator->setGunData(data);
+		this->_gunCreator->setParent(player);
+
+		Object *gun = _gunCreator->createObject(*player->getProp<vector2>(Hash::getHash("position")));
+		this->addGun(gun, true);
+
+
+		this->objectManager.addObject(gun);
+
+
+		//util::msgLog("got the gunData");
 	}
 
 };

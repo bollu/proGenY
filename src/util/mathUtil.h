@@ -3,7 +3,7 @@
 #include "../core/vector.h"
 #include "strHelper.h"
 
-#define PRINTANGLE(angle) util::msgLog(std::string(#angle) + angle.debugStr());
+#define PRINTANGLE(angle) util::infoLog(std::string(#angle) + angle.debugStr());
 
 namespace util{
 	const double PI = 3.141592653589793238462;

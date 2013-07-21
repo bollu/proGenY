@@ -17,8 +17,7 @@ sf::Shape *renderUtil::createShape(b2Shape *shape, viewProcess *view){
 			return renderUtil::createCircleShape(static_cast<b2CircleShape *>(shape), view);
 
 		default: 
-			util::msgLog("unable to create required sf::Shape. unkown b2::shape",
-				util::logLevel::logLevelError);
+			util::errorLog("unable to create required sf::Shape. unkown b2::shape");
 			return NULL;
 	};
 	
@@ -30,7 +29,7 @@ sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, viewProcess *vie
 	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->m_vertexCount);
 
 
-	util::msgLog("vertex count: " + util::strHelper::toStr(b2Shape->m_vertexCount) );
+	util::infoLog("vertex count: " + util::strHelper::toStr(b2Shape->m_vertexCount) );
 
 	for(int i = 0; i < b2Shape->m_vertexCount; ++i){ 
 

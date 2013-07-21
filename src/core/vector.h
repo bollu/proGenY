@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include <algorithm>
 
 #ifndef PRINTVECTOR2
 	#define PRINTVECTOR2(vec) std::cout<<"\n\t"<<#vec<<" X = "<<((vec).x)<<" Y = "<<((vec).y)<<std::endl;
@@ -93,6 +94,18 @@ public:
 		return clampedVec;
 	};
 
+	float dotProduct(vector2 other){
+		return this->x * other.x + this->y * other.y;
+	}
+	/*!projects *this* vector onto the other vector*/
+	vector2 projectOn(vector2 projectDir){
+
+		vector2 normalizedProjectDir = projectDir.Normalize();
+		//normalize the other vector and multiply it by *this* vector's
+		//component in the other vector's direction;
+		return normalizedProjectDir * (this->dotProduct(normalizedProjectDir));
+	}
+
 	/*!returns the length of the  vector*/
 	inline float Length() const{ return (sqrt(x * x  +  y * y)); };
 	/*!returns the length of the vector squared.
@@ -121,6 +134,7 @@ public:
 	inline bool operator >= (const vector2& a) const { return (this->x >= a.x && this->y >= a.y); };
 	inline bool operator <= (const vector2& a) const { return (this->x <= a.x && this->y <= a.y); };
 	inline bool operator == (const vector2& a) const { return (this->x == a.x && this->y == a.y); };
+	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };
 	
 	inline operator b2Vec2(){ return b2Vec2(this->x, this->y); }
 	
@@ -128,6 +142,8 @@ public:
 	inline operator sf::Vector2<T>(){ return sf::Vector2<T>(this->x, this->y); }
 
 };
+
+#define zeroVector (vector2(0, 0))
 
 template<typename TYPE>
 inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	

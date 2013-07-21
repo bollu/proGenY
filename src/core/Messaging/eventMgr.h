@@ -79,8 +79,8 @@ public:
 
 		if(! _observersPresent(eventName)){
 
-			util::msgLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
+			util::warningLog("no subscribers to event.\nEventName: " \
+				+ Hash::Hash2Str(eventName));
 
 			return;
 		}
@@ -97,8 +97,8 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::msgLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
+			util::warningLog("no subscribers to event.\nEventName: " \
+				+ Hash::Hash2Str(eventName));
 
 			return;
 		}
@@ -115,8 +115,8 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::msgLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName), util::logLevel::logLevelWarning);
+			util::warningLog("no subscribers to event.\nEventName: " \
+				+ Hash::Hash2Str(eventName));
 
 			return;
 		}

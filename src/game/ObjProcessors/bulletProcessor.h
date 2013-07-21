@@ -22,8 +22,16 @@ public:
 	virtual ~bulletCollider(){};
 
 	virtual void onCreate(Object *bullet){};
-	//return whether the bullet should be killed
-	virtual bool onCollision(collisionData &data, Object *bullet) = 0;
+	/*!handle the collision with an enemy
+	*return whether the bullet should be killed
+	*/
+	virtual bool onEnemyCollision(collisionData &data, Object *bullet) = 0;
+	/*! handle the collision with any other object type that is not ignored 
+	*return whether the bullet should be killed*/
+	virtual bool onDefaultCollision(collisionData &data, Object *bullet){
+		return true;
+	}	
+
 	virtual void onDeath(collisionData &data, Object *bullet){};
 
 };
@@ -35,6 +43,9 @@ public:
 	/*!Angle to face in the beginning in degrees*/
 	util::Angle angle;
 
+	//!amount by which gravity affects the bullet
+	float gravityScale;
+
 	//! bulletColliders that handle what happens during collision
 	std::vector<bulletCollider *> colliders;
 
@@ -43,7 +54,9 @@ public:
 	//collision types to be ignored
 	std::unordered_set<const Hash*> ignoreCollisions;
 		
-	bulletData(){};
+	bulletData(){
+		gravityScale = 3.0;
+	};
 
 	void addEnemyCollision(const Hash *collision){
 		this->enemyCollisions.insert(collision);

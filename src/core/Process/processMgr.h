@@ -62,8 +62,8 @@ public:
 		processType *proc = dynamic_cast< processType * >(this->_getProcess(processName));
 
 		if(proc == NULL){
-			util::msgLog("trying to get a process by the wrong type. \nProcessName: " +
-				Hash::Hash2Str(processName), util::logLevel::logLevelError);
+			util::errorLog("trying to get a process by the wrong type. \nProcessName: " +
+				Hash::Hash2Str(processName));
 			return NULL;
 		}
 

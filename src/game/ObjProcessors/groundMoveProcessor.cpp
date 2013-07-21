@@ -113,8 +113,6 @@ void groundMoveProcessor::Process(float dt){
 
 vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, vector2 currentVel, float dt){
 
-	util::msgLog("jumping");
-	
 	vector2 impulse;
 	
 	const float angledJumpThreshold = 0.1;
