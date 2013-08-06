@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include "Process.h"
 #include "processMgr.h"
 #include "../include/SFML/Graphics.hpp"

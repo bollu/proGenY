@@ -7,8 +7,7 @@
 void processMgr::addProcess(Process *p){
 
 	if(this->processes.find(p->getNameHash()) != this->processes.end()){
-		util::errorLog("clash of names. 2 processes have the same name.\n Process name: " +
-			Hash::Hash2Str(p->getNameHash()));
+		util::errorLog<<"clash of names. 2 processes have the same name.\n Process name: "<<p->getNameHash();
 	}
 
 	this->processes[p->getNameHash()] = p;
@@ -55,7 +54,7 @@ void processMgr::PauseProcess(const Hash* processName){
 		it->second->Pause();
 		return;
 	}
-	util::errorLog("unable to find process to Pause.\nProcess Name: " + Hash::Hash2Str(processName));
+	util::errorLog<<"unable to find process to Pause.\nProcess Name: "<<processName;
 
 }
 
@@ -67,7 +66,7 @@ void processMgr::ResumePorcess(const Hash* processName){
 		it->second->Resume(); 
 		return;
 	}
-	util::errorLog("unable to find process to Resume.\nProcess Name: " + Hash::Hash2Str(processName));
+	util::errorLog<<"unable to find process to Resume.\nProcess Name: "<<processName;
 }
 
 Process *processMgr::_getProcess(const Hash* processName){
@@ -77,8 +76,7 @@ Process *processMgr::_getProcess(const Hash* processName){
 		return it->second;
 	};
 	
-	util::errorLog("trying to get a process that does not exist.\nProcess name: "+ 
-		Hash::Hash2Str(processName));
+	util::errorLog<<"trying to get a process that does not exist.\nProcess name: "<<processName;
 
 	return NULL;
 };

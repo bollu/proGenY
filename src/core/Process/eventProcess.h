@@ -39,6 +39,8 @@ Observer classes can then pick up on these events .
  	void _handleKeyboardPressed();
  	void _handleKeyboardReleased();
 
+ 	void _handleMouseWheelMove();
+
 
  public:
  	eventProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :

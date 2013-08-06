@@ -35,6 +35,7 @@ protected:
 	void _createEnemies(vector2 levelDim);
 	void _createDummy(vector2 levelDim);
 	
+	
 	Object* _createGuns(Object *player, vector2 levelDim);
 
 	objectMgr *objectManager;

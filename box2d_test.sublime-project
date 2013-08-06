@@ -2,42 +2,67 @@
 	"build_systems":
 	[
 		{
-			"cmd": [ "make", "build"],
+			"cmd":
+			[
+				//"make",
+				//"build"
+				"gnome-terminal",
+				
+			],
 			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
-			"syntax" : "",
 			"name": "make",
-			"working_dir": "${project_path:${folder}}",
+			"working_dir": "${project_path}/obj/",
+			"syntax": "",
 			
 			"variants":
 			[
 				{
-					"cmd":["make", "run"],
+					"cmd":
+					[
+						"make",
+						"run"
+					],
 					"name": "run",
 					"working_dir": "${project_path:${folder}}"
 				},
-
 				{
-					"cmd":["make", "monitor"],
+					"cmd":
+					[
+						"make",
+						"monitor"
+					],
 					"name": "monitor",
-					"shell" : true,
+					"shell": true,
 					"working_dir": "${project_path:${folder}}"
 				},
-
 				{
-					"cmd":["make", "docs"],
+					"cmd":
+					[
+						"make",
+						"docs"
+					],
 					"name": "docs",
 					"working_dir": "${project_path:${folder}}"
 				}
-			]//end variants
-			
-		}//end build systems flower brace
-	],//end build system
-
+			],
+			"working_dir": "${project_path:${folder}}"
+		}
+	],
 	"folders":
 	[
 		{
-			"path": "/home/siddharth/Data/programming/C_C++/basic_libs_setup",
-			"file_exclude_patterns": [".*", "*.sublime*", "*.exclude, "]
+			"file_exclude_patterns":
+			[
+				".*",
+				"*.sublime*",
+				"*.exclude, "
+			],
+			"follow_symlinks": true,
+			"path": "/home/siddharth/Data/programming/C_C++/basic_libs_setup"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/siddharth/Data/programming/C_C++/valve_source/source-sdk-2013/sp/src"
 		}
 	]
 }

@@ -8,6 +8,8 @@ eventManager(_eventManager), playerData(playerData){
 	eventManager->Register(Hash::getHash("keyPressed"), this);
 	eventManager->Register(Hash::getHash("keyReleased"), this);
 
+	eventManager->Register(Hash::getHash("mouseWheelUp"), this);
+	eventManager->Register(Hash::getHash("mouseWheelDown"), this);
 
 	eventManager->Register(Hash::getHash("mouseMovedGame"), this);
 
@@ -32,6 +34,9 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 	static const Hash *keyReleasedHash = Hash::getHash("keyReleased");
 	static const Hash *mouseMovedGameHash = Hash::getHash("mouseMovedGame");
 
+	static const Hash *mouseWheelUpHash = Hash::getHash("mouseWheelUp");
+	static const Hash *mouseWheelDownHash = Hash::getHash("mouseWheelDown");
+
 
 	if(eventName == mouseMovedGameHash){
 		
@@ -39,7 +44,6 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 		assert(mousePos != NULL);
 		this->lastMousePos = *mousePos->getVal();
 
-		//this->_updateGunFacing(lastMousePos);
 		
 	}
 
@@ -60,6 +64,18 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 		
 		this->_handleKeyRelease(eventProp->getVal());
 
+	}
+	else if(eventName == mouseWheelUpHash){
+		iProp *wheelDeltaProp = dynamic_cast< iProp *>(eventData); 
+		int wheelDelta = *wheelDeltaProp->getVal();
+
+		this->_handleMouseWheelUp(wheelDelta);
+	}
+	else if(eventName == mouseWheelDownHash){
+		iProp *wheelDeltaProp = dynamic_cast< iProp *>(eventData); 
+		int wheelDelta = *wheelDeltaProp->getVal();
+		
+		this->_handleMouseWheelDown(wheelDelta);
 	}
 
 
@@ -115,11 +131,20 @@ void playerEventHandler::_handleKeyRelease(sf::Event::KeyEvent *event){
 	}
 };
 
+
+
+void playerEventHandler::_handleMouseWheelUp(int ticks){
+	eventManager->sendEvent(Hash::getHash("nextGun"), ticks);
+};
+
+void playerEventHandler::_handleMouseWheelDown(int ticks){
+	eventManager->sendEvent(Hash::getHash("prevGun"), ticks);
+};
+
 void playerEventHandler::Update(){
 
 	phyData *phy = playerData.physicsData;
 
-	
 	this->_updateGunFacing(this->lastMousePos);
 
 	for(collisionData collision : phy->collisions){

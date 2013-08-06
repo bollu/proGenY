@@ -1,10 +1,15 @@
 
 # define the C compiler to use
-CC = clang++
+CC = clang++ -fcolor-diagnostics
+#CC = clang++
 
 # define any compile-time flags
-CFLAGS = -std=c++11 -DDEBUG -g  -w -Wfatal-errors -DDEBUG -g -O0
-#CFLAGS = -std=c++11 -Oz
+#CFLAGS =  -std=c++11 -DDEBUG -g  -w -Wfatal-errors -DDEBUG -g -O0	
+CFLAGS = -std=c++11 -Oz
+CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors
+
+
+#text to be printed for compilarion
 
 # define any directories containing header files other than /usr/include
 #
@@ -14,12 +19,13 @@ INCLUDES = -I../src/include/   -I../src/core/
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
 #   option, something like -llibname (this will link  to libname.so)
-LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system
+LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system -lbfd
 
 #name of the output file
 OUTPUT = a.out
 
-!cc = |>  clang++ $(CFLAGS) $(INCLUDES) -c %f -o %o |> %B.o
+!cc = |>  ^ compiling %b^ $(CC)  $(CFLAGS) $(INCLUDES) -c %f -o %o |> %B.o
+!ccNoWarn = |>  ^ compiling %b^ $(CC)  $(CFLAGS_NO_WARNING) $(INCLUDES) -c %f -o %o |> %B.o
 
 
 

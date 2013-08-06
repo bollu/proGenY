@@ -1,6 +1,7 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Process/viewProcess.h"
+#include "../defines/renderingLayers.h"
 
 class playerCreator : public objectCreator{
 private:
@@ -50,7 +51,7 @@ public:
 
 		playerSFMLShape->setFillColor(sf::Color::Green);
 
-		Renderer playerShapeRenderer(playerSFMLShape);
+		shapeRenderNode *playerShapeRenderer = new shapeRenderNode(playerSFMLShape, renderingLayers::action);
 
 		render.addRenderer(playerShapeRenderer);
 

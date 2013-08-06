@@ -3,6 +3,7 @@
 #include <assert.h>
 #include "strHelper.h"
 #include <typeinfo>
+#include "../core/Hash.h"
 
 /*!
 	@file logObject.h
@@ -66,6 +67,10 @@ namespace util{
 	class msgLog : public baseLog{
 	
 	public:
+
+		msgLog(){};
+
+		
 		/*! constructor used to create a msgLog
 
 		If the logLevel is greater than the logThreshold set in baseLog,
@@ -79,6 +84,7 @@ namespace util{
 		
 		\sa scopedLog
 		*/
+		/*
 		msgLog(std::string msg){
 			if(level >= baseLog::thresholdLevel){
 				std::cout<<"\n"<<msg<<std::endl;
@@ -90,7 +96,7 @@ namespace util{
 			}
 
 			
-		};
+		};*/
 
 		template <typename T>
 		msgLog & operator << (T toWrite){
@@ -100,11 +106,26 @@ namespace util{
 
 			return *this;
 		}
+
+		msgLog & operator << (const Hash* toWrite){
+			if(level >= baseLog::thresholdLevel){
+				std::cout<<Hash::Hash2Str(toWrite);
+			}
+
+			return *this;
+		}
+	
+		
 	};
 
-	typedef  util::msgLog<logLevelInfo> infoLog;
-	typedef  util::msgLog<logLevelError> errorLog;
-	typedef  util::msgLog<logLevelWarning> warningLog;
+	#pragma once
+	#ifndef LOG_GLOBAL_OBJECTS
+	#define LOG_GLOBAL_OBJECTS
+	static util::msgLog<logLevelInfo> infoLog;
+	static util::msgLog<logLevelError> errorLog;
+	static 	util::msgLog<logLevelWarning> warningLog;
+	#endif
+
 
 
 	/*! used to emit messages when a scope is entered and exited 

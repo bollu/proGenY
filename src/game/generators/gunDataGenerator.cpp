@@ -59,6 +59,8 @@ void gunDataGenerator::_genBulletData(gunData &data,
 	_bulletData.addEnemyCollision(Hash::getHash("dummy"));
 
 	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
 	//_bulletData.addIgnoreCollision(Hash::getHash("terrain"));
 	//_bulletData.addIgnoreCollision(Hash::getHash("boundary"));
 	_bulletData.addIgnoreCollision(Hash::getHash("player"));

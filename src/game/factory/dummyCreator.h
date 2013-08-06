@@ -2,6 +2,7 @@
 #include "objectFactory.h"
 #include "../../core/Process/viewProcess.h"
 #include "../ObjProcessors/healthProcessor.h"
+#include "../defines/renderingLayers.h"
 
 class dummyCreator : public objectCreator{
 private:
@@ -51,8 +52,8 @@ public:
 
 		shape->setFillColor(sf::Color::Red);
 
-		Renderer shapeRenderer(shape);
-		render.addRenderer(shapeRenderer);
+		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
+		render.addRenderer(renderer);
 		
 		//health-----------------------------------------
 		health.setHP(10);

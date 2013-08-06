@@ -15,6 +15,7 @@ private:
 	bool movingLeft;
 	bool movingRight;
 	bool jumping;
+	vector2 jumpDir;
 
 	bool onGround;
 

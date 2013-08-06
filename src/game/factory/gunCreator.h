@@ -8,6 +8,9 @@
 #include "../../core/ObjProcessors/phyProcessor.h"
 #include "../../core/renderUtil.h"
 
+#include "../defines/renderingLayers.h"
+
+
 class gunCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
@@ -50,8 +53,8 @@ public:
 		shape->setOutlineColor(sf::Color::White);
 		shape->setOutlineThickness(-2.0);
 
-		Renderer shapeRenderer(shape);
-		render.addRenderer(shapeRenderer);
+		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
+		render.addRenderer(renderer);
 		//render.centered = true;
 		
 		//offset-------------------------------------

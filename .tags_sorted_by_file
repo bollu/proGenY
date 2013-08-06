@@ -3384,7 +3384,7 @@ ga	git.py	/^def ga(files):$/;"	f
 push	git.py	/^def push():$/;"	f
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 OUTPUT	makefile	/^OUTPUT = bin\/a.out$/;"	m
-command	runner.py	/^command = xTermCmd + doubleQuote +  sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote$/;"	v
+command	runner.py	/^command = xTermCmd + doubleQuote + sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote$/;"	v
 doubleQuote	runner.py	/^doubleQuote = ' " '$/;"	v
 echoCmd	runner.py	/^echoCmd = "echo " + singleQuote + echoMsg + singleQuote$/;"	v
 echoMsg	runner.py	/^echoMsg = 'press any key to continue..'$/;"	v
@@ -3418,7 +3418,7 @@ _sendEvent	src/core/Messaging/eventMgr.cpp	/^void eventMgr::_sendEvent(Event &ev
 eventMgr	src/core/Messaging/eventMgr.cpp	/^eventMgr::eventMgr(){$/;"	f	class:eventMgr
 Event	src/core/Messaging/eventMgr.h	/^	struct Event{$/;"	s	class:eventMgr
 Observer	src/core/Messaging/eventMgr.h	/^class Observer{$/;"	c
-data	src/core/Messaging/eventMgr.h	/^		baseProperty *data;$/;"	m	struct:eventMgr::Event
+data	src/core/Messaging/eventMgr.h	/^		baseProperty *data; $/;"	m	struct:eventMgr::Event
 eventMgr	src/core/Messaging/eventMgr.h	/^class eventMgr{$/;"	c
 events	src/core/Messaging/eventMgr.h	/^	std::queue <Event>events;$/;"	m	class:eventMgr
 name	src/core/Messaging/eventMgr.h	/^		const Hash *name;$/;"	m	struct:eventMgr::Event
@@ -3434,6 +3434,7 @@ _fillCollisionData	src/core/ObjProcessors/objContactListener.cpp	/^collisionData
 _handleCollision	src/core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_handleCollision(collisionData::Type type, b2Contact *contact){$/;"	f	class:objContactListener
 Type	src/core/ObjProcessors/objContactListener.h	/^	enum Type{$/;"	g	struct:collisionData
 collisionData	src/core/ObjProcessors/objContactListener.h	/^struct collisionData{$/;"	s
+myApproachVel	src/core/ObjProcessors/objContactListener.h	/^	vector2 myApproachVel;$/;"	m	struct:collisionData
 myPhy	src/core/ObjProcessors/objContactListener.h	/^	phyData *myPhy;$/;"	m	struct:collisionData
 normal	src/core/ObjProcessors/objContactListener.h	/^	vector2 normal;$/;"	m	struct:collisionData
 objContactListener	src/core/ObjProcessors/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
@@ -3467,32 +3468,17 @@ velClamped	src/core/ObjProcessors/phyProcessor.h	/^	bool velClamped;$/;"	m	struc
 view	src/core/ObjProcessors/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
 world	src/core/ObjProcessors/phyProcessor.h	/^	b2World *world;$/;"	m	class:phyProcessor
 Process	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::Process(float dt){$/;"	f	class:renderProcessor
-Renderer	src/core/ObjProcessors/renderProcessor.cpp	/^Renderer::Renderer(const Renderer &other){$/;"	f	class:Renderer
-Renderer	src/core/ObjProcessors/renderProcessor.cpp	/^Renderer::Renderer(sf::Shape *shape){$/;"	f	class:Renderer
-Renderer	src/core/ObjProcessors/renderProcessor.cpp	/^Renderer::Renderer(sf::Sprite *sprite){$/;"	f	class:Renderer
-Renderer	src/core/ObjProcessors/renderProcessor.cpp	/^Renderer::Renderer(sf::Text *text){$/;"	f	class:Renderer
 _Render	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
-deleteData	src/core/ObjProcessors/renderProcessor.cpp	/^void Renderer::deleteData(){$/;"	f	class:Renderer
 onObjectAdd	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
+onObjectRemove	src/core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::onObjectRemove(Object *obj){$/;"	f	class:renderProcessor
 renderProcessor	src/core/ObjProcessors/renderProcessor.cpp	/^renderProcessor::renderProcessor(processMgr &processManager, $/;"	f	class:renderProcessor
-Renderer	src/core/ObjProcessors/renderProcessor.h	/^class Renderer{$/;"	c
-Shape	src/core/ObjProcessors/renderProcessor.h	/^		Shape = 0,$/;"	e	enum:Renderer::Type
-Sprite	src/core/ObjProcessors/renderProcessor.h	/^		Sprite,$/;"	e	enum:Renderer::Type
-Text	src/core/ObjProcessors/renderProcessor.h	/^		Text,$/;"	e	enum:Renderer::Type
-Type	src/core/ObjProcessors/renderProcessor.h	/^	enum Type{$/;"	g	class:Renderer
-addRenderer	src/core/ObjProcessors/renderProcessor.h	/^	void addRenderer(Renderer &renderer){$/;"	f	class:renderData
+addRenderer	src/core/ObjProcessors/renderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:renderData
 centered	src/core/ObjProcessors/renderProcessor.h	/^	bool centered;$/;"	m	class:renderData
-data	src/core/ObjProcessors/renderProcessor.h	/^	 } data;$/;"	m	class:Renderer	typeref:union:Renderer::__anon1
-onObjectRemove	src/core/ObjProcessors/renderProcessor.h	/^	void onObjectRemove(Object *obj){};$/;"	f	class:renderProcessor
-preProcess	src/core/ObjProcessors/renderProcessor.h	/^	void preProcess(){};$/;"	f	class:renderProcessor
+render	src/core/ObjProcessors/renderProcessor.h	/^	renderProcess *render;$/;"	m	class:renderProcessor
 renderData	src/core/ObjProcessors/renderProcessor.h	/^	renderData() : centered(false){};$/;"	f	class:renderData
 renderData	src/core/ObjProcessors/renderProcessor.h	/^class renderData{$/;"	c
 renderProcessor	src/core/ObjProcessors/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
-renderers	src/core/ObjProcessors/renderProcessor.h	/^	std::vector<Renderer>renderers;$/;"	m	class:renderData
-shape	src/core/ObjProcessors/renderProcessor.h	/^		sf::Shape *shape;$/;"	m	union:Renderer::__anon1
-sprite	src/core/ObjProcessors/renderProcessor.h	/^		sf::Sprite *sprite;$/;"	m	union:Renderer::__anon1
-text	src/core/ObjProcessors/renderProcessor.h	/^		sf::Text *text;$/;"	m	union:Renderer::__anon1
-type	src/core/ObjProcessors/renderProcessor.h	/^	 Renderer::Type type;$/;"	m	class:Renderer
+renderers	src/core/ObjProcessors/renderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:renderData
 view	src/core/ObjProcessors/renderProcessor.h	/^	viewProcess *view;$/;"	m	class:renderProcessor
 window	src/core/ObjProcessors/renderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcessor
 Object	src/core/Object.cpp	/^Object::Object(std::string _name) : dead(false){$/;"	f	class:Object
@@ -3504,6 +3490,7 @@ nameMap	src/core/Object.cpp	/^std::map<std::string, unsigned int> Object::nameMa
 ~Object	src/core/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
 Kill	src/core/Object.h	/^	void Kill(){$/;"	f	class:Object
 Object	src/core/Object.h	/^class Object{$/;"	c
+_getProperty	src/core/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
 dead	src/core/Object.h	/^	bool dead;$/;"	m	class:Object
 getProp	src/core/Object.h	/^	Type* getProp(const Hash *name){$/;"	f	class:Object
 getPropPtr	src/core/Object.h	/^	Prop<Type> *getPropPtr(const Hash *name){$/;"	f	class:Object
@@ -3535,6 +3522,7 @@ _handleKeyboardReleased	src/core/Process/eventProcess.cpp	/^void eventProcess::_
 _handleMouseButtonPressed	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseButtonPressed(){$/;"	f	class:eventProcess
 _handleMouseButtonReleased	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseButtonReleased(){$/;"	f	class:eventProcess
 _handleMouseMove	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseMove(){$/;"	f	class:eventProcess
+_handleMouseWheelMove	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseWheelMove(){$/;"	f	class:eventProcess
 _handleWindowCloseEvent	src/core/Process/eventProcess.cpp	/^void eventProcess::_handleWindowCloseEvent(){$/;"	f	class:eventProcess
 preUpdate	src/core/Process/eventProcess.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
 event	src/core/Process/eventProcess.h	/^ 	sf::Event event;$/;"	m	class:eventProcess
@@ -3562,6 +3550,28 @@ preUpdate	src/core/Process/processMgr.cpp	/^void processMgr::preUpdate(){$/;"	f	
 getProcess	src/core/Process/processMgr.h	/^	processType *getProcess(const Hash* processName){$/;"	f	class:processMgr
 processMgr	src/core/Process/processMgr.h	/^class processMgr{$/;"	c
 processes	src/core/Process/processMgr.h	/^	std::map<const Hash*, Process *>processes;$/;"	m	class:processMgr
+Draw	src/core/Process/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
+addRenderNode	src/core/Process/renderProcess.cpp	/^void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){$/;"	f	class:renderProcess
+removeRenderNode	src/core/Process/renderProcess.cpp	/^void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){$/;"	f	class:renderProcess
+renderProcess	src/core/Process/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:renderProcess
+Draw	src/core/Process/renderProcess.h	/^		void Draw(sf::RenderWindow *window){$/;"	f	class:renderProcess::renderNode
+baseRenderNode	src/core/Process/renderProcess.h	/^		baseRenderNode(){$/;"	f	class:renderProcess::baseRenderNode
+baseRenderNode	src/core/Process/renderProcess.h	/^	class baseRenderNode{$/;"	c	class:renderProcess
+drawDisabled	src/core/Process/renderProcess.h	/^		bool drawDisabled;$/;"	m	class:renderProcess::baseRenderNode
+drawable	src/core/Process/renderProcess.h	/^		T *drawable;$/;"	m	class:renderProcess::renderNode
+nodes	src/core/Process/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
+renderNode	src/core/Process/renderProcess.h	/^		renderNode(T *_drawable) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
+renderNode	src/core/Process/renderProcess.h	/^		renderNode(T *_drawable, int z) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
+renderNode	src/core/Process/renderProcess.h	/^	class renderNode : public baseRenderNode{$/;"	c	class:renderProcess
+renderProcess	src/core/Process/renderProcess.h	/^class renderProcess: public Process{$/;"	c
+setPosition	src/core/Process/renderProcess.h	/^		void setPosition(vector2 position){$/;"	f	class:renderProcess::renderNode
+setRotation	src/core/Process/renderProcess.h	/^		void setRotation(util::Angle angle){$/;"	f	class:renderProcess::renderNode
+shapeRenderNode	src/core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> shapeRenderNode;$/;"	t
+sortFn	src/core/Process/renderProcess.h	/^	static bool sortFn(baseRenderNode *first, baseRenderNode *second){$/;"	f	class:renderProcess
+spriteRenderNode	src/core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> spriteRenderNode;$/;"	t
+textRenderNode	src/core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> textRenderNode;$/;"	t
+window	src/core/Process/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
+z	src/core/Process/renderProcess.h	/^		int z;$/;"	m	class:renderProcess::baseRenderNode
 Draw	src/core/Process/stateProcess.h	/^	 void Draw(){$/;"	f	class:stateProcess
 Shutdown	src/core/Process/stateProcess.h	/^	 void Shutdown(){$/;"	f	class:stateProcess
 Update	src/core/Process/stateProcess.h	/^	 void Update(float dt){$/;"	f	class:stateProcess
@@ -3725,6 +3735,8 @@ cast	src/core/vector.h	/^	T cast() const{$/;"	f	class:vector2
 cast	src/core/vector.h	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
 clamp	src/core/vector.h	/^	vector2 clamp(vector2 minVec, vector2 maxVec){$/;"	f	class:vector2
 dotProduct	src/core/vector.h	/^	float dotProduct(vector2 other){$/;"	f	class:vector2
+nullVector	src/core/vector.h	147;"	d
+operator !=	src/core/vector.h	/^	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };$/;"	f	class:vector2
 operator *	src/core/vector.h	/^	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };$/;"	f	class:vector2
 operator *	src/core/vector.h	/^inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
 operator *	src/core/vector.h	/^inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
@@ -3777,8 +3789,11 @@ x	src/core/vector.h	/^	float x, y;$/;"	m	class:vector2
 y	src/core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 y	src/core/vector.h	/^	float x, y;$/;"	m	class:vector2
 z	src/core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
-zeroVector	src/core/vector.h	145;"	d
+zeroVector	src/core/vector.h	146;"	d
 ~vector2	src/core/vector.h	/^	~vector2(){};$/;"	f	class:vector2
+bladeData	src/game/ObjProcessors/bladeProcessor.h	/^struct bladeData{};$/;"	s
+bladeProcessor	src/game/ObjProcessors/bladeProcessor.h	/^class bladeProcessor: public objectProcessor{$/;"	c
+objectManager	src/game/ObjProcessors/bladeProcessor.h	/^	objectMgr *objectManager;$/;"	m	class:bladeProcessor
 Process	src/game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::Process(float dt){$/;"	f	class:bulletProcessor
 _handleCollision	src/game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){$/;"	f	class:bulletProcessor
 onObjectAdd	src/game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::onObjectAdd(Object *obj){$/;"	f	class:bulletProcessor
@@ -3838,6 +3853,7 @@ setMoveLeft	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setM
 setMoveRight	src/game/ObjProcessors/groundMoveProcessor.cpp	/^void moveData::setMoveRight(bool enabled){$/;"	f	class:moveData
 groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){$/;"	f	class:groundMoveProcessor
 groundMoveProcessor	src/game/ObjProcessors/groundMoveProcessor.h	/^class groundMoveProcessor : public objectProcessor{$/;"	c
+jumpDir	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpDir;$/;"	m	struct:moveData
 jumpHeight	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:moveData
 jumpImpulse	src/game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:moveData
 jumpRange	src/game/ObjProcessors/groundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:moveData
@@ -3981,6 +3997,23 @@ onEnemyCollision	src/game/bulletColliders/pushCollider.h	/^	bool onEnemyCollisio
 pushCollider	src/game/bulletColliders/pushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
 pushCollider	src/game/bulletColliders/pushCollider.h	/^class pushCollider : public bulletCollider{$/;"	c
 ~pushCollider	src/game/bulletColliders/pushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
+BACK	src/game/defines/renderingLayers.h	/^	BACK = -100,$/;"	e	enum:renderingLayers
+HUD	src/game/defines/renderingLayers.h	/^	HUD = 0,$/;"	e	enum:renderingLayers
+aboveAction	src/game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
+action	src/game/defines/renderingLayers.h	/^	action = -10,$/;"	e	enum:renderingLayers
+belowAction	src/game/defines/renderingLayers.h	/^	belowAction = -11,$/;"	e	enum:renderingLayers
+renderingLayers	src/game/defines/renderingLayers.h	/^enum renderingLayers{$/;"	g
+terrain	src/game/defines/renderingLayers.h	/^	terrain = -1,$/;"	e	enum:renderingLayers
+blade	src/game/factory/bladeCreator.h	/^	bladeData blade;$/;"	m	class:bladeCreator
+bladeCreator	src/game/factory/bladeCreator.h	/^	bladeCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}$/;"	f	class:bladeCreator
+bladeCreator	src/game/factory/bladeCreator.h	/^class bladeCreator : public objectCreator{$/;"	c
+createObject	src/game/factory/bladeCreator.h	/^	Object *createObject(vector2 pos) const{$/;"	f	class:bladeCreator
+enemyCollision	src/game/factory/bladeCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:bladeCreator
+parent	src/game/factory/bladeCreator.h	/^	Object *parent;$/;"	m	class:bladeCreator
+radius	src/game/factory/bladeCreator.h	/^	float radius;$/;"	m	class:bladeCreator
+setGunData	src/game/factory/bladeCreator.h	/^	void setGunData(bladeData blade){$/;"	f	class:bladeCreator
+setParent	src/game/factory/bladeCreator.h	/^	void setParent(Object *parent){$/;"	f	class:bladeCreator
+viewProc	src/game/factory/bladeCreator.h	/^	viewProcess *viewProc;$/;"	m	class:bladeCreator
 boundaryCreator	src/game/factory/boundaryCreator.h	/^	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:boundaryCreator
 boundaryCreator	src/game/factory/boundaryCreator.h	/^class boundaryCreator : public objectCreator{$/;"	c
 createObject	src/game/factory/boundaryCreator.h	/^	Object *createObject(vector2 playerInitPos) const{$/;"	f	class:boundaryCreator
@@ -4016,12 +4049,12 @@ setOffset	src/game/factory/gunCreator.h	/^	void setOffset(float radius){$/;"	f	c
 setParent	src/game/factory/gunCreator.h	/^	void setParent(Object *parent){$/;"	f	class:gunCreator
 viewProc	src/game/factory/gunCreator.h	/^	viewProcess *viewProc;$/;"	m	class:gunCreator
 attachObjectCreator	src/game/factory/objectFactory.cpp	/^void objectFactory::attachObjectCreator(const Hash *objName, objectCreator *creator){$/;"	f	class:objectFactory
-getCreator	src/game/factory/objectFactory.cpp	/^objectCreator *objectFactory::getCreator(const Hash* objName){$/;"	f	class:objectFactory
 creators	src/game/factory/objectFactory.h	/^	std::map<const Hash *, objectCreator* >creators; 	$/;"	m	class:objectFactory
+getCreator	src/game/factory/objectFactory.h	/^	T *getCreator(const Hash* objName){$/;"	f	class:objectFactory
 objectCreator	src/game/factory/objectFactory.h	/^	objectCreator(){}$/;"	f	class:objectCreator
 objectCreator	src/game/factory/objectFactory.h	/^class objectCreator{$/;"	c
 objectFactory	src/game/factory/objectFactory.h	/^class objectFactory{$/;"	c
-~objectCreator	src/game/factory/objectFactory.h	/^	~objectCreator(){};$/;"	f	class:objectCreator
+~objectCreator	src/game/factory/objectFactory.h	/^	virtual ~objectCreator(){};$/;"	f	class:objectCreator
 createObject	src/game/factory/pickupCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:pickupCreator
 pickup	src/game/factory/pickupCreator.h	/^	pickupData pickup;$/;"	m	class:pickupCreator
 pickupCreator	src/game/factory/pickupCreator.h	/^	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:pickupCreator
@@ -4036,42 +4069,32 @@ playerCreator	src/game/factory/playerCreator.h	/^	playerCreator(viewProcess *_vi
 playerCreator	src/game/factory/playerCreator.h	/^class playerCreator : public objectCreator{$/;"	c
 setCameraData	src/game/factory/playerCreator.h	/^	void setCameraData(cameraData &camData){$/;"	f	class:playerCreator
 viewProc	src/game/factory/playerCreator.h	/^	viewProcess *viewProc;$/;"	m	class:playerCreator
-_dbgPrintChunks	src/game/factory/terrainCreator.cpp	/^void terrainCreator::_dbgPrintChunks(){$/;"	f	class:terrainCreator
-_floodFillChunks	src/game/factory/terrainCreator.cpp	/^int terrainCreator::_floodFillChunks(vector2 quantizedCenter,$/;"	f	class:terrainCreator
-_game2QuantizedCoord	src/game/factory/terrainCreator.cpp	/^vector2 terrainCreator::_game2QuantizedCoord(vector2 realCoord){};$/;"	f	class:terrainCreator
-_genTerrainData	src/game/factory/terrainCreator.cpp	/^void terrainCreator::_genTerrainData(){$/;"	f	class:terrainCreator
-_getChunk	src/game/factory/terrainCreator.cpp	/^terrainCreator::Chunk& terrainCreator::_getChunk(vector2 quantizedPos){$/;"	f	class:terrainCreator
-_getDensity	src/game/factory/terrainCreator.cpp	/^float terrainCreator::_getDensity(){$/;"	f	class:terrainCreator
-_limitQuantizedCoord	src/game/factory/terrainCreator.cpp	/^vector2 terrainCreator::_limitQuantizedCoord(vector2 rawQuantizedCoord){$/;"	f	class:terrainCreator
-_negateChunks	src/game/factory/terrainCreator.cpp	/^int terrainCreator::_negateChunks(vector2 quantizedCenter, vector2 halfDim){$/;"	f	class:terrainCreator
-_quantized2WorldCoord	src/game/factory/terrainCreator.cpp	/^vector2 terrainCreator::_quantized2WorldCoord(vector2 quantizedCoord){};$/;"	f	class:terrainCreator
+_genTerrainData	src/game/factory/terrainCreator.cpp	/^void terrainCreator::_genTerrainData(){};$/;"	f	class:terrainCreator
 createObject	src/game/factory/terrainCreator.cpp	/^Object *terrainCreator::createObject(){$/;"	f	class:terrainCreator
-getEmptySpace	src/game/factory/terrainCreator.cpp	/^void terrainCreator::getEmptySpace(){$/;"	f	class:terrainCreator
+reserveRectSpace	src/game/factory/terrainCreator.cpp	/^void terrainCreator::reserveRectSpace(vector2 center, vector2 halfDim){$/;"	f	class:terrainCreator
 setBounds	src/game/factory/terrainCreator.cpp	/^void terrainCreator::setBounds(vector2 bottomLeft, vector2 topRight, $/;"	f	class:terrainCreator
 terrainCreator	src/game/factory/terrainCreator.cpp	/^terrainCreator::terrainCreator(viewProcess *viewProc){$/;"	f	class:terrainCreator
-Chunk	src/game/factory/terrainCreator.h	/^	struct Chunk{$/;"	s	class:terrainCreator
-bottomLeft	src/game/factory/terrainCreator.h	/^	vector2 bottomLeft, topRight;$/;"	m	class:terrainCreator
-chunkType	src/game/factory/terrainCreator.h	/^	typedef int chunkType;$/;"	t	class:terrainCreator
-chunks	src/game/factory/terrainCreator.h	/^	std::vector<Chunk> chunks;$/;"	m	class:terrainCreator
-filled	src/game/factory/terrainCreator.h	/^		bool filled;$/;"	m	struct:terrainCreator::Chunk
-numChunks	src/game/factory/terrainCreator.h	/^	vector2 numChunks;$/;"	m	class:terrainCreator
+bottomLeft	src/game/factory/terrainCreator.h	/^	vector2 bottomLeft, topRight, numChunks;$/;"	m	class:terrainCreator
+numChunks	src/game/factory/terrainCreator.h	/^	vector2 bottomLeft, topRight, numChunks;$/;"	m	class:terrainCreator
 terrainCreator	src/game/factory/terrainCreator.h	/^class terrainCreator : public objectCreator{$/;"	c
-topRight	src/game/factory/terrainCreator.h	/^	vector2 bottomLeft, topRight;$/;"	m	class:terrainCreator
-totalChunkCount	src/game/factory/terrainCreator.h	/^	unsigned int totalChunkCount;$/;"	m	class:terrainCreator
+terrainGen	src/game/factory/terrainCreator.h	/^	terrainGenerator terrainGen;$/;"	m	class:terrainCreator
+topRight	src/game/factory/terrainCreator.h	/^	vector2 bottomLeft, topRight, numChunks;$/;"	m	class:terrainCreator
+totalChunkCount	src/game/factory/terrainCreator.h	/^	int totalChunkCount;$/;"	m	class:terrainCreator
 viewProc	src/game/factory/terrainCreator.h	/^	viewProcess *viewProc;$/;"	m	class:terrainCreator
-_fireGun	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::_fireGun(){$/;"	f	class:gunsManager
-_gotoNextGun	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::_gotoNextGun(){$/;"	f	class:gunsManager
-_gotoPrevGun	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::_gotoPrevGun(){$/;"	f	class:gunsManager
-_reloadGunPtrs	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::_reloadGunPtrs(){$/;"	f	class:gunsManager
-_updateGunAngle	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::_updateGunAngle(util::Angle &facing){$/;"	f	class:gunsManager
-addGun	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::addGun(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
-gunsManager	src/game/gameStateHelpers/gunManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, $/;"	f	class:gunsManager
-recieveEvent	src/game/gameStateHelpers/gunManager.cpp	/^void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:gunsManager
+_fireGun	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_fireGun(){$/;"	f	class:gunsManager
+_gotoNextGun	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoNextGun(int skip){$/;"	f	class:gunsManager
+_gotoPrevGun	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoPrevGun(int skip){$/;"	f	class:gunsManager
+_reloadGunPtrs	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_reloadGunPtrs(){$/;"	f	class:gunsManager
+_switchGuns	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_switchGuns(Object *prevGun, Object *newGun){$/;"	f	class:gunsManager
+_updateGunAngle	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_updateGunAngle(util::Angle &facing){$/;"	f	class:gunsManager
+addGun	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
+gunsManager	src/game/gameStateHelpers/gunsManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, $/;"	f	class:gunsManager
+recieveEvent	src/game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:gunsManager
 _bulletCreator	src/game/gameStateHelpers/gunsManager.h	/^	bulletCreator *_bulletCreator;$/;"	m	class:gunsManager
 _gunCreator	src/game/gameStateHelpers/gunsManager.h	/^	gunCreator *_gunCreator;$/;"	m	class:gunsManager
 currentGun	src/game/gameStateHelpers/gunsManager.h	/^	Object *currentGun;$/;"	m	class:gunsManager
 currentGunData	src/game/gameStateHelpers/gunsManager.h	/^	gunData *currentGunData;$/;"	m	class:gunsManager
-currentGunIndex	src/game/gameStateHelpers/gunsManager.h	/^	unsigned int currentGunIndex;$/;"	m	class:gunsManager
+currentGunIndex	src/game/gameStateHelpers/gunsManager.h	/^	int currentGunIndex;$/;"	m	class:gunsManager
 guns	src/game/gameStateHelpers/gunsManager.h	/^	std::vector<Object *>guns;$/;"	m	class:gunsManager
 gunsManager	src/game/gameStateHelpers/gunsManager.h	/^class gunsManager : public Observer{$/;"	c
 objectManager	src/game/gameStateHelpers/gunsManager.h	/^	objectMgr &objectManager;$/;"	m	class:gunsManager
@@ -4097,6 +4120,8 @@ Update	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandle
 _fireGun	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_fireGun(){$/;"	f	class:playerEventHandler
 _handleKeyPress	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleKeyPress(sf::Event::KeyEvent *event){$/;"	f	class:playerEventHandler
 _handleKeyRelease	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleKeyRelease(sf::Event::KeyEvent *event){$/;"	f	class:playerEventHandler
+_handleMouseWheelDown	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleMouseWheelDown(int ticks){$/;"	f	class:playerEventHandler
+_handleMouseWheelUp	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleMouseWheelUp(int ticks){$/;"	f	class:playerEventHandler
 _updateGunFacing	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_updateGunFacing(vector2 gameMousePos){$/;"	f	class:playerEventHandler
 playerEventHandler	src/game/gameStateHelpers/playerEventHandler.cpp	/^playerEventHandler::playerEventHandler(eventMgr *_eventManager, playerHandlerData playerData) : $/;"	f	class:playerEventHandler
 recieveEvent	src/game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:playerEventHandler
@@ -4168,20 +4193,24 @@ power	src/game/generators/gunDataGenerator.h	/^	unsigned int power;$/;"	m	class:
 seed	src/game/generators/gunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:gunDataGenerator
 Level	src/game/level/Level.h	/^class Level{$/;"	c
 gameSegment	src/game/level/gameSegment.h	/^class gameSegment{$/;"	c
-Chunk	src/game/terrainGen/terrainGenerator.cpp	/^Chunk::Chunk(){$/;"	f	class:Chunk
-Generate	src/game/terrainGen/terrainGenerator.cpp	/^void Generate(){$/;"	f
-_limitChunkCoord	src/game/terrainGen/terrainGenerator.cpp	/^vector2 Chunk::_limitChunkCoord(vector2 rawChunkCoord){$/;"	f	class:Chunk
-getLevel	src/game/terrainGen/terrainGenerator.cpp	/^const std::vector<Chunk> &getLevel(){$/;"	f
-setLevelDim	src/game/terrainGen/terrainGenerator.cpp	/^void setLevelDim(vector2 dim){$/;"	f
-setSeed	src/game/terrainGen/terrainGenerator.cpp	/^void setSeed(unsigned int seed){$/;"	f
+setDim	src/game/terrainGen/terrainGenerator.cpp	/^void terrainGenerator::setDim(vector2 levelDim){$/;"	f	class:terrainGenerator
+Chunk	src/game/terrainGen/terrainGenerator.h	/^		Chunk(chunkType _type = empty) : type(_type){$/;"	f	struct:terrainGenerator::Chunk
 Chunk	src/game/terrainGen/terrainGenerator.h	/^	struct Chunk{$/;"	s	class:terrainGenerator
+chunkType	src/game/terrainGen/terrainGenerator.h	/^	enum chunkType{$/;"	g	class:terrainGenerator
 chunks	src/game/terrainGen/terrainGenerator.h	/^	std::vector<Chunk> chunks;$/;"	m	class:terrainGenerator
-filled	src/game/terrainGen/terrainGenerator.h	/^		bool filled;$/;"	m	struct:terrainGenerator::Chunk
+empty	src/game/terrainGen/terrainGenerator.h	/^		empty = 0,$/;"	e	enum:terrainGenerator::chunkType
+filled	src/game/terrainGen/terrainGenerator.h	/^		filled = 1,$/;"	e	enum:terrainGenerator::chunkType
+getType	src/game/terrainGen/terrainGenerator.h	/^		const chunkType getType(){$/;"	f	struct:terrainGenerator::Chunk
 isFilled	src/game/terrainGen/terrainGenerator.h	/^		const bool isFilled(){$/;"	f	struct:terrainGenerator::Chunk
 levelDim	src/game/terrainGen/terrainGenerator.h	/^	vector2 levelDim;$/;"	m	class:terrainGenerator
 numTiles	src/game/terrainGen/terrainGenerator.h	/^	float numTiles;$/;"	m	class:terrainGenerator
 seed	src/game/terrainGen/terrainGenerator.h	/^	unsigned int seed;$/;"	m	class:terrainGenerator
 terrainGenerator	src/game/terrainGen/terrainGenerator.h	/^class terrainGenerator{$/;"	c
+triBottomLeft	src/game/terrainGen/terrainGenerator.h	/^		triBottomLeft,$/;"	e	enum:terrainGenerator::chunkType
+triBottomRight	src/game/terrainGen/terrainGenerator.h	/^		triBottomRight,$/;"	e	enum:terrainGenerator::chunkType
+triTopLeft	src/game/terrainGen/terrainGenerator.h	/^		triTopLeft,$/;"	e	enum:terrainGenerator::chunkType
+triTopRight	src/game/terrainGen/terrainGenerator.h	/^		triTopRight,$/;"	e	enum:terrainGenerator::chunkType
+type	src/game/terrainGen/terrainGenerator.h	/^		chunkType type;$/;"	m	struct:terrainGenerator::Chunk
 BOX2D_H	src/include/Box2D/Box2D.h	20;"	d
 Clone	src/include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^b2Shape* b2ChainShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2ChainShape
 ComputeAABB	src/include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^void b2ChainShape::ComputeAABB(b2AABB* aabb, const b2Transform& xf, int32 childIndex) const$/;"	f	class:b2ChainShape
@@ -4292,7 +4321,7 @@ UpdatePairs	src/include/Box2D/Collision/b2BroadPhase.h	/^void b2BroadPhase::Upda
 b2BroadPhase	src/include/Box2D/Collision/b2BroadPhase.h	/^class b2BroadPhase$/;"	c
 b2Pair	src/include/Box2D/Collision/b2BroadPhase.h	/^struct b2Pair$/;"	s
 b2PairLessThan	src/include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2PairLessThan(const b2Pair& pair1, const b2Pair& pair2)$/;"	f
-e_nullProxy	src/include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon12
+e_nullProxy	src/include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon11
 m_moveBuffer	src/include/Box2D/Collision/b2BroadPhase.h	/^	int32* m_moveBuffer;$/;"	m	class:b2BroadPhase
 m_moveCapacity	src/include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCapacity;$/;"	m	class:b2BroadPhase
 m_moveCount	src/include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCount;$/;"	m	class:b2BroadPhase
@@ -4513,8 +4542,8 @@ m_nodeCount	src/include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_nodeCount;$/;
 m_nodes	src/include/Box2D/Collision/b2DynamicTree.h	/^	b2TreeNode* m_nodes;$/;"	m	class:b2DynamicTree
 m_path	src/include/Box2D/Collision/b2DynamicTree.h	/^	uint32 m_path;$/;"	m	class:b2DynamicTree
 m_root	src/include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_root;$/;"	m	class:b2DynamicTree
-next	src/include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon13
-parent	src/include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon13
+next	src/include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon12
+parent	src/include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon12
 userData	src/include/Box2D/Collision/b2DynamicTree.h	/^	void* userData;$/;"	m	struct:b2TreeNode
 Evaluate	src/include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Evaluate(int32 indexA, int32 indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindMinSeparation	src/include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
@@ -4586,11 +4615,11 @@ b2Color	src/include/Box2D/Common/b2Draw.h	/^	b2Color() {}$/;"	f	struct:b2Color
 b2Color	src/include/Box2D/Common/b2Draw.h	/^	b2Color(float32 r, float32 g, float32 b) : r(r), g(g), b(b) {}$/;"	f	struct:b2Color
 b2Color	src/include/Box2D/Common/b2Draw.h	/^struct b2Color$/;"	s
 b2Draw	src/include/Box2D/Common/b2Draw.h	/^class b2Draw$/;"	c
-e_aabbBit	src/include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon14
-e_centerOfMassBit	src/include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon14
-e_jointBit	src/include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon14
-e_pairBit	src/include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon14
-e_shapeBit	src/include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon14
+e_aabbBit	src/include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon13
+e_centerOfMassBit	src/include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon13
+e_jointBit	src/include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon13
+e_pairBit	src/include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon13
+e_shapeBit	src/include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon13
 g	src/include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 m_drawFlags	src/include/Box2D/Common/b2Draw.h	/^	uint32 m_drawFlags;$/;"	m	class:b2Draw
 r	src/include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
@@ -4865,12 +4894,12 @@ b2MixRestitution	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float3
 contact	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 createFcn	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactCreateFcn* createFcn;$/;"	m	struct:b2ContactRegister
 destroyFcn	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactDestroyFcn* destroyFcn;$/;"	m	struct:b2ContactRegister
-e_bulletHitFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon11
-e_enabledFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon11
-e_filterFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon11
-e_islandFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon11
-e_toiFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon11
-e_touchingFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon11
+e_bulletHitFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon10
+e_enabledFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon10
+e_filterFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon10
+e_islandFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon10
+e_toiFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon10
+e_touchingFlag	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon10
 m_fixtureA	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureA;$/;"	m	class:b2Contact
 m_fixtureB	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureB;$/;"	m	class:b2Contact
 m_flags	src/include/Box2D/Dynamics/Contacts/b2Contact.h	/^	uint32 m_flags;$/;"	m	class:b2Contact
@@ -5659,13 +5688,13 @@ b2_dynamicBody	src/include/Box2D/Dynamics/b2Body.h	/^	b2_dynamicBody$/;"	e	enum:
 b2_kinematicBody	src/include/Box2D/Dynamics/b2Body.h	/^	b2_kinematicBody,$/;"	e	enum:b2BodyType
 b2_staticBody	src/include/Box2D/Dynamics/b2Body.h	/^	b2_staticBody = 0,$/;"	e	enum:b2BodyType
 bullet	src/include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-e_activeFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon9
-e_autoSleepFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon9
-e_awakeFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon9
-e_bulletFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon9
-e_fixedRotationFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon9
-e_islandFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon9
-e_toiFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon9
+e_activeFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon8
+e_autoSleepFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon8
+e_awakeFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon8
+e_bulletFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon8
+e_fixedRotationFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon8
+e_islandFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon8
+e_toiFlag	src/include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon8
 fixedRotation	src/include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 gravityScale	src/include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 linearDamping	src/include/Box2D/Dynamics/b2Body.h	/^	float32 linearDamping;$/;"	m	struct:b2BodyDef
@@ -5885,9 +5914,9 @@ SetGravity	src/include/Box2D/Dynamics/b2World.h	/^inline void b2World::SetGravit
 SetSubStepping	src/include/Box2D/Dynamics/b2World.h	/^	void SetSubStepping(bool flag) { m_subStepping = flag; }$/;"	f	class:b2World
 SetWarmStarting	src/include/Box2D/Dynamics/b2World.h	/^	void SetWarmStarting(bool flag) { m_warmStarting = flag; }$/;"	f	class:b2World
 b2World	src/include/Box2D/Dynamics/b2World.h	/^class b2World$/;"	c
-e_clearForces	src/include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon10
-e_locked	src/include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon10
-e_newFixture	src/include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon10
+e_clearForces	src/include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon9
+e_locked	src/include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon9
+e_newFixture	src/include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon9
 m_allowSleep	src/include/Box2D/Dynamics/b2World.h	/^	bool m_allowSleep;$/;"	m	class:b2World
 m_blockAllocator	src/include/Box2D/Dynamics/b2World.h	/^	b2BlockAllocator m_blockAllocator;$/;"	m	class:b2World
 m_bodyCount	src/include/Box2D/Dynamics/b2World.h	/^	int32 m_bodyCount;$/;"	m	class:b2World
@@ -6006,7 +6035,7 @@ Status	src/include/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::
 Stopped	src/include/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	src/include/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	src/include/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	src/include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon8
+BufferCount	src/include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon7
 Chunk	src/include/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	src/include/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	src/include/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -6157,7 +6186,7 @@ transform	src/include/SFML/Graphics/RenderStates.hpp	/^    Transform      transf
 RenderTarget	src/include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	src/include/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	src/include/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	src/include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon7
+VertexCacheSize	src/include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon6
 glStatesSet	src/include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	src/include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	src/include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -6400,7 +6429,7 @@ m_data	src/include/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/
 m_isValid	src/include/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	src/include/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	src/include/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	src/include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
+AnyPort	src/include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon2
 Disconnected	src/include/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	src/include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	src/include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -6433,7 +6462,7 @@ SizeReceived	src/include/SFML/Network/TcpSocket.hpp	/^        std::size_t       
 TcpSocket	src/include/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
 m_pendingPacket	src/include/SFML/Network/TcpSocket.hpp	/^    PendingPacket m_pendingPacket; \/\/\/< Temporary data of the packet currently being received$/;"	m	class:sf::TcpSocket
 sf	src/include/SFML/Network/TcpSocket.hpp	/^namespace sf$/;"	n
-MaxDatagramSize	src/include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon2
+MaxDatagramSize	src/include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon1
 SFML_UDPSOCKET_HPP	src/include/SFML/Network/UdpSocket.hpp	26;"	d
 UdpSocket	src/include/SFML/Network/UdpSocket.hpp	/^class SFML_NETWORK_API UdpSocket : public Socket$/;"	c	namespace:sf
 m_buffer	src/include/SFML/Network/UdpSocket.hpp	/^    std::vector<char> m_buffer; \/\/\/< Temporary buffer holding the received data in Receive(Packet)$/;"	m	class:sf::UdpSocket
@@ -6572,22 +6601,22 @@ code	src/include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< 
 control	src/include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	src/include/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	src/include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	src/include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon5
-joystickConnect	src/include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon5
+joystickButton	src/include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon4
+joystickConnect	src/include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon4
 joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	src/include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	src/include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon5
-key	src/include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon5
-mouseButton	src/include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon5
-mouseMove	src/include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon5
-mouseWheel	src/include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon5
+joystickMove	src/include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon4
+key	src/include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon4
+mouseButton	src/include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon4
+mouseMove	src/include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon4
+mouseWheel	src/include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon4
 position	src/include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	src/include/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	src/include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	src/include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon5
+size	src/include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon4
 system	src/include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	src/include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon5
+text	src/include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon4
 type	src/include/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	src/include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	src/include/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -6604,9 +6633,9 @@ GlResource	src/include/SFML/Window/GlResource.hpp	/^class SFML_WINDOW_API GlReso
 SFML_GLRESOURCE_HPP	src/include/SFML/Window/GlResource.hpp	26;"	d
 sf	src/include/SFML/Window/GlResource.hpp	/^namespace sf$/;"	n
 Axis	src/include/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
-AxisCount	src/include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon6
-ButtonCount	src/include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon6
-Count	src/include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon6
+AxisCount	src/include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon5
+ButtonCount	src/include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon5
+Count	src/include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon5
 Joystick	src/include/SFML/Window/Joystick.hpp	/^class SFML_WINDOW_API Joystick$/;"	c	namespace:sf
 PovX	src/include/SFML/Window/Joystick.hpp	/^        PovX, \/\/\/< The X axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
 PovY	src/include/SFML/Window/Joystick.hpp	/^        PovY  \/\/\/< The Y axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
@@ -6752,15 +6781,299 @@ sf	src/include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	src/include/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	src/include/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	src/include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	src/include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon4
-Default	src/include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon4
-Fullscreen	src/include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon4
-None	src/include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon4
-Resize	src/include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon4
+Close	src/include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon3
+Default	src/include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon3
+Fullscreen	src/include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon3
+None	src/include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon3
+Resize	src/include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon3
 SFML_WINDOWSTYLE_HPP	src/include/SFML/Window/WindowStyle.hpp	26;"	d
 Style	src/include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	src/include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon4
+Titlebar	src/include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon3
 sf	src/include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
+backward	src/include/backward/backward.cpp	/^namespace backward {$/;"	n	file:
+sh	src/include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
+BACKWARD_CXX11	src/include/backward/backward.hpp	35;"	d
+BACKWARD_CXX98	src/include/backward/backward.hpp	37;"	d
+BACKWARD_HAS_BACKTRACE	src/include/backward/backward.hpp	95;"	d
+BACKWARD_HAS_BACKTRACE	src/include/backward/backward.hpp	96;"	d
+BACKWARD_HAS_BACKTRACE_SYMBOL	src/include/backward/backward.hpp	142;"	d
+BACKWARD_HAS_BACKTRACE_SYMBOL	src/include/backward/backward.hpp	143;"	d
+BACKWARD_HAS_BFD	src/include/backward/backward.hpp	140;"	d
+BACKWARD_HAS_BFD	src/include/backward/backward.hpp	141;"	d
+BACKWARD_HAS_DW	src/include/backward/backward.hpp	138;"	d
+BACKWARD_HAS_DW	src/include/backward/backward.hpp	139;"	d
+BACKWARD_HAS_UNWIND	src/include/backward/backward.hpp	93;"	d
+BACKWARD_HAS_UNWIND	src/include/backward/backward.hpp	94;"	d
+BACKWARD_SYSTEM_LINUX	src/include/backward/backward.hpp	53;"	d
+BACKWARD_SYSTEM_UNKNOWN	src/include/backward/backward.hpp	55;"	d
+Color	src/include/backward/backward.hpp	/^namespace Color {$/;"	n	namespace:backward
+Colorize	src/include/backward/backward.hpp	/^	Colorize(std::FILE* os):$/;"	f	class:backward::Colorize
+Colorize	src/include/backward/backward.hpp	/^	Colorize(std::FILE*) {}$/;"	f	class:backward::Colorize
+Colorize	src/include/backward/backward.hpp	/^class Colorize {$/;"	c	namespace:backward
+H_6B9572DA_A64B_49E6_B234_051480991C89	src/include/backward/backward.hpp	25;"	d
+Kind	src/include/backward/backward.hpp	/^	enum Kind { VALUE, LIST, MAP };$/;"	g	class:backward::Variable
+LIST	src/include/backward/backward.hpp	/^	enum Kind { VALUE, LIST, MAP };$/;"	e	enum:backward::Variable::Kind
+MAP	src/include/backward/backward.hpp	/^	enum Kind { VALUE, LIST, MAP };$/;"	e	enum:backward::Variable::Kind
+Printer	src/include/backward/backward.hpp	/^	Printer():$/;"	f	class:backward::Printer
+Printer	src/include/backward/backward.hpp	/^class Printer {$/;"	c	namespace:backward
+ResolvedTrace	src/include/backward/backward.hpp	/^	ResolvedTrace(const Trace& mini_trace):$/;"	f	struct:backward::ResolvedTrace
+ResolvedTrace	src/include/backward/backward.hpp	/^	ResolvedTrace(const TraceWithLocals& mini_trace_with_locals):$/;"	f	struct:backward::ResolvedTrace
+ResolvedTrace	src/include/backward/backward.hpp	/^struct ResolvedTrace: public TraceWithLocals {$/;"	s	namespace:backward
+SignalHandling	src/include/backward/backward.hpp	/^	SignalHandling(const std::vector<int>& = std::vector<int>()) {}$/;"	f	class:backward::SignalHandling
+SignalHandling	src/include/backward/backward.hpp	/^  SignalHandling(const std::vector<int>& signals = make_default_signals()) : _loaded(false) { $/;"	f	class:backward::SignalHandling
+SignalHandling	src/include/backward/backward.hpp	/^class SignalHandling {$/;"	c	namespace:backward
+SnippetFactory	src/include/backward/backward.hpp	/^class SnippetFactory {$/;"	c	namespace:backward
+SourceFile	src/include/backward/backward.hpp	/^	SourceFile() {}$/;"	f	class:backward::SourceFile
+SourceFile	src/include/backward/backward.hpp	/^	SourceFile(SourceFile&& from): _file(0) {$/;"	f	class:backward::SourceFile
+SourceFile	src/include/backward/backward.hpp	/^	SourceFile(const std::string& path): _file(new std::ifstream(path.c_str())) {}$/;"	f	class:backward::SourceFile
+SourceFile	src/include/backward/backward.hpp	/^	explicit SourceFile(const SourceFile& from) {$/;"	f	class:backward::SourceFile
+SourceFile	src/include/backward/backward.hpp	/^class SourceFile {$/;"	c	namespace:backward
+SourceLoc	src/include/backward/backward.hpp	/^		SourceLoc(): line(0), col(0) {}$/;"	f	struct:backward::ResolvedTrace::SourceLoc
+SourceLoc	src/include/backward/backward.hpp	/^	struct SourceLoc {$/;"	s	struct:backward::ResolvedTrace
+StackTrace	src/include/backward/backward.hpp	/^class StackTrace:$/;"	c	namespace:backward
+StackTraceImpl	src/include/backward/backward.hpp	/^class StackTraceImpl {$/;"	c	namespace:backward
+StackTraceImpl	src/include/backward/backward.hpp	/^class StackTraceImpl<system_tag::linux_tag>: public StackTraceLinuxImplHolder {$/;"	c	namespace:backward
+StackTraceLinuxImplBase	src/include/backward/backward.hpp	/^	StackTraceLinuxImplBase(): _thread_id(0), _skip(0) {}$/;"	f	class:backward::StackTraceLinuxImplBase
+StackTraceLinuxImplBase	src/include/backward/backward.hpp	/^class StackTraceLinuxImplBase {$/;"	c	namespace:backward
+StackTraceLinuxImplHolder	src/include/backward/backward.hpp	/^class StackTraceLinuxImplHolder: public StackTraceLinuxImplBase {$/;"	c	namespace:backward
+StackTraceWithLocals	src/include/backward/backward.hpp	/^class StackTraceWithLocals:$/;"	c	namespace:backward
+StackTraceWithLocalsImpl	src/include/backward/backward.hpp	/^class StackTraceWithLocalsImpl:$/;"	c	namespace:backward
+StackTraceWithLocalsImpl	src/include/backward/backward.hpp	/^class StackTraceWithLocalsImpl<system_tag::linux_tag>:$/;"	c	namespace:backward
+Trace	src/include/backward/backward.hpp	/^	Trace():$/;"	f	struct:backward::Trace
+Trace	src/include/backward/backward.hpp	/^	explicit Trace(void* addr, size_t idx):$/;"	f	struct:backward::Trace
+Trace	src/include/backward/backward.hpp	/^struct Trace {$/;"	s	namespace:backward
+TraceResolver	src/include/backward/backward.hpp	/^class TraceResolver:$/;"	c	namespace:backward
+TraceResolverImpl	src/include/backward/backward.hpp	/^class TraceResolverImpl<system_tag::linux_tag>:$/;"	c	namespace:backward
+TraceResolverImpl	src/include/backward/backward.hpp	/^class TraceResolverImpl<system_tag::unknown_tag> {$/;"	c	namespace:backward
+TraceResolverLinuxImpl	src/include/backward/backward.hpp	/^	TraceResolverLinuxImpl(): _bfd_loaded(false) {}$/;"	f	class:backward::TraceResolverLinuxImpl
+TraceResolverLinuxImpl	src/include/backward/backward.hpp	/^	TraceResolverLinuxImpl(): _dwfl_handle_initialized(false) {}$/;"	f	class:backward::TraceResolverLinuxImpl
+TraceResolverLinuxImpl	src/include/backward/backward.hpp	/^class TraceResolverLinuxImpl<trace_resolver_tag::backtrace_symbol>:$/;"	c	namespace:backward
+TraceResolverLinuxImpl	src/include/backward/backward.hpp	/^class TraceResolverLinuxImpl<trace_resolver_tag::libbfd>:$/;"	c	namespace:backward
+TraceResolverLinuxImpl	src/include/backward/backward.hpp	/^class TraceResolverLinuxImpl<trace_resolver_tag::libdw>:$/;"	c	namespace:backward
+TraceResolverLinuxImplBase	src/include/backward/backward.hpp	/^class TraceResolverLinuxImplBase {$/;"	c	namespace:backward
+TraceWithLocals	src/include/backward/backward.hpp	/^	TraceWithLocals(): Trace() {}$/;"	f	struct:backward::TraceWithLocals
+TraceWithLocals	src/include/backward/backward.hpp	/^	TraceWithLocals(const Trace& mini_trace):$/;"	f	struct:backward::TraceWithLocals
+TraceWithLocals	src/include/backward/backward.hpp	/^struct TraceWithLocals: public Trace {$/;"	s	namespace:backward
+Unwinder	src/include/backward/backward.hpp	/^class Unwinder {$/;"	c	namespace:backward::details
+VALUE	src/include/backward/backward.hpp	/^	enum Kind { VALUE, LIST, MAP };$/;"	e	enum:backward::Variable::Kind
+Variable	src/include/backward/backward.hpp	/^	Variable(Kind k): kind(k) {$/;"	f	class:backward::Variable
+Variable	src/include/backward/backward.hpp	/^class Variable {$/;"	c	namespace:backward
+_GNU_SOURCE	src/include/backward/backward.hpp	182;"	d
+_GNU_SOURCE	src/include/backward/backward.hpp	184;"	d
+_bfd_loaded	src/include/backward/backward.hpp	/^	bool                _bfd_loaded;$/;"	m	class:backward::TraceResolverLinuxImpl
+_demangle_buffer	src/include/backward/backward.hpp	/^	details::handle<char*> _demangle_buffer;$/;"	m	class:backward::TraceResolverLinuxImplBase
+_demangle_buffer_length	src/include/backward/backward.hpp	/^	size_t                 _demangle_buffer_length;$/;"	m	class:backward::TraceResolverLinuxImplBase
+_depth	src/include/backward/backward.hpp	/^	size_t  _depth;$/;"	m	class:backward::details::Unwinder
+_dwfl_cb	src/include/backward/backward.hpp	/^		           _dwfl_cb;$/;"	m	class:backward::TraceResolverLinuxImpl
+_dwfl_handle	src/include/backward/backward.hpp	/^	dwfl_handle_t  _dwfl_handle;$/;"	m	class:backward::TraceResolverLinuxImpl
+_dwfl_handle_initialized	src/include/backward/backward.hpp	/^	bool           _dwfl_handle_initialized;$/;"	m	class:backward::TraceResolverLinuxImpl
+_empty	src/include/backward/backward.hpp	/^	bool _empty;$/;"	m	class:backward::details::handle
+_f	src/include/backward/backward.hpp	/^	F*      _f;$/;"	m	class:backward::details::Unwinder
+_file	src/include/backward/backward.hpp	/^			> _file;$/;"	m	class:backward::SourceFile
+_fobj_bfd_map	src/include/backward/backward.hpp	/^	fobj_bfd_map_t      _fobj_bfd_map;$/;"	m	class:backward::TraceResolverLinuxImpl
+_index	src/include/backward/backward.hpp	/^	ssize_t _index;$/;"	m	class:backward::details::Unwinder
+_istty	src/include/backward/backward.hpp	/^	bool       _istty;$/;"	m	class:backward::Colorize
+_loaded	src/include/backward/backward.hpp	/^	bool                   _loaded;$/;"	m	class:backward::SignalHandling
+_nil_trace	src/include/backward/backward.hpp	/^	TraceWithLocals              _nil_trace;$/;"	m	class:backward::StackTraceWithLocalsImpl
+_os	src/include/backward/backward.hpp	/^	std::FILE* _os;$/;"	m	class:backward::Colorize
+_reset	src/include/backward/backward.hpp	/^	bool       _reset;$/;"	m	class:backward::Colorize
+_resolver	src/include/backward/backward.hpp	/^	TraceResolver  _resolver;$/;"	m	class:backward::Printer
+_skip	src/include/backward/backward.hpp	/^	size_t _skip;$/;"	m	class:backward::StackTraceLinuxImplBase
+_snippets	src/include/backward/backward.hpp	/^	SnippetFactory _snippets;$/;"	m	class:backward::Printer
+_src_files	src/include/backward/backward.hpp	/^	src_files_t _src_files;$/;"	m	class:backward::SnippetFactory
+_stack_content	src/include/backward/backward.hpp	/^	details::handle<char*> _stack_content;$/;"	m	class:backward::SignalHandling
+_stacktrace	src/include/backward/backward.hpp	/^	std::vector<TraceWithLocals> _stacktrace;$/;"	m	class:backward::StackTraceWithLocalsImpl
+_stacktrace	src/include/backward/backward.hpp	/^	std::vector<void*> _stacktrace;$/;"	m	class:backward::StackTraceLinuxImplHolder
+_symbols	src/include/backward/backward.hpp	/^	details::handle<char**> _symbols;$/;"	m	class:backward::TraceResolverLinuxImpl
+_thread_id	src/include/backward/backward.hpp	/^	size_t _thread_id;$/;"	m	class:backward::StackTraceLinuxImplBase
+_val	src/include/backward/backward.hpp	/^	T    _val;$/;"	m	class:backward::details::handle
+addr	src/include/backward/backward.hpp	/^		void* addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
+addr	src/include/backward/backward.hpp	/^	void*  addr;$/;"	m	struct:backward::Trace
+address	src/include/backward/backward.hpp	/^	bool address;$/;"	m	class:backward::Printer
+backtrace	src/include/backward/backward.hpp	/^	_Unwind_Reason_Code backtrace(_Unwind_Context* ctx) {$/;"	f	class:backward::details::Unwinder
+backtrace_inliners	src/include/backward/backward.hpp	/^	ResolvedTrace::source_locs_t backtrace_inliners(bfd_fileobject& fobj,$/;"	f	class:backward::TraceResolverLinuxImpl
+backtrace_trampoline	src/include/backward/backward.hpp	/^	static _Unwind_Reason_Code backtrace_trampoline($/;"	f	class:backward::details::Unwinder
+backward	src/include/backward/backward.hpp	/^	namespace backward {$/;"	n
+backward	src/include/backward/backward.hpp	/^namespace backward {$/;"	n
+base_addr	src/include/backward/backward.hpp	/^		bfd_vma      base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
+base_addr	src/include/backward/backward.hpp	/^		void* base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
+begin	src/include/backward/backward.hpp	/^	void** begin() {$/;"	f	class:backward::StackTraceLinuxImplHolder
+bfd_fileobject	src/include/backward/backward.hpp	/^	struct bfd_fileobject {$/;"	s	class:backward::TraceResolverLinuxImpl
+bfd_handle_t	src/include/backward/backward.hpp	/^				> bfd_handle_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+bfd_symtab_t	src/include/backward/backward.hpp	/^	typedef details::handle<asymbol**> bfd_symtab_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+callback	src/include/backward/backward.hpp	/^		callback(StackTraceImpl& self): self(self) {}$/;"	f	struct:backward::StackTraceImpl::callback
+callback	src/include/backward/backward.hpp	/^		callback(StackTraceWithLocalsImpl& self): self(self) {}$/;"	f	struct:backward::StackTraceWithLocalsImpl::callback
+callback	src/include/backward/backward.hpp	/^	struct callback {$/;"	s	class:backward::StackTraceImpl
+callback	src/include/backward/backward.hpp	/^	struct callback {$/;"	s	class:backward::StackTraceWithLocalsImpl
+col	src/include/backward/backward.hpp	/^		unsigned    col;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
+color	src/include/backward/backward.hpp	/^	bool color;$/;"	m	class:backward::Printer
+cstrings_eq	src/include/backward/backward.hpp	/^	bool cstrings_eq(const char* a, const char* b) {$/;"	f	class:backward::TraceResolverLinuxImpl
+current	src/include/backward/backward.hpp	/^	typedef backtrace current;$/;"	t	namespace:backward::stacktrace_tag
+current	src/include/backward/backward.hpp	/^	typedef backtrace_symbol current;$/;"	t	namespace:backward::trace_resolver_tag
+current	src/include/backward/backward.hpp	/^	typedef libbfd current;$/;"	t	namespace:backward::trace_resolver_tag
+current	src/include/backward/backward.hpp	/^	typedef libdw current;$/;"	t	namespace:backward::trace_resolver_tag
+current	src/include/backward/backward.hpp	/^	typedef unwind current;$/;"	t	namespace:backward::stacktrace_tag
+current_tag	src/include/backward/backward.hpp	/^	typedef linux_tag current_tag;$/;"	t	namespace:backward::system_tag
+current_tag	src/include/backward/backward.hpp	/^	typedef unknown_tag current_tag;$/;"	t	namespace:backward::system_tag
+deep_first_search_by_pc	src/include/backward/backward.hpp	/^		static bool deep_first_search_by_pc(Dwarf_Die* parent_die,$/;"	f	class:backward::TraceResolverLinuxImpl
+default_delete	src/include/backward/backward.hpp	/^struct default_delete {$/;"	s	namespace:backward::details
+deleter	src/include/backward/backward.hpp	/^struct deleter {$/;"	s	namespace:backward::details
+demangle	src/include/backward/backward.hpp	/^	std::string demangle(const char* funcname) {$/;"	f	class:backward::TraceResolverLinuxImplBase
+details	src/include/backward/backward.hpp	/^	namespace details {$/;"	n	namespace:backward
+details	src/include/backward/backward.hpp	/^namespace details {$/;"	n	namespace:backward
+die_call_file	src/include/backward/backward.hpp	/^	static const char* die_call_file(Dwarf_Die *die) {$/;"	f	class:backward::TraceResolverLinuxImpl
+die_has_pc	src/include/backward/backward.hpp	/^	static bool die_has_pc(Dwarf_Die* die, Dwarf_Addr pc) {$/;"	f	class:backward::TraceResolverLinuxImpl
+dwfl_handle_t	src/include/backward/backward.hpp	/^		dwfl_handle_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+dynamic_symtab	src/include/backward/backward.hpp	/^		bfd_symtab_t dynamic_symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
+filename	src/include/backward/backward.hpp	/^		const char* filename;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
+filename	src/include/backward/backward.hpp	/^		std::string filename;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
+find_fundie_by_pc	src/include/backward/backward.hpp	/^	static Dwarf_Die* find_fundie_by_pc(Dwarf_Die* parent_die, Dwarf_Addr pc,$/;"	f	class:backward::TraceResolverLinuxImpl
+find_in_section	src/include/backward/backward.hpp	/^	void find_in_section(bfd_vma addr, bfd_vma base_addr,$/;"	f	class:backward::TraceResolverLinuxImpl
+find_in_section_trampoline	src/include/backward/backward.hpp	/^	static void find_in_section_trampoline(bfd*, asection* section,$/;"	f	class:backward::TraceResolverLinuxImpl
+find_sym_context	src/include/backward/backward.hpp	/^	struct find_sym_context {$/;"	s	class:backward::TraceResolverLinuxImpl
+find_sym_result	src/include/backward/backward.hpp	/^	struct find_sym_result {$/;"	s	class:backward::TraceResolverLinuxImpl
+find_symbol_details	src/include/backward/backward.hpp	/^	find_sym_result find_symbol_details(bfd_fileobject& fobj, void* addr,$/;"	f	class:backward::TraceResolverLinuxImpl
+fobj	src/include/backward/backward.hpp	/^		bfd_fileobject* fobj;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
+fobj_bfd_map_t	src/include/backward/backward.hpp	/^		fobj_bfd_map_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+found	src/include/backward/backward.hpp	/^		bool found;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
+funcname	src/include/backward/backward.hpp	/^		const char* funcname;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
+function	src/include/backward/backward.hpp	/^		std::string function;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
+get	src/include/backward/backward.hpp	/^	T get() {$/;"	f	class:backward::details::handle
+get_coalesced_snippet	src/include/backward/backward.hpp	/^	lines_t get_coalesced_snippet(const std::string& filename,$/;"	f	class:backward::SnippetFactory
+get_combined_snippet	src/include/backward/backward.hpp	/^	lines_t get_combined_snippet($/;"	f	class:backward::SnippetFactory
+get_lines	src/include/backward/backward.hpp	/^	lines_t get_lines(unsigned line_start, unsigned line_count) {$/;"	f	class:backward::SourceFile
+get_lines	src/include/backward/backward.hpp	/^	lines_t& get_lines(unsigned line_start, unsigned line_count, lines_t& lines) {$/;"	f	class:backward::SourceFile
+get_snippet	src/include/backward/backward.hpp	/^	lines_t get_snippet(const std::string& filename,$/;"	f	class:backward::SnippetFactory
+get_src_file	src/include/backward/backward.hpp	/^	SourceFile& get_src_file(const std::string& filename) {$/;"	f	class:backward::SnippetFactory
+handle	src/include/backward/backward.hpp	/^		bfd_handle_t handle;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
+handle	src/include/backward/backward.hpp	/^	explicit handle(): _val(), _empty(true) {}$/;"	f	class:backward::details::handle
+handle	src/include/backward/backward.hpp	/^	explicit handle(T val): _val(val), _empty(false) {}$/;"	f	class:backward::details::handle
+handle	src/include/backward/backward.hpp	/^	explicit handle(const handle& from): _empty(true) {$/;"	f	class:backward::details::handle
+handle	src/include/backward/backward.hpp	/^	handle(handle&& from): _empty(true) {$/;"	f	class:backward::details::handle
+handle	src/include/backward/backward.hpp	/^class handle {$/;"	c	namespace:backward::details
+hashtable	src/include/backward/backward.hpp	/^		struct hashtable {$/;"	s	namespace:backward::details
+idx	src/include/backward/backward.hpp	/^	size_t idx;$/;"	m	struct:backward::Trace
+init	src/include/backward/backward.hpp	/^	bool init() { return false; }$/;"	f	class:backward::SignalHandling
+init	src/include/backward/backward.hpp	/^	void init() {$/;"	f	class:backward::Colorize
+init	src/include/backward/backward.hpp	/^	void init() {}$/;"	f	class:backward::Colorize
+inliners	src/include/backward/backward.hpp	/^	source_locs_t                  inliners;$/;"	m	struct:backward::ResolvedTrace
+inliners_search_cb	src/include/backward/backward.hpp	/^		inliners_search_cb(ResolvedTrace& t): trace(t) {}$/;"	f	struct:backward::TraceResolverLinuxImpl::inliners_search_cb
+inliners_search_cb	src/include/backward/backward.hpp	/^	struct inliners_search_cb {$/;"	s	class:backward::TraceResolverLinuxImpl
+is_open	src/include/backward/backward.hpp	/^	bool is_open() const { return _file->is_open(); }$/;"	f	class:backward::SourceFile
+kind	src/include/backward/backward.hpp	/^	Kind kind;$/;"	m	class:backward::Variable
+line	src/include/backward/backward.hpp	/^		unsigned    line;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
+line	src/include/backward/backward.hpp	/^		unsigned int line;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
+lines_t	src/include/backward/backward.hpp	/^	typedef SourceFile::lines_t lines_t;$/;"	t	class:backward::SnippetFactory
+lines_t	src/include/backward/backward.hpp	/^	typedef std::vector<std::pair<unsigned, std::string> > lines_t;$/;"	t	class:backward::SourceFile
+list	src/include/backward/backward.hpp	/^	const list_t& list() const {$/;"	f	class:backward::Variable
+list	src/include/backward/backward.hpp	/^	list_t& list() {$/;"	f	class:backward::Variable
+list_t	src/include/backward/backward.hpp	/^	typedef std::vector<std::string> list_t;$/;"	t	class:backward::Variable
+load_from	src/include/backward/backward.hpp	/^	size_t load_from(void* addr, size_t depth=32) {$/;"	f	class:backward::StackTraceImpl
+load_from	src/include/backward/backward.hpp	/^	size_t load_from(void* addr, size_t depth=32) {$/;"	f	class:backward::StackTraceWithLocalsImpl
+load_from	src/include/backward/backward.hpp	/^	size_t load_from(void*, size_t=0) { return 0; }$/;"	f	class:backward::StackTraceImpl
+load_here	src/include/backward/backward.hpp	/^	size_t load_here(size_t depth=32) {$/;"	f	class:backward::StackTraceImpl
+load_here	src/include/backward/backward.hpp	/^	size_t load_here(size_t depth=32) {$/;"	f	class:backward::StackTraceWithLocalsImpl
+load_here	src/include/backward/backward.hpp	/^	size_t load_here(size_t=0) { return 0; }$/;"	f	class:backward::StackTraceImpl
+load_object_with_bfd	src/include/backward/backward.hpp	/^	bfd_fileobject& load_object_with_bfd(const std::string& filename_object) {$/;"	f	class:backward::TraceResolverLinuxImpl
+load_stacktrace	src/include/backward/backward.hpp	/^		void load_stacktrace(ST& st) {$/;"	f	class:backward::TraceResolverLinuxImpl
+load_stacktrace	src/include/backward/backward.hpp	/^		void load_stacktrace(ST&) {}$/;"	f	class:backward::TraceResolverImpl
+load_stacktrace	src/include/backward/backward.hpp	/^		void load_stacktrace(ST&) {}$/;"	f	class:backward::TraceResolverLinuxImpl
+load_thread_info	src/include/backward/backward.hpp	/^	void load_thread_info() {$/;"	f	class:backward::StackTraceLinuxImplBase
+loaded	src/include/backward/backward.hpp	/^	bool loaded() const { return _loaded; }$/;"	f	class:backward::SignalHandling
+locals	src/include/backward/backward.hpp	/^	std::vector<Variable> locals;$/;"	m	struct:backward::TraceWithLocals
+make_default_signals	src/include/backward/backward.hpp	/^   static std::vector<int> make_default_signals() {$/;"	f	class:backward::SignalHandling
+map	src/include/backward/backward.hpp	/^	const map_t& map() const {$/;"	f	class:backward::Variable
+map	src/include/backward/backward.hpp	/^	map_t& map() {$/;"	f	class:backward::Variable
+map_t	src/include/backward/backward.hpp	/^	typedef std::vector<Variable>    map_t;$/;"	t	class:backward::Variable
+name	src/include/backward/backward.hpp	/^	std::string name;$/;"	m	class:backward::Variable
+not_isempty	src/include/backward/backward.hpp	/^	struct not_isempty {$/;"	s	class:backward::SourceFile
+not_isspace	src/include/backward/backward.hpp	/^	struct not_isspace {$/;"	s	class:backward::SourceFile
+object	src/include/backward/backward.hpp	/^	bool object;$/;"	m	class:backward::Printer
+object_filename	src/include/backward/backward.hpp	/^	std::string                    object_filename;$/;"	m	struct:backward::ResolvedTrace
+object_function	src/include/backward/backward.hpp	/^	std::string                    object_function;$/;"	m	struct:backward::ResolvedTrace
+operator !=	src/include/backward/backward.hpp	/^		bool operator!=(const SourceLoc& b) const {$/;"	f	struct:backward::ResolvedTrace::SourceLoc
+operator &	src/include/backward/backward.hpp	/^	T* operator&() {$/;"	f	class:backward::details::handle
+operator ()	src/include/backward/backward.hpp	/^		bool operator()(char c) {$/;"	f	struct:backward::SourceFile::not_isspace
+operator ()	src/include/backward/backward.hpp	/^		bool operator()(const lines_t::value_type& p) {$/;"	f	struct:backward::SourceFile::not_isempty
+operator ()	src/include/backward/backward.hpp	/^		void operator()(Dwarf_Die* die) {$/;"	f	struct:backward::TraceResolverLinuxImpl::inliners_search_cb
+operator ()	src/include/backward/backward.hpp	/^		void operator()(U& ptr) const {$/;"	f	struct:backward::details::deleter
+operator ()	src/include/backward/backward.hpp	/^		void operator()(size_t idx, void* addr) {$/;"	f	struct:backward::StackTraceImpl::callback
+operator ()	src/include/backward/backward.hpp	/^		void operator()(size_t idx, void* addr) {$/;"	f	struct:backward::StackTraceWithLocalsImpl::callback
+operator ()	src/include/backward/backward.hpp	/^	size_t operator()(F& f, size_t depth) {$/;"	f	class:backward::details::Unwinder
+operator ()	src/include/backward/backward.hpp	/^	void operator()(T& ptr) const {$/;"	f	struct:backward::details::default_delete
+operator *	src/include/backward/backward.hpp	/^	const ref_t operator*() const { return *_val; }$/;"	f	class:backward::details::handle
+operator *	src/include/backward/backward.hpp	/^	ref_t operator*() { return *_val; }$/;"	f	class:backward::details::handle
+operator ->	src/include/backward/backward.hpp	/^	T operator->() { return _val; }$/;"	f	class:backward::details::handle
+operator ->	src/include/backward/backward.hpp	/^	const T operator->() const { return _val; }$/;"	f	class:backward::details::handle
+operator =	src/include/backward/backward.hpp	/^	SourceFile& operator=(SourceFile&& from) {$/;"	f	class:backward::SourceFile
+operator =	src/include/backward/backward.hpp	/^	SourceFile& operator=(const SourceFile& from) {$/;"	f	class:backward::SourceFile
+operator =	src/include/backward/backward.hpp	/^	handle& operator=(const handle& from) {$/;"	f	class:backward::details::handle
+operator =	src/include/backward/backward.hpp	/^	handle& operator=(handle&& from) {$/;"	f	class:backward::details::handle
+operator ==	src/include/backward/backward.hpp	/^		bool operator==(const SourceLoc& b) const {$/;"	f	struct:backward::ResolvedTrace::SourceLoc
+operator []	src/include/backward/backward.hpp	/^	Trace operator[](size_t idx) {$/;"	f	class:backward::StackTraceLinuxImplHolder
+operator []	src/include/backward/backward.hpp	/^	Trace operator[](size_t) { return Trace(); }$/;"	f	class:backward::StackTraceImpl
+operator []	src/include/backward/backward.hpp	/^	const TraceWithLocals& operator[](size_t idx) {$/;"	f	class:backward::StackTraceWithLocalsImpl
+operator []	src/include/backward/backward.hpp	/^	ref_t operator[](size_t idx) { return _val[idx]; }$/;"	f	class:backward::details::handle
+operator const dummy*	src/include/backward/backward.hpp	/^	operator const dummy*() const {$/;"	f	class:backward::details::handle
+print	src/include/backward/backward.hpp	/^		FILE* print(StackTrace& st, FILE* os = stderr) {$/;"	f	class:backward::Printer
+print_locals	src/include/backward/backward.hpp	/^	void print_locals(FILE* os, const char* indent,$/;"	f	class:backward::Printer
+print_snippet	src/include/backward/backward.hpp	/^	void print_snippet(FILE* os, const char* indent,$/;"	f	class:backward::Printer
+print_source_loc	src/include/backward/backward.hpp	/^	void print_source_loc(FILE* os, const char* indent,$/;"	f	class:backward::Printer
+print_var	src/include/backward/backward.hpp	/^	void print_var(FILE* os, const char* base_indent, int indent,$/;"	f	class:backward::Printer
+purple	src/include/backward/backward.hpp	/^		purple = 0,$/;"	e	enum:backward::Color::type
+purple	src/include/backward/backward.hpp	/^		purple = 35,$/;"	e	enum:backward::Color::type
+ref_t	src/include/backward/backward.hpp	/^	typedef typename rm_ptr<T>::type& ref_t;$/;"	t	class:backward::details::handle
+release	src/include/backward/backward.hpp	/^	T release() {$/;"	f	class:backward::details::handle
+reset	src/include/backward/backward.hpp	/^		reset  = 0$/;"	e	enum:backward::Color::type
+reset	src/include/backward/backward.hpp	/^		reset  = 39$/;"	e	enum:backward::Color::type
+reset	src/include/backward/backward.hpp	/^	void reset(T new_val) {$/;"	f	class:backward::details::handle
+resolve	src/include/backward/backward.hpp	/^	ResolvedTrace resolve(ResolvedTrace t) {$/;"	f	class:backward::TraceResolverImpl
+resolve	src/include/backward/backward.hpp	/^	ResolvedTrace resolve(ResolvedTrace trace) {$/;"	f	class:backward::TraceResolverLinuxImpl
+resolve_trace	src/include/backward/backward.hpp	/^	void resolve_trace(TraceWithLocals& trace) {$/;"	f	class:backward::StackTraceWithLocalsImpl
+result	src/include/backward/backward.hpp	/^		find_sym_result result;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
+rm_ptr	src/include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	s	namespace:backward::details
+rm_ptr	src/include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	s	namespace:backward::details
+rm_ptr	src/include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	s	namespace:backward::details
+s1	src/include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon14
+s2	src/include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon14
+s3	src/include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon14
+self	src/include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
+self	src/include/backward/backward.hpp	/^		StackTraceWithLocalsImpl& self;$/;"	m	struct:backward::StackTraceWithLocalsImpl::callback
+self	src/include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
+set_color	src/include/backward/backward.hpp	/^	void set_color(Color::type ccode) {$/;"	f	class:backward::Colorize
+set_color	src/include/backward/backward.hpp	/^	void set_color(Color::type) {}$/;"	f	class:backward::Colorize
+sig_handler	src/include/backward/backward.hpp	/^	static void sig_handler(int, siginfo_t* info, void* _ctx) {$/;"	f	class:backward::SignalHandling
+size	src/include/backward/backward.hpp	/^	size_t size() const { return 0; }$/;"	f	class:backward::StackTraceImpl
+size	src/include/backward/backward.hpp	/^	size_t size() const {$/;"	f	class:backward::StackTraceLinuxImplHolder
+size	src/include/backward/backward.hpp	/^	size_t size() const {$/;"	f	class:backward::StackTraceWithLocalsImpl
+skip_n_firsts	src/include/backward/backward.hpp	/^	size_t skip_n_firsts() const { return _skip; }$/;"	f	class:backward::StackTraceLinuxImplBase
+skip_n_firsts	src/include/backward/backward.hpp	/^	void skip_n_firsts(size_t n) { _skip = n; }$/;"	f	class:backward::StackTraceLinuxImplBase
+snippet	src/include/backward/backward.hpp	/^	bool snippet;$/;"	m	class:backward::Printer
+source	src/include/backward/backward.hpp	/^	SourceLoc                      source;$/;"	m	struct:backward::ResolvedTrace
+source_locs_t	src/include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
+src_files_t	src/include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
+stacktrace_tag	src/include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
+storage	src/include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon14
+swap	src/include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
+swap	src/include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
+symtab	src/include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
+system_tag	src/include/backward/backward.hpp	/^namespace system_tag {$/;"	n	namespace:backward
+thread_id	src/include/backward/backward.hpp	/^	unsigned thread_id() const { return 0; }$/;"	f	class:backward::StackTraceImpl
+thread_id	src/include/backward/backward.hpp	/^	unsigned thread_id() const {$/;"	f	class:backward::StackTraceLinuxImplBase
+trace	src/include/backward/backward.hpp	/^		ResolvedTrace& trace;$/;"	m	struct:backward::TraceResolverLinuxImpl::inliners_search_cb
+trace_resolver_tag	src/include/backward/backward.hpp	/^namespace trace_resolver_tag {$/;"	n	namespace:backward
+type	src/include/backward/backward.hpp	/^			typedef std::unordered_map<K, V> type;$/;"	t	struct:backward::details::hashtable
+type	src/include/backward/backward.hpp	/^	enum type {$/;"	g	namespace:backward::Color
+type	src/include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	t	struct:backward::details::rm_ptr
+type	src/include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	t	struct:backward::details::rm_ptr
+type	src/include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	t	struct:backward::details::rm_ptr
+unwind	src/include/backward/backward.hpp	/^size_t unwind(F f, size_t depth) {$/;"	f	namespace:backward::details
+value	src/include/backward/backward.hpp	/^	const std::string& value() const {$/;"	f	class:backward::Variable
+value	src/include/backward/backward.hpp	/^	std::string& value() {$/;"	f	class:backward::Variable
+yellow	src/include/backward/backward.hpp	/^		yellow = 0,$/;"	e	enum:backward::Color::type
+yellow	src/include/backward/backward.hpp	/^		yellow = 33,$/;"	e	enum:backward::Color::type
+~Colorize	src/include/backward/backward.hpp	/^	~Colorize() {$/;"	f	class:backward::Colorize
+~handle	src/include/backward/backward.hpp	/^	~handle() {$/;"	f	class:backward::details::handle
 _addProcesses	src/main.cc	/^void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){$/;"	f
 _createObjectProcessors	src/main.cc	/^void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,$/;"	f
 _createStates	src/main.cc	/^void _createStates(stateProcess *stateProc){$/;"	f
@@ -6774,25 +7087,27 @@ windowClosed	src/mainLoopListener.h	/^	bool windowClosed;$/;"	m	class:mainLoopLi
 baseLog	src/util/logObject.cpp	/^util::baseLog::baseLog(){};$/;"	f	class:util::baseLog
 thresholdLevel	src/util/logObject.cpp	/^util::logLevel util::baseLog::thresholdLevel;$/;"	m	class:util::baseLog	file:
 ~baseLog	src/util/logObject.cpp	/^util::baseLog::~baseLog(){}/;"	f	class:util::baseLog
+LOG_GLOBAL_OBJECTS	src/util/logObject.h	123;"	d
 baseLog	src/util/logObject.h	/^	class baseLog{$/;"	c	namespace:util
 enabled	src/util/logObject.h	/^		bool enabled;$/;"	m	class:util::scopedLog
-errorLog	src/util/logObject.h	/^	typedef  util::msgLog<logLevelError> errorLog;$/;"	t	namespace:util
-infoLog	src/util/logObject.h	/^	typedef  util::msgLog<logLevelInfo> infoLog;$/;"	t	namespace:util
+errorLog	src/util/logObject.h	/^	static util::msgLog<logLevelError> errorLog;$/;"	m	namespace:util
+infoLog	src/util/logObject.h	/^	static util::msgLog<logLevelInfo> infoLog;$/;"	m	namespace:util
 logLevel	src/util/logObject.h	/^	enum logLevel{$/;"	g	namespace:util
 logLevelError	src/util/logObject.h	/^		logLevelError, $/;"	e	enum:util::logLevel
 logLevelInfo	src/util/logObject.h	/^		logLevelInfo = 0, $/;"	e	enum:util::logLevel
 logLevelNoEmit	src/util/logObject.h	/^		logLevelNoEmit, $/;"	e	enum:util::logLevel
 logLevelWarning	src/util/logObject.h	/^		logLevelWarning, $/;"	e	enum:util::logLevel
-msgLog	src/util/logObject.h	/^		msgLog(std::string msg){$/;"	f	class:util::msgLog
+msgLog	src/util/logObject.h	/^		msgLog(){};$/;"	f	class:util::msgLog
 msgLog	src/util/logObject.h	/^	class msgLog : public baseLog{$/;"	c	namespace:util
 onDestroyMsg	src/util/logObject.h	/^		std::string onDestroyMsg;$/;"	m	class:util::scopedLog
 operator <<	src/util/logObject.h	/^		msgLog & operator << (T toWrite){$/;"	f	class:util::msgLog
+operator <<	src/util/logObject.h	/^		msgLog & operator << (const Hash* toWrite){$/;"	f	class:util::msgLog
 scopedLog	src/util/logObject.h	/^		scopedLog(std::string onCreateMsg, std::string onDestroyMsg, logLevel level = logLevelInfo){$/;"	f	class:util::scopedLog
 scopedLog	src/util/logObject.h	/^	class scopedLog : public baseLog{$/;"	c	namespace:util
 setThreshold	src/util/logObject.h	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:util::baseLog
 thresholdLevel	src/util/logObject.h	/^		static logLevel thresholdLevel; $/;"	m	class:util::baseLog
 util	src/util/logObject.h	/^namespace util{$/;"	n
-warningLog	src/util/logObject.h	/^	typedef  util::msgLog<logLevelWarning> warningLog;$/;"	t	namespace:util
+warningLog	src/util/logObject.h	/^	static 	util::msgLog<logLevelWarning> warningLog;$/;"	m	namespace:util
 ~scopedLog	src/util/logObject.h	/^		~scopedLog(){$/;"	f	class:util::scopedLog
 Angle	src/util/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
 Angle	src/util/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
@@ -6819,6 +7134,7 @@ operator /	src/util/mathUtil.h	/^		Angle operator \/ (const float multiplier){$/
 operator /=	src/util/mathUtil.h	/^		void operator \/= (const float multiplier){$/;"	f	class:util::Angle
 polarProjection	src/util/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
 setRad	src/util/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
+sgn	src/util/mathUtil.h	/^	int sgn(T  num){$/;"	f	namespace:util
 sin	src/util/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 tan	src/util/mathUtil.h	/^		float tan(){$/;"	f	class:util::Angle
 toDeg	src/util/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
@@ -6828,3 +7144,291 @@ util	src/util/mathUtil.h	/^namespace util{$/;"	n
 strHelper	src/util/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 toStr	src/util/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
 util	src/util/strHelper.h	/^namespace util{$/;"	n
+BeginContact	tools/beautified.cpp	/^void objContactListener::BeginContact ( b2Contact *contact ){$/;"	f	class:objContactListener
+Draw	tools/beautified.cpp	/^	void Draw (){}$/;"	f	class:gameState
+EndContact	tools/beautified.cpp	/^void objContactListener::EndContact ( b2Contact *contact ){$/;"	f	class:objContactListener
+LOG_GLOBAL_OBJECTS	tools/beautified.cpp	1236;"	d	file:
+Length	tools/beautified.cpp	/^	inline float Length () const { return ( sqrt( x * x  +  y * y ) ); }$/;"	f	class:vector2
+Length	tools/beautified.cpp	/^	inline float Length (){ return ( sqrt( x * x  +  y * y + z * z ) ); }$/;"	f	class:vector3
+LengthSquared	tools/beautified.cpp	/^	inline float LengthSquared () const { return (x * x + y * y + z * z); }$/;"	f	class:vector3
+LengthSquared	tools/beautified.cpp	/^	inline float LengthSquared () const { return (x * x + y * y); }$/;"	f	class:vector2
+Normalize	tools/beautified.cpp	/^	vector2 Normalize () const {$/;"	f	class:vector2
+Normalize	tools/beautified.cpp	/^	vector3 Normalize (){$/;"	f	class:vector3
+PRINTVECTOR2	tools/beautified.cpp	190;"	d	file:
+Process	tools/beautified.cpp	/^	void Process ( float dt ){$/;"	f	class:objectMgr
+Update	tools/beautified.cpp	/^	void Update ( float dt ){$/;"	f	class:gameState
+_Init	tools/beautified.cpp	/^void gameState::_Init (){$/;"	f	class:gameState
+_createDummy	tools/beautified.cpp	/^void gameState::_createDummy ( vector2 levelDim ){$/;"	f	class:gameState
+_createEnemies	tools/beautified.cpp	/^void gameState::_createEnemies ( vector2 levelDim ){$/;"	f	class:gameState
+_createGuns	tools/beautified.cpp	/^Object * gameState::_createGuns ( Object *player, vector2 levelDim ){$/;"	f	class:gameState
+_createPlayer	tools/beautified.cpp	/^void gameState::_createPlayer ( vector2 playerInitPos, vector2 levelDim ){$/;"	f	class:gameState
+_extractPhyData	tools/beautified.cpp	/^void objContactListener::_extractPhyData ( b2Contact *contact, Object **a, Object **b ){$/;"	f	class:objContactListener
+_fillCollisionData	tools/beautified.cpp	/^collisionData objContactListener::_fillCollisionData ( b2Contact *contact,$/;"	f	class:objContactListener
+_generateBoundary	tools/beautified.cpp	/^void gameState::_generateBoundary ( vector2 levelDim ){$/;"	f	class:gameState
+_generateTerrain	tools/beautified.cpp	/^void gameState::_generateTerrain ( unsigned long long seed, vector2 playerInitPos,$/;"	f	class:gameState
+_handleCollision	tools/beautified.cpp	/^void objContactListener::_handleCollision ( collisionData::Type type, b2Contact *contact ){$/;"	f	class:objContactListener
+_handleEvent	tools/beautified.cpp	/^void eventProcess::_handleEvent (){$/;"	f	class:eventProcess
+_handleKeyboardPressed	tools/beautified.cpp	/^void eventProcess::_handleKeyboardPressed (){$/;"	f	class:eventProcess
+_handleKeyboardReleased	tools/beautified.cpp	/^void eventProcess::_handleKeyboardReleased (){$/;"	f	class:eventProcess
+_handleMouseButtonPressed	tools/beautified.cpp	/^void eventProcess::_handleMouseButtonPressed (){$/;"	f	class:eventProcess
+_handleMouseButtonReleased	tools/beautified.cpp	/^void eventProcess::_handleMouseButtonReleased (){$/;"	f	class:eventProcess
+_handleMouseMove	tools/beautified.cpp	/^void eventProcess::_handleMouseMove (){$/;"	f	class:eventProcess
+_handleMouseWheelMove	tools/beautified.cpp	/^void eventProcess::_handleMouseWheelMove (){$/;"	f	class:eventProcess
+_handleWindowCloseEvent	tools/beautified.cpp	/^void eventProcess::_handleWindowCloseEvent (){$/;"	f	class:eventProcess
+_initFactory	tools/beautified.cpp	/^void gameState::_initFactory (){$/;"	f	class:gameState
+_playerController	tools/beautified.cpp	/^	playerController *_playerController;$/;"	m	class:gameState	file:
+addObject	tools/beautified.cpp	/^	void addObject ( Object *obj ){$/;"	f	class:objectMgr
+addObjectProcessor	tools/beautified.cpp	/^	void addObjectProcessor ( objectProcessor *processor ){$/;"	f	class:objectMgr
+bar	tools/beautified.cpp	/^struct foo_t bar = {$/;"	v	typeref:struct:foo_t
+bars	tools/beautified.cpp	/^struct foo_t bars[] = {$/;"	v	typeref:struct:foo_t
+baseLog	tools/beautified.cpp	/^class baseLog$/;"	c	namespace:util	file:
+cast	tools/beautified.cpp	/^	T cast () const {$/;"	f	class:vector2
+cast	tools/beautified.cpp	/^	static vector2 cast ( const T &otherVec ){$/;"	f	class:vector2
+clamp	tools/beautified.cpp	/^	vector2 clamp ( vector2 minVec, vector2 maxVec ){$/;"	f	class:vector2
+colors	tools/beautified.cpp	/^color_t colors[] =$/;"	v
+createSaveLoader	tools/beautified.cpp	/^	stateSaveLoader *createSaveLoader (){$/;"	f	class:gameState
+dotProduct	tools/beautified.cpp	/^	float dotProduct ( vector2 other ){$/;"	f	class:vector2
+enabled	tools/beautified.cpp	/^	bool enabled;$/;"	m	class:util::scopedLog	file:
+errorLog	tools/beautified.cpp	/^	static util::msgLog< logLevelError > errorLog;$/;"	m	namespace:util	file:
+foo	tools/beautified.cpp	/^int foo ( int bar ){$/;"	f
+foo	tools/beautified.cpp	/^void foo ( void ){$/;"	f
+foobar	tools/beautified.cpp	623;"	d	file:
+gameState	tools/beautified.cpp	/^	gameState () : State( "gameState" ){}$/;"	f	class:gameState
+gameState	tools/beautified.cpp	/^class gameState : public State$/;"	c	file:
+getObjByName	tools/beautified.cpp	/^	Object *getObjByName ( std::string name ){$/;"	f	class:objectMgr
+infoLog	tools/beautified.cpp	/^	static util::msgLog< logLevelInfo > infoLog;$/;"	m	namespace:util	file:
+logLevel	tools/beautified.cpp	/^enum logLevel$/;"	g	namespace:util	file:
+logLevelError	tools/beautified.cpp	/^	logLevelError,$/;"	e	enum:util::logLevel	file:
+logLevelInfo	tools/beautified.cpp	/^	logLevelInfo = 0,$/;"	e	enum:util::logLevel	file:
+logLevelNoEmit	tools/beautified.cpp	/^	logLevelNoEmit,$/;"	e	enum:util::logLevel	file:
+logLevelWarning	tools/beautified.cpp	/^	logLevelWarning,$/;"	e	enum:util::logLevel	file:
+main	tools/beautified.cpp	/^int main ( int argc, char *argv[] ){$/;"	f
+msgLog	tools/beautified.cpp	/^	msgLog (){}$/;"	f	class:util::msgLog
+msgLog	tools/beautified.cpp	/^class msgLog : public baseLog$/;"	c	namespace:util	file:
+nullVector	tools/beautified.cpp	399;"	d	file:
+objFactory	tools/beautified.cpp	/^	objectFactory objFactory;$/;"	m	class:gameState	file:
+objMap	tools/beautified.cpp	/^	objectMap objMap;$/;"	m	class:objectMgr	file:
+objProcessorIt	tools/beautified.cpp	/^	typedef std::vector< objectProcessor * >::iterator objProcessorIt;$/;"	t	class:objectMgr	file:
+objProcessors	tools/beautified.cpp	/^	std::vector< objectProcessor * > objProcessors;$/;"	m	class:objectMgr	file:
+objectManager	tools/beautified.cpp	/^	objectMgr *objectManager;$/;"	m	class:gameState	file:
+objectMgr	tools/beautified.cpp	/^	objectMgr (){}$/;"	f	class:objectMgr
+objectMgr	tools/beautified.cpp	/^class objectMgr$/;"	c	file:
+onDestroyMsg	tools/beautified.cpp	/^	std::string onDestroyMsg;$/;"	m	class:util::scopedLog	file:
+operator !=	tools/beautified.cpp	/^	inline bool operator != ( const vector2 & a ) const {$/;"	f	class:vector2
+operator *	tools/beautified.cpp	/^	inline vector2 operator * ( float scale )          const { return ( vector2( x * scale, y *$/;"	f	class:vector2
+operator *	tools/beautified.cpp	/^inline vector2 operator * ( const TYPE s,$/;"	f
+operator *	tools/beautified.cpp	/^inline vector2 operator * ( const vector2 & a,$/;"	f
+operator *	tools/beautified.cpp	/^inline vector3 operator * ( const vector3 & a,$/;"	f
+operator *	tools/beautified.cpp	/^inline vector3 operator * ( float s,$/;"	f
+operator *=	tools/beautified.cpp	/^	inline void operator *= ( float a ){ x *= a; y *= a; z *= a; }$/;"	f	class:vector3
+operator *=	tools/beautified.cpp	/^	inline void operator *= ( float a ){ x *= a; y *= a; }$/;"	f	class:vector2
+operator +	tools/beautified.cpp	/^	inline vector2 operator + ( const vector2 & a ) const { return ( vector2( x + a.x, y +$/;"	f	class:vector2
+operator +	tools/beautified.cpp	/^	inline vector2 operator + ( const vector2 & a ){ return ( vector2( x + a.x, y + a.y ) ); }$/;"	f	class:vector3
+operator +	tools/beautified.cpp	/^	inline vector3 operator + ( const vector3 & a ){ return ( vector3( x + a.x, y + a.y, z +$/;"	f	class:vector3
+operator +=	tools/beautified.cpp	/^	inline void operator += ( const vector2 & v ){ x += v.x; y += v.y; }$/;"	f	class:vector2
+operator +=	tools/beautified.cpp	/^	inline void operator += ( const vector2 & v ){ x += v.x; y += v.y; }$/;"	f	class:vector3
+operator +=	tools/beautified.cpp	/^	inline void operator += ( const vector3 & v ){ x += v.x; y += v.y; z += v.z; }$/;"	f	class:vector3
+operator -	tools/beautified.cpp	/^	inline vector2 operator - ( const vector2 & a ) const { return ( vector2( x - a.x, y -$/;"	f	class:vector2
+operator -	tools/beautified.cpp	/^	inline vector2 operator - ( const vector2 & a ){ return ( vector2( x - a.x, y - a.y ) ); }$/;"	f	class:vector3
+operator -	tools/beautified.cpp	/^	inline vector2 operator - (){    return ( vector2( -x, -y ) ); }$/;"	f	class:vector2
+operator -	tools/beautified.cpp	/^	inline vector3 operator - ( const vector3 & a ){ return ( vector3( x - a.x, y - a.y, z -$/;"	f	class:vector3
+operator -	tools/beautified.cpp	/^	inline vector3 operator - (){    return ( vector3( -x, -y, -z ) ); }$/;"	f	class:vector3
+operator -=	tools/beautified.cpp	/^	inline void operator -= ( const vector2 & v ){ x -= v.x; y -= v.y; }$/;"	f	class:vector2
+operator -=	tools/beautified.cpp	/^	inline void operator -= ( const vector2 & v ){ x -= v.x; y -= v.y; }$/;"	f	class:vector3
+operator -=	tools/beautified.cpp	/^	inline void operator -= ( const vector3 & v ){ x -= v.x; y -= v.y; z -= v.z; }$/;"	f	class:vector3
+operator /	tools/beautified.cpp	/^	inline vector2 operator \/ ( const vector2 & a ) const { return ( vector2( x \/ a.x, y \/$/;"	f	class:vector2
+operator <	tools/beautified.cpp	/^	inline bool operator < ( const vector2 & a ) const {$/;"	f	class:vector2
+operator <	tools/beautified.cpp	/^	inline bool operator < ( const vector3 & a ){$/;"	f	class:vector3
+operator <<	tools/beautified.cpp	/^	msgLog & operator << ( T toWrite ){$/;"	f	class:util::msgLog
+operator <<	tools/beautified.cpp	/^	msgLog & operator << ( const Hash * toWrite ){$/;"	f	class:util::msgLog
+operator <=	tools/beautified.cpp	/^	inline bool operator <= ( const vector2 & a ) const {$/;"	f	class:vector2
+operator <=	tools/beautified.cpp	/^	inline bool operator <= ( const vector3 & a ){$/;"	f	class:vector3
+operator ==	tools/beautified.cpp	/^	inline bool operator == ( const vector2 & a ) const {$/;"	f	class:vector2
+operator ==	tools/beautified.cpp	/^inline bool operator == ( const vector2 &a, vector2 & b ){ return ( (a.x == a.y) && (b.x == b.y) );$/;"	f
+operator ==	tools/beautified.cpp	/^inline bool operator == ( const vector3 &a,$/;"	f
+operator >	tools/beautified.cpp	/^	inline bool operator > ( const vector2 & a ) const {$/;"	f	class:vector2
+operator >	tools/beautified.cpp	/^	inline bool operator > ( const vector3 & a ){$/;"	f	class:vector3
+operator >=	tools/beautified.cpp	/^	inline bool operator >= ( const vector2 & a ) const {$/;"	f	class:vector2
+operator >=	tools/beautified.cpp	/^	inline bool operator >= ( const vector3 & a ){$/;"	f	class:vector3
+operator b2Vec2	tools/beautified.cpp	/^	inline operator b2Vec2 (){ return ( b2Vec2( this->x, this->y ) ); }$/;"	f	class:vector2
+operator otherPhyVect2	tools/beautified.cpp	/^	inline operator otherPhyVect2 (){ return ( otherPhyVect2( this->x, this->y ) ); }$/;"	f	class:vector3
+operator sf::Vector2< T >	tools/beautified.cpp	/^	inline operator sf::Vector2< T > (){$/;"	f	class:vector2
+operator vector2	tools/beautified.cpp	/^	inline operator vector2 (){ return ( vector2( this->x, this->y ) ); }$/;"	f	class:vector3
+postProcess	tools/beautified.cpp	/^	void postProcess (){$/;"	f	class:objectMgr
+preProcess	tools/beautified.cpp	/^	void preProcess (){$/;"	f	class:objectMgr
+preUpdate	tools/beautified.cpp	/^void eventProcess::preUpdate (){$/;"	f	class:eventProcess
+projectOn	tools/beautified.cpp	/^	vector2 projectOn ( vector2 projectDir ){$/;"	f	class:vector2
+removeObject	tools/beautified.cpp	/^	void removeObject ( Object &obj ){$/;"	f	class:objectMgr
+removeObject	tools/beautified.cpp	/^	void removeObject ( Object *obj ){$/;"	f	class:objectMgr
+removeObject	tools/beautified.cpp	/^	void removeObject ( std::string name ){$/;"	f	class:objectMgr
+removeObjectProcessor	tools/beautified.cpp	/^	void removeObjectProcessor ( objectProcessor *processor ){$/;"	f	class:objectMgr
+scopedLog	tools/beautified.cpp	/^	scopedLog ( std::string onCreateMsg, std::string onDestroyMsg, logLevel level =$/;"	f	class:util::scopedLog
+scopedLog	tools/beautified.cpp	/^class scopedLog : public baseLog$/;"	c	namespace:util	file:
+setThreshold	tools/beautified.cpp	/^	static void setThreshold ( logLevel logThreshold ){$/;"	f	class:util::baseLog
+thresholdLevel	tools/beautified.cpp	/^	static logLevel thresholdLevel;$/;"	m	class:util::baseLog	file:
+toAngle	tools/beautified.cpp	/^	float toAngle () const {$/;"	f	class:vector2
+token_names	tools/beautified.cpp	/^const char *token_names[] = {$/;"	v
+util	tools/beautified.cpp	/^namespace util$/;"	n	file:
+vector2	tools/beautified.cpp	/^	\/*inline*\/ vector2 ( float x, float y ){$/;"	f	class:vector2
+vector2	tools/beautified.cpp	/^	inline vector2 ( const vector2 & other ){$/;"	f	class:vector2
+vector2	tools/beautified.cpp	/^	vector2 (){ this->x = this->y = 0; }$/;"	f	class:vector2
+vector2	tools/beautified.cpp	/^class vector2$/;"	c	file:
+vector3	tools/beautified.cpp	/^	vector3 ( float x, float y, float z ){$/;"	f	class:vector3
+vector3	tools/beautified.cpp	/^	vector3 ( vector2 vec2, float z ){$/;"	f	class:vector3
+vector3	tools/beautified.cpp	/^	vector3 (){ this->x = this->y = this->z = 0; }$/;"	f	class:vector3
+vector3	tools/beautified.cpp	/^class vector3$/;"	c	file:
+viewProc	tools/beautified.cpp	/^	viewProcess *viewProc;$/;"	m	class:gameState	file:
+warningLog	tools/beautified.cpp	/^	static util::msgLog< logLevelWarning > warningLog;$/;"	m	namespace:util	file:
+x	tools/beautified.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+x	tools/beautified.cpp	/^	float x, y;$/;"	m	class:vector2	file:
+y	tools/beautified.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+y	tools/beautified.cpp	/^	float x, y;$/;"	m	class:vector2	file:
+z	tools/beautified.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+zeroVector	tools/beautified.cpp	398;"	d	file:
+~objectMgr	tools/beautified.cpp	/^	~objectMgr (){}$/;"	f	class:objectMgr
+~scopedLog	tools/beautified.cpp	/^	~scopedLog (){$/;"	f	class:util::scopedLog
+~vector2	tools/beautified.cpp	/^	~vector2 (){}$/;"	f	class:vector2
+BeginContact	tools/input.cpp	/^void objContactListener::BeginContact(b2Contact*contact){$/;"	f	class:objContactListener
+Draw	tools/input.cpp	/^	void Draw(){};$/;"	f	class:gameState
+EndContact	tools/input.cpp	/^void objContactListener::EndContact(b2Contact*contact){$/;"	f	class:objContactListener
+LOG_GLOBAL_OBJECTS	tools/input.cpp	1151;"	d	file:
+Length	tools/input.cpp	/^	inline float Length() const{ return (sqrt(x * x  +  y * y)); };$/;"	f	class:vector2
+Length	tools/input.cpp	/^	inline float Length(){ return (sqrt(x * x  +  y * y + z * z)); };$/;"	f	class:vector3
+LengthSquared	tools/input.cpp	/^	inline float LengthSquared() const{ return (x * x + y * y + z * z); };$/;"	f	class:vector3
+LengthSquared	tools/input.cpp	/^	inline float LengthSquared() const{ return (x * x + y * y); };$/;"	f	class:vector2
+Normalize	tools/input.cpp	/^	vector2 Normalize() const{	$/;"	f	class:vector2
+Normalize	tools/input.cpp	/^	vector3 Normalize(){	$/;"	f	class:vector3
+PRINTVECTOR2	tools/input.cpp	188;"	d	file:
+Process	tools/input.cpp	/^	void Process(float dt){$/;"	f	class:objectMgr
+Update	tools/input.cpp	/^	void Update(float dt){$/;"	f	class:gameState
+_Init	tools/input.cpp	/^void gameState::_Init(){$/;"	f	class:gameState
+_createDummy	tools/input.cpp	/^void gameState::_createDummy(vector2 levelDim){$/;"	f	class:gameState
+_createEnemies	tools/input.cpp	/^void gameState::_createEnemies(vector2 levelDim){$/;"	f	class:gameState
+_createGuns	tools/input.cpp	/^Object* gameState::_createGuns(Object *player, vector2 levelDim){$/;"	f	class:gameState
+_createPlayer	tools/input.cpp	/^void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
+_extractPhyData	tools/input.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
+_fillCollisionData	tools/input.cpp	/^collisionData objContactListener::_fillCollisionData(b2Contact *contact,$/;"	f	class:objContactListener
+_generateBoundary	tools/input.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
+_generateTerrain	tools/input.cpp	/^void gameState::_generateTerrain(unsigned long long seed, $/;"	f	class:gameState
+_handleCollision	tools/input.cpp	/^void objContactListener::_handleCollision(collisionData::Type type, b2Contact *contact){$/;"	f	class:objContactListener
+_handleEvent	tools/input.cpp	/^void eventProcess::_handleEvent(){$/;"	f	class:eventProcess
+_handleKeyboardPressed	tools/input.cpp	/^void eventProcess::_handleKeyboardPressed(){$/;"	f	class:eventProcess
+_handleKeyboardReleased	tools/input.cpp	/^void eventProcess::_handleKeyboardReleased(){$/;"	f	class:eventProcess
+_handleMouseButtonPressed	tools/input.cpp	/^void eventProcess::_handleMouseButtonPressed(){$/;"	f	class:eventProcess
+_handleMouseButtonReleased	tools/input.cpp	/^void eventProcess::_handleMouseButtonReleased(){$/;"	f	class:eventProcess
+_handleMouseMove	tools/input.cpp	/^void eventProcess::_handleMouseMove(){$/;"	f	class:eventProcess
+_handleMouseWheelMove	tools/input.cpp	/^void eventProcess::_handleMouseWheelMove(){$/;"	f	class:eventProcess
+_handleWindowCloseEvent	tools/input.cpp	/^void eventProcess::_handleWindowCloseEvent(){$/;"	f	class:eventProcess
+_initFactory	tools/input.cpp	/^void gameState::_initFactory(){$/;"	f	class:gameState
+_playerController	tools/input.cpp	/^	playerController *_playerController;$/;"	m	class:gameState	file:
+addObject	tools/input.cpp	/^	void addObject(Object *obj){$/;"	f	class:objectMgr
+addObjectProcessor	tools/input.cpp	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
+bar	tools/input.cpp	/^struct foo_t bar =$/;"	v	typeref:struct:foo_t
+bars	tools/input.cpp	/^struct foo_t bars[] =$/;"	v	typeref:struct:foo_t
+baseLog	tools/input.cpp	/^	class baseLog{$/;"	c	namespace:util	file:
+cast	tools/input.cpp	/^	T cast() const{$/;"	f	class:vector2
+cast	tools/input.cpp	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
+clamp	tools/input.cpp	/^	vector2 clamp(vector2 minVec, vector2 maxVec){$/;"	f	class:vector2
+colors	tools/input.cpp	/^color_t colors[] =$/;"	v
+createSaveLoader	tools/input.cpp	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameState
+dotProduct	tools/input.cpp	/^	float dotProduct(vector2 other){$/;"	f	class:vector2
+enabled	tools/input.cpp	/^		bool enabled;$/;"	m	class:util::scopedLog	file:
+errorLog	tools/input.cpp	/^	static util::msgLog<logLevelError> errorLog;$/;"	m	namespace:util	file:
+foo	tools/input.cpp	/^int foo(int bar)$/;"	f
+foo	tools/input.cpp	/^void foo(void)$/;"	f
+foobar	tools/input.cpp	509;"	d	file:
+gameState	tools/input.cpp	/^	gameState() : State("gameState"){};$/;"	f	class:gameState
+gameState	tools/input.cpp	/^class gameState : public State{$/;"	c	file:
+getObjByName	tools/input.cpp	/^	Object *getObjByName(std::string name){$/;"	f	class:objectMgr
+infoLog	tools/input.cpp	/^	static util::msgLog<logLevelInfo> infoLog;$/;"	m	namespace:util	file:
+logLevel	tools/input.cpp	/^	enum logLevel{$/;"	g	namespace:util	file:
+logLevelError	tools/input.cpp	/^		logLevelError, $/;"	e	enum:util::logLevel	file:
+logLevelInfo	tools/input.cpp	/^		logLevelInfo = 0, $/;"	e	enum:util::logLevel	file:
+logLevelNoEmit	tools/input.cpp	/^		logLevelNoEmit, $/;"	e	enum:util::logLevel	file:
+logLevelWarning	tools/input.cpp	/^		logLevelWarning, $/;"	e	enum:util::logLevel	file:
+main	tools/input.cpp	/^int main(int argc, char *argv[])$/;"	f
+msgLog	tools/input.cpp	/^		msgLog(){};$/;"	f	class:util::msgLog
+msgLog	tools/input.cpp	/^	class msgLog : public baseLog{$/;"	c	namespace:util	file:
+nullVector	tools/input.cpp	329;"	d	file:
+objFactory	tools/input.cpp	/^	objectFactory objFactory; $/;"	m	class:gameState	file:
+objMap	tools/input.cpp	/^	objectMap objMap;$/;"	m	class:objectMgr	file:
+objProcessorIt	tools/input.cpp	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr	file:
+objProcessors	tools/input.cpp	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr	file:
+objectManager	tools/input.cpp	/^	objectMgr *objectManager;$/;"	m	class:gameState	file:
+objectMgr	tools/input.cpp	/^	objectMgr(){};$/;"	f	class:objectMgr
+objectMgr	tools/input.cpp	/^class objectMgr{$/;"	c	file:
+onDestroyMsg	tools/input.cpp	/^		std::string onDestroyMsg;$/;"	m	class:util::scopedLog	file:
+operator !=	tools/input.cpp	/^	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };$/;"	f	class:vector2
+operator *	tools/input.cpp	/^	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };$/;"	f	class:vector2
+operator *	tools/input.cpp	/^inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
+operator *	tools/input.cpp	/^inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
+operator *	tools/input.cpp	/^inline vector3 operator * (const vector3& a, float s)		   { return vector3(a.x * s  , a.y * s, a.z * s);	 };	$/;"	f
+operator *	tools/input.cpp	/^inline vector3 operator * (float s, const vector3& a)		   { return vector3(a.x * s  , a.y * s, a.z * s);    };	$/;"	f
+operator *=	tools/input.cpp	/^	inline void operator *= (float a){ x *= a; y *= a; z *= a; };$/;"	f	class:vector3
+operator *=	tools/input.cpp	/^	inline void operator *= (float a){ x *= a; y *= a; };$/;"	f	class:vector2
+operator +	tools/input.cpp	/^	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector2
+operator +	tools/input.cpp	/^	inline vector2 operator + (const vector2& a) { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector3
+operator +	tools/input.cpp	/^	inline vector3 operator + (const vector3& a) { return vector3(x + a.x, y + a.y, z + a.z); };$/;"	f	class:vector3
+operator +=	tools/input.cpp	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector2
+operator +=	tools/input.cpp	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector3
+operator +=	tools/input.cpp	/^	inline void operator += (const vector3& v){ x += v.x; y += v.y; z += v.z; };$/;"	f	class:vector3
+operator -	tools/input.cpp	/^	inline vector2 operator - (const vector2& a) const { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector2
+operator -	tools/input.cpp	/^	inline vector2 operator - (const vector2& a) { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector3
+operator -	tools/input.cpp	/^	inline vector2 operator -(){	return vector2(-x, -y); };$/;"	f	class:vector2
+operator -	tools/input.cpp	/^	inline vector3 operator - (const vector3& a) { return vector3(x - a.x, y - a.y, z - a.z); };$/;"	f	class:vector3
+operator -	tools/input.cpp	/^	inline vector3 operator -(){	return vector3(-x, -y, -z); };$/;"	f	class:vector3
+operator -=	tools/input.cpp	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y; };$/;"	f	class:vector2
+operator -=	tools/input.cpp	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y;};$/;"	f	class:vector3
+operator -=	tools/input.cpp	/^	inline void operator -= (const vector3& v){ x -= v.x; y -= v.y; z -= v.z;};$/;"	f	class:vector3
+operator /	tools/input.cpp	/^	inline vector2 operator \/ (const vector2& a) const { return vector2(x \/ a.x, y \/ a.y); };$/;"	f	class:vector2
+operator <	tools/input.cpp	/^	inline bool operator < (const vector2& a) const  { return (this->x < a.x && this->y < a.y); };$/;"	f	class:vector2
+operator <	tools/input.cpp	/^	inline bool operator < (const vector3& a) { return (this->x < a.x && this->y < a.y && this->z < a.z); };$/;"	f	class:vector3
+operator <<	tools/input.cpp	/^		msgLog & operator << (T toWrite){$/;"	f	class:util::msgLog
+operator <<	tools/input.cpp	/^		msgLog & operator << (const Hash* toWrite){$/;"	f	class:util::msgLog
+operator <=	tools/input.cpp	/^	inline bool operator <= (const vector2& a) const { return (this->x <= a.x && this->y <= a.y); };$/;"	f	class:vector2
+operator <=	tools/input.cpp	/^	inline bool operator <= (const vector3& a) { return (this->x <= a.x && this->y <= a.y  && this->z <= a.z); };$/;"	f	class:vector3
+operator ==	tools/input.cpp	/^	inline bool operator == (const vector2& a) const { return (this->x == a.x && this->y == a.y); };$/;"	f	class:vector2
+operator ==	tools/input.cpp	/^inline bool    operator == (const vector2&a , vector2& b) { return (a.x == a.y) && (b.x == b.y);  };$/;"	f
+operator ==	tools/input.cpp	/^inline bool    operator == (const vector3&a , vector3& b)	   { return (a.x == a.y) && (b.x == b.y) && (a.z == b.z);  };$/;"	f
+operator >	tools/input.cpp	/^	inline bool operator > (const vector2& a) const  { return (this->x > a.x && this->y > a.y); };$/;"	f	class:vector2
+operator >	tools/input.cpp	/^	inline bool operator > (const vector3& a) { return (this->x > a.x && this->y > a.y && this->z > a.z); };$/;"	f	class:vector3
+operator >=	tools/input.cpp	/^	inline bool operator >= (const vector2& a) const { return (this->x >= a.x && this->y >= a.y); };$/;"	f	class:vector2
+operator >=	tools/input.cpp	/^	inline bool operator >= (const vector3& a) { return (this->x >= a.x && this->y >= a.y && this->z >= a.z); };$/;"	f	class:vector3
+operator b2Vec2	tools/input.cpp	/^	inline operator b2Vec2(){ return b2Vec2(this->x, this->y); }$/;"	f	class:vector2
+operator otherPhyVect2	tools/input.cpp	/^	template<class otherPhyVect2> inline operator otherPhyVect2(){ return otherPhyVect2(this->x, this->y); }$/;"	f	class:vector3
+operator sf::Vector2<T>	tools/input.cpp	/^	inline operator sf::Vector2<T>(){ return sf::Vector2<T>(this->x, this->y); }$/;"	f	class:vector2
+operator vector2	tools/input.cpp	/^	inline operator vector2(){ return vector2(this->x, this->y); }$/;"	f	class:vector3
+postProcess	tools/input.cpp	/^	void postProcess(){$/;"	f	class:objectMgr
+preProcess	tools/input.cpp	/^	void preProcess(){$/;"	f	class:objectMgr
+preUpdate	tools/input.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
+projectOn	tools/input.cpp	/^	vector2 projectOn(vector2 projectDir){$/;"	f	class:vector2
+removeObject	tools/input.cpp	/^	void removeObject(Object &obj){$/;"	f	class:objectMgr
+removeObject	tools/input.cpp	/^	void removeObject(Object *obj){$/;"	f	class:objectMgr
+removeObject	tools/input.cpp	/^	void removeObject(std::string name){$/;"	f	class:objectMgr
+removeObjectProcessor	tools/input.cpp	/^	void removeObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
+scopedLog	tools/input.cpp	/^		scopedLog(std::string onCreateMsg, std::string onDestroyMsg, logLevel level = logLevelInfo){$/;"	f	class:util::scopedLog
+scopedLog	tools/input.cpp	/^	class scopedLog : public baseLog{$/;"	c	namespace:util	file:
+setThreshold	tools/input.cpp	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:util::baseLog
+thresholdLevel	tools/input.cpp	/^		static logLevel thresholdLevel; $/;"	m	class:util::baseLog	file:
+toAngle	tools/input.cpp	/^	float toAngle() const{$/;"	f	class:vector2
+token_names	tools/input.cpp	/^const char *token_names[] =$/;"	v
+util	tools/input.cpp	/^namespace util{$/;"	n	file:
+vector2	tools/input.cpp	/^	\/*inline*\/ vector2(float x, float y){$/;"	f	class:vector2
+vector2	tools/input.cpp	/^	inline vector2(const vector2& other){$/;"	f	class:vector2
+vector2	tools/input.cpp	/^	vector2(){ this->x = this->y = 0;};$/;"	f	class:vector2
+vector2	tools/input.cpp	/^class vector2{$/;"	c	file:
+vector3	tools/input.cpp	/^	vector3(){ this->x = this->y = this->z = 0;};$/;"	f	class:vector3
+vector3	tools/input.cpp	/^	vector3(float x, float y, float z){$/;"	f	class:vector3
+vector3	tools/input.cpp	/^	vector3(vector2 vec2, float z){$/;"	f	class:vector3
+vector3	tools/input.cpp	/^class vector3{$/;"	c	file:
+viewProc	tools/input.cpp	/^	viewProcess *viewProc;$/;"	m	class:gameState	file:
+warningLog	tools/input.cpp	/^	static 	util::msgLog<logLevelWarning> warningLog;$/;"	m	namespace:util	file:
+x	tools/input.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+x	tools/input.cpp	/^	float x, y;$/;"	m	class:vector2	file:
+y	tools/input.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+y	tools/input.cpp	/^	float x, y;$/;"	m	class:vector2	file:
+z	tools/input.cpp	/^	float x, y, z;$/;"	m	class:vector3	file:
+zeroVector	tools/input.cpp	328;"	d	file:
+~objectMgr	tools/input.cpp	/^	~objectMgr(){};$/;"	f	class:objectMgr
+~scopedLog	tools/input.cpp	/^		~scopedLog(){$/;"	f	class:util::scopedLog
+~vector2	tools/input.cpp	/^	~vector2(){};$/;"	f	class:vector2

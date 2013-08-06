@@ -9,7 +9,7 @@
 
 
 gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, 
-		objectMgr &_objectManager, Object *player) : objectManager(_objectManager){
+	objectMgr &_objectManager, Object *player) : objectManager(_objectManager){
 
 	eventManager.Register(Hash::getHash("nextGun"), this);
 	eventManager.Register(Hash::getHash("prevGun"), this);
@@ -18,11 +18,11 @@ gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory,
 	eventManager.Register(Hash::getHash("addGun"), this);
 
 
-	this->_gunCreator = (gunCreator *) _factory.getCreator(
-						Hash::getHash("gun"));
+this->_gunCreator =  _factory.getCreator<gunCreator>(
+		Hash::getHash("gun"));
 
-	this->_bulletCreator = (bulletCreator *) _factory.getCreator(
-						Hash::getHash("bullet"));
+	this->_bulletCreator = _factory.getCreator<bulletCreator>(
+		Hash::getHash("bullet"));
 
 	this->player = player;
 	this->currentGun = NULL;
@@ -30,30 +30,33 @@ gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory,
 };
 
 
-void gunsManager::_gotoNextGun(){
+void gunsManager::_gotoNextGun(int skip){
 
+	this->currentGunIndex += 1;
 	//wrap around
-	if(this->currentGunIndex == this->guns.size() - 1){
+	if(this->currentGunIndex >= (this->guns.size()) - 1){
 		this->currentGunIndex = 0;
-	}else{
-		this->currentGunIndex++;
 	}
 
-	this->_reloadGunPtrs();
-
+	std::cout<<"gun index: "<<this->currentGunIndex;
+		this->_switchGuns(this->currentGun, this->guns[this->currentGunIndex]);
 	
 };
-void gunsManager::_gotoPrevGun(){
+void gunsManager::_gotoPrevGun(int skip){
+	//this->_disableGun(this->currentGun);
+
+	Object *oldGun = this->currentGun;
+
+	this->currentGunIndex -=1;
 	//wrap around
-	if(this->currentGunIndex == 0){
+	if(this->currentGunIndex < 0){
 		this->currentGunIndex = this->guns.size() - 1;
-	}else{
-		this->currentGunIndex--;
 	}
 
-	this->_reloadGunPtrs();
+	std::cout<<"gun index: "<<this->currentGunIndex;
+	this->_switchGuns(oldGun, this->guns[this->currentGunIndex]);
 };
-	
+
 
 
 
@@ -62,10 +65,8 @@ void gunsManager::addGun(Object *gun, bool isCurrentGun){
 	this->guns.push_back(gun);
 
 	if(isCurrentGun == true){
-		this->currentGun = gun;
-		this->currentGunIndex = this->guns.size() - 1;
 		
-		this->_reloadGunPtrs();
+		this->_switchGuns(this->currentGun, gun);
 	}
 };
 
@@ -73,12 +74,17 @@ void gunsManager::addGun(Object *gun, bool isCurrentGun){
 
 
 void gunsManager::_updateGunAngle(util::Angle &facing){
-	assert(this->currentGun != NULL);
+	//assert(this->currentGun != NULL);
+	
+	if(this->currentGun == NULL){
+		return;
+	}
+
 	vector2 *playerPos = this->player->getProp<vector2>(Hash::getHash("position"));
 
 	this->currentGun->setProp<util::Angle>(Hash::getHash("facing"), 
 		&facing);
-				
+
 	vector2 bulletOffset = facing.polarProjection(3);
 	vector2 gunOffset = facing.polarProjection(0.2);
 
@@ -90,7 +96,9 @@ void gunsManager::_updateGunAngle(util::Angle &facing){
 };
 
 void gunsManager::_fireGun(){
-	assert(this->currentGun != NULL);
+	if(this->currentGun == NULL){
+			return;
+	}
 
 	this->currentGunData->Fire();
 };
@@ -107,26 +115,33 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 	const Hash *playerFacingChanged = Hash::getHash("playerFacingChanged");
 	const Hash *firePlayerGun = Hash::getHash("firePlayerGun");
 	const Hash *addGun = Hash::getHash("addGun");
-	
 
-	if(eventName == nextGun){
-		this->_gotoNextGun();
+	bool hasGun = (this->currentGun != NULL);
+	if(eventName == nextGun && hasGun){
+		iProp *skipProp =  dynamic_cast< iProp* >(eventData);
+		int skipAmt = *skipProp->getVal();
+		assert(skipAmt > 0);
+
+		this->_gotoNextGun(skipAmt);
 	}
-	else if(eventName == prevGun){
-		this->_gotoPrevGun();
+	else if(eventName == prevGun && hasGun){
+
+		iProp *skipProp =  dynamic_cast< iProp* >(eventData);
+		int skipAmt = *skipProp->getVal();
+		assert(skipAmt > 0);
+
+		this->_gotoPrevGun(skipAmt);
 	}
-	else if(eventName == playerFacingChanged){
+	else if(eventName == playerFacingChanged && hasGun){
 		assert(eventData != NULL);
 		Prop<util::Angle> *angleProp = dynamic_cast< Prop<util::Angle>* >(eventData);
 		util::Angle *angle = angleProp->getVal();
 
-		
 		this->_updateGunAngle(*angle);
 	}
-	else if(eventName == firePlayerGun){
+	else if(eventName == firePlayerGun && hasGun){
 		this->_fireGun();
 	}
-
 	else if(eventName == addGun){
 		assert(eventData != NULL);
 
@@ -143,12 +158,35 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 
 		Object *gun = _gunCreator->createObject(*player->getProp<vector2>(Hash::getHash("position")));
 		this->addGun(gun, true);
-
-
-		this->objectManager.addObject(gun);
-
-
-		//util::msgLog("got the gunData");
 	}
+
+};
+
+
+void gunsManager::_switchGuns(Object *prevGun, Object *newGun){
+
+	if(prevGun == newGun){
+		return;
+	}
+	assert(newGun != NULL);
+
+	if(prevGun != NULL){
+		util::Angle *angle = prevGun->getProp<util::Angle>(Hash::getHash("facing"));
+		vector2 *pos = prevGun->getProp<vector2>(Hash::getHash("position"));
+
+
+		
+		newGun->setProp<util::Angle>(Hash::getHash("facing"), *angle);
+		newGun->setProp<vector2>(Hash::getHash("position"), *pos);
+		
+		this->objectManager.removeObject(prevGun);
+		std::cout<<"\n"<<prevGun->getName()<<" was removed";
+	};
+
+	this->currentGun = newGun;
+	this->currentGunData = newGun->getProp<gunData>(Hash::getHash("gunData"));	
+	
+
+	this->objectManager.addObject(newGun);
 
 };

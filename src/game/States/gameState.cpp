@@ -41,6 +41,7 @@ void gameState::_Init(){
 #include "../factory/gunCreator.h"
 #include "../factory/terrainCreator.h"
 #include "../factory/pickupCreator.h"
+#include "../factory/bladeCreator.h"
 
 void gameState::_initFactory(){
 
@@ -63,13 +64,16 @@ void gameState::_initFactory(){
 					new terrainCreator(this->viewProc));
 	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
 					new pickupCreator(this->viewProc));
+
+	this->objFactory.attachObjectCreator(Hash::getHash("blade"),
+					new bladeCreator(this->viewProc));
 };
 
 
 void gameState::_generateTerrain(unsigned long long seed, 
 	vector2 playerInitPos, vector2 levelDim){
 
-	terrainCreator *creator = (terrainCreator*)objFactory.getCreator(
+	terrainCreator *creator = objFactory.getCreator<terrainCreator>(
 		Hash::getHash("terrain"));
 
  	vector2 blockDim =  vector2(64, 64);
@@ -88,12 +92,15 @@ void gameState::_generateTerrain(unsigned long long seed,
  	minPos *= render2GameCoord;
  	blockDim *= render2GameCoord;
  	maxPos *= render2GameCoord;
-	creator->setBounds(minPos, maxPos, blockDim);
 
-/*
+	creator->setBounds(minPos, maxPos, blockDim);
+	creator->reserveRectSpace(playerInitPos, 
+		vector2(256, 256) * render2GameCoord);
+
+
+	
 	Object *terrainObj = creator->createObject();
-	objectManager->addObject(terrainObj);
-*/	
+
 
 };
 
@@ -101,7 +108,7 @@ void gameState::_generateTerrain(unsigned long long seed,
 
 void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 
-	playerCreator *creator = (playerCreator*)objFactory.getCreator(
+	playerCreator *creator = objFactory.getCreator<playerCreator>(
 		Hash::getHash("player"));
 
 	//players handlers--------------------------------------------------
@@ -120,21 +127,26 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 				playerData);
 
 
+	{
+	bladeData blade;
 
-	Object *currentGun = this->_createGuns(this->_playerController->getPlayer(), levelDim);
-	this->_playerController->addGun(currentGun, true);
+	bladeCreator *creator = this->objFactory.getCreator<bladeCreator>(Hash::getHash("blade"));
+	creator->setParent(this->_playerController->getPlayer());
 
-	
+	Object *obj = creator->createObject(vector2(300, 300));
+
+	objectManager->addObject(obj);
+	}
+
 	
 };
 
 
 #include "../generators/gunDataGenerator.h"
 void gameState::_createDummy(vector2 levelDim){
-
 	{
 
-		dummyCreator *creator = (dummyCreator*)objFactory.getCreator(
+		dummyCreator *creator = objFactory.getCreator<dummyCreator>(
 			Hash::getHash("dummy"));
 
 		
@@ -153,7 +165,7 @@ void gameState::_createDummy(vector2 levelDim){
 
 	{	
 	
-		pickupCreator *creator = (pickupCreator*)objFactory.getCreator(
+		pickupCreator *creator = objFactory.getCreator<pickupCreator>(
 			Hash::getHash("pickup"));
 
 		creator->setCollisionRadius(1.0f);
@@ -183,7 +195,7 @@ void gameState::_createDummy(vector2 levelDim){
 
 	{	
 	
-		pickupCreator *creator = (pickupCreator*)objFactory.getCreator(
+		pickupCreator *creator = objFactory.getCreator<pickupCreator>(
 			Hash::getHash("pickup"));
 
 		creator->setCollisionRadius(1.0f);
@@ -215,10 +227,10 @@ void gameState::_createDummy(vector2 levelDim){
 #include "../bulletColliders/pushCollider.h"
 #include "../bulletColliders/damageCollider.h"
 Object* gameState::_createGuns(Object *player, vector2 levelDim){
-	bulletCreator *_bulletCreator = (bulletCreator *)objFactory.getCreator(
+	bulletCreator *_bulletCreator = objFactory.getCreator<bulletCreator>(
 		Hash::getHash("bullet"));
 
-	gunCreator *creator = (gunCreator*)objFactory.getCreator(
+	gunCreator *creator = objFactory.getCreator<gunCreator>(
 		Hash::getHash("gun"));
 
 	bulletData bullet;
@@ -255,13 +267,13 @@ Object* gameState::_createGuns(Object *player, vector2 levelDim){
 
 void gameState::_generateBoundary(vector2 levelDim){
 
-	boundaryCreator *creator = (boundaryCreator*)objFactory.getCreator(
+	boundaryCreator *creator = objFactory.getCreator<boundaryCreator>(
 		Hash::getHash("boundary"));
 
-	creator->setBoundaryThickness(1.0f);
+	creator->setBoundaryThickness(3.0f);
 	creator->setDimensions(levelDim);
 
-	Object *boundary = creator->createObject(vector2(0, 0));
+	Object *boundary = creator->createObject(vector2(0, -200));
 
 
 	objectManager->addObject(boundary);

@@ -30,6 +30,8 @@ public:
 		highKnockback
 	};
 
+
+
 	struct genData{
 		gravityProperty gravity;
 		damageProperty	damage;
@@ -56,11 +58,9 @@ private:
 	genData data;
 
 
-
-
 	float _genGravity(gravityProperty &prop);
 	damageCollider *_genDamage(damageProperty &prop);
-	pushCollider *_genKnockback(knockbackProperty &prop);
+	pushCollider *_genKnockback(knockbackProperty &prop); 
 
 	bulletCollider* _createBulletCollider(unsigned long colliderSeed);
 };

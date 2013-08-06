@@ -23,15 +23,13 @@ public:
 		auto it = settingsMap.find(propertyName);
 
 		if( it == settingsMap.end() ){
-				util::errorLog("trying to get a setting that does not exist.\nSetting Name: " + 
-					Hash::Hash2Str(propertyName));
+				util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<propertyName;
 		};
 
 		Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second); 
 
 		if(prop == NULL){
-			util::errorLog("trying to get a setting of the wrong type.\nSetting Name: " + 
-					Hash::Hash2Str(propertyName));
+			util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<propertyName;
 		}
 		return prop->getVal();
 	};
@@ -45,8 +43,7 @@ public:
 	void addProp(const Hash *propertyName, baseProperty* property){
 
 		if(this->settingsMap.find(propertyName) != settingsMap.end()){
-			util::errorLog("trying to add a setting twice.\nSetting Name:" +
-			 Hash::Hash2Str(propertyName));
+			util::errorLog<<"trying to add a setting twice.\nSetting Name:"<<propertyName;
 			
 		}
 

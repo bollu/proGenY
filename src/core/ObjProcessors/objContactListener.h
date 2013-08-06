@@ -25,6 +25,8 @@ struct collisionData{
 
 	vector2 normal;
 
+	vector2 myApproachVel;
+
 	const Hash *getCollidedObjectCollision();
 };
 

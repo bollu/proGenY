@@ -27,8 +27,8 @@ void eventMgr::Unregister(const Hash *eventName, Observer *observer){
 		}
 	}
 
-	util::errorLog("unable to find required observer under eventName to remove observer. \nEventName: " \
-		+ Hash::Hash2Str(eventName));
+	util::errorLog<<"unable to find required observer under eventName \
+	to remove observer. \nEventName: "<<eventName;
 
 };
 

@@ -41,8 +41,6 @@ void groundMoveProcessor::Process(float dt){
 
 
 		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
-
-
 		b2Body *body = physicsData->body;
 
 
@@ -57,22 +55,26 @@ void groundMoveProcessor::Process(float dt){
 		float desiredVelX = 0.0f;
 		float currentVelX = vel.x;
 		
-
+		//you're gonna start jumping
 		if(data->jumping && data->onGround){
+
+			
 			//set velocity to 0 for a perfect parabola
 			body->SetLinearVelocity(vector2(0, 0));
 
 			impulse += this->_calcJumpImpulse(data, vel, dt);
+			data->jumpDir = impulse.Normalize();
+
 			data->onGround = false;
 			
 		}
 
-		if(data->movingLeft){
+		if(data->movingLeft && !data->jumping){
 			desiredVelX = std::max(-data->xVel, 
 				currentVelX - data->xAccel);
 		}
 
-		if(data->movingRight){
+		if(data->movingRight && !data->jumping){
 			desiredVelX = std::min(data->xVel, 
 				currentVelX + data->xAccel);
 		}
@@ -82,21 +84,17 @@ void groundMoveProcessor::Process(float dt){
 		//apply the required impulse
 		if((data->movingLeft || data->movingRight) && !data->jumping){
 
-	    	//delta v = desired - current	
+			 //delta v = desired - current	
 			float dvX = desiredVelX - currentVelX;
-	    	//impulse = m * a * t = m * delta v
-	    	float impulseX = data->mass * dvX; //disregard time factor
+			//impulse = m * a * t = m * delta v
+			float impulseX = data->mass * dvX; //disregard time factor
 
-	    	impulse.x += impulseX;
+			
+			impulse.x += impulseX;
 
+	    };
 
-	    	//if you're jumping, damp the impulse;
-	    	/*if(data->jumping){
-	    		impulse.x *= 0.0;
-	    	}*/
-	    }
-
-	    //you're not jumping in the air, apply friction
+	    //you're not jumping in the air, but you're not actively moving either apply friction
 	    if(!data->jumping){
 	    	float frictionX = data->mass * currentVelX * data->movementDamping.x;
 	    	impulse.x -= frictionX;

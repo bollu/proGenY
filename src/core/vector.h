@@ -144,6 +144,7 @@ public:
 };
 
 #define zeroVector (vector2(0, 0))
+#define nullVector (vector2(0, 0))
 
 template<typename TYPE>
 inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	

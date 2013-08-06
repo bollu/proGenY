@@ -1,5 +1,3 @@
-
-
 import os.path
 import sys
 
@@ -23,9 +21,6 @@ waitCmd = "read -n 1 c"
 xTermCmd = "xterm -e"
 
 
-command = xTermCmd + doubleQuote +  sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote
+command = xTermCmd + doubleQuote + sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote
 os.system(command)
-
-
-		
 

@@ -5,6 +5,9 @@
 #include "../../core/ObjProcessors/renderProcessor.h"
 #include "../../core/ObjProcessors/phyProcessor.h"
 #include "../../core/renderUtil.h"
+#include "../defines/renderingLayers.h"
+
+
 
 class bulletCreator : public objectCreator{
 private:
@@ -42,7 +45,7 @@ public:
 		phy.collisionType = Hash::getHash("bullet");
 		phy.bodyDef.type = b2_dynamicBody;
 		//phy.bodyDef.type = b2_kinematicBody;
-		phy.bodyDef.bullet = true;
+		phy.bodyDef.bullet = false;
 
 		
 		b2CircleShape *shape = new b2CircleShape();
@@ -64,7 +67,7 @@ public:
 
 		sfShape->setFillColor(sf::Color::Red);
 
-		Renderer shapeRenderer(sfShape);
+		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape);
 		render.addRenderer(shapeRenderer);
 		
 	

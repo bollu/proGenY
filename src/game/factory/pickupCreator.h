@@ -5,7 +5,7 @@
 #include "../../core/ObjProcessors/renderProcessor.h"
 #include "../../core/ObjProcessors/phyProcessor.h"
 #include "../../core/renderUtil.h"
-
+#include "../defines/renderingLayers.h"
 
 class pickupCreator : public objectCreator{
 private:
@@ -60,8 +60,8 @@ public:
 
 		sfShape->setFillColor(sf::Color::Red);
 
-		Renderer shapeRenderer(sfShape);
-		render.addRenderer(shapeRenderer);
+		shapeRenderNode* renderer = new shapeRenderNode(sfShape);
+		render.addRenderer(renderer);
 		
 	
 		//final---------------------------------

@@ -59,7 +59,7 @@ std::string Hash::Hash2Str(const Hash *hash){
 		}
 	}
 
-	util::errorLog("unable to convert hash to string.");
+	util::errorLog<<"unable to convert hash to string.";
 	return "NO HASH AVAILAIBLE";
 
 };

@@ -5,7 +5,7 @@
 #include "Hash.h"
 #include "../util/mathUtil.h"
 #include "../util/logObject.h"
-
+#include <memory>
 
 /*!Represents a game Object. 
 
@@ -75,8 +75,7 @@ public:
 	*/
 	template<typename Type>
 	Type* getProp(const Hash *name){
-		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
-		
+		Prop<Type> *prop =_getProperty<Type>(name, false);
 		if(prop == NULL){
 			return NULL;
 		}else{
@@ -86,25 +85,19 @@ public:
 
 	template<typename Type>
 	void setProp(const Hash *name, Type *value){
-		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
+		assert(name != NULL && value !=  NULL);
+		Prop<Type> *prop =_getProperty<Type>(name);
+		prop->setVal(*value);
 		
-		if(prop == NULL){
-			util::errorLog("unable to find property. \
-				\nObject: " +  this->getName() + 
-				"\nProperty: " + Hash::Hash2Str(name));
-		}else{
-			prop->setVal(*value);
-		};
 	}
-
+	
 	template<typename Type>
 	Prop<Type> *getPropPtr(const Hash *name){
 		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
 
 		if(prop == NULL){
-			util::errorLog("unable to find property. \
-				\nObject: " +  this->getName() + 
-				"\nProperty: " + Hash::Hash2Str(name));
+			util::errorLog<<"unable to find property. \
+							\nObject: "<<this->getName()<<"\nProperty: "<<name;
 		}else{
 			return prop;
 		}
@@ -112,15 +105,8 @@ public:
 
 	template<typename Type>
 	void setProp(const Hash *name, Type value){
-		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
-		
-		if(prop == NULL){
-			util::errorLog("unable to find property. \
-				\nObject: " +  this->getName() + 
-				"\nProperty: " + Hash::Hash2Str(name));
-		}else{
-			prop->setVal(value);
-		};
+		Prop<Type> *prop =_getProperty<Type>(name);
+		prop->setVal(value);
 	}
 
 
@@ -166,6 +152,21 @@ private:
 
 	void _genUniqueName(std::string genericName, std::string &out);
 	
+	template <typename T>
+	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){
+
+
+		Prop<T> *prop = dynamic_cast<Prop<T> *>(this->getBaseProp(name));
+		
+		if(prop == NULL && warnIfNull){
+			util::errorLog<<"unable to find property. \
+							\nObject: "<<this->getName()<<"\nProperty: "<<name;
+			
+			return NULL;
+		}
+
+		return prop;
+	};
 };
 
 

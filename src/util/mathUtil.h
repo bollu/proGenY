@@ -3,7 +3,7 @@
 #include "../core/vector.h"
 #include "strHelper.h"
 
-#define PRINTANGLE(angle) util::infoLog(std::string(#angle) + angle.debugStr());
+#define PRINTANGLE(angle) util::infoLog<<#angle<<" "<angle.debugStr();
 
 namespace util{
 	const double PI = 3.141592653589793238462;
@@ -12,6 +12,14 @@ namespace util{
 	const double RAD2DEG = 180.0 / util::PI;
 	const double DEG2RAD = util::PI / 180.0;
 
+
+	template<typename T>
+	int sgn(T  num){
+		return 
+		num > 0 ? 1 :
+		num < 0 ? -1  :
+		0;
+	}
 
 	/*!An agnostic representation of Angle
 	can be used to represent angles in both degrees and

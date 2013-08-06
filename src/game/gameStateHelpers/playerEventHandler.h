@@ -43,6 +43,9 @@ private:
 	void _handleKeyPress(sf::Event::KeyEvent *event);
 	void _handleKeyRelease(sf::Event::KeyEvent *event);
 
+	void _handleMouseWheelUp(int ticks);
+	void _handleMouseWheelDown(int ticks);
+	
 	void _updateGunFacing(vector2 gameMousePos);
 	void _fireGun();
 };

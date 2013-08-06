@@ -3,21 +3,23 @@
 
 
 
-void setLevelDim(vector2 dim){
-	this->levelDim = dim;
+void terrainGenerator::setDim(vector2 levelDim){
+	this->levelDim = levelDim;
 };
-void setSeed(unsigned int seed){
+
+/*
+void  terrainGenerator::setSeed(unsigned int seed){
 	this->seed = seed;
 };
 
-void reserveChunk(vector2 pos);
+void  terrainGenerator::reserveChunk(vector2 pos);
 
-void Generate(){
+void  terrainGenerator::Generate(){
 
 };
 
 
-const std::vector<Chunk> &getLevel(){
+const std::vector<Chunk> & terrainGenerator::getLevel(){
 	return this->chunks;
 };
 
@@ -25,11 +27,16 @@ Chunk::Chunk(){
 	this->filled = false;
 }
 
-vector2 Chunk::_limitChunkCoord(vector2 rawChunkCoord){
+vector2 terrainGenerator::_limitChunkCoord(vector2 rawChunkCoord){
 	vector2 minCoord = vector2(0,0);
 
 	return rawChunkCoord.clamp(minCoord, levelDim);
 };
+
+void terrainGenerator::_addChunkToObj(Chunk &c, phyData &phy, renderData &render){
+	
+};
+*/
 
 
 

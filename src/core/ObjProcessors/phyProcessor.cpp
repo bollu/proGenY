@@ -95,7 +95,7 @@ void phyProcessor::onObjectRemove(Object *obj){
 
 
 	if(data != NULL){
-		util::infoLog("destroying body owned by " + obj->getName());
+		util::infoLog<<"destroying body owned by "<<obj->getName();
 		world->DestroyBody(data->body);
 	}
 }

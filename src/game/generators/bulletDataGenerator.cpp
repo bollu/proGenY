@@ -26,8 +26,7 @@ bulletData bulletDataGenerator::Generate(){
 	bulletData bullet;
 
 	bullet.gravityScale = this->_genGravity(this->data.gravity);
-	
-	std::cout<<"-------------\n\ncreating bulletData"<<std::endl; 
+
 	pushCollider *push =  this->_genKnockback(this->data.knockback);
 	damageCollider *damage = this->_genDamage(this->data.damage);
 
@@ -106,8 +105,6 @@ pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){
 	}
 
 	
-	util::infoLog("knockback:  ");
-	std::cout<<knockback<<std::endl;
 
 	return new pushCollider(knockback);
 };
@@ -124,7 +121,7 @@ bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long collide
 		break;
 
 		default:
-			util::errorLog("ability index out of bounds");
+			util::errorLog<<"ability index out of bounds";
 
 	};
 

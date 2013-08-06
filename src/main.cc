@@ -1,5 +1,10 @@
 #pragma once
 #include <iostream>
+
+/*#define BACKWARD_HAS_DW 1
+#include "include/backward/backward.cpp"
+//#include "include/backward/backward.hpp"
+*/
 /*
 #include "include/Box2D/Box2D.h"
 #include "include/SFML/Graphics.hpp"
@@ -29,7 +34,7 @@
 #include "core/Process/worldProcess.h"
 #include "core/Process/viewProcess.h"
 #include "core/Process/stateProcess.h"
-
+#include "core/Process/renderProcess.h"
 
 //GAME STATES----------------------------------------------------
 #include "game/States/mainMenuState.h"
@@ -115,7 +120,7 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
 
     processManager.addProcess(new eventProcess(processManager, settings, eventManager));
     processManager.addProcess(new viewProcess(processManager, settings, eventManager));
-
+    processManager.addProcess(new renderProcess(processManager, settings, eventManager));
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
     objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
@@ -126,7 +131,7 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
    
 
 
-     //KEEP THIS ONE THE LAST ONE> it depends on all other processes.
+     //KEEP THIS ONE THE LAST ONE. it depends on all other processes.
     stateProcess *stateProc = new stateProcess(processManager, settings, eventManager);
      //create the game states
     _createStates(stateProc);

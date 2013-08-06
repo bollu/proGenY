@@ -79,8 +79,7 @@ public:
 
 		if(! _observersPresent(eventName)){
 
-			util::warningLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName));
+			util::warningLog<<"\nno subscribers to event: "<<eventName;
 
 			return;
 		}
@@ -97,8 +96,7 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::warningLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName));
+			util::warningLog<<"no subscribers to event: "<<eventName;
 
 			return;
 		}
@@ -115,13 +113,11 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::warningLog("no subscribers to event.\nEventName: " \
-				+ Hash::Hash2Str(eventName));
-
+			util::warningLog<<"no subscribers to event: "<<eventName;
 			return;
 		}
 
-	
+		
 		Event e;
 		e.name = eventName;
 		e.data = eventData;
@@ -136,7 +132,7 @@ private:
 
 	struct Event{
 		const Hash *name;
-		baseProperty *data;
+		baseProperty *data; 
 	};
 
 	

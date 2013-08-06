@@ -1,6 +1,7 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Process/viewProcess.h"
+#include "../defines/renderingLayers.h"
 
 class boundaryCreator : public objectCreator{
 private:
@@ -52,8 +53,8 @@ public:
 			sf::Shape *shape = renderUtil::createShape(bottom, 
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
-			//shape->setL
-			Renderer renderer(shape);
+			
+			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
 			render.addRenderer(renderer);
 
 		}
@@ -75,7 +76,7 @@ public:
 			sf::Shape *shape = renderUtil::createShape(top, 
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
-			Renderer renderer(shape);
+			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
 			render.addRenderer(renderer);
 
 		}
@@ -96,8 +97,8 @@ public:
 			sf::Shape *shape = renderUtil::createShape(left, 
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
-			//shape->setOutlineThickness(100);
-			Renderer renderer(shape);
+			
+			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
 			render.addRenderer(renderer);
 		}
 
@@ -116,7 +117,7 @@ public:
 			sf::Shape *shape = renderUtil::createShape(right, 
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
-			Renderer renderer(shape);
+			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
 			render.addRenderer(renderer);
 		}
 

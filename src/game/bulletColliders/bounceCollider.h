@@ -24,7 +24,8 @@ public:
 		//vector2 normal = ->//collision.normal;
 		b2Body *myBody = collision.myPhy->body;
 
-		vector2 myVel = vector2::cast(myBody->GetLinearVelocity());
+		vector2 myVel = collision.myApproachVel;
+		//vector2::cast(myBody->GetLinearVelocity());
 		
 		vector2 normal = collision.normal;
 		vector2 velAlongNormal = myVel.projectOn(normal);
@@ -33,9 +34,9 @@ public:
 		vector2 resultant = -1 * velAlongNormal +  velAlongTangent;
 		//apply the impulse
 		myBody->SetLinearVelocity(zeroVector);
-		myBody->ApplyLinearImpulse(resultant, myBody->GetWorldCenter());
+		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter());
 
-		util::infoLog("------------");
+		util::infoLog<<"------------";
 		PRINTVECTOR2(normal);
 		PRINTVECTOR2(myVel);
 		PRINTVECTOR2(velAlongNormal);

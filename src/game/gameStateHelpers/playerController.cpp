@@ -47,7 +47,7 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 
 	//player created--------------------------------------------
 	this->_createPlayer(initPos, creator);
-	util::infoLog("player created");
+	util::infoLog<<"player created";
 
 	//create guns
 	this->_createGunsManager(this->player);
@@ -55,11 +55,11 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 	//create playerEventHandler
 	playerData.player = this->player;
 	this->_createPlayerEventHandler(playerData);
-	util::infoLog("player event handler created");
+	util::infoLog<<"player event handler created";
 
 	//add player
 	this->_objectManager->addObject(this->player);
-	util::infoLog("added to object manager");
+	util::infoLog<<"added to object manager";
 
 };
 

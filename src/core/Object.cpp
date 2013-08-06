@@ -35,9 +35,9 @@ void Object::addProp(const Hash *name, baseProperty *value){
 		return;
 	}
 
-	util::errorLog(std::string("trying to add property twice to object\n") + 
-		std::string("\nProperty: ") + Hash::Hash2Str(name) + 
-		std::string("\nObject Name: ") + this->getName());
+	util::errorLog<<"trying to add property twice to object\n  \
+		\nProperty: "<<name<<
+		"\nObject Name: "<<this->getName();
 }
 
 baseProperty *Object::getBaseProp(const Hash *name){

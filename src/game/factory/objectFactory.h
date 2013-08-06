@@ -6,7 +6,7 @@ class objectCreator{
 protected:
 	objectCreator(){}
 	//make sure no once can destroy this -_-
-	~objectCreator(){};
+	virtual ~objectCreator(){};
 	friend class objectFactory;
 public:
 };
@@ -16,7 +16,17 @@ private:
 	
 	std::map<const Hash *, objectCreator* >creators; 	
 public:
-	objectCreator *getCreator(const Hash* objName);
+	template <class T>
+	T *getCreator(const Hash* objName){
+		auto it = this->creators.find(objName);
+
+		assert(it != this->creators.end());
+
+		T *creator = dynamic_cast<T *>((it->second));
+		assert(creator != NULL);
+		return creator;
+	};
+
 
 	//!this will keep a copy of the pointer, so DO NOT
 	//free the objectCreator once this function has been called

@@ -36,6 +36,10 @@ void eventProcess::_handleEvent(){
 		case sf::Event::KeyReleased:
 		this->_handleKeyboardReleased();
 		break;
+
+		case sf::Event::MouseWheelMoved:
+		this->_handleMouseWheelMove();
+		break;
 	}
 };
 
@@ -99,4 +103,21 @@ void eventProcess::_handleKeyboardReleased(){
 	sf::Event::KeyEvent keyEvent = event.key;
 	
 	eventManager.sendEvent(keyReleased, keyEvent);
+};
+
+
+void eventProcess::_handleMouseWheelMove(){
+	static const Hash *mouseWheelUp = Hash::getHash("mouseWheelUp"); 
+	static const Hash *mouseWheelDown = Hash::getHash("mouseWheelDown"); 
+
+	sf::Event::MouseWheelEvent mouseWheelEvent = event.mouseWheel;
+
+	int delta = event.mouseWheel.delta;
+
+	if(delta > 0){
+		eventManager.sendEvent<int>(mouseWheelUp, delta);
+	}else{
+		delta = -delta;
+		eventManager.sendEvent<int>(mouseWheelDown, delta);
+	}
 };
