@@ -40,7 +40,7 @@ void groundMoveProcessor::Process(float dt){
 		} 
 
 
-		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
+		phyProp *physicsData = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 		b2Body *body = physicsData->body;
 
 

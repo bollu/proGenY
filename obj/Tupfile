@@ -26,6 +26,9 @@ include_rules
 : foreach ../src/game/terrainGen/*.c* |> !cc |> %B.o
 
 
+
+
+
 : foreach ../src/util/*.c* |> !cc |> %B.o
 
 

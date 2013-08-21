@@ -18,9 +18,12 @@ Object::Object(std::string _name) : dead(false){
 };
 
 Object::~Object(){
-	for(auto it = this->propertyMap.begin(); it != this->propertyMap.end(); propertyMap.erase(it++)){
+	for(auto it = this->propertyMap.begin(); it != this->propertyMap.end(); ){
 		delete ((*it).second);	
+		it = propertyMap.erase(it);
 	}
+
+	util::infoLog<<"\n Object "<<this->name<<" is destroyed";
 
 }
 

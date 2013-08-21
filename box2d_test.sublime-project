@@ -4,16 +4,12 @@
 		{
 			"cmd":
 			[
-				//"make",
-				//"build"
-				"gnome-terminal",
-				
+				"make",
+				"build-console"
 			],
 			"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 			"name": "make",
-			"working_dir": "${project_path}/obj/",
 			"syntax": "",
-			
 			"variants":
 			[
 				{
@@ -51,6 +47,21 @@
 	"folders":
 	[
 		{
+			"path" : "/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/core",
+			"file_exclude_patterns": [ ".tags*" ]
+		},
+
+		{
+			"path" : "/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/game",
+			"file_exclude_patterns": [ ".tags*" ]
+		},
+
+		{
+			"path" : "/home/siddharth/Data/programming/C_C++/basic_libs_setup/src/util",
+			"file_exclude_patterns": [ ".tags*" ]
+		}
+
+		/*{
 			"file_exclude_patterns":
 			[
 				".*",
@@ -58,11 +69,8 @@
 				"*.exclude, "
 			],
 			"follow_symlinks": true,
-			"path": "/home/siddharth/Data/programming/C_C++/basic_libs_setup"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "/home/siddharth/Data/programming/C_C++/valve_source/source-sdk-2013/sp/src"
-		}
+			"path": 	"/home/siddharth/Data/programming/C_C++/basic_libs_setup"
+			
+		}*/
 	]
 }

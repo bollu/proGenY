@@ -7,71 +7,71 @@
 #include "../../core/renderUtil.h"
 #include "../defines/renderingLayers.h"
 
-class pickupCreator : public objectCreator{
+class pickupCreator : public objectCreator
+{
 private:
-	viewProcess *viewProc;
 
+	viewProcess *viewProc;
 	pickupData pickup;
 	float radius;
 
+
 public:
+	pickupCreator ( viewProcess *_viewProc ) : viewProc( _viewProc ),
+		                                   radius( 0 ){}
 
-	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
-
-	void setPickupData(pickupData data){
+	void setPickupData ( pickupData data ){
 		this->pickup = data;
 	}
 
-	void setCollisionRadius(float radius){
+
+	void setCollisionRadius ( float radius ){
 		this->radius = radius;
-	};
+	}
 
-	
-	Object *createObject(vector2 _pos) const{
+
+	Object *createObject ( vector2 _pos ) const {
 		renderData render;
-		phyData phy;
-		
-		Object *obj = new Object("bullet");
+		phyProp *phy = new phyProp();
+		Object *obj  = new Object( "bullet" );
+		vector2 *pos = obj->getProp< vector2 > ( Hash::getHash( "position" ) );
 
-		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+
 		*pos = _pos;
 
+
 		//physics------------------------------------------------------------
-		phy.collisionType = Hash::getHash("pickup");
-		phy.bodyDef.type = b2_staticBody;
+		phy->collisionType = Hash::getHash( "pickup" );
+		phy->bodyDef.type  = b2_staticBody;
 
-		
 		b2CircleShape *shape = new b2CircleShape();
+
 		shape->m_radius = this->radius;
+
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = shape;
-		fixtureDef.friction = 0.0;
+
+		fixtureDef.shape       = shape;
+		fixtureDef.friction    = 0.0;
 		fixtureDef.restitution = 0.0;
-		fixtureDef.isSensor = true;
-
-		phy.fixtureDef.push_back(fixtureDef);
-
+		fixtureDef.isSensor    = true;
+		phy->fixtureDef.push_back( fixtureDef );
 
 		//renderer------------------------------------
 		float game2RenderScale = this->viewProc->getGame2RenderScale();
-		sf::Shape *sfShape = new sf::CircleShape(this->radius * game2RenderScale,
-										4);
-		
+		sf::Shape *sfShape     = new sf::CircleShape( this->radius * game2RenderScale, 4 );
 
-		sfShape->setFillColor(sf::Color::Red);
+		sfShape->setFillColor( sf::Color::Red );
 
-		shapeRenderNode* renderer = new shapeRenderNode(sfShape);
-		render.addRenderer(renderer);
-		
-	
+		shapeRenderNode * renderer = new shapeRenderNode( sfShape );
+
+		render.addRenderer( renderer );
+
 		//final---------------------------------
-		obj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		obj->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
-		obj->addProp(Hash::getHash("pickupData"), 
-			new Prop<pickupData>(this->pickup));
-		
-		return obj;
-	};
+		obj->addProp( Hash::getHash( "renderData" ), new Prop< renderData > ( render ) );
+		obj->addProp( Hash::getHash( "phyProp" ), phy);
+		obj->addProp( Hash::getHash( "pickupData" ),
+		              new Prop< pickupData > ( this->pickup ) );
+
+		return (obj);
+	} //createObject
 };

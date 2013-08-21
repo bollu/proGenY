@@ -13,18 +13,18 @@
 #include "../../util/mathUtil.h"
 
 
-struct bladeData{};
+struct bladeData {};
+
 
 class objectMgr;
-
-class bladeProcessor: public objectProcessor{
+class bladeProcessor : public objectProcessor
+{
 private:
-	
 	objectMgr *objectManager;
 
+
 public:
-	bladeProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
-	
-	void Process(float dt);
-	void postProcess();
+	bladeProcessor ( processMgr &processManager, Settings &settings, eventMgr &_eventManager );
+	void Process ( float dt );
+	void postProcess ();
 };

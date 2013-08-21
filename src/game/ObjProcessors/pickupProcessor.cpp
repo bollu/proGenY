@@ -20,7 +20,7 @@ void pickupProcessor::Process(float dt){
 			continue;
 		}	
 
-		phyData *phy = obj->getProp<phyData>(Hash::getHash("phyData"));
+		phyProp *phy = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 		assert(phy != NULL);
 
 		for(collisionData &collision : phy->collisions){

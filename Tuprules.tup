@@ -1,30 +1,35 @@
+BASE_DIR = /home/siddharth/Data/programming/C_C++/basic_libs_setup
 
 # define the C compiler to use
-CC = clang++ -fcolor-diagnostics
+CC = clang++ -fcolor-diagnostics -Wno-null-conversion
 #CC = clang++
+
+#define beautifier command
+UNRUSTIFY_CONFIG_PATH = $(BASE_DIR)/tools/uncrustify/beautifier.cfg
+UNCRUSTIFY_PATH = $(BASE_DIR)/cleanup.py
+UNCRUSTIFY = python $(UNCRUSTIFY_PATH)  $(UNRUSTIFY_CONFIG_PATH) 
+
 
 # define any compile-time flags
 #CFLAGS =  -std=c++11 -DDEBUG -g  -w -Wfatal-errors -DDEBUG -g -O0	
 CFLAGS = -std=c++11 -Oz
-CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors
 
 
-#text to be printed for compilarion
 
 # define any directories containing header files other than /usr/include
-#
 INCLUDES = -I../src/include/   -I../src/core/
 
 
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
 #   option, something like -llibname (this will link  to libname.so)
-LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system -lbfd
+LIBS = -L$(BASE_DIR)/lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system -lbfd
 
 #name of the output file
 OUTPUT = a.out
 
-!cc = |>  ^ compiling %b^ $(CC)  $(CFLAGS) $(INCLUDES) -c %f -o %o |> %B.o
+!cleanup = | $(UNRUSTIFY_CONFIG_PATH) $(UNCRUSTIFY_PATH)|>  $(UNCRUSTIFY) %f  |> %f
+!cc = |>  ^ compiling %b^ $(CC)  $(CFLAGS) $(INCLUDES) -c %f -o %B.o |> %B.o
 !ccNoWarn = |>  ^ compiling %b^ $(CC)  $(CFLAGS_NO_WARNING) $(INCLUDES) -c %f -o %o |> %B.o
 
 

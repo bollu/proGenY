@@ -11,17 +11,19 @@
 #include "../../core/Process/viewProcess.h"
 
 
-class terrainProcessor : public objectProcessor{
+class terrainProcessor : public objectProcessor
+{
 private:
+
 	b2World *world;
 	sf::RenderWindow *window;
 	viewProcess *view;
 
+
 public:
-	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		
-	};
+	terrainProcessor ( processMgr &processManager, Settings &settings,
+			eventMgr &_eventManager ){}
 
 
-	void Process(float dt){};
+	void Process ( float dt ){}
 };

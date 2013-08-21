@@ -12,57 +12,54 @@
 #include "../../util/mathUtil.h"
 
 
-struct offsetData{
+struct offsetData {
 public:
-	vector2 posOffset;
+
+	vector2	    posOffset;
 	util::Angle angleOffset;
-	
-	bool offsetPos;
-	bool offsetAngle;
+	bool	    offsetPos;
+	bool	    offsetAngle;
+	Object	   *parent;
+	offsetData () : offsetPos( true ),
 
-	Object *parent;
-
-	offsetData() : offsetPos(true), offsetAngle(true){}
+		        offsetAngle( true ){}
 };
 
 
-class offsetProcessor : public objectProcessor{
+class offsetProcessor : public objectProcessor
+{
 public:
-	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		
-	}
+	offsetProcessor ( processMgr &processManager, Settings &settings,
+			eventMgr &_eventManager ){}
 
-	void onObjectAdd(Object *obj){};
 
-	void Process(float dt){
-		for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-			Object *obj = it->second;
+	void onObjectAdd ( Object *obj ){}
 
+	void Process ( float dt ){
+		for ( cObjMapIt it = this->objMap->begin() ; it != this->objMap->end() ; ++it ) {
+			Object *obj	 = it->second;
 			offsetData *data = obj->getProp<offsetData>(Hash::getHash("offsetData"));
 
-			if(data == NULL){
+			if ( data == NULL ) {
 				continue;
 			}
 
-			assert(data->parent != NULL);
+			assert( data->parent != NULL );
 
-			if(data->offsetPos){
-				vector2 *parentPos = data->parent->getProp<vector2>(Hash::getHash("position"));
-				vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+			if ( data->offsetPos ) {
+				vector2 *parentPos = data->parent->getProp<vector2> ( Hash::getHash("position" ) );
+				vector2 *pos = obj->getProp<vector2> ( Hash::getHash( "position" ) );
 
 				(*pos) = *parentPos + data->posOffset;
-			};
+			}
 
-			if(data->offsetAngle){
-				util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
-				util::Angle *parentFacing = data->parent->getProp<util::Angle>(
-						Hash::getHash("facing"));
+			if ( data->offsetAngle ) {
+				util::Angle *facing	  = obj->getProp<util::Angle> ( Hash::getHash("facing" ) );
+				util::Angle *parentFacing = data->parent->getProp<util::Angle>
+					( Hash::getHash("facing" ) );
 
-				*facing = *parentFacing+ data->angleOffset;
-			};
-
-			
-
-		};
-	};
+				*facing = *parentFacing + data->angleOffset;
+			}
+		}
+	} //Process
 };

@@ -28,7 +28,7 @@ sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, viewProcess *vie
 
 	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->m_vertexCount);
 
-
+	
 	util::infoLog<<"vertex count: "<<b2Shape->m_vertexCount;
 
 	for(int i = 0; i < b2Shape->m_vertexCount; ++i){ 

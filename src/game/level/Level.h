@@ -2,18 +2,14 @@
 #include "gameSegment.h"
 
 
-
-class Level{
+class Level
+{
 public:
+	void Startup ();
+	void Update ();
+	void Draw ();
+	void Shutdown ();
 
-	void Startup();
-	
-	void Update();
-	void Draw();
-	
-	void Shutdown();
-
-
-	static void saveLevel(Level *level);
-	static Level* loadLevel();
+	static void    saveLevel ( Level *level );
+	static Level * loadLevel ();
 }

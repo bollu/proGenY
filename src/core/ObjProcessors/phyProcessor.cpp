@@ -14,7 +14,7 @@ phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, event
 void phyProcessor::onObjectAdd(Object *obj){
 
 
-	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+	phyProp *data = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 	vector2* gamePos = obj->getProp<vector2>(Hash::getHash("position"));
 
 
@@ -47,14 +47,13 @@ void phyProcessor::preProcess(){
 	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
 		Object *obj = it->second;
 
-		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+		phyProp *data = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 		if(data == NULL){
 			continue;
 		}
-		
+			
 		data->collisions.clear();
 	};
-	//this->_processContacts();
 };
 
 void phyProcessor::Process(float dt){
@@ -64,7 +63,7 @@ void phyProcessor::Process(float dt){
 		Object *obj = it->second;
 
 		
-		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+		phyProp *data = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 
 		if(data == NULL){
 			continue;
@@ -84,60 +83,37 @@ void phyProcessor::Process(float dt){
 
 
 void phyProcessor::postProcess(){
+	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
+		Object *obj = it->second;
 
+		phyProp *data = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
+		if(data == NULL){
+			continue;
+		}
+			
+		data->collisions.clear();
+	};
 }
-
 
 
 
 void phyProcessor::onObjectRemove(Object *obj){
-	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
-
+	phyProp *data = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
 
 	if(data != NULL){
 		util::infoLog<<"destroying body owned by "<<obj->getName();
 		world->DestroyBody(data->body);
+		data->collisions.clear();
+		data->body = NULL;
 	}
 }
 
-/*
-void phyProcessor::_processContacts(){
-	for(auto contact = world->GetContactList(); contact != NULL; contact = contact->GetNext()){
-
-		if(!contact->IsTouching()){
-			continue;
-		}
-
-		b2Fixture *fixtureA = contact->GetFixtureA();
-		b2Fixture *fixtureB = contact->GetFixtureB();
-
-		b2Body *bodyA = fixtureA->GetBody();
-		b2Body *bodyB = fixtureB->GetBody();
-
-
-		Object *objA = static_cast<Object *>(bodyA->GetUserData());
-		Object *objB = static_cast<Object *>(bodyB->GetUserData());
-
-		assert(objA != NULL && objB != NULL);
-
-		phyData* phyDataA = objA->getProp<phyData>(Hash::getHash("phyData"));
-		phyData* phyDataB = objB->getProp<phyData>(Hash::getHash("phyData"));
-
-		assert(phyDataA != NULL && phyDataB != NULL);
-
-		//util::msgLog("collision.\nA:" + objA->getName() + "\nB:" + objB->getName());
-
-
-
-	};
-}*/
-
-void phyData::addCollision(collisionData &collision){
-
+void phyProp::addCollision(collisionData &collision){
 	this->collisions.push_back(collision);
 };
 
-void phyData::removeCollision(Object *obj){
+
+void phyProp::removeCollision(Object *obj){
 	for(auto it = this->collisions.begin(); it != this->collisions.end(); ++it){
 		if(it->otherObj == obj){
 			this->collisions.erase(it);
