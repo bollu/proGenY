@@ -20,7 +20,7 @@
 #include "core/renderUtil.h"
 
 
-//PRODUCTION INCLUDEs-------------pr----------------------------
+//PRODUCTION INCLUDEs-----------------------------------------
 #include "include/SFML/System/Clock.hpp"
 #include "core/Messaging/eventMgr.h"
 

@@ -2,7 +2,6 @@
 #pragma once
 #include <string>
 #include "vector.h"
-#include "../util/mathUtil.h"
 #include <iostream>
 
 
@@ -20,7 +19,6 @@ protected:
 public:
 	virtual ~baseProperty(){};
 };
-
 
 /*! Used to store a value of any type
 
@@ -52,7 +50,7 @@ class Prop : public baseProperty{
 
 	\return the value stored within
 	*/
-	virtual T *getVal(){
+	T *getVal(){
 		return &this->val;
 	}
 
@@ -61,24 +59,96 @@ class Prop : public baseProperty{
 
 	@param[in] val the new value to be stored
 	*/
-	virtual void setVal(T &val){
+	void setVal(T &val){
 		this->val = val;
 	}
 
-	operator T* (){
-		return this->getVal();
-	} 
+	/*! used to set the value stored by the Property from a temporary 
+		variable on the stack
 
-	
+	@param[in] val the new value to be stored
+	*/
+	void setValStack(T val){
+		this->val = val;
+	}
+
+
 
 
 };
+
+
+
+/*!DEPRECATED. */
+template<typename T>
+class ptrProp : public baseProperty{
+private:
+	T* val;
+public:
+	ptrProp(T *value){
+		this->val = value;
+	}
+
+	/*! returns the object stored by the managedProp
+	
+	\return the object stored inside.
+	*/
+	T* getVal() const{
+		return this->val;
+	}
+};
+
+/*! DEPRECATED. used to store pointers with a controlled life cycle
+
+managedProp automatically destroys pointers that it is constructed with.
+Hence, it ensures that the pointer it is assigned to _never lives longer than itself_.
+This is very important to prevent memory leaks. It can be used to wrap objects that are created on the Heap.
+ */
+template<typename T>
+class managedProp : public baseProperty{
+private:
+	T *val;
+public:
+	managedProp(T *value){
+		this->val = value;
+	}
+
+	~managedProp(){
+		std::cout<<"deleted; val = "<<this->val<<std::endl;
+		delete(this->val);
+	};
+
+
+	/*! returns the object stored by the managedProp
+	
+	\return the object stored inside.
+	*/
+	T* getVal() const{
+		return this->val;
+	}
+
+
+	
+};
+
+/*!Property that is used to tag objects
+
+dummyProp can be added to an Object as a sentinel.
+The advantage of a dummyProp is that it consumes extra space, and 
+so can be used to tag objects of interest
+*/
+class dummyProp : public baseProperty{
+public:
+	dummyProp(){};
+	~dummyProp(){};
+};
+
 
 
 typedef Prop<int> iProp;
 typedef Prop<float> fProp;
 typedef Prop<std::string> sProp;
 typedef Prop<vector2> v2Prop;
-typedef Prop<util::Angle> angleProp;
 
-class _Prop_NULL{};
+//can be used as a dummy to "TAG" certain obects.
+//typedef Prop<char> dummyProp;

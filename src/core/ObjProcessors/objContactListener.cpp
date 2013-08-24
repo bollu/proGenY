@@ -3,7 +3,7 @@
 #include "phyProcessor.h"
 
 
-void objContactListener::_extractphyProp(b2Contact *contact, Object **a, Object **b){
+void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){
 	b2Fixture *fixtureA = contact->GetFixtureA();
 	b2Fixture *fixtureB = contact->GetFixtureB();
 
@@ -32,15 +32,15 @@ void objContactListener::EndContact(b2Contact* contact){
 
 
 collisionData objContactListener::_fillCollisionData(b2Contact *contact,
-  Object *me, Object *other, phyProp &myPhy, phyProp &otherPhy){
+  Object *me, Object *other, phyData *myPhy, phyData *otherPhy){
 
 	collisionData collision;
 
-	collision.myPhy = &myPhy;
-	collision.otherPhy = &otherPhy;
+	collision.myPhy = myPhy;
+	collision.otherPhy = otherPhy;
 	collision.otherObj = other;
 
-	collision.myApproachVel = vector2::cast(myPhy.body->GetLinearVelocity());
+	collision.myApproachVel = vector2::cast(myPhy->body->GetLinearVelocity());
 
 	b2Manifold *localManifold = contact->GetManifold();
 	b2WorldManifold worldManifold;
@@ -91,26 +91,22 @@ void objContactListener::_handleCollision(collisionData::Type type, b2Contact *c
 	collisionData collision;
 	Object *a, *b;
 	
-	this->_extractphyProp(contact, &a, &b);
+	this->_extractPhyData(contact, &a, &b);
 	
 	assert(a != NULL && b != NULL);
 
-	if(!(a->hasProperty(Hash::getHash("phyProp")) && b->hasProperty(Hash::getHash("phyProp"))))
-	{
-		return;
-	}	
+	phyData *aPhyData = a->getProp<phyData>(Hash::getHash("phyData"));
+	phyData *bPhyData = b->getProp<phyData>(Hash::getHash("phyData"));
+	assert(aPhyData != NULL && bPhyData != NULL);
 
-	phyProp *aphyProp = a->getComplexProp<phyProp>(Hash::getHash("phyProp"));
-	phyProp *bphyProp = b->getComplexProp<phyProp>(Hash::getHash("phyProp"));
-	
 	/* a to b */
-	collision = this->_fillCollisionData(contact, a, b, *aphyProp, *bphyProp);
+	collision = this->_fillCollisionData(contact, a, b, aPhyData, bPhyData);
 	collision.type = type;
 
-	aphyProp->addCollision(collision);
+	aPhyData->addCollision(collision);
 
 	/*b to a*/
-	collision = this->_fillCollisionData(contact, b, a, *bphyProp, *aphyProp);
+	collision = this->_fillCollisionData(contact, b, a, bPhyData, aPhyData);
 	collision.type = type;
-	bphyProp->addCollision(collision);
+	bPhyData->addCollision(collision);
 };	

@@ -1,6 +1,6 @@
 #pragma once
 #include "gunDataGenerator.h"
-#include "bulletPropGenerator.h"
+#include "bulletDataGenerator.h"
 
 
 gunDataGenerator::gunDataGenerator(gunDataGenerator::Archetype archetype, 
@@ -37,35 +37,35 @@ gunData gunDataGenerator::Generate(){
 };
 
 void gunDataGenerator::_genBulletData(gunData &data,
-	bulletPropGenerator::genData &generationData){
+	bulletDataGenerator::genData &generationData){
 
-	/*bulletPropGenerator::gravityProperty gForce;
+	/*bulletDataGenerator::gravityProperty gForce;
 
 	switch(archetype){
 		case Archetype::Rocket:
-			gForce = bulletPropGenerator::gravityProperty::highGravity;
+			gForce = bulletDataGenerator::gravityProperty::highGravity;
 			break;
 
 		case Archetype::machineGun:
-			gForce = bulletPropGenerator::gravityProperty::defaultGravity;
+			gForce = bulletDataGenerator::gravityProperty::defaultGravity;
 			break;
 	}*/
 
-	bulletPropGenerator bulletPropGen(generationData, this->power, this->seed);
-	bulletProp *_bulletProp = bulletPropGen.Generate();
+	bulletDataGenerator bulletDataGen(generationData, this->power, this->seed);
+	bulletData _bulletData = bulletDataGen.Generate();
 
 
-	_bulletProp->addEnemyCollision(Hash::getHash("enemy"));
-	_bulletProp->addEnemyCollision(Hash::getHash("dummy"));
+	_bulletData.addEnemyCollision(Hash::getHash("enemy"));
+	_bulletData.addEnemyCollision(Hash::getHash("dummy"));
 
-	_bulletProp->addIgnoreCollision(Hash::getHash("bullet"));
-	_bulletProp->addIgnoreCollision(Hash::getHash("bullet"));
-	_bulletProp->addIgnoreCollision(Hash::getHash("bullet"));
-	//_bulletProp->addIgnoreCollision(Hash::getHash("terrain"));
-	//_bulletProp->addIgnoreCollision(Hash::getHash("boundary"));
-	_bulletProp->addIgnoreCollision(Hash::getHash("player"));
+	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	//_bulletData.addIgnoreCollision(Hash::getHash("terrain"));
+	//_bulletData.addIgnoreCollision(Hash::getHash("boundary"));
+	_bulletData.addIgnoreCollision(Hash::getHash("player"));
 
-	data.setBulletData(*_bulletProp);
+	data.setBulletData(_bulletData);
 
 };
 
@@ -89,11 +89,11 @@ void gunDataGenerator::_genRocket(gunData &data){
 //	data.setBulletRadius(this->_genFloat(0.2, 0.4));
 	data.setBulletVel(this->_genFloat(40, 60));
 
-	bulletPropGenerator::genData bulletGenData;
+	bulletDataGenerator::genData bulletGenData;
 	
-	bulletGenData.gravity = bulletPropGenerator::gravityProperty::highGravity;
-	bulletGenData.knockback = bulletPropGenerator::knockbackProperty::highKnockback;
-	bulletGenData.damage = bulletPropGenerator::damageProperty::highDamage;
+	bulletGenData.gravity = bulletDataGenerator::gravityProperty::highGravity;
+	bulletGenData.knockback = bulletDataGenerator::knockbackProperty::highKnockback;
+	bulletGenData.damage = bulletDataGenerator::damageProperty::highDamage;
 	bulletGenData.numAbilities = 1;
 
 	this->_genBulletData(data, bulletGenData);
@@ -116,8 +116,8 @@ void gunDataGenerator::_genMachineGun(gunData &data){
 
 	data.setBulletVel(this->_genFloat(20, 30));
 
-	bulletPropGenerator::genData bulletGenData;
-	bulletGenData.gravity = bulletPropGenerator::gravityProperty::lowGravity;
+	bulletDataGenerator::genData bulletGenData;
+	bulletGenData.gravity = bulletDataGenerator::gravityProperty::lowGravity;
 	bulletGenData.numAbilities = 1;
 	bulletGenData.numAbilities = 1;
 

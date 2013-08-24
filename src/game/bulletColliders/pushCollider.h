@@ -2,36 +2,28 @@
 #include "../ObjProcessors/bulletProcessor.h"
 
 
-class pushCollider : public bulletCollider
-{
+
+class pushCollider : public bulletCollider{
 private:
 	float impulseMagnitude;
-
-
 public:
-	pushCollider ( float impulseMagnitude ){
+	pushCollider(float impulseMagnitude){
 		this->impulseMagnitude = impulseMagnitude;
-	}
+	};
 
+	~pushCollider(){};
 
-	~pushCollider (){}
+	bool onEnemyCollision(collisionData &collision, Object *bullet){
 
-	bool onEnemyCollision ( collisionData &collision, Object *bullet ){
-		
-		phyProp *other	= collision.otherPhy;
-		phyProp *bulletPhy = bullet->getComplexProp<phyProp>(
-							 Hash::getHash( "phyProp" ));
+		phyData *other = collision.otherPhy;
+		phyData *bulletPhy = bullet->getProp<phyData>(Hash::getHash("phyData"));
 
-		assert(other != NULL);
-		assert(bulletPhy != NULL);
+		vector2 vel = vector2::cast(bulletPhy->body->GetLinearVelocity());
 
-		vector2 vel	= vector2::cast( bulletPhy->body->GetLinearVelocity() );
-		vector2 impulse	= vel.Normalize() * this->impulseMagnitude;
+		vector2 impulse = vel.Normalize() * this->impulseMagnitude;
 
+		other->body->ApplyLinearImpulse(impulse, other->body->GetWorldCenter());
 
-		other->body->ApplyLinearImpulse( impulse, 
-			other->body->GetWorldCenter() );
-
-		return (true);
-	} //onEnemyCollision
+		return true;
+	};
 };

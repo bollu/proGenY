@@ -1,7 +1,7 @@
 #pragma once
-#include "bulletPropGenerator.h"
+#include "bulletDataGenerator.h"
 
-bulletPropGenerator::bulletPropGenerator(genData data,
+bulletDataGenerator::bulletDataGenerator(genData data,
 	unsigned int power, unsigned long seed){
 	
 	this->seed = seed;
@@ -22,33 +22,30 @@ bulletPropGenerator::bulletPropGenerator(genData data,
 
 
 
-bulletProp *bulletPropGenerator::Generate(){
-	bulletProp *bullet = new bulletProp();
+bulletData bulletDataGenerator::Generate(){
+	bulletData bullet;
 
-	bullet->gravityScale = this->_genGravity(this->data.gravity);
+	bullet.gravityScale = this->_genGravity(this->data.gravity);
+
 	pushCollider *push =  this->_genKnockback(this->data.knockback);
 	damageCollider *damage = this->_genDamage(this->data.damage);
 
 
-	
 	if(push != NULL){
-		bullet->addBulletCollder(push);
+		bullet.addBulletCollder(push);
 	}
-
 	if(damage != NULL){
-		bullet->addBulletCollder(damage);
+		bullet.addBulletCollder(damage);
 	}
 
 	for(int i = 0; i < this->data.numAbilities; i++){
 		
-		bullet->addBulletCollder(this->_createBulletCollider(this->seed));
-	}
-	
-
+		bullet.addBulletCollder(this->_createBulletCollider(this->seed));
+	}	
 	return bullet;
 };
 
-float bulletPropGenerator::_genGravity(gravityProperty &prop){
+float bulletDataGenerator::_genGravity(gravityProperty &prop){
 	switch(prop){
 		case noGravity:
 			return 0;
@@ -65,7 +62,7 @@ float bulletPropGenerator::_genGravity(gravityProperty &prop){
 };
 
 #include "../bulletColliders/damageCollider.h"
-damageCollider *bulletPropGenerator::_genDamage(damageProperty &prop){
+damageCollider *bulletDataGenerator::_genDamage(damageProperty &prop){
 	float damage;
 
 	switch(prop){
@@ -87,7 +84,7 @@ damageCollider *bulletPropGenerator::_genDamage(damageProperty &prop){
 };
 
 #include "../bulletColliders/pushCollider.h"
-pushCollider *bulletPropGenerator::_genKnockback(knockbackProperty &prop){
+pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){
 	if(prop == noKnockback){
 		return NULL;
 	}
@@ -113,7 +110,7 @@ pushCollider *bulletPropGenerator::_genKnockback(knockbackProperty &prop){
 };
 
 #include "../bulletColliders/bounceCollider.h"
-bulletCollider* bulletPropGenerator::_createBulletCollider(unsigned long colliderSeed){
+bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long colliderSeed){
 
 	static const int numAbilities = 1;
 	int type = this->_genInt(0.0, numAbilities - 1);

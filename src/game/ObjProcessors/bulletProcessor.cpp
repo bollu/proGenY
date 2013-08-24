@@ -3,22 +3,15 @@
 #include "../../core/ObjProcessors/phyProcessor.h"
 
 
-
-bulletProcessor::bulletProcessor ( processMgr &processManager, 
-	Settings &settings, eventMgr &_eventManager ){
-	this->world = 
-	processManager.getProcess<worldProcess>(Hash::getHash( "worldProcess" ))->getWorld();
-}
-
 void bulletProcessor::onObjectAdd(Object *obj){
 	
-	bulletProp *data = obj->getComplexProp<bulletProp>(Hash::getHash("bulletProp"));
+	bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
 
 	if(data == NULL){
 		return;
 	};
 	
-	phyProp *physicsData = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
+	phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
 	assert(physicsData != NULL);
 
 	b2Body *body = physicsData->body;
@@ -31,9 +24,15 @@ void bulletProcessor::onObjectAdd(Object *obj){
 	assert(data->gravityScale >= 0);
 	body->SetGravityScale(data->gravityScale);
 
+
 	for(bulletCollider *collider : data->colliders){
+	
 		collider->onCreate(obj);
-	}	
+	}
+
+
+	
+
 };
 
 void bulletProcessor::Process(float dt){
@@ -42,18 +41,16 @@ void bulletProcessor::Process(float dt){
 
 		Object *obj = it->second;
 
-		bulletProp *data = obj->getComplexProp<bulletProp>(Hash::getHash("bulletProp"));
+		bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
 		if(data == NULL){
 			continue;
 		}
 
 		
-		phyProp *physicsData = obj->getComplexProp<phyProp>(Hash::getHash("phyProp"));
+		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
 		assert(physicsData != NULL);
 
-		b2Body *body = physicsData->body;	
-		assert(body != NULL);
-			
+		b2Body *body = physicsData->body;		
 		for(collisionData collision : physicsData->collisions){
 			this->_handleCollision(collision, data, obj);
 		}
@@ -61,7 +58,7 @@ void bulletProcessor::Process(float dt){
 
 };
 
-void bulletProcessor::_handleCollision(collisionData &collision, bulletProp *data, Object *bullet){
+void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){
 
 	Object *other = collision.otherObj;
 	const Hash *collisionType = collision.getCollidedObjectCollision();
@@ -72,7 +69,7 @@ void bulletProcessor::_handleCollision(collisionData &collision, bulletProp *dat
 		return;
 	}
 	//ignore other bullets
-	if(other->hasProperty(Hash::getHash("bulletProp"))){
+	if(other->hasProperty(Hash::getHash("bulletData"))){
 		return;
 	}
 
@@ -106,7 +103,6 @@ void bulletProcessor::_handleCollision(collisionData &collision, bulletProp *dat
 	}
 
 	if(kill){
-		util::infoLog<<"killing bullet";
 		bullet->Kill();
 	};
 };

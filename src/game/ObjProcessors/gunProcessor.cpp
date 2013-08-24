@@ -34,14 +34,11 @@ void gunProcessor::_fireShot(gunData *data, vector2 pos){
 	bulletCreator *creator = data->creator;
 	assert(creator != NULL);
 
-	bulletProp *prop = new bulletProp(*data->bullet); 
-
 	vector2 beginVel = data->facing.toVector() * data->buletVel;
 
-	prop->beginVel = beginVel;
+	data->bullet.beginVel = beginVel;
 
-	creator->setBulletData(prop);
-
+	creator->setBulletData(data->bullet);
 	creator->setCollisionRadius(data->bulletRadius);
 	Object *bullet = creator->createObject(pos);
 	

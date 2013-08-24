@@ -7,64 +7,58 @@
 #include "../../core/Messaging/eventMgr.h"
 
 
+
 struct healthData {
 private:
+	bool invul;
 
-	bool	     invul;
 	unsigned int maxHP;
-
 	//HP may go below zero.
 	int currentHP;
-
-
 public:
-	healthData (){
+
+	healthData(){
 		this->maxHP = this->currentHP = -1;
 		this->invul = false;
 	}
 
 
-	void setHP ( unsigned int HP ){
+	void setHP(unsigned int HP){
 		this->currentHP = this->maxHP = HP;
+
 	}
 
-
-	void makeInvulnerable (){
+	void makeInvulnerable(){
 		this->invul = true;
 	}
 
-
-	void makeVulnerable (){
+	void makeVulnerable(){
 		this->invul = false;
 	}
 
+	void Damage(unsigned int damage){
 
-	void Damage ( unsigned int damage ){
-		if ( !this->invul ) {
+		if(!this->invul){
 			this->currentHP -= damage;
 		}
-	} //Damage
+	}
 
-
-	void Heal ( unsigned int heal ){
+	void Heal(unsigned int heal){
 		this->currentHP += heal;
 	}
 
+	int getHP(){
+		return this->currentHP;
+	};
 
-	int getHP (){
-		return (this->currentHP);
-	}
+
 };
 
-
-class healthProcessor : public objectProcessor
-{
+class healthProcessor : public objectProcessor {
 private:
+
 public:
-	healthProcessor ( processMgr &processManager, Settings &settings,
-			eventMgr &_eventManager ){}
-
-	void Process ( float dt ){}
-
-	void postProcess ();
+	healthProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){};
+	void Process(float dt){};
+	void postProcess();
 };

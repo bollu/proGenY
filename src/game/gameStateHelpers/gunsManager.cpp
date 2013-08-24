@@ -82,8 +82,8 @@ void gunsManager::_updateGunAngle(util::Angle &facing){
 
 	vector2 *playerPos = this->player->getProp<vector2>(Hash::getHash("position"));
 
-	util::Angle *gunAngle = this->currentGun->getProp<util::Angle>(Hash::getHash("facing"));
-	*gunAngle = facing;
+	this->currentGun->setProp<util::Angle>(Hash::getHash("facing"), 
+		&facing);
 
 	vector2 bulletOffset = facing.polarProjection(3);
 	vector2 gunOffset = facing.polarProjection(0.2);
@@ -171,15 +171,13 @@ void gunsManager::_switchGuns(Object *prevGun, Object *newGun){
 	assert(newGun != NULL);
 
 	if(prevGun != NULL){
-		util::Angle *prevAngle = prevGun->getProp<util::Angle>(Hash::getHash("facing"));
-		vector2 *prevPos = prevGun->getProp<vector2>(Hash::getHash("position"));
+		util::Angle *angle = prevGun->getProp<util::Angle>(Hash::getHash("facing"));
+		vector2 *pos = prevGun->getProp<vector2>(Hash::getHash("position"));
 
 
-		util::Angle *newAngle = newGun->getProp<util::Angle>(Hash::getHash("facing"));
-		vector2 *newPos = newGun->getProp<vector2>(Hash::getHash("position"));
 		
-		*newAngle = *prevAngle;
-		*newPos = *prevPos;
+		newGun->setProp<util::Angle>(Hash::getHash("facing"), *angle);
+		newGun->setProp<vector2>(Hash::getHash("position"), *pos);
 		
 		this->objectManager.removeObject(prevGun);
 		std::cout<<"\n"<<prevGun->getName()<<" was removed";

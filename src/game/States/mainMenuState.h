@@ -2,19 +2,18 @@
 #include "../../core/State/State.h"
 #include "../../core/State/dummyStateSaveLoader.h"
 
-class mainMenuState : public State
-{
+class mainMenuState : public State{
 public:
-	mainMenuState () : State( "mainMenuState" ){}
+	mainMenuState() : State("mainMenuState"){};
+	
+	void Update(float dt){};
+	
+	void Draw(){};
 
-	void Update ( float dt ){}
-
-	void Draw (){}
-
-	stateSaveLoader *createSaveLoader (){
-		return ( new dummyStateSaveLoader() );
+	stateSaveLoader *createSaveLoader(){
+		return new dummyStateSaveLoader();
 	}
 
-
 private:
+	
 };

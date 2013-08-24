@@ -62,25 +62,20 @@ public:
 	baseProperty *getBaseProp(const Hash *name);
 
 
-	/*!returns the value of the Prop associated with the name
+	/*!returns the value associated with the name
 	This function is used to retrieve a value that was stored in Prop.
 	If a value is not attached to name, or if the value is stored in 
-	_some_ _other_ _derived_ _class_ member of _baseProperty_, the function will
+	some other derived class member of baseProperty_, the function will
 	return NULL. it will _only_ return the value of the Property if both the
 	key as well as the derived class type of baseProperty matches
-	
-	if you wish to interact with some other derived class of baseProperty, 
-	see Object::getComplexProp
-	
-	sa Object::getComplexProp
 
 	@param [in] name The Hash of the name of the property
 	\return the value associated with the Prop, NULL if the property does not exist,
 				NULL if the value is stored in some other derived class member of baseProperty
 	*/
-	template<typename T>
-	T* getProp(const Hash *name){
-		Prop<T> *prop =_getProperty<T>(name, false);
+	template<typename Type>
+	Type* getProp(const Hash *name){
+		Prop<Type> *prop =_getProperty<Type>(name, false);
 		if(prop == NULL){
 			return NULL;
 		}else{
@@ -88,31 +83,33 @@ public:
 		};
 	}
 
-	
-	/*!returns the property (which is NOT of type Prop<T>) but is a
-	   derived class of baseProperty. can be used to get and interact
-	   with custom property types. 
-
-	   @param[in] name The Hash of the name of the custom property
-
-	   \return a pointer to the custom property, or NULL if it does not
-	   		exist
-	*/ 
-	
-	template <typename T>
-	T *getComplexProp(const Hash* name){
-		T* complexProp = dynamic_cast<T *>(this->getBaseProp(name));
-
-		if(complexProp == NULL){
-			return NULL;
-		}else{
-			return complexProp;
-		}
-
-
+	template<typename Type>
+	void setProp(const Hash *name, Type *value){
+		assert(name != NULL && value !=  NULL);
+		Prop<Type> *prop =_getProperty<Type>(name);
+		prop->setVal(*value);
+		
 	}
 	
-	
+	template<typename Type>
+	Prop<Type> *getPropPtr(const Hash *name){
+		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
+
+		if(prop == NULL){
+			util::errorLog<<"unable to find property. \
+							\nObject: "<<this->getName()<<"\nProperty: "<<name;
+		}else{
+			return prop;
+		}
+	}
+
+	template<typename Type>
+	void setProp(const Hash *name, Type value){
+		Prop<Type> *prop =_getProperty<Type>(name);
+		prop->setVal(value);
+	}
+
+
 	/*!returns whether the Object has the property with name */
 	bool hasProperty(const Hash *name){
 		return this->getBaseProp(name) == NULL ? false : true;

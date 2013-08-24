@@ -12,22 +12,16 @@ include_rules
 : foreach ../src/core/ObjProcessors/*.c* |> !cc |> %B.o
 : foreach ../src/core/Process/*.c* |> !cc |> %B.o
 : foreach ../src/core/State/*.c* |> !cc |>%B.o
-: foreach ../src/core/Rendering/*.c* |> !cc |>%B.o
+
 
 : foreach ../src/game/eventHandlers/*.c* |> !cc |> %B.o
 : foreach ../src/game/factory/*.c* |>  !cc |> %B.o
 : foreach ../src/game/ObjProcessors/*.c* |> !cc |> %B.o
 : foreach ../src/game/States/*.c* |> !cc |> %B.o
 : foreach ../src/game/bulletColliders/*.c* |> !cc |> %B.o
-: foreach ../src/game/gameStateHelpers/*.c* |> !cc |> %B.o
-: foreach ../src/game/level/*.c* |> !cc |> %B.o
-: foreach ../src/game/generators/*.c* |> !cc |> %B.o
-: foreach ../src/game/defines/*.c* |> !cc |> %B.o
-: foreach ../src/game/terrainGen/*.c* |> !cc |> %B.o
 
 
 : foreach ../src/util/*.c* |> !cc |> %B.o
-
 
 
 

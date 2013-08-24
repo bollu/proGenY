@@ -3,27 +3,26 @@
 #include "../../core/State/dummyStateSaveLoader.h"
 
 
+
 #include "../level/gameSegment.h"
 
-class gameSegmentLoader : public State
-{
+class gameSegmentLoader : public State{
 private:
 	gameSegment *segment;
+
 	std::string segmentName;
+
 	bool doneLoading;
-
-
 public:
-	gameSegmentLoader () : State( "gameSegmentLoader" ){}
+	gameSegmentLoader() : State("gameSegmentLoader"){}
+	
+	void Update(float dt){};
+	void Draw(){};
 
-	void Update ( float dt ){}
-
-	void Draw (){}
-
-	stateSaveLoader *createSaveLoader (){
-		return ( new dummyStateSaveLoader() );
+	
+	stateSaveLoader *createSaveLoader(){
+		return new dummyStateSaveLoader();
 	}
 
-
-	gameSegment *getLoadedSegment ();
+	gameSegment *getLoadedSegment();
 };

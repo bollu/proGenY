@@ -20,7 +20,7 @@ eventManager(_eventManager), playerData(playerData){
 
 	this->playerData.playerPos = player->getProp<vector2>(Hash::getHash("position"));
 	this->playerData.objMoveData =  player->getProp<moveData>(Hash::getHash("moveData"));
-	this->playerData.physicsData =  player->getComplexProp<phyProp>(Hash::getHash("phyProp"));
+	this->playerData.physicsData =  player->getProp<phyData>(Hash::getHash("phyData"));
 
 	assert(this->playerData.playerPos != NULL);
 	assert(this->playerData.objMoveData != NULL);
@@ -143,7 +143,7 @@ void playerEventHandler::_handleMouseWheelDown(int ticks){
 
 void playerEventHandler::Update(){
 
-	phyProp *phy = playerData.physicsData;
+	phyData *phy = playerData.physicsData;
 
 	this->_updateGunFacing(this->lastMousePos);
 
