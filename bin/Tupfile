@@ -8,5 +8,5 @@ include_rules
 OUTPUT = a.out
 
 #			           clang++   std11-o a.out   -I/includes   -Llib/ glew.lib ./obj/*     a.out
-: ../obj/*.o |>  ^ linking %o^ $(CC) $(CFLAGS) -v -o %o  $(INCLUDES)  $(LIBS) %f   |> $(OUTPUT)
+: ../obj/*.o |>   $(CC) $(CFLAGS) -v -o %o  $(INCLUDES)  $(LIBS) %f   |> $(OUTPUT)
 
