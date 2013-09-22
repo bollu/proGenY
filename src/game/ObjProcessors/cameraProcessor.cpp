@@ -2,8 +2,11 @@
 #include "cameraProcessor.h"
 
 
-void cameraProcessor::onObjectAdd(Object *obj){
-	cameraData *data = obj->getProp<cameraData>(Hash::getHash("cameraData"));
+void cameraProcessor::_onObjectAdd(Object *obj){
+
+	util::infoLog<<"\nObject added to cameraProcessor";
+	
+	cameraData *data = obj->getPrimitive<cameraData>(Hash::getHash("cameraData"));
 
 	if(!data){
 		return;
@@ -17,29 +20,23 @@ void cameraProcessor::onObjectAdd(Object *obj){
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	data->minCoord += windowDim * 0.5;
-	
-
-
 };
 
-void cameraProcessor::Process(float dt){
-	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
-		Object *obj = it->second;
+void cameraProcessor::_Process(Object *obj, float dt){
+	cameraData *data = obj->getPrimitive<cameraData>(Hash::getHash("cameraData"));
 
-		cameraData *data = obj->getProp<cameraData>(Hash::getHash("cameraData"));
-
-		if(!data){
-			continue;
-		}
-
-		if(!data->enabled){
-			continue;
-		}	
-
-		vector2 cameraMoveAmt = this->_calcCameraMoveAmt(obj, data);
-		this->_simulateCamera(cameraMoveAmt, dt, data);
+	/*
+	if(!data){
+		continue;
 	}
+	*/
 
+	if(!data->enabled){
+		return;
+	}	
+
+	vector2 cameraMoveAmt = this->_calcCameraMoveAmt(obj, data);
+	this->_simulateCamera(cameraMoveAmt, dt, data);
 }
 
 vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){
@@ -88,7 +85,7 @@ vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){
 vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 
 	vector2 windowDim = vector2::cast(window->getSize());
-	vector2 *gamePos = obj->getProp<vector2>(Hash::getHash("position"));
+	vector2 *gamePos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 	
 	vector2 viewPos = this->view->view2RenderCoord(
 		this->view->game2ViewCoord(*gamePos));

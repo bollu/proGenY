@@ -13,14 +13,16 @@ if(not os.path.isfile(sys.argv[1]) ):
 doubleQuote = ' " '
 singleQuote = " ' "
 
-echoMsg = 'press any key to continue..'
+echoMsg = '\n\n----------------\npress any key to continue...'
 echoCmd = "echo " + singleQuote + echoMsg + singleQuote
 
 waitCmd = "read -n 1 c"
 
 xTermCmd = "xterm -e"
+gnomeTerminalCmd = "gnome-terminal -e "
 
+command = xTermCmd + doubleQuote + sys.argv[1] +  " && " + echoCmd + " && " + waitCmd + doubleQuote
 
-command = xTermCmd + doubleQuote + sys.argv[1] + ";" + echoCmd + ";" + waitCmd + doubleQuote
+#print command
 os.system(command)
 

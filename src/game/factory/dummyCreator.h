@@ -15,7 +15,7 @@ public:
 
 	dummyCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void setRadius(float gRadius){
+	void Init(float gRadius){
 		this->radius = gRadius;
 	}
 
@@ -27,7 +27,7 @@ public:
 		Object *dummy = new Object("dummy");
 
 
-		vector2 *pos = dummy->getProp<vector2>(Hash::getHash("position"));
+		vector2 *pos = dummy->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = dummyPos;
 
 		//physics------------------------------------------------------------

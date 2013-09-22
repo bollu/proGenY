@@ -1,0 +1,18 @@
+
+* ProGenY v3.0  
+
+-BUG FIXES [0/1]
+   [ ] fixed the memory leak in renderProcessor, by using Activate and Deactivate
+       Properly. see {1}  
+
+
+
+-FEATURES [0/0]
+
+
+-REFACTOR [2/2]- 
+  [X] Rewrote the objectManager code to receive objectActivate and objectDeactivate. {1} 
+      2013-08-30 22:14
+
+  [X] 
+

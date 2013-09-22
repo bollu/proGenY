@@ -79,7 +79,7 @@ public:
 
 		if(! _observersPresent(eventName)){
 
-			util::warningLog<<"\nno subscribers to event: "<<eventName;
+			util::warningLog<<"\nno subscribers to event: "<<eventName<<util::flush;
 
 			return;
 		}
@@ -96,7 +96,7 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::warningLog<<"no subscribers to event: "<<eventName;
+			util::warningLog<<"no subscribers to event: "<<eventName<<util::flush;
 
 			return;
 		}
@@ -113,7 +113,7 @@ public:
 		
 		if(! _observersPresent(eventName)){
 
-			util::warningLog<<"no subscribers to event: "<<eventName;
+			util::warningLog<<"no subscribers to event: "<<eventName<<util::flush;
 			return;
 		}
 

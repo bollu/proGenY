@@ -2,21 +2,15 @@
 #include "healthProcessor.h"
 
 
+healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, 
+	eventMgr &_eventManager) : objectProcessor("healthProcessor"){};
 
-void healthProcessor::postProcess(){
-	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
-		Object *obj = it->second;
 
-		healthData *data = obj->getProp<healthData>(Hash::getHash("healthData"));
-		if(data == NULL){
-			continue;
+void healthProcessor::_Process(Object *obj, float dt){
 
-			
-		}	
-
-		if(data->getHP() <= 0){
-			obj->Kill();
-		}
-	};
+	healthData *data = obj->getPrimitive<healthData>(Hash::getHash("healthData"));
+	if(data->getHP() <= 0){
+		obj->Kill();
+	}
 };
 

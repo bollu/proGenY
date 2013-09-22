@@ -14,12 +14,6 @@
 
 struct phyData;
 
-
-
-
-
-
-
 //ALYWAS CREATE THE FIXTURE DEF's SHAPE ON THE STACK
 /*!Stores data used by the phyProcessor
 
@@ -83,11 +77,19 @@ private:
 public:
 	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 
-	void onObjectAdd(Object *obj);
+protected:
+	void _onObjectAdd(Object *obj);
 
-	void preProcess();
-	void Process(float dt);
-	void postProcess();
-	void onObjectRemove(Object *obj);
+	void _onObjectActivate(Object *obj);
+	void _onObjectDeactivate(Object *obj);
+
+	void _preProcess();
+	void _Process(Object *obj, float dt);
+	void _onObjectDeath(Object *obj);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("phyData");
+	};
+
 };
 

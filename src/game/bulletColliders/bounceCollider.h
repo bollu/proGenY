@@ -36,18 +36,14 @@ public:
 		myBody->SetLinearVelocity(zeroVector);
 		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter());
 
-		util::infoLog<<"------------";
-		PRINTVECTOR2(normal);
-		PRINTVECTOR2(myVel);
-		PRINTVECTOR2(velAlongNormal);
-		PRINTVECTOR2(velAlongTangent);
-		PRINTVECTOR2(resultant);
+		if(!bullet->hasProperty("bulletNumBounces")){
+			util::errorLog<<"\n\nno property on bullet"<<util::flush;
+		}
 
-		Prop<int> *numBouncesProp = bullet->getPropPtr<int>(Hash::getHash("bulletNumBounces"));
-		int numBounces = *numBouncesProp->getVal();
-		numBouncesProp->setValStack(numBounces  - 1);
+		int *numBounces = bullet->getPrimitive<int>(Hash::getHash("bulletNumBounces"));
+		*numBounces = (*numBounces  - 1);
 
-		return (numBounces <= 0);
+		return (*numBounces < 0);
 	};
 
 	bool onDefaultCollision(collisionData &collision, Object *bullet){

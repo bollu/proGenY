@@ -3,41 +3,26 @@
 #include "../../core/ObjProcessors/phyProcessor.h"
 
 pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,
- eventMgr &_eventManager) : eventManager(_eventManager) {
+	eventMgr &_eventManager) : objectProcessor("pickupProcessor"), eventManager(_eventManager) {
 
 };
 
-void pickupProcessor::Process(float dt){
+void pickupProcessor::_Process(Object *obj, float dt){
 
+	pickupData *data = obj->getPrimitive<pickupData>(Hash::getHash("pickupData"));
+	phyData *phy = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+
+	assert(data != NULL && phy != NULL);
 	
-
-	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
-		Object *obj = it->second;
-
-		pickupData *data = obj->getProp<pickupData>(Hash::getHash("pickupData"));
-		
-		if(data == NULL){
-			continue;
-		}	
-
-		phyData *phy = obj->getProp<phyData>(Hash::getHash("phyData"));
-		assert(phy != NULL);
-
-		for(collisionData &collision : phy->collisions){
-			this->_handleCollision(obj, data, collision);
-
-		}
-
+	for(collisionData &collision : phy->collisions){
+		this->_handleCollision(obj, data, collision);
 	}
+
 };
 
 
-void pickupProcessor::onObjectRemove(Object *obj){
-	pickupData *data = obj->getProp<pickupData>(Hash::getHash("pickupData"));
-	
-	if(data == NULL){
-		return;
-	}
+void pickupProcessor::_onObjectDeath(Object *obj){
+	pickupData *data = obj->getPrimitive<pickupData>(Hash::getHash("pickupData"));
 
 	if(data->eventData != NULL){
 		//delete(data->eventData);

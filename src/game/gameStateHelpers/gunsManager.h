@@ -12,9 +12,8 @@ class gunsManager : public Observer{
 public:
 	gunsManager(eventMgr &eventManager, objectFactory &factory, 
 		objectMgr &objectManager, Object *player);
+
 	void addGun(Object *gun, bool currentGun=false);
-
-
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 
 private:

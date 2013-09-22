@@ -4,12 +4,16 @@ CC = clang++ -fcolor-diagnostics
 #CC = clang++
 
 # define any compile-time flags
-#CFLAGS =  -std=c++11 -DDEBUG -g  -w -Wfatal-errors -DDEBUG -g -O0	
-CFLAGS = -std=c++11 -Oz
-CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors
+#for debugging
+CFLAGS =  -std=c++11 -DDEBUG -g  -w  -DDEBUG -g -O0	
+#-Wfatal-errors
+
+#for usual stuff
+#CFLAGS = -std=c++11 -Oz -Wno-null-conversion
+CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors 
 
 
-#text to be printed for compilarion
+#text to be printed for compilation
 
 # define any directories containing header files other than /usr/include
 #

@@ -24,15 +24,9 @@ public:
 
 	gunCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}
 
-	void setParent(Object *parent){
+	void Init(Object *parent, gunData gun, float offsetRadius = 0){
 		this->parent = parent;
-	}
-
-	void setGunData(gunData gun){
 		this->gun = gun;
-	}
-
-	void setOffset(float radius){
 		this->radius = 0;
 	}
 
@@ -42,16 +36,21 @@ public:
 		
 		Object *gun = new Object("gun");
 
-		vector2 *pos = gun->getProp<vector2>(Hash::getHash("position"));
+		vector2 *pos = gun->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = gunPos;
 
 
 		//renderer------------------------------------
 		vector2 gunDim = vector2(2,1) * viewProc->getGame2RenderScale();
 		sf::Shape *shape = renderUtil::createRectangleShape(gunDim);
-		shape->setFillColor(sf::Color::Blue);
-		shape->setOutlineColor(sf::Color::White);
-		shape->setOutlineThickness(-2.0);
+
+		sf::Color color;
+		color.r = rand() % 255;
+		color.g = rand() % 255;
+		color.b = rand() % 255;
+		shape->setFillColor(color);
+		//shape->setOutlineColor(sf::Color::White);
+		//shape->setOutlineThickness(-2.0);
 
 		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
 		render.addRenderer(renderer);

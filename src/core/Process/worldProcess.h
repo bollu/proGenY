@@ -31,13 +31,13 @@ private:
 public:
 	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :
 	 Process("worldProcess"){
-		//world = new b2World(settings.getProp<vector2>("worldGravity")->getVal());
+		//world = new b2World(settings.getPrimitive<vector2>("worldGravity")->getVal());
 		
-	 	vector2 *gravity = settings.getProp<vector2>(Hash::getHash("gravity"));
-	 	this->stepSize = *settings.getProp<float>(Hash::getHash("stepSize"));
+	 	vector2 *gravity = settings.getPrimitive<vector2>(Hash::getHash("gravity"));
+	 	this->stepSize = *settings.getPrimitive<float>(Hash::getHash("stepSize"));
 
-	 	this->velIterations = *settings.getProp<int>(Hash::getHash("velIterations"));
-	 	this->collisionIterations = *settings.getProp<int>(Hash::getHash("collisionIterations"));
+	 	this->velIterations = *settings.getPrimitive<int>(Hash::getHash("velIterations"));
+	 	this->collisionIterations = *settings.getPrimitive<int>(Hash::getHash("collisionIterations"));
 
 		world = new b2World(*gravity);
 
@@ -116,4 +116,4 @@ public:
 	 b2World *getWorld(){
 	 	return this->world;
 	 }
-} ;
+};

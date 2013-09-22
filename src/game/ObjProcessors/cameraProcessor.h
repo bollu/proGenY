@@ -32,6 +32,21 @@ struct cameraData{
 	cameraData(){};
 };
 class cameraProcessor : public objectProcessor{
+
+public:
+	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+		objectProcessor("cameraProcessor") {
+		
+		worldProcess *world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
+		this->view =  processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
+		this->window = 
+			processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
+
+		this->stepSize = world->getStepSize();
+		this->maxAccumilation = world->getMaxAccumilation();
+
+	};
+
 private:
 	float stepSize;
 	float maxAccumilation;
@@ -44,20 +59,13 @@ private:
 
 	vector2 _calcCameraMoveAmt(Object *obj, cameraData *data);
 	void _simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data);
-public:
 
+protected:
+	void _onObjectAdd(Object *obj);
+	void _Process(Object *obj, float dt);
 
-	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) {
-		
-		worldProcess *world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
-		this->view =  processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
-		this->window = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
-
-		this->stepSize = world->getStepSize();
-		this->maxAccumilation = world->getMaxAccumilation();
-
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("cameraData");
 	};
 
-	void onObjectAdd(Object *obj);
-	void Process(float dt);
 };

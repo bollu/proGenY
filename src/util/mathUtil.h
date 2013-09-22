@@ -14,11 +14,21 @@ namespace util{
 
 
 	template<typename T>
-	int sgn(T  num){
+	static int sgn(T  num){
 		return 
 		num > 0 ? 1 :
 		num < 0 ? -1  :
 		0;
+	}
+
+
+	template <typename T>
+	static T lerp(const T &begin, const T &end, float t){
+		return (1.0 - t) * begin + t * end;
+	}
+
+	static float randFloat(const float range = 1000){
+		return (rand() % (int)range) / (float)(range - 1.0);
 	}
 
 	/*!An agnostic representation of Angle

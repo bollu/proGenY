@@ -44,17 +44,27 @@ the Object must be attached with renderData. the objectProcessor
 uses renderData to draw the Object
 */
 class renderProcessor : public objectProcessor{
+public:
+
+	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+
 private:
 	sf::RenderWindow *window;
 	viewProcess *view;
 	renderProcess *render;
 
 	void _Render(vector2 pos, util::Angle &angle , renderData *data, bool centered);
-public:
 
-	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
-	void onObjectAdd(Object *obj);
+protected:
+	void _onObjectAdd(Object *obj);
 
-	void Process(float dt);
-	void onObjectRemove(Object *obj);
+	void _onObjectActivate(Object *obj);
+	void _onObjectDeactivate(Object *obj);
+	
+	void _Process(Object *obj, float dt);
+	void _onObjectDeath(Object *obj);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("renderData");
+	};
 };

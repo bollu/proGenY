@@ -43,7 +43,7 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 	camera.boxHalfW = 360;
 	camera.boxHalfH = 200;
 
-	creator->setCameraData(camera);
+	creator->Init(camera);
 
 	//player created--------------------------------------------
 	this->_createPlayer(initPos, creator);

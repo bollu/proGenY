@@ -1,33 +1,32 @@
 #pragma once
+#pragma once
 #include "objectFactory.h"
 #include "../../core/Process/viewProcess.h"
-#include "../terrainGen/terrainGenerator.h"
+#include "../ObjProcessors/offsetProcessor.h"
+
+#include "../../core/ObjProcessors/renderProcessor.h"
+#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/renderUtil.h"
+
+#include "../defines/renderingLayers.h"
 
 
-/*\sa responsible for creating the terrain object
-all interaction with the object is generally done in 
-"chunk" coordinates. Chunks are similar to tiles. Once
-the terrain creator is created, all interaction with this object
-in terms of coordinate systems will be done in terms of chunks only
-*/
 class terrainCreator : public objectCreator{
 public:
-	terrainCreator(viewProcess *viewProc);
-
-	void setBounds(vector2 bottomLeft, vector2 topRight, vector2 chunkDim);
-	void reserveRectSpace(vector2 center, vector2 halfDim);
-
-	Object *createObject();
+	terrainCreator(viewProcess *_viewProc);
+	Object *createObject(vector2 bottomLeft) const;
+	
+	void Init(vector2 numBlocks, vector2 blockDim, unsigned int seed);
 
 private:
-
-
-	terrainGenerator terrainGen;
-	vector2 bottomLeft, topRight, numChunks;
-	int totalChunkCount;
+	void _createFilledBlock(phyData &phy, vector2 blockPos) const;
+	renderData _createRenderer(phyData &phy) const;
+	
 	viewProcess *viewProc;
+	vector2 numBlocks;
+	vector2 blockDim;
+	unsigned int seed;
 
-	void _dbgPrintChunks();
-	void _genTerrainData();
+	vector2 _block2World(vector2 blockPos) const;
 
 };

@@ -6,25 +6,25 @@
 #include "../util/mathUtil.h"
 #include "../core/Process/viewProcess.h"
 
-sf::Shape *renderUtil::createShape(b2Shape *shape, viewProcess *view){
+sf::Shape *renderUtil::createShape(const b2Shape *shape, viewProcess *view){
 
 	switch(shape->m_type){
 		case b2Shape::Type::e_polygon:
-			return renderUtil::createPolyShape(static_cast<b2PolygonShape *>(shape), view);
+			return renderUtil::createPolyShape(static_cast<const b2PolygonShape *>(shape), view);
 			break;
 
 		case b2Shape::Type::e_circle:
-			return renderUtil::createCircleShape(static_cast<b2CircleShape *>(shape), view);
+			return renderUtil::createCircleShape(static_cast<const b2CircleShape *>(shape), view);
 
 		default: 
-			util::errorLog<<"unable to create required sf::Shape. unkown b2::shape";
+			util::errorLog<<"unable to create required sf::Shape. unkown b2::shape"<<util::flush;
 			return NULL;
 	};
 	
 };
 
 
-sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, viewProcess *view){
+sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){
 
 	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->m_vertexCount);
 
@@ -54,7 +54,7 @@ sf::Shape *renderUtil::createPolyShape(b2PolygonShape *b2Shape, viewProcess *vie
 	return polyShape;
 };
 
-sf::Shape *renderUtil::createCircleShape(b2CircleShape *b2Shape, viewProcess *view){
+sf::Shape *renderUtil::createCircleShape(const b2CircleShape *b2Shape, viewProcess *view){
 	static const int numPoints = 10;
 	static const float angleDelta = util::TwoPI / numPoints;
 
@@ -75,7 +75,7 @@ sf::Shape *renderUtil::createCircleShape(b2CircleShape *b2Shape, viewProcess *vi
 };
 
 
-sf::Shape *renderUtil::createRectangleShape(vector2 dim){
+sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){
 	float w = dim.x;
 	float h = dim.y;
 

@@ -10,7 +10,7 @@
 
 
 
-struct moveData{
+struct groundMoveData{
 private:
 	bool movingLeft;
 	bool movingRight;
@@ -28,7 +28,7 @@ private:
 
 public:
 		
-	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
+	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
 				movingLeft(false), movingRight(false), 
 				jumping(false), onGround(true){}
 
@@ -59,15 +59,19 @@ public:
 
 class groundMoveProcessor : public objectProcessor{
 public:
-	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
+	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+		objectProcessor("groundMoveProcessor"){
 		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
 	}
 
-	void onObjectAdd(Object *obj);
-	void Process(float dt);
+	void _onObjectAdd(Object *obj);
+	void _Process(Object *obj, float dt);
 private:
 
 	b2World *world;
-	vector2 _calcJumpImpulse(moveData *data, vector2 currentVel, float dt);
+	vector2 _calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt);
 	
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("groundMoveData") && obj->requireProperty("phyData");
+	};
 };

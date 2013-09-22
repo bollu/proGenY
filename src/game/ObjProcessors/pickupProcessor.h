@@ -36,10 +36,17 @@ class collisionData;
 class pickupProcessor : public objectProcessor{
 public:
 	pickupProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
-	void Process(float dt);
-
-	void onObjectRemove(Object *obj);
+	
 private:
 	eventMgr &eventManager;
 	void _handleCollision(Object *obj, pickupData *data, collisionData &collision);
+
+
+protected:
+	void _Process(Object *obj, float dt);
+	void _onObjectDeath(Object *obj);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("pickupData") && obj->requireProperty("phyData");
+	};
 };

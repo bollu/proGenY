@@ -3,7 +3,7 @@
 #include <algorithm>
 
 #ifndef PRINTVECTOR2
-	#define PRINTVECTOR2(vec) std::cout<<"\n\t"<<#vec<<" X = "<<((vec).x)<<" Y = "<<((vec).y)<<std::endl;
+	#define PRINTVECTOR2(vec) util::infoLog<<"\n\t"<<#vec<<" X = "<<((vec).x)<<" Y = "<<((vec).y)<<util::flush;
 #endif
 
 //HACK!--------------------------------------
@@ -83,7 +83,7 @@ public:
 
 	/*!return a vector that is clamped between minVec and maxVec
 	*/   
-	vector2 clamp(vector2 minVec, vector2 maxVec){
+	vector2 clamp(const vector2 &minVec, const vector2 &maxVec){
 		vector2 clampedVec; clampedVec.x = x; clampedVec.y = y;
 		if(clampedVec.x < minVec.x) clampedVec.x = minVec.x;
 		if(clampedVec.x > maxVec.x) clampedVec.x = maxVec.x;
@@ -94,11 +94,11 @@ public:
 		return clampedVec;
 	};
 
-	float dotProduct(vector2 other){
+	float dotProduct(const vector2 &other){
 		return this->x * other.x + this->y * other.y;
 	}
 	/*!projects *this* vector onto the other vector*/
-	vector2 projectOn(vector2 projectDir){
+	vector2 projectOn(const vector2 &projectDir){
 
 		vector2 normalizedProjectDir = projectDir.Normalize();
 		//normalize the other vector and multiply it by *this* vector's

@@ -12,7 +12,7 @@ private:
 public:
 	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}
 	
-	void setCameraData(cameraData &camData){
+	void Init(cameraData &camData){
 		this->camData = camData;
 		this->camData.enabled = true;
 		
@@ -22,13 +22,13 @@ public:
 
 		Object *playerObj = new Object("player");
 		
-		vector2 *pos = playerObj->getProp<vector2>(Hash::getHash("position"));
+		vector2 *pos = playerObj->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = playerInitPos;
 
 
 		phyData phy;
 		renderData render;
-		moveData move;
+		groundMoveData move;
 		
 		//physics------------------------------------------------------------
 		phy.collisionType = Hash::getHash("player");
@@ -37,23 +37,23 @@ public:
 		b2CircleShape *playerBoundingBox = new b2CircleShape();
 		playerBoundingBox->m_radius = 1.0f;
 
-		b2FixtureDef playerFixtureDef;
-		playerFixtureDef.shape = playerBoundingBox;
-		playerFixtureDef.friction = 0.0;
-		playerFixtureDef.restitution = 0.0;
+		b2FixtureDef fixtureDef;
+		fixtureDef.shape = playerBoundingBox;
+		fixtureDef.friction = 0.0;
+		fixtureDef.restitution = 0.0;
 
-		phy.fixtureDef.push_back(playerFixtureDef);
+		phy.fixtureDef.push_back(fixtureDef);
 
 
-	//renderer---------------------------------------------------------------
-		sf::Shape *playerSFMLShape = renderUtil::createShape(playerBoundingBox, 
+	//renderNode---------------------------------------------------------------
+		sf::Shape *SFMLShape = renderUtil::createShape(playerBoundingBox, 
 			viewProc);
+		
+		SFMLShape->setFillColor(sf::Color::Green);
 
-		playerSFMLShape->setFillColor(sf::Color::Green);
+		shapeRenderNode *renderNode = new shapeRenderNode(SFMLShape, renderingLayers::action);
 
-		shapeRenderNode *playerShapeRenderer = new shapeRenderNode(playerSFMLShape, renderingLayers::action);
-
-		render.addRenderer(playerShapeRenderer);
+		render.addRenderer(renderNode);
 
 	//movement-----------------------------------------------------------
 		move.xVel = 60;
@@ -72,8 +72,8 @@ public:
 		playerObj->addProp(Hash::getHash("renderData"), 
 			new Prop<renderData>(render));
 
-		playerObj->addProp(Hash::getHash("moveData"), 
-			new Prop<moveData>(move));
+		playerObj->addProp(Hash::getHash("groundMoveData"), 
+			new Prop<groundMoveData>(move));
 
 		playerObj->addProp(Hash::getHash("cameraData"), 
 			new Prop<cameraData>(this->camData));

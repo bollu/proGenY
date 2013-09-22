@@ -19,17 +19,19 @@ public:
 	\return the setting's value  
 	*/
 	template<typename T>
-	T* getProp(const Hash *propertyName){
+	T* getPrimitive(const Hash *propertyName){
 		auto it = settingsMap.find(propertyName);
 
 		if( it == settingsMap.end() ){
-				util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<propertyName;
+				util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<
+				propertyName<<util::flush;
 		};
 
 		Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second); 
 
 		if(prop == NULL){
-			util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<propertyName;
+			util::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<
+			propertyName<<util::flush;
 		}
 		return prop->getVal();
 	};
@@ -43,7 +45,8 @@ public:
 	void addProp(const Hash *propertyName, baseProperty* property){
 
 		if(this->settingsMap.find(propertyName) != settingsMap.end()){
-			util::errorLog<<"trying to add a setting twice.\nSetting Name:"<<propertyName;
+			util::errorLog<<"trying to add a setting twice.\nSetting Name:"<<
+			propertyName<<util::flush;
 			
 		}
 

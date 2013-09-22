@@ -23,14 +23,10 @@ public:
 
 	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void setBulletData(bulletData data){
+	void Init(bulletData data, float bulletRadius){
 		this->bullet = data;
+		this->radius = bulletRadius;
 	}
-
-	void setCollisionRadius(float radius){
-		this->radius = radius;
-	};
-
 	
 	Object *createObject(vector2 _pos) const{
 		renderData render;
@@ -38,7 +34,7 @@ public:
 		
 		Object *obj = new Object("bullet");
 
-		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = _pos;
 
 		//physics------------------------------------------------------------
@@ -67,7 +63,7 @@ public:
 
 		sfShape->setFillColor(sf::Color::Red);
 
-		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape);
+		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape, renderingLayers::aboveAction);
 		render.addRenderer(shapeRenderer);
 		
 	

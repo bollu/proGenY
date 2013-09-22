@@ -18,10 +18,12 @@ private:
 	viewProcess *view;
 
 public:
-	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		
+	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+		objectProcessor("terrainProcessor"){
+	};
+protected:
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("terrainData");
 	};
 
-
-	void Process(float dt){};
 };

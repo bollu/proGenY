@@ -18,9 +18,9 @@ eventManager(_eventManager), playerData(playerData){
 
 	assert(player != NULL);
 
-	this->playerData.playerPos = player->getProp<vector2>(Hash::getHash("position"));
-	this->playerData.objMoveData =  player->getProp<moveData>(Hash::getHash("moveData"));
-	this->playerData.physicsData =  player->getProp<phyData>(Hash::getHash("phyData"));
+	this->playerData.playerPos = player->getPrimitive<vector2>(Hash::getHash("position"));
+	this->playerData.objMoveData =  player->getPrimitive<groundMoveData>(Hash::getHash("groundMoveData"));
+	this->playerData.physicsData =  player->getPrimitive<phyData>(Hash::getHash("phyData"));
 
 	assert(this->playerData.playerPos != NULL);
 	assert(this->playerData.objMoveData != NULL);
@@ -169,24 +169,8 @@ void playerEventHandler::_updateGunFacing(vector2 gameMousePos){
 	util::Angle facing = util::Angle(delta);
 
 	this->eventManager->sendEvent(Hash::getHash("playerFacingChanged"), facing);
-
-	/*
-	
-	
-	
-	vector2 bulletOffset = facing.polarProjection(3);
-	vector2 gunOffset = facing.polarProjection(0.2);
-
-	playerData._gunData->setBulletPos(*playerData.playerPos + bulletOffset);
-	playerData._gunData->setFacing(facing);
-
-	playerData.gunOffsetData->posOffset = v
-	*/
 };
 
 void playerEventHandler::_fireGun(){
-
 	this->eventManager->sendEvent(Hash::getHash("firePlayerGun"));
-	//playerData._gunData->Fire();
-	
 };

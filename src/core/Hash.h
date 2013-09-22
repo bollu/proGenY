@@ -82,15 +82,17 @@ public:
 	
 	\return
 	whether this Hash is less than the other Hash
+	useful to store in std::list or std::map (the < operator is used by
+	std::map for key comparison)
 	*/
-	bool operator<(const Hash& other) const;
+	bool operator < (const Hash& other) const;
 
 	/*! returns if one Hash value is greater than the other. 
 	
 	\return
 	whether this Hash is greater than the other Hash
 	*/
-	bool operator>(const Hash& other) const;
+	bool operator > (const Hash& other) const;
 
 
 

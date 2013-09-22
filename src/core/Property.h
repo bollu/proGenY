@@ -63,18 +63,6 @@ class Prop : public baseProperty{
 		this->val = val;
 	}
 
-	/*! used to set the value stored by the Property from a temporary 
-		variable on the stack
-
-	@param[in] val the new value to be stored
-	*/
-	void setValStack(T val){
-		this->val = val;
-	}
-
-
-
-
 };
 
 

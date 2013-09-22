@@ -13,6 +13,7 @@ include_rules
 : foreach ../src/core/Process/*.c* |> !cc |> %B.o
 : foreach ../src/core/State/*.c* |> !cc |>%B.o
 : foreach ../src/core/Rendering/*.c* |> !cc |>%B.o
+: foreach ../src/core/AI/*.c* |> !cc |>%B.o
 
 : foreach ../src/game/eventHandlers/*.c* |> !cc |> %B.o
 : foreach ../src/game/factory/*.c* |>  !cc |> %B.o

@@ -40,9 +40,17 @@ public:
 		int numAbilities;
 		int abilitySkill;
 
-		genData(){
-			this->numAbilities = 0;
-			this->abilitySkill = 0;
+		genData(knockbackProperty knockback,
+				gravityProperty gravity,
+				damageProperty damage,
+				unsigned int numAbilities,
+				unsigned int abilitySkill){
+			
+			this->numAbilities = numAbilities;
+			this->abilitySkill = abilitySkill;
+			this->knockback = knockback;
+			this->damage = damage;
+			this->gravity = gravity;
 		}
 
 	};

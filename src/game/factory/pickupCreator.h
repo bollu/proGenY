@@ -17,23 +17,19 @@ private:
 public:
 
 	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
-
-	void setPickupData(pickupData data){
+	
+	void Init(pickupData data, float radius){
 		this->pickup = data;
+		this->radius = radius;
 	}
 
-	void setCollisionRadius(float radius){
-		this->radius = radius;
-	};
-
-	
 	Object *createObject(vector2 _pos) const{
 		renderData render;
 		phyData phy;
 		
 		Object *obj = new Object("bullet");
 
-		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = _pos;
 
 		//physics------------------------------------------------------------

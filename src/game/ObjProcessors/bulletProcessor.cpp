@@ -3,15 +3,15 @@
 #include "../../core/ObjProcessors/phyProcessor.h"
 
 
-void bulletProcessor::onObjectAdd(Object *obj){
+void bulletProcessor::_onObjectAdd(Object *obj){
 	
-	bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
+	bulletData *data = obj->getPrimitive<bulletData>(Hash::getHash("bulletData"));
 
 	if(data == NULL){
 		return;
 	};
 	
-	phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
+	phyData *physicsData = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
 	assert(physicsData != NULL);
 
 	b2Body *body = physicsData->body;
@@ -26,7 +26,7 @@ void bulletProcessor::onObjectAdd(Object *obj){
 
 
 	for(bulletCollider *collider : data->colliders){
-	
+
 		collider->onCreate(obj);
 	}
 
@@ -35,26 +35,19 @@ void bulletProcessor::onObjectAdd(Object *obj){
 
 };
 
-void bulletProcessor::Process(float dt){
+void bulletProcessor::_Process(Object *obj, float dt){
 
-	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
 
-		Object *obj = it->second;
+	bulletData *data = obj->getPrimitive<bulletData>(Hash::getHash("bulletData"));
+	
+	phyData *physicsData = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	assert(physicsData != NULL);
 
-		bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
-		if(data == NULL){
-			continue;
-		}
-
-		
-		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
-		assert(physicsData != NULL);
-
-		b2Body *body = physicsData->body;		
-		for(collisionData collision : physicsData->collisions){
-			this->_handleCollision(collision, data, obj);
-		}
-	};
+	b2Body *body = physicsData->body;		
+	for(collisionData collision : physicsData->collisions){
+		this->_handleCollision(collision, data, obj);
+	}
+	
 
 };
 

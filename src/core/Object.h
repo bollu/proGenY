@@ -37,8 +37,14 @@ public:
 	Object(std::string _name);
 	~Object();
 
+
+	/*!returns the base name of an object - the name that it was generated with.
+	 this name is NOT unique. this is useful to figure out to which "class" of objects
+	 this object belongs*/
+	std::string getBaseName() const;
+
 	/*!returns the unique name of the Object*/
-	std::string getName();
+	std::string getName() const;
 
 	/*!adds a property to the Object
 	The baseProperty and Hash is  stored as a key-value pair. The Hash is the
@@ -48,33 +54,36 @@ public:
 	@param [in] value The Property to be associated with the key name
 	*/
 	void addProp(const Hash *name, baseProperty *value);
+	void addProp(const char *name, baseProperty *value);
 	
-
-	/*!returns the baseProperty associated with the name
-	It is not advisable to use this function. it is better to just use
-	Object::getProp, Object::getPtrProp, and Object::getManagedProp
-	rather than use this function
-
-	@param [in] name The Hash of the name of the property
-
-	\return the Property associated with the name, or NULL if the property does not exist
+	/*!kills the Object. 
+	The Object destruction will be notified to all
+	objectProcessor classes. It will then be destroyed
 	*/
-	baseProperty *getBaseProp(const Hash *name);
+	void Kill();
+
+	/*!returns whether the Object has died */
+	bool isDead() const;
+
+	/*!returns whether the Object has the property with name */
+	bool hasProperty(const Hash *name) const;
+	bool hasProperty(const char *name) const;
+
+	/*!returns whether the Object has the property with name. 
+	If the Object does not have said Property, it logs to errorLog thereby crashing the
+	program*/
+	bool requireProperty(const Hash *name) const;
+	bool requireProperty(const char *name) const;
+
 
 
 	/*!returns the value associated with the name
-	This function is used to retrieve a value that was stored in Prop.
-	If a value is not attached to name, or if the value is stored in 
-	some other derived class member of baseProperty_, the function will
-	return NULL. it will _only_ return the value of the Property if both the
-	key as well as the derived class type of baseProperty matches
-
 	@param [in] name The Hash of the name of the property
 	\return the value associated with the Prop, NULL if the property does not exist,
 				NULL if the value is stored in some other derived class member of baseProperty
 	*/
 	template<typename Type>
-	Type* getProp(const Hash *name){
+	Type* getPrimitive(const Hash *name){
 		Prop<Type> *prop =_getProperty<Type>(name, false);
 		if(prop == NULL){
 			return NULL;
@@ -84,49 +93,19 @@ public:
 	}
 
 	template<typename Type>
-	void setProp(const Hash *name, Type *value){
-		assert(name != NULL && value !=  NULL);
-		Prop<Type> *prop =_getProperty<Type>(name);
-		prop->setVal(*value);
-		
+	Type* getPrimitive(const char *name){
+		return this->getPrimitive<Type>(Hash::getHash(name));
+
 	}
 	
-	template<typename Type>
-	Prop<Type> *getPropPtr(const Hash *name){
-		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
-
-		if(prop == NULL){
-			util::errorLog<<"unable to find property. \
-							\nObject: "<<this->getName()<<"\nProperty: "<<name;
-		}else{
-			return prop;
-		}
-	}
-
-	template<typename Type>
-	void setProp(const Hash *name, Type value){
-		Prop<Type> *prop =_getProperty<Type>(name);
-		prop->setVal(value);
-	}
+	/*prints a list of properties owned by the object */
+	void _printProperties() const;
 
 
-	/*!returns whether the Object has the property with name */
-	bool hasProperty(const Hash *name){
-		return this->getBaseProp(name) == NULL ? false : true;
-	}
-
-	/*!kills the Object. 
-	The Object destruction will be notified to all
-	objectProcessor classes. It will then be destroyed
-	*/
-	void Kill(){
-		this->dead = true;
-	}
-
-	/*!returns whether the Object has died */
-	bool isDead(){
-		return this->dead;
-	}
+	typedef std::vector<Object *> objectList;
+	typedef std::map<std::string, Object *> objectMap;
+	typedef objectMap::iterator objMapIt;
+	typedef objectMap::const_iterator cObjMapIt;
 
 private:
 	friend class objectProcessor;
@@ -134,10 +113,12 @@ private:
 
 	//name of the object
 	std::string name;
+	std::string baseName;
 
 	//a map of properties that can be accessed by all objects
 	std::map<const Hash*, baseProperty* > propertyMap; 
 	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;
+	typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;
 
 
 
@@ -150,24 +131,36 @@ private:
 	//stores whether the Object is dead or not
 	bool dead;
 
+	
+
 	void _genUniqueName(std::string genericName, std::string &out);
 	
 	template <typename T>
 	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){
 
 
-		Prop<T> *prop = dynamic_cast<Prop<T> *>(this->getBaseProp(name));
+		Prop<T> *prop = dynamic_cast<Prop<T> *>(this->_getBaseProp(name));
 		
 		if(prop == NULL && warnIfNull){
 			util::errorLog<<"unable to find property. \
-							\nObject: "<<this->getName()<<"\nProperty: "<<name;
+							\nObject: "<<this->getName()<<"\nProperty: "<<name<<util::flush;
 			
 			return NULL;
 		}
 
 		return prop;
 	};
+
+	/*!returns the baseProperty associated with the name
+	It is not advisable to use this function. it is better to just use
+	Object::getPrimitive, Object::getPtrProp, and Object::getManagedProp
+	rather than use this function
+
+	@param [in] name The Hash of the name of the property
+
+	\return the Property associated with the name, or NULL if the property does not exist
+	*/
+	baseProperty *_getBaseProp(const Hash *name) const;
 };
 
 
-typedef std::vector<Object *> objectList;

@@ -53,6 +53,13 @@ namespace util{
 		virtual ~baseLog();
 	};
 
+
+
+	/*sentinel class */
+
+	class _Flush{ public: _Flush(){}; };
+	static const _Flush flush;
+
 	/*! used to emit a quick logging message
 
 	this logObject is typically used to print information to the console.
@@ -70,42 +77,15 @@ namespace util{
 
 		msgLog(){};
 
-		
-		/*! constructor used to create a msgLog
-
-		If the logLevel is greater than the logThreshold set in baseLog,
-		then the message will be emitted. 
-
-		If a logLevel of Error is used, and Error is above the log threshold,
-		then the error will be emitted and the program will halt 
-		
-		@param [in] msg the message to be printed
-		@param [in] level the logLevel of the given message.
-		
-		\sa scopedLog
-		*/
-		/*
-		msgLog(std::string msg){
-			if(level >= baseLog::thresholdLevel){
-				std::cout<<"\n"<<msg<<std::endl;
-
-				if(level == logLevelError){
-					std::cout<<"\n\n Quitting from logObject due to error"<<std::endl;
-					assert(false);
-				}
-			}
-
-			
-		};*/
-
 		template <typename T>
-		msgLog & operator << (T toWrite){
+		msgLog & operator << (const T &toWrite){
 			if(level >= baseLog::thresholdLevel){
 				std::cout<<toWrite;
 			}
 
 			return *this;
 		}
+
 
 		msgLog & operator << (const Hash* toWrite){
 			if(level >= baseLog::thresholdLevel){
@@ -114,8 +94,55 @@ namespace util{
 
 			return *this;
 		}
+
+		msgLog & operator << (const _Flush& flush){
+			if(level >= baseLog::thresholdLevel){
+				std::cout.flush();
+			}
+			return *this;
+		}
 	
 		
+	};
+
+	template<>
+	class msgLog<logLevelError> : public baseLog{
+	private:
+		void Throw(){
+			std::cout<<"\n\n-----------------------------"<<std::endl;
+			assert(false);
+		}
+
+	public:
+		msgLog(){
+		};
+
+		template <typename T>
+		msgLog & operator << (const T &toWrite){
+			if(logLevelError >= baseLog::thresholdLevel){
+				std::cout<<toWrite;
+			}
+
+			return *this;
+		}
+
+
+		msgLog & operator << (const Hash* toWrite){
+			if(logLevelError >= baseLog::thresholdLevel){
+				std::cout<<Hash::Hash2Str(toWrite);
+			}
+
+			return *this;
+		}
+
+		msgLog & operator << (const _Flush& flush){
+			if(logLevelError >= baseLog::thresholdLevel){
+				std::cout.flush();
+				this->Throw();
+			}
+			
+			return *this;
+		}
 	};
 
 	#pragma once

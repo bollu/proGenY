@@ -16,4 +16,4 @@ public:
 
 	static void saveLevel(Level *level);
 	static Level* loadLevel();
-}
+};

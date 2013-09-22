@@ -15,7 +15,7 @@ public:
 	bool onEnemyCollision(collisionData &collision, Object *bullet){
 		Object *other = collision.otherObj;
 
-		healthData *health = other->getProp<healthData>(Hash::getHash("healthData"));
+		healthData *health = other->getPrimitive<healthData>(Hash::getHash("healthData"));
 		if(health == NULL)
 			return true;
 

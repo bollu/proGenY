@@ -3,24 +3,27 @@
 #include <type_traits>
 
 
-phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
-{
+phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+objectProcessor("phyProcessor") {
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
 	this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
 
 	world->SetContactListener(&this->contactListener);
 }
 
-void phyProcessor::onObjectAdd(Object *obj){
+void phyProcessor::_onObjectAdd(Object *obj){
+
+	
+
+	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	vector2* gamePos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 
 
-	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
-	vector2* gamePos = obj->getProp<vector2>(Hash::getHash("position"));
-
-
-	//it doesn't have either, so chill and move on
+	//it doesn't have phyData, so chill and move on
 	if(data == NULL){	
+		util::infoLog<<"\n "<<obj->getName()<<" does not have phyData";
 		return;
+
 	}
 	
 	data->bodyDef.position = *gamePos;
@@ -43,11 +46,15 @@ void phyProcessor::onObjectAdd(Object *obj){
 
 }
 
-void phyProcessor::preProcess(){
-	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-		Object *obj = it->second;
+void phyProcessor::_preProcess(){
 
-		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+	for(Object::cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
+		Object *obj = it->second;
+		
+		assert(obj != NULL);
+
+
+		phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
 		if(data == NULL){
 			continue;
 		}
@@ -57,80 +64,47 @@ void phyProcessor::preProcess(){
 	//this->_processContacts();
 };
 
-void phyProcessor::Process(float dt){
+void phyProcessor::_Process(Object *obj, float dt){
 
 
-	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-		Object *obj = it->second;
+	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
 
-		
-		phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 
-		if(data == NULL){
-			continue;
-		}
+	util::Angle *angle = obj->getPrimitive<util::Angle>(Hash::getHash("facing"));
+	angle->setRad(data->body->GetAngle()); 
 
-		vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
-		
-		util::Angle *angle = obj->getProp<util::Angle>(Hash::getHash("facing"));
-		angle->setRad(data->body->GetAngle()); 
-
-		vector2 newPos = vector2::cast(data->body->GetPosition());
-		*pos = (newPos);
-
-	};
+	vector2 newPos = vector2::cast(data->body->GetPosition());
+	*pos = (newPos);
 
 }
 
 
-void phyProcessor::postProcess(){
-
-}
-
-
-
-
-void phyProcessor::onObjectRemove(Object *obj){
-	phyData *data = obj->getProp<phyData>(Hash::getHash("phyData"));
+void phyProcessor::_onObjectDeath(Object *obj){
+	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
 
 
 	if(data != NULL){
-		util::infoLog<<"destroying body owned by "<<obj->getName();
+		util::infoLog<<"\n\ndestroying body owned by "<<obj->getName();
 		world->DestroyBody(data->body);
 	}
 }
 
-/*
-void phyProcessor::_processContacts(){
-	for(auto contact = world->GetContactList(); contact != NULL; contact = contact->GetNext()){
+void phyProcessor::_onObjectActivate(Object *obj){
+	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	if(data != NULL){
+		
+	}
+};
+void phyProcessor::_onObjectDeactivate(Object *obj){
+	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	if(data != NULL){
 
-		if(!contact->IsTouching()){
-			continue;
-		}
-
-		b2Fixture *fixtureA = contact->GetFixtureA();
-		b2Fixture *fixtureB = contact->GetFixtureB();
-
-		b2Body *bodyA = fixtureA->GetBody();
-		b2Body *bodyB = fixtureB->GetBody();
-
-
-		Object *objA = static_cast<Object *>(bodyA->GetUserData());
-		Object *objB = static_cast<Object *>(bodyB->GetUserData());
-
-		assert(objA != NULL && objB != NULL);
-
-		phyData* phyDataA = objA->getProp<phyData>(Hash::getHash("phyData"));
-		phyData* phyDataB = objB->getProp<phyData>(Hash::getHash("phyData"));
-
-		assert(phyDataA != NULL && phyDataB != NULL);
-
-		//util::msgLog("collision.\nA:" + objA->getName() + "\nB:" + objB->getName());
+	}
+};
 
 
-
-	};
-}*/
+//-------------------------------------------------------------------
 
 void phyData::addCollision(collisionData &collision){
 
@@ -146,7 +120,7 @@ void phyData::removeCollision(Object *obj){
 	};
 };
 
-
 const Hash *collisionData::getCollidedObjectCollision(){
 	return this->otherPhy->collisionType;
 };
+

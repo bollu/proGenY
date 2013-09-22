@@ -1,62 +1,46 @@
 #pragma once
-#include <vector>
-#include "../../core/vector.h"
+#include "./../core/Object.h"
+#include "./../core/AABB.h"
+#include "../generators/PerlinNoise.h"
 
-struct phyData;
-struct renderData;
+
+
+
 
 class terrainGenerator{
 public:
 
-	enum chunkType{
-		empty = 0,
-		filled = 1,
-		triBottomLeft,
-		triBottomRight,
-		triTopLeft,
-		triTopRight,
-	};
-
-	struct Chunk{
-
-		chunkType type;
-		Chunk(chunkType _type = empty) : type(_type){
-
-		};
-
-		const bool isFilled(){
-			return this->type != chunkType::empty;
-		}
-
-		const chunkType getType(){
-			return this->type;
-		}
-
-
-	};
-
+	enum blockType{
+	/*so that blocks are filled by default*/
+	filled = 0,
+	empty,
 	
 
-public:
-	void setDim(vector2 levelDim);
-	void setSeed(unsigned int seed);
+	numBlockTypes
+	};
 
-	void reserveChunk(vector2 pos);
+	terrainGenerator(unsigned int seed, vector2 numBlocks);
 
-	void Generate();
-
-
-
-	const std::vector<Chunk> &getLevel();
+	blockType getBlockType(vector2 pos);
 
 private:
+	vector2 numBlocks;
 	unsigned int seed;
-	vector2 levelDim;
-	float numTiles;
+	PerlinNoise noiseGen;
 
-	std::vector<Chunk> chunks;
+	std::vector<blockType> blocks;
 
-	vector2 _limitChunkCoord(vector2 rawChunkCoord);
+	std::vector<AABB> rooms;
+	AABB *prevRoom;
+	
+	void _InitBlocks();
 
-	void _addChunkToObj(Chunk &c, phyData &phy, renderData &render);
+	bool _isRoomLegal(const AABB &room);
+	void _genRoom(const AABB &room);
+	void _genCorridor(const AABB &currentRoom, const AABB &prevRoom);
+
+
+	void _genTerrain(vector2 minHalfDim, vector2 maxHalfDim);
+
+	blockType _density2BlockType(vector2 pos, double density);
 };

@@ -1,122 +1,87 @@
 #pragma once
 #include "terrainCreator.h"
-#include <algorithm>
-#include "../defines/renderingLayers.h"
-    
+#include "../terrainGen/terrainGenerator.h"
 
 
+Object *terrainCreator::createObject(vector2 pos) const{
 
-
-terrainCreator::terrainCreator(viewProcess *viewProc){
-	this->viewProc = viewProc;
-};
-
-void terrainCreator::setBounds(vector2 bottomLeft, vector2 topRight, 
-	vector2 chunkDim){
-	this->bottomLeft = bottomLeft;
-	this->topRight = topRight;
-
-	
-	vector2 delta = topRight - bottomLeft;
-
-	this->numChunks.x = std::ceil(delta.x / chunkDim.x);
-	this->numChunks.y = std::ceil(delta.y / chunkDim.y);
-
-	this->totalChunkCount = this->numChunks.x * this->numChunks.y;
-
-	this->terrainGen.setDim(this->numChunks);
-
-};
-
-
-#include "objectFactory.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
-#include "../../core/ObjProcessors/renderProcessor.h"
-#include "../../core/Process/viewProcess.h"
-#include "../../core/renderUtil.h"
-#include "../../util/mathUtil.h"
-
-Object *terrainCreator::createObject(){
-	this->_genTerrainData();
-
-	Object *terrain = new Object("terrain");
-	terrain->setProp<vector2>(Hash::getHash("position"), vector2(0, 0));
-	
-	/*
 	phyData phy;
-	renderData render;
-	render.centered = false;
+	
+	Object *obj = new Object("terrain");
 
-	phy.collisionType = Hash::getHash("terrain");
-	phy.bodyDef.type = b2_staticBody;
+	terrainGenerator generator(seed, numBlocks);
 
+	bool blockCreated = false;
 
-	vector2 posDelta = (this->topRight - this->bottomLeft);
-	posDelta.x *= (1.0 / this->numChunks.x);
-	posDelta.y *= (1.0 / this->numChunks.y);
+	for(int x = 0; x < numBlocks.x; x++){
+		for(int y = 0; y < numBlocks.x; y++){
 
+			terrainGenerator::blockType type = generator.getBlockType(vector2(x, y));
 
-	PRINTVECTOR2(posDelta);
-
-	for(int y = 0; y < this->numChunks.y; y++){
-		for(int x = 0; x < this->numChunks.x; x++){
-
-			Chunk &c = this->_getChunk(vector2(x, y));
-
-			if(!c.isFilled()){
-				continue;
+			if(type == terrainGenerator::blockType::filled){
+				_createFilledBlock(phy, vector2(x, y));
+				blockCreated = true;
 			}
-
-			vector2 gamePos = this->bottomLeft + vector2(posDelta.x * x
-													, posDelta.y * y);
-
-			b2PolygonShape *boundingBox = new b2PolygonShape();
-
-			boundingBox->SetAsBox(posDelta.x / 2.0,
-								posDelta.y / 2.0,
-								vector2(gamePos.x, gamePos.y),
-								0);
-								
-			b2FixtureDef fixtureDef;
-			fixtureDef.shape = boundingBox;
-			fixtureDef.friction = 0.0;
-			fixtureDef.restitution = 0.0;
-
-			phy.fixtureDef.push_back(fixtureDef);
-
-		
-			sf::Shape *SFMLShape = renderUtil::createShape(boundingBox, 
-				viewProc);
-			SFMLShape->setFillColor(sf::Color::Red);
-	
-			shapeRenderNode *renderer = new shapeRenderNode(SFMLShape, renderingLayers::terrain);
-			render.addRenderer(renderer);
-
-			
-
 		}
-		
 	}
-	
-	
-	
-	terrain->addProp(Hash::getHash("phyData"), 
-		new Prop<phyData>(phy));
 
-	terrain->addProp(Hash::getHash("renderData"), 
-		new Prop<renderData>(render));
-	
-	*/
+	if(blockCreated){
+		renderData render = _createRenderer(phy);
+		obj->addProp(Hash::getHash("phyData"), 
+			new Prop<phyData>(phy));
+		obj->addProp(Hash::getHash("renderData"),
+			new Prop<renderData>(render));
+	}
+	return obj;
+};
 
-	return terrain;
+terrainCreator::terrainCreator(viewProcess *_viewProc) : viewProc(_viewProc){};
+
+void terrainCreator::Init(vector2 numBlocks, vector2 blockDim, unsigned int seed){
+
+
+	//this->numBlocks = numBlocks;
+	this->numBlocks = vector2(floor(numBlocks.x), floor(numBlocks.y));
+	PRINTVECTOR2(numBlocks);
 	
+	this->blockDim = blockDim;
+	this->seed = seed;
 }
 
-void terrainCreator::reserveRectSpace(vector2 center, vector2 halfDim){
 
+void terrainCreator::_createFilledBlock(phyData &phy, vector2 blockPos) const{
+	b2PolygonShape *box = new b2PolygonShape(); 
+	box->SetAsBox(blockDim.x * 0.5, blockDim.y * 0.5, _block2World(blockPos),0);
+
+	b2FixtureDef boxFixtureDef;
+	boxFixtureDef.shape = box;
+	boxFixtureDef.friction = 1.0;
+	boxFixtureDef.isSensor = true;
+
+	phy.fixtureDef.push_back(boxFixtureDef);
+}
+
+
+renderData terrainCreator::_createRenderer(phyData &phy) const{
+
+	renderData render;
+
+	for(b2FixtureDef &fixtureDef : phy.fixtureDef){
+
+		sf::Shape *shape = renderUtil::createShape(fixtureDef.shape, viewProc);
+		shape->setFillColor(sf::Color::Black);
+			
+		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::BACK);
+		render.addRenderer(renderer);
+	}
+
+	return render;
 };
 
 
+vector2 terrainCreator::_block2World(vector2 blockPos) const{
+	vector2 base = -1 * blockDim * 0.5;
+	vector2 delta = vector2(blockDim.x * blockPos.x, blockDim.y * blockPos.y);
 
-void terrainCreator::_genTerrainData(){};
-
+	return base + delta;
+};

@@ -16,7 +16,7 @@ public:
 	bool onEnemyCollision(collisionData &collision, Object *bullet){
 
 		phyData *other = collision.otherPhy;
-		phyData *bulletPhy = bullet->getProp<phyData>(Hash::getHash("phyData"));
+		phyData *bulletPhy = bullet->getPrimitive<phyData>(Hash::getHash("phyData"));
 
 		vector2 vel = vector2::cast(bulletPhy->body->GetLinearVelocity());
 

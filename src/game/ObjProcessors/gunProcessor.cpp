@@ -3,31 +3,25 @@
 #include "../../core/Process/objectMgrProcess.h"
 
 
-gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		objectMgrProcess *objMgrProc = processManager.getProcess<objectMgrProcess>(
-			Hash::getHash("objectMgrProcess"));
-		this->objectManager = objMgrProc->getObjectMgr();
+gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
+: objectProcessor("gunProcessor"){
+	objectMgrProcess *objMgrProc = processManager.getProcess<objectMgrProcess>(
+		Hash::getHash("objectMgrProcess"));
+	this->objectManager = objMgrProc->getObjectMgr();
 };
 
 
-void gunProcessor::Process(float dt){
-	for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-		Object *obj = it->second;
+void gunProcessor::_Process(Object *obj, float dt){
+	
+	gunData *data = obj->getPrimitive<gunData>(Hash::getHash("gunData"));
 
-		gunData *data = obj->getProp<gunData>(Hash::getHash("gunData"));
+	data->_Tick();
 
-		if(data == NULL){
-			continue;
-		}
+	if(data->_shouldFire()){
+		this->_fireShot(data, data->bulletPos);
 
-		data->_Tick();
-
-		if(data->_shouldFire()){
-			this->_fireShot(data, data->bulletPos);
-
-			data->_Cooldown();
-		}
-	};
+		data->_Cooldown();
+	}
 };	
 
 void gunProcessor::_fireShot(gunData *data, vector2 pos){
@@ -35,17 +29,21 @@ void gunProcessor::_fireShot(gunData *data, vector2 pos){
 	assert(creator != NULL);
 
 	vector2 beginVel = data->facing.toVector() * data->buletVel;
-
 	data->bullet.beginVel = beginVel;
-
-	creator->setBulletData(data->bullet);
-	creator->setCollisionRadius(data->bulletRadius);
-	Object *bullet = creator->createObject(pos);
 	
+	creator->Init(data->bullet, data->bulletRadius);
+
+	Object *bullet = creator->createObject(pos);	
 	this->objectManager->addObject(bullet);
 };
 
-void gunProcessor::postProcess(){};
+void gunProcessor::_onObjectDeactivate(Object *obj){
+
+	gunData *data = obj->getPrimitive<gunData>(Hash::getHash("gunData"));
+	//stop the gun from firing if it's deactivated. 
+	data->firing = false;
+
+};
 
 
 void gunData::_Tick(){

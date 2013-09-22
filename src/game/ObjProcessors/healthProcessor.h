@@ -55,10 +55,13 @@ public:
 };
 
 class healthProcessor : public objectProcessor {
-private:
 
 public:
-	healthProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){};
-	void Process(float dt){};
-	void postProcess();
+	healthProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+protected:
+	void _Process(Object *obj, float dt);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("healthData");
+	};
 };

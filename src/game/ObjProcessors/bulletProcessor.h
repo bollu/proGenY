@@ -74,13 +74,19 @@ public:
 
 class bulletProcessor : public objectProcessor{
 public:
-	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
+	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+		objectProcessor("bulletProcessor"){
 		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
 	}
 
-	void onObjectAdd(Object *obj);
-	void Process(float dt);
 
+protected:
+	void _onObjectAdd(Object *obj);
+	void _Process(Object *obj, float dt);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("bulletData") && obj->requireProperty("phyData");
+	};
 
 private:
 	void _handleCollision(collisionData &collision,bulletData *data, Object *obj);

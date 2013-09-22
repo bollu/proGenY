@@ -13,13 +13,10 @@ private:
 public:
 
 	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}
-	
-	void setBoundaryThickness(float thickness){
+
+
+	void Init(vector2 levelDim, float thickness){
 		this->thickness = thickness;
-
-	}
-
-	void setDimensions(vector2 levelDim){
 		this->levelDim = levelDim;
 	}
 
@@ -27,7 +24,7 @@ public:
 
 		Object *boundaryObject = new Object("boundary");
 
-		vector2 *pos = boundaryObject->getProp<vector2>(
+		vector2 *pos = boundaryObject->getPrimitive<vector2>(
 			Hash::getHash("position"));
 		*pos = vector2(0,0);//levelDim * 0.5; //+ vector2(thickness, thickness);
 

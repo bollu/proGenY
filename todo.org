@@ -1,0 +1,19 @@
+ --- todo file ---
+ 
+* Features
+  [ ] started adding enemies.
+ 
+* Bugs
+ [X] fixed the mouse scrolling so that guns can now be scrolled up and down
+ 
+* Refactoring
+ [X] rewrote the getProp and setProp of objects
+ [X] deleted most of the methods in Object to simplify the interface
+ [X] removed the Blade (it was a pointless test)
+ [X] rewrote the objectProcessors to have a filter rather than force each objectProcessor
+     to re implement it's filter.
+ 
+ 
+ * Todo
+ [ ] in windowProcess, parse the Settings and setup fullscreen / desktop based on settings
+ [ ] integrate the procedurally generated guns into the game (once all features are done ofc)

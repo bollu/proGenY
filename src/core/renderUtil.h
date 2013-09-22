@@ -14,8 +14,8 @@ class renderUtil{
 public:
 
 	/*!creates a Renderer shape from a box2d shape*/
-	static sf::Shape *createShape(b2Shape *shape, viewProcess *view);
-	static sf::Shape *createPolyShape(b2PolygonShape *shape, viewProcess *view);
-	static sf::Shape *createCircleShape(b2CircleShape *shape, viewProcess *view);
-	static sf::Shape *createRectangleShape(vector2 dim);
+	static sf::Shape *createShape(const b2Shape *shape, viewProcess *view);
+	static sf::Shape *createPolyShape(const b2PolygonShape *shape, viewProcess *view);
+	static sf::Shape *createCircleShape(const b2CircleShape *shape, viewProcess *view);
+	static sf::Shape *createRectangleShape(const vector2 &dim);
 };

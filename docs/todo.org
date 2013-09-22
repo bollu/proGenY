@@ -1,0 +1,12 @@
+ --- todo file ---
+ 
+* Features
+ 
+* Bugs [0/1]
+ [ ] rewite
+
+
+* Refactoring [0/3]
+ [ ] rewrite the getProp and setProp of objects
+ [ ] refactor the data classes(phyData, renderData...) so that 
+ [ ] 

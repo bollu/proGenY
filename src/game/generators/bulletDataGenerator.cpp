@@ -1,12 +1,11 @@
 #pragma once
 #include "bulletDataGenerator.h"
 
-bulletDataGenerator::bulletDataGenerator(genData data,
-	unsigned int power, unsigned long seed){
+bulletDataGenerator::bulletDataGenerator(genData _data,
+	unsigned int power, unsigned long seed) : data(_data){
 	
 	this->seed = seed;
 	this->power = power;
-	this->data = data;
 
 	generator.seed(seed);
 };
@@ -91,6 +90,10 @@ pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){
 
 	float knockback;
 	switch(prop){
+		case noKnockback:
+			knockback = 0;
+			break;
+
 		case lowKnockback:
 			knockback = this->_genFloat(1.0, 4.0);
 			break;
@@ -102,9 +105,10 @@ pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){
 		case highKnockback:
 			knockback = this->_genFloat(15.0, 20.0);
 			break;
-	}
+	default:
+		util::errorLog<<"passing an unknown knockback enumeration"<<util::flush;
 
-	
+	}
 
 	return new pushCollider(knockback);
 };
@@ -118,11 +122,11 @@ bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long collide
 	switch (type){
 		case 0:
 			return new bounceCollider(1);
-		break;
+			break;
 
 		default:
-			util::errorLog<<"ability index out of bounds";
-
+			util::errorLog<<"ability index out of bounds"<<util::flush;;
+			return NULL;
 	};
 
 };

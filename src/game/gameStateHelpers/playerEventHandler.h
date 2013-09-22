@@ -19,7 +19,7 @@ private:
 	friend class playerEventHandler;
 
 	vector2 *playerPos;
-	moveData *objMoveData;
+	groundMoveData *objMoveData;
 	phyData *physicsData;
 
 };

@@ -28,41 +28,34 @@ public:
 
 class offsetProcessor : public objectProcessor{
 public:
-	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		
+	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	objectProcessor("offsetProcessor"){
 	}
 
-	void onObjectAdd(Object *obj){};
+protected:
+	void _Process(Object *obj, float dt){
 
-	void Process(float dt){
-		for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-			Object *obj = it->second;
+		offsetData *data = obj->getPrimitive<offsetData>(Hash::getHash("offsetData"));
 
-			offsetData *data = obj->getProp<offsetData>(Hash::getHash("offsetData"));
+		assert(data->parent != NULL);
 
-			if(data == NULL){
-				continue;
-			}
+		if(data->offsetPos){
+			vector2 *parentPos = data->parent->getPrimitive<vector2>(Hash::getHash("position"));
+			vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 
-			assert(data->parent != NULL);
+			(*pos) = *parentPos + data->posOffset;
+		}
 
-			if(data->offsetPos){
-				vector2 *parentPos = data->parent->getProp<vector2>(Hash::getHash("position"));
-				vector2 *pos = obj->getProp<vector2>(Hash::getHash("position"));
+		if(data->offsetAngle){
+			util::Angle *facing = obj->getPrimitive<util::Angle>(Hash::getHash("facing"));
+			util::Angle *parentFacing = data->parent->getPrimitive<util::Angle>(
+				Hash::getHash("facing"));
 
-				(*pos) = *parentPos + data->posOffset;
-			};
-
-			if(data->offsetAngle){
-				util::Angle *facing = obj->getProp<util::Angle>(Hash::getHash("facing"));
-				util::Angle *parentFacing = data->parent->getProp<util::Angle>(
-						Hash::getHash("facing"));
-
-				*facing = *parentFacing+ data->angleOffset;
-			};
-
-			
-
-		};
+			*facing = *parentFacing+ data->angleOffset;
+		}
+	}
+	
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("offsetData");
 	};
 };

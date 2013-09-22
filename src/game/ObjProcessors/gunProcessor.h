@@ -133,6 +133,13 @@ private:
 public:
 	gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 	
-	void Process(float dt);
-	void postProcess();
+
+protected:
+	void _Process(Object *obj, float dt);
+	void _onObjectDeactivate(Object *obj);
+
+	bool _shouldProcess(Object *obj){
+		return obj->hasProperty("gunData");
+	};
+	
 };

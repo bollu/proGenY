@@ -95,8 +95,8 @@ void objContactListener::_handleCollision(collisionData::Type type, b2Contact *c
 	
 	assert(a != NULL && b != NULL);
 
-	phyData *aPhyData = a->getProp<phyData>(Hash::getHash("phyData"));
-	phyData *bPhyData = b->getProp<phyData>(Hash::getHash("phyData"));
+	phyData *aPhyData = a->getPrimitive<phyData>(Hash::getHash("phyData"));
+	phyData *bPhyData = b->getPrimitive<phyData>(Hash::getHash("phyData"));
 	assert(aPhyData != NULL && bPhyData != NULL);
 
 	/* a to b */
