@@ -1,6 +1,6 @@
 #pragma once
 #include "objectFactory.h"
-#include "../../core/Process/viewProcess.h"
+#include "../../core/Rendering/viewProcess.h"
 #include "../ObjProcessors/healthProcessor.h"
 #include "../defines/renderingLayers.h"
 

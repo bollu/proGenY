@@ -1,5 +1,5 @@
 #pragma once
-#include "../../core/Object.h"
+#include "../../core/componentSys/Object.h"
 
 
 class objectCreator{

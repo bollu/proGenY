@@ -5,15 +5,19 @@ include_rules
 # %B - basename. input file name without extension
 
 
+
+
 : foreach ../src/*.c* |> !cc |> %B.o
 
 : foreach ../src/core/*.c* |> !cc |> %B.o
-: foreach ../src/core/Messaging/*.c* |> !cc |> %B.o
-: foreach ../src/core/ObjProcessors/*.c* |> !cc |> %B.o
-: foreach ../src/core/Process/*.c* |> !cc |> %B.o
-: foreach ../src/core/State/*.c* |> !cc |>%B.o
+: foreach ../src/core/AI/*.c* |> !cc |> %B.o
+: foreach ../src/core/componentSys/*.c* |> !cc |> %B.o
+: foreach ../src/core/componentSys/processor/*.c* |> !cc |> %B.o
+: foreach ../src/core/controlFlow/*.c* |> !cc |> %B.o
+: foreach ../src/core/IO/*.c* |> !cc |>%B.o
+: foreach ../src/core/math/*.c* |> !cc |>%B.o
 : foreach ../src/core/Rendering/*.c* |> !cc |>%B.o
-: foreach ../src/core/AI/*.c* |> !cc |>%B.o
+: foreach ../src/core/World/*.c* |> !cc |>%B.o
 
 : foreach ../src/game/eventHandlers/*.c* |> !cc |> %B.o
 : foreach ../src/game/factory/*.c* |>  !cc |> %B.o
@@ -27,7 +31,6 @@ include_rules
 : foreach ../src/game/terrainGen/*.c* |> !cc |> %B.o
 
 
-: foreach ../src/util/*.c* |> !cc |> %B.o
 
 
 

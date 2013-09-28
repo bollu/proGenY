@@ -5,7 +5,7 @@
 #include "../generators/gunDataGenerator.h"
 #include "../factory/gunCreator.h"
 #include "../factory/bulletCreator.h"
-#include "../../core/objectMgr.h"
+#include "../../core/componentSys/objectMgr.h"
 
 
 gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, 
@@ -38,7 +38,7 @@ void gunsManager::_gotoNextGun(int skip){
 		this->currentGunIndex = 0;
 	}
 
-	util::infoLog<<"gun index: "<<this->currentGunIndex;
+	IO::infoLog<<"gun index: "<<this->currentGunIndex;
 		this->_switchGuns(this->currentGun, this->guns[this->currentGunIndex]);
 	
 };
@@ -53,7 +53,7 @@ void gunsManager::_gotoPrevGun(int skip){
 		this->currentGunIndex = this->guns.size() - 1;
 	}
 
-	util::infoLog<<"gun index: "<<this->currentGunIndex;
+	IO::infoLog<<"gun index: "<<this->currentGunIndex;
 	this->_switchGuns(oldGun, this->guns[this->currentGunIndex]);
 };
 
@@ -192,8 +192,8 @@ void gunsManager::_switchGuns(Object *prevGun, Object *newGun){
 		*newPos = *pos;
 
 		this->objectManager.deactivateObject(*prevGun);
-		util::infoLog<<"\n"<<prevGun->getName()<<" was removed";
-		//util::infoLog.Flush();
+		IO::infoLog<<"\n"<<prevGun->getName()<<" was removed";
+		//IO::infoLog.Flush();
 
 	};
 
@@ -202,6 +202,6 @@ void gunsManager::_switchGuns(Object *prevGun, Object *newGun){
 	
 
 	this->objectManager.activateObject(*newGun);
-	util::infoLog<<"\n"<<newGun->getName()<<" was added";
+	IO::infoLog<<"\n"<<newGun->getName()<<" was added";
 
 };

@@ -3,21 +3,6 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
-AABB	core/AABB.cpp	/^AABB::AABB(vector2 _halfDim) : center(0,0) , halfDim(_halfDim) {$/;"	f	class:AABB
-AABB	core/AABB.cpp	/^AABB::AABB(vector2 _halfDim, vector2 _center) : center(_center), halfDim(_halfDim){$/;"	f	class:AABB
-Contains	core/AABB.cpp	/^bool AABB::Contains(const vector2 &pt) const{$/;"	f	class:AABB
-Intersects	core/AABB.cpp	/^bool AABB::Intersects(const AABB &other) const{$/;"	f	class:AABB
-getBottomLeft	core/AABB.cpp	/^vector2 AABB::getBottomLeft() const{$/;"	f	class:AABB
-getBottomRight	core/AABB.cpp	/^vector2 AABB::getBottomRight() const{$/;"	f	class:AABB
-getCenter	core/AABB.cpp	/^vector2 AABB::getCenter() const{$/;"	f	class:AABB
-getDim	core/AABB.cpp	/^vector2 AABB::getDim() const{$/;"	f	class:AABB
-getHalfDim	core/AABB.cpp	/^vector2 AABB::getHalfDim() const{$/;"	f	class:AABB
-getTopLeft	core/AABB.cpp	/^vector2 AABB::getTopLeft() const{$/;"	f	class:AABB
-getTopRight	core/AABB.cpp	/^vector2 AABB::getTopRight() const{$/;"	f	class:AABB
-liesOn	core/AABB.cpp	/^bool AABB::liesOn(const vector2 &pt) const{$/;"	f	class:AABB
-AABB	core/AABB.h	/^class AABB{$/;"	c
-center	core/AABB.h	/^	vector2 center;$/;"	m	class:AABB
-halfDim	core/AABB.h	/^	vector2 halfDim;$/;"	m	class:AABB
 Executor	core/AI/baseAI.cpp	/^Executor::Executor(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Executor
 Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object::objectMap  &_objectMap, Object *_owner,std::string _name) : $/;"	f	class:Sensor
 Task	core/AI/baseAI.cpp	/^Task::Task(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Task
@@ -45,430 +30,527 @@ Sense	core/AI/distanceSensor.cpp	/^void distanceSensor::Sense(){$/;"	f	class:dis
 distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object::objectMap  &objectMap, Object *owner, $/;"	f	class:distanceSensor
 distanceSensor	core/AI/distanceSensor.h	/^class distanceSensor : public AI::Sensor{$/;"	c
 targetClass	core/AI/distanceSensor.h	/^	std::string targetClass;$/;"	m	class:distanceSensor
-Hash	core/Hash.cpp	/^Hash::Hash(std::string &str, unsigned int seed){$/;"	f	class:Hash
-Hash2Str	core/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
-_MurmurHash64B	core/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
-getHash	core/Hash.cpp	/^const Hash* Hash::getHash(const char* str){$/;"	f	class:Hash
-getHash	core/Hash.cpp	/^const Hash* Hash::getHash(std::string &str){$/;"	f	class:Hash
-getVal	core/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
-hashMap	core/Hash.cpp	/^std::map<std::string, Hash* > Hash::hashMap;$/;"	m	class:Hash	file:
-operator <	core/Hash.cpp	/^bool Hash::operator < (const Hash &other) const{$/;"	f	class:Hash
-operator ==	core/Hash.cpp	/^bool Hash::operator == (const Hash &other) const{$/;"	f	class:Hash
-operator >	core/Hash.cpp	/^bool Hash::operator > (const Hash &other) const{$/;"	f	class:Hash
-seed	core/Hash.cpp	/^unsigned int Hash::seed;$/;"	m	class:Hash	file:
-setSeed	core/Hash.cpp	/^void Hash::setSeed(unsigned int seed){$/;"	f	class:Hash
-Hash	core/Hash.h	/^class Hash{$/;"	c
-HashMap	core/Hash.h	/^	typedef std::map<std::string, Hash* > HashMap; $/;"	t	class:Hash
-hashMap	core/Hash.h	/^	static HashMap hashMap;$/;"	m	class:Hash
-hashMapIt	core/Hash.h	/^	typedef HashMap::iterator hashMapIt;$/;"	t	class:Hash
-hashedVal	core/Hash.h	/^	uint64_t hashedVal;$/;"	m	class:Hash
-seed	core/Hash.h	/^	static unsigned int seed;$/;"	m	class:Hash
-uint64_t	core/Hash.h	/^typedef unsigned long long uint64_t;$/;"	t
-Register	core/Messaging/eventMgr.cpp	/^void eventMgr::Register(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
-Unregister	core/Messaging/eventMgr.cpp	/^void eventMgr::Unregister(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
-_Dispatch	core/Messaging/eventMgr.cpp	/^void eventMgr::_Dispatch(Event &newEvent){$/;"	f	class:eventMgr
-_observersPresent	core/Messaging/eventMgr.cpp	/^bool eventMgr::_observersPresent(const Hash *eventName){$/;"	f	class:eventMgr
-_sendEvent	core/Messaging/eventMgr.cpp	/^void eventMgr::_sendEvent(Event &event){$/;"	f	class:eventMgr
-eventMgr	core/Messaging/eventMgr.cpp	/^eventMgr::eventMgr(){$/;"	f	class:eventMgr
-Event	core/Messaging/eventMgr.h	/^	struct Event{$/;"	s	class:eventMgr
-Observer	core/Messaging/eventMgr.h	/^class Observer{$/;"	c
-data	core/Messaging/eventMgr.h	/^		baseProperty *data; $/;"	m	struct:eventMgr::Event
-eventMgr	core/Messaging/eventMgr.h	/^class eventMgr{$/;"	c
-events	core/Messaging/eventMgr.h	/^	std::queue <Event>events;$/;"	m	class:eventMgr
-name	core/Messaging/eventMgr.h	/^		const Hash *name;$/;"	m	struct:eventMgr::Event
-observerList	core/Messaging/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
-observerMap	core/Messaging/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
-sendEvent	core/Messaging/eventMgr.h	/^	void sendEvent(const Hash *eventName){$/;"	f	class:eventMgr
-sendEvent	core/Messaging/eventMgr.h	/^	void sendEvent(const Hash *eventName, T &eventData){$/;"	f	class:eventMgr
-sendEvent_	core/Messaging/eventMgr.h	/^	void sendEvent_(const Hash *eventName, baseProperty *eventData){$/;"	f	class:eventMgr
-BeginContact	core/ObjProcessors/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
-EndContact	core/ObjProcessors/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
-_extractPhyData	core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
-_fillCollisionData	core/ObjProcessors/objContactListener.cpp	/^collisionData objContactListener::_fillCollisionData(b2Contact *contact,$/;"	f	class:objContactListener
-_handleCollision	core/ObjProcessors/objContactListener.cpp	/^void objContactListener::_handleCollision(collisionData::Type type, b2Contact *contact){$/;"	f	class:objContactListener
-Type	core/ObjProcessors/objContactListener.h	/^	enum Type{$/;"	g	struct:collisionData
-collisionData	core/ObjProcessors/objContactListener.h	/^struct collisionData{$/;"	s
-myApproachVel	core/ObjProcessors/objContactListener.h	/^	vector2 myApproachVel;$/;"	m	struct:collisionData
-myPhy	core/ObjProcessors/objContactListener.h	/^	phyData *myPhy;$/;"	m	struct:collisionData
-normal	core/ObjProcessors/objContactListener.h	/^	vector2 normal;$/;"	m	struct:collisionData
-objContactListener	core/ObjProcessors/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
-objContactListener	core/ObjProcessors/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
-onBegin	core/ObjProcessors/objContactListener.h	/^		onBegin,$/;"	e	enum:collisionData::Type
-onEnd	core/ObjProcessors/objContactListener.h	/^		onEnd,$/;"	e	enum:collisionData::Type
-otherObj	core/ObjProcessors/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:collisionData
-otherPhy	core/ObjProcessors/objContactListener.h	/^	phyData *otherPhy;$/;"	m	struct:collisionData
-type	core/ObjProcessors/objContactListener.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
-~objContactListener	core/ObjProcessors/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
-_Process	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_Process(Object *obj, float dt){$/;"	f	class:phyProcessor
-_onObjectActivate	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectAdd	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeactivate	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeath	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:phyProcessor
-_preProcess	core/ObjProcessors/phyProcessor.cpp	/^void phyProcessor::_preProcess(){$/;"	f	class:phyProcessor
-addCollision	core/ObjProcessors/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
-getCollidedObjectCollision	core/ObjProcessors/phyProcessor.cpp	/^const Hash *collisionData::getCollidedObjectCollision(){$/;"	f	class:collisionData
-phyProcessor	core/ObjProcessors/phyProcessor.cpp	/^phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:phyProcessor
-removeCollision	core/ObjProcessors/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
-_shouldProcess	core/ObjProcessors/phyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:phyProcessor
-body	core/ObjProcessors/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:phyData
-bodyDef	core/ObjProcessors/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
-collisionType	core/ObjProcessors/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
-collisions	core/ObjProcessors/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
-contactListener	core/ObjProcessors/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
-fixtureDef	core/ObjProcessors/phyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:phyData
-fixtures	core/ObjProcessors/phyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:phyData
-maxVel	core/ObjProcessors/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
-phyData	core/ObjProcessors/phyProcessor.h	/^struct phyData{$/;"	s
-phyProcessor	core/ObjProcessors/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
-velClamped	core/ObjProcessors/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
-view	core/ObjProcessors/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
-world	core/ObjProcessors/phyProcessor.h	/^	b2World *world;$/;"	m	class:phyProcessor
-_Process	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_Process(Object *obj, float dt){$/;"	f	class:renderProcessor
-_Render	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
-_onObjectActivate	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectAdd	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeactivate	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeath	core/ObjProcessors/renderProcessor.cpp	/^void renderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:renderProcessor
-renderProcessor	core/ObjProcessors/renderProcessor.cpp	/^renderProcessor::renderProcessor(processMgr &processManager, $/;"	f	class:renderProcessor
-_shouldProcess	core/ObjProcessors/renderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:renderProcessor
-addRenderer	core/ObjProcessors/renderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:renderData
-centered	core/ObjProcessors/renderProcessor.h	/^	bool centered;$/;"	m	class:renderData
-render	core/ObjProcessors/renderProcessor.h	/^	renderProcess *render;$/;"	m	class:renderProcessor
-renderData	core/ObjProcessors/renderProcessor.h	/^	renderData() : centered(false){};$/;"	f	class:renderData
-renderData	core/ObjProcessors/renderProcessor.h	/^class renderData{$/;"	c
-renderProcessor	core/ObjProcessors/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
-renderers	core/ObjProcessors/renderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:renderData
-view	core/ObjProcessors/renderProcessor.h	/^	viewProcess *view;$/;"	m	class:renderProcessor
-window	core/ObjProcessors/renderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcessor
-Kill	core/Object.cpp	/^void Object::Kill(){$/;"	f	class:Object
-Object	core/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name){$/;"	f	class:Object
-_genUniqueName	core/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
-_getBaseProp	core/Object.cpp	/^baseProperty *Object::_getBaseProp(const Hash *name) const{$/;"	f	class:Object
-_printProperties	core/Object.cpp	/^void Object::_printProperties() const{$/;"	f	class:Object
-addProp	core/Object.cpp	/^void Object::addProp(const Hash *name, baseProperty *value){$/;"	f	class:Object
-addProp	core/Object.cpp	/^void Object::addProp(const char *name, baseProperty *value){$/;"	f	class:Object
-getBaseName	core/Object.cpp	/^std::string Object::getBaseName() const{$/;"	f	class:Object
-getName	core/Object.cpp	/^std::string Object::getName() const{$/;"	f	class:Object
-hasProperty	core/Object.cpp	/^bool Object::hasProperty(const Hash *name) const{$/;"	f	class:Object
-hasProperty	core/Object.cpp	/^bool Object::hasProperty(const char *name) const{$/;"	f	class:Object
-isDead	core/Object.cpp	/^bool Object::isDead() const{$/;"	f	class:Object
-nameMap	core/Object.cpp	/^std::map<std::string, unsigned int> Object::nameMap;$/;"	m	class:Object	file:
-requireProperty	core/Object.cpp	/^bool Object::requireProperty(const Hash *name) const{$/;"	f	class:Object
-requireProperty	core/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
-~Object	core/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
-Object	core/Object.h	/^class Object{$/;"	c
-_getProperty	core/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
-baseName	core/Object.h	/^	std::string baseName;$/;"	m	class:Object
-cObjMapIt	core/Object.h	/^	typedef objectMap::const_iterator cObjMapIt;$/;"	t	class:Object
-cPropertyIt	core/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;$/;"	t	class:Object
-dead	core/Object.h	/^	bool dead;$/;"	m	class:Object
-getPrimitive	core/Object.h	/^	Type* getPrimitive(const Hash *name){$/;"	f	class:Object
-getPrimitive	core/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
-name	core/Object.h	/^	std::string name;$/;"	m	class:Object
-nameIt	core/Object.h	/^	typedef std::map<std::string, unsigned int>::iterator nameIt;$/;"	t	class:Object
-nameMap	core/Object.h	/^	static std::map<std::string, unsigned int>nameMap;$/;"	m	class:Object
-objMapIt	core/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"	t	class:Object
-objectList	core/Object.h	/^	typedef std::vector<Object *> objectList;$/;"	t	class:Object
-objectMap	core/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
-propertyIt	core/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;$/;"	t	class:Object
-propertyMap	core/Object.h	/^	std::map<const Hash*, baseProperty* > propertyMap; $/;"	m	class:Object
-Draw	core/Process/Process.h	/^	virtual void Draw(){};$/;"	f	class:Process
-Pause	core/Process/Process.h	/^	virtual void Pause(){};$/;"	f	class:Process
-Process	core/Process/Process.h	/^	Process(std::string _name){$/;"	f	class:Process
-Process	core/Process/Process.h	/^class Process{$/;"	c
-Resume	core/Process/Process.h	/^	virtual void Resume(){};$/;"	f	class:Process
-Shutdown	core/Process/Process.h	/^	virtual void Shutdown(){};$/;"	f	class:Process
-Update	core/Process/Process.h	/^	virtual void Update(float dt){};$/;"	f	class:Process
-getNameHash	core/Process/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
-nameHash	core/Process/Process.h	/^	const Hash *nameHash;$/;"	m	class:Process
-postDraw	core/Process/Process.h	/^	virtual void postDraw(){};$/;"	f	class:Process
-preUpdate	core/Process/Process.h	/^	virtual void preUpdate(){};$/;"	f	class:Process
-~Process	core/Process/Process.h	/^	virtual ~Process(){};$/;"	f	class:Process
-_handleEvent	core/Process/eventProcess.cpp	/^void eventProcess::_handleEvent(){$/;"	f	class:eventProcess
-_handleKeyboardPressed	core/Process/eventProcess.cpp	/^void eventProcess::_handleKeyboardPressed(){$/;"	f	class:eventProcess
-_handleKeyboardReleased	core/Process/eventProcess.cpp	/^void eventProcess::_handleKeyboardReleased(){$/;"	f	class:eventProcess
-_handleMouseButtonPressed	core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseButtonPressed(){$/;"	f	class:eventProcess
-_handleMouseButtonReleased	core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseButtonReleased(){$/;"	f	class:eventProcess
-_handleMouseMove	core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseMove(){$/;"	f	class:eventProcess
-_handleMouseWheelMove	core/Process/eventProcess.cpp	/^void eventProcess::_handleMouseWheelMove(){$/;"	f	class:eventProcess
-_handleWindowCloseEvent	core/Process/eventProcess.cpp	/^void eventProcess::_handleWindowCloseEvent(){$/;"	f	class:eventProcess
-preUpdate	core/Process/eventProcess.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
-event	core/Process/eventProcess.h	/^ 	sf::Event event;$/;"	m	class:eventProcess
-eventManager	core/Process/eventProcess.h	/^ 	eventMgr &eventManager;$/;"	m	class:eventProcess
-eventProcess	core/Process/eventProcess.h	/^ 	eventProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:eventProcess
-eventProcess	core/Process/eventProcess.h	/^ class eventProcess : public Process{$/;"	c
-window	core/Process/eventProcess.h	/^ 	sf::RenderWindow *window;$/;"	m	class:eventProcess
-Update	core/Process/objectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:objectMgrProcess
-addObjectProcessor	core/Process/objectMgrProcess.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgrProcess
-getObjectMgr	core/Process/objectMgrProcess.h	/^	objectMgr *getObjectMgr(){$/;"	f	class:objectMgrProcess
-objManager	core/Process/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
-objectMgrProcess	core/Process/objectMgrProcess.h	/^	objectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:objectMgrProcess
-objectMgrProcess	core/Process/objectMgrProcess.h	/^class objectMgrProcess : public Process{$/;"	c
-postDraw	core/Process/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
-preUpdate	core/Process/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
-Draw	core/Process/processMgr.cpp	/^void processMgr::Draw(){$/;"	f	class:processMgr
-PauseProcess	core/Process/processMgr.cpp	/^void processMgr::PauseProcess(const Hash* processName){$/;"	f	class:processMgr
-ResumePorcess	core/Process/processMgr.cpp	/^void processMgr::ResumePorcess(const Hash* processName){$/;"	f	class:processMgr
-Shutdown	core/Process/processMgr.cpp	/^void processMgr::Shutdown(){$/;"	f	class:processMgr
-Update	core/Process/processMgr.cpp	/^void processMgr::Update(float dt){$/;"	f	class:processMgr
-_getProcess	core/Process/processMgr.cpp	/^Process *processMgr::_getProcess(const Hash* processName){$/;"	f	class:processMgr
-addProcess	core/Process/processMgr.cpp	/^void processMgr::addProcess(Process *p){$/;"	f	class:processMgr
-postDraw	core/Process/processMgr.cpp	/^void processMgr::postDraw(){$/;"	f	class:processMgr
-preUpdate	core/Process/processMgr.cpp	/^void processMgr::preUpdate(){$/;"	f	class:processMgr
-getProcess	core/Process/processMgr.h	/^	processType *getProcess(const Hash* processName){$/;"	f	class:processMgr
-processMgr	core/Process/processMgr.h	/^class processMgr{$/;"	c
-processes	core/Process/processMgr.h	/^	std::map<const Hash*, Process *>processes;$/;"	m	class:processMgr
-Draw	core/Process/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
-addRenderNode	core/Process/renderProcess.cpp	/^void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){$/;"	f	class:renderProcess
-removeRenderNode	core/Process/renderProcess.cpp	/^void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){$/;"	f	class:renderProcess
-renderProcess	core/Process/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:renderProcess
-Draw	core/Process/renderProcess.h	/^		void Draw(sf::RenderWindow *window){$/;"	f	class:renderProcess::renderNode
-baseRenderNode	core/Process/renderProcess.h	/^		baseRenderNode(){$/;"	f	class:renderProcess::baseRenderNode
-baseRenderNode	core/Process/renderProcess.h	/^	class baseRenderNode{$/;"	c	class:renderProcess
-drawDisabled	core/Process/renderProcess.h	/^		bool drawDisabled;$/;"	m	class:renderProcess::baseRenderNode
-drawable	core/Process/renderProcess.h	/^		T *drawable;$/;"	m	class:renderProcess::renderNode
-nodes	core/Process/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
-renderNode	core/Process/renderProcess.h	/^		renderNode(T *_drawable) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
-renderNode	core/Process/renderProcess.h	/^		renderNode(T *_drawable, int z) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
-renderNode	core/Process/renderProcess.h	/^	class renderNode : public baseRenderNode{$/;"	c	class:renderProcess
-renderProcess	core/Process/renderProcess.h	/^class renderProcess: public Process{$/;"	c
-setPosition	core/Process/renderProcess.h	/^		void setPosition(vector2 position){$/;"	f	class:renderProcess::renderNode
-setRotation	core/Process/renderProcess.h	/^		void setRotation(util::Angle angle){$/;"	f	class:renderProcess::renderNode
-shapeRenderNode	core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> shapeRenderNode;$/;"	t
-sortFn	core/Process/renderProcess.h	/^	static bool sortFn(baseRenderNode *first, baseRenderNode *second){$/;"	f	class:renderProcess
-spriteRenderNode	core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> spriteRenderNode;$/;"	t
-textRenderNode	core/Process/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> textRenderNode;$/;"	t
-window	core/Process/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
-z	core/Process/renderProcess.h	/^		int z;$/;"	m	class:renderProcess::baseRenderNode
-Draw	core/Process/stateProcess.h	/^	 void Draw(){$/;"	f	class:stateProcess
-Shutdown	core/Process/stateProcess.h	/^	 void Shutdown(){$/;"	f	class:stateProcess
-Update	core/Process/stateProcess.h	/^	 void Update(float dt){$/;"	f	class:stateProcess
-addState	core/Process/stateProcess.h	/^ 	 void addState(State *state, bool currentState){$/;"	f	class:stateProcess
-currentState	core/Process/stateProcess.h	/^	State *currentState;$/;"	m	class:stateProcess
-eventManager	core/Process/stateProcess.h	/^	eventMgr &eventManager;$/;"	m	class:stateProcess
-processManager	core/Process/stateProcess.h	/^	processMgr &processManager;$/;"	m	class:stateProcess
-settings	core/Process/stateProcess.h	/^	Settings &settings;$/;"	m	class:stateProcess
-stateProcess	core/Process/stateProcess.h	/^	stateProcess(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager) :$/;"	f	class:stateProcess
-stateProcess	core/Process/stateProcess.h	/^class stateProcess : public Process{$/;"	c
-states	core/Process/stateProcess.h	/^	std::map<const Hash*, State*> states;$/;"	m	class:stateProcess
-transitioning	core/Process/stateProcess.h	/^	bool transitioning;$/;"	m	class:stateProcess
-Update	core/Process/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
-game2ViewCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::game2ViewCoord(vector2 gameCoord){$/;"	f	class:viewProcess
-getCenter	core/Process/viewProcess.cpp	/^vector2 viewProcess::getCenter(){$/;"	f	class:viewProcess
-getGame2RenderScale	core/Process/viewProcess.cpp	/^float viewProcess::getGame2RenderScale(){$/;"	f	class:viewProcess
-getRender2GameScale	core/Process/viewProcess.cpp	/^float viewProcess::getRender2GameScale(){$/;"	f	class:viewProcess
-move	core/Process/viewProcess.cpp	/^void viewProcess::move(vector2 offset){$/;"	f	class:viewProcess
-recieveEvent	core/Process/viewProcess.cpp	/^void viewProcess::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:viewProcess
-render2ScreeenCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::render2ScreeenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
-render2ViewCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::render2ViewCoord(vector2 screenCoord){$/;"	f	class:viewProcess
-screen2RenderCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){$/;"	f	class:viewProcess
-setCenter	core/Process/viewProcess.cpp	/^void viewProcess::setCenter(vector2 center){$/;"	f	class:viewProcess
-setRotation	core/Process/viewProcess.cpp	/^void viewProcess::setRotation(util::Angle angle){$/;"	f	class:viewProcess
-view2GameCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::view2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
-view2RenderCoord	core/Process/viewProcess.cpp	/^vector2 viewProcess::view2RenderCoord(vector2 renderCoord){$/;"	f	class:viewProcess
-viewProcess	core/Process/viewProcess.cpp	/^viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:viewProcess
-defaultView	core/Process/viewProcess.h	/^	sf::View defaultView;$/;"	m	class:viewProcess
-eventManager	core/Process/viewProcess.h	/^	eventMgr &eventManager;$/;"	m	class:viewProcess
-game2RenderScale	core/Process/viewProcess.h	/^	float game2RenderScale;$/;"	m	class:viewProcess
-viewProcess	core/Process/viewProcess.h	/^class viewProcess : public Process, public Observer{$/;"	c
-window	core/Process/viewProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:viewProcess
-windowHeight	core/Process/viewProcess.h	/^	float windowHeight;$/;"	m	class:viewProcess
-Shudown	core/Process/windowProcess.h	/^	void Shudown(){$/;"	f	class:windowProcess
-clearColor	core/Process/windowProcess.h	/^	sf::Color clearColor;$/;"	m	class:windowProcess
-getWindow	core/Process/windowProcess.h	/^	sf::RenderWindow *getWindow(){$/;"	f	class:windowProcess
-postDraw	core/Process/windowProcess.h	/^	void postDraw(){$/;"	f	class:windowProcess
-preUpdate	core/Process/windowProcess.h	/^	virtual void preUpdate(){$/;"	f	class:windowProcess
-setClearColor	core/Process/windowProcess.h	/^	void setClearColor(sf::Color color){$/;"	f	class:windowProcess
-window	core/Process/windowProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:windowProcess
-windowProcess	core/Process/windowProcess.h	/^	windowProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) : $/;"	f	class:windowProcess
-windowProcess	core/Process/windowProcess.h	/^class windowProcess : public Process{$/;"	c
-Draw	core/Process/worldProcess.h	/^	 void Draw(){};$/;"	f	class:worldProcess
-Pause	core/Process/worldProcess.h	/^	 void Pause(){$/;"	f	class:worldProcess
-Resume	core/Process/worldProcess.h	/^	 void Resume(){$/;"	f	class:worldProcess
-Shutdown	core/Process/worldProcess.h	/^	 void Shutdown(){$/;"	f	class:worldProcess
-Update	core/Process/worldProcess.h	/^	 void Update(float dt){$/;"	f	class:worldProcess
-collisionIterations	core/Process/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
-dtAccumilator	core/Process/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
-getMaxAccumilation	core/Process/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
-getStepSize	core/Process/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
-getWorld	core/Process/worldProcess.h	/^	 b2World *getWorld(){$/;"	f	class:worldProcess
-maxAccumilation	core/Process/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
-paused	core/Process/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
-stepSize	core/Process/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
-velIterations	core/Process/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
-world	core/Process/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProcess
-worldProcess	core/Process/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
-worldProcess	core/Process/worldProcess.h	/^class worldProcess : public Process{$/;"	c
-Prop	core/Property.h	/^	Prop(T value) : val(value){$/;"	f	class:Prop
-Prop	core/Property.h	/^	Prop(const Prop<T> &other){$/;"	f	class:Prop
-Prop	core/Property.h	/^class Prop : public baseProperty{$/;"	c
-baseProperty	core/Property.h	/^	baseProperty(){};$/;"	f	class:baseProperty
-baseProperty	core/Property.h	/^class baseProperty{$/;"	c
-dummyProp	core/Property.h	/^	dummyProp(){};$/;"	f	class:dummyProp
-dummyProp	core/Property.h	/^class dummyProp : public baseProperty{$/;"	c
-fProp	core/Property.h	/^typedef Prop<float> fProp;$/;"	t
-getVal	core/Property.h	/^	T *getVal(){$/;"	f	class:Prop
-getVal	core/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
-getVal	core/Property.h	/^	T* getVal() const{$/;"	f	class:ptrProp
-iProp	core/Property.h	/^typedef Prop<int> iProp;$/;"	t
-managedProp	core/Property.h	/^	managedProp(T *value){$/;"	f	class:managedProp
-managedProp	core/Property.h	/^class managedProp : public baseProperty{$/;"	c
-ptrProp	core/Property.h	/^	ptrProp(T *value){$/;"	f	class:ptrProp
-ptrProp	core/Property.h	/^class ptrProp : public baseProperty{$/;"	c
-sProp	core/Property.h	/^typedef Prop<std::string> sProp;$/;"	t
-setVal	core/Property.h	/^	void setVal(T &val){$/;"	f	class:Prop
-v2Prop	core/Property.h	/^typedef Prop<vector2> v2Prop;$/;"	t
-val	core/Property.h	/^		T val;$/;"	m	class:Prop
-val	core/Property.h	/^	T *val;$/;"	m	class:managedProp
-val	core/Property.h	/^	T* val;$/;"	m	class:ptrProp
-~Prop	core/Property.h	/^	~Prop(){$/;"	f	class:Prop
-~baseProperty	core/Property.h	/^	virtual ~baseProperty(){};$/;"	f	class:baseProperty
-~dummyProp	core/Property.h	/^	~dummyProp(){};$/;"	f	class:dummyProp
-~managedProp	core/Property.h	/^	~managedProp(){$/;"	f	class:managedProp
-Settings	core/Settings.h	/^	Settings(){};$/;"	f	class:Settings
-Settings	core/Settings.h	/^class Settings{$/;"	c
-addProp	core/Settings.h	/^	void addProp(const Hash *propertyName, baseProperty* property){$/;"	f	class:Settings
-getPrimitive	core/Settings.h	/^	T* getPrimitive(const Hash *propertyName){$/;"	f	class:Settings
-loadSettingsFromFile	core/Settings.h	/^	void loadSettingsFromFile(std::string filePath){};$/;"	f	class:Settings
-settingsMap	core/Settings.h	/^	std::map<const Hash *, baseProperty*>settingsMap; $/;"	m	class:Settings
-Init	core/State/State.h	/^	void Init(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager){$/;"	f	class:State
-State	core/State/State.h	/^	State(std::string name){$/;"	f	class:State
-State	core/State/State.h	/^class State{$/;"	c
-_Init	core/State/State.h	/^	virtual void _Init(){};$/;"	f	class:State
-_setStateTransition	core/State/State.h	/^	void _setStateTransition(std::string _nextStateName){$/;"	f	class:State
-changingState	core/State/State.h	/^	 bool changingState;$/;"	m	class:State
-eventManager	core/State/State.h	/^	eventMgr *eventManager;$/;"	m	class:State
-getHashedName	core/State/State.h	/^	const Hash* getHashedName(){$/;"	f	class:State
-getNextStateName	core/State/State.h	/^	std::string getNextStateName(){$/;"	f	class:State
-hashedName	core/State/State.h	/^	 const Hash* hashedName;$/;"	m	class:State
-nextStateName	core/State/State.h	/^	 std::string nextStateName; $/;"	m	class:State
-processManager	core/State/State.h	/^	processMgr *processManager;$/;"	m	class:State
-settings	core/State/State.h	/^	Settings *settings;$/;"	m	class:State
-shouldChangeState	core/State/State.h	/^	bool shouldChangeState(){$/;"	f	class:State
-~State	core/State/State.h	/^	virtual ~State(){};$/;"	f	class:State
-Load	core/State/dummyStateSaveLoader.h	/^	 void Load(){ this->doneLoading = true; };$/;"	f	class:dummyStateSaveLoader
-Save	core/State/dummyStateSaveLoader.h	/^	 void Save(){ this->doneSaving = true; };$/;"	f	class:dummyStateSaveLoader
-dummyStateSaveLoader	core/State/dummyStateSaveLoader.h	/^	dummyStateSaveLoader() : stateSaveLoader(NULL){};$/;"	f	class:dummyStateSaveLoader
-dummyStateSaveLoader	core/State/dummyStateSaveLoader.h	/^class dummyStateSaveLoader : public stateSaveLoader{$/;"	c
-~dummyStateSaveLoader	core/State/dummyStateSaveLoader.h	/^	~dummyStateSaveLoader(){};$/;"	f	class:dummyStateSaveLoader
-doneLoading	core/State/stateSaveLoader.h	/^	bool doneLoading;$/;"	m	class:stateSaveLoader
-doneSaving	core/State/stateSaveLoader.h	/^	bool doneSaving;$/;"	m	class:stateSaveLoader
-isDoneLoading	core/State/stateSaveLoader.h	/^	bool isDoneLoading(){$/;"	f	class:stateSaveLoader
-isDoneSaving	core/State/stateSaveLoader.h	/^	bool isDoneSaving(){$/;"	f	class:stateSaveLoader
-stateSaveLoader	core/State/stateSaveLoader.h	/^	stateSaveLoader(State *state){$/;"	f	class:stateSaveLoader
-stateSaveLoader	core/State/stateSaveLoader.h	/^class stateSaveLoader{$/;"	c
-~stateSaveLoader	core/State/stateSaveLoader.h	/^	virtual ~stateSaveLoader(){};$/;"	f	class:stateSaveLoader
-Process	core/objectMgr.cpp	/^void objectMgr::Process(float dt){$/;"	f	class:objectMgr
-activateObject	core/objectMgr.cpp	/^void objectMgr::activateObject(Object &obj){$/;"	f	class:objectMgr
-activateObject	core/objectMgr.cpp	/^void objectMgr::activateObject(const char* name){$/;"	f	class:objectMgr
-addObject	core/objectMgr.cpp	/^void objectMgr::addObject(Object *obj){$/;"	f	class:objectMgr
-addObjectProcessor	core/objectMgr.cpp	/^void objectMgr::addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
-deactivateObject	core/objectMgr.cpp	/^void objectMgr::deactivateObject(Object &obj){$/;"	f	class:objectMgr
-deactivateObject	core/objectMgr.cpp	/^void objectMgr::deactivateObject(const char* name){$/;"	f	class:objectMgr
-getObjByName	core/objectMgr.cpp	/^Object *objectMgr::getObjByName(const char* name){$/;"	f	class:objectMgr
-postProcess	core/objectMgr.cpp	/^void objectMgr::postProcess(){$/;"	f	class:objectMgr
-preProcess	core/objectMgr.cpp	/^void objectMgr::preProcess(){$/;"	f	class:objectMgr
-removeObjectProcessor	core/objectMgr.cpp	/^void objectMgr::removeObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
-activeObjects	core/objectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:objectMgr
-objMap	core/objectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:objectMgr
-objProcessorIt	core/objectMgr.h	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr
-objProcessors	core/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
-objectMgr	core/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
-objectMgr	core/objectMgr.h	/^class objectMgr{$/;"	c
-~objectMgr	core/objectMgr.h	/^	~objectMgr(){};$/;"	f	class:objectMgr
-Init	core/objectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:objectProcessor
-Process	core/objectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:objectProcessor
-_Init	core/objectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:objectProcessor
-_Process	core/objectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:objectProcessor
-_onObjectActivate	core/objectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectAdd	core/objectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeactivate	core/objectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeath	core/objectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:objectProcessor
-addProcessToken	core/objectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:objectProcessor
-hasProcessToken	core/objectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:objectProcessor
-name	core/objectProcessor.h	/^	std::string name;$/;"	m	class:objectProcessor
-objMap	core/objectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:objectProcessor
-objectProcessor	core/objectProcessor.h	/^	objectProcessor(std::string _name) : name(_name){};$/;"	f	class:objectProcessor
-objectProcessor	core/objectProcessor.h	/^class objectProcessor{$/;"	c
-onObjectActivate	core/objectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectAdd	core/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:objectProcessor
-onObjectDeactivate	core/objectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectDeath	core/objectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:objectProcessor
-postProcess	core/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
-preProcess	core/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
-~objectProcessor	core/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
-createCircleShape	core/renderUtil.cpp	/^sf::Shape *renderUtil::createCircleShape(const b2CircleShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
-createPolyShape	core/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
-createRectangleShape	core/renderUtil.cpp	/^sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){$/;"	f	class:renderUtil
-createShape	core/renderUtil.cpp	/^sf::Shape *renderUtil::createShape(const b2Shape *shape, viewProcess *view){$/;"	f	class:renderUtil
-renderUtil	core/renderUtil.h	/^class renderUtil{$/;"	c
-Length	core/vector.h	/^	inline float Length() const{ return (sqrt(x * x  +  y * y)); };$/;"	f	class:vector2
-Length	core/vector.h	/^	inline float Length(){ return (sqrt(x * x  +  y * y + z * z)); };$/;"	f	class:vector3
-LengthSquared	core/vector.h	/^	inline float LengthSquared() const{ return (x * x + y * y + z * z); };$/;"	f	class:vector3
-LengthSquared	core/vector.h	/^	inline float LengthSquared() const{ return (x * x + y * y); };$/;"	f	class:vector2
-Normalize	core/vector.h	/^	vector2 Normalize() const{	$/;"	f	class:vector2
-Normalize	core/vector.h	/^	vector3 Normalize(){	$/;"	f	class:vector3
-PRINTVECTOR2	core/vector.h	6;"	d
-cast	core/vector.h	/^	T cast() const{$/;"	f	class:vector2
-cast	core/vector.h	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
-clamp	core/vector.h	/^	vector2 clamp(const vector2 &minVec, const vector2 &maxVec){$/;"	f	class:vector2
-dotProduct	core/vector.h	/^	float dotProduct(const vector2 &other){$/;"	f	class:vector2
-nullVector	core/vector.h	147;"	d
-operator !=	core/vector.h	/^	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };$/;"	f	class:vector2
-operator *	core/vector.h	/^	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };$/;"	f	class:vector2
-operator *	core/vector.h	/^inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
-operator *	core/vector.h	/^inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
-operator *	core/vector.h	/^inline vector3 operator * (const vector3& a, float s)		   { return vector3(a.x * s  , a.y * s, a.z * s);	 };	$/;"	f
-operator *	core/vector.h	/^inline vector3 operator * (float s, const vector3& a)		   { return vector3(a.x * s  , a.y * s, a.z * s);    };	$/;"	f
-operator *=	core/vector.h	/^	inline void operator *= (float a){ x *= a; y *= a; z *= a; };$/;"	f	class:vector3
-operator *=	core/vector.h	/^	inline void operator *= (float a){ x *= a; y *= a; };$/;"	f	class:vector2
-operator +	core/vector.h	/^	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector2
-operator +	core/vector.h	/^	inline vector2 operator + (const vector2& a) { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector3
-operator +	core/vector.h	/^	inline vector3 operator + (const vector3& a) { return vector3(x + a.x, y + a.y, z + a.z); };$/;"	f	class:vector3
-operator +=	core/vector.h	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector2
-operator +=	core/vector.h	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector3
-operator +=	core/vector.h	/^	inline void operator += (const vector3& v){ x += v.x; y += v.y; z += v.z; };$/;"	f	class:vector3
-operator -	core/vector.h	/^	inline vector2 operator - (const vector2& a) const { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector2
-operator -	core/vector.h	/^	inline vector2 operator - (const vector2& a) { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector3
-operator -	core/vector.h	/^	inline vector2 operator -(){	return vector2(-x, -y); };$/;"	f	class:vector2
-operator -	core/vector.h	/^	inline vector3 operator - (const vector3& a) { return vector3(x - a.x, y - a.y, z - a.z); };$/;"	f	class:vector3
-operator -	core/vector.h	/^	inline vector3 operator -(){	return vector3(-x, -y, -z); };$/;"	f	class:vector3
-operator -=	core/vector.h	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y; };$/;"	f	class:vector2
-operator -=	core/vector.h	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y;};$/;"	f	class:vector3
-operator -=	core/vector.h	/^	inline void operator -= (const vector3& v){ x -= v.x; y -= v.y; z -= v.z;};$/;"	f	class:vector3
-operator /	core/vector.h	/^	inline vector2 operator \/ (const vector2& a) const { return vector2(x \/ a.x, y \/ a.y); };$/;"	f	class:vector2
-operator <	core/vector.h	/^	inline bool operator < (const vector2& a) const  { return (this->x < a.x && this->y < a.y); };$/;"	f	class:vector2
-operator <	core/vector.h	/^	inline bool operator < (const vector3& a) { return (this->x < a.x && this->y < a.y && this->z < a.z); };$/;"	f	class:vector3
-operator <=	core/vector.h	/^	inline bool operator <= (const vector2& a) const { return (this->x <= a.x && this->y <= a.y); };$/;"	f	class:vector2
-operator <=	core/vector.h	/^	inline bool operator <= (const vector3& a) { return (this->x <= a.x && this->y <= a.y  && this->z <= a.z); };$/;"	f	class:vector3
-operator ==	core/vector.h	/^	inline bool operator == (const vector2& a) const { return (this->x == a.x && this->y == a.y); };$/;"	f	class:vector2
-operator ==	core/vector.h	/^inline bool    operator == (const vector2&a , vector2& b) { return (a.x == a.y) && (b.x == b.y);  };$/;"	f
-operator ==	core/vector.h	/^inline bool    operator == (const vector3&a , vector3& b)	   { return (a.x == a.y) && (b.x == b.y) && (a.z == b.z);  };$/;"	f
-operator >	core/vector.h	/^	inline bool operator > (const vector2& a) const  { return (this->x > a.x && this->y > a.y); };$/;"	f	class:vector2
-operator >	core/vector.h	/^	inline bool operator > (const vector3& a) { return (this->x > a.x && this->y > a.y && this->z > a.z); };$/;"	f	class:vector3
-operator >=	core/vector.h	/^	inline bool operator >= (const vector2& a) const { return (this->x >= a.x && this->y >= a.y); };$/;"	f	class:vector2
-operator >=	core/vector.h	/^	inline bool operator >= (const vector3& a) { return (this->x >= a.x && this->y >= a.y && this->z >= a.z); };$/;"	f	class:vector3
-operator b2Vec2	core/vector.h	/^	inline operator b2Vec2(){ return b2Vec2(this->x, this->y); }$/;"	f	class:vector2
-operator otherPhyVect2	core/vector.h	/^	template<class otherPhyVect2> inline operator otherPhyVect2(){ return otherPhyVect2(this->x, this->y); }$/;"	f	class:vector3
-operator sf::Vector2<T>	core/vector.h	/^	inline operator sf::Vector2<T>(){ return sf::Vector2<T>(this->x, this->y); }$/;"	f	class:vector2
-operator vector2	core/vector.h	/^	inline operator vector2(){ return vector2(this->x, this->y); }$/;"	f	class:vector3
-projectOn	core/vector.h	/^	vector2 projectOn(const vector2 &projectDir){$/;"	f	class:vector2
-toAngle	core/vector.h	/^	float toAngle() const{$/;"	f	class:vector2
-vector2	core/vector.h	/^	\/*inline*\/ vector2(float x, float y){$/;"	f	class:vector2
-vector2	core/vector.h	/^	inline vector2(const vector2& other){$/;"	f	class:vector2
-vector2	core/vector.h	/^	vector2(){ this->x = this->y = 0;};$/;"	f	class:vector2
-vector2	core/vector.h	/^class vector2{$/;"	c
-vector3	core/vector.h	/^	vector3(){ this->x = this->y = this->z = 0;};$/;"	f	class:vector3
-vector3	core/vector.h	/^	vector3(float x, float y, float z){$/;"	f	class:vector3
-vector3	core/vector.h	/^	vector3(vector2 vec2, float z){$/;"	f	class:vector3
-vector3	core/vector.h	/^class vector3{$/;"	c
-x	core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
-x	core/vector.h	/^	float x, y;$/;"	m	class:vector2
-y	core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
-y	core/vector.h	/^	float x, y;$/;"	m	class:vector2
-z	core/vector.h	/^	float x, y, z;$/;"	m	class:vector3
-zeroVector	core/vector.h	146;"	d
-~vector2	core/vector.h	/^	~vector2(){};$/;"	f	class:vector2
+Quadtree	core/AI/quadtree.h	/^class Quadtree<T>{$/;"	c
+bottomLeft	core/AI/quadtree.h	/^	bottomLeft,$/;"	e	enum:quadtreeDir
+bottomRight	core/AI/quadtree.h	/^	bottomRight$/;"	e	enum:quadtreeDir
+boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:Quadtree
+boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:quadtreeNode
+nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:Quadtree
+nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:quadtreeNode
+objects	core/AI/quadtree.h	/^	std::list<T*> objects;$/;"	m	class:quadtreeLeaf
+quadtreeDir	core/AI/quadtree.h	/^enum quadtreeDir{$/;"	g
+quadtreeLeaf	core/AI/quadtree.h	/^class quadtreeLeaf<T>{$/;"	c
+quadtreeNode	core/AI/quadtree.h	/^class quadtreeNode<T>{$/;"	c
+topLeft	core/AI/quadtree.h	/^	topLeft = 0,$/;"	e	enum:quadtreeDir
+topRight	core/AI/quadtree.h	/^	topRight,$/;"	e	enum:quadtreeDir
+Hash	core/IO/Hash.cpp	/^Hash::Hash(std::string &str, unsigned int seed){$/;"	f	class:Hash
+Hash2Str	core/IO/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
+_MurmurHash64B	core/IO/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
+getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(const char* str){$/;"	f	class:Hash
+getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(std::string &str){$/;"	f	class:Hash
+getVal	core/IO/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
+hashMap	core/IO/Hash.cpp	/^std::map<std::string, Hash* > Hash::hashMap;$/;"	m	class:Hash	file:
+operator <	core/IO/Hash.cpp	/^bool Hash::operator < (const Hash &other) const{$/;"	f	class:Hash
+operator ==	core/IO/Hash.cpp	/^bool Hash::operator == (const Hash &other) const{$/;"	f	class:Hash
+operator >	core/IO/Hash.cpp	/^bool Hash::operator > (const Hash &other) const{$/;"	f	class:Hash
+seed	core/IO/Hash.cpp	/^unsigned int Hash::seed;$/;"	m	class:Hash	file:
+setSeed	core/IO/Hash.cpp	/^void Hash::setSeed(unsigned int seed){$/;"	f	class:Hash
+Hash	core/IO/Hash.h	/^class Hash{$/;"	c
+HashMap	core/IO/Hash.h	/^	typedef std::map<std::string, Hash* > HashMap; $/;"	t	class:Hash
+hashMap	core/IO/Hash.h	/^	static HashMap hashMap;$/;"	m	class:Hash
+hashMapIt	core/IO/Hash.h	/^	typedef HashMap::iterator hashMapIt;$/;"	t	class:Hash
+hashedVal	core/IO/Hash.h	/^	uint64_t hashedVal;$/;"	m	class:Hash
+seed	core/IO/Hash.h	/^	static unsigned int seed;$/;"	m	class:Hash
+uint64_t	core/IO/Hash.h	/^typedef unsigned long long uint64_t;$/;"	t
+Settings	core/IO/Settings.h	/^	Settings(){};$/;"	f	class:Settings
+Settings	core/IO/Settings.h	/^class Settings{$/;"	c
+addProp	core/IO/Settings.h	/^	void addProp(const Hash *propertyName, baseProperty* property){$/;"	f	class:Settings
+getPrimitive	core/IO/Settings.h	/^	T* getPrimitive(const Hash *propertyName){$/;"	f	class:Settings
+loadSettingsFromFile	core/IO/Settings.h	/^	void loadSettingsFromFile(std::string filePath){};$/;"	f	class:Settings
+settingsMap	core/IO/Settings.h	/^	std::map<const Hash *, baseProperty*>settingsMap; $/;"	m	class:Settings
+_handleEvent	core/IO/eventProcess.cpp	/^void eventProcess::_handleEvent(){$/;"	f	class:eventProcess
+_handleKeyboardPressed	core/IO/eventProcess.cpp	/^void eventProcess::_handleKeyboardPressed(){$/;"	f	class:eventProcess
+_handleKeyboardReleased	core/IO/eventProcess.cpp	/^void eventProcess::_handleKeyboardReleased(){$/;"	f	class:eventProcess
+_handleMouseButtonPressed	core/IO/eventProcess.cpp	/^void eventProcess::_handleMouseButtonPressed(){$/;"	f	class:eventProcess
+_handleMouseButtonReleased	core/IO/eventProcess.cpp	/^void eventProcess::_handleMouseButtonReleased(){$/;"	f	class:eventProcess
+_handleMouseMove	core/IO/eventProcess.cpp	/^void eventProcess::_handleMouseMove(){$/;"	f	class:eventProcess
+_handleMouseWheelMove	core/IO/eventProcess.cpp	/^void eventProcess::_handleMouseWheelMove(){$/;"	f	class:eventProcess
+_handleWindowCloseEvent	core/IO/eventProcess.cpp	/^void eventProcess::_handleWindowCloseEvent(){$/;"	f	class:eventProcess
+preUpdate	core/IO/eventProcess.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
+event	core/IO/eventProcess.h	/^ 	sf::Event event;$/;"	m	class:eventProcess
+eventManager	core/IO/eventProcess.h	/^ 	eventMgr &eventManager;$/;"	m	class:eventProcess
+eventProcess	core/IO/eventProcess.h	/^ 	eventProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:eventProcess
+eventProcess	core/IO/eventProcess.h	/^ class eventProcess : public Process{$/;"	c
+window	core/IO/eventProcess.h	/^ 	sf::RenderWindow *window;$/;"	m	class:eventProcess
+baseLog	core/IO/logObject.cpp	/^IO::baseLog::baseLog(){};$/;"	f	class:IO::baseLog
+thresholdLevel	core/IO/logObject.cpp	/^IO::logLevel IO::baseLog::thresholdLevel;$/;"	m	class:IO::baseLog	file:
+~baseLog	core/IO/logObject.cpp	/^IO::baseLog::~baseLog(){}$/;"	f	class:IO::baseLog
+IO	core/IO/logObject.h	/^namespace IO{$/;"	n
+LOG_GLOBAL_OBJECTS	core/IO/logObject.h	150;"	d
+Throw	core/IO/logObject.h	/^		void Throw(){$/;"	f	class:IO::msgLog
+_Flush	core/IO/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	c	namespace:IO
+_Flush	core/IO/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	f	class:IO::_Flush
+baseLog	core/IO/logObject.h	/^	class baseLog{$/;"	c	namespace:IO
+enabled	core/IO/logObject.h	/^		bool enabled;$/;"	m	class:IO::scopedLog
+errorLog	core/IO/logObject.h	/^	static IO::msgLog<logLevelError> errorLog;$/;"	m	namespace:IO
+flush	core/IO/logObject.h	/^	static const _Flush flush;$/;"	m	namespace:IO
+infoLog	core/IO/logObject.h	/^	static IO::msgLog<logLevelInfo> infoLog;$/;"	m	namespace:IO
+logLevel	core/IO/logObject.h	/^	enum logLevel{$/;"	g	namespace:IO
+logLevelError	core/IO/logObject.h	/^		logLevelError, $/;"	e	enum:IO::logLevel
+logLevelInfo	core/IO/logObject.h	/^		logLevelInfo = 0, $/;"	e	enum:IO::logLevel
+logLevelNoEmit	core/IO/logObject.h	/^		logLevelNoEmit, $/;"	e	enum:IO::logLevel
+logLevelWarning	core/IO/logObject.h	/^		logLevelWarning, $/;"	e	enum:IO::logLevel
+msgLog	core/IO/logObject.h	/^		msgLog(){$/;"	f	class:IO::msgLog
+msgLog	core/IO/logObject.h	/^		msgLog(){};$/;"	f	class:IO::msgLog
+msgLog	core/IO/logObject.h	/^	class msgLog : public baseLog{$/;"	c	namespace:IO
+msgLog	core/IO/logObject.h	/^	class msgLog<logLevelError> : public baseLog{$/;"	c	namespace:IO
+onDestroyMsg	core/IO/logObject.h	/^		std::string onDestroyMsg;$/;"	m	class:IO::scopedLog
+operator <<	core/IO/logObject.h	/^		msgLog & operator << (const Hash* toWrite){$/;"	f	class:IO::msgLog
+operator <<	core/IO/logObject.h	/^		msgLog & operator << (const T &toWrite){$/;"	f	class:IO::msgLog
+operator <<	core/IO/logObject.h	/^		msgLog & operator << (const _Flush& flush){$/;"	f	class:IO::msgLog
+scopedLog	core/IO/logObject.h	/^		scopedLog(std::string onCreateMsg, std::string onDestroyMsg, logLevel level = logLevelInfo){$/;"	f	class:IO::scopedLog
+scopedLog	core/IO/logObject.h	/^	class scopedLog : public baseLog{$/;"	c	namespace:IO
+setThreshold	core/IO/logObject.h	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:IO::baseLog
+thresholdLevel	core/IO/logObject.h	/^		static logLevel thresholdLevel; $/;"	m	class:IO::baseLog
+warningLog	core/IO/logObject.h	/^	static 	IO::msgLog<logLevelWarning> warningLog;$/;"	m	namespace:IO
+~scopedLog	core/IO/logObject.h	/^		~scopedLog(){$/;"	f	class:IO::scopedLog
+strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
+toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
+util	core/IO/strHelper.h	/^namespace util{$/;"	n
+Draw	core/Rendering/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
+addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){$/;"	f	class:renderProcess
+removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){$/;"	f	class:renderProcess
+renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:renderProcess
+Draw	core/Rendering/renderProcess.h	/^		void Draw(sf::RenderWindow *window){$/;"	f	class:renderProcess::renderNode
+baseRenderNode	core/Rendering/renderProcess.h	/^		baseRenderNode(){$/;"	f	class:renderProcess::baseRenderNode
+baseRenderNode	core/Rendering/renderProcess.h	/^	class baseRenderNode{$/;"	c	class:renderProcess
+drawDisabled	core/Rendering/renderProcess.h	/^		bool drawDisabled;$/;"	m	class:renderProcess::baseRenderNode
+drawable	core/Rendering/renderProcess.h	/^		T *drawable;$/;"	m	class:renderProcess::renderNode
+nodes	core/Rendering/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
+renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
+renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable, int z) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
+renderNode	core/Rendering/renderProcess.h	/^	class renderNode : public baseRenderNode{$/;"	c	class:renderProcess
+renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
+setPosition	core/Rendering/renderProcess.h	/^		void setPosition(vector2 position){$/;"	f	class:renderProcess::renderNode
+setRotation	core/Rendering/renderProcess.h	/^		void setRotation(util::Angle angle){$/;"	f	class:renderProcess::renderNode
+shapeRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> shapeRenderNode;$/;"	t
+sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(baseRenderNode *first, baseRenderNode *second){$/;"	f	class:renderProcess
+spriteRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> spriteRenderNode;$/;"	t
+textRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> textRenderNode;$/;"	t
+window	core/Rendering/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
+z	core/Rendering/renderProcess.h	/^		int z;$/;"	m	class:renderProcess::baseRenderNode
+createCircleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createCircleShape(const b2CircleShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
+createPolyShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
+createRectangleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){$/;"	f	class:renderUtil
+createShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createShape(const b2Shape *shape, viewProcess *view){$/;"	f	class:renderUtil
+renderUtil	core/Rendering/renderUtil.h	/^class renderUtil{$/;"	c
+Update	core/Rendering/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
+game2ViewCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::game2ViewCoord(vector2 gameCoord){$/;"	f	class:viewProcess
+getCenter	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::getCenter(){$/;"	f	class:viewProcess
+getGame2RenderScale	core/Rendering/viewProcess.cpp	/^float viewProcess::getGame2RenderScale(){$/;"	f	class:viewProcess
+getRender2GameScale	core/Rendering/viewProcess.cpp	/^float viewProcess::getRender2GameScale(){$/;"	f	class:viewProcess
+move	core/Rendering/viewProcess.cpp	/^void viewProcess::move(vector2 offset){$/;"	f	class:viewProcess
+recieveEvent	core/Rendering/viewProcess.cpp	/^void viewProcess::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:viewProcess
+render2ScreeenCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::render2ScreeenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
+render2ViewCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::render2ViewCoord(vector2 screenCoord){$/;"	f	class:viewProcess
+screen2RenderCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){$/;"	f	class:viewProcess
+setCenter	core/Rendering/viewProcess.cpp	/^void viewProcess::setCenter(vector2 center){$/;"	f	class:viewProcess
+setRotation	core/Rendering/viewProcess.cpp	/^void viewProcess::setRotation(util::Angle angle){$/;"	f	class:viewProcess
+view2GameCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::view2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
+view2RenderCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::view2RenderCoord(vector2 renderCoord){$/;"	f	class:viewProcess
+viewProcess	core/Rendering/viewProcess.cpp	/^viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:viewProcess
+defaultView	core/Rendering/viewProcess.h	/^	sf::View defaultView;$/;"	m	class:viewProcess
+eventManager	core/Rendering/viewProcess.h	/^	eventMgr &eventManager;$/;"	m	class:viewProcess
+game2RenderScale	core/Rendering/viewProcess.h	/^	float game2RenderScale;$/;"	m	class:viewProcess
+viewProcess	core/Rendering/viewProcess.h	/^class viewProcess : public Process, public Observer{$/;"	c
+window	core/Rendering/viewProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:viewProcess
+windowHeight	core/Rendering/viewProcess.h	/^	float windowHeight;$/;"	m	class:viewProcess
+Shudown	core/Rendering/windowProcess.h	/^	void Shudown(){$/;"	f	class:windowProcess
+clearColor	core/Rendering/windowProcess.h	/^	sf::Color clearColor;$/;"	m	class:windowProcess
+getWindow	core/Rendering/windowProcess.h	/^	sf::RenderWindow *getWindow(){$/;"	f	class:windowProcess
+postDraw	core/Rendering/windowProcess.h	/^	void postDraw(){$/;"	f	class:windowProcess
+preUpdate	core/Rendering/windowProcess.h	/^	virtual void preUpdate(){$/;"	f	class:windowProcess
+setClearColor	core/Rendering/windowProcess.h	/^	void setClearColor(sf::Color color){$/;"	f	class:windowProcess
+window	core/Rendering/windowProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:windowProcess
+windowProcess	core/Rendering/windowProcess.h	/^	windowProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) : $/;"	f	class:windowProcess
+windowProcess	core/Rendering/windowProcess.h	/^class windowProcess : public Process{$/;"	c
+BeginContact	core/World/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
+EndContact	core/World/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
+_extractPhyData	core/World/objContactListener.cpp	/^void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
+_fillCollisionData	core/World/objContactListener.cpp	/^collisionData objContactListener::_fillCollisionData(b2Contact *contact,$/;"	f	class:objContactListener
+_handleCollision	core/World/objContactListener.cpp	/^void objContactListener::_handleCollision(collisionData::Type type, b2Contact *contact){$/;"	f	class:objContactListener
+getCollidedObjectCollision	core/World/objContactListener.cpp	/^const Hash *collisionData::getCollidedObjectCollision(){$/;"	f	class:collisionData
+Type	core/World/objContactListener.h	/^	enum Type{$/;"	g	struct:collisionData
+collisionData	core/World/objContactListener.h	/^struct collisionData{$/;"	s
+myApproachVel	core/World/objContactListener.h	/^	vector2 myApproachVel;$/;"	m	struct:collisionData
+myPhy	core/World/objContactListener.h	/^	phyData *myPhy;$/;"	m	struct:collisionData
+normal	core/World/objContactListener.h	/^	vector2 normal;$/;"	m	struct:collisionData
+objContactListener	core/World/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
+objContactListener	core/World/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
+onBegin	core/World/objContactListener.h	/^		onBegin,$/;"	e	enum:collisionData::Type
+onEnd	core/World/objContactListener.h	/^		onEnd,$/;"	e	enum:collisionData::Type
+otherObj	core/World/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:collisionData
+otherPhy	core/World/objContactListener.h	/^	phyData *otherPhy;$/;"	m	struct:collisionData
+type	core/World/objContactListener.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
+~objContactListener	core/World/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
+Draw	core/World/worldProcess.h	/^	 void Draw(){};$/;"	f	class:worldProcess
+Pause	core/World/worldProcess.h	/^	 void Pause(){$/;"	f	class:worldProcess
+Resume	core/World/worldProcess.h	/^	 void Resume(){$/;"	f	class:worldProcess
+Shutdown	core/World/worldProcess.h	/^	 void Shutdown(){$/;"	f	class:worldProcess
+Update	core/World/worldProcess.h	/^	 void Update(float dt){$/;"	f	class:worldProcess
+collisionIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
+dtAccumilator	core/World/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
+getMaxAccumilation	core/World/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
+getStepSize	core/World/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
+getWorld	core/World/worldProcess.h	/^	 b2World *getWorld(){$/;"	f	class:worldProcess
+maxAccumilation	core/World/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
+paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
+stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
+velIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
+world	core/World/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProcess
+worldProcess	core/World/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
+worldProcess	core/World/worldProcess.h	/^class worldProcess : public Process{$/;"	c
+Kill	core/componentSys/Object.cpp	/^void Object::Kill(){$/;"	f	class:Object
+Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name){$/;"	f	class:Object
+_genUniqueName	core/componentSys/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
+_getBaseProp	core/componentSys/Object.cpp	/^baseProperty *Object::_getBaseProp(const Hash *name) const{$/;"	f	class:Object
+_printProperties	core/componentSys/Object.cpp	/^void Object::_printProperties() const{$/;"	f	class:Object
+addProp	core/componentSys/Object.cpp	/^void Object::addProp(const Hash *name, baseProperty *value){$/;"	f	class:Object
+addProp	core/componentSys/Object.cpp	/^void Object::addProp(const char *name, baseProperty *value){$/;"	f	class:Object
+getBaseName	core/componentSys/Object.cpp	/^std::string Object::getBaseName() const{$/;"	f	class:Object
+getName	core/componentSys/Object.cpp	/^std::string Object::getName() const{$/;"	f	class:Object
+hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const Hash *name) const{$/;"	f	class:Object
+hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const char *name) const{$/;"	f	class:Object
+isDead	core/componentSys/Object.cpp	/^bool Object::isDead() const{$/;"	f	class:Object
+nameMap	core/componentSys/Object.cpp	/^std::map<std::string, unsigned int> Object::nameMap;$/;"	m	class:Object	file:
+requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const Hash *name) const{$/;"	f	class:Object
+requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
+~Object	core/componentSys/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
+Object	core/componentSys/Object.h	/^class Object{$/;"	c
+_getProperty	core/componentSys/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
+baseName	core/componentSys/Object.h	/^	std::string baseName;$/;"	m	class:Object
+cObjMapIt	core/componentSys/Object.h	/^	typedef objectMap::const_iterator cObjMapIt;$/;"	t	class:Object
+cPropertyIt	core/componentSys/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;$/;"	t	class:Object
+dead	core/componentSys/Object.h	/^	bool dead;$/;"	m	class:Object
+getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const Hash *name){$/;"	f	class:Object
+getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
+name	core/componentSys/Object.h	/^	std::string name;$/;"	m	class:Object
+nameIt	core/componentSys/Object.h	/^	typedef std::map<std::string, unsigned int>::iterator nameIt;$/;"	t	class:Object
+nameMap	core/componentSys/Object.h	/^	static std::map<std::string, unsigned int>nameMap;$/;"	m	class:Object
+objMapIt	core/componentSys/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"	t	class:Object
+objectList	core/componentSys/Object.h	/^	typedef std::vector<Object *> objectList;$/;"	t	class:Object
+objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
+propertyIt	core/componentSys/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;$/;"	t	class:Object
+propertyMap	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > propertyMap; $/;"	m	class:Object
+Prop	core/componentSys/Property.h	/^	Prop(T value) : val(value){$/;"	f	class:Prop
+Prop	core/componentSys/Property.h	/^	Prop(const Prop<T> &other){$/;"	f	class:Prop
+Prop	core/componentSys/Property.h	/^class Prop : public baseProperty{$/;"	c
+baseProperty	core/componentSys/Property.h	/^	baseProperty(){};$/;"	f	class:baseProperty
+baseProperty	core/componentSys/Property.h	/^class baseProperty{$/;"	c
+dummyProp	core/componentSys/Property.h	/^	dummyProp(){};$/;"	f	class:dummyProp
+dummyProp	core/componentSys/Property.h	/^class dummyProp : public baseProperty{$/;"	c
+fProp	core/componentSys/Property.h	/^typedef Prop<float> fProp;$/;"	t
+getVal	core/componentSys/Property.h	/^	T *getVal(){$/;"	f	class:Prop
+getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
+getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:ptrProp
+iProp	core/componentSys/Property.h	/^typedef Prop<int> iProp;$/;"	t
+managedProp	core/componentSys/Property.h	/^	managedProp(T *value){$/;"	f	class:managedProp
+managedProp	core/componentSys/Property.h	/^class managedProp : public baseProperty{$/;"	c
+ptrProp	core/componentSys/Property.h	/^	ptrProp(T *value){$/;"	f	class:ptrProp
+ptrProp	core/componentSys/Property.h	/^class ptrProp : public baseProperty{$/;"	c
+sProp	core/componentSys/Property.h	/^typedef Prop<std::string> sProp;$/;"	t
+setVal	core/componentSys/Property.h	/^	void setVal(T &val){$/;"	f	class:Prop
+v2Prop	core/componentSys/Property.h	/^typedef Prop<vector2> v2Prop;$/;"	t
+val	core/componentSys/Property.h	/^		T val;$/;"	m	class:Prop
+val	core/componentSys/Property.h	/^	T *val;$/;"	m	class:managedProp
+val	core/componentSys/Property.h	/^	T* val;$/;"	m	class:ptrProp
+~Prop	core/componentSys/Property.h	/^	~Prop(){$/;"	f	class:Prop
+~baseProperty	core/componentSys/Property.h	/^	virtual ~baseProperty(){};$/;"	f	class:baseProperty
+~dummyProp	core/componentSys/Property.h	/^	~dummyProp(){};$/;"	f	class:dummyProp
+~managedProp	core/componentSys/Property.h	/^	~managedProp(){$/;"	f	class:managedProp
+Process	core/componentSys/objectMgr.cpp	/^void objectMgr::Process(float dt){$/;"	f	class:objectMgr
+activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(Object &obj){$/;"	f	class:objectMgr
+activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(const char* name){$/;"	f	class:objectMgr
+addObject	core/componentSys/objectMgr.cpp	/^void objectMgr::addObject(Object *obj){$/;"	f	class:objectMgr
+addObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
+deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(Object &obj){$/;"	f	class:objectMgr
+deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(const char* name){$/;"	f	class:objectMgr
+getObjByName	core/componentSys/objectMgr.cpp	/^Object *objectMgr::getObjByName(const char* name){$/;"	f	class:objectMgr
+postProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::postProcess(){$/;"	f	class:objectMgr
+preProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::preProcess(){$/;"	f	class:objectMgr
+removeObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::removeObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
+activeObjects	core/componentSys/objectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:objectMgr
+objMap	core/componentSys/objectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:objectMgr
+objProcessorIt	core/componentSys/objectMgr.h	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr
+objProcessors	core/componentSys/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
+objectMgr	core/componentSys/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
+objectMgr	core/componentSys/objectMgr.h	/^class objectMgr{$/;"	c
+~objectMgr	core/componentSys/objectMgr.h	/^	~objectMgr(){};$/;"	f	class:objectMgr
+Update	core/componentSys/objectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:objectMgrProcess
+addObjectProcessor	core/componentSys/objectMgrProcess.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgrProcess
+getObjectMgr	core/componentSys/objectMgrProcess.h	/^	objectMgr *getObjectMgr(){$/;"	f	class:objectMgrProcess
+objManager	core/componentSys/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
+objectMgrProcess	core/componentSys/objectMgrProcess.h	/^	objectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:objectMgrProcess
+objectMgrProcess	core/componentSys/objectMgrProcess.h	/^class objectMgrProcess : public Process{$/;"	c
+postDraw	core/componentSys/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
+preUpdate	core/componentSys/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
+Init	core/componentSys/processor/objectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:objectProcessor
+Process	core/componentSys/processor/objectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:objectProcessor
+_Init	core/componentSys/processor/objectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:objectProcessor
+_Process	core/componentSys/processor/objectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:objectProcessor
+_onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:objectProcessor
+_onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
+_onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:objectProcessor
+_onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:objectProcessor
+addProcessToken	core/componentSys/processor/objectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:objectProcessor
+hasProcessToken	core/componentSys/processor/objectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:objectProcessor
+name	core/componentSys/processor/objectProcessor.h	/^	std::string name;$/;"	m	class:objectProcessor
+objMap	core/componentSys/processor/objectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:objectProcessor
+objectProcessor	core/componentSys/processor/objectProcessor.h	/^	objectProcessor(std::string _name) : name(_name){};$/;"	f	class:objectProcessor
+objectProcessor	core/componentSys/processor/objectProcessor.h	/^class objectProcessor{$/;"	c
+onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:objectProcessor
+onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:objectProcessor
+onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:objectProcessor
+onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:objectProcessor
+postProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
+preProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
+~objectProcessor	core/componentSys/processor/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
+_Process	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_Process(Object *obj, float dt){$/;"	f	class:phyProcessor
+_onObjectActivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:phyProcessor
+_onObjectAdd	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
+_onObjectDeactivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:phyProcessor
+_onObjectDeath	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:phyProcessor
+_preProcess	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_preProcess(){$/;"	f	class:phyProcessor
+addCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
+phyProcessor	core/componentSys/processor/phyProcessor.cpp	/^phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:phyProcessor
+removeCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
+_shouldProcess	core/componentSys/processor/phyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:phyProcessor
+body	core/componentSys/processor/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:phyData
+bodyDef	core/componentSys/processor/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
+collisionType	core/componentSys/processor/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
+collisions	core/componentSys/processor/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
+contactListener	core/componentSys/processor/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
+fixtureDef	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:phyData
+fixtures	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:phyData
+maxVel	core/componentSys/processor/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
+phyData	core/componentSys/processor/phyProcessor.h	/^struct phyData{$/;"	s
+phyProcessor	core/componentSys/processor/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
+velClamped	core/componentSys/processor/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
+view	core/componentSys/processor/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
+world	core/componentSys/processor/phyProcessor.h	/^	b2World *world;$/;"	m	class:phyProcessor
+_Process	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Process(Object *obj, float dt){$/;"	f	class:renderProcessor
+_Render	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
+_onObjectActivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:renderProcessor
+_onObjectAdd	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
+_onObjectDeactivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:renderProcessor
+_onObjectDeath	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:renderProcessor
+renderProcessor	core/componentSys/processor/renderProcessor.cpp	/^renderProcessor::renderProcessor(processMgr &processManager, $/;"	f	class:renderProcessor
+_shouldProcess	core/componentSys/processor/renderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:renderProcessor
+addRenderer	core/componentSys/processor/renderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:renderData
+centered	core/componentSys/processor/renderProcessor.h	/^	bool centered;$/;"	m	class:renderData
+render	core/componentSys/processor/renderProcessor.h	/^	renderProcess *render;$/;"	m	class:renderProcessor
+renderData	core/componentSys/processor/renderProcessor.h	/^	renderData() : centered(false){};$/;"	f	class:renderData
+renderData	core/componentSys/processor/renderProcessor.h	/^class renderData{$/;"	c
+renderProcessor	core/componentSys/processor/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
+renderers	core/componentSys/processor/renderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:renderData
+view	core/componentSys/processor/renderProcessor.h	/^	viewProcess *view;$/;"	m	class:renderProcessor
+window	core/componentSys/processor/renderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcessor
+Draw	core/controlFlow/Process.h	/^	virtual void Draw(){};$/;"	f	class:Process
+Pause	core/controlFlow/Process.h	/^	virtual void Pause(){};$/;"	f	class:Process
+Process	core/controlFlow/Process.h	/^	Process(std::string _name){$/;"	f	class:Process
+Process	core/controlFlow/Process.h	/^class Process{$/;"	c
+Resume	core/controlFlow/Process.h	/^	virtual void Resume(){};$/;"	f	class:Process
+Shutdown	core/controlFlow/Process.h	/^	virtual void Shutdown(){};$/;"	f	class:Process
+Update	core/controlFlow/Process.h	/^	virtual void Update(float dt){};$/;"	f	class:Process
+getNameHash	core/controlFlow/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
+nameHash	core/controlFlow/Process.h	/^	const Hash *nameHash;$/;"	m	class:Process
+postDraw	core/controlFlow/Process.h	/^	virtual void postDraw(){};$/;"	f	class:Process
+preUpdate	core/controlFlow/Process.h	/^	virtual void preUpdate(){};$/;"	f	class:Process
+~Process	core/controlFlow/Process.h	/^	virtual ~Process(){};$/;"	f	class:Process
+Init	core/controlFlow/State.h	/^	void Init(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager){$/;"	f	class:State
+State	core/controlFlow/State.h	/^	State(std::string name){$/;"	f	class:State
+State	core/controlFlow/State.h	/^class State{$/;"	c
+_Init	core/controlFlow/State.h	/^	virtual void _Init(){};$/;"	f	class:State
+_setStateTransition	core/controlFlow/State.h	/^	void _setStateTransition(std::string _nextStateName){$/;"	f	class:State
+changingState	core/controlFlow/State.h	/^	 bool changingState;$/;"	m	class:State
+eventManager	core/controlFlow/State.h	/^	eventMgr *eventManager;$/;"	m	class:State
+getHashedName	core/controlFlow/State.h	/^	const Hash* getHashedName(){$/;"	f	class:State
+getNextStateName	core/controlFlow/State.h	/^	std::string getNextStateName(){$/;"	f	class:State
+hashedName	core/controlFlow/State.h	/^	 const Hash* hashedName;$/;"	m	class:State
+nextStateName	core/controlFlow/State.h	/^	 std::string nextStateName; $/;"	m	class:State
+processManager	core/controlFlow/State.h	/^	processMgr *processManager;$/;"	m	class:State
+settings	core/controlFlow/State.h	/^	Settings *settings;$/;"	m	class:State
+shouldChangeState	core/controlFlow/State.h	/^	bool shouldChangeState(){$/;"	f	class:State
+~State	core/controlFlow/State.h	/^	virtual ~State(){};$/;"	f	class:State
+Load	core/controlFlow/dummyStateSaveLoader.h	/^	 void Load(){ this->doneLoading = true; };$/;"	f	class:dummyStateSaveLoader
+Save	core/controlFlow/dummyStateSaveLoader.h	/^	 void Save(){ this->doneSaving = true; };$/;"	f	class:dummyStateSaveLoader
+dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^	dummyStateSaveLoader() : stateSaveLoader(NULL){};$/;"	f	class:dummyStateSaveLoader
+dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^class dummyStateSaveLoader : public stateSaveLoader{$/;"	c
+~dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^	~dummyStateSaveLoader(){};$/;"	f	class:dummyStateSaveLoader
+Register	core/controlFlow/eventMgr.cpp	/^void eventMgr::Register(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
+Unregister	core/controlFlow/eventMgr.cpp	/^void eventMgr::Unregister(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
+_Dispatch	core/controlFlow/eventMgr.cpp	/^void eventMgr::_Dispatch(Event &newEvent){$/;"	f	class:eventMgr
+_observersPresent	core/controlFlow/eventMgr.cpp	/^bool eventMgr::_observersPresent(const Hash *eventName){$/;"	f	class:eventMgr
+_sendEvent	core/controlFlow/eventMgr.cpp	/^void eventMgr::_sendEvent(Event &event){$/;"	f	class:eventMgr
+eventMgr	core/controlFlow/eventMgr.cpp	/^eventMgr::eventMgr(){$/;"	f	class:eventMgr
+Event	core/controlFlow/eventMgr.h	/^	struct Event{$/;"	s	class:eventMgr
+Observer	core/controlFlow/eventMgr.h	/^class Observer{$/;"	c
+data	core/controlFlow/eventMgr.h	/^		baseProperty *data; $/;"	m	struct:eventMgr::Event
+eventMgr	core/controlFlow/eventMgr.h	/^class eventMgr{$/;"	c
+events	core/controlFlow/eventMgr.h	/^	std::queue <Event>events;$/;"	m	class:eventMgr
+name	core/controlFlow/eventMgr.h	/^		const Hash *name;$/;"	m	struct:eventMgr::Event
+observerList	core/controlFlow/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
+observerMap	core/controlFlow/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
+sendEvent	core/controlFlow/eventMgr.h	/^	void sendEvent(const Hash *eventName){$/;"	f	class:eventMgr
+sendEvent	core/controlFlow/eventMgr.h	/^	void sendEvent(const Hash *eventName, T &eventData){$/;"	f	class:eventMgr
+sendEvent_	core/controlFlow/eventMgr.h	/^	void sendEvent_(const Hash *eventName, baseProperty *eventData){$/;"	f	class:eventMgr
+Draw	core/controlFlow/processMgr.cpp	/^void processMgr::Draw(){$/;"	f	class:processMgr
+PauseProcess	core/controlFlow/processMgr.cpp	/^void processMgr::PauseProcess(const Hash* processName){$/;"	f	class:processMgr
+ResumePorcess	core/controlFlow/processMgr.cpp	/^void processMgr::ResumePorcess(const Hash* processName){$/;"	f	class:processMgr
+Shutdown	core/controlFlow/processMgr.cpp	/^void processMgr::Shutdown(){$/;"	f	class:processMgr
+Update	core/controlFlow/processMgr.cpp	/^void processMgr::Update(float dt){$/;"	f	class:processMgr
+_getProcess	core/controlFlow/processMgr.cpp	/^Process *processMgr::_getProcess(const Hash* processName){$/;"	f	class:processMgr
+addProcess	core/controlFlow/processMgr.cpp	/^void processMgr::addProcess(Process *p){$/;"	f	class:processMgr
+postDraw	core/controlFlow/processMgr.cpp	/^void processMgr::postDraw(){$/;"	f	class:processMgr
+preUpdate	core/controlFlow/processMgr.cpp	/^void processMgr::preUpdate(){$/;"	f	class:processMgr
+getProcess	core/controlFlow/processMgr.h	/^	processType *getProcess(const Hash* processName){$/;"	f	class:processMgr
+processMgr	core/controlFlow/processMgr.h	/^class processMgr{$/;"	c
+processes	core/controlFlow/processMgr.h	/^	std::map<const Hash*, Process *>processes;$/;"	m	class:processMgr
+Draw	core/controlFlow/stateProcess.h	/^	 void Draw(){$/;"	f	class:stateProcess
+Shutdown	core/controlFlow/stateProcess.h	/^	 void Shutdown(){$/;"	f	class:stateProcess
+Update	core/controlFlow/stateProcess.h	/^	 void Update(float dt){$/;"	f	class:stateProcess
+addState	core/controlFlow/stateProcess.h	/^ 	 void addState(State *state, bool currentState){$/;"	f	class:stateProcess
+currentState	core/controlFlow/stateProcess.h	/^	State *currentState;$/;"	m	class:stateProcess
+eventManager	core/controlFlow/stateProcess.h	/^	eventMgr &eventManager;$/;"	m	class:stateProcess
+processManager	core/controlFlow/stateProcess.h	/^	processMgr &processManager;$/;"	m	class:stateProcess
+settings	core/controlFlow/stateProcess.h	/^	Settings &settings;$/;"	m	class:stateProcess
+stateProcess	core/controlFlow/stateProcess.h	/^	stateProcess(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager) :$/;"	f	class:stateProcess
+stateProcess	core/controlFlow/stateProcess.h	/^class stateProcess : public Process{$/;"	c
+states	core/controlFlow/stateProcess.h	/^	std::map<const Hash*, State*> states;$/;"	m	class:stateProcess
+transitioning	core/controlFlow/stateProcess.h	/^	bool transitioning;$/;"	m	class:stateProcess
+doneLoading	core/controlFlow/stateSaveLoader.h	/^	bool doneLoading;$/;"	m	class:stateSaveLoader
+doneSaving	core/controlFlow/stateSaveLoader.h	/^	bool doneSaving;$/;"	m	class:stateSaveLoader
+isDoneLoading	core/controlFlow/stateSaveLoader.h	/^	bool isDoneLoading(){$/;"	f	class:stateSaveLoader
+isDoneSaving	core/controlFlow/stateSaveLoader.h	/^	bool isDoneSaving(){$/;"	f	class:stateSaveLoader
+stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^	stateSaveLoader(State *state){$/;"	f	class:stateSaveLoader
+stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^class stateSaveLoader{$/;"	c
+~stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^	virtual ~stateSaveLoader(){};$/;"	f	class:stateSaveLoader
+AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim) : center(0,0) , halfDim(_halfDim) {$/;"	f	class:AABB
+AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim, vector2 _center) : center(_center), halfDim(_halfDim){$/;"	f	class:AABB
+Contains	core/math/AABB.cpp	/^bool AABB::Contains(const vector2 &pt) const{$/;"	f	class:AABB
+Intersects	core/math/AABB.cpp	/^bool AABB::Intersects(const AABB &other) const{$/;"	f	class:AABB
+getBottomLeft	core/math/AABB.cpp	/^vector2 AABB::getBottomLeft() const{$/;"	f	class:AABB
+getBottomRight	core/math/AABB.cpp	/^vector2 AABB::getBottomRight() const{$/;"	f	class:AABB
+getCenter	core/math/AABB.cpp	/^vector2 AABB::getCenter() const{$/;"	f	class:AABB
+getDim	core/math/AABB.cpp	/^vector2 AABB::getDim() const{$/;"	f	class:AABB
+getHalfDim	core/math/AABB.cpp	/^vector2 AABB::getHalfDim() const{$/;"	f	class:AABB
+getTopLeft	core/math/AABB.cpp	/^vector2 AABB::getTopLeft() const{$/;"	f	class:AABB
+getTopRight	core/math/AABB.cpp	/^vector2 AABB::getTopRight() const{$/;"	f	class:AABB
+liesOn	core/math/AABB.cpp	/^bool AABB::liesOn(const vector2 &pt) const{$/;"	f	class:AABB
+AABB	core/math/AABB.h	/^class AABB{$/;"	c
+center	core/math/AABB.h	/^	vector2 center;$/;"	m	class:AABB
+halfDim	core/math/AABB.h	/^	vector2 halfDim;$/;"	m	class:AABB
+Angle	core/math/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
+Angle	core/math/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
+Angle	core/math/mathUtil.h	/^		Angle(vector2 vec){$/;"	f	class:util::Angle
+Angle	core/math/mathUtil.h	/^	class Angle{$/;"	c	namespace:util
+DEG2RAD	core/math/mathUtil.h	/^	const double DEG2RAD = util::PI \/ 180.0;$/;"	m	namespace:util
+Deg	core/math/mathUtil.h	/^		static Angle Deg(float deg){$/;"	f	class:util::Angle
+PI	core/math/mathUtil.h	/^	const double PI = 3.141592653589793238462;$/;"	m	namespace:util
+PIBy2	core/math/mathUtil.h	/^	const float PIBy2 = PI \/ 2.0;$/;"	m	namespace:util
+PRINTANGLE	core/math/mathUtil.h	6;"	d
+RAD2DEG	core/math/mathUtil.h	/^	const double RAD2DEG = 180.0 \/ util::PI;$/;"	m	namespace:util
+Rad	core/math/mathUtil.h	/^		static Angle Rad(float rad){$/;"	f	class:util::Angle
+TwoPI	core/math/mathUtil.h	/^	const double TwoPI = 2.0 * PI;$/;"	m	namespace:util
+angleInRad	core/math/mathUtil.h	/^		float angleInRad;$/;"	m	class:util::Angle
+cos	core/math/mathUtil.h	/^		float cos(){$/;"	f	class:util::Angle
+debugStr	core/math/mathUtil.h	/^		std::string debugStr(){$/;"	f	class:util::Angle
+lerp	core/math/mathUtil.h	/^	static T lerp(const T &begin, const T &end, float t){$/;"	f	namespace:util
+operator *	core/math/mathUtil.h	/^		Angle operator * (const float multiplier){$/;"	f	class:util::Angle
+operator *=	core/math/mathUtil.h	/^		void  operator *= (const float multiplier){$/;"	f	class:util::Angle
+operator +	core/math/mathUtil.h	/^		Angle operator + (const Angle & other){$/;"	f	class:util::Angle
+operator +=	core/math/mathUtil.h	/^		void operator += (const Angle &other){$/;"	f	class:util::Angle
+operator -	core/math/mathUtil.h	/^		Angle operator - (const Angle & other){$/;"	f	class:util::Angle
+operator -=	core/math/mathUtil.h	/^		void operator -= (const Angle &other){$/;"	f	class:util::Angle
+operator /	core/math/mathUtil.h	/^		Angle operator \/ (const float multiplier){$/;"	f	class:util::Angle
+operator /=	core/math/mathUtil.h	/^		void operator \/= (const float multiplier){$/;"	f	class:util::Angle
+polarProjection	core/math/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
+randFloat	core/math/mathUtil.h	/^	static float randFloat(const float range = 1000){$/;"	f	namespace:util
+setRad	core/math/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
+sgn	core/math/mathUtil.h	/^	static int sgn(T  num){$/;"	f	namespace:util
+sin	core/math/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
+tan	core/math/mathUtil.h	/^		float tan(){$/;"	f	class:util::Angle
+toDeg	core/math/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
+toRad	core/math/mathUtil.h	/^		float toRad(){$/;"	f	class:util::Angle
+toVector	core/math/mathUtil.h	/^		vector2 toVector(){$/;"	f	class:util::Angle
+util	core/math/mathUtil.h	/^namespace util{$/;"	n
+Length	core/math/vector.h	/^	inline float Length() const{ return (sqrt(x * x  +  y * y)); };$/;"	f	class:vector2
+Length	core/math/vector.h	/^	inline float Length(){ return (sqrt(x * x  +  y * y + z * z)); };$/;"	f	class:vector3
+LengthSquared	core/math/vector.h	/^	inline float LengthSquared() const{ return (x * x + y * y + z * z); };$/;"	f	class:vector3
+LengthSquared	core/math/vector.h	/^	inline float LengthSquared() const{ return (x * x + y * y); };$/;"	f	class:vector2
+Normalize	core/math/vector.h	/^	vector2 Normalize() const{	$/;"	f	class:vector2
+Normalize	core/math/vector.h	/^	vector3 Normalize(){	$/;"	f	class:vector3
+PRINTVECTOR2	core/math/vector.h	6;"	d
+cast	core/math/vector.h	/^	T cast() const{$/;"	f	class:vector2
+cast	core/math/vector.h	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
+clamp	core/math/vector.h	/^	vector2 clamp(const vector2 &minVec, const vector2 &maxVec){$/;"	f	class:vector2
+dotProduct	core/math/vector.h	/^	float dotProduct(const vector2 &other){$/;"	f	class:vector2
+nullVector	core/math/vector.h	147;"	d
+operator !=	core/math/vector.h	/^	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };$/;"	f	class:vector2
+operator *	core/math/vector.h	/^	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };$/;"	f	class:vector2
+operator *	core/math/vector.h	/^inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
+operator *	core/math/vector.h	/^inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
+operator *	core/math/vector.h	/^inline vector3 operator * (const vector3& a, float s)		   { return vector3(a.x * s  , a.y * s, a.z * s);	 };	$/;"	f
+operator *	core/math/vector.h	/^inline vector3 operator * (float s, const vector3& a)		   { return vector3(a.x * s  , a.y * s, a.z * s);    };	$/;"	f
+operator *=	core/math/vector.h	/^	inline void operator *= (float a){ x *= a; y *= a; z *= a; };$/;"	f	class:vector3
+operator *=	core/math/vector.h	/^	inline void operator *= (float a){ x *= a; y *= a; };$/;"	f	class:vector2
+operator +	core/math/vector.h	/^	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector2
+operator +	core/math/vector.h	/^	inline vector2 operator + (const vector2& a) { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector3
+operator +	core/math/vector.h	/^	inline vector3 operator + (const vector3& a) { return vector3(x + a.x, y + a.y, z + a.z); };$/;"	f	class:vector3
+operator +=	core/math/vector.h	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector2
+operator +=	core/math/vector.h	/^	inline void operator += (const vector2& v){ x += v.x; y += v.y; };$/;"	f	class:vector3
+operator +=	core/math/vector.h	/^	inline void operator += (const vector3& v){ x += v.x; y += v.y; z += v.z; };$/;"	f	class:vector3
+operator -	core/math/vector.h	/^	inline vector2 operator - (const vector2& a) const { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector2
+operator -	core/math/vector.h	/^	inline vector2 operator - (const vector2& a) { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector3
+operator -	core/math/vector.h	/^	inline vector2 operator -(){	return vector2(-x, -y); };$/;"	f	class:vector2
+operator -	core/math/vector.h	/^	inline vector3 operator - (const vector3& a) { return vector3(x - a.x, y - a.y, z - a.z); };$/;"	f	class:vector3
+operator -	core/math/vector.h	/^	inline vector3 operator -(){	return vector3(-x, -y, -z); };$/;"	f	class:vector3
+operator -=	core/math/vector.h	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y; };$/;"	f	class:vector2
+operator -=	core/math/vector.h	/^	inline void operator -= (const vector2& v){ x -= v.x; y -= v.y;};$/;"	f	class:vector3
+operator -=	core/math/vector.h	/^	inline void operator -= (const vector3& v){ x -= v.x; y -= v.y; z -= v.z;};$/;"	f	class:vector3
+operator /	core/math/vector.h	/^	inline vector2 operator \/ (const vector2& a) const { return vector2(x \/ a.x, y \/ a.y); };$/;"	f	class:vector2
+operator <	core/math/vector.h	/^	inline bool operator < (const vector2& a) const  { return (this->x < a.x && this->y < a.y); };$/;"	f	class:vector2
+operator <	core/math/vector.h	/^	inline bool operator < (const vector3& a) { return (this->x < a.x && this->y < a.y && this->z < a.z); };$/;"	f	class:vector3
+operator <=	core/math/vector.h	/^	inline bool operator <= (const vector2& a) const { return (this->x <= a.x && this->y <= a.y); };$/;"	f	class:vector2
+operator <=	core/math/vector.h	/^	inline bool operator <= (const vector3& a) { return (this->x <= a.x && this->y <= a.y  && this->z <= a.z); };$/;"	f	class:vector3
+operator ==	core/math/vector.h	/^	inline bool operator == (const vector2& a) const { return (this->x == a.x && this->y == a.y); };$/;"	f	class:vector2
+operator ==	core/math/vector.h	/^inline bool    operator == (const vector2&a , vector2& b) { return (a.x == a.y) && (b.x == b.y);  };$/;"	f
+operator ==	core/math/vector.h	/^inline bool    operator == (const vector3&a , vector3& b)	   { return (a.x == a.y) && (b.x == b.y) && (a.z == b.z);  };$/;"	f
+operator >	core/math/vector.h	/^	inline bool operator > (const vector2& a) const  { return (this->x > a.x && this->y > a.y); };$/;"	f	class:vector2
+operator >	core/math/vector.h	/^	inline bool operator > (const vector3& a) { return (this->x > a.x && this->y > a.y && this->z > a.z); };$/;"	f	class:vector3
+operator >=	core/math/vector.h	/^	inline bool operator >= (const vector2& a) const { return (this->x >= a.x && this->y >= a.y); };$/;"	f	class:vector2
+operator >=	core/math/vector.h	/^	inline bool operator >= (const vector3& a) { return (this->x >= a.x && this->y >= a.y && this->z >= a.z); };$/;"	f	class:vector3
+operator b2Vec2	core/math/vector.h	/^	inline operator b2Vec2(){ return b2Vec2(this->x, this->y); }$/;"	f	class:vector2
+operator otherPhyVect2	core/math/vector.h	/^	template<class otherPhyVect2> inline operator otherPhyVect2(){ return otherPhyVect2(this->x, this->y); }$/;"	f	class:vector3
+operator sf::Vector2<T>	core/math/vector.h	/^	inline operator sf::Vector2<T>(){ return sf::Vector2<T>(this->x, this->y); }$/;"	f	class:vector2
+operator vector2	core/math/vector.h	/^	inline operator vector2(){ return vector2(this->x, this->y); }$/;"	f	class:vector3
+projectOn	core/math/vector.h	/^	vector2 projectOn(const vector2 &projectDir){$/;"	f	class:vector2
+toAngle	core/math/vector.h	/^	float toAngle() const{$/;"	f	class:vector2
+vector2	core/math/vector.h	/^	\/*inline*\/ vector2(float x, float y){$/;"	f	class:vector2
+vector2	core/math/vector.h	/^	inline vector2(const vector2& other){$/;"	f	class:vector2
+vector2	core/math/vector.h	/^	vector2(){ this->x = this->y = 0;};$/;"	f	class:vector2
+vector2	core/math/vector.h	/^class vector2{$/;"	c
+vector3	core/math/vector.h	/^	vector3(){ this->x = this->y = this->z = 0;};$/;"	f	class:vector3
+vector3	core/math/vector.h	/^	vector3(float x, float y, float z){$/;"	f	class:vector3
+vector3	core/math/vector.h	/^	vector3(vector2 vec2, float z){$/;"	f	class:vector3
+vector3	core/math/vector.h	/^class vector3{$/;"	c
+x	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
+x	core/math/vector.h	/^	float x, y;$/;"	m	class:vector2
+y	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
+y	core/math/vector.h	/^	float x, y;$/;"	m	class:vector2
+z	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
+zeroVector	core/math/vector.h	146;"	d
+~vector2	core/math/vector.h	/^	~vector2(){};$/;"	f	class:vector2
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:AIProcessor
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public objectProcessor{$/;"	c
@@ -3784,72 +3866,3 @@ mainLoopListener	mainLoopListener.h	/^	mainLoopListener(eventMgr &eventManager) 
 mainLoopListener	mainLoopListener.h	/^class mainLoopListener : public Observer{$/;"	c
 recieveEvent	mainLoopListener.h	/^	void recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:mainLoopListener
 windowClosed	mainLoopListener.h	/^	bool windowClosed;$/;"	m	class:mainLoopListener
-baseLog	util/logObject.cpp	/^util::baseLog::baseLog(){};$/;"	f	class:util::baseLog
-thresholdLevel	util/logObject.cpp	/^util::logLevel util::baseLog::thresholdLevel;$/;"	m	class:util::baseLog	file:
-~baseLog	util/logObject.cpp	/^util::baseLog::~baseLog(){}/;"	f	class:util::baseLog
-LOG_GLOBAL_OBJECTS	util/logObject.h	150;"	d
-Throw	util/logObject.h	/^		void Throw(){$/;"	f	class:util::msgLog
-_Flush	util/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	c	namespace:util
-_Flush	util/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	f	class:util::_Flush
-baseLog	util/logObject.h	/^	class baseLog{$/;"	c	namespace:util
-enabled	util/logObject.h	/^		bool enabled;$/;"	m	class:util::scopedLog
-errorLog	util/logObject.h	/^	static util::msgLog<logLevelError> errorLog;$/;"	m	namespace:util
-flush	util/logObject.h	/^	static const _Flush flush;$/;"	m	namespace:util
-infoLog	util/logObject.h	/^	static util::msgLog<logLevelInfo> infoLog;$/;"	m	namespace:util
-logLevel	util/logObject.h	/^	enum logLevel{$/;"	g	namespace:util
-logLevelError	util/logObject.h	/^		logLevelError, $/;"	e	enum:util::logLevel
-logLevelInfo	util/logObject.h	/^		logLevelInfo = 0, $/;"	e	enum:util::logLevel
-logLevelNoEmit	util/logObject.h	/^		logLevelNoEmit, $/;"	e	enum:util::logLevel
-logLevelWarning	util/logObject.h	/^		logLevelWarning, $/;"	e	enum:util::logLevel
-msgLog	util/logObject.h	/^		msgLog(){$/;"	f	class:util::msgLog
-msgLog	util/logObject.h	/^		msgLog(){};$/;"	f	class:util::msgLog
-msgLog	util/logObject.h	/^	class msgLog : public baseLog{$/;"	c	namespace:util
-msgLog	util/logObject.h	/^	class msgLog<logLevelError> : public baseLog{$/;"	c	namespace:util
-onDestroyMsg	util/logObject.h	/^		std::string onDestroyMsg;$/;"	m	class:util::scopedLog
-operator <<	util/logObject.h	/^		msgLog & operator << (const Hash* toWrite){$/;"	f	class:util::msgLog
-operator <<	util/logObject.h	/^		msgLog & operator << (const T &toWrite){$/;"	f	class:util::msgLog
-operator <<	util/logObject.h	/^		msgLog & operator << (const _Flush& flush){$/;"	f	class:util::msgLog
-scopedLog	util/logObject.h	/^		scopedLog(std::string onCreateMsg, std::string onDestroyMsg, logLevel level = logLevelInfo){$/;"	f	class:util::scopedLog
-scopedLog	util/logObject.h	/^	class scopedLog : public baseLog{$/;"	c	namespace:util
-setThreshold	util/logObject.h	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:util::baseLog
-thresholdLevel	util/logObject.h	/^		static logLevel thresholdLevel; $/;"	m	class:util::baseLog
-util	util/logObject.h	/^namespace util{$/;"	n
-warningLog	util/logObject.h	/^	static 	util::msgLog<logLevelWarning> warningLog;$/;"	m	namespace:util
-~scopedLog	util/logObject.h	/^		~scopedLog(){$/;"	f	class:util::scopedLog
-Angle	util/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
-Angle	util/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
-Angle	util/mathUtil.h	/^		Angle(vector2 vec){$/;"	f	class:util::Angle
-Angle	util/mathUtil.h	/^	class Angle{$/;"	c	namespace:util
-DEG2RAD	util/mathUtil.h	/^	const double DEG2RAD = util::PI \/ 180.0;$/;"	m	namespace:util
-Deg	util/mathUtil.h	/^		static Angle Deg(float deg){$/;"	f	class:util::Angle
-PI	util/mathUtil.h	/^	const double PI = 3.141592653589793238462;$/;"	m	namespace:util
-PIBy2	util/mathUtil.h	/^	const float PIBy2 = PI \/ 2.0;$/;"	m	namespace:util
-PRINTANGLE	util/mathUtil.h	6;"	d
-RAD2DEG	util/mathUtil.h	/^	const double RAD2DEG = 180.0 \/ util::PI;$/;"	m	namespace:util
-Rad	util/mathUtil.h	/^		static Angle Rad(float rad){$/;"	f	class:util::Angle
-TwoPI	util/mathUtil.h	/^	const double TwoPI = 2.0 * PI;$/;"	m	namespace:util
-angleInRad	util/mathUtil.h	/^		float angleInRad;$/;"	m	class:util::Angle
-cos	util/mathUtil.h	/^		float cos(){$/;"	f	class:util::Angle
-debugStr	util/mathUtil.h	/^		std::string debugStr(){$/;"	f	class:util::Angle
-lerp	util/mathUtil.h	/^	static T lerp(const T &begin, const T &end, float t){$/;"	f	namespace:util
-operator *	util/mathUtil.h	/^		Angle operator * (const float multiplier){$/;"	f	class:util::Angle
-operator *=	util/mathUtil.h	/^		void  operator *= (const float multiplier){$/;"	f	class:util::Angle
-operator +	util/mathUtil.h	/^		Angle operator + (const Angle & other){$/;"	f	class:util::Angle
-operator +=	util/mathUtil.h	/^		void operator += (const Angle &other){$/;"	f	class:util::Angle
-operator -	util/mathUtil.h	/^		Angle operator - (const Angle & other){$/;"	f	class:util::Angle
-operator -=	util/mathUtil.h	/^		void operator -= (const Angle &other){$/;"	f	class:util::Angle
-operator /	util/mathUtil.h	/^		Angle operator \/ (const float multiplier){$/;"	f	class:util::Angle
-operator /=	util/mathUtil.h	/^		void operator \/= (const float multiplier){$/;"	f	class:util::Angle
-polarProjection	util/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
-randFloat	util/mathUtil.h	/^	static float randFloat(const float range = 1000){$/;"	f	namespace:util
-setRad	util/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
-sgn	util/mathUtil.h	/^	static int sgn(T  num){$/;"	f	namespace:util
-sin	util/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
-tan	util/mathUtil.h	/^		float tan(){$/;"	f	class:util::Angle
-toDeg	util/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
-toRad	util/mathUtil.h	/^		float toRad(){$/;"	f	class:util::Angle
-toVector	util/mathUtil.h	/^		vector2 toVector(){$/;"	f	class:util::Angle
-util	util/mathUtil.h	/^namespace util{$/;"	n
-strHelper	util/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
-toStr	util/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
-util	util/strHelper.h	/^namespace util{$/;"	n

@@ -1,6 +1,6 @@
 #pragma once
 #include "bulletProcessor.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
 
 
 void bulletProcessor::_onObjectAdd(Object *obj){

@@ -1,12 +1,12 @@
 #pragma once
 #include "gameState.h"
-#include "../../core/Object.h"
-#include "../../core/renderUtil.h"
+#include "../../core/componentSys/Object.h"
+#include "../../core/Rendering/renderUtil.h"
 
 #include "../ObjProcessors/groundMoveProcessor.h"
 #include "../ObjProcessors/cameraProcessor.h"
 
-#include "../../core/AABB.h"
+#include "../../core/math/AABB.h"
 
 
 void gameState::_Init(){
@@ -27,11 +27,13 @@ void gameState::_Init(){
 	
 	
 	this->_generateBoundary(levelDim);
-	this->_generateTerrain(0, playerInitPos, levelDim);
+	//this->_generateTerrain(0, playerInitPos, levelDim);
 	this->_createEnemies(levelDim);
 	this->_createDummy(levelDim);
 	this->_createPlayer(playerInitPos, levelDim);
 
+
+//*((int *)NULL) = 1;
 	
 }
 

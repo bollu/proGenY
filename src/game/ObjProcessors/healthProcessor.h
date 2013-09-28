@@ -1,10 +1,10 @@
 #pragma once
-#include "../../core/objectProcessor.h"
-#include "../../core/Object.h"
+#include "../../core/componentSys/processor/objectProcessor.h"
+#include "../../core/componentSys/Object.h"
 
-#include "../../core/Process/processMgr.h"
-#include "../../core/Settings.h"
-#include "../../core/Messaging/eventMgr.h"
+#include "../../core/controlFlow/processMgr.h"
+#include "../../core/IO/Settings.h"
+#include "../../core/controlFlow/eventMgr.h"
 
 
 

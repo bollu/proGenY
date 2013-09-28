@@ -1,8 +1,8 @@
 #pragma once
-#include "../../core/State/State.h"
-#include "../../core/State/dummyStateSaveLoader.h"
-#include "../../core/objectMgr.h"
-#include "../../core/Process/objectMgrProcess.h"
+#include "../../core/controlFlow/State.h"
+#include "../../core/controlFlow/dummyStateSaveLoader.h"
+#include "../../core/componentSys/objectMgr.h"
+#include "../../core/componentSys/objectMgrProcess.h"
    
         
 

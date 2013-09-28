@@ -1,6 +1,6 @@
 #pragma once
 #include "gunProcessor.h"
-#include "../../core/Process/objectMgrProcess.h"
+#include "../../core/componentSys/objectMgrProcess.h"
 
 
 gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 

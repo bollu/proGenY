@@ -1,19 +1,19 @@
 #pragma once
-#include "../../core/objectProcessor.h"
-#include "../../core/vector.h"
+#include "../../core/componentSys/processor/objectProcessor.h"
+#include "../../core/math/vector.h"
 #include "../../include/SFML/Graphics.hpp"
 
-#include "../../core/Process/processMgr.h"
-#include "../../core/Settings.h"
-#include "../../core/Messaging/eventMgr.h"
+#include "../../core/controlFlow/processMgr.h"
+#include "../../core/IO/Settings.h"
+#include "../../core/controlFlow/eventMgr.h"
 
-#include "../../core/Process/viewProcess.h"
-#include "../../core/Process/worldProcess.h"
+#include "../../core/Rendering/viewProcess.h"
+#include "../../core/World/worldProcess.h"
 
 
 #include "../factory/bulletCreator.h"
 
-#include "../../util/mathUtil.h"
+#include "../../core/math/mathUtil.h"
 
 
 struct gunData{

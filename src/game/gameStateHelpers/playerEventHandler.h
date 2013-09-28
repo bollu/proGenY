@@ -1,6 +1,6 @@
 #pragma once
-#include "../../core/Messaging/eventMgr.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
 #include "../ObjProcessors/groundMoveProcessor.h"
 #include "../ObjProcessors/gunProcessor.h"
 #include "../ObjProcessors/offsetProcessor.h"

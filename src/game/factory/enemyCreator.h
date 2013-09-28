@@ -1,11 +1,11 @@
 #pragma once
 #include "objectFactory.h"
-#include "../../core/Process/viewProcess.h"
+#include "../../core/Rendering/viewProcess.h"
 #include "../ObjProcessors/offsetProcessor.h"
 
-#include "../../core/ObjProcessors/renderProcessor.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
-#include "../../core/renderUtil.h"
+#include "../../core/componentSys/processor/renderProcessor.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
+#include "../../core/Rendering/renderUtil.h"
 
 #include "../defines/renderingLayers.h"
 

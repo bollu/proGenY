@@ -1,6 +1,6 @@
 #pragma once
-#include "../../core/Messaging/eventMgr.h"
-#include "../../core/Process/viewProcess.h"
+#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/Rendering/viewProcess.h"
 
 class gunsManager;
 class playerEventHandler;

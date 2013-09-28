@@ -1,6 +1,6 @@
 #pragma once
-#include "./../core/Object.h"
-#include "./../core/AABB.h"
+#include "./../core/componentSys/Object.h"
+#include "./../core/math/AABB.h"
 #include "../generators/PerlinNoise.h"
 
 

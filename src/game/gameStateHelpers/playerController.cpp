@@ -3,14 +3,14 @@
 #include "gunsManager.h"
 #include "playerEventHandler.h"
 
-#include "../../core/Object.h"
-#include "../../core/renderUtil.h"
+#include "../../core/componentSys/Object.h"
+#include "../../core/Rendering/renderUtil.h"
 
-#include "../../core/Messaging/eventMgr.h"
+#include "../../core/controlFlow/eventMgr.h"
 #include "../ObjProcessors/groundMoveProcessor.h"
 #include "../ObjProcessors/cameraProcessor.h"
 #include "../factory/playerCreator.h"
-#include "../../core/objectMgr.h"
+#include "../../core/componentSys/objectMgr.h"
 
 #include "../factory/objectFactory.h"
 
@@ -47,7 +47,7 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 
 	//player created--------------------------------------------
 	this->_createPlayer(initPos, creator);
-	util::infoLog<<"player created";
+	IO::infoLog<<"player created";
 
 	//create guns
 	this->_createGunsManager(this->player);
@@ -55,11 +55,11 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 	//create playerEventHandler
 	playerData.player = this->player;
 	this->_createPlayerEventHandler(playerData);
-	util::infoLog<<"player event handler created";
+	IO::infoLog<<"player event handler created";
 
 	//add player
 	this->_objectManager->addObject(this->player);
-	util::infoLog<<"added to object manager";
+	IO::infoLog<<"added to object manager";
 
 };
 

@@ -16,25 +16,23 @@
 
 #include "util/logObject.h" 
 */
-//TESTING INCLUDES----------------------------------------
-#include "core/renderUtil.h"
 
 
 //PRODUCTION INCLUDEs-----------------------------------------
 #include "include/SFML/System/Clock.hpp"
-#include "core/Messaging/eventMgr.h"
+#include "core/controlFlow/eventMgr.h"
 
-#include "core/Process/Process.h"
-#include "core/Process/processMgr.h"
+#include "core/controlFlow/Process.h"
+#include "core/controlFlow/processMgr.h"
 
 //processes---------------------------------------
-#include "core/Process/windowProcess.h"
-#include "core/Process/eventProcess.h"
-#include "core/Process/objectMgrProcess.h"
-#include "core/Process/worldProcess.h"
-#include "core/Process/viewProcess.h"
-#include "core/Process/stateProcess.h"
-#include "core/Process/renderProcess.h"
+#include "core/Rendering/windowProcess.h"
+#include "core/IO/eventProcess.h"
+#include "core/componentSys/objectMgrProcess.h"
+#include "core/World/worldProcess.h"
+#include "core/Rendering/viewProcess.h"
+#include "core/controlFlow/stateProcess.h"
+#include "core/Rendering/renderProcess.h"
 
 //GAME STATES----------------------------------------------------
 #include "game/States/mainMenuState.h"
@@ -105,7 +103,7 @@ void _loadSettings(Settings &settings){
     settings.addProp(Hash::getHash("velIterations"), new iProp(5));
     settings.addProp(Hash::getHash("collisionIterations"), new iProp(5));
 
-    util::baseLog::setThreshold(util::logLevel::logLevelWarning);
+    IO::baseLog::setThreshold(IO::logLevel::logLevelWarning);
 };
 
 

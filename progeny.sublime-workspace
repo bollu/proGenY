@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"componen",
+				"componentSys"
+			],
+			[
+				"control",
+				"controlFlow"
+			],
+			[
 				"num",
 				"numIterations"
 			],
@@ -95,12 +103,104 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 194.0,
+		"height": 148.0,
 		"selected_items":
 		[
 			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"find in",
+				"Find: In..."
+			],
+			[
+				"cscope",
+				"Cscope: Look up symbol"
+			],
+			[
+				"remopa",
+				"Package Control: Remove Package"
+			],
+			[
+				"",
+				"CTags: Show Symbols (all)"
+			],
+			[
+				"who",
+				"WhoCalled: Run indexer"
+			],
+			[
+				"whoca",
+				"WhoCalled: Add/remove project folders"
+			],
+			[
+				"symbols",
+				"CTags: Show Symbols (all)"
+			],
+			[
+				"sym",
+				"CTags: Show Symbols (all)"
+			],
+			[
+				"symbol",
+				"CTags: Show Symbols (all)"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
 				"rebu",
 				"CTags: Rebuild Tags"
+			],
+			[
+				"sa",
+				"File: Save All"
+			],
+			[
+				"save",
+				"File: Save All"
+			],
+			[
+				"clo",
+				"File: Close All"
+			],
+			[
+				"close all",
+				"File: Close All"
+			],
+			[
+				"save all",
+				"File: Save All"
+			],
+			[
+				"side",
+				"Side Bar: Enable Syncing"
+			],
+			[
+				"toggle sid",
+				"View: Toggle Side Bar"
+			],
+			[
+				"rebuild",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"toggle hi",
+				"BracketHighlighter: Toggle High Visibility Mode"
 			],
 			[
 				"rein",
@@ -139,28 +239,12 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"who",
-				"WhoCalled: Run indexer"
-			],
-			[
-				"whoca",
-				"WhoCalled: Run indexer"
-			],
-			[
 				"bracket",
 				"BracketHighlighter: Fold Bracket Content"
 			],
 			[
 				"bracket to",
 				"BracketHighlighter: Fold Bracket Content"
-			],
-			[
-				"reind",
-				"Indentation: Reindent Lines"
 			],
 			[
 				"reb",
@@ -215,10 +299,6 @@
 				"Preferences: Key Bindings - Default"
 			],
 			[
-				"rebuild",
-				"CTags: Rebuild Tags"
-			],
-			[
 				"key bind",
 				"Preferences: Key Bindings - User"
 			],
@@ -263,42 +343,122 @@
 	},
 	"file_history":
 	[
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/cameraProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/State/State.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/playerCreator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerController.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/States/gameState.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/terrainCreator.cpp",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/States/gameState.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/tools/runner.py",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AABB.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AABB.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/terrainGen/terrainGenerator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/util/mathUtil.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/States/gameState.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/main.cc",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/renderProcess.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/renderProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/Process.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/processor/renderProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/obj/Tupfile",
+		"/home/siddharth/.config/sublime-text-3/Packages/Zen Tabs/Default.sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/siddharth/.config/sublime-text-3/Packages/Zen Tabs/ZenTabs.sublime-settings",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/processor/phyProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/processor/phyProcessor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/World/objContactListener.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/World/objContactListener.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/bin/Tupfile",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/processor/objContactListener.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/bulletCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/enemyCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/gunCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/pickupCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/gunProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/terrainProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/AIProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerController.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/bulletProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/stateProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/State.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerEventHandler.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/processor/objectProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/gunProcessor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/boundaryCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/dummyCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/playerCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/bulletDataGenerator.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/gunsManager.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/States/mainMenuState.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/logObject.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/Object.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/Object.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/eventMgr.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/Settings.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/viewProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/windowProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/World/worldProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/pickupProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/pickupProcessor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/offsetProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/airMoveProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/objectMgr.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/renderUtil.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Rendering/renderUtil.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/eventProcess.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/terrainCreator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/objectMgrProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/groundMoveProcessor.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/groundMoveProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/scheme/helloWorld/hello.rkt",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/logObject.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/cameraProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/mainLoopListener.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/gunsManager.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/cameraProcessor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/math/vector.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/math/mathUtil.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/Hash.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/processMgr.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/processMgr.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/bulletColliders/bounceCollider.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/objectMgr.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/controlFlow/eventMgr.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/terrainGen/terrainGenerator.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/baseAI.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/baseAI.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerController.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/States/gameSegmentLoader.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/componentSys/Property.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/IO/eventProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/objectFactory.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/bulletProcessor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/healthProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Messaging/eventMgr.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/renderUtil.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/terrainGen/terrainGenerator.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/quadtree.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/ObjProcessors/phyProcessor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/distanceSensor.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/distanceSensor.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AABB.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/worldProcess.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/todo.org",
+		"/home/siddharth/.local/share/applications/mimeinfo.cache",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/_Process/eventProcess.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/tags",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/stuffDone.org",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/State/State.h",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/tools/runner.py",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AABB.cpp",
+		"/home/siddharth/stuff/programming/lang/c/proGenY/src/util/mathUtil.h",
+		"/home/siddharth/stuff/programming/lang/scheme/helloWorld/hello.rkt",
 		"/home/siddharth/.config/sublime-text-3/Packages/orgmode/messages/install.org",
 		"/home/siddharth/.config/sublime-text-3/Packages/WhoCalled/README.md",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/main.cc",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/vector.h",
 		"/usr/share/applications/defaults.list",
 		"/home/siddharth/stuff/programming/lang/scheme/helloWorld/hello",
 		"/usr/share/applications/sublime-text.desktop",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/PerlinNoise.cpp",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/util/mathUtil.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/renderUtil.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/renderUtil.cpp",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/objectProcessor.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Hash.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/SFML/Window/Keyboard.hpp",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/renderProcess.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/bulletCreator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/boundaryCreator.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/Box2D/Dynamics/b2Fixture.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/util/logObject.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/defines/renderingLayers.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/terrainCreator.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/terrainCreator.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/objectMgr.cpp",
 		"/home/siddharth/stuff/programming/lang/c/libs/Perlin_Noise-master/PerlinDemo_01.cpp",
 		"/home/siddharth/stuff/programming/lang/c/libs/Perlin_Noise-master/ppm.h",
@@ -309,96 +469,16 @@
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/objectMgr.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/PerlinNoise.h",
 		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/Box2D/Box2D.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/gunProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/gunsManager.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/dummyCreator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/pickupCreator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/gunCreator.h",
 		"/home/siddharth/stuff/programming/lang/c/libs/noise/INSTALL",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/baseAI.h",
-		"/home/siddharth/stuff/programming/lang/c/libs/noise/Makefile",
-		"/home/siddharth/stuff/programming/templates/C++/src/main.cc",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/windowProcess.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/bulletProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/AIProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Object.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Object.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/baseAI.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/distanceSensor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/distanceSensor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/ObjProcessors/phyProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/AI/Agent.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/obj/Tupfile",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/bin/dump",
-		"/home/siddharth/.zshrc",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/gunProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/gunDataGenerator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/gunDataGenerator.cpp",
-		"/home/siddharth/stuff/programming/lang/c/ppsspp/android/ab.sh",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/bulletDataGenerator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/generators/bulletDataGenerator.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/pickupProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Messaging/eventMgr.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/todo.org",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Hash.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Settings.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Messaging/eventMgr.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/processMgr.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/processMgr.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/bulletColliders/bounceCollider.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/ObjProcessors/phyProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/ObjProcessors/renderProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/terrainProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/cameraProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/groundMoveProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/healthProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Property.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/SFML/Window.hpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/bulletProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/healthProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/airMoveProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/pickupProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/offsetProcessor.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/AIProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/ObjProcessors/airMoveProcessor.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerEventHandler.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/playerEventHandler.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/Box2D/Dynamics/b2Body.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/factory/enemyCreator.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/SFML/Window/Event.hpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/mainLoopListener.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/eventProcess.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/viewProcess.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/eventProcess.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/include/SFML/Graphics/CircleShape.hpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/viewProcess.h",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/renderProcess.cpp",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/gameStateHelpers/gunsManager.h",
-		"/home/siddharth/stuff/programming/lang/c/gunsGen/src/main.cc",
-		"/home/siddharth/stuff/programming/lang/c/gunsGen/bin/Tupfile",
-		"/home/siddharth/stuff/programming/lang/c/gunsGen/obj/Tupfile",
-		"/home/siddharth/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/siddharth/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/game/level/Level.h",
-		"/home/siddharth/.mpdconf",
-		"/home/siddharth/tmp/audacious-3.4/INSTALL",
-		"/home/siddharth/.config/sublime-text-3/Packages/orgmode/orgmode.sublime-settings",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/stuffDone.org",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/Tuprules.tup",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/src/core/Process/objectMgrProcess.h",
-		"/home/siddharth/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/home/siddharth/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/siddharth/stuff/programming/lang/c/proGenY/makefile",
-		"/home/siddharth/.oh-my-zsh/custom/spark",
-		"/home/siddharth/.config/sublime-text-3/Packages/User/CTags.sublime-settings"
+		"/home/siddharth/stuff/programming/lang/c/libs/noise/Makefile"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 99.0,
 		"where_history":
 		[
 			"*.h, *.cc, *.cpp"
@@ -409,6 +489,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"collisionData",
+			"#include \"../../core/vector.h\"",
+			"#include \"../../core/Settings.h\"",
+			"#include \"../../core/Object.h\"",
+			"util::logLevel",
+			"util::baseLog",
+			"#include \"../../util/mathUtil.h\"",
+			"#include \"../../Rendering/renderUtil.h\"",
+			"#include \"../../core/renderUtil.h\"",
+			"#include \"../../core/Rendering/renderProcessor.h\"",
+			"#include \"../../core/ObjProcessors/renderProcessor.h\"",
+			"#include \"../../core/ObjProcessors/phyProcessor.h\"",
+			"\"../../core/Process/viewProcess.h\"",
+			"#include \"../../core/Process/objectMgrProcess.h\"",
+			"#include \"../../core/objectMgr.h\"",
+			"#include \"../../core/State/dummyStateSaveLoader.h\"",
+			"\"../../core/State/State.h\"",
+			"\"../../core/Process/processMgr.h\"",
+			"phyProcessor",
+			"Process",
+			"\"../../util/strHelper.h\"",
+			"\"../../util/logObject.h\"",
+			"core/Messaging/eventMgr.h",
+			"util::warningLog",
+			"util::errorLog",
+			"util::infoLog",
+			"util::flush",
+			"IO",
+			"util",
+			"#include \"../../core/objectProcessor.h\"",
+			";\n",
 			"createPlayer",
 			" {",
 			"em",
@@ -495,6 +606,31 @@
 		"regex": false,
 		"replace_history":
 		[
+			"#include \"../../core/math/vector.h\"",
+			"#include \"../../core/IO/Settings.h\"",
+			"#include \"../../core/componentSys/Object.h\"",
+			"IO::logLevel",
+			"IO::baseLog",
+			"#include \"../../core/math/mathUtil.h\"",
+			"#include \"../../core/Rendering/renderUtil.h\"",
+			"#include \"../../Rendering/renderUtil.h\"",
+			"#include \"../../core/componentSys/processor/renderProcessor.h\"",
+			"#include \"../../core/Rendering/renderProcessor.h\"",
+			"#include \"../../core/componentSys/processor/phyProcessor.h\"",
+			"\"../../core/Rendering/viewProcess.h\"",
+			"#include \"../../core/componentSys/objectMgrProcess.h\"",
+			"#include \"../../core/componentSys/objectMgr.h\"",
+			"#include \"../../core/controlFlow/dummyStateSaveLoader.h\"",
+			"\"../../core/controlFlow/State.h\"",
+			"\"../../core/controlFlow/processMgr.h\"",
+			"\"../IO/strHelper.h\"",
+			"\"../IO/logObject.h\"",
+			"core/controlFlow/eventMgr.h",
+			"IO::warningLog",
+			"IO::errorLog",
+			"IO::infoLog",
+			"IO::flush",
+			"#include \"../../core/componentSys/processor/objectProcessor.h\"",
 			"subl",
 			"Init",
 			"_shouldProcess",
@@ -528,7 +664,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -560,7 +696,7 @@
 	"project": "progeny.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -569,32 +705,252 @@
 		"selected_items":
 		[
 			[
-				"groun",
-				"game/ObjProcessors/groundMoveProcessor.cpp"
+				"terraincrea",
+				"game/factory/terrainCreator.cpp"
 			],
 			[
-				"camera",
-				"game/ObjProcessors/cameraProcessor.cpp"
-			],
-			[
-				"gae",
-				"game/States/gameState.h"
-			],
-			[
-				"ground",
-				"game/ObjProcessors/groundMoveProcessor.cpp"
-			],
-			[
-				"terrain",
-				"game/terrainGen/terrainGenerator.cpp"
-			],
-			[
-				"terra",
-				"game/terrainGen/terrainGenerator.cpp"
+				"game",
+				"game/States/gameState.cpp"
 			],
 			[
 				"main",
 				"main.cc"
+			],
+			[
+				"phypro",
+				"core/componentSys/processor/phyProcessor.h"
+			],
+			[
+				"renderpr",
+				"core/Rendering/renderProcess.h"
+			],
+			[
+				"phy",
+				"core/componentSys/processor/phyProcessor.h"
+			],
+			[
+				"phyp",
+				"core/componentSys/processor/phyProcessor.h"
+			],
+			[
+				"terrain",
+				"game/ObjProcessors/terrainProcessor.h"
+			],
+			[
+				"playe",
+				"game/gameStateHelpers/playerController.cpp"
+			],
+			[
+				"gunpr",
+				"game/ObjProcessors/gunProcessor.h"
+			],
+			[
+				"bulletc",
+				"game/factory/bulletCreator.h"
+			],
+			[
+				"objcon",
+				"core/World/objContactListener.h"
+			],
+			[
+				"renderor",
+				"core/componentSys/processor/renderProcessor.h"
+			],
+			[
+				"state",
+				"core/controlFlow/stateProcess.h"
+			],
+			[
+				"buletc",
+				"game/factory/bulletCreator.h"
+			],
+			[
+				"buleltpr",
+				"game/ObjProcessors/bulletProcessor.h"
+			],
+			[
+				"playere",
+				"game/gameStateHelpers/playerEventHandler.h"
+			],
+			[
+				"bulletpr",
+				"game/ObjProcessors/bulletProcessor.h"
+			],
+			[
+				"bullet",
+				"game/ObjProcessors/bulletProcessor.h"
+			],
+			[
+				"ground",
+				"game/ObjProcessors/groundMoveProcessor.h"
+			],
+			[
+				"objectmg",
+				"core/componentSys/objectMgrProcess.h"
+			],
+			[
+				"eventpr",
+				"core/IO/eventProcess.cpp"
+			],
+			[
+				"render",
+				"core/Rendering/renderUtil.h"
+			],
+			[
+				"objectmgr",
+				"core/componentSys/objectMgr.h"
+			],
+			[
+				"air",
+				"game/ObjProcessors/airMoveProcessor.h"
+			],
+			[
+				"offse",
+				"game/ObjProcessors/offsetProcessor.h"
+			],
+			[
+				"terra",
+				"game/factory/terrainCreator.h"
+			],
+			[
+				"pickuppr",
+				"game/ObjProcessors/pickupProcessor.h"
+			],
+			[
+				"world",
+				"core/World/worldProcess.h"
+			],
+			[
+				"window",
+				"core/Rendering/windowProcess.h"
+			],
+			[
+				"viewp",
+				"core/Rendering/viewProcess.h"
+			],
+			[
+				"setting",
+				"core/IO/Settings.h"
+			],
+			[
+				"eventmg",
+				"core/controlFlow/eventMgr.cpp"
+			],
+			[
+				"eventm",
+				"core/controlFlow/eventMgr.cpp"
+			],
+			[
+				"obje",
+				"core/componentSys/Object.h"
+			],
+			[
+				"groundm",
+				"game/ObjProcessors/groundMoveProcessor.h"
+			],
+			[
+				"camera",
+				"game/ObjProcessors/cameraProcessor.h"
+			],
+			[
+				"log",
+				"core/IO/logObject.h"
+			],
+			[
+				"logo",
+				"core/IO/logObject.h"
+			],
+			[
+				"pro",
+				"core/controlFlow/Process.h"
+			],
+			[
+				"math",
+				"core/math/mathUtil.h"
+			],
+			[
+				"base",
+				"core/AI/baseAI.h"
+			],
+			[
+				"airmo",
+				"game/ObjProcessors/airMoveProcessor.h"
+			],
+			[
+				"terraing",
+				"game/terrainGen/terrainGenerator.h"
+			],
+			[
+				"red",
+				"core/Rendering/renderProcess.h"
+			],
+			[
+				"stat",
+				"core/controlFlow/State.h"
+			],
+			[
+				"gamese",
+				"game/States/gameSegmentLoader.h"
+			],
+			[
+				"playerc",
+				"game/gameStateHelpers/playerController.h"
+			],
+			[
+				"objectpro",
+				"core/componentSys/processor/objectProcessor.h"
+			],
+			[
+				"objectp",
+				"core/componentSys/processor/objectProcessor.h"
+			],
+			[
+				"healthp",
+				"game/ObjProcessors/healthProcessor.h"
+			],
+			[
+				"gunpro",
+				"game/ObjProcessors/gunProcessor.cpp"
+			],
+			[
+				"camerapr",
+				"game/ObjProcessors/cameraProcessor.h"
+			],
+			[
+				"view",
+				"core/Rendering/viewProcess.h"
+			],
+			[
+				"objectf",
+				"game/factory/objectFactory.h"
+			],
+			[
+				"eventp",
+				"core/IO/eventProcess.h"
+			],
+			[
+				"process",
+				"core/controlFlow/processMgr.h"
+			],
+			[
+				"renderut",
+				"core/Rendering/renderUtil.h"
+			],
+			[
+				"has",
+				"core/IO/Hash.cpp"
+			],
+			[
+				"terr",
+				"game/factory/terrainCreator.cpp"
+			],
+			[
+				"groun",
+				"game/ObjProcessors/groundMoveProcessor.cpp"
+			],
+			[
+				"gae",
+				"game/States/gameState.h"
 			],
 			[
 				"aabb",
@@ -603,10 +959,6 @@
 			[
 				"maht",
 				"util/mathUtil.h"
-			],
-			[
-				"game",
-				"game/States/gameState.cpp"
 			],
 			[
 				"aab",
@@ -633,10 +985,6 @@
 				"game/terrainGen/terrainGenerator.h"
 			],
 			[
-				"terr",
-				"game/factory/terrainCreator.cpp"
-			],
-			[
 				"games",
 				"game/States/gameState.cpp"
 			],
@@ -649,20 +997,12 @@
 				"game/gameStateHelpers/gunsManager.cpp"
 			],
 			[
-				"gunpro",
-				"game/ObjProcessors/gunProcessor.cpp"
-			],
-			[
 				"objectm",
 				"core/objectMgr.h"
 			],
 			[
 				"box2",
 				"include/Box2D/Box2D.h"
-			],
-			[
-				"obje",
-				"core/Object.h"
 			],
 			[
 				"aipro",
@@ -685,10 +1025,6 @@
 				"core/AI/Agent.h"
 			],
 			[
-				"objectmg",
-				"core/objectMgr.h"
-			],
-			[
 				"object.h",
 				"core/Object.h"
 			],
@@ -697,28 +1033,8 @@
 				"core/objectMgr.h"
 			],
 			[
-				"phy",
-				"core/ObjProcessors/phyProcessor.cpp"
-			],
-			[
-				"log",
-				"util/logObject.h"
-			],
-			[
-				"math",
-				"util/mathUtil.h"
-			],
-			[
 				"windowp",
 				"core/Process/windowProcess.h"
-			],
-			[
-				"bulletpr",
-				"game/ObjProcessors/bulletProcessor.h"
-			],
-			[
-				"gunpr",
-				"game/ObjProcessors/gunProcessor.h"
 			],
 			[
 				"gunda",
@@ -741,20 +1057,8 @@
 				"core/objectProcessor.h"
 			],
 			[
-				"render",
-				"core/ObjProcessors/renderProcessor.h"
-			],
-			[
-				"pickuppr",
-				"game/ObjProcessors/pickupProcessor.cpp"
-			],
-			[
 				"windo",
 				"core/Process/windowProcess.h"
-			],
-			[
-				"window",
-				"include/SFML/Window.hpp"
 			],
 			[
 				"objpro",
@@ -789,10 +1093,6 @@
 				"core/ObjProcessors/renderProcessor.cpp"
 			],
 			[
-				"objectpro",
-				"core/objectProcessor.h"
-			],
-			[
 				"enemy",
 				"game/factory/enemyCreator.h"
 			],
@@ -803,10 +1103,6 @@
 			[
 				"player",
 				"game/factory/playerCreator.h"
-			],
-			[
-				"eventm",
-				"core/Messaging/eventMgr.h"
 			],
 			[
 				"playereve",
@@ -841,10 +1137,6 @@
 				"game/gameStateHelpers/gunsManager.cpp"
 			],
 			[
-				"playere",
-				"game/gameStateHelpers/playerEventHandler.cpp"
-			],
-			[
 				"event",
 				"core/Process/eventProcess.cpp"
 			],
@@ -861,16 +1153,8 @@
 				"game/factory/gunCreator.h"
 			],
 			[
-				"view",
-				"core/Process/viewProcess.h"
-			],
-			[
 				"renderpro",
 				"core/ObjProcessors/renderProcessor.h"
-			],
-			[
-				"renderut",
-				"core/renderUtil.cpp"
 			],
 			[
 				"windowpr",
@@ -889,24 +1173,12 @@
 				"game/factory/terrainCreator.cpp"
 			],
 			[
-				"phypro",
-				"core/ObjProcessors/phyProcessor.h"
-			],
-			[
 				"boundce",
 				"game/bulletColliders/bounceCollider.h"
 			],
 			[
-				"logo",
-				"util/logObject.h"
-			],
-			[
 				"objectpe",
 				"core/objectProcessor.h"
-			],
-			[
-				"phyp",
-				"core/ObjProcessors/phyProcessor.cpp"
 			],
 			[
 				"guns",
@@ -950,7 +1222,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,

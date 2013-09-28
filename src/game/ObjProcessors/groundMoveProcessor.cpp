@@ -1,6 +1,6 @@
 #pragma once
 #include "groundMoveProcessor.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
 #include <algorithm>
 
 

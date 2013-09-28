@@ -4,7 +4,7 @@
 
 void cameraProcessor::_onObjectAdd(Object *obj){
 
-	util::infoLog<<"\nObject added to cameraProcessor";
+	IO::infoLog<<"\nObject added to cameraProcessor";
 	
 	cameraData *data = obj->getPrimitive<cameraData>(Hash::getHash("cameraData"));
 

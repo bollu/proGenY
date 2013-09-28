@@ -13,7 +13,7 @@ bulletDataGenerator::bulletDataGenerator(genData _data,
 
 
 #pragma once
-#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
 #include "../ObjProcessors/bulletProcessor.h"
 #include "../bulletColliders/damageCollider.h"
 #include "../bulletColliders/pushCollider.h"
@@ -106,7 +106,7 @@ pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){
 			knockback = this->_genFloat(15.0, 20.0);
 			break;
 	default:
-		util::errorLog<<"passing an unknown knockback enumeration"<<util::flush;
+		IO::errorLog<<"passing an unknown knockback enumeration"<<IO::flush;
 
 	}
 
@@ -125,7 +125,7 @@ bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long collide
 			break;
 
 		default:
-			util::errorLog<<"ability index out of bounds"<<util::flush;;
+			IO::errorLog<<"ability index out of bounds"<<IO::flush;;
 			return NULL;
 	};
 

@@ -1,12 +1,12 @@
 #pragma once
-#include "../../core/vector.h"
+#include "../../core/math/vector.h"
 #include "../../include/SFML/Graphics.hpp"
 
-#include "../../core/objectProcessor.h"
-#include "../../core/Process/processMgr.h"
-#include "../../core/Process/worldProcess.h"
-#include "../../core/Settings.h"
-#include "../../core/Messaging/eventMgr.h"
+#include "../../core/componentSys/processor/objectProcessor.h"
+#include "../../core/controlFlow/processMgr.h"
+#include "../../core/World/worldProcess.h"
+#include "../../core/IO/Settings.h"
+#include "../../core/controlFlow/eventMgr.h"
 
 struct airMoveData{
 private:

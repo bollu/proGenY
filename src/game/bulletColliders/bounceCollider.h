@@ -37,7 +37,7 @@ public:
 		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter());
 
 		if(!bullet->hasProperty("bulletNumBounces")){
-			util::errorLog<<"\n\nno property on bullet"<<util::flush;
+			IO::errorLog<<"\n\nno property on bullet"<<IO::flush;
 		}
 
 		int *numBounces = bullet->getPrimitive<int>(Hash::getHash("bulletNumBounces"));

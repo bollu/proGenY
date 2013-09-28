@@ -1,14 +1,14 @@
 #pragma once
-#include "../../core/Process/processMgr.h"
-#include "../../core/Settings.h"
-#include "../../core/Messaging/eventMgr.h"
-#include "../../core/objectProcessor.h"
+#include "../../core/controlFlow/processMgr.h"
+#include "../../core/IO/Settings.h"
+#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/componentSys/processor/objectProcessor.h"
 
 
 #include "../../include/SFML/Graphics.hpp"
-#include "../../core/vector.h"
+#include "../../core/math/vector.h"
 
-#include "../../core/Process/viewProcess.h"
+#include "../../core/Rendering/viewProcess.h"
 
 
 class terrainProcessor : public objectProcessor{

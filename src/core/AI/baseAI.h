@@ -1,5 +1,5 @@
 #pragma once
-#include "../Object.h"
+#include "../componentSys/Object.h"
 
 namespace AI{
 	class Sensor;

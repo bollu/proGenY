@@ -1,9 +1,9 @@
 #pragma once
-#include "../../core/objectProcessor.h"
+#include "../../core/componentSys/processor/objectProcessor.h"
 #include "../../include/SFML/Graphics.hpp"
-#include "../../core/vector.h"
-#include "../../core/Process/viewProcess.h"
-#include "../../core/Process/worldProcess.h"
+#include "../../core/math/vector.h"
+#include "../../core/Rendering/viewProcess.h"
+#include "../../core/World/worldProcess.h"
 
 struct cameraData{
 	bool enabled;

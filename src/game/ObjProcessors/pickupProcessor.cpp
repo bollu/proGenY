@@ -1,6 +1,6 @@
 #pragma once
 #include "pickupProcessor.h"
-#include "../../core/ObjProcessors/phyProcessor.h"
+#include "../../core/componentSys/processor/phyProcessor.h"
 
 pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,
 	eventMgr &_eventManager) : objectProcessor("pickupProcessor"), eventManager(_eventManager) {
