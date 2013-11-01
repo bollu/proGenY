@@ -5,7 +5,7 @@ CC = clang++ -fcolor-diagnostics
 
 # define any compile-time flags
 #for debugging
-CFLAGS =  -std=c++11 -DDEBUG -g  -w  -DDEBUG -g -O0	
+CFLAGS =  -std=c++11  -DDEBUG -g  -w  -DDEBUG -g -O0	
 #-Wfatal-errors
 
 #for usual stuff
@@ -13,11 +13,12 @@ CFLAGS =  -std=c++11 -DDEBUG -g  -w  -DDEBUG -g -O0
 CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors 
 
 
-#text to be printed for compilation
+
 
 # define any directories containing header files other than /usr/include
-#
-INCLUDES = -I../src/include/   -I../src/core/
+#hack needed for clang 3.4 hope this is resolved soon
+INCLUDES_HACK= -I/usr/include/i386-linux-gnu/c++/4.7/
+INCLUDES = $(INCLUDES_HACK) -I../src/include/   -I../src/core/
 
 
 # define any libraries to link into executable:

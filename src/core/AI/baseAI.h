@@ -13,14 +13,12 @@ namespace AI{
 
 
 	class Sensor{
-	private:
-		Object::objectMap &objectMap;
 		Object *owner;
 
 		std::string name;
 	protected:
 		//only a Task can instantiate this
-		Sensor(Object::objectMap  &objectMap, Object *owner, std::string name);
+		Sensor(Object *owner, std::string name);
 		friend class Task;
 		
 	public:

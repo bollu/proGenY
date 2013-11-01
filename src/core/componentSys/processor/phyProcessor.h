@@ -68,8 +68,8 @@ all box2d related data when the Object is killed or removed
 */
 class phyProcessor : public objectProcessor{
 private:
-	b2World *world;
 	viewProcess *view;
+	worldProcess *world;
 	objContactListener contactListener;
 
 public:

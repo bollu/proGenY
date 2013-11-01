@@ -11,6 +11,7 @@ Process("renderProcess"){
 };
 
 void renderProcess::Draw(){
+
 	for(renderProcess::baseRenderNode *node : nodes){
 		//this->window->draw(node.drawable);
 		node->Draw(this->window);
@@ -19,10 +20,12 @@ void renderProcess::Draw(){
 
 void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){
 	this->nodes.push_back(node);
-	this->nodes.sort(renderProcess::sortFn);
+	this->nodes.sort(renderProcess::sortFn);	
 };
 
 void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){
 	this->nodes.remove(toRemove);
 }
+
+
 

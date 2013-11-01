@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 Executor	core/AI/baseAI.cpp	/^Executor::Executor(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Executor
-Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object::objectMap  &_objectMap, Object *_owner,std::string _name) : $/;"	f	class:Sensor
+Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object *_owner,std::string _name) : owner(_owner), name(_name){}$/;"	f	class:Sensor
 Task	core/AI/baseAI.cpp	/^Task::Task(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Task
 getName	core/AI/baseAI.cpp	/^std::string Sensor::getName() const{$/;"	f	class:Sensor
 isExclusive	core/AI/baseAI.cpp	/^bool Task::isExclusive() const{$/;"	f	class:Task
@@ -17,7 +17,6 @@ executorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Executor> execut
 executors	core/AI/baseAI.h	/^		Executor::executorMap executors;$/;"	m	class:AI::Brain
 name	core/AI/baseAI.h	/^		std::string name;$/;"	m	class:AI::Sensor
 objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Executor
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Sensor
 objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Task
 owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Brain
 owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Executor
@@ -27,22 +26,9 @@ sensorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Sensor> sensorMap;
 sensors	core/AI/baseAI.h	/^		Sensor::sensorMap sensors;$/;"	m	class:AI::Brain
 tasks	core/AI/baseAI.h	/^		std::vector<Task *>tasks;$/;"	m	class:AI::Brain
 Sense	core/AI/distanceSensor.cpp	/^void distanceSensor::Sense(){$/;"	f	class:distanceSensor
-distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object::objectMap  &objectMap, Object *owner, $/;"	f	class:distanceSensor
+distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object *owner, b2World *world, std::string targetClass) :$/;"	f	class:distanceSensor
 distanceSensor	core/AI/distanceSensor.h	/^class distanceSensor : public AI::Sensor{$/;"	c
 targetClass	core/AI/distanceSensor.h	/^	std::string targetClass;$/;"	m	class:distanceSensor
-Quadtree	core/AI/quadtree.h	/^class Quadtree<T>{$/;"	c
-bottomLeft	core/AI/quadtree.h	/^	bottomLeft,$/;"	e	enum:quadtreeDir
-bottomRight	core/AI/quadtree.h	/^	bottomRight$/;"	e	enum:quadtreeDir
-boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:Quadtree
-boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:quadtreeNode
-nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:Quadtree
-nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:quadtreeNode
-objects	core/AI/quadtree.h	/^	std::list<T*> objects;$/;"	m	class:quadtreeLeaf
-quadtreeDir	core/AI/quadtree.h	/^enum quadtreeDir{$/;"	g
-quadtreeLeaf	core/AI/quadtree.h	/^class quadtreeLeaf<T>{$/;"	c
-quadtreeNode	core/AI/quadtree.h	/^class quadtreeNode<T>{$/;"	c
-topLeft	core/AI/quadtree.h	/^	topLeft = 0,$/;"	e	enum:quadtreeDir
-topRight	core/AI/quadtree.h	/^	topRight,$/;"	e	enum:quadtreeDir
 Hash	core/IO/Hash.cpp	/^Hash::Hash(std::string &str, unsigned int seed){$/;"	f	class:Hash
 Hash2Str	core/IO/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
 _MurmurHash64B	core/IO/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
@@ -193,22 +179,29 @@ otherObj	core/World/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:coll
 otherPhy	core/World/objContactListener.h	/^	phyData *otherPhy;$/;"	m	struct:collisionData
 type	core/World/objContactListener.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
 ~objContactListener	core/World/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
-Draw	core/World/worldProcess.h	/^	 void Draw(){};$/;"	f	class:worldProcess
-Pause	core/World/worldProcess.h	/^	 void Pause(){$/;"	f	class:worldProcess
-Resume	core/World/worldProcess.h	/^	 void Resume(){$/;"	f	class:worldProcess
-Shutdown	core/World/worldProcess.h	/^	 void Shutdown(){$/;"	f	class:worldProcess
-Update	core/World/worldProcess.h	/^	 void Update(float dt){$/;"	f	class:worldProcess
+object	core/World/rayCastQuery.h	/^	std::vector<Object *> object;$/;"	m	class:worldAABBQuery
+worldAABBQuery	core/World/rayCastQuery.h	/^class worldAABBQuery : public b2QueryCallback{$/;"	c
+Draw	core/World/worldProcess.cpp	/^void worldProcess::Draw(){};$/;"	f	class:worldProcess
+Pause	core/World/worldProcess.cpp	/^void worldProcess::Pause(){$/;"	f	class:worldProcess
+Resume	core/World/worldProcess.cpp	/^void worldProcess::Resume(){$/;"	f	class:worldProcess
+Shutdown	core/World/worldProcess.cpp	/^void worldProcess::Shutdown(){$/;"	f	class:worldProcess
+Start	core/World/worldProcess.cpp	/^void worldProcess::Start(){$/;"	f	class:worldProcess
+Update	core/World/worldProcess.cpp	/^void worldProcess::Update(float dt){$/;"	f	class:worldProcess
+_Simulate	core/World/worldProcess.cpp	/^void worldProcess::_Simulate(){$/;"	f	class:worldProcess
+foo	core/World/worldProcess.cpp	/^void foo(){};$/;"	f
+getMaxAccumilation	core/World/worldProcess.cpp	/^float worldProcess::getMaxAccumilation(){$/;"	f	class:worldProcess
+getStepSize	core/World/worldProcess.cpp	/^float worldProcess::getStepSize(){$/;"	f	class:worldProcess
+getWorld	core/World/worldProcess.cpp	/^b2World *worldProcess::getWorld(){$/;"	f	class:worldProcess
+worldProcess	core/World/worldProcess.cpp	/^worldProcess::worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
 collisionIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
+dt	core/World/worldProcess.h	/^	float dt;$/;"	m	class:worldProcess
 dtAccumilator	core/World/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
-getMaxAccumilation	core/World/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
-getStepSize	core/World/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
-getWorld	core/World/worldProcess.h	/^	 b2World *getWorld(){$/;"	f	class:worldProcess
 maxAccumilation	core/World/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
 paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
+simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread; $/;"	m	class:worldProcess
 stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
 velIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
 world	core/World/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProcess
-worldProcess	core/World/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
 worldProcess	core/World/worldProcess.h	/^class worldProcess : public Process{$/;"	c
 Kill	core/componentSys/Object.cpp	/^void Object::Kill(){$/;"	f	class:Object
 Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name){$/;"	f	class:Object
@@ -361,6 +354,7 @@ Process	core/controlFlow/Process.h	/^	Process(std::string _name){$/;"	f	class:Pr
 Process	core/controlFlow/Process.h	/^class Process{$/;"	c
 Resume	core/controlFlow/Process.h	/^	virtual void Resume(){};$/;"	f	class:Process
 Shutdown	core/controlFlow/Process.h	/^	virtual void Shutdown(){};$/;"	f	class:Process
+Start	core/controlFlow/Process.h	/^	virtual void Start(){};$/;"	f	class:Process
 Update	core/controlFlow/Process.h	/^	virtual void Update(float dt){};$/;"	f	class:Process
 getNameHash	core/controlFlow/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
 nameHash	core/controlFlow/Process.h	/^	const Hash *nameHash;$/;"	m	class:Process

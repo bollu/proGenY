@@ -61,14 +61,15 @@ class groundMoveProcessor : public objectProcessor{
 public:
 	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 		objectProcessor("groundMoveProcessor"){
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+
+			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 	void _onObjectAdd(Object *obj);
 	void _Process(Object *obj, float dt);
 private:
 
-	b2World *world;
+	worldProcess *world;
 	vector2 _calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt);
 	
 	bool _shouldProcess(Object *obj){

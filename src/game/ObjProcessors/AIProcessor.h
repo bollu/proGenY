@@ -23,7 +23,7 @@ class AIProcessor : public objectProcessor{
 public:
 	AIProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 		objectProcessor("AIProcessor"){
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 protected:
@@ -35,7 +35,7 @@ protected:
 	};
 
 private:
-	b2World *world;
+	worldProcess *world;
 };
 
 

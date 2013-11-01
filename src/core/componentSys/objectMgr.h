@@ -6,6 +6,7 @@
 #include "../IO/logObject.h"
 
 
+
 /*!Manages Object class's lifecycle
 the ObjectMgr is in charge of controlling Object and running
 objectProcessor on the objects. It's the heart of the component based 

@@ -78,8 +78,8 @@ damageCollider *bulletDataGenerator::_genDamage(damageProperty &prop){
 		break;
 	};
 
-	//HACK! return new damageCollider(damage);
-	return new damageCollider(0);
+	return new damageCollider(damage);
+	//return new damageCollider(0);
 };
 
 #include "../bulletColliders/pushCollider.h"

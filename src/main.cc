@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <thread>
 
 /*#define BACKWARD_HAS_DW 1
 #include "include/backward/backward.cpp"
@@ -79,6 +80,7 @@ int main(){
 
 
        processManager.preUpdate();
+
        processManager.Update(dt);
        processManager.Draw();
        processManager.postDraw();

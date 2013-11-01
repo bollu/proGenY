@@ -30,6 +30,12 @@ protected:
 public:
 	virtual ~Process(){};
 
+	/*!called once to start the Process
+
+	This allows the Process to complete tasks that require the process to have been
+	initialized fully - things such as thread creation can be handled here
+	*/
+	virtual void Start(){};
 	/*!Used to pause the process
 
 	Any task that is being executed by the process should be halted until Process::Resume() is called.

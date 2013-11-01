@@ -1,6 +1,6 @@
 #pragma once
 #include "baseAI.h"
-
+class b2World;
 
 
 class distanceSensor : public AI::Sensor{
@@ -9,7 +9,7 @@ protected:
 	std::string targetClass;
 
 public:
-	distanceSensor(Object::objectMap  &objectMap, Object *owner, std::string targetClass);
+	distanceSensor(Object *owner, b2World *world, std::string targetClass);
 
 	void Sense();
 };

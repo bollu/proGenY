@@ -14,7 +14,7 @@ void groundMoveProcessor::_onObjectAdd(Object *obj){
 	data->mass = *mass;
 	data->moveImpulse.x = *mass * abs(data->xVel);
 
-	float g = this->world->GetGravity().y;
+	float g = this->world->getGravity().y;
 
 	data->jumpImpulse.y = *mass *  sqrt(abs(2 * g * data->jumpHeight));
 

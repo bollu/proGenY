@@ -8,9 +8,9 @@
 phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 objectProcessor("phyProcessor") {
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
-	this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+	this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 
-	world->SetContactListener(&this->contactListener);
+	world->setContactListener(&this->contactListener);
 }
 
 void phyProcessor::_onObjectAdd(Object *obj){
@@ -29,7 +29,7 @@ void phyProcessor::_onObjectAdd(Object *obj){
 	}
 	
 	data->bodyDef.position = *gamePos;
-	b2Body *body = world->CreateBody(&data->bodyDef);
+	b2Body *body = world->createBody(&data->bodyDef);
 	data->body = body;
 	data->body->SetUserData(obj);
 	
@@ -88,7 +88,7 @@ void phyProcessor::_onObjectDeath(Object *obj){
 
 	if(data != NULL){
 		IO::infoLog<<"\n\ndestroying body owned by "<<obj->getName();
-		world->DestroyBody(data->body);
+		world->destroyBody(data->body);
 	}
 }
 

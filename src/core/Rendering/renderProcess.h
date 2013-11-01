@@ -7,6 +7,10 @@
 #include "windowProcess.h"
 
 #include <list>
+#include <thread>
+#include <atomic>
+#include  <mutex>
+
 
 /*!
  follows openGL coordinate system. z-axis is down the screen. so, (0, 0, -100) will be 
@@ -70,10 +74,13 @@ public:
 	void removeRenderNode(renderProcess::baseRenderNode *node);
 
 private:
-	sf::RenderWindow *window;
-
-	std::list<baseRenderNode *> nodes;
 	
+
+	sf::RenderWindow *window;
+	std::list<baseRenderNode *> nodes;
+
+
+
 	/*!return true if first argument goes *before the 2nd*
 	we want things at the back to be drawn first, so return 
 	true if the first object is behind the 2nd object 

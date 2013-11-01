@@ -76,7 +76,8 @@ class bulletProcessor : public objectProcessor{
 public:
 	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 		objectProcessor("bulletProcessor"){
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+
+			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 
@@ -90,6 +91,6 @@ protected:
 
 private:
 	void _handleCollision(collisionData &collision,bulletData *data, Object *obj);
-	b2World *world;
+	worldProcess *world;
 
 };

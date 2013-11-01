@@ -12,6 +12,7 @@ void processMgr::addProcess(Process *p){
 	}
 
 	this->processes[p->getNameHash()] = p;
+	p->Start();
 };
 
 void processMgr::preUpdate(){

@@ -243,7 +243,7 @@ Done	include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket 
 Down	include/SFML/Window/Keyboard.hpp	/^        Down,         \/\/\/< Down arrow$/;"	e	enum:sf::Keyboard::Key
 Draw	core/Rendering/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
 Draw	core/Rendering/renderProcess.h	/^		void Draw(sf::RenderWindow *window){$/;"	f	class:renderProcess::renderNode
-Draw	core/World/worldProcess.h	/^	 void Draw(){};$/;"	f	class:worldProcess
+Draw	core/World/worldProcess.cpp	/^void worldProcess::Draw(){};$/;"	f	class:worldProcess
 Draw	core/controlFlow/Process.h	/^	virtual void Draw(){};$/;"	f	class:Process
 Draw	core/controlFlow/processMgr.cpp	/^void processMgr::Draw(){$/;"	f	class:processMgr
 Draw	core/controlFlow/stateProcess.h	/^	 void Draw(){$/;"	f	class:stateProcess
@@ -802,7 +802,7 @@ PageUp	include/SFML/Window/Keyboard.hpp	/^        PageUp,       \/\/\/< The Page
 ParameterNotImplemented	include/SFML/Network/Ftp.hpp	/^            ParameterNotImplemented = 504, \/\/\/< Command not implemented for that parameter$/;"	e	enum:sf::Ftp::Response::Status
 ParametersUnknown	include/SFML/Network/Ftp.hpp	/^            ParametersUnknown       = 501, \/\/\/< Syntax error in parameters or arguments$/;"	e	enum:sf::Ftp::Response::Status
 PartialContent	include/SFML/Network/Http.hpp	/^            PartialContent = 206, \/\/\/< The server has sent a part of the resource, as a response to a partial GET request$/;"	e	enum:sf::Http::Response::Status
-Pause	core/World/worldProcess.h	/^	 void Pause(){$/;"	f	class:worldProcess
+Pause	core/World/worldProcess.cpp	/^void worldProcess::Pause(){$/;"	f	class:worldProcess
 Pause	core/controlFlow/Process.h	/^	virtual void Pause(){};$/;"	f	class:Process
 Pause	include/SFML/Window/Keyboard.hpp	/^        Pause,        \/\/\/< The Pause key$/;"	e	enum:sf::Keyboard::Key
 PauseProcess	core/controlFlow/processMgr.cpp	/^void processMgr::PauseProcess(const Hash* processName){$/;"	f	class:processMgr
@@ -835,7 +835,6 @@ Prop	core/componentSys/Property.h	/^class Prop : public baseProperty{$/;"	c
 Push	include/Box2D/Common/b2GrowableStack.h	/^	void Push(const T& element)$/;"	f	class:b2GrowableStack
 Q	include/SFML/Window/Keyboard.hpp	/^        Q,            \/\/\/< The Q key$/;"	e	enum:sf::Keyboard::Key
 Quads	include/SFML/Graphics/PrimitiveType.hpp	/^    Quads           \/\/\/< List of individual quads$/;"	e	enum:sf::PrimitiveType
-Quadtree	core/AI/quadtree.h	/^class Quadtree<T>{$/;"	c
 Query	include/Box2D/Collision/b2BroadPhase.h	/^inline void b2BroadPhase::Query(T* callback, const b2AABB& aabb) const$/;"	f	class:b2BroadPhase
 Query	include/Box2D/Collision/b2DynamicTree.h	/^inline void b2DynamicTree::Query(T* callback, const b2AABB& aabb) const$/;"	f	class:b2DynamicTree
 QueryAABB	include/Box2D/Dynamics/b2World.cpp	/^void b2World::QueryAABB(b2QueryCallback* callback, const b2AABB& aabb) const$/;"	f	class:b2World
@@ -890,7 +889,7 @@ ResolvedTrace	include/backward/backward.hpp	/^struct ResolvedTrace: public Trace
 Response	include/SFML/Network/Ftp.hpp	/^    class SFML_NETWORK_API Response$/;"	c	class:sf::Ftp
 Response	include/SFML/Network/Http.hpp	/^    class SFML_NETWORK_API Response$/;"	c	class:sf::Http
 RestartMarkerReply	include/SFML/Network/Ftp.hpp	/^            RestartMarkerReply          = 110, \/\/\/< Restart marker reply$/;"	e	enum:sf::Ftp::Response::Status
-Resume	core/World/worldProcess.h	/^	 void Resume(){$/;"	f	class:worldProcess
+Resume	core/World/worldProcess.cpp	/^void worldProcess::Resume(){$/;"	f	class:worldProcess
 Resume	core/controlFlow/Process.h	/^	virtual void Resume(){};$/;"	f	class:Process
 ResumePorcess	core/controlFlow/processMgr.cpp	/^void processMgr::ResumePorcess(const Hash* processName){$/;"	f	class:processMgr
 Return	include/SFML/Window/Keyboard.hpp	/^        Return,       \/\/\/< The Return key$/;"	e	enum:sf::Keyboard::Key
@@ -1009,7 +1008,7 @@ SFML_WINDOW_HPP	include/SFML/Window/Window.hpp	26;"	d
 Save	core/controlFlow/dummyStateSaveLoader.h	/^	 void Save(){ this->doneSaving = true; };$/;"	f	class:dummyStateSaveLoader
 SemiColon	include/SFML/Window/Keyboard.hpp	/^        SemiColon,    \/\/\/< The ; key$/;"	e	enum:sf::Keyboard::Key
 Sense	core/AI/distanceSensor.cpp	/^void distanceSensor::Sense(){$/;"	f	class:distanceSensor
-Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object::objectMap  &_objectMap, Object *_owner,std::string _name) : $/;"	f	class:Sensor
+Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object *_owner,std::string _name) : owner(_owner), name(_name){}$/;"	f	class:Sensor
 Sensor	core/AI/baseAI.h	/^	class Sensor{$/;"	c	namespace:AI
 ServiceNotAvailable	include/SFML/Network/Http.hpp	/^            ServiceNotAvailable = 503, \/\/\/< The server is temporarily unavailable (overloaded, in maintenance, ...)$/;"	e	enum:sf::Http::Response::Status
 ServiceReady	include/SFML/Network/Ftp.hpp	/^            ServiceReady          = 220, \/\/\/< Service ready for new user$/;"	e	enum:sf::Ftp::Response::Status
@@ -1101,7 +1100,7 @@ Shape	include/SFML/Graphics/Shape.hpp	/^class SFML_GRAPHICS_API Shape : public D
 ShouldCollide	include/Box2D/Dynamics/b2Body.cpp	/^bool b2Body::ShouldCollide(const b2Body* other) const$/;"	f	class:b2Body
 ShouldCollide	include/Box2D/Dynamics/b2WorldCallbacks.cpp	/^bool b2ContactFilter::ShouldCollide(b2Fixture* fixtureA, b2Fixture* fixtureB)$/;"	f	class:b2ContactFilter
 Shudown	core/Rendering/windowProcess.h	/^	void Shudown(){$/;"	f	class:windowProcess
-Shutdown	core/World/worldProcess.h	/^	 void Shutdown(){$/;"	f	class:worldProcess
+Shutdown	core/World/worldProcess.cpp	/^void worldProcess::Shutdown(){$/;"	f	class:worldProcess
 Shutdown	core/controlFlow/Process.h	/^	virtual void Shutdown(){};$/;"	f	class:Process
 Shutdown	core/controlFlow/processMgr.cpp	/^void processMgr::Shutdown(){$/;"	f	class:processMgr
 Shutdown	core/controlFlow/stateProcess.h	/^	 void Shutdown(){$/;"	f	class:stateProcess
@@ -1176,6 +1175,8 @@ StackTraceLinuxImplHolder	include/backward/backward.hpp	/^class StackTraceLinuxI
 StackTraceWithLocals	include/backward/backward.hpp	/^class StackTraceWithLocals:$/;"	c	namespace:backward
 StackTraceWithLocalsImpl	include/backward/backward.hpp	/^class StackTraceWithLocalsImpl:$/;"	c	namespace:backward
 StackTraceWithLocalsImpl	include/backward/backward.hpp	/^class StackTraceWithLocalsImpl<system_tag::linux_tag>:$/;"	c	namespace:backward
+Start	core/World/worldProcess.cpp	/^void worldProcess::Start(){$/;"	f	class:worldProcess
+Start	core/controlFlow/Process.h	/^	virtual void Start(){};$/;"	f	class:Process
 State	core/controlFlow/State.h	/^	State(std::string name){$/;"	f	class:State
 State	core/controlFlow/State.h	/^class State{$/;"	c
 State	include/Box2D/Collision/b2TimeOfImpact.h	/^	enum State$/;"	g	struct:b2TOIOutput
@@ -1272,7 +1273,7 @@ Unregister	core/controlFlow/eventMgr.cpp	/^void eventMgr::Unregister(const Hash 
 Unwinder	include/backward/backward.hpp	/^class Unwinder {$/;"	c	namespace:backward::details
 Up	include/SFML/Window/Keyboard.hpp	/^        Up,           \/\/\/< Up arrow$/;"	e	enum:sf::Keyboard::Key
 Update	core/Rendering/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
-Update	core/World/worldProcess.h	/^	 void Update(float dt){$/;"	f	class:worldProcess
+Update	core/World/worldProcess.cpp	/^void worldProcess::Update(float dt){$/;"	f	class:worldProcess
 Update	core/componentSys/objectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:objectMgrProcess
 Update	core/controlFlow/Process.h	/^	virtual void Update(float dt){};$/;"	f	class:Process
 Update	core/controlFlow/processMgr.cpp	/^void processMgr::Update(float dt){$/;"	f	class:processMgr
@@ -1353,6 +1354,7 @@ _Process	game/ObjProcessors/healthProcessor.cpp	/^void healthProcessor::_Process
 _Process	game/ObjProcessors/offsetProcessor.h	/^	void _Process(Object *obj, float dt){$/;"	f	class:offsetProcessor
 _Process	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:pickupProcessor
 _Render	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
+_Simulate	core/World/worldProcess.cpp	/^void worldProcess::_Simulate(){$/;"	f	class:worldProcess
 _Tick	game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Tick(){$/;"	f	class:gunData
 _addProcesses	main.cc	/^void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){$/;"	f
 _bfd_loaded	include/backward/backward.hpp	/^	bool                _bfd_loaded;$/;"	m	class:backward::TraceResolverLinuxImpl
@@ -1877,14 +1879,10 @@ body	core/componentSys/processor/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:ph
 bodyA	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyA;$/;"	m	struct:b2JointDef
 bodyB	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyB;$/;"	m	struct:b2JointDef
 bodyDef	core/componentSys/processor/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
-bottomLeft	core/AI/quadtree.h	/^	bottomLeft,$/;"	e	enum:quadtreeDir
-bottomRight	core/AI/quadtree.h	/^	bottomRight$/;"	e	enum:quadtreeDir
 bounceCollider	game/bulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
 bounceCollider	game/bulletColliders/bounceCollider.h	/^class bounceCollider : public bulletCollider{$/;"	c
 boundaryCreator	game/factory/boundaryCreator.h	/^	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:boundaryCreator
 boundaryCreator	game/factory/boundaryCreator.h	/^class boundaryCreator : public objectCreator{$/;"	c
-boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:Quadtree
-boundingBox	core/AI/quadtree.h	/^	AABB boundingBox;$/;"	m	class:quadtreeNode
 bounds	include/SFML/Graphics/Glyph.hpp	/^    IntRect bounds;      \/\/\/< Bounding rectangle of the glyph, in coordinates relative to the baseline$/;"	m	class:sf::Glyph
 boxHalfH	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
 boxHalfW	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
@@ -2031,7 +2029,7 @@ die_call_file	include/backward/backward.hpp	/^	static const char* die_call_file(
 die_has_pc	include/backward/backward.hpp	/^	static bool die_has_pc(Dwarf_Die* die, Dwarf_Addr pc) {$/;"	f	class:backward::TraceResolverLinuxImpl
 dir	game/ObjProcessors/airMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
 distance	include/Box2D/Collision/b2Distance.h	/^	float32 distance;$/;"	m	struct:b2DistanceOutput
-distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object::objectMap  &objectMap, Object *owner, $/;"	f	class:distanceSensor
+distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object *owner, b2World *world, std::string targetClass) :$/;"	f	class:distanceSensor
 distanceSensor	core/AI/distanceSensor.h	/^class distanceSensor : public AI::Sensor{$/;"	c
 doneLoading	core/controlFlow/stateSaveLoader.h	/^	bool doneLoading;$/;"	m	class:stateSaveLoader
 doneLoading	game/States/gameSegmentLoader.h	/^	bool doneLoading;$/;"	m	class:gameSegmentLoader
@@ -2040,6 +2038,7 @@ dotProduct	core/math/vector.h	/^	float dotProduct(const vector2 &other){$/;"	f	c
 down	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key down;$/;"	m	struct:playerHandlerData
 drawDisabled	core/Rendering/renderProcess.h	/^		bool drawDisabled;$/;"	m	class:renderProcess::baseRenderNode
 drawable	core/Rendering/renderProcess.h	/^		T *drawable;$/;"	m	class:renderProcess::renderNode
+dt	core/World/worldProcess.h	/^	float dt;$/;"	m	class:worldProcess
 dt	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 dt;			\/\/ time step$/;"	m	struct:b2TimeStep
 dtAccumilator	core/World/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
 dtRatio	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 dtRatio;	\/\/ dt * inv_dt0$/;"	m	struct:b2TimeStep
@@ -2172,6 +2171,7 @@ float64	include/Box2D/Common/b2Settings.h	/^typedef double float64;$/;"	t
 flush	core/IO/logObject.h	/^	static const _Flush flush;$/;"	m	namespace:IO
 fobj	include/backward/backward.hpp	/^		bfd_fileobject* fobj;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
 fobj_bfd_map_t	include/backward/backward.hpp	/^		fobj_bfd_map_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+foo	core/World/worldProcess.cpp	/^void foo(){};$/;"	f
 found	include/backward/backward.hpp	/^		bool found;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
 fraction	include/Box2D/Collision/b2Collision.h	/^	float32 fraction;$/;"	m	struct:b2RayCastOutput
 frequencyHz	include/Box2D/Dynamics/Joints/b2DistanceJoint.h	/^	float32 frequencyHz;$/;"	m	struct:b2DistanceJointDef
@@ -2210,7 +2210,7 @@ getHalfDim	core/math/AABB.cpp	/^vector2 AABB::getHalfDim() const{$/;"	f	class:AA
 getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(const char* str){$/;"	f	class:Hash
 getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(std::string &str){$/;"	f	class:Hash
 getHashedName	core/controlFlow/State.h	/^	const Hash* getHashedName(){$/;"	f	class:State
-getMaxAccumilation	core/World/worldProcess.h	/^	float getMaxAccumilation(){$/;"	f	class:worldProcess
+getMaxAccumilation	core/World/worldProcess.cpp	/^float worldProcess::getMaxAccumilation(){$/;"	f	class:worldProcess
 getName	core/AI/baseAI.cpp	/^std::string Sensor::getName() const{$/;"	f	class:Sensor
 getName	core/componentSys/Object.cpp	/^std::string Object::getName() const{$/;"	f	class:Object
 getNameHash	core/controlFlow/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
@@ -2223,7 +2223,7 @@ getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const Hash *name){
 getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
 getProcess	core/controlFlow/processMgr.h	/^	processType *getProcess(const Hash* processName){$/;"	f	class:processMgr
 getRender2GameScale	core/Rendering/viewProcess.cpp	/^float viewProcess::getRender2GameScale(){$/;"	f	class:viewProcess
-getStepSize	core/World/worldProcess.h	/^	float getStepSize(){$/;"	f	class:worldProcess
+getStepSize	core/World/worldProcess.cpp	/^float worldProcess::getStepSize(){$/;"	f	class:worldProcess
 getTopLeft	core/math/AABB.cpp	/^vector2 AABB::getTopLeft() const{$/;"	f	class:AABB
 getTopRight	core/math/AABB.cpp	/^vector2 AABB::getTopRight() const{$/;"	f	class:AABB
 getVal	core/IO/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
@@ -2231,7 +2231,7 @@ getVal	core/componentSys/Property.h	/^	T *getVal(){$/;"	f	class:Prop
 getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
 getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:ptrProp
 getWindow	core/Rendering/windowProcess.h	/^	sf::RenderWindow *getWindow(){$/;"	f	class:windowProcess
-getWorld	core/World/worldProcess.h	/^	 b2World *getWorld(){$/;"	f	class:worldProcess
+getWorld	core/World/worldProcess.cpp	/^b2World *worldProcess::getWorld(){$/;"	f	class:worldProcess
 get_coalesced_snippet	include/backward/backward.hpp	/^	lines_t get_coalesced_snippet(const std::string& filename,$/;"	f	class:backward::SnippetFactory
 get_combined_snippet	include/backward/backward.hpp	/^	lines_t get_combined_snippet($/;"	f	class:backward::SnippetFactory
 get_lines	include/backward/backward.hpp	/^	lines_t get_lines(unsigned line_start, unsigned line_count) {$/;"	f	class:backward::SourceFile
@@ -3090,8 +3090,6 @@ nextRow	include/SFML/Graphics/Font.hpp	/^        unsigned int     nextRow; \/\/\
 nextStateName	core/controlFlow/State.h	/^	 std::string nextStateName; $/;"	m	class:State
 noGravity	game/generators/bulletDataGenerator.h	/^		noGravity = 0,$/;"	e	enum:bulletDataGenerator::gravityProperty
 noKnockback	game/generators/bulletDataGenerator.h	/^		noKnockback = 0,$/;"	e	enum:bulletDataGenerator::knockbackProperty
-nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:Quadtree
-nodes	core/AI/quadtree.h	/^	quadtreeNode<T>[4] nodes;$/;"	m	class:quadtreeNode
 nodes	core/Rendering/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
 noise	game/generators/PerlinNoise.cpp	/^double PerlinNoise::noise(double x, double y, double z) {$/;"	f	class:PerlinNoise
 noiseGen	game/terrainGen/terrainGenerator.h	/^	PerlinNoise noiseGen;$/;"	m	class:terrainGenerator
@@ -3124,6 +3122,7 @@ objMapIt	core/componentSys/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"
 objMoveData	game/gameStateHelpers/playerEventHandler.h	/^	groundMoveData *objMoveData;$/;"	m	struct:playerHandlerData
 objProcessorIt	core/componentSys/objectMgr.h	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr
 objProcessors	core/componentSys/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
+object	core/World/rayCastQuery.h	/^	std::vector<Object *> object;$/;"	m	class:worldAABBQuery
 object	include/backward/backward.hpp	/^	bool object;$/;"	m	class:backward::Printer
 objectCreator	game/factory/objectFactory.h	/^	objectCreator(){}$/;"	f	class:objectCreator
 objectCreator	game/factory/objectFactory.h	/^class objectCreator{$/;"	c
@@ -3133,7 +3132,6 @@ objectManager	game/ObjProcessors/gunProcessor.h	/^	objectMgr *objectManager;$/;"
 objectManager	game/States/gameState.h	/^	objectMgr *objectManager;$/;"	m	class:gameState
 objectManager	game/gameStateHelpers/gunsManager.h	/^	objectMgr &objectManager;$/;"	m	class:gunsManager
 objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Executor
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Sensor
 objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Task
 objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
 objectMgr	core/componentSys/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
@@ -3144,7 +3142,6 @@ objectProcessor	core/componentSys/processor/objectProcessor.h	/^	objectProcessor
 objectProcessor	core/componentSys/processor/objectProcessor.h	/^class objectProcessor{$/;"	c
 object_filename	include/backward/backward.hpp	/^	std::string                    object_filename;$/;"	m	struct:backward::ResolvedTrace
 object_function	include/backward/backward.hpp	/^	std::string                    object_function;$/;"	m	struct:backward::ResolvedTrace
-objects	core/AI/quadtree.h	/^	std::list<T*> objects;$/;"	m	class:quadtreeLeaf
 observerList	core/controlFlow/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
 observerMap	core/controlFlow/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
 offsetAngle	game/ObjProcessors/offsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:offsetData
@@ -3376,9 +3373,6 @@ purple	include/backward/backward.hpp	/^		purple = 35,$/;"	e	enum:backward::Color
 pushCollider	game/bulletColliders/pushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
 pushCollider	game/bulletColliders/pushCollider.h	/^class pushCollider : public bulletCollider{$/;"	c
 q	include/Box2D/Common/b2Math.h	/^	b2Rot q;$/;"	m	struct:b2Transform
-quadtreeDir	core/AI/quadtree.h	/^enum quadtreeDir{$/;"	g
-quadtreeLeaf	core/AI/quadtree.h	/^class quadtreeLeaf<T>{$/;"	c
-quadtreeNode	core/AI/quadtree.h	/^class quadtreeNode<T>{$/;"	c
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 r	include/SFML/Graphics/Color.hpp	/^    Uint8 r; \/\/\/< Red component$/;"	m	class:sf::Color
 rA	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Vec2 rA;$/;"	m	struct:b2VelocityConstraintPoint
@@ -3588,6 +3582,7 @@ sideNormal2	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 sideNormal2;$/;"
 sideOffset1	include/Box2D/Collision/b2CollideEdge.cpp	/^	float32 sideOffset1;$/;"	m	struct:b2ReferenceFace	file:
 sideOffset2	include/Box2D/Collision/b2CollideEdge.cpp	/^	float32 sideOffset2;$/;"	m	struct:b2ReferenceFace	file:
 sig_handler	include/backward/backward.hpp	/^	static void sig_handler(int, siginfo_t* info, void* _ctx) {$/;"	f	class:backward::SignalHandling
+simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread; $/;"	m	class:worldProcess
 sin	core/math/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 size	include/Box2D/Common/b2StackAllocator.h	/^	int32 size;$/;"	m	struct:b2StackEntry
 size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon4
@@ -3665,8 +3660,6 @@ toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	cl
 toVector	core/math/mathUtil.h	/^		vector2 toVector(){$/;"	f	class:util::Angle
 top	include/SFML/Graphics/Font.hpp	/^        unsigned int top;    \/\/\/< Y position of the row into the texture$/;"	m	struct:sf::Font::Row
 top	include/SFML/Graphics/Rect.hpp	/^    T top;    \/\/\/< Top coordinate of the rectangle$/;"	m	class:sf::Rect
-topLeft	core/AI/quadtree.h	/^	topLeft = 0,$/;"	e	enum:quadtreeDir
-topRight	core/AI/quadtree.h	/^	topRight,$/;"	e	enum:quadtreeDir
 totalBounces	game/bulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	class:bounceCollider
 totalClipCooldown	game/ObjProcessors/gunProcessor.h	/^	int totalClipCooldown;$/;"	m	struct:gunData
 totalClipSize	game/ObjProcessors/gunProcessor.h	/^	int totalClipSize;$/;"	m	struct:gunData
@@ -3785,7 +3778,8 @@ world	game/ObjProcessors/airMoveProcessor.h	/^	b2World *world;$/;"	m	class:airMo
 world	game/ObjProcessors/bulletProcessor.h	/^	b2World *world;$/;"	m	class:bulletProcessor
 world	game/ObjProcessors/groundMoveProcessor.h	/^	b2World *world;$/;"	m	class:groundMoveProcessor
 world	game/ObjProcessors/terrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
-worldProcess	core/World/worldProcess.h	/^	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
+worldAABBQuery	core/World/rayCastQuery.h	/^class worldAABBQuery : public b2QueryCallback{$/;"	c
+worldProcess	core/World/worldProcess.cpp	/^worldProcess::worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
 worldProcess	core/World/worldProcess.h	/^class worldProcess : public Process{$/;"	c
 x	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 x	core/math/vector.h	/^	float x, y;$/;"	m	class:vector2

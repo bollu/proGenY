@@ -24,7 +24,7 @@ class airMoveProcessor : public objectProcessor{
 public:
 	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 			objectProcessor("airMoveProcessor"){
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 	
@@ -37,6 +37,6 @@ protected:
 	};
 	
 private:
-	b2World *world;
+	worldProcess *world;
 };
 
