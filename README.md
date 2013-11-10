@@ -12,7 +12,7 @@ It was started with a vision of 2d borderlands with procedurally generated level
 
 As of now, the plumbing's all there, but I need to write nice code for *content*, which as we all know is the hardest part ;)
 
-This is in *no shape or form* cross-platform (practically). Theoretically, it _should_compile across OS'es 'cause I'm using cross-platform libraries, but Windows has some unique quirks that will surely need some ```#ifdef```s. 
+This is in *no shape or form* cross-platform (practically). Theoretically, it _should_ compile across OS'es 'cause I'm using cross-platform libraries, but Windows has some unique quirks that will surely need some ```#ifdef```s. 
 
 
 Building / Running
