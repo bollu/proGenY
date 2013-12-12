@@ -1,155 +1,163 @@
 #pragma once
 #include "terrainGenerator.h"
+#include "../../include/noise/PerlinNoise.h"
+#include "../../core/IO/logObject.h"
+#include "../../core/math/mathUtil.h"
 
-#define BlockV(v) this->blocks[(v).x * numBlocks.x + (v).y]
-#define BlockI(xPos, yPos) this->blocks[((xPos) * (numBlocks.x)) + (yPos)]
+//form terrain taking noise values as a heightmap first
+void genHeightShape(Terrain &terrain, PerlinNoise &noise) {
+	unsigned int w = terrain.getWidth(), h = terrain.getHeight();
 
-terrainGenerator::terrainGenerator(unsigned int seed, vector2 numBlocks) : noiseGen(seed){
-	this->seed = seed;
-	this->numBlocks = vector2(floor(numBlocks.x), floor(numBlocks.y));
-	
+	unsigned int maxHeight = 0;
 
-	this->_InitBlocks();
+	int prevHeight2 = 0;
+	int prevHeight1 = 0;
 
-	this->_genRoom(AABB(vector2(2, 2),vector2(5, 5)));
-
-	this->_genTerrain(vector2(1, 1), vector2(5, 5));
-
-};
-
-void terrainGenerator::_InitBlocks(){
-	int totalArea = this->numBlocks.x * this->numBlocks.y;
-	
-	this->blocks.reserve(totalArea);
-
-	/*for(terrainGenerator::blockType &block : blocks){
-		block = blockType::filled;
-	}*/
-
-
-};
-
-bool terrainGenerator::_isRoomLegal(const AABB &roomToCheck){
-	for(const AABB &room : rooms){
-		if(room.Intersects(roomToCheck)){
-			return false;
-		}
-	}
-
-	return true;
-};
-
-void terrainGenerator::_genRoom(const AABB &room){
-
-	vector2 center = room.getCenter();
-	vector2 halfDim = room.getHalfDim();
-
-	int yTop = center.y + halfDim.y;
-	int yBottom =  center.y - halfDim.y;
-
-	int xRight = center.x + halfDim.x;
-	int xLeft =  center.x - halfDim.x;
-
-	/*
-	for(int y = yBottom; y <= yTop; y++){
-		BlockI(xLeft, y) = blockType::filled;
-		BlockI(xRight, y) = blockType::filled;
-	}
-
-	for(int x = xLeft + 1; x <= xRight - 1; x++){
-		BlockI(x, yTop) = blockType::filled;
-		BlockI(x, yBottom) = blockType::filled;
-
-		for(int y = yBottom + 1; y <= yTop - 1; y++ ){
-			BlockI(x,y) = blockType::insideRoom;
-		}
-	}*/
-	for(int x = xLeft; x <= xRight; x++){
-		for(int y = yBottom; y <= yTop; y++){
-			BlockI(x, y) = blockType::empty;
-		}
-	}
-
-	/*for(int y = yBottom; y <= yTop; y++){
-		BlockI(xLeft, y) = blockType::filled;
-		BlockI(xRight, y) = blockType::filled;
-	}*/
-};
-
-void terrainGenerator::_genCorridor(const AABB &currentRoom, const AABB &prevRoom){
-
-};
-
-
-terrainGenerator::blockType terrainGenerator::getBlockType(vector2 pos){
-
-	/*oat normalizedX = pos.x / numBlocks.x;
-	float normalizedY = pos.x / numBlocks.y;
-
-	normalizedX *= 10;
-	normalizedY *= 10;
-
-	normalizedX += rand() % 2 == 0 ? -1 : 1 * (rand() % 100) / 9900.0;
-	normalizedY += rand() % 2 == 0 ? -1 : 1 * (rand() % 100) / 9900.0;
-
-	double density = this->noiseGen.noise(normalizedX, normalizedY,
-	 seed);
-
-
-	assert(density >= -1 && density <= 1);
-
-	return _density2BlockType(pos, density);*/
-
-	/*if(BlockV(pos) == blockType::insideRoom){
-		return blockType::filled;
-	};
-
-	return blockType::empty;*/
-
-	
-	//return BlockV(pos);
-	return blockType::empty;
-
-
-
-};
-
-terrainGenerator::blockType terrainGenerator::_density2BlockType(vector2 pos, double density){
-
-	if(density < 0.5){
-		return blockType::empty;
-	}
-
-	return blockType::filled;	
-};
-
-void terrainGenerator::_genTerrain(vector2 minHalfDim, vector2 maxHalfDim){
-
-	
-	bool done = false;
-
-	int numIterations = 0;
-	int numRooms = 0;
-
-	while(!done && (numIterations < 1000) ){
-
-
-		vector2 halfDim = util::lerp(minHalfDim, maxHalfDim, util::randFloat()); 
-		vector2 center = util::lerp(nullVector, numBlocks, util::randFloat()); 
-
-		AABB room(halfDim, center);
-		numIterations++;
-
-		if(!_isRoomLegal(room)){
-			continue;
-		}
-		//okay, the room is legal
-
-		this->_genRoom(room);
-		this->rooms.push_back(room);
-
-		numRooms++;
+	for(unsigned int x = 0; x < w; x++) {
+		float rawNoise = noise.noise((x * x * x)/ (float)(w * w * w), 0, 0);
+		rawNoise *= 0.45;
 		
+
+		rawNoise = util::clamp<float>(rawNoise, 0, 1);
+
+		float currentHeight = rawNoise * h;
+		currentHeight = (currentHeight + prevHeight1 + prevHeight2) * 0.333;
+
+		prevHeight2 = prevHeight1;
+		prevHeight1 = currentHeight;
+
+		if(std::floor(currentHeight) >= maxHeight) {
+			maxHeight = currentHeight;
+		}
+
+
+		//fill up an entire column based on the heightmap
+		for(int y = 0; y < std::floor(currentHeight); y++) {
+			terrain.Set(x, y, terrainType::Filled);
+		}
+
+	}
+	
+	terrain.setMaxHeight(maxHeight);
+}
+
+void genBorders(Terrain &terrain) {
+	unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+
+	for(int x = 0; x < w; x++) {
+		terrain.Set(x, 0, terrainType::Filled);
+		terrain.Set(x, h - 1, terrainType::Filled);
 	}
 
+	for(int y = 0; y < h; y++) {
+		terrain.Set(0, y, terrainType::Filled);
+		terrain.Set(w - 1, y, terrainType::Filled);
+	}
+
+}
+
+void SetTerrain(Terrain &terrain, unsigned int x, unsigned int y, 
+	unsigned int halfW, unsigned int halfH, terrainType value) {
+
+	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+
+	for(int dy = -halfH; dy < halfH; dy++) {
+		for(int dx = -halfW; dx < halfW; dx++) {
+			int currentX = x + dx;
+			int currentY = y + dy;
+
+			currentX = util::clamp<int>(currentX, 0, w-1 );
+			currentY = util::clamp<int>(currentY, 0, h-1 );
+
+			terrain.Set(currentX, currentY, value);
+
+		}
+	}
+}
+
+void genCarver(Terrain &terrain, unsigned int seed, unsigned int steps, unsigned int thickness) {
+	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+
+	unsigned int x = rand() % w;
+	unsigned int y = terrain.getHeightAt(x);
+
+
+
+	for (int i = 0; i < steps; i++) {
+		
+		SetTerrain(terrain, x, y, thickness / 2, thickness / 2, terrainType::Empty);
+		terrain.Set(x, y, terrainType::Empty);
+
+	
+		for(int tries = 0; tries < 3; tries++) {
+			int dy = rand() % 3 - 1;
+			int dx = rand() % 3 - 1;
+
+			int newX = util::clamp<int>(x + dx, 0, w-1 );
+			int newY = util::clamp<int>(y + dy, 0, h-1 );
+			if(terrain.At(newX, newY) == terrainType::Filled) {
+				x = newX;
+				y = newY;
+			}
+		}
+	
+	}
+}
+
+void genTerrain(Terrain &terrain, unsigned int seed){
+	PerlinNoise noise(seed);
+
+	genHeightShape(terrain, noise);
+
+	int totalCarvers = vector2(terrain.getWidth(), terrain.getHeight()).Length();
+
+	for(int i= 0; i < totalCarvers ; i++){
+		genCarver(terrain, seed, totalCarvers / 4.0, 4);
+	}
+
+	genBorders(terrain);
+
+	
+	/*unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+
+	unsigned int maxHeight = 0;
+
+	for(unsigned int y = 0; y < h; y++) {
+		for(unsigned int x = 0; x < w; x++) {
+
+			float rawNoise = noise.noise((x * x)/ (float)(w), (y * y)  / (float)(h), y);
+			util::infoLog<<rawNoise<<util::flush;
+			rawNoise -= 0.4;
+
+			if(x == 0 || x == w - 1 || y == 0 || y == h - 1) {
+				rawNoise = 1.0;
+			}
+			
+
+			terrainType type = rawNoise <= 0 ? terrainType::Empty : terrainType::Filled;
+			terrain.Set(x, y, type);
+
+			if (y > maxHeight) {
+				maxHeight = y;
+			}
+		}
+	}
+
+	terrain.setMaxHeight(maxHeight);
+	*/
+}
+
+
+#include "../../core/Rendering/viewProcess.h"
+vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX){
+	for(int delta = 0; ;delta++ ) {
+		//start with y = 1 as y = 0 is solid ground
+		for(int y = 1; y < terrain.getHeight(); y++) {
+			if( terrain.At(terrainX + delta, y) == terrainType::Empty) {
+				//y + 2 to clear the blocks completely (to the above the blocks basically)
+				return vector2(terrainX + delta, y + 2); 
+
+			}
+		}
+	}
 };

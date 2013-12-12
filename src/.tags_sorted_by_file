@@ -1,6 +1,6 @@
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_VERSION	5.8	//
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 Executor	core/AI/baseAI.cpp	/^Executor::Executor(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Executor
@@ -188,20 +188,22 @@ Shutdown	core/World/worldProcess.cpp	/^void worldProcess::Shutdown(){$/;"	f	clas
 Start	core/World/worldProcess.cpp	/^void worldProcess::Start(){$/;"	f	class:worldProcess
 Update	core/World/worldProcess.cpp	/^void worldProcess::Update(float dt){$/;"	f	class:worldProcess
 _Simulate	core/World/worldProcess.cpp	/^void worldProcess::_Simulate(){$/;"	f	class:worldProcess
-foo	core/World/worldProcess.cpp	/^void foo(){};$/;"	f
+createBody	core/World/worldProcess.cpp	/^b2Body *worldProcess::createBody(const b2BodyDef* def){$/;"	f	class:worldProcess
+destroyBody	core/World/worldProcess.cpp	/^void worldProcess::destroyBody(b2Body* body){$/;"	f	class:worldProcess
+getGravity	core/World/worldProcess.cpp	/^vector2 worldProcess::getGravity(){$/;"	f	class:worldProcess
 getMaxAccumilation	core/World/worldProcess.cpp	/^float worldProcess::getMaxAccumilation(){$/;"	f	class:worldProcess
 getStepSize	core/World/worldProcess.cpp	/^float worldProcess::getStepSize(){$/;"	f	class:worldProcess
-getWorld	core/World/worldProcess.cpp	/^b2World *worldProcess::getWorld(){$/;"	f	class:worldProcess
+setContactListener	core/World/worldProcess.cpp	/^ void worldProcess::setContactListener(b2ContactListener* listener){$/;"	f	class:worldProcess
 worldProcess	core/World/worldProcess.cpp	/^worldProcess::worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
 collisionIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
-dt	core/World/worldProcess.h	/^	float dt;$/;"	m	class:worldProcess
 dtAccumilator	core/World/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
 maxAccumilation	core/World/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
 paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
 simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread; $/;"	m	class:worldProcess
 stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
 velIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
-world	core/World/worldProcess.h	/^	b2World *world;$/;"	m	class:worldProcess
+world	core/World/worldProcess.h	/^	b2World *world = NULL;$/;"	m	class:worldProcess
+worldAccess	core/World/worldProcess.h	/^	std::mutex worldAccess;          $/;"	m	class:worldProcess
 worldProcess	core/World/worldProcess.h	/^class worldProcess : public Process{$/;"	c
 Kill	core/componentSys/Object.cpp	/^void Object::Kill(){$/;"	f	class:Object
 Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name){$/;"	f	class:Object
@@ -330,7 +332,7 @@ phyData	core/componentSys/processor/phyProcessor.h	/^struct phyData{$/;"	s
 phyProcessor	core/componentSys/processor/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
 velClamped	core/componentSys/processor/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
 view	core/componentSys/processor/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
-world	core/componentSys/processor/phyProcessor.h	/^	b2World *world;$/;"	m	class:phyProcessor
+world	core/componentSys/processor/phyProcessor.h	/^	worldProcess *world;$/;"	m	class:phyProcessor
 _Process	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Process(Object *obj, float dt){$/;"	f	class:renderProcessor
 _Render	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
 _onObjectActivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:renderProcessor
@@ -551,7 +553,7 @@ AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public object
 _Process	game/ObjProcessors/AIProcessor.h	/^	void _Process(Object *obj, float dt){};$/;"	f	class:AIProcessor
 _shouldProcess	game/ObjProcessors/AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
 onObjectAdd	game/ObjProcessors/AIProcessor.h	/^	void onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
-world	game/ObjProcessors/AIProcessor.h	/^	b2World *world;$/;"	m	class:AIProcessor
+world	game/ObjProcessors/AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
 _Process	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
 _onObjectAdd	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
 setDir	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
@@ -562,7 +564,7 @@ airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^	airMoveProcessor(proce
 airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^class airMoveProcessor : public objectProcessor{$/;"	c
 dir	game/ObjProcessors/airMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
 speed	game/ObjProcessors/airMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
-world	game/ObjProcessors/airMoveProcessor.h	/^	b2World *world;$/;"	m	class:airMoveProcessor
+world	game/ObjProcessors/airMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
 _Process	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:bulletProcessor
 _handleCollision	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){$/;"	f	class:bulletProcessor
 _onObjectAdd	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:bulletProcessor
@@ -585,7 +587,7 @@ ignoreCollisions	game/ObjProcessors/bulletProcessor.h	/^	std::unordered_set<cons
 onCreate	game/ObjProcessors/bulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:bulletCollider
 onDeath	game/ObjProcessors/bulletProcessor.h	/^	virtual void onDeath(collisionData &data, Object *bullet){};$/;"	f	class:bulletCollider
 onDefaultCollision	game/ObjProcessors/bulletProcessor.h	/^	virtual bool onDefaultCollision(collisionData &data, Object *bullet){$/;"	f	class:bulletCollider
-world	game/ObjProcessors/bulletProcessor.h	/^	b2World *world;$/;"	m	class:bulletProcessor
+world	game/ObjProcessors/bulletProcessor.h	/^	worldProcess *world;$/;"	m	class:bulletProcessor
 ~bulletCollider	game/ObjProcessors/bulletProcessor.h	/^	virtual ~bulletCollider(){};$/;"	f	class:bulletCollider
 _Process	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
 _calcCameraMoveAmt	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
@@ -638,7 +640,7 @@ movementDamping	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 movementDamp
 movingLeft	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
 movingRight	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
 onGround	game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
-world	game/ObjProcessors/groundMoveProcessor.h	/^	b2World *world;$/;"	m	class:groundMoveProcessor
+world	game/ObjProcessors/groundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
 xAccel	game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
 xVel	game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
 Fire	game/ObjProcessors/gunProcessor.cpp	/^void gunData::Fire(){$/;"	f	class:gunData
@@ -965,27 +967,28 @@ power	game/generators/gunDataGenerator.h	/^	unsigned int power;$/;"	m	class:gunD
 seed	game/generators/gunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:gunDataGenerator
 Level	game/level/Level.h	/^class Level{$/;"	c
 gameSegment	game/level/gameSegment.h	/^class gameSegment{$/;"	c
-BlockI	game/terrainGen/terrainGenerator.cpp	5;"	d	file:
-BlockV	game/terrainGen/terrainGenerator.cpp	4;"	d	file:
-_InitBlocks	game/terrainGen/terrainGenerator.cpp	/^void terrainGenerator::_InitBlocks(){$/;"	f	class:terrainGenerator
-_density2BlockType	game/terrainGen/terrainGenerator.cpp	/^terrainGenerator::blockType terrainGenerator::_density2BlockType(vector2 pos, double density){$/;"	f	class:terrainGenerator
-_genCorridor	game/terrainGen/terrainGenerator.cpp	/^void terrainGenerator::_genCorridor(const AABB &currentRoom, const AABB &prevRoom){$/;"	f	class:terrainGenerator
-_genRoom	game/terrainGen/terrainGenerator.cpp	/^void terrainGenerator::_genRoom(const AABB &room){$/;"	f	class:terrainGenerator
-_genTerrain	game/terrainGen/terrainGenerator.cpp	/^void terrainGenerator::_genTerrain(vector2 minHalfDim, vector2 maxHalfDim){$/;"	f	class:terrainGenerator
-_isRoomLegal	game/terrainGen/terrainGenerator.cpp	/^bool terrainGenerator::_isRoomLegal(const AABB &roomToCheck){$/;"	f	class:terrainGenerator
-getBlockType	game/terrainGen/terrainGenerator.cpp	/^terrainGenerator::blockType terrainGenerator::getBlockType(vector2 pos){$/;"	f	class:terrainGenerator
-terrainGenerator	game/terrainGen/terrainGenerator.cpp	/^terrainGenerator::terrainGenerator(unsigned int seed, vector2 numBlocks) : noiseGen(seed){$/;"	f	class:terrainGenerator
-blockType	game/terrainGen/terrainGenerator.h	/^	enum blockType{$/;"	g	class:terrainGenerator
-blocks	game/terrainGen/terrainGenerator.h	/^	std::vector<blockType> blocks;$/;"	m	class:terrainGenerator
-empty	game/terrainGen/terrainGenerator.h	/^	empty,$/;"	e	enum:terrainGenerator::blockType
-filled	game/terrainGen/terrainGenerator.h	/^	filled = 0,$/;"	e	enum:terrainGenerator::blockType
-noiseGen	game/terrainGen/terrainGenerator.h	/^	PerlinNoise noiseGen;$/;"	m	class:terrainGenerator
-numBlockTypes	game/terrainGen/terrainGenerator.h	/^	numBlockTypes$/;"	e	enum:terrainGenerator::blockType
-numBlocks	game/terrainGen/terrainGenerator.h	/^	vector2 numBlocks;$/;"	m	class:terrainGenerator
-prevRoom	game/terrainGen/terrainGenerator.h	/^	AABB *prevRoom;$/;"	m	class:terrainGenerator
-rooms	game/terrainGen/terrainGenerator.h	/^	std::vector<AABB> rooms;$/;"	m	class:terrainGenerator
-seed	game/terrainGen/terrainGenerator.h	/^	unsigned int seed;$/;"	m	class:terrainGenerator
-terrainGenerator	game/terrainGen/terrainGenerator.h	/^class terrainGenerator{$/;"	c
+At	game/terrainGen/terrain.h	/^	terrainType At(int x, int y) {$/;"	f	struct:Terrain
+Empty	game/terrainGen/terrain.h	/^	Empty = 0,$/;"	e	enum:terrainType
+Filled	game/terrainGen/terrain.h	/^	Filled$/;"	e	enum:terrainType
+Set	game/terrainGen/terrain.h	/^	void Set(int x, int y, terrainType type) {$/;"	f	struct:Terrain
+Terrain	game/terrainGen/terrain.h	/^	Terrain(unsigned int width, unsigned int height) : width_(width), height_(height), maxHeight_(0) {$/;"	f	struct:Terrain
+Terrain	game/terrainGen/terrain.h	/^struct Terrain {$/;"	s
+getHeight	game/terrainGen/terrain.h	/^	unsigned int getHeight () {$/;"	f	struct:Terrain
+getHeightAt	game/terrainGen/terrain.h	/^	unsigned int getHeightAt(int x) {$/;"	f	struct:Terrain
+getMaxHeight	game/terrainGen/terrain.h	/^	unsigned int getMaxHeight () {$/;"	f	struct:Terrain
+getWidth	game/terrainGen/terrain.h	/^	unsigned int getWidth () {$/;"	f	struct:Terrain
+height_	game/terrainGen/terrain.h	/^	unsigned int width_, height_;$/;"	m	struct:Terrain
+maxHeight_	game/terrainGen/terrain.h	/^	unsigned int maxHeight_;$/;"	m	struct:Terrain
+setMaxHeight	game/terrainGen/terrain.h	/^	void setMaxHeight (unsigned int maxHeight) {$/;"	f	struct:Terrain
+terrain	game/terrainGen/terrain.h	/^	std::vector <terrainType> terrain;$/;"	m	struct:Terrain
+terrainType	game/terrainGen/terrain.h	/^enum terrainType {$/;"	g
+width_	game/terrainGen/terrain.h	/^	unsigned int width_, height_;$/;"	m	struct:Terrain
+SetTerrain	game/terrainGen/terrainGenerator.cpp	/^void SetTerrain(Terrain &terrain, unsigned int x, unsigned int y, $/;"	f
+genBorders	game/terrainGen/terrainGenerator.cpp	/^void genBorders(Terrain &terrain) {$/;"	f
+genCarver	game/terrainGen/terrainGenerator.cpp	/^void genCarver(Terrain &terrain, unsigned int seed, unsigned int steps, unsigned int thickness) {$/;"	f
+genHeightShape	game/terrainGen/terrainGenerator.cpp	/^void genHeightShape(Terrain &terrain, PerlinNoise &noise) {$/;"	f
+genTerrain	game/terrainGen/terrainGenerator.cpp	/^void genTerrain(Terrain &terrain, unsigned int seed){$/;"	f
+getPlayerPosTerrain	game/terrainGen/terrainGenerator.cpp	/^vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX){$/;"	f
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 BOX2D_H	include/Box2D/Box2D.h	20;"	d
 Clone	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^b2Shape* b2ChainShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2ChainShape
@@ -1049,14 +1052,15 @@ Set	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^void b2PolygonShape::Set
 SetAsBox	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^void b2PolygonShape::SetAsBox(float32 hx, float32 hy)$/;"	f	class:b2PolygonShape
 SetAsBox	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^void b2PolygonShape::SetAsBox(float32 hx, float32 hy, const b2Vec2& center, float32 angle)$/;"	f	class:b2PolygonShape
 TestPoint	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^bool b2PolygonShape::TestPoint(const b2Transform& xf, const b2Vec2& p) const$/;"	f	class:b2PolygonShape
+Validate	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^bool b2PolygonShape::Validate() const$/;"	f	class:b2PolygonShape
 B2_POLYGON_SHAPE_H	include/Box2D/Collision/Shapes/b2PolygonShape.h	20;"	d
 GetVertex	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^inline const b2Vec2& b2PolygonShape::GetVertex(int32 index) const$/;"	f	class:b2PolygonShape
-GetVertexCount	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	int32 GetVertexCount() const { return m_vertexCount; }$/;"	f	class:b2PolygonShape
+GetVertexCount	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	int32 GetVertexCount() const { return m_count; }$/;"	f	class:b2PolygonShape
 b2PolygonShape	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^class b2PolygonShape : public b2Shape$/;"	c
 b2PolygonShape	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^inline b2PolygonShape::b2PolygonShape()$/;"	f	class:b2PolygonShape
 m_centroid	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	b2Vec2 m_centroid;$/;"	m	class:b2PolygonShape
+m_count	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	int32 m_count;$/;"	m	class:b2PolygonShape
 m_normals	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	b2Vec2 m_normals[b2_maxPolygonVertices];$/;"	m	class:b2PolygonShape
-m_vertexCount	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	int32 m_vertexCount;$/;"	m	class:b2PolygonShape
 m_vertices	include/Box2D/Collision/Shapes/b2PolygonShape.h	/^	b2Vec2 m_vertices[b2_maxPolygonVertices];$/;"	m	class:b2PolygonShape
 B2_SHAPE_H	include/Box2D/Collision/Shapes/b2Shape.h	20;"	d
 GetType	include/Box2D/Collision/Shapes/b2Shape.h	/^inline b2Shape::Type b2Shape::GetType() const$/;"	f	class:b2Shape
@@ -1092,12 +1096,13 @@ GetTreeQuality	include/Box2D/Collision/b2BroadPhase.h	/^inline float32 b2BroadPh
 GetUserData	include/Box2D/Collision/b2BroadPhase.h	/^inline void* b2BroadPhase::GetUserData(int32 proxyId) const$/;"	f	class:b2BroadPhase
 Query	include/Box2D/Collision/b2BroadPhase.h	/^inline void b2BroadPhase::Query(T* callback, const b2AABB& aabb) const$/;"	f	class:b2BroadPhase
 RayCast	include/Box2D/Collision/b2BroadPhase.h	/^inline void b2BroadPhase::RayCast(T* callback, const b2RayCastInput& input) const$/;"	f	class:b2BroadPhase
+ShiftOrigin	include/Box2D/Collision/b2BroadPhase.h	/^inline void b2BroadPhase::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2BroadPhase
 TestOverlap	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2BroadPhase::TestOverlap(int32 proxyIdA, int32 proxyIdB) const$/;"	f	class:b2BroadPhase
 UpdatePairs	include/Box2D/Collision/b2BroadPhase.h	/^void b2BroadPhase::UpdatePairs(T* callback)$/;"	f	class:b2BroadPhase
 b2BroadPhase	include/Box2D/Collision/b2BroadPhase.h	/^class b2BroadPhase$/;"	c
 b2Pair	include/Box2D/Collision/b2BroadPhase.h	/^struct b2Pair$/;"	s
 b2PairLessThan	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2PairLessThan(const b2Pair& pair1, const b2Pair& pair2)$/;"	f
-e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon12
+e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon5
 m_moveBuffer	include/Box2D/Collision/b2BroadPhase.h	/^	int32* m_moveBuffer;$/;"	m	class:b2BroadPhase
 m_moveCapacity	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCapacity;$/;"	m	class:b2BroadPhase
 m_moveCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCount;$/;"	m	class:b2BroadPhase
@@ -1107,7 +1112,6 @@ m_pairCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_pairCount;$/;"	m	c
 m_proxyCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_proxyCount;$/;"	m	class:b2BroadPhase
 m_queryProxyId	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_queryProxyId;$/;"	m	class:b2BroadPhase
 m_tree	include/Box2D/Collision/b2BroadPhase.h	/^	b2DynamicTree m_tree;$/;"	m	class:b2BroadPhase
-next	include/Box2D/Collision/b2BroadPhase.h	/^	int32 next;$/;"	m	struct:b2Pair
 proxyIdA	include/Box2D/Collision/b2BroadPhase.h	/^	int32 proxyIdA;$/;"	m	struct:b2Pair
 proxyIdB	include/Box2D/Collision/b2BroadPhase.h	/^	int32 proxyIdB;$/;"	m	struct:b2Pair
 b2CollideCircles	include/Box2D/Collision/b2CollideCircle.cpp	/^void b2CollideCircles($/;"	f
@@ -1162,7 +1166,6 @@ v1	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 v1, v2;$/;"	m	struct:b2Re
 v2	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 v1, v2;$/;"	m	struct:b2ReferenceFace	file:
 vertices	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 vertices[b2_maxPolygonVertices];$/;"	m	struct:b2TempPolygon	file:
 b2CollidePolygons	include/Box2D/Collision/b2CollidePolygon.cpp	/^void b2CollidePolygons(b2Manifold* manifold,$/;"	f
-b2EdgeSeparation	include/Box2D/Collision/b2CollidePolygon.cpp	/^static float32 b2EdgeSeparation(const b2PolygonShape* poly1, const b2Transform& xf1, int32 edge1,$/;"	f	file:
 b2FindIncidentEdge	include/Box2D/Collision/b2CollidePolygon.cpp	/^static void b2FindIncidentEdge(b2ClipVertex c[2],$/;"	f	file:
 b2FindMaxSeparation	include/Box2D/Collision/b2CollidePolygon.cpp	/^static float32 b2FindMaxSeparation(int32* edgeIndex,$/;"	f	file:
 Initialize	include/Box2D/Collision/b2Collision.cpp	/^void b2WorldManifold::Initialize(const b2Manifold* manifold,$/;"	f	class:b2WorldManifold
@@ -1213,14 +1216,15 @@ localPoint	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 localPoint;								\/
 localPoint	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 localPoint;		\/\/\/< usage depends on manifold type$/;"	m	struct:b2ManifoldPoint
 lowerBound	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 lowerBound;	\/\/\/< the lower vertex$/;"	m	struct:b2AABB
 maxFraction	include/Box2D/Collision/b2Collision.h	/^	float32 maxFraction;$/;"	m	struct:b2RayCastInput
-normal	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 normal;							\/\/\/< world vector pointing from A to B$/;"	m	struct:b2WorldManifold
+normal	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 normal;								\/\/\/< world vector pointing from A to B$/;"	m	struct:b2WorldManifold
 normal	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 normal;$/;"	m	struct:b2RayCastOutput
 normalImpulse	include/Box2D/Collision/b2Collision.h	/^	float32 normalImpulse;	\/\/\/< the non-penetration impulse$/;"	m	struct:b2ManifoldPoint
 p1	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCastInput
 p2	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCastInput
 pointCount	include/Box2D/Collision/b2Collision.h	/^	int32 pointCount;								\/\/\/< the number of manifold points$/;"	m	struct:b2Manifold
 points	include/Box2D/Collision/b2Collision.h	/^	b2ManifoldPoint points[b2_maxManifoldPoints];	\/\/\/< the points of contact$/;"	m	struct:b2Manifold
-points	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 points[b2_maxManifoldPoints];	\/\/\/< world contact point (point of intersection)$/;"	m	struct:b2WorldManifold
+points	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 points[b2_maxManifoldPoints];		\/\/\/< world contact point (point of intersection)$/;"	m	struct:b2WorldManifold
+separations	include/Box2D/Collision/b2Collision.h	/^	float32 separations[b2_maxManifoldPoints];	\/\/\/< a negative value indicates overlap, in meters$/;"	m	struct:b2WorldManifold
 tangentImpulse	include/Box2D/Collision/b2Collision.h	/^	float32 tangentImpulse;	\/\/\/< the friction impulse$/;"	m	struct:b2ManifoldPoint
 type	include/Box2D/Collision/b2Collision.h	/^	Type type;$/;"	m	struct:b2Manifold
 typeA	include/Box2D/Collision/b2Collision.h	/^	uint8 typeA;		\/\/\/< The feature type on shapeA$/;"	m	struct:b2ContactFeature
@@ -1293,6 +1297,7 @@ InsertLeaf	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::Inser
 MoveProxy	include/Box2D/Collision/b2DynamicTree.cpp	/^bool b2DynamicTree::MoveProxy(int32 proxyId, const b2AABB& aabb, const b2Vec2& displacement)$/;"	f	class:b2DynamicTree
 RebuildBottomUp	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::RebuildBottomUp()$/;"	f	class:b2DynamicTree
 RemoveLeaf	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::RemoveLeaf(int32 leaf)$/;"	f	class:b2DynamicTree
+ShiftOrigin	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2DynamicTree
 Validate	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::Validate() const$/;"	f	class:b2DynamicTree
 ValidateMetrics	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::ValidateMetrics(int32 index) const$/;"	f	class:b2DynamicTree
 ValidateStructure	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::ValidateStructure(int32 index) const$/;"	f	class:b2DynamicTree
@@ -1318,8 +1323,8 @@ m_nodeCount	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_nodeCount;$/;"	m	
 m_nodes	include/Box2D/Collision/b2DynamicTree.h	/^	b2TreeNode* m_nodes;$/;"	m	class:b2DynamicTree
 m_path	include/Box2D/Collision/b2DynamicTree.h	/^	uint32 m_path;$/;"	m	class:b2DynamicTree
 m_root	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_root;$/;"	m	class:b2DynamicTree
-next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon11
-parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon11
+next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon4
+parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon4
 userData	include/Box2D/Collision/b2DynamicTree.h	/^	void* userData;$/;"	m	struct:b2TreeNode
 Evaluate	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Evaluate(int32 indexA, int32 indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
@@ -1327,8 +1332,13 @@ Initialize	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Initialize(cons
 Type	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	enum Type$/;"	g	struct:b2SeparationFunction	file:
 b2SeparationFunction	include/Box2D/Collision/b2TimeOfImpact.cpp	/^struct b2SeparationFunction$/;"	s	file:
 b2TimeOfImpact	include/Box2D/Collision/b2TimeOfImpact.cpp	/^void b2TimeOfImpact(b2TOIOutput* output, const b2TOIInput* input)$/;"	f
+b2_toiCalls	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiCalls, b2_toiIters, b2_toiMaxIters;$/;"	v
+b2_toiIters	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiCalls, b2_toiIters, b2_toiMaxIters;$/;"	v
+b2_toiMaxIters	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiCalls, b2_toiIters, b2_toiMaxIters;$/;"	v
 b2_toiMaxRootIters	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiRootIters, b2_toiMaxRootIters;$/;"	v
+b2_toiMaxTime	include/Box2D/Collision/b2TimeOfImpact.cpp	/^float32 b2_toiTime, b2_toiMaxTime;$/;"	v
 b2_toiRootIters	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiRootIters, b2_toiMaxRootIters;$/;"	v
+b2_toiTime	include/Box2D/Collision/b2TimeOfImpact.cpp	/^float32 b2_toiTime, b2_toiMaxTime;$/;"	v
 e_faceA	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_faceA,$/;"	e	enum:b2SeparationFunction::Type	file:
 e_faceB	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_faceB$/;"	e	enum:b2SeparationFunction::Type	file:
 e_points	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_points,$/;"	e	enum:b2SeparationFunction::Type	file:
@@ -1366,6 +1376,7 @@ blocks	include/Box2D/Common/b2BlockAllocator.cpp	/^	b2Block* blocks;$/;"	m	struc
 next	include/Box2D/Common/b2BlockAllocator.cpp	/^	b2Block* next;$/;"	m	struct:b2Block	file:
 s_blockSizeLookup	include/Box2D/Common/b2BlockAllocator.cpp	/^uint8 b2BlockAllocator::s_blockSizeLookup[b2_maxBlockSize + 1];$/;"	m	class:b2BlockAllocator	file:
 s_blockSizeLookupInitialized	include/Box2D/Common/b2BlockAllocator.cpp	/^bool b2BlockAllocator::s_blockSizeLookupInitialized;$/;"	m	class:b2BlockAllocator	file:
+s_blockSizes	include/Box2D/Common/b2BlockAllocator.cpp	/^int32 b2BlockAllocator::s_blockSizes[b2_blockSizes] = $/;"	m	class:b2BlockAllocator	file:
 ~b2BlockAllocator	include/Box2D/Common/b2BlockAllocator.cpp	/^b2BlockAllocator::~b2BlockAllocator()$/;"	f	class:b2BlockAllocator
 B2_BLOCK_ALLOCATOR_H	include/Box2D/Common/b2BlockAllocator.h	20;"	d
 b2BlockAllocator	include/Box2D/Common/b2BlockAllocator.h	/^class b2BlockAllocator$/;"	c
@@ -1385,17 +1396,18 @@ ClearFlags	include/Box2D/Common/b2Draw.cpp	/^void b2Draw::ClearFlags(uint32 flag
 GetFlags	include/Box2D/Common/b2Draw.cpp	/^uint32 b2Draw::GetFlags() const$/;"	f	class:b2Draw
 SetFlags	include/Box2D/Common/b2Draw.cpp	/^void b2Draw::SetFlags(uint32 flags)$/;"	f	class:b2Draw
 b2Draw	include/Box2D/Common/b2Draw.cpp	/^b2Draw::b2Draw()$/;"	f	class:b2Draw
+B2_DRAW_H	include/Box2D/Common/b2Draw.h	20;"	d
 Set	include/Box2D/Common/b2Draw.h	/^	void Set(float32 ri, float32 gi, float32 bi) { r = ri; g = gi; b = bi; }$/;"	f	struct:b2Color
 b	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color() {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color(float32 r, float32 g, float32 b) : r(r), g(g), b(b) {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^struct b2Color$/;"	s
 b2Draw	include/Box2D/Common/b2Draw.h	/^class b2Draw$/;"	c
-e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon13
-e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon13
-e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon13
-e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon13
-e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon13
+e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon6
+e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon6
+e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon6
+e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon6
+e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon6
 g	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 m_drawFlags	include/Box2D/Common/b2Draw.h	/^	uint32 m_drawFlags;$/;"	m	class:b2Draw
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
@@ -1447,7 +1459,7 @@ alpha0	include/Box2D/Common/b2Math.h	/^	float32 alpha0;$/;"	m	struct:b2Sweep
 b2Abs	include/Box2D/Common/b2Math.h	/^inline T b2Abs(T a)$/;"	f
 b2Abs	include/Box2D/Common/b2Math.h	/^inline b2Mat22 b2Abs(const b2Mat22& A)$/;"	f
 b2Abs	include/Box2D/Common/b2Math.h	/^inline b2Vec2 b2Abs(const b2Vec2& a)$/;"	f
-b2Atan2	include/Box2D/Common/b2Math.h	61;"	d
+b2Atan2	include/Box2D/Common/b2Math.h	50;"	d
 b2Clamp	include/Box2D/Common/b2Math.h	/^inline T b2Clamp(T a, T low, T high)$/;"	f
 b2Clamp	include/Box2D/Common/b2Math.h	/^inline b2Vec2 b2Clamp(const b2Vec2& a, const b2Vec2& low, const b2Vec2& high)$/;"	f
 b2Cross	include/Box2D/Common/b2Math.h	/^inline b2Vec2 b2Cross(const b2Vec2& a, float32 s)$/;"	f
@@ -1490,7 +1502,7 @@ b2NextPowerOfTwo	include/Box2D/Common/b2Math.h	/^inline uint32 b2NextPowerOfTwo(
 b2Rot	include/Box2D/Common/b2Math.h	/^	b2Rot() {}$/;"	f	struct:b2Rot
 b2Rot	include/Box2D/Common/b2Math.h	/^	explicit b2Rot(float32 angle)$/;"	f	struct:b2Rot
 b2Rot	include/Box2D/Common/b2Math.h	/^struct b2Rot$/;"	s
-b2Sqrt	include/Box2D/Common/b2Math.h	60;"	d
+b2Sqrt	include/Box2D/Common/b2Math.h	49;"	d
 b2Swap	include/Box2D/Common/b2Math.h	/^template<typename T> inline void b2Swap(T& a, T& b)$/;"	f
 b2Sweep	include/Box2D/Common/b2Math.h	/^struct b2Sweep$/;"	s
 b2Transform	include/Box2D/Common/b2Math.h	/^	b2Transform() {}$/;"	f	struct:b2Transform
@@ -1540,35 +1552,35 @@ z	include/Box2D/Common/b2Math.h	/^	float32 x, y, z;$/;"	m	struct:b2Vec3
 b2Alloc	include/Box2D/Common/b2Settings.cpp	/^void* b2Alloc(int32 size)$/;"	f
 b2Free	include/Box2D/Common/b2Settings.cpp	/^void b2Free(void* mem)$/;"	f
 b2Log	include/Box2D/Common/b2Settings.cpp	/^void b2Log(const char* string, ...)$/;"	f
-b2_version	include/Box2D/Common/b2Settings.cpp	/^b2Version b2_version = {2, 2, 1};$/;"	v
-B2_NOT_USED	include/Box2D/Common/b2Settings.h	25;"	d
+b2_version	include/Box2D/Common/b2Settings.cpp	/^b2Version b2_version = {2, 3, 0};$/;"	v
+B2_NOT_USED	include/Box2D/Common/b2Settings.h	26;"	d
 B2_SETTINGS_H	include/Box2D/Common/b2Settings.h	20;"	d
-b2Assert	include/Box2D/Common/b2Settings.h	26;"	d
+b2Assert	include/Box2D/Common/b2Settings.h	27;"	d
 b2Version	include/Box2D/Common/b2Settings.h	/^struct b2Version$/;"	s
-b2_aabbExtension	include/Box2D/Common/b2Settings.h	58;"	d
-b2_aabbMultiplier	include/Box2D/Common/b2Settings.h	63;"	d
-b2_angularSleepTolerance	include/Box2D/Common/b2Settings.h	125;"	d
-b2_angularSlop	include/Box2D/Common/b2Settings.h	71;"	d
-b2_baumgarte	include/Box2D/Common/b2Settings.h	112;"	d
-b2_epsilon	include/Box2D/Common/b2Settings.h	38;"	d
-b2_linearSleepTolerance	include/Box2D/Common/b2Settings.h	122;"	d
-b2_linearSlop	include/Box2D/Common/b2Settings.h	67;"	d
-b2_maxAngularCorrection	include/Box2D/Common/b2Settings.h	97;"	d
-b2_maxFloat	include/Box2D/Common/b2Settings.h	37;"	d
-b2_maxLinearCorrection	include/Box2D/Common/b2Settings.h	93;"	d
-b2_maxManifoldPoints	include/Box2D/Common/b2Settings.h	49;"	d
-b2_maxPolygonVertices	include/Box2D/Common/b2Settings.h	53;"	d
-b2_maxRotation	include/Box2D/Common/b2Settings.h	106;"	d
-b2_maxRotationSquared	include/Box2D/Common/b2Settings.h	107;"	d
-b2_maxSubSteps	include/Box2D/Common/b2Settings.h	79;"	d
-b2_maxTOIContacts	include/Box2D/Common/b2Settings.h	85;"	d
-b2_maxTranslation	include/Box2D/Common/b2Settings.h	101;"	d
-b2_maxTranslationSquared	include/Box2D/Common/b2Settings.h	102;"	d
-b2_pi	include/Box2D/Common/b2Settings.h	39;"	d
-b2_polygonRadius	include/Box2D/Common/b2Settings.h	76;"	d
-b2_timeToSleep	include/Box2D/Common/b2Settings.h	119;"	d
-b2_toiBaugarte	include/Box2D/Common/b2Settings.h	113;"	d
-b2_velocityThreshold	include/Box2D/Common/b2Settings.h	89;"	d
+b2_aabbExtension	include/Box2D/Common/b2Settings.h	59;"	d
+b2_aabbMultiplier	include/Box2D/Common/b2Settings.h	64;"	d
+b2_angularSleepTolerance	include/Box2D/Common/b2Settings.h	126;"	d
+b2_angularSlop	include/Box2D/Common/b2Settings.h	72;"	d
+b2_baumgarte	include/Box2D/Common/b2Settings.h	113;"	d
+b2_epsilon	include/Box2D/Common/b2Settings.h	39;"	d
+b2_linearSleepTolerance	include/Box2D/Common/b2Settings.h	123;"	d
+b2_linearSlop	include/Box2D/Common/b2Settings.h	68;"	d
+b2_maxAngularCorrection	include/Box2D/Common/b2Settings.h	98;"	d
+b2_maxFloat	include/Box2D/Common/b2Settings.h	38;"	d
+b2_maxLinearCorrection	include/Box2D/Common/b2Settings.h	94;"	d
+b2_maxManifoldPoints	include/Box2D/Common/b2Settings.h	50;"	d
+b2_maxPolygonVertices	include/Box2D/Common/b2Settings.h	54;"	d
+b2_maxRotation	include/Box2D/Common/b2Settings.h	107;"	d
+b2_maxRotationSquared	include/Box2D/Common/b2Settings.h	108;"	d
+b2_maxSubSteps	include/Box2D/Common/b2Settings.h	80;"	d
+b2_maxTOIContacts	include/Box2D/Common/b2Settings.h	86;"	d
+b2_maxTranslation	include/Box2D/Common/b2Settings.h	102;"	d
+b2_maxTranslationSquared	include/Box2D/Common/b2Settings.h	103;"	d
+b2_pi	include/Box2D/Common/b2Settings.h	40;"	d
+b2_polygonRadius	include/Box2D/Common/b2Settings.h	77;"	d
+b2_timeToSleep	include/Box2D/Common/b2Settings.h	120;"	d
+b2_toiBaugarte	include/Box2D/Common/b2Settings.h	114;"	d
+b2_velocityThreshold	include/Box2D/Common/b2Settings.h	90;"	d
 float32	include/Box2D/Common/b2Settings.h	/^typedef float float32;$/;"	t
 float64	include/Box2D/Common/b2Settings.h	/^typedef double float64;$/;"	t
 int16	include/Box2D/Common/b2Settings.h	/^typedef signed short int16;$/;"	t
@@ -1601,12 +1613,14 @@ size	include/Box2D/Common/b2StackAllocator.h	/^	int32 size;$/;"	m	struct:b2Stack
 usedMalloc	include/Box2D/Common/b2StackAllocator.h	/^	bool usedMalloc;$/;"	m	struct:b2StackEntry
 GetMilliseconds	include/Box2D/Common/b2Timer.cpp	/^float32 b2Timer::GetMilliseconds() const$/;"	f	class:b2Timer
 Reset	include/Box2D/Common/b2Timer.cpp	/^void b2Timer::Reset()$/;"	f	class:b2Timer
+WIN32_LEAN_AND_MEAN	include/Box2D/Common/b2Timer.cpp	25;"	d	file:
 b2Timer	include/Box2D/Common/b2Timer.cpp	/^b2Timer::b2Timer()$/;"	f	class:b2Timer
 s_invFrequency	include/Box2D/Common/b2Timer.cpp	/^float64 b2Timer::s_invFrequency = 0.0f;$/;"	m	class:b2Timer	file:
+B2_TIMER_H	include/Box2D/Common/b2Timer.h	20;"	d
 b2Timer	include/Box2D/Common/b2Timer.h	/^class b2Timer$/;"	c
 m_start	include/Box2D/Common/b2Timer.h	/^	float64 m_start;$/;"	m	class:b2Timer
-m_start_msec	include/Box2D/Common/b2Timer.h	/^	unsigned long m_start_msec;$/;"	m	class:b2Timer
 m_start_sec	include/Box2D/Common/b2Timer.h	/^	unsigned long m_start_sec;$/;"	m	class:b2Timer
+m_start_usec	include/Box2D/Common/b2Timer.h	/^	unsigned long m_start_usec;$/;"	m	class:b2Timer
 s_invFrequency	include/Box2D/Common/b2Timer.h	/^	static float64 s_invFrequency;$/;"	m	class:b2Timer
 Create	include/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp	/^b2Contact* b2ChainAndCircleContact::Create(b2Fixture* fixtureA, int32 indexA, b2Fixture* fixtureB, int32 indexB, b2BlockAllocator* allocator)$/;"	f	class:b2ChainAndCircleContact
 Destroy	include/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp	/^void b2ChainAndCircleContact::Destroy(b2Contact* contact, b2BlockAllocator* allocator)$/;"	f	class:b2ChainAndCircleContact
@@ -1651,6 +1665,7 @@ GetManifold	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline const b2Manifol
 GetNext	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline b2Contact* b2Contact::GetNext()$/;"	f	class:b2Contact
 GetNext	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline const b2Contact* b2Contact::GetNext() const$/;"	f	class:b2Contact
 GetRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2Contact::GetRestitution() const$/;"	f	class:b2Contact
+GetTangentSpeed	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2Contact::GetTangentSpeed() const$/;"	f	class:b2Contact
 GetWorldManifold	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::GetWorldManifold(b2WorldManifold* worldManifold) const$/;"	f	class:b2Contact
 IsEnabled	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline bool b2Contact::IsEnabled() const$/;"	f	class:b2Contact
 IsTouching	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline bool b2Contact::IsTouching() const$/;"	f	class:b2Contact
@@ -1659,6 +1674,7 @@ ResetRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Con
 SetEnabled	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::SetEnabled(bool flag)$/;"	f	class:b2Contact
 SetFriction	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::SetFriction(float32 friction)$/;"	f	class:b2Contact
 SetRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::SetRestitution(float32 restitution)$/;"	f	class:b2Contact
+SetTangentSpeed	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::SetTangentSpeed(float32 speed)$/;"	f	class:b2Contact
 b2Contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact() : m_fixtureA(NULL), m_fixtureB(NULL) {}$/;"	f	class:b2Contact
 b2Contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^class b2Contact$/;"	c
 b2ContactCreateFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^typedef b2Contact* b2ContactCreateFcn(	b2Fixture* fixtureA, int32 indexA,$/;"	t
@@ -1670,12 +1686,12 @@ b2MixRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2
 contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 createFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactCreateFcn* createFcn;$/;"	m	struct:b2ContactRegister
 destroyFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactDestroyFcn* destroyFcn;$/;"	m	struct:b2ContactRegister
-e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon10
-e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon10
-e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon10
-e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon10
-e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon10
-e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon10
+e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon1
+e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon1
+e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon1
+e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon1
+e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon1
+e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon1
 m_fixtureA	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureA;$/;"	m	class:b2Contact
 m_fixtureB	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureB;$/;"	m	class:b2Contact
 m_flags	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	uint32 m_flags;$/;"	m	class:b2Contact
@@ -1688,6 +1704,7 @@ m_nodeA	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge m_nodeA;$/;
 m_nodeB	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge m_nodeB;$/;"	m	class:b2Contact
 m_prev	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* m_prev;$/;"	m	class:b2Contact
 m_restitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	float32 m_restitution;$/;"	m	class:b2Contact
+m_tangentSpeed	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	float32 m_tangentSpeed;$/;"	m	class:b2Contact
 m_toi	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	float32 m_toi;$/;"	m	class:b2Contact
 m_toiCount	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	int32 m_toiCount;$/;"	m	class:b2Contact
 next	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge* next;	\/\/\/< the next contact edge in the body's contact list$/;"	m	struct:b2ContactEdge
@@ -1765,6 +1782,7 @@ restitution	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 restitu
 step	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2TimeStep step;$/;"	m	struct:b2ContactSolverDef
 tangentImpulse	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 tangentImpulse;$/;"	m	struct:b2VelocityConstraintPoint
 tangentMass	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 tangentMass;$/;"	m	struct:b2VelocityConstraintPoint
+tangentSpeed	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 tangentSpeed;$/;"	m	struct:b2ContactVelocityConstraint
 velocities	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Velocity* velocities;$/;"	m	struct:b2ContactSolverDef
 velocityBias	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 velocityBias;$/;"	m	struct:b2VelocityConstraintPoint
 Create	include/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp	/^b2Contact* b2EdgeAndCircleContact::Create(b2Fixture* fixtureA, int32, b2Fixture* fixtureB, int32, b2BlockAllocator* allocator)$/;"	f	class:b2EdgeAndCircleContact
@@ -1958,6 +1976,7 @@ GetNext	include/Box2D/Dynamics/Joints/b2Joint.h	/^inline const b2Joint* b2Joint:
 GetType	include/Box2D/Dynamics/Joints/b2Joint.h	/^inline b2JointType b2Joint::GetType() const$/;"	f	class:b2Joint
 GetUserData	include/Box2D/Dynamics/Joints/b2Joint.h	/^inline void* b2Joint::GetUserData() const$/;"	f	class:b2Joint
 SetUserData	include/Box2D/Dynamics/Joints/b2Joint.h	/^inline void b2Joint::SetUserData(void* data)$/;"	f	class:b2Joint
+ShiftOrigin	include/Box2D/Dynamics/Joints/b2Joint.h	/^	virtual void ShiftOrigin(const b2Vec2& newOrigin) { B2_NOT_USED(newOrigin);  }$/;"	f	class:b2Joint
 angularA	include/Box2D/Dynamics/Joints/b2Joint.h	/^	float32 angularA;$/;"	m	struct:b2Jacobian
 angularB	include/Box2D/Dynamics/Joints/b2Joint.h	/^	float32 angularB;$/;"	m	struct:b2Jacobian
 b2Jacobian	include/Box2D/Dynamics/Joints/b2Joint.h	/^struct b2Jacobian$/;"	s
@@ -1977,11 +1996,12 @@ e_equalLimits	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_equalLimits$/;"	e	enu
 e_frictionJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_frictionJoint,$/;"	e	enum:b2JointType
 e_gearJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_gearJoint,$/;"	e	enum:b2JointType
 e_inactiveLimit	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_inactiveLimit,$/;"	e	enum:b2LimitState
+e_motorJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_motorJoint$/;"	e	enum:b2JointType
 e_mouseJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_mouseJoint,$/;"	e	enum:b2JointType
 e_prismaticJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_prismaticJoint,$/;"	e	enum:b2JointType
 e_pulleyJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_pulleyJoint,$/;"	e	enum:b2JointType
 e_revoluteJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_revoluteJoint,$/;"	e	enum:b2JointType
-e_ropeJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_ropeJoint$/;"	e	enum:b2JointType
+e_ropeJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_ropeJoint,$/;"	e	enum:b2JointType
 e_unknownJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_unknownJoint,$/;"	e	enum:b2JointType
 e_weldJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^    e_weldJoint,$/;"	e	enum:b2JointType
 e_wheelJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_wheelJoint,$/;"	e	enum:b2JointType
@@ -2004,6 +2024,56 @@ prev	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2JointEdge* prev;		\/\/\/< the 
 type	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2JointType type;$/;"	m	struct:b2JointDef
 userData	include/Box2D/Dynamics/Joints/b2Joint.h	/^	void* userData;$/;"	m	struct:b2JointDef
 ~b2Joint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	virtual ~b2Joint() {}$/;"	f	class:b2Joint
+Dump	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::Dump()$/;"	f	class:b2MotorJoint
+GetAnchorA	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^b2Vec2 b2MotorJoint::GetAnchorA() const$/;"	f	class:b2MotorJoint
+GetAnchorB	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^b2Vec2 b2MotorJoint::GetAnchorB() const$/;"	f	class:b2MotorJoint
+GetAngularOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^float32 b2MotorJoint::GetAngularOffset() const$/;"	f	class:b2MotorJoint
+GetCorrectionFactor	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^float32 b2MotorJoint::GetCorrectionFactor() const$/;"	f	class:b2MotorJoint
+GetLinearOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^const b2Vec2& b2MotorJoint::GetLinearOffset() const$/;"	f	class:b2MotorJoint
+GetMaxForce	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^float32 b2MotorJoint::GetMaxForce() const$/;"	f	class:b2MotorJoint
+GetMaxTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^float32 b2MotorJoint::GetMaxTorque() const$/;"	f	class:b2MotorJoint
+GetReactionForce	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^b2Vec2 b2MotorJoint::GetReactionForce(float32 inv_dt) const$/;"	f	class:b2MotorJoint
+GetReactionTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^float32 b2MotorJoint::GetReactionTorque(float32 inv_dt) const$/;"	f	class:b2MotorJoint
+InitVelocityConstraints	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::InitVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2MotorJoint
+Initialize	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJointDef::Initialize(b2Body* bA, b2Body* bB)$/;"	f	class:b2MotorJointDef
+SetAngularOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SetAngularOffset(float32 angularOffset)$/;"	f	class:b2MotorJoint
+SetCorrectionFactor	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SetCorrectionFactor(float32 factor)$/;"	f	class:b2MotorJoint
+SetLinearOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SetLinearOffset(const b2Vec2& linearOffset)$/;"	f	class:b2MotorJoint
+SetMaxForce	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SetMaxForce(float32 force)$/;"	f	class:b2MotorJoint
+SetMaxTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SetMaxTorque(float32 torque)$/;"	f	class:b2MotorJoint
+SolvePositionConstraints	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^bool b2MotorJoint::SolvePositionConstraints(const b2SolverData& data)$/;"	f	class:b2MotorJoint
+SolveVelocityConstraints	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^void b2MotorJoint::SolveVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2MotorJoint
+b2MotorJoint	include/Box2D/Dynamics/Joints/b2MotorJoint.cpp	/^b2MotorJoint::b2MotorJoint(const b2MotorJointDef* def)$/;"	f	class:b2MotorJoint
+B2_MOTOR_JOINT_H	include/Box2D/Dynamics/Joints/b2MotorJoint.h	20;"	d
+angularOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 angularOffset;$/;"	m	struct:b2MotorJointDef
+b2MotorJoint	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^class b2MotorJoint : public b2Joint$/;"	c
+b2MotorJointDef	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2MotorJointDef()$/;"	f	struct:b2MotorJointDef
+b2MotorJointDef	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^struct b2MotorJointDef : public b2JointDef$/;"	s
+correctionFactor	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 correctionFactor;$/;"	m	struct:b2MotorJointDef
+linearOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 linearOffset;$/;"	m	struct:b2MotorJointDef
+m_angularError	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_angularError;$/;"	m	class:b2MotorJoint
+m_angularImpulse	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_angularImpulse;$/;"	m	class:b2MotorJoint
+m_angularMass	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_angularMass;$/;"	m	class:b2MotorJoint
+m_angularOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_angularOffset;$/;"	m	class:b2MotorJoint
+m_correctionFactor	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_correctionFactor;$/;"	m	class:b2MotorJoint
+m_indexA	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	int32 m_indexA;$/;"	m	class:b2MotorJoint
+m_indexB	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	int32 m_indexB;$/;"	m	class:b2MotorJoint
+m_invIA	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_invIA;$/;"	m	class:b2MotorJoint
+m_invIB	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_invIB;$/;"	m	class:b2MotorJoint
+m_invMassA	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_invMassA;$/;"	m	class:b2MotorJoint
+m_invMassB	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_invMassB;$/;"	m	class:b2MotorJoint
+m_linearError	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_linearError;$/;"	m	class:b2MotorJoint
+m_linearImpulse	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_linearImpulse;$/;"	m	class:b2MotorJoint
+m_linearMass	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Mat22 m_linearMass;$/;"	m	class:b2MotorJoint
+m_linearOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_linearOffset;$/;"	m	class:b2MotorJoint
+m_localCenterA	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_localCenterA;$/;"	m	class:b2MotorJoint
+m_localCenterB	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_localCenterB;$/;"	m	class:b2MotorJoint
+m_maxForce	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_maxForce;$/;"	m	class:b2MotorJoint
+m_maxTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 m_maxTorque;$/;"	m	class:b2MotorJoint
+m_rA	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_rA;$/;"	m	class:b2MotorJoint
+m_rB	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	b2Vec2 m_rB;$/;"	m	class:b2MotorJoint
+maxForce	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 maxForce;$/;"	m	struct:b2MotorJointDef
+maxTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 maxTorque;$/;"	m	struct:b2MotorJointDef
 GetAnchorA	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^b2Vec2 b2MouseJoint::GetAnchorA() const$/;"	f	class:b2MouseJoint
 GetAnchorB	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^b2Vec2 b2MouseJoint::GetAnchorB() const$/;"	f	class:b2MouseJoint
 GetDampingRatio	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^float32 b2MouseJoint::GetDampingRatio() const$/;"	f	class:b2MouseJoint
@@ -2017,6 +2087,7 @@ SetDampingRatio	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoi
 SetFrequency	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoint::SetFrequency(float32 hz)$/;"	f	class:b2MouseJoint
 SetMaxForce	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoint::SetMaxForce(float32 force)$/;"	f	class:b2MouseJoint
 SetTarget	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoint::SetTarget(const b2Vec2& target)$/;"	f	class:b2MouseJoint
+ShiftOrigin	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoint::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2MouseJoint
 SolvePositionConstraints	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^bool b2MouseJoint::SolvePositionConstraints(const b2SolverData& data)$/;"	f	class:b2MouseJoint
 SolveVelocityConstraints	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^void b2MouseJoint::SolveVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2MouseJoint
 b2MouseJoint	include/Box2D/Dynamics/Joints/b2MouseJoint.cpp	/^b2MouseJoint::b2MouseJoint(const b2MouseJointDef* def)$/;"	f	class:b2MouseJoint
@@ -2120,6 +2191,8 @@ upperTranslation	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 upp
 Dump	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^void b2PulleyJoint::Dump()$/;"	f	class:b2PulleyJoint
 GetAnchorA	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2Vec2 b2PulleyJoint::GetAnchorA() const$/;"	f	class:b2PulleyJoint
 GetAnchorB	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2Vec2 b2PulleyJoint::GetAnchorB() const$/;"	f	class:b2PulleyJoint
+GetCurrentLengthA	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^float32 b2PulleyJoint::GetCurrentLengthA() const$/;"	f	class:b2PulleyJoint
+GetCurrentLengthB	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^float32 b2PulleyJoint::GetCurrentLengthB() const$/;"	f	class:b2PulleyJoint
 GetGroundAnchorA	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2Vec2 b2PulleyJoint::GetGroundAnchorA() const$/;"	f	class:b2PulleyJoint
 GetGroundAnchorB	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2Vec2 b2PulleyJoint::GetGroundAnchorB() const$/;"	f	class:b2PulleyJoint
 GetLengthA	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^float32 b2PulleyJoint::GetLengthA() const$/;"	f	class:b2PulleyJoint
@@ -2129,6 +2202,7 @@ GetReactionForce	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2Vec2 b2Pull
 GetReactionTorque	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^float32 b2PulleyJoint::GetReactionTorque(float32 inv_dt) const$/;"	f	class:b2PulleyJoint
 InitVelocityConstraints	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^void b2PulleyJoint::InitVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2PulleyJoint
 Initialize	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^void b2PulleyJointDef::Initialize(b2Body* bA, b2Body* bB,$/;"	f	class:b2PulleyJointDef
+ShiftOrigin	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^void b2PulleyJoint::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2PulleyJoint
 SolvePositionConstraints	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^bool b2PulleyJoint::SolvePositionConstraints(const b2SolverData& data)$/;"	f	class:b2PulleyJoint
 SolveVelocityConstraints	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^void b2PulleyJoint::SolveVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2PulleyJoint
 b2PulleyJoint	include/Box2D/Dynamics/Joints/b2PulleyJoint.cpp	/^b2PulleyJoint::b2PulleyJoint(const b2PulleyJointDef* def)$/;"	f	class:b2PulleyJoint
@@ -2389,6 +2463,7 @@ DestroyFixture	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::DestroyFixture(b
 Dump	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::Dump()$/;"	f	class:b2Body
 ResetMassData	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::ResetMassData()$/;"	f	class:b2Body
 SetActive	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SetActive(bool flag)$/;"	f	class:b2Body
+SetFixedRotation	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SetFixedRotation(bool flag)$/;"	f	class:b2Body
 SetMassData	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SetMassData(const b2MassData* massData)$/;"	f	class:b2Body
 SetTransform	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SetTransform(const b2Vec2& position, float32 angle)$/;"	f	class:b2Body
 SetType	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SetType(b2BodyType type)$/;"	f	class:b2Body
@@ -2397,11 +2472,11 @@ SynchronizeFixtures	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::Synchronize
 b2Body	include/Box2D/Dynamics/b2Body.cpp	/^b2Body::b2Body(const b2BodyDef* bd, b2World* world)$/;"	f	class:b2Body
 ~b2Body	include/Box2D/Dynamics/b2Body.cpp	/^b2Body::~b2Body()$/;"	f	class:b2Body
 Advance	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::Advance(float32 alpha)$/;"	f	class:b2Body
-ApplyAngularImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyAngularImpulse(float32 impulse)$/;"	f	class:b2Body
-ApplyForce	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForce(const b2Vec2& force, const b2Vec2& point)$/;"	f	class:b2Body
-ApplyForceToCenter	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForceToCenter(const b2Vec2& force)$/;"	f	class:b2Body
-ApplyLinearImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyLinearImpulse(const b2Vec2& impulse, const b2Vec2& point)$/;"	f	class:b2Body
-ApplyTorque	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyTorque(float32 torque)$/;"	f	class:b2Body
+ApplyAngularImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyAngularImpulse(float32 impulse, bool wake)$/;"	f	class:b2Body
+ApplyForce	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForce(const b2Vec2& force, const b2Vec2& point, bool wake)$/;"	f	class:b2Body
+ApplyForceToCenter	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForceToCenter(const b2Vec2& force, bool wake)$/;"	f	class:b2Body
+ApplyLinearImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyLinearImpulse(const b2Vec2& impulse, const b2Vec2& point, bool wake)$/;"	f	class:b2Body
+ApplyTorque	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyTorque(float32 torque, bool wake)$/;"	f	class:b2Body
 B2_BODY_H	include/Box2D/Dynamics/b2Body.h	20;"	d
 GetAngle	include/Box2D/Dynamics/b2Body.h	/^inline float32 b2Body::GetAngle() const$/;"	f	class:b2Body
 GetAngularDamping	include/Box2D/Dynamics/b2Body.h	/^inline float32 b2Body::GetAngularDamping() const$/;"	f	class:b2Body
@@ -2415,7 +2490,7 @@ GetInertia	include/Box2D/Dynamics/b2Body.h	/^inline float32 b2Body::GetInertia()
 GetJointList	include/Box2D/Dynamics/b2Body.h	/^inline b2JointEdge* b2Body::GetJointList()$/;"	f	class:b2Body
 GetJointList	include/Box2D/Dynamics/b2Body.h	/^inline const b2JointEdge* b2Body::GetJointList() const$/;"	f	class:b2Body
 GetLinearDamping	include/Box2D/Dynamics/b2Body.h	/^inline float32 b2Body::GetLinearDamping() const$/;"	f	class:b2Body
-GetLinearVelocity	include/Box2D/Dynamics/b2Body.h	/^inline b2Vec2 b2Body::GetLinearVelocity() const$/;"	f	class:b2Body
+GetLinearVelocity	include/Box2D/Dynamics/b2Body.h	/^inline const b2Vec2& b2Body::GetLinearVelocity() const$/;"	f	class:b2Body
 GetLinearVelocityFromLocalPoint	include/Box2D/Dynamics/b2Body.h	/^inline b2Vec2 b2Body::GetLinearVelocityFromLocalPoint(const b2Vec2& localPoint) const$/;"	f	class:b2Body
 GetLinearVelocityFromWorldPoint	include/Box2D/Dynamics/b2Body.h	/^inline b2Vec2 b2Body::GetLinearVelocityFromWorldPoint(const b2Vec2& worldPoint) const$/;"	f	class:b2Body
 GetLocalCenter	include/Box2D/Dynamics/b2Body.h	/^inline const b2Vec2& b2Body::GetLocalCenter() const$/;"	f	class:b2Body
@@ -2443,7 +2518,6 @@ SetAngularDamping	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetAngul
 SetAngularVelocity	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetAngularVelocity(float32 w)$/;"	f	class:b2Body
 SetAwake	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetAwake(bool flag)$/;"	f	class:b2Body
 SetBullet	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetBullet(bool flag)$/;"	f	class:b2Body
-SetFixedRotation	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetFixedRotation(bool flag)$/;"	f	class:b2Body
 SetGravityScale	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetGravityScale(float32 scale)$/;"	f	class:b2Body
 SetLinearDamping	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetLinearDamping(float32 linearDamping)$/;"	f	class:b2Body
 SetLinearVelocity	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::SetLinearVelocity(const b2Vec2& v)$/;"	f	class:b2Body
@@ -2464,13 +2538,13 @@ b2_dynamicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_dynamicBody$/;"	e	enum:b2Bo
 b2_kinematicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_kinematicBody,$/;"	e	enum:b2BodyType
 b2_staticBody	include/Box2D/Dynamics/b2Body.h	/^	b2_staticBody = 0,$/;"	e	enum:b2BodyType
 bullet	include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon9
-e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon9
-e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon9
-e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon9
-e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon9
-e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon9
-e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon9
+e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon2
+e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon2
+e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon2
+e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon2
+e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon2
+e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon2
+e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon2
 fixedRotation	include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 gravityScale	include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 linearDamping	include/Box2D/Dynamics/b2Body.h	/^	float32 linearDamping;$/;"	m	struct:b2BodyDef
@@ -2654,6 +2728,7 @@ SetContactFilter	include/Box2D/Dynamics/b2World.cpp	/^void b2World::SetContactFi
 SetContactListener	include/Box2D/Dynamics/b2World.cpp	/^void b2World::SetContactListener(b2ContactListener* listener)$/;"	f	class:b2World
 SetDebugDraw	include/Box2D/Dynamics/b2World.cpp	/^void b2World::SetDebugDraw(b2Draw* debugDraw)$/;"	f	class:b2World
 SetDestructionListener	include/Box2D/Dynamics/b2World.cpp	/^void b2World::SetDestructionListener(b2DestructionListener* listener)$/;"	f	class:b2World
+ShiftOrigin	include/Box2D/Dynamics/b2World.cpp	/^void b2World::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2World
 Solve	include/Box2D/Dynamics/b2World.cpp	/^void b2World::Solve(const b2TimeStep& step)$/;"	f	class:b2World
 SolveTOI	include/Box2D/Dynamics/b2World.cpp	/^void b2World::SolveTOI(const b2TimeStep& step)$/;"	f	class:b2World
 Step	include/Box2D/Dynamics/b2World.cpp	/^void b2World::Step(float32 dt, int32 velocityIterations, int32 positionIterations)$/;"	f	class:b2World
@@ -2690,9 +2765,9 @@ SetGravity	include/Box2D/Dynamics/b2World.h	/^inline void b2World::SetGravity(co
 SetSubStepping	include/Box2D/Dynamics/b2World.h	/^	void SetSubStepping(bool flag) { m_subStepping = flag; }$/;"	f	class:b2World
 SetWarmStarting	include/Box2D/Dynamics/b2World.h	/^	void SetWarmStarting(bool flag) { m_warmStarting = flag; }$/;"	f	class:b2World
 b2World	include/Box2D/Dynamics/b2World.h	/^class b2World$/;"	c
-e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon8
-e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon8
-e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon8
+e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon3
+e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon3
+e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon3
 m_allowSleep	include/Box2D/Dynamics/b2World.h	/^	bool m_allowSleep;$/;"	m	class:b2World
 m_blockAllocator	include/Box2D/Dynamics/b2World.h	/^	b2BlockAllocator m_blockAllocator;$/;"	m	class:b2World
 m_bodyCount	include/Box2D/Dynamics/b2World.h	/^	int32 m_bodyCount;$/;"	m	class:b2World
@@ -2811,7 +2886,7 @@ Status	include/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::Soun
 Stopped	include/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	include/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	include/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon3
+BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon14
 Chunk	include/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	include/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	include/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -2962,7 +3037,7 @@ transform	include/SFML/Graphics/RenderStates.hpp	/^    Transform      transform;
 RenderTarget	include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	include/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	include/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon7
+VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon8
 glStatesSet	include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -2985,12 +3060,14 @@ sf	include/SFML/Graphics/RenderWindow.hpp	/^namespace sf$/;"	n
 CurrentTexture	include/SFML/Graphics/Shader.hpp	/^    static CurrentTextureType CurrentTexture;$/;"	m	class:sf::Shader
 CurrentTextureType	include/SFML/Graphics/Shader.hpp	/^    struct CurrentTextureType {};$/;"	s	class:sf::Shader
 Fragment	include/SFML/Graphics/Shader.hpp	/^        Fragment \/\/\/< Fragment (pixel) shader$/;"	e	enum:sf::Shader::Type
+ParamTable	include/SFML/Graphics/Shader.hpp	/^    typedef std::map<std::string, int> ParamTable;$/;"	t	class:sf::Shader
 SFML_SHADER_HPP	include/SFML/Graphics/Shader.hpp	26;"	d
 Shader	include/SFML/Graphics/Shader.hpp	/^class SFML_GRAPHICS_API Shader : GlResource, NonCopyable$/;"	c	namespace:sf
 TextureTable	include/SFML/Graphics/Shader.hpp	/^    typedef std::map<int, const Texture*> TextureTable;$/;"	t	class:sf::Shader
 Type	include/SFML/Graphics/Shader.hpp	/^    enum Type$/;"	g	class:sf::Shader
 Vertex	include/SFML/Graphics/Shader.hpp	/^        Vertex,  \/\/\/< Vertex shader$/;"	e	enum:sf::Shader::Type
 m_currentTexture	include/SFML/Graphics/Shader.hpp	/^    int          m_currentTexture; \/\/\/< Location of the current texture in the shader$/;"	m	class:sf::Shader
+m_params	include/SFML/Graphics/Shader.hpp	/^    ParamTable   m_params;         \/\/\/< Parameters location cache$/;"	m	class:sf::Shader
 m_shaderProgram	include/SFML/Graphics/Shader.hpp	/^    unsigned int m_shaderProgram;  \/\/\/< OpenGL identifier for the program$/;"	m	class:sf::Shader
 m_textures	include/SFML/Graphics/Shader.hpp	/^    TextureTable m_textures;       \/\/\/< Texture variables in the shader, mapped to their location$/;"	m	class:sf::Shader
 sf	include/SFML/Graphics/Shader.hpp	/^namespace sf$/;"	n
@@ -3205,7 +3282,7 @@ m_data	include/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/\/\/
 m_isValid	include/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	include/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	include/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon2
+AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon12
 Disconnected	include/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -3238,7 +3315,7 @@ SizeReceived	include/SFML/Network/TcpSocket.hpp	/^        std::size_t       Size
 TcpSocket	include/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
 m_pendingPacket	include/SFML/Network/TcpSocket.hpp	/^    PendingPacket m_pendingPacket; \/\/\/< Temporary data of the packet currently being received$/;"	m	class:sf::TcpSocket
 sf	include/SFML/Network/TcpSocket.hpp	/^namespace sf$/;"	n
-MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon1
+MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon13
 SFML_UDPSOCKET_HPP	include/SFML/Network/UdpSocket.hpp	26;"	d
 UdpSocket	include/SFML/Network/UdpSocket.hpp	/^class SFML_NETWORK_API UdpSocket : public Socket$/;"	c	namespace:sf
 m_buffer	include/SFML/Network/UdpSocket.hpp	/^    std::vector<char> m_buffer; \/\/\/< Temporary buffer holding the received data in Receive(Packet)$/;"	m	class:sf::UdpSocket
@@ -3377,22 +3454,22 @@ code	include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code
 control	include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	include/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon4
-joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon4
+joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon10
+joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon10
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon4
-key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon4
-mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon4
-mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon4
-mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon4
+joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon10
+key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon10
+mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon10
+mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon10
+mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon10
 position	include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	include/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon4
+size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon10
 system	include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon4
+text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon10
 type	include/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	include/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -3409,9 +3486,9 @@ GlResource	include/SFML/Window/GlResource.hpp	/^class SFML_WINDOW_API GlResource
 SFML_GLRESOURCE_HPP	include/SFML/Window/GlResource.hpp	26;"	d
 sf	include/SFML/Window/GlResource.hpp	/^namespace sf$/;"	n
 Axis	include/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
-AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon6
-ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon6
-Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon6
+AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon9
+ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon9
+Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon9
 Joystick	include/SFML/Window/Joystick.hpp	/^class SFML_WINDOW_API Joystick$/;"	c	namespace:sf
 PovX	include/SFML/Window/Joystick.hpp	/^        PovX, \/\/\/< The X axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
 PovY	include/SFML/Window/Joystick.hpp	/^        PovY  \/\/\/< The Y axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
@@ -3552,19 +3629,20 @@ m_clock	include/SFML/Window/Window.hpp	/^    Clock             m_clock;         
 m_context	include/SFML/Window/Window.hpp	/^    priv::GlContext*  m_context;        \/\/\/< Platform-specific implementation of the OpenGL context$/;"	m	class:sf::Window
 m_frameTimeLimit	include/SFML/Window/Window.hpp	/^    Time              m_frameTimeLimit; \/\/\/< Current framerate limit$/;"	m	class:sf::Window
 m_impl	include/SFML/Window/Window.hpp	/^    priv::WindowImpl* m_impl;           \/\/\/< Platform-specific implementation of the window$/;"	m	class:sf::Window
+m_size	include/SFML/Window/Window.hpp	/^    Vector2u          m_size;           \/\/\/< Current size of the window$/;"	m	class:sf::Window
 priv	include/SFML/Window/Window.hpp	/^namespace priv$/;"	n	namespace:sf
 sf	include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	include/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	include/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon5
-Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon5
-Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon5
-None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon5
-Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon5
+Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon11
+Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon11
+Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon11
+None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon11
+Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon11
 SFML_WINDOWSTYLE_HPP	include/SFML/Window/WindowStyle.hpp	26;"	d
 Style	include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon5
+Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon11
 sf	include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 backward	include/backward/backward.cpp	/^namespace backward {$/;"	n	file:
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
@@ -3810,9 +3888,9 @@ result	include/backward/backward.hpp	/^		find_sym_result result;$/;"	m	struct:ba
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	s	namespace:backward::details
-s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon14
-s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon14
-s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon14
+s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon7
+s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon7
+s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon7
 self	include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
 self	include/backward/backward.hpp	/^		StackTraceWithLocalsImpl& self;$/;"	m	struct:backward::StackTraceWithLocalsImpl::callback
 self	include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
@@ -3829,7 +3907,7 @@ source	include/backward/backward.hpp	/^	SourceLoc                      source;$/
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stacktrace_tag	include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
-storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon14
+storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon7
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
 swap	include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
 symtab	include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject

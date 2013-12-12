@@ -30,7 +30,7 @@ protected:
 
 	void _initFactory();
 	void _generateBoundary(vector2 levelDim);
-	void _generateTerrain(unsigned long long seed, vector2 playerInitPos, vector2 levelDim);
+	void _generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim);
 	void _createPlayer(vector2 playerInitPos, vector2 levelDim);
 	void _createEnemies(vector2 levelDim);
 	void _createDummy(vector2 levelDim);

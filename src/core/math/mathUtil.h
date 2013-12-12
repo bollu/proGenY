@@ -21,6 +21,10 @@ namespace util{
 		0;
 	}
 
+	template <typename T>
+	T clamp(const T& n, const T& lower, const T& upper) {
+  	return std::max(lower, std::min(n, upper));
+	}
 
 	template <typename T>
 	static T lerp(const T &begin, const T &end, float t){

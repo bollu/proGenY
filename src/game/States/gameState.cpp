@@ -21,20 +21,13 @@ void gameState::_Init(){
 	
 	this->_initFactory();
 
-	vector2 playerInitPos = viewProc->view2GameCoord(vector2(300, 300));
-	vector2 levelDim = viewProc->view2GameCoord(vector2(5000, 5000));
+	vector2 levelDim, playerInitPos;
+	this->_generateTerrain(0, playerInitPos, levelDim);
 	
-	
-	
-	this->_generateBoundary(levelDim);
-	//this->_generateTerrain(0, playerInitPos, levelDim);
+	//this->_generateBoundary(levelDim);	
 	this->_createEnemies(levelDim);
 	this->_createDummy(levelDim);
 	this->_createPlayer(playerInitPos, levelDim);
-
-
-//*((int *)NULL) = 1;
-	
 }
 
 
@@ -43,7 +36,6 @@ void gameState::_Init(){
 #include "../factory/dummyCreator.h"
 #include "../factory/bulletCreator.h"
 #include "../factory/gunCreator.h"
-#include "../factory/terrainCreator.h"
 #include "../factory/pickupCreator.h"
 #include "../factory/enemyCreator.h"
 
@@ -65,9 +57,6 @@ void gameState::_initFactory(){
 	this->objFactory.attachObjectCreator(Hash::getHash("gun"),
 		new gunCreator(this->viewProc));
 
-	this->objFactory.attachObjectCreator(Hash::getHash("terrain"),
-		new terrainCreator(this->viewProc));
-
 	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
 		new pickupCreator(this->viewProc));
 
@@ -75,9 +64,35 @@ void gameState::_initFactory(){
 		new enemyCreator(this->viewProc));
 };
 
+#include "../factory/objectFactories.h"
+#include "../terrainGen/terrain.h"
+#include "../terrainGen/terrainGenerator.h"
 
-void gameState::_generateTerrain(unsigned long long seed, 
-	vector2 playerInitPos, vector2 levelDim){
+void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim) {
+
+	vector2 blockViewDim = vector2(64, 64);
+	vector2 blockGameDim = viewProc->view2GameCoord(blockViewDim);
+
+
+	Terrain terrain(100, 100);
+	genTerrain(terrain, 10);
+	
+	//level dimensions
+	levelDim = vector2(terrain.getWidth() * blockViewDim.x, terrain.getMaxHeight() * blockViewDim.y);
+
+	//player x 
+	int playerX = 2;
+	vector2 playerPosTerrain = getPlayerPosTerrain(terrain, playerX);
+	playerInitPos = vector2(playerPosTerrain.x * blockGameDim.x, playerPosTerrain.y * blockGameDim.y);
+
+
+	ObjectFactories::TerrainFactoryInfo factoryInfo(terrain);
+	factoryInfo.viewProc = this->viewProc;
+	factoryInfo.blockDim = blockGameDim;
+
+	Object *terrainObj = ObjectFactories::CreateTerrain(factoryInfo);
+	this->objectManager->addObject(terrainObj);
+
 
 	/*float render2GameCoord =  viewProc->getRender2GameScale();
 	terrainCreator *creator = objFactory.getCreator<terrainCreator>(
@@ -98,17 +113,7 @@ void gameState::_generateTerrain(unsigned long long seed,
  	vector2 maxPos = minPos + vector2(blockDim.x * numBlocks.x, 
  					blockDim.y * numBlocks.y);
 	*/
-	
 
-
- 	//	minPos *= render2GameCoord;
-	
-	// 	maxPos *= render2GameCoord;
-
-	creator->Init(numBlocks, blockDim, 10);
-
-	Object *terrain = creator->createObject(vector2(0,0));
-	objectManager->addObject(terrain);
 };
 
 

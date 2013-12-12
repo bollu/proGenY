@@ -98,6 +98,7 @@ public:
 
 	}
 	
+	
 	/*prints a list of properties owned by the object */
 	void _printProperties() const;
 

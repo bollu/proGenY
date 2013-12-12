@@ -1,46 +1,13 @@
 #pragma once
-#include "./../core/componentSys/Object.h"
-#include "./../core/math/AABB.h"
-#include "../generators/PerlinNoise.h"
+#include <vector>
+#include "../../core/math/vector.h"
+#include "terrain.h"
 
+struct phyData;
+struct RenderData;
 
+class viewProcess;
 
-
-
-class terrainGenerator{
-public:
-
-	enum blockType{
-	/*so that blocks are filled by default*/
-	filled = 0,
-	empty,
-	
-
-	numBlockTypes
-	};
-
-	terrainGenerator(unsigned int seed, vector2 numBlocks);
-
-	blockType getBlockType(vector2 pos);
-
-private:
-	vector2 numBlocks;
-	unsigned int seed;
-	PerlinNoise noiseGen;
-
-	std::vector<blockType> blocks;
-
-	std::vector<AABB> rooms;
-	AABB *prevRoom;
-	
-	void _InitBlocks();
-
-	bool _isRoomLegal(const AABB &room);
-	void _genRoom(const AABB &room);
-	void _genCorridor(const AABB &currentRoom, const AABB &prevRoom);
-
-
-	void _genTerrain(vector2 minHalfDim, vector2 maxHalfDim);
-
-	blockType _density2BlockType(vector2 pos, double density);
-};
+void genTerrain(Terrain &terrain, unsigned int seed);
+//return player position in terrain coordinates (I hate coordinate systems :( 
+vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX);
