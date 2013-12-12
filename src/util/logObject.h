@@ -53,6 +53,10 @@ namespace util{
 		virtual ~baseLog();
 	};
 
+	//sentinel. send to loggers to flush the log
+	class Flush_ { public: Flush_() {}; };
+	static const Flush_ flush;
+
 	/*! used to emit a quick logging message
 
 	this logObject is typically used to print information to the console.
@@ -114,7 +118,12 @@ namespace util{
 
 			return *this;
 		}
-	
+		
+		msgLog & operator <<(const Flush_ &f){
+			std::cout<<std::endl;
+
+			return *this;
+		}
 		
 	};
 

@@ -30,7 +30,7 @@
 //processes---------------------------------------
 #include "core/Process/windowProcess.h"
 #include "core/Process/eventProcess.h"
-#include "core/Process/objectMgrProcess.h"
+#include "core/objectMgr.h"
 #include "core/Process/worldProcess.h"
 #include "core/Process/viewProcess.h"
 #include "core/Process/stateProcess.h"
@@ -46,11 +46,8 @@
 
 void _loadSettings(Settings &);
 void _addProcesses(processMgr &, Settings &, eventMgr &);
-void _createObjectProcessors(objectMgrProcess*, processMgr&, Settings &, eventMgr&);
+void _createObjectProcessors(objectMgr*, processMgr&, Settings &, eventMgr&);
 void _createStates(stateProcess *);
-
-
-
 
 void _createDummy(objectMgr *);
 
@@ -62,12 +59,16 @@ int main(){
     eventMgr eventManager;
     sf::Clock Clock;
 
+    util::infoLog<<("loaded!!!!!!!~~~!!!");
 
     _loadSettings(settings);
     //settings.loadSettingsFromFile(".settings.ini");
 
+    util::infoLog<<"loaded settings";
+
     _addProcesses(processManager, settings, eventManager);
 
+    util::infoLog<<"added processes";
 
     mainLoopListener listener(eventManager);
 
@@ -123,11 +124,11 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
     processManager.addProcess(new renderProcess(processManager, settings, eventManager));
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
-    objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
-    processManager.addProcess(objMgrProc);
+    objectMgr *objMgr = new objectMgr(processManager, settings, eventManager);
+    processManager.addProcess(objMgr);
     
     //create the object processors that are responsible for creating objects
-    _createObjectProcessors(objMgrProc, processManager, settings, eventManager);
+    _createObjectProcessors(objMgr, processManager, settings, eventManager);
    
 
 
@@ -156,23 +157,23 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/offsetProcessor.h"
 #include "game/ObjProcessors/pickupProcessor.h"
 
-void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,
+void _createObjectProcessors(objectMgr *objMgr, processMgr &processManager,
                            Settings &settings, eventMgr &eventManager){
 
 
-    objMgrProc->addObjectProcessor( new terrainProcessor(processManager, settings, eventManager));
-    objMgrProc->addObjectProcessor( new cameraProcessor(processManager, settings, eventManager));
+    objMgr->addObjectProcessor( new terrainProcessor(processManager, settings, eventManager));
+    objMgr->addObjectProcessor( new cameraProcessor(processManager, settings, eventManager));
      
      
-    objMgrProc->addObjectProcessor( new renderProcessor(processManager, settings, eventManager));
-    objMgrProc->addObjectProcessor( new phyProcessor(processManager, settings, eventManager));
+    objMgr->addObjectProcessor( new renderProcessor(processManager, settings, eventManager));
+    objMgr->addObjectProcessor( new phyProcessor(processManager, settings, eventManager));
 
-    objMgrProc->addObjectProcessor(new groundMoveProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new bulletProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new gunProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new offsetProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new pickupProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new groundMoveProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new bulletProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new gunProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new offsetProcessor(processManager, settings, eventManager) );
+    objMgr->addObjectProcessor(new pickupProcessor(processManager, settings, eventManager) );
 
 };
 

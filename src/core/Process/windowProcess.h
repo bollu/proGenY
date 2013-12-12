@@ -16,10 +16,12 @@ public:
 		vector2 *screenDim = settings.getProp<vector2>(Hash::getHash("screenDimensions"));
 
 		sf::ContextSettings context;
-		context.antialiasingLevel = 8;
-		this->window = new sf::RenderWindow(sf::VideoMode(screenDim->x, screenDim->y), 
+		//context.antialiasingLevel = 8;
+		/*this->window = new sf::RenderWindow(sf::VideoMode(screenDim->x, screenDim->y), 
 			"ProGenY", sf::Style::Default, context);
-		
+		*/
+
+		this->window = new  sf::RenderWindow(sf::VideoMode(800, 600), "SFML window");
 		clearColor = sf::Color(0, 0, 0, 255);
 	}
 

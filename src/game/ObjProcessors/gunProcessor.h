@@ -14,9 +14,9 @@
 #include "../factory/bulletCreator.h"
 
 #include "../../util/mathUtil.h"
+#include "../../util/Cooldown.h"
 
-
-struct gunData{
+struct GunData{
 private:
 
 	friend class gunProcessor;
@@ -25,65 +25,37 @@ private:
 	//ticks down from currentAmmo to zero
 	int currentClipSize;
 
-	//time needed to reload the entire ammo
-	int totalClipCooldown;
-	//ticks down from totalClipCooldown to 0
-	int currentClipCooldown;
-
-	bool clipOnCooldown;
-
-	//time between 2 different shots
-	int totalShotCooldown;
-	//ticks down from totalCooldown to 0
-	int currrentShotCooldown;
-
-	bool shotOnCooldown;
+	Cooldown<float> clipSize;
+	Cooldown<float> clipCooldown;
+	Cooldown<float> shotCooldown;
 
 	util::Angle facing;
 	vector2 bulletPos;
 	float bulletRadius;
-	float buletVel;
+	float bulletVel;
 
-	bool firing;
-
-	bulletData bullet;
+	BulletData bulletData;
 
 	void _Cooldown();
-	void _Tick();
-	bool _shouldFire(){
-		return this->firing;
-	}
+	void _Tick(float dt);
+	bool _canFire();
 
 public:
-	bulletCreator *creator;
-	
-	gunData(){
-		this->shotOnCooldown = false;
-		this->clipOnCooldown = false;
-
-		this->totalClipSize = this->currentClipSize = 0;
-		this->totalClipCooldown = this->currentClipCooldown = 0;
-		this->totalShotCooldown = this->currrentShotCooldown = 0;
-		this->firing = false;
-
-		this->creator = NULL;
+	GunData(){
+		this->totalClipSize = this->currentClipSize = 0;	
 	}
 	
-	//functions to be called during initialization
 	void setClipSize(int totalClipSize){
-		this->totalClipSize = totalClipSize;
-		this->currentClipSize = this->totalClipSize;
-		assert(this->totalClipSize > 0);
+		assert(totalClipSize > 0);
+		this->totalClipSize = this->currentClipSize = totalClipSize;
 	}
 
-	void setClipCooldown(int totalClipCooldown){
-		this->totalClipCooldown = totalClipCooldown;
-		assert(this->totalClipCooldown >= 0);
+	void setClipCooldown(float totalClipCooldown){
+		this->clipCooldown.setTotalTime(totalClipCooldown);
 	}
 
-	void setShotCooldown(int totalShotCooldown){
-		this->totalShotCooldown = totalShotCooldown;
-		assert(this->totalShotCooldown >= 0);
+	void setShotCooldown(float totalShotCooldown){
+		this->shotCooldown.setTotalTime(totalShotCooldown);
 	}
 
 	
@@ -93,42 +65,25 @@ public:
 	}
 
 	void setBulletVel(float vel){
-		this->buletVel = vel;
+		this->bulletVel = vel;
 	}
 
-	void setBulletCreator(bulletCreator *creator){
-		this->creator = creator;
+	void setBulletData(BulletData &data){
+		this->bulletData = data;
 	}
 
-	void setBulletData(bulletData &data){
-		this->bullet = data;
-	}
-
-
-	//functions to be called during processing
-	void setFacing(util::Angle facing){
-		this->facing = facing;
-	}
-
-
-
-	void setBulletPos(vector2 pos){
-		this->bulletPos = pos;
-	}
-
-	
-
-	void Fire();
 };
 
 
 
 class objectMgr;
+class viewProcess;
 
 class gunProcessor : public objectProcessor{
 private:
-	void _fireShot(gunData *data, vector2 pos);
+	void _fireShot(GunData *data, vector2 pos);
 	objectMgr *objectManager;
+	viewProcess *viewProc;
 
 public:
 	gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);

@@ -1,6 +1,8 @@
 #pragma once
 #include "renderProcess.h"
 
+
+
 renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
 Process("renderProcess"){
 

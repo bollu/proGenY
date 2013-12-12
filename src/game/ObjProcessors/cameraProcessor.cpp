@@ -3,7 +3,7 @@
 
 
 void cameraProcessor::onObjectAdd(Object *obj){
-	cameraData *data = obj->getProp<cameraData>(Hash::getHash("cameraData"));
+	CameraData *data = obj->getProp<CameraData>(Hash::getHash("CameraData"));
 
 	if(!data){
 		return;
@@ -12,21 +12,31 @@ void cameraProcessor::onObjectAdd(Object *obj){
 	if(!data->enabled){
 		return;
 	}	
-	data->cameraCenter = view->getCenter();
+	data->cameraCenter = nullVector;
+	//data->cameraCenter //= view->getCenter();
 	data->accumilator = 0;
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	data->minCoord += windowDim * 0.5;
-	
+
+
+	//immediately snap camera on object add
+	vector2 cameraMoveAmt = _limitCameraCoord(_calcCameraMoveAmt(obj, data), data);
+	PRINTVECTOR2(cameraMoveAmt);
+
+	data->cameraCenter = view->getCenter() + cameraMoveAmt;
+	view->setCenter(data->cameraCenter);
 
 
 };
 
 void cameraProcessor::Process(float dt){
+	//return;
+
 	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		cameraData *data = obj->getProp<cameraData>(Hash::getHash("cameraData"));
+		CameraData *data = obj->getProp<CameraData>(Hash::getHash("CameraData"));
 
 		if(!data){
 			continue;
@@ -42,19 +52,28 @@ void cameraProcessor::Process(float dt){
 
 }
 
-vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){
+vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, CameraData *data){
 	vector2 limitedCameraCoord = cameraCoord;
+	
 
 	if(cameraCoord.x < data->minCoord.x){
 		limitedCameraCoord.x = data->minCoord.x;
 	}
-	if(cameraCoord.y < data->minCoord.y){
-		limitedCameraCoord.y = data->minCoord.y;
-	}
+	
 
 	if(cameraCoord.x > data->maxCoord.x){
 		limitedCameraCoord.x = data->maxCoord.x;
 	}
+
+
+	
+	return limitedCameraCoord;
+
+	if(cameraCoord.y < data->minCoord.y){
+		limitedCameraCoord.y = data->minCoord.y;
+	}
+
+
 	if(cameraCoord.y > data->maxCoord.y){
 		limitedCameraCoord.y = data->maxCoord.y;
 	}
@@ -85,7 +104,7 @@ vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){
 	return limitedMoveAmt;
 };
 
-vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
+vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, CameraData *data){
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	vector2 *gamePos = obj->getProp<vector2>(Hash::getHash("position"));
@@ -117,7 +136,7 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 	return cameraMoveAmt;
 };
 
-void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){
+void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, CameraData *data){
 	vector2 newCameraCenter = view->getCenter();
 
 	data->accumilator += dt;
@@ -130,7 +149,7 @@ void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraDat
 
 		//use a damped spring equation to move the camera
 		//science, bitch!
-		float k = 0.3;
+		float k = 1;
 		//q = 1 => critically damped spring
 		float q = 1;
 

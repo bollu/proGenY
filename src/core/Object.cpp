@@ -27,9 +27,9 @@ Object::~Object(){
 
 //public-------------------------------------------
 void Object::addProp(const Hash *name, baseProperty *value){
-	propertyIt it;
 	
-	if( ( it = propertyMap.find(name)) == propertyMap.end() ){
+	auto it = propertyMap.find(name);
+	if(it == propertyMap.end()){
 		propertyMap[name] = value;
 		
 		return;
@@ -42,9 +42,9 @@ void Object::addProp(const Hash *name, baseProperty *value){
 
 baseProperty *Object::getBaseProp(const Hash *name){
 
-	propertyIt it;
-
-	if( (it = propertyMap.find(name)) != propertyMap.end() ){
+	auto it = propertyMap.find(name);
+	
+	if( it != propertyMap.end() ){
 		return it->second;
 	}
 	return NULL;
@@ -74,7 +74,7 @@ baseProperty* Object::_getData(const Hash *name){
 
 
 void Object::_genUniqueName(std::string genericName, std::string &out){
-	nameIt it = this->nameMap.find(genericName);
+	auto it = this->nameMap.find(genericName);
 	std::stringstream sstm;
 
 	//the name hasn't been stored

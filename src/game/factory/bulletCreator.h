@@ -13,7 +13,7 @@ class bulletCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
-	bulletData bullet;
+	BulletData bullet;
 
 	float radius;
 
@@ -23,7 +23,7 @@ public:
 
 	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void setBulletData(bulletData data){
+	void setBulletData(BulletData data){
 		this->bullet = data;
 	}
 
@@ -33,7 +33,7 @@ public:
 
 	
 	Object *createObject(vector2 _pos) const{
-		renderData render;
+		RenderData renderData;
 		phyData phy;
 		
 		Object *obj = new Object("bullet");
@@ -45,7 +45,7 @@ public:
 		phy.collisionType = Hash::getHash("bullet");
 		phy.bodyDef.type = b2_dynamicBody;
 		//phy.bodyDef.type = b2_kinematicBody;
-		phy.bodyDef.bullet = false;
+		phy.bodyDef.bullet = true;
 
 		
 		b2CircleShape *shape = new b2CircleShape();
@@ -68,16 +68,16 @@ public:
 		sfShape->setFillColor(sf::Color::Red);
 
 		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape);
-		render.addRenderer(shapeRenderer);
+		renderData.addRenderer(shapeRenderer);
 		
 	
 		//final---------------------------------
-		obj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		obj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
 		obj->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
-		obj->addProp(Hash::getHash("bulletData"), 
-			new Prop<bulletData>(this->bullet));
+		obj->addProp(Hash::getHash("BulletData"), 
+			new Prop<BulletData>(this->bullet));
 		
 		return obj;
 	};

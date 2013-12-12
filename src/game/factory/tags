@@ -1,0 +1,98 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BoundaryFactoryInfo	objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
+BulletFactoryInfo	objectFactories.h	/^struct BulletFactoryInfo {$/;"	s	namespace:ObjectFactories
+CreateBoundary	objectFactories.cpp	/^Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateBullet	objectFactories.cpp	/^Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateGun	objectFactories.cpp	/^Object *ObjectFactories::CreateGun(GunFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateTerrain	objectFactories.cpp	/^Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){$/;"	f	class:ObjectFactories
+GunFactoryInfo	objectFactories.h	/^struct GunFactoryInfo {$/;"	s	namespace:ObjectFactories
+ObjectFactories	objectFactories.h	/^namespace ObjectFactories {$/;"	n
+PickupFactoryInfo	objectFactories.h	/^struct PickupFactoryInfo {};$/;"	s	namespace:ObjectFactories
+PlayerFactoryInfo	objectFactories.h	/^struct PlayerFactoryInfo {};$/;"	s	namespace:ObjectFactories
+TerrainFactoryInfo	objectFactories.h	/^struct TerrainFactoryInfo {$/;"	s	namespace:ObjectFactories
+attachObjectCreator	objectFactory.cpp	/^void objectFactory::attachObjectCreator(const Hash *objName, objectCreator *creator){$/;"	f	class:objectFactory
+blade	bladeCreator.h	/^	bladeData blade;$/;"	m	class:bladeCreator
+bladeCreator	bladeCreator.h	/^	bladeCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}$/;"	f	class:bladeCreator
+bladeCreator	bladeCreator.h	/^class bladeCreator : public objectCreator{$/;"	c
+blockDim	objectFactories.h	/^	vector2 blockDim;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+boundaryCreator	boundaryCreator.h	/^	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:boundaryCreator
+boundaryCreator	boundaryCreator.h	/^class boundaryCreator : public objectCreator{$/;"	c
+bullet	bulletCreator.h	/^	BulletData bullet;$/;"	m	class:bulletCreator
+bulletCreator	bulletCreator.h	/^	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:bulletCreator
+bulletCreator	bulletCreator.h	/^class bulletCreator : public objectCreator{$/;"	c
+bulletData	objectFactories.h	/^	BulletData bulletData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+camData	playerCreator.h	/^	CameraData camData;$/;"	m	class:playerCreator
+createObject	bladeCreator.h	/^	Object *createObject(vector2 pos) const{$/;"	f	class:bladeCreator
+createObject	boundaryCreator.h	/^	Object *createObject(vector2 playerInitPos) const{$/;"	f	class:boundaryCreator
+createObject	bulletCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:bulletCreator
+createObject	dummyCreator.h	/^	Object *createObject(vector2 dummyPos) const{$/;"	f	class:dummyCreator
+createObject	gunCreator.h	/^	Object *createObject(vector2 gunPos) const{$/;"	f	class:gunCreator
+createObject	pickupCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:pickupCreator
+createObject	playerCreator.h	/^	Object *createObject(vector2 playerInitPos) const{$/;"	f	class:playerCreator
+creators	objectFactory.h	/^	std::map<const Hash *, objectCreator* >creators; 	$/;"	m	class:objectFactory
+dummyCreator	dummyCreator.h	/^	dummyCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:dummyCreator
+dummyCreator	dummyCreator.h	/^class dummyCreator : public objectCreator{$/;"	c
+enemyCollision	bladeCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:bladeCreator
+enemyCollision	bulletCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:bulletCreator
+enemyCollision	gunCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:gunCreator
+enemyCollision	objectFactories.h	/^	const Hash *enemyCollision;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+getCreator	objectFactory.h	/^	T *getCreator(const Hash* objName){$/;"	f	class:objectFactory
+gunCreator	gunCreator.h	/^	gunCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}$/;"	f	class:gunCreator
+gunCreator	gunCreator.h	/^class gunCreator : public objectCreator{$/;"	c
+gunData	gunCreator.h	/^	GunData gunData;$/;"	m	class:gunCreator
+gunData	objectFactories.h	/^	GunData gunData;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+levelDim	boundaryCreator.h	/^	vector2 levelDim;$/;"	m	class:boundaryCreator
+levelDim	objectFactories.h	/^	vector2 levelDim;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+objectCreator	objectFactory.h	/^	objectCreator(){}$/;"	f	class:objectCreator
+objectCreator	objectFactory.h	/^class objectCreator{$/;"	c
+objectFactory	objectFactory.h	/^class objectFactory{$/;"	c
+parent	bladeCreator.h	/^	Object *parent;$/;"	m	class:bladeCreator
+parent	gunCreator.h	/^	Object *parent;$/;"	m	class:gunCreator
+parent	objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+pickup	pickupCreator.h	/^	PickupData pickup;$/;"	m	class:pickupCreator
+pickupCreator	pickupCreator.h	/^	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:pickupCreator
+pickupCreator	pickupCreator.h	/^class pickupCreator : public objectCreator{$/;"	c
+playerCreator	playerCreator.h	/^	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:playerCreator
+playerCreator	playerCreator.h	/^class playerCreator : public objectCreator{$/;"	c
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+radius	bladeCreator.h	/^	float radius;$/;"	m	class:bladeCreator
+radius	bulletCreator.h	/^	float radius;$/;"	m	class:bulletCreator
+radius	dummyCreator.h	/^	float radius;$/;"	m	class:dummyCreator
+radius	gunCreator.h	/^	float radius;$/;"	m	class:gunCreator
+radius	objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+radius	objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+radius	pickupCreator.h	/^	float radius;$/;"	m	class:pickupCreator
+setBoundaryThickness	boundaryCreator.h	/^	void setBoundaryThickness(float thickness){$/;"	f	class:boundaryCreator
+setBulletData	bulletCreator.h	/^	void setBulletData(BulletData data){$/;"	f	class:bulletCreator
+setCameraData	playerCreator.h	/^	void setCameraData(CameraData &camData){$/;"	f	class:playerCreator
+setCollisionRadius	bulletCreator.h	/^	void setCollisionRadius(float radius){$/;"	f	class:bulletCreator
+setCollisionRadius	pickupCreator.h	/^	void setCollisionRadius(float radius){$/;"	f	class:pickupCreator
+setDimensions	boundaryCreator.h	/^	void setDimensions(vector2 levelDim){$/;"	f	class:boundaryCreator
+setGunData	bladeCreator.h	/^	void setGunData(bladeData blade){$/;"	f	class:bladeCreator
+setGunData	gunCreator.h	/^	void setGunData(GunData gunData){$/;"	f	class:gunCreator
+setOffset	gunCreator.h	/^	void setOffset(float radius){$/;"	f	class:gunCreator
+setParent	bladeCreator.h	/^	void setParent(Object *parent){$/;"	f	class:bladeCreator
+setParent	gunCreator.h	/^	void setParent(Object *parent){$/;"	f	class:gunCreator
+setPickupData	pickupCreator.h	/^	void setPickupData(PickupData data){$/;"	f	class:pickupCreator
+setRadius	dummyCreator.h	/^	void setRadius(float gRadius){$/;"	f	class:dummyCreator
+terrain	objectFactories.h	/^	Terrain &terrain;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+thickness	boundaryCreator.h	/^	float thickness;$/;"	m	class:boundaryCreator
+thickness	objectFactories.h	/^	float thickness;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	bladeCreator.h	/^	viewProcess *viewProc;$/;"	m	class:bladeCreator
+viewProc	boundaryCreator.h	/^	viewProcess *viewProc;$/;"	m	class:boundaryCreator
+viewProc	bulletCreator.h	/^	viewProcess *viewProc;$/;"	m	class:bulletCreator
+viewProc	dummyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:dummyCreator
+viewProc	gunCreator.h	/^	viewProcess *viewProc;$/;"	m	class:gunCreator
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+viewProc	pickupCreator.h	/^	viewProcess *viewProc;$/;"	m	class:pickupCreator
+viewProc	playerCreator.h	/^	viewProcess *viewProc;$/;"	m	class:playerCreator
+~objectCreator	objectFactory.h	/^	virtual ~objectCreator(){};$/;"	f	class:objectCreator

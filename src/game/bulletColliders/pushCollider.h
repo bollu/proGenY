@@ -3,7 +3,7 @@
 
 
 
-class pushCollider : public bulletCollider{
+class pushCollider : public BulletCollider{
 private:
 	float impulseMagnitude;
 public:
@@ -22,7 +22,7 @@ public:
 
 		vector2 impulse = vel.Normalize() * this->impulseMagnitude;
 
-		other->body->ApplyLinearImpulse(impulse, other->body->GetWorldCenter());
+		other->body->ApplyLinearImpulse(impulse, other->body->GetWorldCenter(), true);
 
 		return true;
 	};

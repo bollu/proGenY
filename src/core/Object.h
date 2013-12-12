@@ -62,6 +62,11 @@ public:
 	baseProperty *getBaseProp(const Hash *name);
 
 
+	/*!returns whether the Object has the property with name */
+	bool hasProperty(const Hash *name){
+		return this->getBaseProp(name) == NULL ? false : true;
+	}
+
 	/*!returns the value associated with the name
 	This function is used to retrieve a value that was stored in Prop.
 	If a value is not attached to name, or if the value is stored in 
@@ -73,9 +78,9 @@ public:
 	\return the value associated with the Prop, NULL if the property does not exist,
 				NULL if the value is stored in some other derived class member of baseProperty
 	*/
-	template<typename Type>
-	Type* getProp(const Hash *name){
-		Prop<Type> *prop =_getProperty<Type>(name, false);
+	template<typename T>
+	T* getProp(const Hash *name){
+		Prop<T> *prop =_getProperty<T>(name, false);
 		if(prop == NULL){
 			return NULL;
 		}else{
@@ -83,36 +88,90 @@ public:
 		};
 	}
 
-	template<typename Type>
-	void setProp(const Hash *name, Type *value){
+	template<typename T>
+	void setProp(const Hash *name, T *value){
 		assert(name != NULL && value !=  NULL);
-		Prop<Type> *prop =_getProperty<Type>(name);
+		Prop<T> *prop =_getProperty<T>(name);
 		prop->setVal(*value);
 		
 	}
-	
-	template<typename Type>
-	Prop<Type> *getPropPtr(const Hash *name){
-		Prop<Type> *prop = dynamic_cast<Prop<Type> *>(this->getBaseProp(name));
 
-		if(prop == NULL){
-			util::errorLog<<"unable to find property. \
-							\nObject: "<<this->getName()<<"\nProperty: "<<name;
-		}else{
-			return prop;
-		}
-	}
-
-	template<typename Type>
-	void setProp(const Hash *name, Type value){
-		Prop<Type> *prop =_getProperty<Type>(name);
+	template<typename T>
+	void setProp(const Hash *name, T value){
+		Prop<T> *prop =_getProperty<T>(name);
 		prop->setVal(value);
 	}
 
+	/*!send a one time message to the object, and optionally it's children
 
-	/*!returns whether the Object has the property with name */
-	bool hasProperty(const Hash *name){
-		return this->getBaseProp(name) == NULL ? false : true;
+	This is used to send a message to the object which is stored. This message
+	can be retrieved by the component which is interested and can act based on
+	messages. Basically acts as a mini observer pattern within the Object itself
+
+	@param [in] tag: The tag of the message to be sent
+	@param [in] value: The value that should go along with the tag. This can be 
+						retrieved at the component's site
+
+	\return None
+	*/
+	template<typename T>
+	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {
+		auto it = this->messages.find(tag);
+
+		if(it != this->messages.end()) {
+			delete (it->second);	
+			this->messages.erase(it);	
+		}
+
+		this->messages[tag] = new Prop<T> (value);
+
+		if(sendToChildren){
+			for (auto child : children) {
+				child->sendMessage<T>(tag, value, sendToChildren);
+			}
+		}
+	}
+
+	void sendMessage(const Hash *tag, bool sendToChildren = false) {
+	
+		auto it = this->messages.find(tag);
+
+		if(it != this->messages.end()) {
+			delete (it->second);
+			this->messages.erase(it);	
+		}
+
+		//create a stub property 
+		this->messages[tag] = new Prop<void>();
+
+
+		if(sendToChildren){
+			for (auto child : children) {
+				child->sendMessage(tag, sendToChildren);
+			}
+		}
+	}
+
+	//messages auto-expire once retrieved
+	template<typename T=void>
+	T* getMessage(const Hash *tag) {
+		auto it = this->messages.find(tag);
+
+		if(it == messages.end()) {
+			return NULL;
+		}
+
+		Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second);
+
+		messages.erase(it);
+		return prop->getVal();
+
+		
+	};
+
+
+	void addChild(Object *child){
+		children.push_back(child);
 	}
 
 	/*!kills the Object. 
@@ -135,20 +194,22 @@ private:
 	//name of the object
 	std::string name;
 
+
+	//vector of all children of this object
+	std::vector<Object *>children;
+
 	//a map of properties that can be accessed by all objects
-	std::map<const Hash*, baseProperty* > propertyMap; 
-	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;
+	std::map<const Hash*, baseProperty* > propertyMap;
 
-
+	//map of messages within the object.
+	std::map<const Hash*, baseProperty* > messages;
 
 	//stores the number of times an object of the same name has been created
 	//to ensure all names are unique. The way war3 used to do it.
 	static std::map<std::string, unsigned int>nameMap;
-	typedef std::map<std::string, unsigned int>::iterator nameIt;
-
 
 	//stores whether the Object is dead or not
-	bool dead;
+	bool dead;	
 
 	void _genUniqueName(std::string genericName, std::string &out);
 	

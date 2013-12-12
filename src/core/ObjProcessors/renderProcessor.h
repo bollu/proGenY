@@ -16,18 +16,18 @@
 
 /*!The data that is used by the renderProcessor to render objects
 It's a collection of Renderer objects. as one Object may like to render
-multiple things, the renderData class acts as a "bag" to hold multiple Renderer
+multiple things, the RenderData class acts as a "bag" to hold multiple Renderer
 objects
 
 \sa renderProcesor Renderer
 */
-class renderData{
+class RenderData{
 private:
 	friend class renderProcessor;
 	std::vector< renderProcess::baseRenderNode *>renderers;
 public:
 	
-	/*! Add a Renderer the renderData */
+	/*! Add a Renderer the RenderData */
 	void addRenderer(renderProcess::baseRenderNode *renderer){
 		this->renderers.push_back(renderer);
 	}
@@ -36,12 +36,12 @@ public:
 	//useful when manually setting positions / screwing around
 	bool centered;
 
-	renderData() : centered(false){};
+	RenderData() : centered(false){};
 };
 
 /*! an objectProcessor that handles rendering Object
-the Object must be attached with renderData. the objectProcessor
-uses renderData to draw the Object
+the Object must be attached with RenderData. the objectProcessor
+uses RenderData to draw the Object
 */
 class renderProcessor : public objectProcessor{
 private:
@@ -49,7 +49,7 @@ private:
 	viewProcess *view;
 	renderProcess *render;
 
-	void _Render(vector2 pos, util::Angle &angle , renderData *data, bool centered);
+	void _Render(vector2 pos, util::Angle &angle , RenderData *data, bool centered);
 public:
 
 	renderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);

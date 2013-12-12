@@ -11,14 +11,14 @@ class pickupCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
-	pickupData pickup;
+	PickupData pickup;
 	float radius;
 
 public:
 
 	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void setPickupData(pickupData data){
+	void setPickupData(PickupData data){
 		this->pickup = data;
 	}
 
@@ -28,7 +28,7 @@ public:
 
 	
 	Object *createObject(vector2 _pos) const{
-		renderData render;
+		RenderData renderData;
 		phyData phy;
 		
 		Object *obj = new Object("bullet");
@@ -61,16 +61,16 @@ public:
 		sfShape->setFillColor(sf::Color::Red);
 
 		shapeRenderNode* renderer = new shapeRenderNode(sfShape);
-		render.addRenderer(renderer);
+		renderData.addRenderer(renderer);
 		
 	
 		//final---------------------------------
-		obj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		obj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
 		obj->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
-		obj->addProp(Hash::getHash("pickupData"), 
-			new Prop<pickupData>(this->pickup));
+		obj->addProp(Hash::getHash("PickupData"), 
+			new Prop<PickupData>(this->pickup));
 		
 		return obj;
 	};

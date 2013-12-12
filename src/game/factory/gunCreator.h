@@ -17,7 +17,7 @@ private:
 	const Hash *enemyCollision;
 
 	Object *parent;
-	gunData gun;
+	GunData gunData;
 
 	float radius;
 public:
@@ -28,8 +28,8 @@ public:
 		this->parent = parent;
 	}
 
-	void setGunData(gunData gun){
-		this->gun = gun;
+	void setGunData(GunData gunData){
+		this->gunData = gunData;
 	}
 
 	void setOffset(float radius){
@@ -37,8 +37,8 @@ public:
 	}
 
 	Object *createObject(vector2 gunPos) const{
-		renderData render;
-		offsetData offset;
+		RenderData renderData;
+		OffsetData offset;
 		
 		Object *gun = new Object("gun");
 
@@ -54,7 +54,7 @@ public:
 		shape->setOutlineThickness(-2.0);
 
 		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
-		render.addRenderer(renderer);
+		renderData.addRenderer(renderer);
 		//render.centered = true;
 		
 		//offset-------------------------------------
@@ -64,12 +64,12 @@ public:
 		
 
 		//final---------------------------------
-		gun->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		gun->addProp(Hash::getHash("gunData"), 
-			new Prop<gunData>(this->gun));
-		gun->addProp(Hash::getHash("offsetData"), 
-			new Prop<offsetData>(offset));
+		gun->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
+		gun->addProp(Hash::getHash("GunData"), 
+			new Prop<GunData>(gunData));
+		gun->addProp(Hash::getHash("OffsetData"), 
+			new Prop<OffsetData>(offset));
 		
 		return gun;
 	};

@@ -6,31 +6,28 @@
 
 
 
-class gunDataGenerator : public Generator{
+class GunDataGenerator : public Generator{
 public:
 	enum Archetype{
 		machineGun = 0,
 		Rocket = 1,
 	};
 
-	gunDataGenerator(gunDataGenerator::Archetype archetype, 
+	GunDataGenerator(GunDataGenerator::Archetype archetype, 
 		unsigned int power, unsigned long seed);
 
-	gunData Generate();
-
-
+	GunData Generate();
 
 private:
-
 	
 
 	unsigned long seed;
 	unsigned int power;
 	Archetype archetype;
 
-	void _genRocket(gunData &data);
-	void _genMachineGun(gunData &data);
+	void _genRocket(GunData &data);
+	void _genMachineGun(GunData &data);
 
-	void _genBulletData(gunData &data,
-			bulletDataGenerator::genData &generationData);
+	void _genBulletData(GunData &data,
+			BulletDataGenerator::genData &generationData);
 };

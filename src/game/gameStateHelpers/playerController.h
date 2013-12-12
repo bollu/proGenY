@@ -12,8 +12,7 @@ class objectFactory;
 
 class playerController{
 public:
-	playerController(eventMgr *_eventManager, objectMgr *objectManager, objectFactory *factory, 
-		viewProcess *viewProc);
+	playerController(eventMgr *_eventManager, objectMgr *objectManager, viewProcess *viewProc);
 
 	void createPlayer(vector2 levelDim, 
 		vector2 initPos, playerCreator *creator, playerHandlerData playerData);	
@@ -25,16 +24,15 @@ public:
 
 private:
 
-	eventMgr *_eventManager;
-	objectMgr *_objectManager;
-	objectFactory *_objectFactory;
-	viewProcess *viewProc;
+	eventMgr *eventManager_;
+	objectMgr *objectManager_;
+	viewProcess *viewProc_;
 	
-	Object *player;
-	gunsManager *gunsMgr;
-	playerEventHandler *playerHandler;
+	Object *player_;
+	gunsManager *gunsMgr_;
+	playerEventHandler *playerHandler_;
 
-	vector2 levelDim;
+	vector2 levelDim_;
 
 	void _createPlayer(vector2 initPos, playerCreator *creator);
 	void _createGunsManager(Object *player);

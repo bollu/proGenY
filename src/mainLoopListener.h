@@ -10,6 +10,7 @@ public:
 	mainLoopListener(eventMgr &eventManager) : windowClosed(false){
 
 		eventManager.Register(Hash::getHash("windowClosed"), this);
+		//dear lord using vim is hard >_<
 	}
 
 	void recieveEvent(const Hash *eventName, baseProperty *eventData){

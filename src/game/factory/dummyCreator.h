@@ -20,9 +20,9 @@ public:
 	}
 
 	Object *createObject(vector2 dummyPos) const{
-		renderData render;
+		RenderData renderData;
 		phyData phy;
-		healthData health;
+		HealthData health;
 		
 		Object *dummy = new Object("dummy");
 
@@ -53,18 +53,18 @@ public:
 		shape->setFillColor(sf::Color::Red);
 
 		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
-		render.addRenderer(renderer);
+		renderData.addRenderer(renderer);
 		
 		//health-----------------------------------------
 		health.setHP(10);
 
 		//final---------------------------------
-		dummy->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		dummy->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
 		dummy->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
-		dummy->addProp(Hash::getHash("healthData"), 
-			new Prop<healthData>(health));
+		dummy->addProp(Hash::getHash("HealthData"), 
+			new Prop<HealthData>(health));
 		
 		return dummy;
 	}

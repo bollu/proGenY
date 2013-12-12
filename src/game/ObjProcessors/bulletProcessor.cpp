@@ -5,7 +5,7 @@
 
 void bulletProcessor::onObjectAdd(Object *obj){
 	
-	bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
+	BulletData *data = obj->getProp<BulletData>(Hash::getHash("BulletData"));
 
 	if(data == NULL){
 		return;
@@ -17,40 +17,46 @@ void bulletProcessor::onObjectAdd(Object *obj){
 	b2Body *body = physicsData->body;
 	assert(body != NULL);
 
-	//vector2 g = vector2::cast(world->GetGravity());
-	body->ApplyLinearImpulse(body->GetMass() * data->beginVel, body->GetWorldCenter());
+
+	body->ApplyLinearImpulse(body->GetMass() * data->beginVel, body->GetWorldCenter(), true);
 	body->SetTransform(body->GetPosition(), data->angle.toRad());
 
 	assert(data->gravityScale >= 0);
 	body->SetGravityScale(data->gravityScale);
 
 
-	for(bulletCollider *collider : data->colliders){
-	
+	for(BulletCollider *collider : data->colliders){
 		collider->onCreate(obj);
 	}
-
-
-	
 
 };
 
 void bulletProcessor::Process(float dt){
 
-	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
+	for(auto it =  objMap->begin(); it != objMap->end(); ++it){
 
 		Object *obj = it->second;
 
-		bulletData *data = obj->getProp<bulletData>(Hash::getHash("bulletData"));
+		BulletData *data = obj->getProp<BulletData>(Hash::getHash("BulletData"));
 		if(data == NULL){
 			continue;
-		}
+		}	
 
-		
 		phyData *physicsData = obj->getProp<phyData>(Hash::getHash("phyData"));
 		assert(physicsData != NULL);
 
-		b2Body *body = physicsData->body;		
+		b2Body *body = physicsData->body;	
+
+		if (data->latentAccel != 0.0 && data->latentAccelCooldown.onCooldown()){
+			//it switch from onCooldown to offCooldown
+			if(data->latentAccelCooldown.Tick(dt).offCooldown()){
+				
+				body->ApplyLinearImpulse(body->GetMass() * data->angle.polarProjection() * data->latentAccel, body->GetWorldCenter(), true);
+				//body->ApplyForceToCenter(data->angle.polarProjection() * data->latentAccel * body->GetMass(), true);
+			}
+
+		}
+
 		for(collisionData collision : physicsData->collisions){
 			this->_handleCollision(collision, data, obj);
 		}
@@ -58,7 +64,7 @@ void bulletProcessor::Process(float dt){
 
 };
 
-void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){
+void bulletProcessor::_handleCollision(collisionData &collision, BulletData *data, Object *bullet){
 
 	Object *other = collision.otherObj;
 	const Hash *collisionType = collision.getCollidedObjectCollision();
@@ -69,7 +75,7 @@ void bulletProcessor::_handleCollision(collisionData &collision, bulletData *dat
 		return;
 	}
 	//ignore other bullets
-	if(other->hasProperty(Hash::getHash("bulletData"))){
+	if(other->hasProperty(Hash::getHash("BulletData"))){
 		return;
 	}
 
@@ -85,7 +91,7 @@ void bulletProcessor::_handleCollision(collisionData &collision, bulletData *dat
 	if(data->enemyCollisions.count(collisionType) > 0){
 		kill = true;
 
-		for(bulletCollider *collider : data->colliders){
+		for(BulletCollider *collider : data->colliders){
 			//only if ALL bullet colliders agree, kill the bullet
 			kill = kill && collider->onEnemyCollision(collision, bullet);
 		}
@@ -95,13 +101,14 @@ void bulletProcessor::_handleCollision(collisionData &collision, bulletData *dat
 
 
 		kill = true;
-		for(bulletCollider *collider : data->colliders){
+		for(BulletCollider *collider : data->colliders){
 				//only if ALL bullet colliders agree, kill the bullet
 			kill = kill && collider->onDefaultCollision(collision, bullet);
 		}
 		
 	}
 
+	
 	if(kill){
 		bullet->Kill();
 	};

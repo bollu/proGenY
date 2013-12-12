@@ -34,8 +34,8 @@ public:
 
 
 	Object *createObject(vector2 pos) const{
-		renderData render;
-		offsetData offset;
+		RenderData renderData;
+		OffsetData offset;
 		
 		Object *blade = new Object("blade");
 
@@ -50,7 +50,7 @@ public:
 		shape->setOutlineThickness(-3.0);
 
 		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
-		render.addRenderer(renderer);
+		renderData.addRenderer(renderer);
 	
 		//offset-------------------------------------
 		assert(this->parent != NULL);
@@ -59,12 +59,12 @@ public:
 		
 
 		//final---------------------------------
-		blade->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		blade->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
 		blade->addProp(Hash::getHash("bladeData"), 
 			new Prop<bladeData>(this->blade));
-		blade->addProp(Hash::getHash("offsetData"), 
-			new Prop<offsetData>(offset));
+		blade->addProp(Hash::getHash("OffsetData"), 
+			new Prop<OffsetData>(offset));
 		
 		return blade;
 	};

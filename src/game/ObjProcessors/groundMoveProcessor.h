@@ -10,7 +10,7 @@
 
 
 
-struct moveData{
+struct MoveData{
 private:
 	bool movingLeft;
 	bool movingRight;
@@ -28,7 +28,7 @@ private:
 
 public:
 		
-	moveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
+	MoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
 				movingLeft(false), movingRight(false), 
 				jumping(false), onGround(true){}
 
@@ -68,6 +68,6 @@ public:
 private:
 
 	b2World *world;
-	vector2 _calcJumpImpulse(moveData *data, vector2 currentVel, float dt);
+	vector2 _calcJumpImpulse(MoveData *data, vector2 currentVel, float dt);
 	
 };

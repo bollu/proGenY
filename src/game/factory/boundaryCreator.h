@@ -33,7 +33,7 @@ public:
 
 		
 		phyData physicsData;
-		renderData render;
+		RenderData renderData;
 
 		physicsData.bodyDef.type = b2_staticBody;
 		physicsData.collisionType = Hash::getHash("terrain");
@@ -55,7 +55,7 @@ public:
 			shape->setFillColor(sf::Color::Blue);
 			
 			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-			render.addRenderer(renderer);
+			renderData.addRenderer(renderer);
 
 		}
 
@@ -77,7 +77,7 @@ public:
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
 			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-			render.addRenderer(renderer);
+			renderData.addRenderer(renderer);
 
 		}
 
@@ -99,7 +99,7 @@ public:
 			shape->setFillColor(sf::Color::Blue);
 			
 			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-			render.addRenderer(renderer);
+			renderData.addRenderer(renderer);
 		}
 
 		{
@@ -118,13 +118,13 @@ public:
 				viewProc);
 			shape->setFillColor(sf::Color::Blue);
 			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-			render.addRenderer(renderer);
+			renderData.addRenderer(renderer);
 		}
 
 		boundaryObject->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(physicsData));
-		boundaryObject->addProp(Hash::getHash("renderData"),
-		 new Prop<renderData>(render));
+		boundaryObject->addProp(Hash::getHash("RenderData"),
+		 new Prop<RenderData>(renderData));
 
 		return boundaryObject;
 	};

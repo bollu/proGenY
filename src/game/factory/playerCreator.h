@@ -7,12 +7,12 @@ class playerCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
-	cameraData camData;
+	CameraData camData;
 
 public:
 	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}
 	
-	void setCameraData(cameraData &camData){
+	void setCameraData(CameraData &camData){
 		this->camData = camData;
 		this->camData.enabled = true;
 		
@@ -27,8 +27,8 @@ public:
 
 
 		phyData phy;
-		renderData render;
-		moveData move;
+		RenderData renderData;
+		MoveData move;
 		
 		//physics------------------------------------------------------------
 		phy.collisionType = Hash::getHash("player");
@@ -53,7 +53,7 @@ public:
 
 		shapeRenderNode *playerShapeRenderer = new shapeRenderNode(playerSFMLShape, renderingLayers::action);
 
-		render.addRenderer(playerShapeRenderer);
+		renderData.addRenderer(playerShapeRenderer);
 
 	//movement-----------------------------------------------------------
 		move.xVel = 60;
@@ -69,14 +69,14 @@ public:
 		playerObj->addProp(Hash::getHash("phyData"), 
 			new Prop<phyData>(phy));
 
-		playerObj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		playerObj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(renderData));
 
-		playerObj->addProp(Hash::getHash("moveData"), 
-			new Prop<moveData>(move));
+		playerObj->addProp(Hash::getHash("MoveData"), 
+			new Prop<MoveData>(move));
 
-		playerObj->addProp(Hash::getHash("cameraData"), 
-			new Prop<cameraData>(this->camData));
+		playerObj->addProp(Hash::getHash("CameraData"), 
+			new Prop<CameraData>(this->camData));
 
 
 		return playerObj;

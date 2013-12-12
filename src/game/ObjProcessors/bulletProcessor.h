@@ -9,17 +9,17 @@
 
 #include "../../core/Process/viewProcess.h"
 #include "../../core/Process/worldProcess.h"
-
+#include "../../util/Cooldown.h"
 #include <unordered_set>
 
 struct collisionData;
 
 
-class bulletCollider{
+class BulletCollider{
 protected:
-	bulletCollider(){};
+	BulletCollider(){};
 public:
-	virtual ~bulletCollider(){};
+	virtual ~BulletCollider(){};
 
 	virtual void onCreate(Object *bullet){};
 	/*!handle the collision with an enemy
@@ -37,7 +37,14 @@ public:
 };
 
 
-struct bulletData{
+struct BulletData{
+private:
+	friend class bulletProcessor;
+
+	//!accelerate the bullet after some time
+	float latentAccel;
+	Cooldown<float> latentAccelCooldown;
+
 public:
 	vector2 beginVel;
 	/*!Angle to face in the beginning in degrees*/
@@ -46,16 +53,17 @@ public:
 	//!amount by which gravity affects the bullet
 	float gravityScale;
 
-	//! bulletColliders that handle what happens during collision
-	std::vector<bulletCollider *> colliders;
+	//! BulletColliders that handle what happens during collision
+	std::vector<BulletCollider *> colliders;
 
 	//collision types considered to be enemies
 	std::unordered_set<const Hash*> enemyCollisions;
 	//collision types to be ignored
 	std::unordered_set<const Hash*> ignoreCollisions;
 		
-	bulletData(){
+	BulletData(){
 		gravityScale = 3.0;
+		latentAccel = 0.0;
 	};
 
 	void addEnemyCollision(const Hash *collision){
@@ -66,8 +74,14 @@ public:
 		this->ignoreCollisions.insert(collision);
 	}
 
-	void addBulletCollder(bulletCollider *collider){
+	void addBulletCollder(BulletCollider *collider){
 		this->colliders.push_back(collider);
+	}
+
+	void addLatentAcceleration(float startTime, float acceleration) {
+		this->latentAccel = acceleration;
+		this->latentAccelCooldown.setTotalTime(startTime);
+		this->latentAccelCooldown.startCooldown();
 	}
 };
 
@@ -75,7 +89,7 @@ public:
 class bulletProcessor : public objectProcessor{
 public:
 	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager){
-		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"))->getWorld();
+		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 	void onObjectAdd(Object *obj);
@@ -83,7 +97,7 @@ public:
 
 
 private:
-	void _handleCollision(collisionData &collision,bulletData *data, Object *obj);
-	b2World *world;
+	void _handleCollision(collisionData &collision,BulletData *data, Object *obj);
+	worldProcess *world;
 
 };

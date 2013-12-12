@@ -63,72 +63,22 @@ class Prop : public baseProperty{
 		this->val = val;
 	}
 
-	/*! used to set the value stored by the Property from a temporary 
-		variable on the stack
-
-	@param[in] val the new value to be stored
-	*/
-	void setValStack(T val){
-		this->val = val;
-	}
-
-
-
-
 };
 
 
-
-/*!DEPRECATED. */
-template<typename T>
-class ptrProp : public baseProperty{
-private:
-	T* val;
+template<>
+class Prop<void> : public baseProperty {
 public:
-	ptrProp(T *value){
-		this->val = value;
-	}
 
-	/*! returns the object stored by the managedProp
-	
-	\return the object stored inside.
+	/*! returns the value stored by the Property
+
+	\return the value stored within
 	*/
-	T* getVal() const{
-		return this->val;
+	void *getVal(){
+		//send 0xCAFEBABE so that it is not evaluated as NULL and can
+		//pass (msg == NULL) tests (yes, it's ugly)
+		return (void *)(0xCAFEBABE);
 	}
-};
-
-/*! DEPRECATED. used to store pointers with a controlled life cycle
-
-managedProp automatically destroys pointers that it is constructed with.
-Hence, it ensures that the pointer it is assigned to _never lives longer than itself_.
-This is very important to prevent memory leaks. It can be used to wrap objects that are created on the Heap.
- */
-template<typename T>
-class managedProp : public baseProperty{
-private:
-	T *val;
-public:
-	managedProp(T *value){
-		this->val = value;
-	}
-
-	~managedProp(){
-		std::cout<<"deleted; val = "<<this->val<<std::endl;
-		delete(this->val);
-	};
-
-
-	/*! returns the object stored by the managedProp
-	
-	\return the object stored inside.
-	*/
-	T* getVal() const{
-		return this->val;
-	}
-
-
-	
 };
 
 /*!Property that is used to tag objects

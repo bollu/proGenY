@@ -6,7 +6,7 @@
 class damageCollider;
 class pushCollider;
 
-class bulletDataGenerator : public Generator{
+class BulletDataGenerator : public Generator{
 
 public:
 
@@ -30,6 +30,12 @@ public:
 		highKnockback
 	};
 
+	enum accelerationProperty{
+		noAcceleration = 0,
+		lowAcceleration,
+		mediumAcceleration,
+		highAcceleration
+	};
 
 
 	struct genData{
@@ -37,19 +43,24 @@ public:
 		damageProperty	damage;
 		knockbackProperty knockback;
 
+		//time when the latent acceleration should activate
+		accelerationProperty latentAccel;
+		float accelActivateTime;
+
 		int numAbilities;
 		int abilitySkill;
 
 		genData(){
 			this->numAbilities = 0;
 			this->abilitySkill = 0;
+			this->accelActivateTime = 0;
 		}
 
 	};
 
-	bulletDataGenerator(genData data, 
+	BulletDataGenerator(genData data, 
 				unsigned int power, unsigned long seed);
-	bulletData Generate();
+	BulletData Generate();
 
 private:	
 	unsigned long seed;
@@ -59,8 +70,10 @@ private:
 
 
 	float _genGravity(gravityProperty &prop);
+	float _genAcceleration(accelerationProperty &accel);
+
 	damageCollider *_genDamage(damageProperty &prop);
 	pushCollider *_genKnockback(knockbackProperty &prop); 
 
-	bulletCollider* _createBulletCollider(unsigned long colliderSeed);
+	BulletCollider* _createBulletCollider(unsigned long colliderSeed);
 };

@@ -14,7 +14,7 @@ void pickupProcessor::Process(float dt){
 	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		pickupData *data = obj->getProp<pickupData>(Hash::getHash("pickupData"));
+		PickupData *data = obj->getProp<PickupData>(Hash::getHash("PickupData"));
 		
 		if(data == NULL){
 			continue;
@@ -33,7 +33,7 @@ void pickupProcessor::Process(float dt){
 
 
 void pickupProcessor::onObjectRemove(Object *obj){
-	pickupData *data = obj->getProp<pickupData>(Hash::getHash("pickupData"));
+	PickupData *data = obj->getProp<PickupData>(Hash::getHash("PickupData"));
 	
 	if(data == NULL){
 		return;
@@ -45,9 +45,9 @@ void pickupProcessor::onObjectRemove(Object *obj){
 };
 
 
-void pickupProcessor::_handleCollision(Object *obj, pickupData *data, collisionData &collision){
+void pickupProcessor::_handleCollision(Object *obj, PickupData *data, collisionData &collision){
 	if(data->hasCollisionType(collision.getCollidedObjectCollision())){
-		//send the event with the pickupData
+		//send the event with the PickupData
 		baseProperty *p = new iProp(10);
 
 		this->eventManager.sendEvent_(data->onPickupEvent, data->eventData);

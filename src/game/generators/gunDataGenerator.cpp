@@ -3,7 +3,7 @@
 #include "bulletDataGenerator.h"
 
 
-gunDataGenerator::gunDataGenerator(gunDataGenerator::Archetype archetype, 
+GunDataGenerator::GunDataGenerator(GunDataGenerator::Archetype archetype, 
 	unsigned int power, unsigned long seed){
 	
 	this->power = power;
@@ -17,10 +17,10 @@ gunDataGenerator::gunDataGenerator(gunDataGenerator::Archetype archetype,
 };
 
 
-gunData gunDataGenerator::Generate(){
+GunData GunDataGenerator::Generate(){
 
 	
-	gunData data;
+	GunData data;
 
 	switch(this->archetype){
 		case Archetype::Rocket:
@@ -36,41 +36,28 @@ gunData gunDataGenerator::Generate(){
 	return data;	
 };
 
-void gunDataGenerator::_genBulletData(gunData &data,
-	bulletDataGenerator::genData &generationData){
+void GunDataGenerator::_genBulletData(GunData &data,
+	BulletDataGenerator::genData &generationData){
 
-	/*bulletDataGenerator::gravityProperty gForce;
-
-	switch(archetype){
-		case Archetype::Rocket:
-			gForce = bulletDataGenerator::gravityProperty::highGravity;
-			break;
-
-		case Archetype::machineGun:
-			gForce = bulletDataGenerator::gravityProperty::defaultGravity;
-			break;
-	}*/
-
-	bulletDataGenerator bulletDataGen(generationData, this->power, this->seed);
-	bulletData _bulletData = bulletDataGen.Generate();
+	BulletDataGenerator BulletDataGen(generationData, this->power, this->seed);
+	BulletData _BulletData = BulletDataGen.Generate();
 
 
-	_bulletData.addEnemyCollision(Hash::getHash("enemy"));
-	_bulletData.addEnemyCollision(Hash::getHash("dummy"));
+	_BulletData.addEnemyCollision(Hash::getHash("enemy"));
+	_BulletData.addEnemyCollision(Hash::getHash("dummy"));
 
-	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	_bulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	//_bulletData.addIgnoreCollision(Hash::getHash("terrain"));
-	//_bulletData.addIgnoreCollision(Hash::getHash("boundary"));
-	_bulletData.addIgnoreCollision(Hash::getHash("player"));
+	/*
+	_BulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	//_BulletData.addIgnoreCollision(Hash::getHash("terrain"));
+	//_BulletData.addIgnoreCollision(Hash::getHash("boundary"));
+	_BulletData.addIgnoreCollision(Hash::getHash("player"));*/
 
-	data.setBulletData(_bulletData);
+	data.setBulletData(_BulletData);
 
 };
 
 
-void gunDataGenerator::_genRocket(gunData &data){
+void GunDataGenerator::_genRocket(GunData &data){
 	/* quite a low rate of fire, average
 	clip size, heavy damage
 	*/
@@ -80,44 +67,50 @@ void gunDataGenerator::_genRocket(gunData &data){
 	data.setShotCooldown(0);
 
 
-	int clipCD = this->_normGenInt(16 + power, 2);
+	float clipCD = this->_normGenInt(500 + power * 10, 10) / 1000.0;
 	data.setClipCooldown(clipCD);
 
 	
 
 	data.setBulletRadius(this->_genFloat(0.8, 0.9));
-//	data.setBulletRadius(this->_genFloat(0.2, 0.4));
-	data.setBulletVel(this->_genFloat(40, 60));
-
-	bulletDataGenerator::genData bulletGenData;
 	
-	bulletGenData.gravity = bulletDataGenerator::gravityProperty::highGravity;
-	bulletGenData.knockback = bulletDataGenerator::knockbackProperty::highKnockback;
-	bulletGenData.damage = bulletDataGenerator::damageProperty::highDamage;
-	bulletGenData.numAbilities = 1;
+	//data.setBulletRadius(this->_genFloat(0.2, 0.4));
+	data.setBulletVel(this->_genFloat(5, 10));
+
+	BulletDataGenerator::genData bulletGenData;
+	
+	bulletGenData.gravity = BulletDataGenerator::gravityProperty::noGravity;
+
+	bulletGenData.latentAccel = BulletDataGenerator::accelerationProperty::highAcceleration;
+	bulletGenData.accelActivateTime = 0.2;
+
+	bulletGenData.knockback = BulletDataGenerator::knockbackProperty::highKnockback;
+	bulletGenData.damage = BulletDataGenerator::damageProperty::highDamage;
+	bulletGenData.numAbilities = 0;
 
 	this->_genBulletData(data, bulletGenData);
 
 };
 
 
-void gunDataGenerator::_genMachineGun(gunData &data){
+void GunDataGenerator::_genMachineGun(GunData &data){
 
 	/*high rate of fire, small bullets, medium clip size */
 
 	data.setClipSize( this->_normGenInt(20, 2));
 
-	int shotCooldown = this->_normGenInt(3, 1);
+	//cooldowns are in seconds
+	float shotCooldown = this->_normGenFloat(30, 10) / 1000.0;
 	data.setShotCooldown(shotCooldown);
-	data.setClipCooldown(this->_normGenInt(shotCooldown + 20, 2));
+	data.setClipCooldown(this->_normGenFloat(shotCooldown + 20 / 1000.0, 2 / 1000.0));
 
 
 	data.setBulletRadius(this->_genFloat(0.4, 0.5));
 
 	data.setBulletVel(this->_genFloat(20, 30));
 
-	bulletDataGenerator::genData bulletGenData;
-	bulletGenData.gravity = bulletDataGenerator::gravityProperty::lowGravity;
+	BulletDataGenerator::genData bulletGenData;
+	bulletGenData.gravity = BulletDataGenerator::gravityProperty::lowGravity;
 	bulletGenData.numAbilities = 1;
 	bulletGenData.numAbilities = 1;
 

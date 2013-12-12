@@ -4,7 +4,7 @@
 
 #include <vector>
 #include "../util/logObject.h"
-
+#include "Process/Process.h"
 
 /*!Manages Object class's lifecycle
 the ObjectMgr is in charge of controlling Object and running
@@ -15,7 +15,7 @@ system present in the engine
 \sa objectProcessor
 \sa objectMgrProc
 */
-class objectMgr{
+class objectMgr : public Process{
 
 private:
 	
@@ -24,7 +24,8 @@ private:
 	std::vector<objectProcessor *> objProcessors;
 	typedef std::vector<objectProcessor *>::iterator objProcessorIt;
 public:
-	objectMgr(){};
+	objectMgr(processMgr &processManager, Settings &settings, eventMgr &eventManager) : Process("objectMgrProcess"){};
+
 	~objectMgr(){};
 
 	/*!add an Object to the objectManager for processing
@@ -110,11 +111,27 @@ public:
 		//this->objProcessors.push_back(processor);
 	}
 
+	//wrappers for Process definitions
+	void preUpdate(){
+		preProcess_();
+	};
+
+	/*!causes the objManager to Process*/
+	void Update(float dt){
+		Process_(dt);
+	}
+
+	void postDraw(){
+		postProcess_();
+	}
+
+private:
+
 	/*!pre-processing takes place
 	generally, variables are setup if need be in this step, 
 	and everything is made ready for Process
 	*/
-	void preProcess(){
+	void preProcess_(){
 		for(objectProcessor* processor : objProcessors){
 			processor->preProcess();
 		}
@@ -125,7 +142,7 @@ public:
 	behind all of the leftover variables and data.
 	Dead Objects are also destroyed in this step
 	*/
-	void postProcess(){
+	void postProcess_(){
 		for(objectProcessor* processor : objProcessors){
 			processor->postProcess();
 		}
@@ -151,10 +168,11 @@ public:
 	}
 
 	/*!Processes all objects*/
-	void Process(float dt){
+	void Process_(float dt){
 		
 		for(objectProcessor* processor : objProcessors){
 			processor->Process(dt);
 		}
 	};
+
 };

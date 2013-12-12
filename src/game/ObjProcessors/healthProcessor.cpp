@@ -7,12 +7,15 @@ void healthProcessor::postProcess(){
 	for(auto it=  objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		healthData *data = obj->getProp<healthData>(Hash::getHash("healthData"));
+		HealthData *data = obj->getProp<HealthData>(Hash::getHash("HealthData"));
 		if(data == NULL){
-			continue;
+			continue;		
+		}
 
-			
-		}	
+		float *damage = obj->getMessage<float>(Hash::getHash("damageHealth"));
+		if(damage != NULL) {
+			data->Damage(*damage);
+		}
 
 		if(data->getHP() <= 0){
 			obj->Kill();

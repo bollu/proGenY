@@ -127,7 +127,7 @@ public:
 	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };
 	inline vector2 operator - (const vector2& a) const { return vector2(x - a.x, y - a.y); };
 	inline vector2 operator / (const vector2& a) const { return vector2(x / a.x, y / a.y); };
-	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };
+	inline vector2 operator * (const float scale)		 const { return vector2(x * scale, y * scale); };
 
 	inline bool operator > (const vector2& a) const  { return (this->x > a.x && this->y > a.y); };
 	inline bool operator < (const vector2& a) const  { return (this->x < a.x && this->y < a.y); };
@@ -152,7 +152,7 @@ inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x 
 template<typename TYPE>
 inline vector2 operator * (const vector2& a, const TYPE s) { return vector2(a.x * s  , a.y * s);    };	
 
-inline bool    operator == (const vector2&a , vector2& b) { return (a.x == a.y) && (b.x == b.y);  };
+inline bool    operator == (const vector2&a , const vector2& b) { return (a.x == a.y) && (b.x == b.y);  };
 
 //------------------------------------------------------------------------------------------------
 

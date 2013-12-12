@@ -9,7 +9,7 @@
 
 #include <unordered_set>
 
-struct pickupData{
+struct PickupData{
 	const Hash *onPickupEvent;
 	baseProperty *eventData;
 
@@ -24,7 +24,7 @@ struct pickupData{
 		return this->pickupCollisionTypes.count(collisionType) > 0;
 	}
 
-	pickupData(){
+	PickupData(){
 		this->eventData = NULL;
 	}
 
@@ -41,5 +41,5 @@ public:
 	void onObjectRemove(Object *obj);
 private:
 	eventMgr &eventManager;
-	void _handleCollision(Object *obj, pickupData *data, collisionData &collision);
+	void _handleCollision(Object *obj, PickupData *data, collisionData &collision);
 };

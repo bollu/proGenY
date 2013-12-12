@@ -5,28 +5,25 @@
 
 #include "../ObjProcessors/groundMoveProcessor.h"
 #include "../ObjProcessors/cameraProcessor.h"
-
+#include "../factory/objectFactories.h"
 
 
 void gameState::_Init(){
 
-	objectMgrProcess *objMgrProc = this->processManager->getProcess<objectMgrProcess>(
+
+	this->objectManager = this->processManager->getProcess<objectMgr>(
 		Hash::getHash("objectMgrProcess"));
-	
-	this->objectManager = objMgrProc->getObjectMgr();
 
 	this->viewProc = this->processManager->getProcess<viewProcess>(
 		Hash::getHash("viewProcess"));
 	
 	this->_initFactory();
 
-	vector2 playerInitPos = viewProc->view2GameCoord(vector2(300, 300));
-	vector2 levelDim = viewProc->view2GameCoord(vector2(3000, 2000));
 	
-	
-	
-	this->_generateBoundary(levelDim);
+	vector2 levelDim, playerInitPos;
 	this->_generateTerrain(0, playerInitPos, levelDim);
+	
+	//this->_generateBoundary(levelDim);	
 	this->_createEnemies(levelDim);
 	this->_createDummy(levelDim);
 	this->_createPlayer(playerInitPos, levelDim);
@@ -39,7 +36,6 @@ void gameState::_Init(){
 #include "../factory/dummyCreator.h"
 #include "../factory/bulletCreator.h"
 #include "../factory/gunCreator.h"
-#include "../factory/terrainCreator.h"
 #include "../factory/pickupCreator.h"
 #include "../factory/bladeCreator.h"
 
@@ -60,8 +56,6 @@ void gameState::_initFactory(){
 
 	this->objFactory.attachObjectCreator(Hash::getHash("gun"),
 					new gunCreator(this->viewProc));
-	this->objFactory.attachObjectCreator(Hash::getHash("terrain"),
-					new terrainCreator(this->viewProc));
 	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
 					new pickupCreator(this->viewProc));
 
@@ -70,39 +64,34 @@ void gameState::_initFactory(){
 };
 
 
+#include "../terrainGen/terrain.h"
+#include "../terrainGen/terrainGenerator.h"
 void gameState::_generateTerrain(unsigned long long seed, 
-	vector2 playerInitPos, vector2 levelDim){
-
-	terrainCreator *creator = objFactory.getCreator<terrainCreator>(
-		Hash::getHash("terrain"));
-
- 	vector2 blockDim =  vector2(64, 64);
- 	vector2 terrainDim =  vector2(levelDim.x / blockDim.x, 
- 		levelDim.y / blockDim.y); 
- 	vector2 minPos   =  vector2(0, 0);
- 
-
- 	vector2 maxPos = minPos + vector2(blockDim.x * terrainDim.x, 
- 					blockDim.y * terrainDim.y);
-
- 	float render2GameCoord =  viewProc->getRender2GameScale();
-
-
-
- 	minPos *= render2GameCoord;
- 	blockDim *= render2GameCoord;
- 	maxPos *= render2GameCoord;
-
-	creator->setBounds(minPos, maxPos, blockDim);
-	creator->reserveRectSpace(playerInitPos, 
-		vector2(256, 256) * render2GameCoord);
-
-
+	vector2& playerInitPos, vector2& levelDim){
 	
-	Object *terrainObj = creator->createObject();
+	vector2 blockViewDim = vector2(64, 64);
+	vector2 blockGameDim = viewProc->view2GameCoord(blockViewDim);
 
 
-};
+	Terrain terrain(100, 100);
+	genTerrain(terrain, 10);
+	
+	//level dimensions
+	levelDim = vector2(terrain.getWidth() * blockViewDim.x, terrain.getMaxHeight() * blockViewDim.y);
+
+	//player x 
+	int playerX = 2;
+	vector2 playerPosTerrain = getPlayerPosTerrain(terrain, playerX);
+	playerInitPos = vector2(playerPosTerrain.x * blockGameDim.x, playerPosTerrain.y * blockGameDim.y);
+
+
+	ObjectFactories::TerrainFactoryInfo factoryInfo(terrain);
+	factoryInfo.viewProc = this->viewProc;
+	factoryInfo.blockDim = blockGameDim;
+
+	Object *terrainObj = ObjectFactories::CreateTerrain(factoryInfo);
+	objectManager->addObject(terrainObj);
+}
 
 
 
@@ -120,23 +109,10 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 
 
 
-	this->_playerController = new playerController(this->eventManager, this->objectManager,
-						&this->objFactory, this->viewProc);
+	this->_playerController = new playerController(this->eventManager, this->objectManager, this->viewProc);
 
 	this->_playerController->createPlayer(levelDim, playerInitPos, creator,
 				playerData);
-
-
-	{
-	bladeData blade;
-
-	bladeCreator *creator = this->objFactory.getCreator<bladeCreator>(Hash::getHash("blade"));
-	creator->setParent(this->_playerController->getPlayer());
-
-	Object *obj = creator->createObject(vector2(300, 300));
-
-	objectManager->addObject(obj);
-	}
 
 	
 };
@@ -170,11 +146,11 @@ void gameState::_createDummy(vector2 levelDim){
 
 		creator->setCollisionRadius(1.0f);
 
-		pickupData data;
+		PickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
 		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<gunDataGenerator>(
-			gunDataGenerator(gunDataGenerator::Archetype::Rocket, 
+		data.eventData = new Prop<GunDataGenerator>(
+			GunDataGenerator(GunDataGenerator::Archetype::Rocket, 
 				1, 10));
 		
 		
@@ -200,11 +176,11 @@ void gameState::_createDummy(vector2 levelDim){
 
 		creator->setCollisionRadius(1.0f);
 
-		pickupData data;
+		PickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
 		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<gunDataGenerator>(
-			gunDataGenerator(gunDataGenerator::Archetype::machineGun, 
+		data.eventData = new Prop<GunDataGenerator>(
+			GunDataGenerator(GunDataGenerator::Archetype::machineGun, 
 				1, 10));
 		
 		
@@ -233,23 +209,23 @@ Object* gameState::_createGuns(Object *player, vector2 levelDim){
 	gunCreator *creator = objFactory.getCreator<gunCreator>(
 		Hash::getHash("gun"));
 
-	bulletData bullet;
+	BulletData bullet;
 	bullet.addEnemyCollision(Hash::getHash("enemy"));
 	bullet.addEnemyCollision(Hash::getHash("dummy"));
 	bullet.addIgnoreCollision(Hash::getHash("player"));
 	bullet.addIgnoreCollision(Hash::getHash("pickup"));
 
-	bullet.addBulletCollder(new pushCollider(2.0));
+	bullet.addBulletCollder(new pushCollider(20.0));
 	bullet.addBulletCollder(new damageCollider(1.0));
 
-	gunData data;
+	GunData data;
 	data.setClipSize(100);
-	data.setClipCooldown(100);
-	data.setShotCooldown(3);
-	data.setBulletRadius(0.3);
-	data.setBulletCreator(_bulletCreator);
+	data.setClipCooldown(0);//10.0 / 1000);
+	data.setShotCooldown(0);//30.0 / 1000);
+
+	data.setBulletRadius(0.001);
 	data.setBulletData(bullet);
-	data.setBulletVel(40);
+	data.setBulletVel(10);
 
 	vector2 pos = vector2(400, 200);
 	pos *= viewProc->getRender2GameScale();
@@ -265,21 +241,6 @@ Object* gameState::_createGuns(Object *player, vector2 levelDim){
 };
 
 
-void gameState::_generateBoundary(vector2 levelDim){
-
-	boundaryCreator *creator = objFactory.getCreator<boundaryCreator>(
-		Hash::getHash("boundary"));
-
-	creator->setBoundaryThickness(3.0f);
-	creator->setDimensions(levelDim);
-
-	Object *boundary = creator->createObject(vector2(0, -200));
-
-
-	objectManager->addObject(boundary);
-
-}
-
 void gameState::_createEnemies(vector2 levelDim){
 
 	/*
@@ -288,7 +249,7 @@ void gameState::_createEnemies(vector2 levelDim){
 		Hash::getHash("bullet"));
 
 
-	bulletData data;
+	BulletData data;
 	data.addEnemyCollision(Hash::getHash("dummy"));
 
 

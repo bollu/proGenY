@@ -73,7 +73,6 @@ struct b2FixtureDef
 	/// Use this to store application specific fixture data.
 	void* userData;
 
-
 	/// The friction coefficient, usually in the range [0,1].
 	float32 friction;
 

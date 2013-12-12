@@ -8,22 +8,24 @@
 
 
 
-struct healthData {
+struct HealthData {
 private:
+	friend class healthProcessor;
+
 	bool invul;
 
-	unsigned int maxHP;
+	float maxHP;
 	//HP may go below zero.
-	int currentHP;
+	float currentHP;
+
 public:
 
-	healthData(){
+	HealthData(){
 		this->maxHP = this->currentHP = -1;
 		this->invul = false;
 	}
 
-
-	void setHP(unsigned int HP){
+	void setHP(float HP){
 		this->currentHP = this->maxHP = HP;
 
 	}
@@ -36,22 +38,20 @@ public:
 		this->invul = false;
 	}
 
-	void Damage(unsigned int damage){
-
+	void Damage(float damage){
 		if(!this->invul){
 			this->currentHP -= damage;
+			util::infoLog<<"currentHP = "<<currentHP;
 		}
 	}
 
-	void Heal(unsigned int heal){
+	void Heal(float heal){
 		this->currentHP += heal;
 	}
 
 	int getHP(){
 		return this->currentHP;
 	};
-
-
 };
 
 class healthProcessor : public objectProcessor {

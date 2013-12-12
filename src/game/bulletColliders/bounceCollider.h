@@ -2,7 +2,7 @@
 #include "../ObjProcessors/bulletProcessor.h"
 #include "../ObjProcessors/healthProcessor.h"
 
-class bounceCollider : public bulletCollider{
+class bounceCollider : public BulletCollider{
 private:
 	int totalBounces;
 
@@ -34,7 +34,7 @@ public:
 		vector2 resultant = -1 * velAlongNormal +  velAlongTangent;
 		//apply the impulse
 		myBody->SetLinearVelocity(zeroVector);
-		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter());
+		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter(), true);
 
 		util::infoLog<<"------------";
 		PRINTVECTOR2(normal);
@@ -43,9 +43,8 @@ public:
 		PRINTVECTOR2(velAlongTangent);
 		PRINTVECTOR2(resultant);
 
-		Prop<int> *numBouncesProp = bullet->getPropPtr<int>(Hash::getHash("bulletNumBounces"));
-		int numBounces = *numBouncesProp->getVal();
-		numBouncesProp->setValStack(numBounces  - 1);
+		int *numBounces = bullet->getProp<int>(Hash::getHash("bulletNumBounces"));
+		*numBounces = *numBounces - 1;
 
 		return (numBounces <= 0);
 	};

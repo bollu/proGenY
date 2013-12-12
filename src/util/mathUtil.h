@@ -21,6 +21,12 @@ namespace util{
 		0;
 	}
 
+	template <typename T>
+	T clamp(const T& n, const T& lower, const T& upper) {
+  	return std::max(lower, std::min(n, upper));
+	}
+
+
 	/*!An agnostic representation of Angle
 	can be used to represent angles in both degrees and
 	radians. Internally, data is stored in radians
@@ -130,7 +136,7 @@ namespace util{
 
 		@param [in] radius the radius of the circle 
 		 */
-		vector2 polarProjection(float radius){
+		vector2 polarProjection(float radius = 1.0f){
 			return vector2(this->cos() * radius, this->sin() * radius);
 		}
 

@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Draw	gameSegmentLoader.h	/^	void Draw(){};$/;"	f	class:gameSegmentLoader
+Draw	gameState.h	/^	void Draw(){};$/;"	f	class:gameState
+Draw	mainMenuState.h	/^	void Draw(){};$/;"	f	class:mainMenuState
+Update	gameSegmentLoader.h	/^	void Update(float dt){};$/;"	f	class:gameSegmentLoader
+Update	gameState.h	/^	void Update(float dt){$/;"	f	class:gameState
+Update	mainMenuState.h	/^	void Update(float dt){};$/;"	f	class:mainMenuState
+_Init	gameState.cpp	/^void gameState::_Init(){$/;"	f	class:gameState
+_createDummy	gameState.cpp	/^void gameState::_createDummy(vector2 levelDim){$/;"	f	class:gameState
+_createEnemies	gameState.cpp	/^void gameState::_createEnemies(vector2 levelDim){$/;"	f	class:gameState
+_createGuns	gameState.cpp	/^Object* gameState::_createGuns(Object *player, vector2 levelDim){$/;"	f	class:gameState
+_createPlayer	gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
+_generateBoundary	gameState.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
+_generateTerrain	gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, $/;"	f	class:gameState
+_initFactory	gameState.cpp	/^void gameState::_initFactory(){$/;"	f	class:gameState
+_playerController	gameState.h	/^	playerController *_playerController;$/;"	m	class:gameState
+createSaveLoader	gameSegmentLoader.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameSegmentLoader
+createSaveLoader	gameState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameState
+createSaveLoader	mainMenuState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:mainMenuState
+doneLoading	gameSegmentLoader.h	/^	bool doneLoading;$/;"	m	class:gameSegmentLoader
+gameSegmentLoader	gameSegmentLoader.h	/^	gameSegmentLoader() : State("gameSegmentLoader"){}$/;"	f	class:gameSegmentLoader
+gameSegmentLoader	gameSegmentLoader.h	/^class gameSegmentLoader : public State{$/;"	c
+gameState	gameState.h	/^	gameState() : State("gameState"){};$/;"	f	class:gameState
+gameState	gameState.h	/^class gameState : public State{$/;"	c
+mainMenuState	mainMenuState.h	/^	mainMenuState() : State("mainMenuState"){};$/;"	f	class:mainMenuState
+mainMenuState	mainMenuState.h	/^class mainMenuState : public State{$/;"	c
+objFactory	gameState.h	/^	objectFactory objFactory; $/;"	m	class:gameState
+objectManager	gameState.h	/^	objectMgr *objectManager;$/;"	m	class:gameState
+segment	gameSegmentLoader.h	/^	gameSegment *segment;$/;"	m	class:gameSegmentLoader
+segmentName	gameSegmentLoader.h	/^	std::string segmentName;$/;"	m	class:gameSegmentLoader
+viewProc	gameState.h	/^	viewProcess *viewProc;$/;"	m	class:gameState

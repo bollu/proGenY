@@ -5,7 +5,7 @@
 
 
 void groundMoveProcessor::onObjectAdd(Object *obj){
-	moveData *data = obj->getProp<moveData>(Hash::getHash("moveData"));
+	MoveData *data = obj->getProp<MoveData>(Hash::getHash("MoveData"));
 	float *mass = obj->getProp<float>(Hash::getHash("mass"));
 
 	if(data == NULL) return;
@@ -33,7 +33,7 @@ void groundMoveProcessor::Process(float dt){
 		Object *obj = it->second;
 
 
-		moveData *data = obj->getProp<moveData>(Hash::getHash("moveData"));
+		MoveData *data = obj->getProp<MoveData>(Hash::getHash("MoveData"));
 
 		if(data == NULL){
 			continue;
@@ -102,14 +102,14 @@ void groundMoveProcessor::Process(float dt){
 	    	body->SetAngularVelocity(-currentVelX  * 0.5);
 	    };
 
-	    body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+	    body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
 
 	  
 
 	};
 };
 
-vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, vector2 currentVel, float dt){
+vector2 groundMoveProcessor::_calcJumpImpulse(MoveData *data, vector2 currentVel, float dt){
 
 	vector2 impulse;
 	
@@ -159,39 +159,39 @@ vector2 groundMoveProcessor::_calcJumpImpulse(moveData *data, vector2 currentVel
 };
 
 
-void moveData::setMoveLeft(bool enabled){
+void MoveData::setMoveLeft(bool enabled){
 	this->movingLeft = enabled;
 };
 
-void moveData::setMoveRight(bool enabled){
+void MoveData::setMoveRight(bool enabled){
 	this->movingRight = enabled;
 };
 
-void moveData::Jump(){
+void MoveData::Jump(){
 
 	if(this->onGround){
 		this->jumping = true;
 	};
 };
 
-void moveData::resetJump(){
+void MoveData::resetJump(){
 
 	this->onGround = true;
 	this->jumping = false;
 };
 
-bool moveData::isMovingLeft(){
+bool MoveData::isMovingLeft(){
 	return this->movingLeft;
 };
 
-bool moveData::isMovingRight(){
+bool MoveData::isMovingRight(){
 	return this->movingRight;
 };
 
-bool moveData::isMidJump(){
+bool MoveData::isMidJump(){
 	//if you're able to jump, you're on the ground :D
 	return this->jumping;
 };
-bool moveData::isJumpEnabled(){
+bool MoveData::isJumpEnabled(){
 	return !this->jumping;
 };

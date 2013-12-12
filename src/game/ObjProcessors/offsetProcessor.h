@@ -12,7 +12,7 @@
 #include "../../util/mathUtil.h"
 
 
-struct offsetData{
+struct OffsetData{
 public:
 	vector2 posOffset;
 	util::Angle angleOffset;
@@ -22,7 +22,7 @@ public:
 
 	Object *parent;
 
-	offsetData() : offsetPos(true), offsetAngle(true){}
+	OffsetData() : offsetPos(true), offsetAngle(true){}
 };
 
 
@@ -38,7 +38,7 @@ public:
 		for(cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
 			Object *obj = it->second;
 
-			offsetData *data = obj->getProp<offsetData>(Hash::getHash("offsetData"));
+			OffsetData *data = obj->getProp<OffsetData>(Hash::getHash("OffsetData"));
 
 			if(data == NULL){
 				continue;

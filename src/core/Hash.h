@@ -2,8 +2,10 @@
 #include <map>
 #include <string>
 
-typedef unsigned long long uint64_t;
-
+#ifdef WIN32
+	typedef unsigned long long uint64_t;
+#endif
+	
 /*! a flyweight class to store string Hashes.  */
 /*!
 Hash uses the murmur hash to hash new strings. If it encounters

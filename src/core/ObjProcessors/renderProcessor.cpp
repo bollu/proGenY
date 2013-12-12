@@ -15,7 +15,7 @@ renderProcessor::renderProcessor(processMgr &processManager,
 
 
 void renderProcessor::onObjectAdd(Object *obj){
-	renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
+	RenderData *data = obj->getProp<RenderData>(Hash::getHash("RenderData"));
 	if(data == NULL){
 		return;
 	}
@@ -26,7 +26,7 @@ void renderProcessor::onObjectAdd(Object *obj){
 }
 
 void renderProcessor::onObjectRemove(Object *obj){
-	renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
+	RenderData *data = obj->getProp<RenderData>(Hash::getHash("RenderData"));
 	if(data == NULL){
 		return;
 	}
@@ -43,7 +43,7 @@ void renderProcessor::Process(float dt){
 	for(auto it= objMap->begin(); it != objMap->end(); ++it){
 		Object *obj = it->second;
 
-		renderData *data = obj->getProp<renderData>(Hash::getHash("renderData"));
+		RenderData *data = obj->getProp<RenderData>(Hash::getHash("RenderData"));
 		if(data == NULL){
 			continue;
 		}
@@ -68,7 +68,7 @@ void renderProcessor::Process(float dt){
 
 
 void renderProcessor::_Render(vector2 pos, util::Angle &angle, 
-	renderData *data,  bool centered){
+	RenderData *data,  bool centered){
 		//loop through the renderers
 	for(renderProcess::baseRenderNode *renderer : data->renderers){
 		 	

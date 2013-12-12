@@ -15,17 +15,15 @@
 #include "../factory/objectFactory.h"
 
 
-playerController::playerController(eventMgr *eventManager, objectMgr *objectManager,
-	objectFactory *factory, viewProcess *viewProc){
+playerController::playerController(eventMgr *eventManager, objectMgr *objectManager, viewProcess *viewProc){
 	
-	this->_eventManager = eventManager;
-	this->_objectManager = objectManager;
-	this->_objectFactory = factory; 
-	this->viewProc = viewProc;
+	eventManager_ = eventManager;
+	objectManager_ = objectManager;
+	viewProc_ = viewProc;
 
-	//this->gunsMgr = new gunsManager(*_eventManager);
-	this->gunsMgr = NULL;
-	this->playerHandler = NULL;
+	//gunsMgr_ = new gunsManager(*_eventManager);
+	gunsMgr_ = NULL;
+	playerHandler_ = NULL;
 
 	
 };
@@ -36,59 +34,60 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 
 	//camera data--------------------------------------
 
-	cameraData camera;
+	CameraData camera;
 	camera.enabled = true;
-	camera.maxCoord = (viewProc->game2ViewCoord(levelDim));
-	camera.maxMoveAmt = vector2(30, 60);
-	camera.boxHalfW = 360;
-	camera.boxHalfH = 200;
+	
+	camera.maxCoord = levelDim;//(viewProc_->game2ViewCoord(levelDim));
+	PRINTVECTOR2(camera.maxCoord);
+
+	camera.maxMoveAmt = vector2(32, 64);
+	camera.boxHalfW = 100;
+	camera.boxHalfH = 100;
 
 	creator->setCameraData(camera);
 
-	//player created--------------------------------------------
-	this->_createPlayer(initPos, creator);
-	util::infoLog<<"player created";
+	//player_ created--------------------------------------------
+	_createPlayer(initPos, creator);
+	util::infoLog<<"player_ created";
 
 	//create guns
-	this->_createGunsManager(this->player);
+	_createGunsManager(player_);
 
 	//create playerEventHandler
-	playerData.player = this->player;
-	this->_createPlayerEventHandler(playerData);
-	util::infoLog<<"player event handler created";
+	playerData.player = player_;
+	_createPlayerEventHandler(playerData);
+	util::infoLog<<"player_ event handler created";
 
-	//add player
-	this->_objectManager->addObject(this->player);
+	//add player_
+	objectManager_->addObject(player_);
 	util::infoLog<<"added to object manager";
 
 };
 
 void playerController::addGun(Object *gun, bool currentGun){
-	assert(this->gunsMgr != NULL);
-	this->gunsMgr->addGun(gun, currentGun);
+	assert(gunsMgr_ != NULL);
+	gunsMgr_->addGun(gun, currentGun);
 };
 
 Object *playerController::getPlayer(){
-	return this->player;
+	return player_;
 };
 
 void playerController::Update(float dt)
 {
-	assert(this->playerHandler != NULL);
-	this->playerHandler->Update();
+	assert(playerHandler_ != NULL);
+	playerHandler_->Update();
 };
 
 void playerController::_createPlayer(vector2 initPos, playerCreator *creator){
-	this->player = creator->createObject(initPos);
+	player_ = creator->createObject(initPos);
 };
 
 void playerController::_createGunsManager(Object *player){
- 	this->gunsMgr = new gunsManager(*this->_eventManager, *this->_objectFactory, 
- 			*this->_objectManager, player);
+ 	gunsMgr_ = new gunsManager(*eventManager_, *objectManager_, viewProc_, player);
 };
 
 void playerController::_createPlayerEventHandler(playerHandlerData &playerData)
 {
-	this->playerHandler = new playerEventHandler(this->_eventManager, playerData); 
-
+	playerHandler_ = new playerEventHandler(eventManager_, playerData); 
 };

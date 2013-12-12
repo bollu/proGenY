@@ -7,29 +7,29 @@
 class gunCreator;
 class bulletCreator;
 class objectMgr;
+class viewProcess;
 
 class gunsManager : public Observer{
 public:
-	gunsManager(eventMgr &eventManager, objectFactory &factory, 
-		objectMgr &objectManager, Object *player);
+	gunsManager(eventMgr &eventManager, objectMgr &objectManager, viewProcess *viewProc, Object *player);
 	void addGun(Object *gun, bool currentGun=false);
 
 
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 
 private:
-	Object *player;
+	viewProcess *viewProc_;
+
+	Object *player_;
 	
-	std::vector<Object *>guns;
-	Object *currentGun;
-	gunData *currentGunData;
+	std::vector<Object *>guns_;
+	Object *currentGun_;
+	//GunData *currentGunData_;
 
+	objectMgr &objectManager_;
 
-	gunCreator *_gunCreator;
-	bulletCreator *_bulletCreator;
-	objectMgr &objectManager;
 	//0 to guns.size() - 1
-	int currentGunIndex;
+	int currentGunIndex_;
 
 	//reloads the currentGun pointer and currentGunData pointer
 	void _reloadGunPtrs();
