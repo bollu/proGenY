@@ -22,7 +22,7 @@ public:
 
 		vector2 impulse = vel.Normalize() * this->impulseMagnitude;
 
-		other->body->ApplyLinearImpulse(impulse, other->body->GetWorldCenter());
+		other->body->ApplyLinearImpulse(impulse, other->body->GetWorldCenter(), true);
 
 		return true;
 	};

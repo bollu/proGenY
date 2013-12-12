@@ -25,12 +25,12 @@ sf::Shape *renderUtil::createShape(const b2Shape *shape, viewProcess *view){
 
 sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){
 
-	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->m_vertexCount);
+	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->GetVertexCount());
 
 
-	IO::infoLog<<"vertex count: "<<b2Shape->m_vertexCount;
+	IO::infoLog<<"vertex count: "<<b2Shape->GetVertexCount();
 
-	for(int i = 0; i < b2Shape->m_vertexCount; ++i){ 
+	for(int i = 0; i < b2Shape->GetVertexCount(); ++i){ 
 
 		vector2 gamePt = vector2::cast<b2Vec2>(b2Shape->GetVertex(i));
 

@@ -34,7 +34,7 @@ public:
 		vector2 resultant = -1 * velAlongNormal +  velAlongTangent;
 		//apply the impulse
 		myBody->SetLinearVelocity(zeroVector);
-		myBody->ApplyLinearImpulse( resultant, myBody->GetWorldCenter());
+		myBody->ApplyLinearImpulse(resultant, myBody->GetWorldCenter(), true);
 
 		if(!bullet->hasProperty("bulletNumBounces")){
 			IO::errorLog<<"\n\nno property on bullet"<<IO::flush;

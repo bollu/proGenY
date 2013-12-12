@@ -90,7 +90,7 @@ void groundMoveProcessor::_Process(Object *obj, float dt){
 		body->SetAngularVelocity(-currentVelX  * 0.5);
 	};
 
-	body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+	body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
 };
 
 vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){

@@ -79,7 +79,7 @@ void gameState::_initFactory(){
 void gameState::_generateTerrain(unsigned long long seed, 
 	vector2 playerInitPos, vector2 levelDim){
 
-	float render2GameCoord =  viewProc->getRender2GameScale();
+	/*float render2GameCoord =  viewProc->getRender2GameScale();
 	terrainCreator *creator = objFactory.getCreator<terrainCreator>(
 		Hash::getHash("terrain"));
 
@@ -89,7 +89,7 @@ void gameState::_generateTerrain(unsigned long long seed,
 
 	vector2 numBlocks =  vector2(levelDim.x / blockDim.x, 
 		levelDim.y / blockDim.y);
-
+	&/
 		
 		 
  	/*vector2 minPos   =  vector2(0, 0);
