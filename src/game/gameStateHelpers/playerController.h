@@ -6,19 +6,19 @@ class gunsManager;
 class playerEventHandler;
 class playerCreator;
 class playerHandlerData;
-class objectMgr;
+class ObjectMgr;
 class Object;
 class objectFactory;
 
 class playerController{
 public:
-	playerController(eventMgr *_eventManager, objectMgr *objectManager, objectFactory *factory, 
+	playerController(eventMgr *_eventManager, ObjectMgr *objectManager, objectFactory *factory, 
 		viewProcess *viewProc);
 
 	void createPlayer(vector2 levelDim, 
 		vector2 initPos, playerCreator *creator, playerHandlerData playerData);	
-	void addGun(Object *gun, bool currentGun=false);
-
+	
+	
 	void Update(float dt);
 
 	Object *getPlayer();
@@ -26,7 +26,7 @@ public:
 private:
 
 	eventMgr *_eventManager;
-	objectMgr *_objectManager;
+	ObjectMgr *_objectManager;
 	objectFactory *_objectFactory;
 	viewProcess *viewProc;
 	

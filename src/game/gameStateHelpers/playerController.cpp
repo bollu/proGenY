@@ -7,15 +7,15 @@
 #include "../../core/Rendering/renderUtil.h"
 
 #include "../../core/controlFlow/eventMgr.h"
-#include "../ObjProcessors/groundMoveProcessor.h"
-#include "../ObjProcessors/cameraProcessor.h"
+#include "../ObjProcessors/GroundMoveProcessor.h"
+#include "../ObjProcessors/CameraProcessor.h"
 #include "../factory/playerCreator.h"
-#include "../../core/componentSys/objectMgr.h"
+#include "../../core/componentSys/ObjectMgr.h"
 
 #include "../factory/objectFactory.h"
 
 
-playerController::playerController(eventMgr *eventManager, objectMgr *objectManager,
+playerController::playerController(eventMgr *eventManager, ObjectMgr *objectManager,
 	objectFactory *factory, viewProcess *viewProc){
 	
 	this->_eventManager = eventManager;
@@ -63,10 +63,6 @@ void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCre
 
 };
 
-void playerController::addGun(Object *gun, bool currentGun){
-	assert(this->gunsMgr != NULL);
-	this->gunsMgr->addGun(gun, currentGun);
-};
 
 Object *playerController::getPlayer(){
 	return this->player;
@@ -83,8 +79,7 @@ void playerController::_createPlayer(vector2 initPos, playerCreator *creator){
 };
 
 void playerController::_createGunsManager(Object *player){
- 	this->gunsMgr = new gunsManager(*this->_eventManager, *this->_objectFactory, 
- 			*this->_objectManager, player);
+ 	this->gunsMgr = new gunsManager(*this->_eventManager, *this->_objectManager, this->viewProc, player);
 };
 
 void playerController::_createPlayerEventHandler(playerHandlerData &playerData)

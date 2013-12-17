@@ -1,45 +1,41 @@
 #pragma once
-#include "../ObjProcessors/gunProcessor.h"
+#include "../ObjProcessors/GunProcessor.h"
 #include "../../core/controlFlow/eventMgr.h"
 #include "../factory/objectFactory.h"
 
 
 class gunCreator;
 class bulletCreator;
-class objectMgr;
+class ObjectMgr;
 
 class gunsManager : public Observer{
 public:
-	gunsManager(eventMgr &eventManager, objectFactory &factory, 
-		objectMgr &objectManager, Object *player);
-
-	void addGun(Object *gun, bool currentGun=false);
+	gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewProcess *viewProc,  Object *player);
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 
 private:
-	Object *player;
+	Object *player_;
 	
-	std::vector<Object *>guns;
-	Object *currentGun;
-	gunData *currentGunData;
+	std::vector<Object *> guns_;
+	Object *currentGun_;
 
+	ObjectMgr &objectManager_;
+	viewProcess *viewProc_;
 
-	gunCreator *_gunCreator;
-	bulletCreator *_bulletCreator;
-	objectMgr &objectManager;
 	//0 to guns.size() - 1
-	int currentGunIndex;
+	int currentGunIndex_;
 
 	//reloads the currentGun pointer and currentGunData pointer
-	void _reloadGunPtrs();
+	void reloadGunPtrs_();
 
-	void _gotoNextGun(int skip);
-	void _gotoPrevGun(int skip);
+	void gotoNextGun_(int skip);
+	void gotoPrevGun_(int skip);
 
 	
-	void _switchGuns(Object *prevGun, Object *newGun);
+	void addGun_(Object *gun, bool currentGun=false);
+	void switchGuns_(Object *prevGun, Object *newGun);
 
-	void _updateGunAngle(util::Angle &angle);
-	void _fireGun();
+	void updateGunAngle_(util::Angle &angle);
+	void fireGun_();
 
 };

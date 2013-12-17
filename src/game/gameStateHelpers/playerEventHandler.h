@@ -1,9 +1,9 @@
 #pragma once
 #include "../../core/controlFlow/eventMgr.h"
-#include "../../core/componentSys/processor/phyProcessor.h"
-#include "../ObjProcessors/groundMoveProcessor.h"
-#include "../ObjProcessors/gunProcessor.h"
-#include "../ObjProcessors/offsetProcessor.h"
+#include "../../core/componentSys/processor/PhyProcessor.h"
+#include "../ObjProcessors/GroundMoveProcessor.h"
+#include "../ObjProcessors/GunProcessor.h"
+#include "../ObjProcessors/OffsetProcessor.h"
 
 struct playerHandlerData{
 public:
@@ -20,7 +20,7 @@ private:
 
 	vector2 *playerPos;
 	groundMoveData *objMoveData;
-	phyData *physicsData;
+	PhyData *physicsData;
 
 };
 
@@ -46,6 +46,6 @@ private:
 	void _handleMouseWheelUp(int ticks);
 	void _handleMouseWheelDown(int ticks);
 	
-	void _updateGunFacing(vector2 gameMousePos);
+	void _updatePlayerFacing(vector2 gameMousePos);
 	void _fireGun();
 };

@@ -20,7 +20,7 @@ eventManager(_eventManager), playerData(playerData){
 
 	this->playerData.playerPos = player->getPrimitive<vector2>(Hash::getHash("position"));
 	this->playerData.objMoveData =  player->getPrimitive<groundMoveData>(Hash::getHash("groundMoveData"));
-	this->playerData.physicsData =  player->getPrimitive<phyData>(Hash::getHash("phyData"));
+	this->playerData.physicsData =  player->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 
 	assert(this->playerData.playerPos != NULL);
 	assert(this->playerData.objMoveData != NULL);
@@ -43,8 +43,6 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 		v2Prop *mousePos = dynamic_cast<v2Prop *>(eventData); 
 		assert(mousePos != NULL);
 		this->lastMousePos = *mousePos->getVal();
-
-		
 	}
 
 	else if(eventName == keyPressedHash){
@@ -143,9 +141,9 @@ void playerEventHandler::_handleMouseWheelDown(int ticks){
 
 void playerEventHandler::Update(){
 
-	phyData *phy = playerData.physicsData;
+	PhyData *phy = playerData.physicsData;
 
-	this->_updateGunFacing(this->lastMousePos);
+	this->_updatePlayerFacing(this->lastMousePos);
 
 	for(collisionData collision : phy->collisions){
 		if(collision.getCollidedObjectCollision() == Hash::getHash("terrain")){
@@ -162,7 +160,7 @@ void playerEventHandler::Update(){
 
 };
 
-void playerEventHandler::_updateGunFacing(vector2 gameMousePos){
+void playerEventHandler::_updatePlayerFacing(vector2 gameMousePos){
 	 
 
 	vector2 delta = (gameMousePos - *this->playerData.playerPos).Normalize();
