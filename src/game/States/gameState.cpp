@@ -3,16 +3,16 @@
 #include "../../core/componentSys/Object.h"
 #include "../../core/Rendering/renderUtil.h"
 
-#include "../ObjProcessors/groundMoveProcessor.h"
-#include "../ObjProcessors/cameraProcessor.h"
+#include "../ObjProcessors/GroundMoveProcessor.h"
+#include "../ObjProcessors/CameraProcessor.h"
 
 #include "../../core/math/AABB.h"
 
 
 void gameState::_Init(){
 
-	objectMgrProcess *objMgrProc = this->processManager->getProcess<objectMgrProcess>(
-		Hash::getHash("objectMgrProcess"));
+	ObjectMgrProcess *objMgrProc = this->processManager->getProcess<ObjectMgrProcess>(
+		Hash::getHash("ObjectMgrProcess"));
 	
 	this->objectManager = objMgrProc->getObjectMgr();
 
@@ -35,7 +35,7 @@ void gameState::_Init(){
 #include "../factory/boundaryCreator.h"
 #include "../factory/dummyCreator.h"
 #include "../factory/bulletCreator.h"
-#include "../factory/gunCreator.h"
+
 #include "../factory/pickupCreator.h"
 #include "../factory/enemyCreator.h"
 
@@ -54,9 +54,6 @@ void gameState::_initFactory(){
 	this->objFactory.attachObjectCreator(Hash::getHash("bullet"),
 		new bulletCreator(this->viewProc));
 
-	this->objFactory.attachObjectCreator(Hash::getHash("gun"),
-		new gunCreator(this->viewProc));
-
 	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
 		new pickupCreator(this->viewProc));
 
@@ -70,7 +67,7 @@ void gameState::_initFactory(){
 
 void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim) {
 
-	vector2 blockViewDim = vector2(64, 64);
+	vector2 blockViewDim = vector2(128, 128);
 	vector2 blockGameDim = viewProc->view2GameCoord(blockViewDim);
 
 
@@ -93,26 +90,6 @@ void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos
 	Object *terrainObj = ObjectFactories::CreateTerrain(factoryInfo);
 	this->objectManager->addObject(terrainObj);
 
-
-	/*float render2GameCoord =  viewProc->getRender2GameScale();
-	terrainCreator *creator = objFactory.getCreator<terrainCreator>(
-		Hash::getHash("terrain"));
-
-	vector2 blockDim =  vector2(64, 64);
-	blockDim *= render2GameCoord;
-
-
-	vector2 numBlocks =  vector2(levelDim.x / blockDim.x, 
-		levelDim.y / blockDim.y);
-	&/
-		
-		 
- 	/*vector2 minPos   =  vector2(0, 0);
- 
-
- 	vector2 maxPos = minPos + vector2(blockDim.x * numBlocks.x, 
- 					blockDim.y * numBlocks.y);
-	*/
 
 };
 
@@ -141,7 +118,7 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 };
 
 
-#include "../generators/gunDataGenerator.h"
+#include "../generators/GunDataGenerator.h"
 void gameState::_createDummy(vector2 levelDim){
 	{
 
@@ -164,16 +141,16 @@ void gameState::_createDummy(vector2 levelDim){
 		pickupCreator *creator = objFactory.getCreator<pickupCreator>(
 			Hash::getHash("pickup"));
 
-		pickupData data;
+		PickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
 		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<gunDataGenerator>(
-			gunDataGenerator(gunDataGenerator::Archetype::Rocket, 
+		data.eventData = new Prop<GunDataGenerator>(
+			GunDataGenerator(GunDataGenerator::Archetype::Rocket, 
 				1, 10));
 
 		creator->Init(data, 0.7);
 
-		vector2 pos = vector2(600, 100);
+		vector2 pos = vector2(600, 300);
 		pos *= viewProc->getRender2GameScale();
 
 		Object *obj = creator->createObject(pos);
@@ -188,16 +165,16 @@ void gameState::_createDummy(vector2 levelDim){
 
 		
 
-		pickupData data;
+		PickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
 		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<gunDataGenerator>(
-			gunDataGenerator(gunDataGenerator::Archetype::machineGun, 
+		data.eventData = new Prop<GunDataGenerator>(
+			GunDataGenerator(GunDataGenerator::Archetype::machineGun, 
 				1, 30));
 		
 		creator->Init(data, 0.7);
 		
-		vector2 pos = vector2(1200, 100);
+		vector2 pos = vector2(1200, 500);
 		pos *= viewProc->getRender2GameScale();
 
 		Object *obj = creator->createObject(pos);
@@ -205,45 +182,6 @@ void gameState::_createDummy(vector2 levelDim){
 
 
 	}
-};
-
-
-#include "../bulletColliders/pushCollider.h"
-#include "../bulletColliders/damageCollider.h"
-Object* gameState::_createGuns(Object *player, vector2 levelDim){
-	bulletCreator *_bulletCreator = objFactory.getCreator<bulletCreator>(
-		Hash::getHash("bullet"));
-
-	gunCreator *creator = objFactory.getCreator<gunCreator>(
-		Hash::getHash("gun"));
-
-	bulletData bullet;
-	bullet.addEnemyCollision(Hash::getHash("enemy"));
-	bullet.addEnemyCollision(Hash::getHash("dummy"));
-	bullet.addIgnoreCollision(Hash::getHash("player"));
-	bullet.addIgnoreCollision(Hash::getHash("pickup"));
-
-	bullet.addBulletCollder(new pushCollider(2.0));
-	bullet.addBulletCollder(new damageCollider(1.0));
-
-	gunData data;
-	data.setClipSize(100);
-	data.setClipCooldown(100);
-	data.setShotCooldown(3);
-	data.setBulletRadius(0.3);
-	data.setBulletCreator(_bulletCreator);
-	data.setBulletData(bullet);
-	data.setBulletVel(40);
-
-	vector2 pos = vector2(400, 200);
-	pos *= viewProc->getRender2GameScale();
-
-	creator->Init(player, data);
-
-	Object *gun = creator->createObject(pos);
-	objectManager->addObject(gun);
-
-	return gun;
 };
 
 
