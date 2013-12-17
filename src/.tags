@@ -11,7 +11,7 @@ AABB	core/math/AABB.h	/^class AABB{$/;"	c
 AI	core/AI/baseAI.h	/^namespace AI{$/;"	n
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:AIProcessor
-AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public objectProcessor{$/;"	c
+AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
 Accepted	include/SFML/Network/Http.hpp	/^            Accepted       = 202, \/\/\/< The request has been accepted, but will be processed later by the server$/;"	e	enum:sf::Http::Response::Status
 Add	include/Box2D/Dynamics/b2Island.h	/^	void Add(b2Body* body)$/;"	f	class:b2Island
 Add	include/Box2D/Dynamics/b2Island.h	/^	void Add(b2Contact* contact)$/;"	f	class:b2Island
@@ -35,7 +35,7 @@ ApplyForce	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForce(cons
 ApplyForceToCenter	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForceToCenter(const b2Vec2& force, bool wake)$/;"	f	class:b2Body
 ApplyLinearImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyLinearImpulse(const b2Vec2& impulse, const b2Vec2& point, bool wake)$/;"	f	class:b2Body
 ApplyTorque	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyTorque(float32 torque, bool wake)$/;"	f	class:b2Body
-Archetype	game/generators/gunDataGenerator.h	/^	enum Archetype{$/;"	g	class:gunDataGenerator
+Archetype	game/generators/GunDataGenerator.h	/^	enum Archetype{$/;"	g	class:GunDataGenerator
 Ascii	include/SFML/Network/Ftp.hpp	/^        Ascii,  \/\/\/< Text mode using ASCII encoding$/;"	e	enum:sf::Ftp::TransferMode
 At	game/terrainGen/terrain.h	/^	terrainType At(int x, int y) {$/;"	f	struct:Terrain
 Axis	include/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
@@ -123,10 +123,19 @@ BlendNone	include/SFML/Graphics/BlendMode.hpp	/^    BlendNone      \/\/\/< Pixel
 Blue	include/SFML/Graphics/Color.hpp	/^    static const Color Blue;        \/\/\/< Blue predefined color$/;"	m	class:sf::Color
 Bold	include/SFML/Graphics/Text.hpp	/^        Bold       = 1 << 0, \/\/\/< Bold characters$/;"	e	enum:sf::Text::Style
 BoolType	include/SFML/Network/Packet.hpp	/^    typedef bool (Packet::*BoolType)(std::size_t);$/;"	t	class:sf::Packet
-Brain	core/AI/baseAI.h	/^	class Brain{$/;"	c	namespace:AI
+BoundaryFactoryInfo	game/factory/objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
 Broadcast	include/SFML/Network/IpAddress.hpp	/^    static const IpAddress Broadcast; \/\/\/< The "broadcast" address (for sending UDP messages to everyone on a local network)$/;"	m	class:sf::IpAddress
 BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon14
 BufferMove	include/Box2D/Collision/b2BroadPhase.cpp	/^void b2BroadPhase::BufferMove(int32 proxyId)$/;"	f	class:b2BroadPhase
+BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	BulletCollider(){};$/;"	f	class:BulletCollider
+BulletCollider	game/ObjProcessors/BulletProcessor.h	/^class BulletCollider{$/;"	c
+BulletData	game/ObjProcessors/BulletProcessor.h	/^	BulletData(){$/;"	f	struct:BulletData
+BulletData	game/ObjProcessors/BulletProcessor.h	/^struct BulletData{$/;"	s
+BulletDataGenerator	game/generators/BulletDataGenerator.cpp	/^BulletDataGenerator::BulletDataGenerator(genData _data,$/;"	f	class:BulletDataGenerator
+BulletDataGenerator	game/generators/BulletDataGenerator.h	/^class BulletDataGenerator : public Generator{$/;"	c
+BulletFactoryInfo	game/factory/objectFactories.h	/^struct BulletFactoryInfo {$/;"	s	namespace:ObjectFactories
+BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^	BulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:BulletProcessor
+BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^class BulletProcessor : public ObjectProcessor{$/;"	c
 Button	include/SFML/Window/Mouse.hpp	/^    enum Button$/;"	g	class:sf::Mouse
 ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon9
 ButtonCount	include/SFML/Window/Mouse.hpp	/^        ButtonCount \/\/\/< Keep last -- the total number of mouse buttons$/;"	e	enum:sf::Mouse::Button
@@ -181,6 +190,9 @@ Context	include/SFML/Window/Context.hpp	/^class SFML_WINDOW_API Context : GlReso
 ContextSettings	include/SFML/Window/ContextSettings.hpp	/^    explicit ContextSettings(unsigned int depth = 0, unsigned int stencil = 0, unsigned int antialiasing = 0, unsigned int major = 2, unsigned int minor = 0) :$/;"	f	struct:sf::ContextSettings
 ContextSettings	include/SFML/Window/ContextSettings.hpp	/^struct ContextSettings$/;"	s	namespace:sf
 ConvexShape	include/SFML/Graphics/ConvexShape.hpp	/^class SFML_GRAPHICS_API ConvexShape : public Shape$/;"	c	namespace:sf
+Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown() : totalTime_(0), currentCooldown_(0) {}$/;"	f	class:Cooldown
+Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown(T totalTime) : totalTime_(totalTime), currentCooldown_(0) {}$/;"	f	class:Cooldown
+Cooldown	core/controlFlow/Cooldown.h	/^class Cooldown {$/;"	c
 CoordinateType	include/SFML/Graphics/Texture.hpp	/^    enum CoordinateType$/;"	g	class:sf::Texture
 Count	include/SFML/Window/Event.hpp	/^        Count                   \/\/\/< Keep last -- the total number of event types$/;"	e	enum:sf::Event::EventType
 Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon9
@@ -195,21 +207,25 @@ Create	include/Box2D/Dynamics/Contacts/b2PolygonContact.cpp	/^b2Contact* b2Polyg
 Create	include/Box2D/Dynamics/Joints/b2Joint.cpp	/^b2Joint* b2Joint::Create(const b2JointDef* def, b2BlockAllocator* allocator)$/;"	f	class:b2Joint
 Create	include/Box2D/Dynamics/b2Fixture.cpp	/^void b2Fixture::Create(b2BlockAllocator* allocator, b2Body* body, const b2FixtureDef* def)$/;"	f	class:b2Fixture
 CreateBody	include/Box2D/Dynamics/b2World.cpp	/^b2Body* b2World::CreateBody(const b2BodyDef* def)$/;"	f	class:b2World
+CreateBoundary	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateBullet	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){$/;"	f	class:ObjectFactories
 CreateChain	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^void b2ChainShape::CreateChain(const b2Vec2* vertices, int32 count)$/;"	f	class:b2ChainShape
 CreateFixture	include/Box2D/Dynamics/b2Body.cpp	/^b2Fixture* b2Body::CreateFixture(const b2FixtureDef* def)$/;"	f	class:b2Body
 CreateFixture	include/Box2D/Dynamics/b2Body.cpp	/^b2Fixture* b2Body::CreateFixture(const b2Shape* shape, float32 density)$/;"	f	class:b2Body
+CreateGun	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateGun(GunFactoryInfo &info){$/;"	f	class:ObjectFactories
 CreateJoint	include/Box2D/Dynamics/b2World.cpp	/^b2Joint* b2World::CreateJoint(const b2JointDef* def)$/;"	f	class:b2World
 CreateLoop	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^void b2ChainShape::CreateLoop(const b2Vec2* vertices, int32 count)$/;"	f	class:b2ChainShape
 CreateProxies	include/Box2D/Dynamics/b2Fixture.cpp	/^void b2Fixture::CreateProxies(b2BroadPhase* broadPhase, const b2Transform& xf)$/;"	f	class:b2Fixture
 CreateProxy	include/Box2D/Collision/b2BroadPhase.cpp	/^int32 b2BroadPhase::CreateProxy(const b2AABB& aabb, void* userData)$/;"	f	class:b2BroadPhase
 CreateProxy	include/Box2D/Collision/b2DynamicTree.cpp	/^int32 b2DynamicTree::CreateProxy(const b2AABB& aabb, void* userData)$/;"	f	class:b2DynamicTree
+CreateTerrain	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){$/;"	f	class:ObjectFactories
 Created	include/SFML/Network/Http.hpp	/^            Created        = 201, \/\/\/< The resource has successfully been created$/;"	e	enum:sf::Http::Response::Status
 CurrentTexture	include/SFML/Graphics/Shader.hpp	/^    static CurrentTextureType CurrentTexture;$/;"	m	class:sf::Shader
 CurrentTextureType	include/SFML/Graphics/Shader.hpp	/^    struct CurrentTextureType {};$/;"	s	class:sf::Shader
 Cyan	include/SFML/Graphics/Color.hpp	/^    static const Color Cyan;        \/\/\/< Cyan predefined color$/;"	m	class:sf::Color
 D	include/SFML/Window/Keyboard.hpp	/^        D,            \/\/\/< The D key$/;"	e	enum:sf::Keyboard::Key
 DEG2RAD	core/math/mathUtil.h	/^	const double DEG2RAD = util::PI \/ 180.0;$/;"	m	namespace:util
-Damage	game/ObjProcessors/healthProcessor.h	/^	void Damage(unsigned int damage){$/;"	f	struct:healthData
+Damage	game/ObjProcessors/HealthProcessor.h	/^	void Damage(unsigned int damage){$/;"	f	struct:healthData
 Dash	include/SFML/Window/Keyboard.hpp	/^        Dash,         \/\/\/< The - key$/;"	e	enum:sf::Keyboard::Key
 Data	include/SFML/Network/TcpSocket.hpp	/^        std::vector<char> Data;         \/\/\/< Data of the packet$/;"	m	struct:sf::TcpSocket::PendingPacket
 DataConnectionAlreadyOpened	include/SFML/Network/Ftp.hpp	/^            DataConnectionAlreadyOpened = 125, \/\/\/< Data connection already opened, transfer starting$/;"	e	enum:sf::Ftp::Response::Status
@@ -283,6 +299,7 @@ EnableMotor	include/Box2D/Dynamics/Joints/b2WheelJoint.cpp	/^void b2WheelJoint::
 End	include/SFML/Window/Keyboard.hpp	/^        End,          \/\/\/< The End key$/;"	e	enum:sf::Keyboard::Key
 EndContact	core/World/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
 EndContact	include/Box2D/Dynamics/b2WorldCallbacks.h	/^	virtual void EndContact(b2Contact* contact) { B2_NOT_USED(contact); }$/;"	f	class:b2ContactListener
+Endpoints	core/math/AABB.cpp	/^AABB AABB::Endpoints(vector2 bottomLeft, vector2 topRight){$/;"	f	class:AABB
 EnteringPassiveMode	include/SFML/Network/Ftp.hpp	/^            EnteringPassiveMode   = 227, \/\/\/< Entering passive mode$/;"	e	enum:sf::Ftp::Response::Status
 Equal	include/SFML/Window/Keyboard.hpp	/^        Equal,        \/\/\/< The = key$/;"	e	enum:sf::Keyboard::Key
 Error	include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -298,8 +315,6 @@ Evaluate	include/Box2D/Dynamics/Contacts/b2PolygonContact.cpp	/^void b2PolygonCo
 Event	core/controlFlow/eventMgr.h	/^	struct Event{$/;"	s	class:eventMgr
 Event	include/SFML/Window/Event.hpp	/^class Event$/;"	c	namespace:sf
 EventType	include/SFML/Window/Event.hpp	/^    enum EventType$/;"	g	class:sf::Event
-Executor	core/AI/baseAI.cpp	/^Executor::Executor(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Executor
-Executor	core/AI/baseAI.h	/^	class Executor{$/;"	c	namespace:AI
 F	include/SFML/Window/Keyboard.hpp	/^        F,            \/\/\/< The F key$/;"	e	enum:sf::Keyboard::Key
 F1	include/SFML/Window/Keyboard.hpp	/^        F1,           \/\/\/< The F1 key$/;"	e	enum:sf::Keyboard::Key
 F10	include/SFML/Window/Keyboard.hpp	/^        F10,          \/\/\/< The F10 key$/;"	e	enum:sf::Keyboard::Key
@@ -326,7 +341,6 @@ FilenameNotAllowed	include/SFML/Network/Ftp.hpp	/^            FilenameNotAllowed
 Filled	game/terrainGen/terrain.h	/^	Filled$/;"	e	enum:terrainType
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindNewContacts	include/Box2D/Dynamics/b2ContactManager.cpp	/^void b2ContactManager::FindNewContacts()$/;"	f	class:b2ContactManager
-Fire	game/ObjProcessors/gunProcessor.cpp	/^void gunData::Fire(){$/;"	f	class:gunData
 FlagForFiltering	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::FlagForFiltering()$/;"	f	class:b2Contact
 FloatRect	include/SFML/Graphics/Rect.hpp	/^typedef Rect<float> FloatRect;$/;"	t	namespace:sf
 Font	include/SFML/Graphics/Font.hpp	/^class SFML_GRAPHICS_API Font$/;"	c	namespace:sf
@@ -340,8 +354,8 @@ Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/
 G	include/SFML/Window/Keyboard.hpp	/^        G,            \/\/\/< The G key$/;"	e	enum:sf::Keyboard::Key
 GainedFocus	include/SFML/Window/Event.hpp	/^        GainedFocus,            \/\/\/< The window gained the focus (no data)$/;"	e	enum:sf::Event::EventType
 GatewayTimeout	include/SFML/Network/Http.hpp	/^            GatewayTimeout      = 504, \/\/\/< The gateway server couldn't receive a response from the source server$/;"	e	enum:sf::Http::Response::Status
-Generate	game/generators/bulletDataGenerator.cpp	/^bulletData bulletDataGenerator::Generate(){$/;"	f	class:bulletDataGenerator
-Generate	game/generators/gunDataGenerator.cpp	/^gunData gunDataGenerator::Generate(){$/;"	f	class:gunDataGenerator
+Generate	game/generators/BulletDataGenerator.cpp	/^BulletData BulletDataGenerator::Generate(){$/;"	f	class:BulletDataGenerator
+Generate	game/generators/GunDataGenerator.cpp	/^GunData GunDataGenerator::Generate(){$/;"	f	class:GunDataGenerator
 Generator	game/generators/Generator.h	/^	Generator(){};$/;"	f	class:Generator
 Generator	game/generators/Generator.h	/^class Generator{$/;"	c
 Get	include/SFML/Network/Http.hpp	/^            Get,  \/\/\/< Request in get mode, standard method to retrieve a page$/;"	e	enum:sf::Http::Request::Method
@@ -596,6 +610,13 @@ Glyph	include/SFML/Graphics/Glyph.hpp	/^    Glyph() : advance(0) {}$/;"	f	class:
 Glyph	include/SFML/Graphics/Glyph.hpp	/^class SFML_GRAPHICS_API Glyph$/;"	c	namespace:sf
 GlyphTable	include/SFML/Graphics/Font.hpp	/^    typedef std::map<Uint32, Glyph> GlyphTable; \/\/\/< Table mapping a codepoint to its glyph$/;"	t	class:sf::Font
 Green	include/SFML/Graphics/Color.hpp	/^    static const Color Green;       \/\/\/< Green predefined color$/;"	m	class:sf::Color
+GunData	game/ObjProcessors/GunProcessor.h	/^	GunData(){$/;"	f	struct:GunData
+GunData	game/ObjProcessors/GunProcessor.h	/^struct GunData{$/;"	s
+GunDataGenerator	game/generators/GunDataGenerator.cpp	/^GunDataGenerator::GunDataGenerator(GunDataGenerator::Archetype archetype, $/;"	f	class:GunDataGenerator
+GunDataGenerator	game/generators/GunDataGenerator.h	/^class GunDataGenerator : public Generator{$/;"	c
+GunFactoryInfo	game/factory/objectFactories.h	/^struct GunFactoryInfo {$/;"	s	namespace:ObjectFactories
+GunProcessor	game/ObjProcessors/GunProcessor.cpp	/^GunProcessor::GunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) $/;"	f	class:GunProcessor
+GunProcessor	game/ObjProcessors/GunProcessor.h	/^class GunProcessor : public ObjectProcessor{$/;"	c
 H	include/SFML/Window/Keyboard.hpp	/^        H,            \/\/\/< The H key$/;"	e	enum:sf::Keyboard::Key
 HUD	game/defines/renderingLayers.h	/^	HUD = 0,$/;"	e	enum:renderingLayers
 H_6B9572DA_A64B_49E6_B234_051480991C89	include/backward/backward.hpp	25;"	d
@@ -604,7 +625,7 @@ Hash	core/IO/Hash.h	/^class Hash{$/;"	c
 Hash2Str	core/IO/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
 HashMap	core/IO/Hash.h	/^	typedef std::map<std::string, Hash* > HashMap; $/;"	t	class:Hash
 Head	include/SFML/Network/Http.hpp	/^            Head  \/\/\/< Request a page's header only$/;"	e	enum:sf::Http::Request::Method
-Heal	game/ObjProcessors/healthProcessor.h	/^	void Heal(unsigned int heal){$/;"	f	struct:healthData
+Heal	game/ObjProcessors/HealthProcessor.h	/^	void Heal(unsigned int heal){$/;"	f	struct:healthData
 HelpMessage	include/SFML/Network/Ftp.hpp	/^            HelpMessage           = 214, \/\/\/< Help message$/;"	e	enum:sf::Ftp::Response::Status
 Home	include/SFML/Window/Keyboard.hpp	/^        Home,         \/\/\/< The Home key$/;"	e	enum:sf::Keyboard::Key
 Http	include/SFML/Network/Http.hpp	/^class SFML_NETWORK_API Http : NonCopyable$/;"	c	namespace:sf
@@ -613,15 +634,14 @@ I	include/SFML/Window/Keyboard.hpp	/^        I,            \/\/\/< The I key$/;"
 IO	core/IO/logObject.h	/^namespace IO{$/;"	n
 Identity	include/SFML/Graphics/Transform.hpp	/^    static const Transform Identity; \/\/\/< The identity transform (does nothing)$/;"	m	class:sf::Transform
 Image	include/SFML/Graphics/Image.hpp	/^class SFML_GRAPHICS_API Image$/;"	c	namespace:sf
-Init	core/componentSys/processor/objectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:objectProcessor
+Init	core/componentSys/processor/ObjectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:ObjectProcessor
 Init	core/controlFlow/State.h	/^	void Init(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager){$/;"	f	class:State
 Init	game/factory/boundaryCreator.h	/^	void Init(vector2 levelDim, float thickness){$/;"	f	class:boundaryCreator
-Init	game/factory/bulletCreator.h	/^	void Init(bulletData data, float bulletRadius){$/;"	f	class:bulletCreator
+Init	game/factory/bulletCreator.h	/^	void Init(BulletData data, float bulletRadius){$/;"	f	class:bulletCreator
 Init	game/factory/dummyCreator.h	/^	void Init(float gRadius){$/;"	f	class:dummyCreator
-Init	game/factory/gunCreator.h	/^	void Init(Object *parent, gunData gun, float offsetRadius = 0){$/;"	f	class:gunCreator
+Init	game/factory/gunCreator.h	/^	void Init(Object *parent, GunData gun, float offsetRadius = 0){$/;"	f	class:gunCreator
 Init	game/factory/pickupCreator.h	/^	void Init(pickupData data, float radius){$/;"	f	class:pickupCreator
 Init	game/factory/playerCreator.h	/^	void Init(cameraData &camData){$/;"	f	class:playerCreator
-Init	game/factory/terrainCreator.cpp	/^void terrainCreator::Init(vector2 numBlocks, vector2 blockDim, unsigned int seed){$/;"	f	class:terrainCreator
 InitVelocityConstraints	include/Box2D/Dynamics/Joints/b2DistanceJoint.cpp	/^void b2DistanceJoint::InitVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2DistanceJoint
 InitVelocityConstraints	include/Box2D/Dynamics/Joints/b2FrictionJoint.cpp	/^void b2FrictionJoint::InitVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2FrictionJoint
 InitVelocityConstraints	include/Box2D/Dynamics/Joints/b2GearJoint.cpp	/^void b2GearJoint::InitVelocityConstraints(const b2SolverData& data)$/;"	f	class:b2GearJoint
@@ -694,7 +714,7 @@ JoystickConnected	include/SFML/Window/Event.hpp	/^        JoystickConnected,    
 JoystickDisconnected	include/SFML/Window/Event.hpp	/^        JoystickDisconnected,   \/\/\/< A joystick was disconnected (data in event.joystickConnect)$/;"	e	enum:sf::Event::EventType
 JoystickMoveEvent	include/SFML/Window/Event.hpp	/^    struct JoystickMoveEvent$/;"	s	class:sf::Event
 JoystickMoved	include/SFML/Window/Event.hpp	/^        JoystickMoved,          \/\/\/< The joystick moved along an axis (data in event.joystickMove)$/;"	e	enum:sf::Event::EventType
-Jump	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::Jump(){$/;"	f	class:groundMoveData
+Jump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::Jump(){$/;"	f	class:groundMoveData
 K	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Mat22 K;$/;"	m	struct:b2ContactVelocityConstraint
 K	include/SFML/Window/Keyboard.hpp	/^        K,            \/\/\/< The K key$/;"	e	enum:sf::Keyboard::Key
 Key	include/SFML/Window/Keyboard.hpp	/^    enum Key$/;"	g	class:sf::Keyboard
@@ -734,6 +754,8 @@ LoggedIn	include/SFML/Network/Ftp.hpp	/^            LoggedIn              = 230,
 LostFocus	include/SFML/Window/Event.hpp	/^        LostFocus,              \/\/\/< The window lost the focus (no data)$/;"	e	enum:sf::Event::EventType
 M	include/SFML/Window/Keyboard.hpp	/^        M,            \/\/\/< The M key$/;"	e	enum:sf::Keyboard::Key
 MAP	include/backward/backward.hpp	/^	enum Kind { VALUE, LIST, MAP };$/;"	e	enum:backward::Variable::Kind
+MIN_LOOP	include/noise/tinymt32.c	17;"	d	file:
+MIN_LOOP	include/noise/tinymt64.c	18;"	d	file:
 Magenta	include/SFML/Graphics/Color.hpp	/^    static const Color Magenta;     \/\/\/< Magenta predefined color$/;"	m	class:sf::Color
 MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon13
 Menu	include/SFML/Window/Keyboard.hpp	/^        Menu,         \/\/\/< The Menu key$/;"	e	enum:sf::Keyboard::Key
@@ -802,6 +824,13 @@ Numpad9	include/SFML/Window/Keyboard.hpp	/^        Numpad9,      \/\/\/< The num
 O	include/SFML/Window/Keyboard.hpp	/^        O,            \/\/\/< The O key$/;"	e	enum:sf::Keyboard::Key
 Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name){$/;"	f	class:Object
 Object	core/componentSys/Object.h	/^class Object{$/;"	c
+ObjectFactories	game/factory/objectFactories.h	/^namespace ObjectFactories {$/;"	n
+ObjectMgr	core/componentSys/ObjectMgr.h	/^	ObjectMgr(){};$/;"	f	class:ObjectMgr
+ObjectMgr	core/componentSys/ObjectMgr.h	/^class ObjectMgr{$/;"	c
+ObjectMgrProcess	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:ObjectMgrProcess
+ObjectMgrProcess	core/componentSys/ObjectMgrProcess.h	/^class ObjectMgrProcess : public Process{$/;"	c
+ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^	ObjectProcessor(std::string _name) : name(_name){};$/;"	f	class:ObjectProcessor
+ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^class ObjectProcessor{$/;"	c
 Observer	core/controlFlow/eventMgr.h	/^class Observer{$/;"	c
 Ok	include/SFML/Network/Ftp.hpp	/^            Ok                    = 200, \/\/\/< Command ok$/;"	e	enum:sf::Ftp::Response::Status
 Ok	include/SFML/Network/Http.hpp	/^            Ok             = 200, \/\/\/< Most common code returned when operation was successful$/;"	e	enum:sf::Http::Response::Status
@@ -810,6 +839,7 @@ P	include/SFML/Window/Keyboard.hpp	/^        P,            \/\/\/< The P key$/;"
 PERLINNOISE_H	game/generators/PerlinNoise.h	10;"	d
 PI	core/math/mathUtil.h	/^	const double PI = 3.141592653589793238462;$/;"	m	namespace:util
 PIBy2	core/math/mathUtil.h	/^	const float PIBy2 = PI \/ 2.0;$/;"	m	namespace:util
+PRE_LOOP	include/noise/tinymt32.c	18;"	d	file:
 PRINTANGLE	core/math/mathUtil.h	6;"	d
 PRINTVECTOR2	core/math/vector.h	6;"	d
 Packet	include/SFML/Network/Packet.hpp	/^class SFML_NETWORK_API Packet$/;"	c	namespace:sf
@@ -832,7 +862,12 @@ Period	include/SFML/Window/Keyboard.hpp	/^        Period,       \/\/\/< The . ke
 PerlinNoise	game/generators/PerlinNoise.cpp	/^PerlinNoise::PerlinNoise() {$/;"	f	class:PerlinNoise
 PerlinNoise	game/generators/PerlinNoise.cpp	/^PerlinNoise::PerlinNoise(unsigned int seed) {$/;"	f	class:PerlinNoise
 PerlinNoise	game/generators/PerlinNoise.h	/^class PerlinNoise {$/;"	c
+PhyData	core/componentSys/processor/PhyProcessor.h	/^struct PhyData{$/;"	s
+PhyProcessor	core/componentSys/processor/PhyProcessor.cpp	/^PhyProcessor::PhyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:PhyProcessor
+PhyProcessor	core/componentSys/processor/PhyProcessor.h	/^class PhyProcessor : public ObjectProcessor{$/;"	c
+PickupFactoryInfo	game/factory/objectFactories.h	/^struct PickupFactoryInfo {};$/;"	s	namespace:ObjectFactories
 Pixels	include/SFML/Graphics/Texture.hpp	/^        Pixels      \/\/\/< Texture coordinates in range [0 .. size]$/;"	e	enum:sf::Texture::CoordinateType
+PlayerFactoryInfo	game/factory/objectFactories.h	/^struct PlayerFactoryInfo {};$/;"	s	namespace:ObjectFactories
 Playing	include/SFML/Audio/SoundSource.hpp	/^        Playing  \/\/\/< Sound is playing$/;"	e	enum:sf::SoundSource::Status
 PointlessCommand	include/SFML/Network/Ftp.hpp	/^            PointlessCommand      = 202, \/\/\/< Command not implemented$/;"	e	enum:sf::Ftp::Response::Status
 Points	include/SFML/Graphics/PrimitiveType.hpp	/^    Points,         \/\/\/< List of individual points$/;"	e	enum:sf::PrimitiveType
@@ -845,13 +880,14 @@ PreSolve	include/Box2D/Dynamics/b2WorldCallbacks.h	/^	virtual void PreSolve(b2Co
 PrimitiveType	include/SFML/Graphics/PrimitiveType.hpp	/^enum PrimitiveType$/;"	g	namespace:sf
 Printer	include/backward/backward.hpp	/^	Printer():$/;"	f	class:backward::Printer
 Printer	include/backward/backward.hpp	/^class Printer {$/;"	c	namespace:backward
-Process	core/componentSys/objectMgr.cpp	/^void objectMgr::Process(float dt){$/;"	f	class:objectMgr
-Process	core/componentSys/processor/objectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:objectProcessor
+Process	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::Process(float dt){$/;"	f	class:ObjectMgr
+Process	core/componentSys/processor/ObjectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:ObjectProcessor
 Process	core/controlFlow/Process.h	/^	Process(std::string _name){$/;"	f	class:Process
 Process	core/controlFlow/Process.h	/^class Process{$/;"	c
 Prop	core/componentSys/Property.h	/^	Prop(T value) : val(value){$/;"	f	class:Prop
 Prop	core/componentSys/Property.h	/^	Prop(const Prop<T> &other){$/;"	f	class:Prop
 Prop	core/componentSys/Property.h	/^class Prop : public baseProperty{$/;"	c
+Prop	core/componentSys/Property.h	/^class Prop<void> : public baseProperty {$/;"	c
 Push	include/Box2D/Common/b2GrowableStack.h	/^	void Push(const T& element)$/;"	f	class:b2GrowableStack
 Q	include/SFML/Window/Keyboard.hpp	/^        Q,            \/\/\/< The Q key$/;"	e	enum:sf::Keyboard::Key
 Quads	include/SFML/Graphics/PrimitiveType.hpp	/^    Quads           \/\/\/< List of individual quads$/;"	e	enum:sf::PrimitiveType
@@ -890,6 +926,10 @@ Refilter	include/Box2D/Dynamics/b2Fixture.cpp	/^void b2Fixture::Refilter()$/;"	f
 Register	core/controlFlow/eventMgr.cpp	/^void eventMgr::Register(const Hash *eventName, Observer *observer){$/;"	f	class:eventMgr
 Regular	include/SFML/Graphics/Text.hpp	/^        Regular    = 0,      \/\/\/< Regular characters, no style$/;"	e	enum:sf::Text::Style
 RemoveLeaf	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::RemoveLeaf(int32 leaf)$/;"	f	class:b2DynamicTree
+RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() : centered(false){};$/;"	f	class:RenderData
+RenderData	core/componentSys/processor/RenderProcessor.h	/^class RenderData{$/;"	c
+RenderProcessor	core/componentSys/processor/RenderProcessor.cpp	/^RenderProcessor::RenderProcessor(processMgr &processManager, $/;"	f	class:RenderProcessor
+RenderProcessor	core/componentSys/processor/RenderProcessor.h	/^class RenderProcessor : public ObjectProcessor{$/;"	c
 RenderStates	include/SFML/Graphics/RenderStates.hpp	/^class SFML_GRAPHICS_API RenderStates$/;"	c	namespace:sf
 RenderTarget	include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 RenderTexture	include/SFML/Graphics/RenderTexture.hpp	/^class SFML_GRAPHICS_API RenderTexture : public RenderTarget$/;"	c	namespace:sf
@@ -915,7 +955,7 @@ ResumePorcess	core/controlFlow/processMgr.cpp	/^void processMgr::ResumePorcess(c
 Return	include/SFML/Window/Keyboard.hpp	/^        Return,       \/\/\/< The Return key$/;"	e	enum:sf::Keyboard::Key
 Right	include/SFML/Window/Keyboard.hpp	/^        Right,        \/\/\/< Right arrow$/;"	e	enum:sf::Keyboard::Key
 Right	include/SFML/Window/Mouse.hpp	/^        Right,      \/\/\/< The right mouse button$/;"	e	enum:sf::Mouse::Button
-Rocket	game/generators/gunDataGenerator.h	/^		Rocket = 1,$/;"	e	enum:gunDataGenerator::Archetype
+Rocket	game/generators/GunDataGenerator.h	/^		Rocket = 1,$/;"	e	enum:GunDataGenerator::Archetype
 Row	include/SFML/Graphics/Font.hpp	/^        Row(unsigned int rowTop, unsigned int rowHeight) : width(0), top(rowTop), height(rowHeight) {}$/;"	f	struct:sf::Font::Row
 Row	include/SFML/Graphics/Font.hpp	/^    struct Row$/;"	s	class:sf::Font
 S	include/SFML/Window/Keyboard.hpp	/^        S,            \/\/\/< The S key$/;"	e	enum:sf::Keyboard::Key
@@ -1027,9 +1067,6 @@ SFML_WINDOW_EXPORT_HPP	include/SFML/Window/Export.hpp	26;"	d
 SFML_WINDOW_HPP	include/SFML/Window/Window.hpp	26;"	d
 Save	core/controlFlow/dummyStateSaveLoader.h	/^	 void Save(){ this->doneSaving = true; };$/;"	f	class:dummyStateSaveLoader
 SemiColon	include/SFML/Window/Keyboard.hpp	/^        SemiColon,    \/\/\/< The ; key$/;"	e	enum:sf::Keyboard::Key
-Sense	core/AI/distanceSensor.cpp	/^void distanceSensor::Sense(){$/;"	f	class:distanceSensor
-Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object *_owner,std::string _name) : owner(_owner), name(_name){}$/;"	f	class:Sensor
-Sensor	core/AI/baseAI.h	/^	class Sensor{$/;"	c	namespace:AI
 ServiceNotAvailable	include/SFML/Network/Http.hpp	/^            ServiceNotAvailable = 503, \/\/\/< The server is temporarily unavailable (overloaded, in maintenance, ...)$/;"	e	enum:sf::Http::Response::Status
 ServiceReady	include/SFML/Network/Ftp.hpp	/^            ServiceReady          = 220, \/\/\/< Service ready for new user$/;"	e	enum:sf::Ftp::Response::Status
 ServiceReadySoon	include/SFML/Network/Ftp.hpp	/^            ServiceReadySoon            = 120, \/\/\/< Service ready in N minutes$/;"	e	enum:sf::Ftp::Response::Status
@@ -1228,6 +1265,7 @@ StoreImpulses	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^void b2Conta
 String	include/SFML/System/String.hpp	/^class SFML_SYSTEM_API String$/;"	c	namespace:sf
 Style	include/SFML/Graphics/Text.hpp	/^    enum Style$/;"	g	class:sf::Text
 Style	include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
+Subdivide_	game/terrainGen/terrainGenerator.cpp	/^AABB Subdivide_(Terrain &terrain, int &currentX, int h){$/;"	f
 Subtract	include/SFML/Window/Keyboard.hpp	/^        Subtract,     \/\/\/< The - key$/;"	e	enum:sf::Keyboard::Key
 Synchronize	include/Box2D/Dynamics/b2Fixture.cpp	/^void b2Fixture::Synchronize(b2BroadPhase* broadPhase, const b2Transform& transform1, const b2Transform& transform2)$/;"	f	class:b2Fixture
 SynchronizeFixtures	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::SynchronizeFixtures()$/;"	f	class:b2Body
@@ -1235,14 +1273,30 @@ SynchronizeTransform	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::Synch
 SystemStatus	include/SFML/Network/Ftp.hpp	/^            SystemStatus          = 211, \/\/\/< System status, or system help reply$/;"	e	enum:sf::Ftp::Response::Status
 SystemType	include/SFML/Network/Ftp.hpp	/^            SystemType            = 215, \/\/\/< NAME system type, where NAME is an official system name from the list in the Assigned Numbers document$/;"	e	enum:sf::Ftp::Response::Status
 T	include/SFML/Window/Keyboard.hpp	/^        T,            \/\/\/< The T key$/;"	e	enum:sf::Keyboard::Key
+TINYMT32_H	include/noise/tinymt32.h	2;"	d
+TINYMT32_MASK	include/noise/tinymt32.h	26;"	d
+TINYMT32_MEXP	include/noise/tinymt32.h	22;"	d
+TINYMT32_MUL	include/noise/tinymt32.h	27;"	d
+TINYMT32_SH0	include/noise/tinymt32.h	23;"	d
+TINYMT32_SH1	include/noise/tinymt32.h	24;"	d
+TINYMT32_SH8	include/noise/tinymt32.h	25;"	d
+TINYMT32_T	include/noise/tinymt32.h	/^struct TINYMT32_T {$/;"	s
+TINYMT64_H	include/noise/tinymt64.h	2;"	d
+TINYMT64_MASK	include/noise/tinymt64.h	26;"	d
+TINYMT64_MEXP	include/noise/tinymt64.h	22;"	d
+TINYMT64_MUL	include/noise/tinymt64.h	27;"	d
+TINYMT64_SH0	include/noise/tinymt64.h	23;"	d
+TINYMT64_SH1	include/noise/tinymt64.h	24;"	d
+TINYMT64_SH8	include/noise/tinymt64.h	25;"	d
+TINYMT64_T	include/noise/tinymt64.h	/^struct TINYMT64_T {$/;"	s
 Tab	include/SFML/Window/Keyboard.hpp	/^        Tab,          \/\/\/< The Tabulation key$/;"	e	enum:sf::Keyboard::Key
-Task	core/AI/baseAI.cpp	/^Task::Task(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Task
-Task	core/AI/baseAI.h	/^	class Task{$/;"	c	namespace:AI
 Tcp	include/SFML/Network/Socket.hpp	/^        Tcp, \/\/\/< TCP protocol$/;"	e	enum:sf::Socket::Type
 TcpListener	include/SFML/Network/TcpListener.hpp	/^class SFML_NETWORK_API TcpListener : public Socket$/;"	c	namespace:sf
 TcpSocket	include/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
 Terrain	game/terrainGen/terrain.h	/^	Terrain(unsigned int width, unsigned int height) : width_(width), height_(height), maxHeight_(0) {$/;"	f	struct:Terrain
 Terrain	game/terrainGen/terrain.h	/^struct Terrain {$/;"	s
+TerrainFactoryInfo	game/factory/objectFactories.h	/^	TerrainFactoryInfo (Terrain &terrain_) : terrain(terrain_) {};$/;"	f	struct:ObjectFactories::TerrainFactoryInfo
+TerrainFactoryInfo	game/factory/objectFactories.h	/^struct TerrainFactoryInfo {$/;"	s	namespace:ObjectFactories
 TestOverlap	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2BroadPhase::TestOverlap(int32 proxyIdA, int32 proxyIdB) const$/;"	f	class:b2BroadPhase
 TestPoint	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^bool b2ChainShape::TestPoint(const b2Transform& xf, const b2Vec2& p) const$/;"	f	class:b2ChainShape
 TestPoint	include/Box2D/Collision/Shapes/b2CircleShape.cpp	/^bool b2CircleShape::TestPoint(const b2Transform& transform, const b2Vec2& p) const$/;"	f	class:b2CircleShape
@@ -1254,10 +1308,12 @@ TextEntered	include/SFML/Window/Event.hpp	/^        TextEntered,            \/\/
 TextEvent	include/SFML/Window/Event.hpp	/^    struct TextEvent$/;"	s	class:sf::Event
 Texture	include/SFML/Graphics/Texture.hpp	/^class SFML_GRAPHICS_API Texture : GlResource$/;"	c	namespace:sf
 TextureTable	include/SFML/Graphics/Shader.hpp	/^    typedef std::map<int, const Texture*> TextureTable;$/;"	t	class:sf::Shader
+ThinkFunc	core/AI/baseAI.h	/^	typedef std::function<void(Object*)> ThinkFunc;$/;"	t	namespace:AI
 Thread	include/SFML/System/Thread.hpp	/^class SFML_SYSTEM_API Thread : NonCopyable$/;"	c	namespace:sf
 ThreadLocal	include/SFML/System/ThreadLocal.hpp	/^class SFML_SYSTEM_API ThreadLocal : NonCopyable$/;"	c	namespace:sf
 ThreadLocalPtr	include/SFML/System/ThreadLocalPtr.hpp	/^class ThreadLocalPtr : private ThreadLocal$/;"	c	namespace:sf
 Throw	core/IO/logObject.h	/^		void Throw(){$/;"	f	class:IO::msgLog
+Tick	core/controlFlow/Cooldown.h	/^	Cooldown& Tick(T dt) { $/;"	f	class:Cooldown
 Tilde	include/SFML/Window/Keyboard.hpp	/^        Tilde,        \/\/\/< The ~ key$/;"	e	enum:sf::Keyboard::Key
 Time	include/SFML/System/Time.hpp	/^class SFML_SYSTEM_API Time$/;"	c	namespace:sf
 Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon11
@@ -1312,7 +1368,7 @@ Unwinder	include/backward/backward.hpp	/^class Unwinder {$/;"	c	namespace:backwa
 Up	include/SFML/Window/Keyboard.hpp	/^        Up,           \/\/\/< Up arrow$/;"	e	enum:sf::Keyboard::Key
 Update	core/Rendering/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
 Update	core/World/worldProcess.cpp	/^void worldProcess::Update(float dt){$/;"	f	class:worldProcess
-Update	core/componentSys/objectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:objectMgrProcess
+Update	core/componentSys/ObjectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:ObjectMgrProcess
 Update	core/controlFlow/Process.h	/^	virtual void Update(float dt){};$/;"	f	class:Process
 Update	core/controlFlow/processMgr.cpp	/^void processMgr::Update(float dt){$/;"	f	class:processMgr
 Update	core/controlFlow/stateProcess.h	/^	 void Update(float dt){$/;"	f	class:stateProcess
@@ -1370,48 +1426,44 @@ Yellow	include/SFML/Graphics/Color.hpp	/^    static const Color Yellow;      \/\
 Z	include/SFML/Window/Joystick.hpp	/^        Z,    \/\/\/< The Z axis$/;"	e	enum:sf::Joystick::Axis
 Z	include/SFML/Window/Keyboard.hpp	/^        Z,            \/\/\/< The Z key$/;"	e	enum:sf::Keyboard::Key
 Zero	include/SFML/System/Time.hpp	/^    static const Time Zero; \/\/\/< Predefined "zero" time value $/;"	m	class:sf::Time
-_Cooldown	game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Cooldown(){$/;"	f	class:gunData
+_Cooldown	game/ObjProcessors/GunProcessor.cpp	/^void GunData::_Cooldown(){$/;"	f	class:GunData
 _Dispatch	core/controlFlow/eventMgr.cpp	/^void eventMgr::_Dispatch(Event &newEvent){$/;"	f	class:eventMgr
 _Flush	core/IO/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	c	namespace:IO
 _Flush	core/IO/logObject.h	/^	class _Flush{ public: _Flush(){}; };$/;"	f	class:IO::_Flush
 _GNU_SOURCE	include/backward/backward.hpp	182;"	d
 _GNU_SOURCE	include/backward/backward.hpp	184;"	d
-_Init	core/componentSys/processor/objectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:objectProcessor
+_Init	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:ObjectProcessor
 _Init	core/controlFlow/State.h	/^	virtual void _Init(){};$/;"	f	class:State
 _Init	game/States/gameState.cpp	/^void gameState::_Init(){$/;"	f	class:gameState
 _MurmurHash64B	core/IO/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
-_Process	core/componentSys/processor/objectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:objectProcessor
-_Process	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_Process(Object *obj, float dt){$/;"	f	class:phyProcessor
-_Process	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Process(Object *obj, float dt){$/;"	f	class:renderProcessor
+_Process	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:ObjectProcessor
+_Process	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_Process(Object *obj, float dt){$/;"	f	class:PhyProcessor
+_Process	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Process(Object *obj, float dt){$/;"	f	class:RenderProcessor
 _Process	game/ObjProcessors/AIProcessor.h	/^	void _Process(Object *obj, float dt){};$/;"	f	class:AIProcessor
-_Process	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
-_Process	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:bulletProcessor
-_Process	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
-_Process	game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
-_Process	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_Process(Object *obj, float dt){$/;"	f	class:gunProcessor
-_Process	game/ObjProcessors/healthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
-_Process	game/ObjProcessors/offsetProcessor.h	/^	void _Process(Object *obj, float dt){$/;"	f	class:offsetProcessor
-_Process	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:pickupProcessor
-_Render	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
+_Process	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
+_Process	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:BulletProcessor
+_Process	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
+_Process	game/ObjProcessors/GroundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
+_Process	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_Process(Object *obj, float dt){$/;"	f	class:GunProcessor
+_Process	game/ObjProcessors/HealthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
+_Process	game/ObjProcessors/OffsetProcessor.h	/^	void _Process(Object *obj, float dt){$/;"	f	class:offsetProcessor
+_Process	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:pickupProcessor
+_Render	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:RenderProcessor
 _Simulate	core/World/worldProcess.cpp	/^void worldProcess::_Simulate(){$/;"	f	class:worldProcess
-_Tick	game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Tick(){$/;"	f	class:gunData
+_Tick	game/ObjProcessors/GunProcessor.cpp	/^void GunData::_Tick(float dt){$/;"	f	class:GunData
 _addProcesses	main.cc	/^void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){$/;"	f
 _bfd_loaded	include/backward/backward.hpp	/^	bool                _bfd_loaded;$/;"	m	class:backward::TraceResolverLinuxImpl
-_block2World	game/factory/terrainCreator.cpp	/^vector2 terrainCreator::_block2World(vector2 blockPos) const{$/;"	f	class:terrainCreator
-_bulletCreator	game/gameStateHelpers/gunsManager.h	/^	bulletCreator *_bulletCreator;$/;"	m	class:gunsManager
-_calcCameraMoveAmt	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
-_calcJumpImpulse	game/ObjProcessors/groundMoveProcessor.cpp	/^vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){$/;"	f	class:groundMoveProcessor
-_createBulletCollider	game/generators/bulletDataGenerator.cpp	/^bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long colliderSeed){$/;"	f	class:bulletDataGenerator
+_calcCameraMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
+_calcJumpImpulse	game/ObjProcessors/GroundMoveProcessor.cpp	/^vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){$/;"	f	class:groundMoveProcessor
+_canFire	game/ObjProcessors/GunProcessor.cpp	/^bool GunData::_canFire(){$/;"	f	class:GunData
+_createBulletCollider	game/generators/BulletDataGenerator.cpp	/^BulletCollider* BulletDataGenerator::_createBulletCollider(unsigned long colliderSeed){$/;"	f	class:BulletDataGenerator
 _createDummy	game/States/gameState.cpp	/^void gameState::_createDummy(vector2 levelDim){$/;"	f	class:gameState
 _createEnemies	game/States/gameState.cpp	/^void gameState::_createEnemies(vector2 levelDim){$/;"	f	class:gameState
-_createFilledBlock	game/factory/terrainCreator.cpp	/^void terrainCreator::_createFilledBlock(phyData &phy, vector2 blockPos) const{$/;"	f	class:terrainCreator
-_createGuns	game/States/gameState.cpp	/^Object* gameState::_createGuns(Object *player, vector2 levelDim){$/;"	f	class:gameState
 _createGunsManager	game/gameStateHelpers/playerController.cpp	/^void playerController::_createGunsManager(Object *player){$/;"	f	class:playerController
-_createObjectProcessors	main.cc	/^void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,$/;"	f
+_createObjectProcessors	main.cc	/^void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,$/;"	f
 _createPlayer	game/States/gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
 _createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayer(vector2 initPos, playerCreator *creator){$/;"	f	class:playerController
 _createPlayerEventHandler	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayerEventHandler(playerHandlerData &playerData)$/;"	f	class:playerController
-_createRenderer	game/factory/terrainCreator.cpp	/^renderData terrainCreator::_createRenderer(phyData &phy) const{$/;"	f	class:terrainCreator
 _createStates	main.cc	/^void _createStates(stateProcess *stateProc){$/;"	f
 _demangle_buffer	include/backward/backward.hpp	/^	details::handle<char*> _demangle_buffer;$/;"	m	class:backward::TraceResolverLinuxImplBase
 _demangle_buffer_length	include/backward/backward.hpp	/^	size_t                 _demangle_buffer_length;$/;"	m	class:backward::TraceResolverLinuxImplBase
@@ -1425,30 +1477,26 @@ _extractPhyData	core/World/objContactListener.cpp	/^void objContactListener::_ex
 _f	include/backward/backward.hpp	/^	F*      _f;$/;"	m	class:backward::details::Unwinder
 _file	include/backward/backward.hpp	/^			> _file;$/;"	m	class:backward::SourceFile
 _fillCollisionData	core/World/objContactListener.cpp	/^collisionData objContactListener::_fillCollisionData(b2Contact *contact,$/;"	f	class:objContactListener
-_fireGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_fireGun(){$/;"	f	class:gunsManager
 _fireGun	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_fireGun(){$/;"	f	class:playerEventHandler
-_fireShot	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_fireShot(gunData *data, vector2 pos){$/;"	f	class:gunProcessor
+_fireShot	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_fireShot(GunData *gunData, vector2 pos){$/;"	f	class:GunProcessor
 _fobj_bfd_map	include/backward/backward.hpp	/^	fobj_bfd_map_t      _fobj_bfd_map;$/;"	m	class:backward::TraceResolverLinuxImpl
-_genBulletData	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genBulletData(gunData &data,$/;"	f	class:gunDataGenerator
-_genDamage	game/generators/bulletDataGenerator.cpp	/^damageCollider *bulletDataGenerator::_genDamage(damageProperty &prop){$/;"	f	class:bulletDataGenerator
+_genBulletData	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genBulletData(GunData &data,$/;"	f	class:GunDataGenerator
+_genDamage	game/generators/BulletDataGenerator.cpp	/^damageCollider *BulletDataGenerator::_genDamage(damageProperty &prop){$/;"	f	class:BulletDataGenerator
 _genFloat	game/generators/Generator.h	/^	float _genFloat(float min, float max){$/;"	f	class:Generator
-_genGravity	game/generators/bulletDataGenerator.cpp	/^float bulletDataGenerator::_genGravity(gravityProperty &prop){$/;"	f	class:bulletDataGenerator
+_genGravity	game/generators/BulletDataGenerator.cpp	/^float BulletDataGenerator::_genGravity(gravityProperty &prop){$/;"	f	class:BulletDataGenerator
 _genInt	game/generators/Generator.h	/^	int _genInt(int min, int max){$/;"	f	class:Generator
-_genKnockback	game/generators/bulletDataGenerator.cpp	/^pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){$/;"	f	class:bulletDataGenerator
-_genMachineGun	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genMachineGun(gunData &data){$/;"	f	class:gunDataGenerator
-_genRocket	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genRocket(gunData &data){$/;"	f	class:gunDataGenerator
+_genKnockback	game/generators/BulletDataGenerator.cpp	/^pushCollider *BulletDataGenerator::_genKnockback(knockbackProperty &prop){$/;"	f	class:BulletDataGenerator
+_genMachineGun	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genMachineGun(GunData &data){$/;"	f	class:GunDataGenerator
+_genRocket	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genRocket(GunData &data){$/;"	f	class:GunDataGenerator
 _genUniqueName	core/componentSys/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
 _generateBoundary	game/States/gameState.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
-_generateTerrain	game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, $/;"	f	class:gameState
+_generateTerrain	game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim) {$/;"	f	class:gameState
 _getBaseProp	core/componentSys/Object.cpp	/^baseProperty *Object::_getBaseProp(const Hash *name) const{$/;"	f	class:Object
 _getProcess	core/controlFlow/processMgr.cpp	/^Process *processMgr::_getProcess(const Hash* processName){$/;"	f	class:processMgr
 _getProperty	core/componentSys/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
-_gotoNextGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoNextGun(int skip){$/;"	f	class:gunsManager
-_gotoPrevGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoPrevGun(int skip){$/;"	f	class:gunsManager
-_gunCreator	game/gameStateHelpers/gunsManager.h	/^	gunCreator *_gunCreator;$/;"	m	class:gunsManager
 _handleCollision	core/World/objContactListener.cpp	/^void objContactListener::_handleCollision(collisionData::Type type, b2Contact *contact){$/;"	f	class:objContactListener
-_handleCollision	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){$/;"	f	class:bulletProcessor
-_handleCollision	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_handleCollision(Object *obj, pickupData *data, collisionData &collision){$/;"	f	class:pickupProcessor
+_handleCollision	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_handleCollision(collisionData &collision, BulletData *data, Object *bullet){$/;"	f	class:BulletProcessor
+_handleCollision	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_handleCollision(Object *obj, pickupData *data, collisionData &collision){$/;"	f	class:pickupProcessor
 _handleEvent	core/IO/eventProcess.cpp	/^void eventProcess::_handleEvent(){$/;"	f	class:eventProcess
 _handleKeyPress	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleKeyPress(sf::Event::KeyEvent *event){$/;"	f	class:playerEventHandler
 _handleKeyRelease	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_handleKeyRelease(sf::Event::KeyEvent *event){$/;"	f	class:playerEventHandler
@@ -1464,67 +1512,63 @@ _handleWindowCloseEvent	core/IO/eventProcess.cpp	/^void eventProcess::_handleWin
 _index	include/backward/backward.hpp	/^	ssize_t _index;$/;"	m	class:backward::details::Unwinder
 _initFactory	game/States/gameState.cpp	/^void gameState::_initFactory(){$/;"	f	class:gameState
 _istty	include/backward/backward.hpp	/^	bool       _istty;$/;"	m	class:backward::Colorize
-_limitCameraCoord	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
-_limitMoveAmt	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
+_limitCameraCoord	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
+_limitMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
 _loadSettings	main.cc	/^void _loadSettings(Settings &settings){$/;"	f
 _loaded	include/backward/backward.hpp	/^	bool                   _loaded;$/;"	m	class:backward::SignalHandling
 _nil_trace	include/backward/backward.hpp	/^	TraceWithLocals              _nil_trace;$/;"	m	class:backward::StackTraceWithLocalsImpl
 _normGenFloat	game/generators/Generator.h	/^	float  _normGenFloat(float mean, float deviation ){$/;"	f	class:Generator
 _normGenInt	game/generators/Generator.h	/^	int  _normGenInt(int mean, int deviation ){$/;"	f	class:Generator
 _objectFactory	game/gameStateHelpers/playerController.h	/^	objectFactory *_objectFactory;$/;"	m	class:playerController
-_objectManager	game/gameStateHelpers/playerController.h	/^	objectMgr *_objectManager;$/;"	m	class:playerController
+_objectManager	game/gameStateHelpers/playerController.h	/^	ObjectMgr *_objectManager;$/;"	m	class:playerController
 _observersPresent	core/controlFlow/eventMgr.cpp	/^bool eventMgr::_observersPresent(const Hash *eventName){$/;"	f	class:eventMgr
-_onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectActivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectActivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectAdd	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
-_onObjectAdd	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
-_onObjectAdd	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
-_onObjectAdd	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:bulletProcessor
-_onObjectAdd	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
-_onObjectAdd	game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
-_onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeactivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeactivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeactivate	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:gunProcessor
-_onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeath	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeath	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeath	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:pickupProcessor
+_onObjectActivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectActivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectActivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectAdd	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectAdd	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectAdd	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectAdd	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
+_onObjectAdd	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:BulletProcessor
+_onObjectAdd	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
+_onObjectAdd	game/ObjProcessors/GroundMoveProcessor.cpp	/^void groundMoveProcessor::_onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
+_onObjectDeactivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectDeactivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectDeactivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectDeactivate	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:GunProcessor
+_onObjectDeath	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectDeath	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectDeath	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectDeath	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:pickupProcessor
 _os	include/backward/backward.hpp	/^	std::FILE* _os;$/;"	m	class:backward::Colorize
 _playerController	game/States/gameState.h	/^	playerController *_playerController;$/;"	m	class:gameState
-_preProcess	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_preProcess(){$/;"	f	class:phyProcessor
+_preProcess	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_preProcess(){$/;"	f	class:PhyProcessor
 _printProperties	core/componentSys/Object.cpp	/^void Object::_printProperties() const{$/;"	f	class:Object
-_reloadGunPtrs	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_reloadGunPtrs(){$/;"	f	class:gunsManager
 _reset	include/backward/backward.hpp	/^	bool       _reset;$/;"	m	class:backward::Colorize
 _resolver	include/backward/backward.hpp	/^	TraceResolver  _resolver;$/;"	m	class:backward::Printer
 _sendEvent	core/controlFlow/eventMgr.cpp	/^void eventMgr::_sendEvent(Event &event){$/;"	f	class:eventMgr
 _setStateTransition	core/controlFlow/State.h	/^	void _setStateTransition(std::string _nextStateName){$/;"	f	class:State
-_shouldFire	game/ObjProcessors/gunProcessor.h	/^	bool _shouldFire(){$/;"	f	struct:gunData
-_shouldProcess	core/componentSys/processor/phyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:phyProcessor
-_shouldProcess	core/componentSys/processor/renderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:renderProcessor
+_shouldProcess	core/componentSys/processor/PhyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:PhyProcessor
+_shouldProcess	core/componentSys/processor/RenderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:RenderProcessor
 _shouldProcess	game/ObjProcessors/AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
-_shouldProcess	game/ObjProcessors/airMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:airMoveProcessor
-_shouldProcess	game/ObjProcessors/bulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:bulletProcessor
-_shouldProcess	game/ObjProcessors/cameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
-_shouldProcess	game/ObjProcessors/groundMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:groundMoveProcessor
-_shouldProcess	game/ObjProcessors/gunProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:gunProcessor
-_shouldProcess	game/ObjProcessors/healthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
-_shouldProcess	game/ObjProcessors/offsetProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:offsetProcessor
-_shouldProcess	game/ObjProcessors/pickupProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:pickupProcessor
-_shouldProcess	game/ObjProcessors/terrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
-_simulateCamera	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
+_shouldProcess	game/ObjProcessors/AirMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:airMoveProcessor
+_shouldProcess	game/ObjProcessors/BulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:BulletProcessor
+_shouldProcess	game/ObjProcessors/CameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
+_shouldProcess	game/ObjProcessors/GroundMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:groundMoveProcessor
+_shouldProcess	game/ObjProcessors/GunProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:GunProcessor
+_shouldProcess	game/ObjProcessors/HealthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
+_shouldProcess	game/ObjProcessors/OffsetProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:offsetProcessor
+_shouldProcess	game/ObjProcessors/PickupProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:pickupProcessor
+_shouldProcess	game/ObjProcessors/TerrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
+_simulateCamera	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
 _skip	include/backward/backward.hpp	/^	size_t _skip;$/;"	m	class:backward::StackTraceLinuxImplBase
 _snippets	include/backward/backward.hpp	/^	SnippetFactory _snippets;$/;"	m	class:backward::Printer
 _src_files	include/backward/backward.hpp	/^	src_files_t _src_files;$/;"	m	class:backward::SnippetFactory
 _stack_content	include/backward/backward.hpp	/^	details::handle<char*> _stack_content;$/;"	m	class:backward::SignalHandling
 _stacktrace	include/backward/backward.hpp	/^	std::vector<TraceWithLocals> _stacktrace;$/;"	m	class:backward::StackTraceWithLocalsImpl
 _stacktrace	include/backward/backward.hpp	/^	std::vector<void*> _stacktrace;$/;"	m	class:backward::StackTraceLinuxImplHolder
-_switchGuns	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_switchGuns(Object *prevGun, Object *newGun){$/;"	f	class:gunsManager
 _symbols	include/backward/backward.hpp	/^	details::handle<char**> _symbols;$/;"	m	class:backward::TraceResolverLinuxImpl
 _thread_id	include/backward/backward.hpp	/^	size_t _thread_id;$/;"	m	class:backward::StackTraceLinuxImplBase
-_updateGunAngle	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_updateGunAngle(util::Angle &facing){$/;"	f	class:gunsManager
 _updateGunFacing	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_updateGunFacing(vector2 gameMousePos){$/;"	f	class:playerEventHandler
 _val	include/backward/backward.hpp	/^	T    _val;$/;"	m	class:backward::details::handle
 a	include/Box2D/Collision/b2Distance.cpp	/^	float32 a;		\/\/ barycentric coordinate for closest point$/;"	m	struct:b2SimplexVertex	file:
@@ -1534,54 +1578,54 @@ a	include/SFML/Graphics/Color.hpp	/^    Uint8 a; \/\/\/< Alpha (opacity) compone
 a0	include/Box2D/Common/b2Math.h	/^	float32 a0, a;		\/\/\/< world angles$/;"	m	struct:b2Sweep
 aabb	include/Box2D/Collision/b2DynamicTree.h	/^	b2AABB aabb;$/;"	m	struct:b2TreeNode
 aabb	include/Box2D/Dynamics/b2Fixture.h	/^	b2AABB aabb;$/;"	m	struct:b2FixtureProxy
-abilitySkill	game/generators/bulletDataGenerator.h	/^		int abilitySkill;$/;"	m	struct:bulletDataGenerator::genData
+abilitySkill	game/generators/BulletDataGenerator.h	/^		int abilitySkill;$/;"	m	struct:BulletDataGenerator::genData
 aboveAction	game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
-accumilator	game/ObjProcessors/cameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
+accumilator	game/ObjProcessors/CameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
 action	game/defines/renderingLayers.h	/^	action = -10,$/;"	e	enum:renderingLayers
-activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(Object &obj){$/;"	f	class:objectMgr
-activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(const char* name){$/;"	f	class:objectMgr
+activateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::activateObject(Object &obj){$/;"	f	class:ObjectMgr
+activateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::activateObject(const char* name){$/;"	f	class:ObjectMgr
 active	include/Box2D/Dynamics/b2Body.h	/^	bool active;$/;"	m	struct:b2BodyDef
-activeObjects	core/componentSys/objectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:objectMgr
-addBulletCollder	game/ObjProcessors/bulletProcessor.h	/^	void addBulletCollder(bulletCollider *collider){$/;"	f	struct:bulletData
-addCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
-addCollisionType	game/ObjProcessors/pickupProcessor.h	/^	void addCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
-addEnemyCollision	game/ObjProcessors/bulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:bulletData
-addGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
-addGun	game/gameStateHelpers/playerController.cpp	/^void playerController::addGun(Object *gun, bool currentGun){$/;"	f	class:playerController
-addIgnoreCollision	game/ObjProcessors/bulletProcessor.h	/^	void addIgnoreCollision(const Hash *collision){$/;"	f	struct:bulletData
-addObject	core/componentSys/objectMgr.cpp	/^void objectMgr::addObject(Object *obj){$/;"	f	class:objectMgr
-addObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
-addObjectProcessor	core/componentSys/objectMgrProcess.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgrProcess
+activeObjects	core/componentSys/ObjectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:ObjectMgr
+addBulletCollder	game/ObjProcessors/BulletProcessor.h	/^	void addBulletCollder(BulletCollider *collider){$/;"	f	struct:BulletData
+addChild	core/componentSys/Object.cpp	/^void Object::addChild(Object *child){$/;"	f	class:Object
+addCollision	core/componentSys/processor/PhyProcessor.cpp	/^void PhyData::addCollision(collisionData &collision){$/;"	f	class:PhyData
+addCollisionType	game/ObjProcessors/PickupProcessor.h	/^	void addCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
+addEnemyCollision	game/ObjProcessors/BulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:BulletData
+addGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun_(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
+addIgnoreCollision	game/ObjProcessors/BulletProcessor.h	/^	void addIgnoreCollision(const Hash *collision){$/;"	f	struct:BulletData
+addObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::addObject(Object *obj){$/;"	f	class:ObjectMgr
+addObjectProcessor	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::addObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgr
+addObjectProcessor	core/componentSys/ObjectMgrProcess.h	/^	void addObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgrProcess
 addProcess	core/controlFlow/processMgr.cpp	/^void processMgr::addProcess(Process *p){$/;"	f	class:processMgr
-addProcessToken	core/componentSys/processor/objectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:objectProcessor
+addProcessToken	core/componentSys/processor/ObjectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:ObjectProcessor
 addProp	core/IO/Settings.h	/^	void addProp(const Hash *propertyName, baseProperty* property){$/;"	f	class:Settings
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const Hash *name, baseProperty *value){$/;"	f	class:Object
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const char *name, baseProperty *value){$/;"	f	class:Object
 addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){$/;"	f	class:renderProcess
-addRenderer	core/componentSys/processor/renderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:renderData
+addRenderer	core/componentSys/processor/RenderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:RenderData
 addState	core/controlFlow/stateProcess.h	/^ 	 void addState(State *state, bool currentState){$/;"	f	class:stateProcess
 addr	include/backward/backward.hpp	/^		void* addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
 addr	include/backward/backward.hpp	/^	void*  addr;$/;"	m	struct:backward::Trace
 address	include/backward/backward.hpp	/^	bool address;$/;"	m	class:backward::Printer
 advance	include/SFML/Graphics/Glyph.hpp	/^    int     advance;     \/\/\/< Offset to move horizontically to the next character$/;"	m	class:sf::Glyph
-airMoveData	game/ObjProcessors/airMoveProcessor.h	/^struct airMoveData{$/;"	s
-airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:airMoveProcessor
-airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^class airMoveProcessor : public objectProcessor{$/;"	c
+airMoveData	game/ObjProcessors/AirMoveProcessor.h	/^struct airMoveData{$/;"	s
+airMoveProcessor	game/ObjProcessors/AirMoveProcessor.h	/^	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:airMoveProcessor
+airMoveProcessor	game/ObjProcessors/AirMoveProcessor.h	/^class airMoveProcessor : public ObjectProcessor{$/;"	c
 allocator	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2StackAllocator* allocator;$/;"	m	struct:b2ContactSolverDef
 allowSleep	include/Box2D/Dynamics/b2Body.h	/^	bool allowSleep;$/;"	m	struct:b2BodyDef
 alpha0	include/Box2D/Common/b2Math.h	/^	float32 alpha0;$/;"	m	struct:b2Sweep
 alt	include/SFML/Window/Event.hpp	/^        bool          alt;     \/\/\/< Is the Alt key pressed?$/;"	m	struct:sf::Event::KeyEvent
-angle	game/ObjProcessors/bulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:bulletData
+angle	game/ObjProcessors/BulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:BulletData
 angle	include/Box2D/Dynamics/b2Body.h	/^	float32 angle;$/;"	m	struct:b2BodyDef
 angleInRad	core/math/mathUtil.h	/^		float angleInRad;$/;"	m	class:util::Angle
-angleOffset	game/ObjProcessors/offsetProcessor.h	/^	util::Angle angleOffset;$/;"	m	struct:offsetData
+angleOffset	game/ObjProcessors/OffsetProcessor.h	/^	util::Angle angleOffset;$/;"	m	struct:offsetData
 angularA	include/Box2D/Dynamics/Joints/b2Joint.h	/^	float32 angularA;$/;"	m	struct:b2Jacobian
 angularB	include/Box2D/Dynamics/Joints/b2Joint.h	/^	float32 angularB;$/;"	m	struct:b2Jacobian
 angularDamping	include/Box2D/Dynamics/b2Body.h	/^	float32 angularDamping;$/;"	m	struct:b2BodyDef
 angularOffset	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 angularOffset;$/;"	m	struct:b2MotorJointDef
 angularVelocity	include/Box2D/Dynamics/b2Body.h	/^	float32 angularVelocity;$/;"	m	struct:b2BodyDef
 antialiasingLevel	include/SFML/Window/ContextSettings.hpp	/^    unsigned int antialiasingLevel; \/\/\/< Level of antialiasing$/;"	m	struct:sf::ContextSettings
-archetype	game/generators/gunDataGenerator.h	/^	Archetype archetype;$/;"	m	class:gunDataGenerator
+archetype	game/generators/GunDataGenerator.h	/^	Archetype archetype;$/;"	m	class:GunDataGenerator
 attachObjectCreator	game/factory/objectFactory.cpp	/^void objectFactory::attachObjectCreator(const Hash *objName, objectCreator *creator){$/;"	f	class:objectFactory
 awake	include/Box2D/Dynamics/b2Body.h	/^	bool awake;$/;"	m	struct:b2BodyDef
 axis	include/SFML/Window/Event.hpp	/^        Joystick::Axis axis;       \/\/\/< Axis on which the joystick moved$/;"	m	struct:sf::Event::JoystickMoveEvent
@@ -1906,46 +1950,39 @@ baseRenderNode	core/Rendering/renderProcess.h	/^	class baseRenderNode{$/;"	c	cla
 base_addr	include/backward/backward.hpp	/^		bfd_vma      base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
 base_addr	include/backward/backward.hpp	/^		void* base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
 begin	include/backward/backward.hpp	/^	void** begin() {$/;"	f	class:backward::StackTraceLinuxImplHolder
-beginVel	game/ObjProcessors/bulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:bulletData
+beginVel	game/ObjProcessors/BulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:BulletData
 belowAction	game/defines/renderingLayers.h	/^	belowAction = -11,$/;"	e	enum:renderingLayers
 bfd_fileobject	include/backward/backward.hpp	/^	struct bfd_fileobject {$/;"	s	class:backward::TraceResolverLinuxImpl
 bfd_handle_t	include/backward/backward.hpp	/^				> bfd_handle_t;$/;"	t	class:backward::TraceResolverLinuxImpl
 bfd_symtab_t	include/backward/backward.hpp	/^	typedef details::handle<asymbol**> bfd_symtab_t;$/;"	t	class:backward::TraceResolverLinuxImpl
 bitsPerPixel	include/SFML/Window/VideoMode.hpp	/^    unsigned int bitsPerPixel; \/\/\/< Video mode pixel depth, in bits per pixels$/;"	m	class:sf::VideoMode
 blendMode	include/SFML/Graphics/RenderStates.hpp	/^    BlendMode      blendMode; \/\/\/< Blending mode$/;"	m	class:sf::RenderStates
-blockDim	game/factory/terrainCreator.h	/^	vector2 blockDim;$/;"	m	class:terrainCreator
+blockDim	game/factory/objectFactories.h	/^	vector2 blockDim;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
 blockSize	include/Box2D/Common/b2BlockAllocator.cpp	/^	int32 blockSize;$/;"	m	struct:b2Chunk	file:
 blocks	include/Box2D/Common/b2BlockAllocator.cpp	/^	b2Block* blocks;$/;"	m	struct:b2Chunk	file:
-body	core/componentSys/processor/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:phyData
+body	core/componentSys/processor/PhyProcessor.h	/^	b2Body *body;$/;"	m	struct:PhyData
 bodyA	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyA;$/;"	m	struct:b2JointDef
 bodyB	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* bodyB;$/;"	m	struct:b2JointDef
-bodyDef	core/componentSys/processor/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
-bounceCollider	game/bulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
-bounceCollider	game/bulletColliders/bounceCollider.h	/^class bounceCollider : public bulletCollider{$/;"	c
+bodyDef	core/componentSys/processor/PhyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:PhyData
+bounceCollider	game/BulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
+bounceCollider	game/BulletColliders/bounceCollider.h	/^class bounceCollider : public BulletCollider{$/;"	c
 boundaryCreator	game/factory/boundaryCreator.h	/^	boundaryCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:boundaryCreator
 boundaryCreator	game/factory/boundaryCreator.h	/^class boundaryCreator : public objectCreator{$/;"	c
 bounds	include/SFML/Graphics/Glyph.hpp	/^    IntRect bounds;      \/\/\/< Bounding rectangle of the glyph, in coordinates relative to the baseline$/;"	m	class:sf::Glyph
-boxHalfH	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
-boxHalfW	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
+boxHalfH	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
+boxHalfW	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
 broadPhase	include/Box2D/Dynamics/b2World.cpp	/^	const b2BroadPhase* broadPhase;$/;"	m	struct:b2WorldQueryWrapper	file:
 broadPhase	include/Box2D/Dynamics/b2World.cpp	/^	const b2BroadPhase* broadPhase;$/;"	m	struct:b2WorldRayCastWrapper	file:
 broadphase	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 broadphase;$/;"	m	struct:b2Profile
-buletVel	game/ObjProcessors/gunProcessor.h	/^	float buletVel;$/;"	m	struct:gunData
-bullet	game/ObjProcessors/gunProcessor.h	/^	bulletData bullet;$/;"	m	struct:gunData
-bullet	game/factory/bulletCreator.h	/^	bulletData bullet;$/;"	m	class:bulletCreator
+bullet	game/factory/bulletCreator.h	/^	BulletData bullet;$/;"	m	class:bulletCreator
 bullet	include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-bulletCollider	game/ObjProcessors/bulletProcessor.h	/^	bulletCollider(){};$/;"	f	class:bulletCollider
-bulletCollider	game/ObjProcessors/bulletProcessor.h	/^class bulletCollider{$/;"	c
 bulletCreator	game/factory/bulletCreator.h	/^	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:bulletCreator
 bulletCreator	game/factory/bulletCreator.h	/^class bulletCreator : public objectCreator{$/;"	c
-bulletData	game/ObjProcessors/bulletProcessor.h	/^	bulletData(){$/;"	f	struct:bulletData
-bulletData	game/ObjProcessors/bulletProcessor.h	/^struct bulletData{$/;"	s
-bulletDataGenerator	game/generators/bulletDataGenerator.cpp	/^bulletDataGenerator::bulletDataGenerator(genData _data,$/;"	f	class:bulletDataGenerator
-bulletDataGenerator	game/generators/bulletDataGenerator.h	/^class bulletDataGenerator : public Generator{$/;"	c
-bulletPos	game/ObjProcessors/gunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:gunData
-bulletProcessor	game/ObjProcessors/bulletProcessor.h	/^	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:bulletProcessor
-bulletProcessor	game/ObjProcessors/bulletProcessor.h	/^class bulletProcessor : public objectProcessor{$/;"	c
-bulletRadius	game/ObjProcessors/gunProcessor.h	/^	float bulletRadius;$/;"	m	struct:gunData
+bulletData	game/ObjProcessors/GunProcessor.h	/^	BulletData bulletData;$/;"	m	struct:GunData
+bulletData	game/factory/objectFactories.h	/^	BulletData bulletData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+bulletPos	game/ObjProcessors/GunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:GunData
+bulletRadius	game/ObjProcessors/GunProcessor.h	/^	float bulletRadius;$/;"	m	struct:GunData
+bulletVel	game/ObjProcessors/GunProcessor.h	/^	float bulletVel;$/;"	m	struct:GunData
 button	include/SFML/Window/Event.hpp	/^        Mouse::Button button; \/\/\/< Code of the button that has been pressed$/;"	m	struct:sf::Event::MouseButtonEvent
 button	include/SFML/Window/Event.hpp	/^        unsigned int button;     \/\/\/< Index of the button that has been pressed (in range [0 .. Joystick::ButtonCount - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 c	include/Box2D/Common/b2Math.h	/^	b2Vec2 c0, c;		\/\/\/< center world positions$/;"	m	struct:b2Sweep
@@ -1961,39 +1998,42 @@ callback	include/backward/backward.hpp	/^		callback(StackTraceWithLocalsImpl& se
 callback	include/backward/backward.hpp	/^	struct callback {$/;"	s	class:backward::StackTraceImpl
 callback	include/backward/backward.hpp	/^	struct callback {$/;"	s	class:backward::StackTraceWithLocalsImpl
 camData	game/factory/playerCreator.h	/^	cameraData camData;$/;"	m	class:playerCreator
-cameraCenter	game/ObjProcessors/cameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
-cameraData	game/ObjProcessors/cameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
-cameraData	game/ObjProcessors/cameraProcessor.h	/^struct cameraData{$/;"	s
-cameraProcessor	game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:cameraProcessor
-cameraProcessor	game/ObjProcessors/cameraProcessor.h	/^class cameraProcessor : public objectProcessor{$/;"	c
+cameraCenter	game/ObjProcessors/CameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
+cameraData	game/ObjProcessors/CameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
+cameraData	game/ObjProcessors/CameraProcessor.h	/^struct cameraData{$/;"	s
+cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:cameraProcessor
+cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^class cameraProcessor : public ObjectProcessor{$/;"	c
 cast	core/math/vector.h	/^	T cast() const{$/;"	f	class:vector2
 cast	core/math/vector.h	/^	static vector2 cast(const T &otherVec){$/;"	f	class:vector2
 categoryBits	include/Box2D/Dynamics/b2Fixture.h	/^	uint16 categoryBits;$/;"	m	struct:b2Filter
 center	core/math/AABB.h	/^	vector2 center;$/;"	m	class:AABB
 center	include/Box2D/Collision/Shapes/b2Shape.h	/^	b2Vec2 center;$/;"	m	struct:b2MassData
-centered	core/componentSys/processor/renderProcessor.h	/^	bool centered;$/;"	m	class:renderData
+centered	core/componentSys/processor/RenderProcessor.h	/^	bool centered;$/;"	m	class:RenderData
 cf	include/Box2D/Collision/b2Collision.h	/^	b2ContactFeature cf;$/;"	m	union:b2ContactID
 changingState	core/controlFlow/State.h	/^	 bool changingState;$/;"	m	class:State
 child1	include/Box2D/Collision/b2DynamicTree.h	/^	int32 child1;$/;"	m	struct:b2TreeNode
 child2	include/Box2D/Collision/b2DynamicTree.h	/^	int32 child2;$/;"	m	struct:b2TreeNode
 childIndex	include/Box2D/Dynamics/b2Fixture.h	/^	int32 childIndex;$/;"	m	struct:b2FixtureProxy
+children	core/componentSys/Object.h	/^	std::vector<Object *>children;$/;"	m	class:Object
+clamp	core/math/mathUtil.h	/^	T clamp(const T& n, const T& lower, const T& upper) {$/;"	f	namespace:util
 clamp	core/math/vector.h	/^	vector2 clamp(const vector2 &minVec, const vector2 &maxVec){$/;"	f	class:vector2
 clearColor	core/Rendering/windowProcess.h	/^	sf::Color clearColor;$/;"	m	class:windowProcess
-clipOnCooldown	game/ObjProcessors/gunProcessor.h	/^	bool clipOnCooldown;$/;"	m	struct:gunData
+clipCooldown	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> clipCooldown;$/;"	m	struct:GunData
+clipSize	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> clipSize;$/;"	m	struct:GunData
 code	include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code of the key that has been pressed$/;"	m	struct:sf::Event::KeyEvent
 col	include/backward/backward.hpp	/^		unsigned    col;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
 collide	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 collide;$/;"	m	struct:b2Profile
 collideConnected	include/Box2D/Dynamics/Joints/b2Joint.h	/^	bool collideConnected;$/;"	m	struct:b2JointDef
-colliders	game/ObjProcessors/bulletProcessor.h	/^	std::vector<bulletCollider *> colliders;$/;"	m	struct:bulletData
+colliders	game/ObjProcessors/BulletProcessor.h	/^	std::vector<BulletCollider *> colliders;$/;"	m	struct:BulletData
 collisionData	core/World/objContactListener.h	/^struct collisionData{$/;"	s
 collisionIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
-collisionType	core/componentSys/processor/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
-collisions	core/componentSys/processor/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
+collisionType	core/componentSys/processor/PhyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:PhyData
+collisions	core/componentSys/processor/PhyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:PhyData
 color	include/SFML/Graphics/Vertex.hpp	/^    Color     color;     \/\/\/< Color of the vertex$/;"	m	class:sf::Vertex
 color	include/backward/backward.hpp	/^	bool color;$/;"	m	class:backward::Printer
 contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 contactIndex	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	int32 contactIndex;$/;"	m	struct:b2ContactVelocityConstraint
-contactListener	core/componentSys/processor/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
+contactListener	core/componentSys/processor/PhyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:PhyProcessor
 contacts	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Contact** contacts;$/;"	m	struct:b2ContactSolverDef
 control	include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 correctionFactor	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 correctionFactor;$/;"	m	struct:b2MotorJointDef
@@ -2013,7 +2053,6 @@ createObject	game/factory/enemyCreator.h	/^	Object *createObject(vector2 _pos) c
 createObject	game/factory/gunCreator.h	/^	Object *createObject(vector2 gunPos) const{$/;"	f	class:gunCreator
 createObject	game/factory/pickupCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:pickupCreator
 createObject	game/factory/playerCreator.h	/^	Object *createObject(vector2 playerInitPos) const{$/;"	f	class:playerCreator
-createObject	game/factory/terrainCreator.cpp	/^Object *terrainCreator::createObject(vector2 pos) const{$/;"	f	class:terrainCreator
 createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCreator *creator,$/;"	f	class:playerController
 createPolyShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
 createRectangleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){$/;"	f	class:renderUtil
@@ -2021,7 +2060,6 @@ createSaveLoader	game/States/gameSegmentLoader.h	/^	stateSaveLoader *createSaveL
 createSaveLoader	game/States/gameState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameState
 createSaveLoader	game/States/mainMenuState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:mainMenuState
 createShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createShape(const b2Shape *shape, viewProcess *view){$/;"	f	class:renderUtil
-creator	game/ObjProcessors/gunProcessor.h	/^	bulletCreator *creator;$/;"	m	struct:gunData
 creators	game/factory/objectFactory.h	/^	std::map<const Hash *, objectCreator* >creators; 	$/;"	m	class:objectFactory
 cstrings_eq	include/backward/backward.hpp	/^	bool cstrings_eq(const char* a, const char* b) {$/;"	f	class:backward::TraceResolverLinuxImpl
 current	include/backward/backward.hpp	/^	typedef backtrace current;$/;"	t	namespace:backward::stacktrace_tag
@@ -2029,35 +2067,33 @@ current	include/backward/backward.hpp	/^	typedef backtrace_symbol current;$/;"	t
 current	include/backward/backward.hpp	/^	typedef libbfd current;$/;"	t	namespace:backward::trace_resolver_tag
 current	include/backward/backward.hpp	/^	typedef libdw current;$/;"	t	namespace:backward::trace_resolver_tag
 current	include/backward/backward.hpp	/^	typedef unwind current;$/;"	t	namespace:backward::stacktrace_tag
-currentClipCooldown	game/ObjProcessors/gunProcessor.h	/^	int currentClipCooldown;$/;"	m	struct:gunData
-currentClipSize	game/ObjProcessors/gunProcessor.h	/^	int currentClipSize;$/;"	m	struct:gunData
-currentGun	game/gameStateHelpers/gunsManager.h	/^	Object *currentGun;$/;"	m	class:gunsManager
-currentGunData	game/gameStateHelpers/gunsManager.h	/^	gunData *currentGunData;$/;"	m	class:gunsManager
-currentGunIndex	game/gameStateHelpers/gunsManager.h	/^	int currentGunIndex;$/;"	m	class:gunsManager
-currentHP	game/ObjProcessors/healthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
+currentClipSize	game/ObjProcessors/GunProcessor.h	/^	int currentClipSize;$/;"	m	struct:GunData
+currentCooldown_	core/controlFlow/Cooldown.h	/^	T currentCooldown_;$/;"	m	class:Cooldown
+currentGunIndex_	game/gameStateHelpers/gunsManager.h	/^	int currentGunIndex_;$/;"	m	class:gunsManager
+currentGun_	game/gameStateHelpers/gunsManager.h	/^	Object *currentGun_;$/;"	m	class:gunsManager
+currentHP	game/ObjProcessors/HealthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
 currentState	core/controlFlow/stateProcess.h	/^	State *currentState;$/;"	m	class:stateProcess
 current_tag	include/backward/backward.hpp	/^	typedef linux_tag current_tag;$/;"	t	namespace:backward::system_tag
 current_tag	include/backward/backward.hpp	/^	typedef unknown_tag current_tag;$/;"	t	namespace:backward::system_tag
-currrentShotCooldown	game/ObjProcessors/gunProcessor.h	/^	int currrentShotCooldown;$/;"	m	struct:gunData
-damage	game/bulletColliders/damageCollider.h	/^	float damage;$/;"	m	class:damageCollider
-damage	game/generators/bulletDataGenerator.h	/^		damageProperty	damage;$/;"	m	struct:bulletDataGenerator::genData
-damageCollider	game/bulletColliders/damageCollider.h	/^	damageCollider(float damage){$/;"	f	class:damageCollider
-damageCollider	game/bulletColliders/damageCollider.h	/^class damageCollider : public bulletCollider{$/;"	c
-damageProperty	game/generators/bulletDataGenerator.h	/^	enum damageProperty{$/;"	g	class:bulletDataGenerator
+damage	game/BulletColliders/damageCollider.h	/^	float damage;$/;"	m	class:damageCollider
+damage	game/generators/BulletDataGenerator.h	/^		damageProperty	damage;$/;"	m	struct:BulletDataGenerator::genData
+damageCollider	game/BulletColliders/damageCollider.h	/^	damageCollider(float damage){$/;"	f	class:damageCollider
+damageCollider	game/BulletColliders/damageCollider.h	/^class damageCollider : public BulletCollider{$/;"	c
+damageProperty	game/generators/BulletDataGenerator.h	/^	enum damageProperty{$/;"	g	class:BulletDataGenerator
 damping	include/Box2D/Rope/b2Rope.h	/^	float32 damping;$/;"	m	struct:b2RopeDef
 dampingRatio	include/Box2D/Dynamics/Joints/b2DistanceJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2DistanceJointDef
 dampingRatio	include/Box2D/Dynamics/Joints/b2MouseJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2MouseJointDef
 dampingRatio	include/Box2D/Dynamics/Joints/b2WeldJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2WeldJointDef
 dampingRatio	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 dampingRatio;$/;"	m	struct:b2WheelJointDef
 data	core/controlFlow/eventMgr.h	/^		baseProperty *data; $/;"	m	struct:eventMgr::Event
-data	game/generators/bulletDataGenerator.h	/^	genData data;$/;"	m	class:bulletDataGenerator
+data	game/generators/BulletDataGenerator.h	/^	genData data;$/;"	m	class:BulletDataGenerator
 data	include/Box2D/Common/b2StackAllocator.h	/^	char* data;$/;"	m	struct:b2StackEntry
-deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(Object &obj){$/;"	f	class:objectMgr
-deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(const char* name){$/;"	f	class:objectMgr
+deactivateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::deactivateObject(Object &obj){$/;"	f	class:ObjectMgr
+deactivateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::deactivateObject(const char* name){$/;"	f	class:ObjectMgr
 dead	core/componentSys/Object.h	/^	bool dead;$/;"	m	class:Object
 debugStr	core/math/mathUtil.h	/^		std::string debugStr(){$/;"	f	class:util::Angle
 deep_first_search_by_pc	include/backward/backward.hpp	/^		static bool deep_first_search_by_pc(Dwarf_Die* parent_die,$/;"	f	class:backward::TraceResolverLinuxImpl
-defaultGravity	game/generators/bulletDataGenerator.h	/^		defaultGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
+defaultGravity	game/generators/BulletDataGenerator.h	/^		defaultGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
 defaultView	core/Rendering/viewProcess.h	/^	sf::View defaultView;$/;"	m	class:viewProcess
 default_delete	include/backward/backward.hpp	/^struct default_delete {$/;"	s	namespace:backward::details
 deleter	include/backward/backward.hpp	/^struct deleter {$/;"	s	namespace:backward::details
@@ -2071,10 +2107,8 @@ details	include/backward/backward.hpp	/^	namespace details {$/;"	n	namespace:bac
 details	include/backward/backward.hpp	/^namespace details {$/;"	n	namespace:backward
 die_call_file	include/backward/backward.hpp	/^	static const char* die_call_file(Dwarf_Die *die) {$/;"	f	class:backward::TraceResolverLinuxImpl
 die_has_pc	include/backward/backward.hpp	/^	static bool die_has_pc(Dwarf_Die* die, Dwarf_Addr pc) {$/;"	f	class:backward::TraceResolverLinuxImpl
-dir	game/ObjProcessors/airMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
+dir	game/ObjProcessors/AirMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
 distance	include/Box2D/Collision/b2Distance.h	/^	float32 distance;$/;"	m	struct:b2DistanceOutput
-distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object *owner, b2World *world, std::string targetClass) :$/;"	f	class:distanceSensor
-distanceSensor	core/AI/distanceSensor.h	/^class distanceSensor : public AI::Sensor{$/;"	c
 doneLoading	core/controlFlow/stateSaveLoader.h	/^	bool doneLoading;$/;"	m	class:stateSaveLoader
 doneLoading	game/States/gameSegmentLoader.h	/^	bool doneLoading;$/;"	m	class:gameSegmentLoader
 doneSaving	core/controlFlow/stateSaveLoader.h	/^	bool doneSaving;$/;"	m	class:stateSaveLoader
@@ -2161,21 +2195,21 @@ enableMotor	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	bool enableMotor
 enableMotor	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	bool enableMotor;$/;"	m	struct:b2RevoluteJointDef
 enableMotor	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	bool enableMotor;$/;"	m	struct:b2WheelJointDef
 enabled	core/IO/logObject.h	/^		bool enabled;$/;"	m	class:IO::scopedLog
-enabled	game/ObjProcessors/cameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
+enabled	game/ObjProcessors/CameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
 enemyCollision	game/factory/bulletCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:bulletCreator
 enemyCollision	game/factory/enemyCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:enemyCreator
 enemyCollision	game/factory/gunCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:gunCreator
-enemyCollisions	game/ObjProcessors/bulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:bulletData
+enemyCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:BulletData
 enemyCreator	game/factory/enemyCreator.h	/^	enemyCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:enemyCreator
 enemyCreator	game/factory/enemyCreator.h	/^class enemyCreator : public objectCreator{$/;"	c
 errorLog	core/IO/logObject.h	/^	static IO::msgLog<logLevelError> errorLog;$/;"	m	namespace:IO
 event	core/IO/eventProcess.h	/^ 	sf::Event event;$/;"	m	class:eventProcess
-eventData	game/ObjProcessors/pickupProcessor.h	/^	baseProperty *eventData;$/;"	m	struct:pickupData
+eventData	game/ObjProcessors/PickupProcessor.h	/^	baseProperty *eventData;$/;"	m	struct:pickupData
 eventManager	core/IO/eventProcess.h	/^ 	eventMgr &eventManager;$/;"	m	class:eventProcess
 eventManager	core/Rendering/viewProcess.h	/^	eventMgr &eventManager;$/;"	m	class:viewProcess
 eventManager	core/controlFlow/State.h	/^	eventMgr *eventManager;$/;"	m	class:State
 eventManager	core/controlFlow/stateProcess.h	/^	eventMgr &eventManager;$/;"	m	class:stateProcess
-eventManager	game/ObjProcessors/pickupProcessor.h	/^	eventMgr &eventManager;$/;"	m	class:pickupProcessor
+eventManager	game/ObjProcessors/PickupProcessor.h	/^	eventMgr &eventManager;$/;"	m	class:pickupProcessor
 eventManager	game/gameStateHelpers/playerEventHandler.h	/^	eventMgr *eventManager;$/;"	m	class:playerEventHandler
 eventMgr	core/controlFlow/eventMgr.cpp	/^eventMgr::eventMgr(){$/;"	f	class:eventMgr
 eventMgr	core/controlFlow/eventMgr.h	/^class eventMgr{$/;"	c
@@ -2184,13 +2218,11 @@ eventProcess	core/IO/eventProcess.h	/^ class eventProcess : public Process{$/;"	
 events	core/controlFlow/eventMgr.h	/^	std::queue <Event>events;$/;"	m	class:eventMgr
 ex	include/Box2D/Common/b2Math.h	/^	b2Vec2 ex, ey;$/;"	m	struct:b2Mat22
 ex	include/Box2D/Common/b2Math.h	/^	b2Vec3 ex, ey, ez;$/;"	m	struct:b2Mat33
-executorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Executor> executorMap;$/;"	t	class:AI::Executor
-executors	core/AI/baseAI.h	/^		Executor::executorMap executors;$/;"	m	class:AI::Brain
 ey	include/Box2D/Common/b2Math.h	/^	b2Vec2 ex, ey;$/;"	m	struct:b2Mat22
 ey	include/Box2D/Common/b2Math.h	/^	b2Vec3 ex, ey, ez;$/;"	m	struct:b2Mat33
 ez	include/Box2D/Common/b2Math.h	/^	b2Vec3 ex, ey, ez;$/;"	m	struct:b2Mat33
 fProp	core/componentSys/Property.h	/^typedef Prop<float> fProp;$/;"	t
-facing	game/ObjProcessors/gunProcessor.h	/^	util::Angle facing;$/;"	m	struct:gunData
+facing	game/ObjProcessors/GunProcessor.h	/^	util::Angle facing;$/;"	m	struct:GunData
 fade	game/generators/PerlinNoise.cpp	/^double PerlinNoise::fade(double t) { $/;"	f	class:PerlinNoise
 filename	include/backward/backward.hpp	/^		const char* filename;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
 filename	include/backward/backward.hpp	/^		std::string filename;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
@@ -2202,12 +2234,13 @@ find_sym_context	include/backward/backward.hpp	/^	struct find_sym_context {$/;"	
 find_sym_result	include/backward/backward.hpp	/^	struct find_sym_result {$/;"	s	class:backward::TraceResolverLinuxImpl
 find_symbol_details	include/backward/backward.hpp	/^	find_sym_result find_symbol_details(bfd_fileobject& fobj, void* addr,$/;"	f	class:backward::TraceResolverLinuxImpl
 fireGun	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key fireGun;$/;"	m	struct:playerHandlerData
-firing	game/ObjProcessors/gunProcessor.h	/^	bool firing;$/;"	m	struct:gunData
+fireGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::fireGun_(){$/;"	f	class:gunsManager
 firing	game/gameStateHelpers/playerEventHandler.h	/^	bool firing;$/;"	m	class:playerEventHandler
 fixedRotation	include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 fixture	include/Box2D/Dynamics/b2Fixture.h	/^	b2Fixture* fixture;$/;"	m	struct:b2FixtureProxy
-fixtureDef	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:phyData
-fixtures	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:phyData
+fixtureDef	core/componentSys/processor/PhyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:PhyData
+fixtures	core/componentSys/processor/PhyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:PhyData
+float01	game/terrainGen/terrainGenerator.cpp	11;"	d	file:
 float32	include/Box2D/Common/b2Settings.h	/^typedef float float32;$/;"	t
 float64	include/Box2D/Common/b2Settings.h	/^typedef double float64;$/;"	t
 flush	core/IO/logObject.h	/^	static const _Flush flush;$/;"	m	namespace:IO
@@ -2232,12 +2265,12 @@ gameSegmentLoader	game/States/gameSegmentLoader.h	/^	gameSegmentLoader() : State
 gameSegmentLoader	game/States/gameSegmentLoader.h	/^class gameSegmentLoader : public State{$/;"	c
 gameState	game/States/gameState.h	/^	gameState() : State("gameState"){};$/;"	f	class:gameState
 gameState	game/States/gameState.h	/^class gameState : public State{$/;"	c
+genAreas	game/terrainGen/terrainGenerator.cpp	/^void genAreas(Terrain &terrain, tinymt32_t &mt, vector2 minRoomSize){$/;"	f
 genBorders	game/terrainGen/terrainGenerator.cpp	/^void genBorders(Terrain &terrain) {$/;"	f
-genCarver	game/terrainGen/terrainGenerator.cpp	/^void genCarver(Terrain &terrain, unsigned int seed, unsigned int steps, unsigned int thickness) {$/;"	f
-genData	game/generators/bulletDataGenerator.h	/^		genData(knockbackProperty knockback,$/;"	f	struct:bulletDataGenerator::genData
-genData	game/generators/bulletDataGenerator.h	/^	struct genData{$/;"	s	class:bulletDataGenerator
-genHeightShape	game/terrainGen/terrainGenerator.cpp	/^void genHeightShape(Terrain &terrain, PerlinNoise &noise) {$/;"	f
+genData	game/generators/BulletDataGenerator.h	/^		genData(knockbackProperty knockback,$/;"	f	struct:BulletDataGenerator::genData
+genData	game/generators/BulletDataGenerator.h	/^	struct genData{$/;"	s	class:BulletDataGenerator
 genTerrain	game/terrainGen/terrainGenerator.cpp	/^void genTerrain(Terrain &terrain, unsigned int seed){$/;"	f
+genTerrainChunks	game/terrainGen/terrainGenerator.cpp	/^std::vector<AABB> genTerrainChunks(Terrain &terrain) {$/;"	f
 generator	game/generators/Generator.h	/^	std::mt19937 generator;$/;"	m	class:Generator
 get	include/backward/backward.hpp	/^	T get() {$/;"	f	class:backward::details::handle
 getBaseName	core/componentSys/Object.cpp	/^std::string Object::getBaseName() const{$/;"	f	class:Object
@@ -2250,7 +2283,7 @@ getCreator	game/factory/objectFactory.h	/^	T *getCreator(const Hash* objName){$/
 getDim	core/math/AABB.cpp	/^vector2 AABB::getDim() const{$/;"	f	class:AABB
 getGame2RenderScale	core/Rendering/viewProcess.cpp	/^float viewProcess::getGame2RenderScale(){$/;"	f	class:viewProcess
 getGravity	core/World/worldProcess.cpp	/^vector2 worldProcess::getGravity(){$/;"	f	class:worldProcess
-getHP	game/ObjProcessors/healthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
+getHP	game/ObjProcessors/HealthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
 getHalfDim	core/math/AABB.cpp	/^vector2 AABB::getHalfDim() const{$/;"	f	class:AABB
 getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(const char* str){$/;"	f	class:Hash
 getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(std::string &str){$/;"	f	class:Hash
@@ -2259,12 +2292,12 @@ getHeight	game/terrainGen/terrain.h	/^	unsigned int getHeight () {$/;"	f	struct:
 getHeightAt	game/terrainGen/terrain.h	/^	unsigned int getHeightAt(int x) {$/;"	f	struct:Terrain
 getMaxAccumilation	core/World/worldProcess.cpp	/^float worldProcess::getMaxAccumilation(){$/;"	f	class:worldProcess
 getMaxHeight	game/terrainGen/terrain.h	/^	unsigned int getMaxHeight () {$/;"	f	struct:Terrain
-getName	core/AI/baseAI.cpp	/^std::string Sensor::getName() const{$/;"	f	class:Sensor
+getMessage	core/componentSys/Object.h	/^	T* getMessage(const Hash *tag) {$/;"	f	class:Object
 getName	core/componentSys/Object.cpp	/^std::string Object::getName() const{$/;"	f	class:Object
 getNameHash	core/controlFlow/Process.h	/^	const Hash *getNameHash(){$/;"	f	class:Process
 getNextStateName	core/controlFlow/State.h	/^	std::string getNextStateName(){$/;"	f	class:State
-getObjByName	core/componentSys/objectMgr.cpp	/^Object *objectMgr::getObjByName(const char* name){$/;"	f	class:objectMgr
-getObjectMgr	core/componentSys/objectMgrProcess.h	/^	objectMgr *getObjectMgr(){$/;"	f	class:objectMgrProcess
+getObjByName	core/componentSys/ObjectMgr.cpp	/^Object *ObjectMgr::getObjByName(const char* name){$/;"	f	class:ObjectMgr
+getObjectMgr	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgr *getObjectMgr(){$/;"	f	class:ObjectMgrProcess
 getPlayer	game/gameStateHelpers/playerController.cpp	/^Object *playerController::getPlayer(){$/;"	f	class:playerController
 getPlayerPosTerrain	game/terrainGen/terrainGenerator.cpp	/^vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX){$/;"	f
 getPrimitive	core/IO/Settings.h	/^	T* getPrimitive(const Hash *propertyName){$/;"	f	class:Settings
@@ -2277,8 +2310,7 @@ getTopLeft	core/math/AABB.cpp	/^vector2 AABB::getTopLeft() const{$/;"	f	class:AA
 getTopRight	core/math/AABB.cpp	/^vector2 AABB::getTopRight() const{$/;"	f	class:AABB
 getVal	core/IO/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
 getVal	core/componentSys/Property.h	/^	T *getVal(){$/;"	f	class:Prop
-getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
-getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:ptrProp
+getVal	core/componentSys/Property.h	/^	void *getVal(){$/;"	f	class:Prop
 getWidth	game/terrainGen/terrain.h	/^	unsigned int getWidth () {$/;"	f	struct:Terrain
 getWindow	core/Rendering/windowProcess.h	/^	sf::RenderWindow *getWindow(){$/;"	f	class:windowProcess
 get_coalesced_snippet	include/backward/backward.hpp	/^	lines_t get_coalesced_snippet(const std::string& filename,$/;"	f	class:backward::SnippetFactory
@@ -2289,32 +2321,29 @@ get_snippet	include/backward/backward.hpp	/^	lines_t get_snippet(const std::stri
 get_src_file	include/backward/backward.hpp	/^	SourceFile& get_src_file(const std::string& filename) {$/;"	f	class:backward::SnippetFactory
 glStatesSet	include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 glyphs	include/SFML/Graphics/Font.hpp	/^        GlyphTable       glyphs;  \/\/\/< Table mapping code points to their corresponding glyph$/;"	m	struct:sf::Font::Page
+gotoNextGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::gotoNextGun_(int skip){$/;"	f	class:gunsManager
+gotoPrevGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::gotoPrevGun_(int skip){$/;"	f	class:gunsManager
 grad	game/generators/PerlinNoise.cpp	/^double PerlinNoise::grad(int hash, double x, double y, double z) {$/;"	f	class:PerlinNoise
-gravity	game/generators/bulletDataGenerator.h	/^		gravityProperty gravity;$/;"	m	struct:bulletDataGenerator::genData
+gravity	game/generators/BulletDataGenerator.h	/^		gravityProperty gravity;$/;"	m	struct:BulletDataGenerator::genData
 gravity	include/Box2D/Rope/b2Rope.h	/^	b2Vec2 gravity;$/;"	m	struct:b2RopeDef
-gravityProperty	game/generators/bulletDataGenerator.h	/^	enum gravityProperty{$/;"	g	class:bulletDataGenerator
-gravityScale	game/ObjProcessors/bulletProcessor.h	/^	float gravityScale;$/;"	m	struct:bulletData
+gravityProperty	game/generators/BulletDataGenerator.h	/^	enum gravityProperty{$/;"	g	class:BulletDataGenerator
+gravityScale	game/ObjProcessors/BulletProcessor.h	/^	float gravityScale;$/;"	m	struct:BulletData
 gravityScale	include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 groundAnchorA	include/Box2D/Dynamics/Joints/b2PulleyJoint.h	/^	b2Vec2 groundAnchorA;$/;"	m	struct:b2PulleyJointDef
 groundAnchorB	include/Box2D/Dynamics/Joints/b2PulleyJoint.h	/^	b2Vec2 groundAnchorB;$/;"	m	struct:b2PulleyJointDef
-groundMoveData	game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), $/;"	f	struct:groundMoveData
-groundMoveData	game/ObjProcessors/groundMoveProcessor.h	/^struct groundMoveData{$/;"	s
-groundMoveProcessor	game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:groundMoveProcessor
-groundMoveProcessor	game/ObjProcessors/groundMoveProcessor.h	/^class groundMoveProcessor : public objectProcessor{$/;"	c
+groundMoveData	game/ObjProcessors/GroundMoveProcessor.h	/^	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), $/;"	f	struct:groundMoveData
+groundMoveData	game/ObjProcessors/GroundMoveProcessor.h	/^struct groundMoveData{$/;"	s
+groundMoveProcessor	game/ObjProcessors/GroundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:groundMoveProcessor
+groundMoveProcessor	game/ObjProcessors/GroundMoveProcessor.h	/^class groundMoveProcessor : public ObjectProcessor{$/;"	c
 groupIndex	include/Box2D/Dynamics/b2Fixture.h	/^	int16 groupIndex;$/;"	m	struct:b2Filter
-gun	game/factory/gunCreator.h	/^	gunData gun;$/;"	m	class:gunCreator
+gun	game/factory/gunCreator.h	/^	GunData gun;$/;"	m	class:gunCreator
 gunCreator	game/factory/gunCreator.h	/^	gunCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}$/;"	f	class:gunCreator
 gunCreator	game/factory/gunCreator.h	/^class gunCreator : public objectCreator{$/;"	c
-gunData	game/ObjProcessors/gunProcessor.h	/^	gunData(){$/;"	f	struct:gunData
-gunData	game/ObjProcessors/gunProcessor.h	/^struct gunData{$/;"	s
-gunDataGenerator	game/generators/gunDataGenerator.cpp	/^gunDataGenerator::gunDataGenerator(gunDataGenerator::Archetype archetype, $/;"	f	class:gunDataGenerator
-gunDataGenerator	game/generators/gunDataGenerator.h	/^class gunDataGenerator : public Generator{$/;"	c
-gunProcessor	game/ObjProcessors/gunProcessor.cpp	/^gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) $/;"	f	class:gunProcessor
-gunProcessor	game/ObjProcessors/gunProcessor.h	/^class gunProcessor : public objectProcessor{$/;"	c
-guns	game/gameStateHelpers/gunsManager.h	/^	std::vector<Object *>guns;$/;"	m	class:gunsManager
-gunsManager	game/gameStateHelpers/gunsManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, $/;"	f	class:gunsManager
+gunData	game/factory/objectFactories.h	/^	GunData gunData;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+gunsManager	game/gameStateHelpers/gunsManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewProcess *viewProc, Object *player) : objectManager_(objectManager){$/;"	f	class:gunsManager
 gunsManager	game/gameStateHelpers/gunsManager.h	/^class gunsManager : public Observer{$/;"	c
 gunsMgr	game/gameStateHelpers/playerController.h	/^	gunsManager *gunsMgr;$/;"	m	class:playerController
+guns_	game/gameStateHelpers/gunsManager.h	/^	std::vector<Object *> guns_;$/;"	m	class:gunsManager
 halfDim	core/math/AABB.h	/^	vector2 halfDim;$/;"	m	class:AABB
 handle	include/backward/backward.hpp	/^		bfd_handle_t handle;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
 handle	include/backward/backward.hpp	/^	explicit handle(): _val(), _empty(true) {}$/;"	f	class:backward::details::handle
@@ -2322,8 +2351,8 @@ handle	include/backward/backward.hpp	/^	explicit handle(T val): _val(val), _empt
 handle	include/backward/backward.hpp	/^	explicit handle(const handle& from): _empty(true) {$/;"	f	class:backward::details::handle
 handle	include/backward/backward.hpp	/^	handle(handle&& from): _empty(true) {$/;"	f	class:backward::details::handle
 handle	include/backward/backward.hpp	/^class handle {$/;"	c	namespace:backward::details
-hasCollisionType	game/ObjProcessors/pickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
-hasProcessToken	core/componentSys/processor/objectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:objectProcessor
+hasCollisionType	game/ObjProcessors/PickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
+hasProcessToken	core/componentSys/processor/ObjectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:ObjectProcessor
 hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const Hash *name) const{$/;"	f	class:Object
 hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const char *name) const{$/;"	f	class:Object
 hashMap	core/IO/Hash.cpp	/^std::map<std::string, Hash* > Hash::hashMap;$/;"	m	class:Hash	file:
@@ -2332,27 +2361,27 @@ hashMapIt	core/IO/Hash.h	/^	typedef HashMap::iterator hashMapIt;$/;"	t	class:Has
 hashedName	core/controlFlow/State.h	/^	 const Hash* hashedName;$/;"	m	class:State
 hashedVal	core/IO/Hash.h	/^	uint64_t hashedVal;$/;"	m	class:Hash
 hashtable	include/backward/backward.hpp	/^		struct hashtable {$/;"	s	namespace:backward::details
-healthData	game/ObjProcessors/healthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
-healthData	game/ObjProcessors/healthProcessor.h	/^struct healthData {$/;"	s
-healthProcessor	game/ObjProcessors/healthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
-healthProcessor	game/ObjProcessors/healthProcessor.h	/^class healthProcessor : public objectProcessor {$/;"	c
+healthData	game/ObjProcessors/HealthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
+healthData	game/ObjProcessors/HealthProcessor.h	/^struct healthData {$/;"	s
+healthProcessor	game/ObjProcessors/HealthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
+healthProcessor	game/ObjProcessors/HealthProcessor.h	/^class healthProcessor : public ObjectProcessor {$/;"	c
 height	include/Box2D/Collision/b2DynamicTree.h	/^	int32 height;$/;"	m	struct:b2TreeNode
 height	include/SFML/Graphics/Font.hpp	/^        unsigned int height; \/\/\/< Height of the row$/;"	m	struct:sf::Font::Row
 height	include/SFML/Graphics/Rect.hpp	/^    T height; \/\/\/< Height of the rectangle$/;"	m	class:sf::Rect
 height	include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
 height	include/SFML/Window/VideoMode.hpp	/^    unsigned int height;       \/\/\/< Video mode height, in pixels$/;"	m	class:sf::VideoMode
 height_	game/terrainGen/terrain.h	/^	unsigned int width_, height_;$/;"	m	struct:Terrain
-highDamage	game/generators/bulletDataGenerator.h	/^		highDamage,$/;"	e	enum:bulletDataGenerator::damageProperty
-highGravity	game/generators/bulletDataGenerator.h	/^		highGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
-highKnockback	game/generators/bulletDataGenerator.h	/^		highKnockback$/;"	e	enum:bulletDataGenerator::knockbackProperty
+highDamage	game/generators/BulletDataGenerator.h	/^		highDamage,$/;"	e	enum:BulletDataGenerator::damageProperty
+highGravity	game/generators/BulletDataGenerator.h	/^		highGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
+highKnockback	game/generators/BulletDataGenerator.h	/^		highKnockback$/;"	e	enum:BulletDataGenerator::knockbackProperty
 i1	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 i1, i2;$/;"	m	struct:b2ReferenceFace	file:
 i2	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 i1, i2;$/;"	m	struct:b2ReferenceFace	file:
 iProp	core/componentSys/Property.h	/^typedef Prop<int> iProp;$/;"	t
 id	include/Box2D/Collision/b2Collision.h	/^	b2ContactID id;			\/\/\/< uniquely identifies a contact point between two shapes$/;"	m	struct:b2ManifoldPoint
 id	include/Box2D/Collision/b2Collision.h	/^	b2ContactID id;$/;"	m	struct:b2ClipVertex
 idx	include/backward/backward.hpp	/^	size_t idx;$/;"	m	struct:backward::Trace
-ignoreCollisions	game/ObjProcessors/bulletProcessor.h	/^	std::unordered_set<const Hash*> ignoreCollisions;$/;"	m	struct:bulletData
-impulseMagnitude	game/bulletColliders/pushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
+ignoreCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> ignoreCollisions;$/;"	m	struct:BulletData
+impulseMagnitude	game/BulletColliders/PushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
 index	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 index;$/;"	m	struct:b2EPAxis	file:
 indexA	include/Box2D/Collision/b2Collision.h	/^	uint8 indexA;		\/\/\/< Feature index on shapeA$/;"	m	struct:b2ContactFeature
 indexA	include/Box2D/Collision/b2Distance.cpp	/^	int32 indexA;	\/\/ wA index$/;"	m	struct:b2SimplexVertex	file:
@@ -2365,6 +2394,10 @@ indexB	include/Box2D/Collision/b2Distance.h	/^	uint8 indexB[3];	\/\/\/< vertices
 indexB	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	int32 indexB;$/;"	m	struct:b2ContactPositionConstraint	file:
 indexB	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	int32 indexB;$/;"	m	struct:b2ContactVelocityConstraint
 infoLog	core/IO/logObject.h	/^	static IO::msgLog<logLevelInfo> infoLog;$/;"	m	namespace:IO
+ini_func1	include/noise/tinymt32.c	/^static uint32_t ini_func1(uint32_t x) {$/;"	f	file:
+ini_func1	include/noise/tinymt64.c	/^static uint64_t ini_func1(uint64_t x) {$/;"	f	file:
+ini_func2	include/noise/tinymt32.c	/^static uint32_t ini_func2(uint32_t x) {$/;"	f	file:
+ini_func2	include/noise/tinymt64.c	/^static uint64_t ini_func2(uint64_t x) {$/;"	f	file:
 init	include/backward/backward.hpp	/^	bool init() { return false; }$/;"	f	class:backward::SignalHandling
 init	include/backward/backward.hpp	/^	void init() {$/;"	f	class:backward::Colorize
 init	include/backward/backward.hpp	/^	void init() {}$/;"	f	class:backward::Colorize
@@ -2383,15 +2416,14 @@ invMassA	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 invMassA, 
 invMassB	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 invMassA, invMassB;$/;"	m	struct:b2ContactPositionConstraint	file:
 invMassB	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 invMassA, invMassB;$/;"	m	struct:b2ContactVelocityConstraint
 inv_dt	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 inv_dt;		\/\/ inverse time step (0 if dt == 0).$/;"	m	struct:b2TimeStep
-invul	game/ObjProcessors/healthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
+invul	game/ObjProcessors/HealthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
 isDead	core/componentSys/Object.cpp	/^bool Object::isDead() const{$/;"	f	class:Object
 isDoneLoading	core/controlFlow/stateSaveLoader.h	/^	bool isDoneLoading(){$/;"	f	class:stateSaveLoader
 isDoneSaving	core/controlFlow/stateSaveLoader.h	/^	bool isDoneSaving(){$/;"	f	class:stateSaveLoader
-isExclusive	core/AI/baseAI.cpp	/^bool Task::isExclusive() const{$/;"	f	class:Task
-isJumpEnabled	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isJumpEnabled(){$/;"	f	class:groundMoveData
-isMidJump	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMidJump(){$/;"	f	class:groundMoveData
-isMovingLeft	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMovingLeft(){$/;"	f	class:groundMoveData
-isMovingRight	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMovingRight(){$/;"	f	class:groundMoveData
+isJumpEnabled	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isJumpEnabled(){$/;"	f	class:groundMoveData
+isMidJump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMidJump(){$/;"	f	class:groundMoveData
+isMovingLeft	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMovingLeft(){$/;"	f	class:groundMoveData
+isMovingRight	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMovingRight(){$/;"	f	class:groundMoveData
 isSensor	include/Box2D/Dynamics/b2Fixture.h	/^	bool isSensor;$/;"	m	struct:b2FixtureDef
 isWindowClosed	mainLoopListener.h	/^	bool isWindowClosed(){$/;"	f	class:mainLoopListener
 is_open	include/backward/backward.hpp	/^	bool is_open() const { return _file->is_open(); }$/;"	f	class:backward::SourceFile
@@ -2405,18 +2437,18 @@ joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
 joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon10
-jumpDir	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpDir;$/;"	m	struct:groundMoveData
-jumpHeight	game/ObjProcessors/groundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
-jumpImpulse	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
-jumpRange	game/ObjProcessors/groundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
-jumping	game/ObjProcessors/groundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:groundMoveData
+jumpDir	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 jumpDir;$/;"	m	struct:groundMoveData
+jumpHeight	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
+jumpImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
+jumpRange	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
+jumping	game/ObjProcessors/GroundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:groundMoveData
 k2	include/Box2D/Rope/b2Rope.h	/^	float32 k2;$/;"	m	struct:b2RopeDef
 k3	include/Box2D/Rope/b2Rope.h	/^	float32 k3;$/;"	m	struct:b2RopeDef
 key	include/Box2D/Collision/b2Collision.h	/^	uint32 key;					\/\/\/< Used to quickly compare contact ids.$/;"	m	union:b2ContactID
 key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon10
 kind	include/backward/backward.hpp	/^	Kind kind;$/;"	m	class:backward::Variable
-knockback	game/generators/bulletDataGenerator.h	/^		knockbackProperty knockback;$/;"	m	struct:bulletDataGenerator::genData
-knockbackProperty	game/generators/bulletDataGenerator.h	/^	enum knockbackProperty{$/;"	g	class:bulletDataGenerator
+knockback	game/generators/BulletDataGenerator.h	/^		knockbackProperty knockback;$/;"	m	struct:BulletDataGenerator::genData
+knockbackProperty	game/generators/BulletDataGenerator.h	/^	enum knockbackProperty{$/;"	g	class:BulletDataGenerator
 lastBlendMode	include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastMousePos	game/gameStateHelpers/playerEventHandler.h	/^	vector2 lastMousePos;$/;"	m	class:playerEventHandler
 lastTextureId	include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -2428,6 +2460,7 @@ lengthB	include/Box2D/Dynamics/Joints/b2PulleyJoint.h	/^	float32 lengthB;$/;"	m	
 lerp	core/math/mathUtil.h	/^	static T lerp(const T &begin, const T &end, float t){$/;"	f	namespace:util
 lerp	game/generators/PerlinNoise.cpp	/^double PerlinNoise::lerp(double t, double a, double b) { $/;"	f	class:PerlinNoise
 levelDim	game/factory/boundaryCreator.h	/^	vector2 levelDim;$/;"	m	class:boundaryCreator
+levelDim	game/factory/objectFactories.h	/^	vector2 levelDim;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
 levelDim	game/gameStateHelpers/playerController.h	/^	vector2 levelDim;$/;"	m	class:playerController
 liesOn	core/math/AABB.cpp	/^bool AABB::liesOn(const vector2 &pt) const{$/;"	f	class:AABB
 line	include/backward/backward.hpp	/^		unsigned    line;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
@@ -2487,9 +2520,9 @@ logLevelError	core/IO/logObject.h	/^		logLevelError, $/;"	e	enum:IO::logLevel
 logLevelInfo	core/IO/logObject.h	/^		logLevelInfo = 0, $/;"	e	enum:IO::logLevel
 logLevelNoEmit	core/IO/logObject.h	/^		logLevelNoEmit, $/;"	e	enum:IO::logLevel
 logLevelWarning	core/IO/logObject.h	/^		logLevelWarning, $/;"	e	enum:IO::logLevel
-lowDamage	game/generators/bulletDataGenerator.h	/^		lowDamage = 0,$/;"	e	enum:bulletDataGenerator::damageProperty
-lowGravity	game/generators/bulletDataGenerator.h	/^		lowGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
-lowKnockback	game/generators/bulletDataGenerator.h	/^		lowKnockback,$/;"	e	enum:bulletDataGenerator::knockbackProperty
+lowDamage	game/generators/BulletDataGenerator.h	/^		lowDamage = 0,$/;"	e	enum:BulletDataGenerator::damageProperty
+lowGravity	game/generators/BulletDataGenerator.h	/^		lowGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
+lowKnockback	game/generators/BulletDataGenerator.h	/^		lowKnockback,$/;"	e	enum:BulletDataGenerator::knockbackProperty
 lowerAngle	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 lowerAngle;$/;"	m	struct:b2RevoluteJointDef
 lowerBound	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 lowerBound;	\/\/\/< the lower vertex$/;"	m	struct:b2AABB
 lowerTranslation	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 lowerTranslation;$/;"	m	struct:b2PrismaticJointDef
@@ -3090,7 +3123,7 @@ m_warmStarting	include/Box2D/Dynamics/b2World.h	/^	bool m_warmStarting;$/;"	m	cl
 m_world	include/Box2D/Dynamics/b2Body.h	/^	b2World* m_world;$/;"	m	class:b2Body
 m_xf	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Transform m_xf;$/;"	m	struct:b2EPCollider	file:
 m_xf	include/Box2D/Dynamics/b2Body.h	/^	b2Transform m_xf;		\/\/ the body origin transform$/;"	m	class:b2Body
-machineGun	game/generators/gunDataGenerator.h	/^		machineGun = 0,$/;"	e	enum:gunDataGenerator::Archetype
+machineGun	game/generators/GunDataGenerator.h	/^		machineGun = 0,$/;"	e	enum:GunDataGenerator::Archetype
 main	main.cc	/^int main(){$/;"	f
 mainLoopListener	mainLoopListener.h	/^	mainLoopListener(eventMgr &eventManager) : windowClosed(false){$/;"	f	class:mainLoopListener
 mainLoopListener	mainLoopListener.h	/^class mainLoopListener : public Observer{$/;"	c
@@ -3098,39 +3131,42 @@ mainMenuState	game/States/mainMenuState.h	/^	mainMenuState() : State("mainMenuSt
 mainMenuState	game/States/mainMenuState.h	/^class mainMenuState : public State{$/;"	c
 major	include/Box2D/Common/b2Settings.h	/^	int32 major;		\/\/\/< significant changes$/;"	m	struct:b2Version
 majorVersion	include/SFML/Window/ContextSettings.hpp	/^    unsigned int majorVersion;      \/\/\/< Major number of the context version to create$/;"	m	struct:sf::ContextSettings
-makeInvulnerable	game/ObjProcessors/healthProcessor.h	/^	void makeInvulnerable(){$/;"	f	struct:healthData
-makeVulnerable	game/ObjProcessors/healthProcessor.h	/^	void makeVulnerable(){$/;"	f	struct:healthData
+makeInvulnerable	game/ObjProcessors/HealthProcessor.h	/^	void makeInvulnerable(){$/;"	f	struct:healthData
+makeVulnerable	game/ObjProcessors/HealthProcessor.h	/^	void makeVulnerable(){$/;"	f	struct:healthData
 make_default_signals	include/backward/backward.hpp	/^   static std::vector<int> make_default_signals() {$/;"	f	class:backward::SignalHandling
-managedProp	core/componentSys/Property.h	/^	managedProp(T *value){$/;"	f	class:managedProp
-managedProp	core/componentSys/Property.h	/^class managedProp : public baseProperty{$/;"	c
 map	include/backward/backward.hpp	/^	const map_t& map() const {$/;"	f	class:backward::Variable
 map	include/backward/backward.hpp	/^	map_t& map() {$/;"	f	class:backward::Variable
 map_t	include/backward/backward.hpp	/^	typedef std::vector<Variable>    map_t;$/;"	t	class:backward::Variable
 maskBits	include/Box2D/Dynamics/b2Fixture.h	/^	uint16 maskBits;$/;"	m	struct:b2Filter
-mass	game/ObjProcessors/groundMoveProcessor.h	/^	float mass;$/;"	m	struct:groundMoveData
+mass	game/ObjProcessors/GroundMoveProcessor.h	/^	float mass;$/;"	m	struct:groundMoveData
 mass	include/Box2D/Collision/Shapes/b2Shape.h	/^	float32 mass;$/;"	m	struct:b2MassData
 masses	include/Box2D/Rope/b2Rope.h	/^	float32* masses;$/;"	m	struct:b2RopeDef
+mat1	include/noise/tinymt32.h	/^    uint32_t mat1;$/;"	m	struct:TINYMT32_T
+mat1	include/noise/tinymt64.h	/^    uint32_t mat1;$/;"	m	struct:TINYMT64_T
+mat2	include/noise/tinymt32.h	/^    uint32_t mat2;$/;"	m	struct:TINYMT32_T
+mat2	include/noise/tinymt64.h	/^    uint32_t mat2;$/;"	m	struct:TINYMT64_T
 maxAccumilation	core/World/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
-maxAccumilation	game/ObjProcessors/cameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
-maxCoord	game/ObjProcessors/cameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
+maxAccumilation	game/ObjProcessors/CameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
+maxCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
 maxForce	include/Box2D/Dynamics/Joints/b2FrictionJoint.h	/^	float32 maxForce;$/;"	m	struct:b2FrictionJointDef
 maxForce	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 maxForce;$/;"	m	struct:b2MotorJointDef
 maxForce	include/Box2D/Dynamics/Joints/b2MouseJoint.h	/^	float32 maxForce;$/;"	m	struct:b2MouseJointDef
 maxFraction	include/Box2D/Collision/b2Collision.h	/^	float32 maxFraction;$/;"	m	struct:b2RayCastInput
-maxHP	game/ObjProcessors/healthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
+maxHP	game/ObjProcessors/HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
 maxHeight_	game/terrainGen/terrain.h	/^	unsigned int maxHeight_;$/;"	m	struct:Terrain
 maxLength	include/Box2D/Dynamics/Joints/b2RopeJoint.h	/^	float32 maxLength;$/;"	m	struct:b2RopeJointDef
 maxMotorForce	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 maxMotorForce;$/;"	m	struct:b2PrismaticJointDef
 maxMotorTorque	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2RevoluteJointDef
 maxMotorTorque	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2WheelJointDef
-maxMoveAmt	game/ObjProcessors/cameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:cameraData
+maxMoveAmt	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:cameraData
 maxTorque	include/Box2D/Dynamics/Joints/b2FrictionJoint.h	/^	float32 maxTorque;$/;"	m	struct:b2FrictionJointDef
 maxTorque	include/Box2D/Dynamics/Joints/b2MotorJoint.h	/^	float32 maxTorque;$/;"	m	struct:b2MotorJointDef
-maxVel	core/componentSys/processor/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
-mediumDamage	game/generators/bulletDataGenerator.h	/^		mediumDamage,$/;"	e	enum:bulletDataGenerator::damageProperty
-mediumKnockback	game/generators/bulletDataGenerator.h	/^		mediumKnockback,$/;"	e	enum:bulletDataGenerator::knockbackProperty
+maxVel	core/componentSys/processor/PhyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:PhyData
+mediumDamage	game/generators/BulletDataGenerator.h	/^		mediumDamage,$/;"	e	enum:BulletDataGenerator::damageProperty
+mediumKnockback	game/generators/BulletDataGenerator.h	/^		mediumKnockback,$/;"	e	enum:BulletDataGenerator::knockbackProperty
+messages	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > messages;$/;"	m	class:Object
 metric	include/Box2D/Collision/b2Distance.h	/^	float32 metric;		\/\/\/< length or area$/;"	m	struct:b2SimplexCache
-minCoord	game/ObjProcessors/cameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
+minCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
 minor	include/Box2D/Common/b2Settings.h	/^	int32 minor;		\/\/\/< incremental changes$/;"	m	struct:b2Version
 minorVersion	include/SFML/Window/ContextSettings.hpp	/^    unsigned int minorVersion;      \/\/\/< Minor number of the context version to create$/;"	m	struct:sf::ContextSettings
 motorSpeed	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 motorSpeed;$/;"	m	struct:b2PrismaticJointDef
@@ -3140,19 +3176,18 @@ mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseBu
 mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon10
 mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon10
 move	core/Rendering/viewProcess.cpp	/^void viewProcess::move(vector2 offset){$/;"	f	class:viewProcess
-moveImpulse	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
-movementDamping	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
-movingLeft	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
-movingRight	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
+moveImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
+movementDamping	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
+movingLeft	game/ObjProcessors/GroundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
+movingRight	game/ObjProcessors/GroundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
 msgLog	core/IO/logObject.h	/^		msgLog(){$/;"	f	class:IO::msgLog
 msgLog	core/IO/logObject.h	/^		msgLog(){};$/;"	f	class:IO::msgLog
 msgLog	core/IO/logObject.h	/^	class msgLog : public baseLog{$/;"	c	namespace:IO
 msgLog	core/IO/logObject.h	/^	class msgLog<logLevelError> : public baseLog{$/;"	c	namespace:IO
 myApproachVel	core/World/objContactListener.h	/^	vector2 myApproachVel;$/;"	m	struct:collisionData
-myPhy	core/World/objContactListener.h	/^	phyData *myPhy;$/;"	m	struct:collisionData
-name	core/AI/baseAI.h	/^		std::string name;$/;"	m	class:AI::Sensor
+myPhy	core/World/objContactListener.h	/^	PhyData *myPhy;$/;"	m	struct:collisionData
 name	core/componentSys/Object.h	/^	std::string name;$/;"	m	class:Object
-name	core/componentSys/processor/objectProcessor.h	/^	std::string name;$/;"	m	class:objectProcessor
+name	core/componentSys/processor/ObjectProcessor.h	/^	std::string name;$/;"	m	class:ObjectProcessor
 name	core/controlFlow/eventMgr.h	/^		const Hash *name;$/;"	m	struct:eventMgr::Event
 name	include/backward/backward.hpp	/^	std::string name;$/;"	m	class:backward::Variable
 nameHash	core/controlFlow/Process.h	/^	const Hash *nameHash;$/;"	m	class:Process
@@ -3165,8 +3200,8 @@ next	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge* next;	\/\/\/<
 next	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2JointEdge* next;		\/\/\/< the next joint edge in the body's joint list$/;"	m	struct:b2JointEdge
 nextRow	include/SFML/Graphics/Font.hpp	/^        unsigned int     nextRow; \/\/\/< Y position of the next new row in the texture$/;"	m	struct:sf::Font::Page
 nextStateName	core/controlFlow/State.h	/^	 std::string nextStateName; $/;"	m	class:State
-noGravity	game/generators/bulletDataGenerator.h	/^		noGravity = 0,$/;"	e	enum:bulletDataGenerator::gravityProperty
-noKnockback	game/generators/bulletDataGenerator.h	/^		noKnockback = 0,$/;"	e	enum:bulletDataGenerator::knockbackProperty
+noGravity	game/generators/BulletDataGenerator.h	/^		noGravity = 0,$/;"	e	enum:BulletDataGenerator::gravityProperty
+noKnockback	game/generators/BulletDataGenerator.h	/^		noKnockback = 0,$/;"	e	enum:BulletDataGenerator::knockbackProperty
 nodes	core/Rendering/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
 noise	game/generators/PerlinNoise.cpp	/^double PerlinNoise::noise(double x, double y, double z) {$/;"	f	class:PerlinNoise
 normal	core/World/objContactListener.h	/^	vector2 normal;$/;"	m	struct:collisionData
@@ -3184,64 +3219,57 @@ normals	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 normals[b2_maxPolygo
 not_isempty	include/backward/backward.hpp	/^	struct not_isempty {$/;"	s	class:backward::SourceFile
 not_isspace	include/backward/backward.hpp	/^	struct not_isspace {$/;"	s	class:backward::SourceFile
 nullVector	core/math/vector.h	147;"	d
-numAbilities	game/generators/bulletDataGenerator.h	/^		int numAbilities;$/;"	m	struct:bulletDataGenerator::genData
-numBlocks	game/factory/terrainCreator.h	/^	vector2 numBlocks;$/;"	m	class:terrainCreator
+numAbilities	game/generators/BulletDataGenerator.h	/^		int numAbilities;$/;"	m	struct:BulletDataGenerator::genData
 objContactListener	core/World/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
 objContactListener	core/World/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
 objFactory	game/States/gameState.h	/^	objectFactory objFactory; $/;"	m	class:gameState
-objManager	core/componentSys/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
-objMap	core/componentSys/objectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:objectMgr
-objMap	core/componentSys/processor/objectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:objectProcessor
+objManager	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgr *objManager;$/;"	m	class:ObjectMgrProcess
+objMap	core/componentSys/ObjectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:ObjectMgr
+objMap	core/componentSys/processor/ObjectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:ObjectProcessor
 objMapIt	core/componentSys/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"	t	class:Object
 objMoveData	game/gameStateHelpers/playerEventHandler.h	/^	groundMoveData *objMoveData;$/;"	m	struct:playerHandlerData
-objProcessorIt	core/componentSys/objectMgr.h	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr
-objProcessors	core/componentSys/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
+objProcessorIt	core/componentSys/ObjectMgr.h	/^	typedef std::vector<ObjectProcessor *>::iterator objProcessorIt;$/;"	t	class:ObjectMgr
+objProcessors	core/componentSys/ObjectMgr.h	/^	std::vector<ObjectProcessor *> objProcessors;$/;"	m	class:ObjectMgr
 object	core/World/rayCastQuery.h	/^	std::vector<Object *> object;$/;"	m	class:worldAABBQuery
 object	include/backward/backward.hpp	/^	bool object;$/;"	m	class:backward::Printer
 objectCreator	game/factory/objectFactory.h	/^	objectCreator(){}$/;"	f	class:objectCreator
 objectCreator	game/factory/objectFactory.h	/^class objectCreator{$/;"	c
 objectFactory	game/factory/objectFactory.h	/^class objectFactory{$/;"	c
 objectList	core/componentSys/Object.h	/^	typedef std::vector<Object *> objectList;$/;"	t	class:Object
-objectManager	game/ObjProcessors/gunProcessor.h	/^	objectMgr *objectManager;$/;"	m	class:gunProcessor
-objectManager	game/States/gameState.h	/^	objectMgr *objectManager;$/;"	m	class:gameState
-objectManager	game/gameStateHelpers/gunsManager.h	/^	objectMgr &objectManager;$/;"	m	class:gunsManager
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Executor
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Task
+objectManager	game/ObjProcessors/GunProcessor.h	/^	ObjectMgr *objectManager;$/;"	m	class:GunProcessor
+objectManager	game/States/gameState.h	/^	ObjectMgr *objectManager;$/;"	m	class:gameState
+objectManager_	game/gameStateHelpers/gunsManager.h	/^	ObjectMgr &objectManager_;$/;"	m	class:gunsManager
 objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
-objectMgr	core/componentSys/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
-objectMgr	core/componentSys/objectMgr.h	/^class objectMgr{$/;"	c
-objectMgrProcess	core/componentSys/objectMgrProcess.h	/^	objectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:objectMgrProcess
-objectMgrProcess	core/componentSys/objectMgrProcess.h	/^class objectMgrProcess : public Process{$/;"	c
-objectProcessor	core/componentSys/processor/objectProcessor.h	/^	objectProcessor(std::string _name) : name(_name){};$/;"	f	class:objectProcessor
-objectProcessor	core/componentSys/processor/objectProcessor.h	/^class objectProcessor{$/;"	c
 object_filename	include/backward/backward.hpp	/^	std::string                    object_filename;$/;"	m	struct:backward::ResolvedTrace
 object_function	include/backward/backward.hpp	/^	std::string                    object_function;$/;"	m	struct:backward::ResolvedTrace
 observerList	core/controlFlow/eventMgr.h	/^	typedef std::vector<Observer *> observerList;$/;"	t	class:eventMgr
 observerMap	core/controlFlow/eventMgr.h	/^	std::map<const Hash*, observerList>observerMap;$/;"	m	class:eventMgr
-offsetAngle	game/ObjProcessors/offsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:offsetData
-offsetData	game/ObjProcessors/offsetProcessor.h	/^	offsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:offsetData
-offsetData	game/ObjProcessors/offsetProcessor.h	/^struct offsetData{$/;"	s
-offsetPos	game/ObjProcessors/offsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:offsetData
-offsetProcessor	game/ObjProcessors/offsetProcessor.h	/^	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:offsetProcessor
-offsetProcessor	game/ObjProcessors/offsetProcessor.h	/^class offsetProcessor : public objectProcessor{$/;"	c
+offCooldown	core/controlFlow/Cooldown.h	/^	bool offCooldown() {return currentCooldown_ == 0; }$/;"	f	class:Cooldown
+offsetAngle	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:offsetData
+offsetData	game/ObjProcessors/OffsetProcessor.h	/^	offsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:offsetData
+offsetData	game/ObjProcessors/OffsetProcessor.h	/^struct offsetData{$/;"	s
+offsetPos	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:offsetData
+offsetProcessor	game/ObjProcessors/OffsetProcessor.h	/^	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:offsetProcessor
+offsetProcessor	game/ObjProcessors/OffsetProcessor.h	/^class offsetProcessor : public ObjectProcessor{$/;"	c
 onBegin	core/World/objContactListener.h	/^		onBegin,$/;"	e	enum:collisionData::Type
-onCreate	game/ObjProcessors/bulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:bulletCollider
-onCreate	game/bulletColliders/bounceCollider.h	/^	void onCreate(Object *bullet){$/;"	f	class:bounceCollider
-onDeath	game/ObjProcessors/bulletProcessor.h	/^	virtual void onDeath(collisionData &data, Object *bullet){};$/;"	f	class:bulletCollider
-onDefaultCollision	game/ObjProcessors/bulletProcessor.h	/^	virtual bool onDefaultCollision(collisionData &data, Object *bullet){$/;"	f	class:bulletCollider
-onDefaultCollision	game/bulletColliders/bounceCollider.h	/^	bool onDefaultCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
+onCooldown	core/controlFlow/Cooldown.h	/^	bool onCooldown() { return currentCooldown_ > 0; }$/;"	f	class:Cooldown
+onCreate	game/BulletColliders/bounceCollider.h	/^	void onCreate(Object *bullet){$/;"	f	class:bounceCollider
+onCreate	game/ObjProcessors/BulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:BulletCollider
+onDeath	game/ObjProcessors/BulletProcessor.h	/^	virtual void onDeath(collisionData &data, Object *bullet){};$/;"	f	class:BulletCollider
+onDefaultCollision	game/BulletColliders/bounceCollider.h	/^	bool onDefaultCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
+onDefaultCollision	game/ObjProcessors/BulletProcessor.h	/^	virtual bool onDefaultCollision(collisionData &data, Object *bullet){$/;"	f	class:BulletCollider
 onDestroyMsg	core/IO/logObject.h	/^		std::string onDestroyMsg;$/;"	m	class:IO::scopedLog
 onEnd	core/World/objContactListener.h	/^		onEnd,$/;"	e	enum:collisionData::Type
-onEnemyCollision	game/bulletColliders/bounceCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
-onEnemyCollision	game/bulletColliders/damageCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:damageCollider
-onEnemyCollision	game/bulletColliders/pushCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:pushCollider
-onGround	game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
-onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:objectProcessor
+onEnemyCollision	game/BulletColliders/PushCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:pushCollider
+onEnemyCollision	game/BulletColliders/bounceCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
+onEnemyCollision	game/BulletColliders/damageCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:damageCollider
+onGround	game/ObjProcessors/GroundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
+onObjectActivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:ObjectProcessor
+onObjectAdd	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:ObjectProcessor
 onObjectAdd	game/ObjProcessors/AIProcessor.h	/^	void onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
-onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:objectProcessor
-onPickupEvent	game/ObjProcessors/pickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:pickupData
+onObjectDeactivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:ObjectProcessor
+onObjectDeath	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:ObjectProcessor
+onPickupEvent	game/ObjProcessors/PickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:pickupData
 operator !=	core/math/vector.h	/^	inline bool operator != (const vector2& a) const { return (this->x != a.x || this->y != a.y); };$/;"	f	class:vector2
 operator !=	include/backward/backward.hpp	/^		bool operator!=(const SourceLoc& b) const {$/;"	f	struct:backward::ResolvedTrace::SourceLoc
 operator &	include/backward/backward.hpp	/^	T* operator&() {$/;"	f	class:backward::details::handle
@@ -3339,35 +3367,30 @@ operator vector2	core/math/vector.h	/^	inline operator vector2(){ return vector2
 other	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Body* other;			\/\/\/< provides quick access to the other body attached.$/;"	m	struct:b2ContactEdge
 other	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Body* other;			\/\/\/< provides quick access to the other body attached.$/;"	m	struct:b2JointEdge
 otherObj	core/World/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:collisionData
-otherPhy	core/World/objContactListener.h	/^	phyData *otherPhy;$/;"	m	struct:collisionData
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Brain
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Executor
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Sensor
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Task
+otherPhy	core/World/objContactListener.h	/^	PhyData *otherPhy;$/;"	m	struct:collisionData
 p	game/generators/PerlinNoise.h	/^	std::vector<int> p;$/;"	m	class:PerlinNoise
 p	include/Box2D/Common/b2Math.h	/^	b2Vec2 p;$/;"	m	struct:b2Transform
 p1	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCastInput
 p2	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCastInput
-parent	game/ObjProcessors/offsetProcessor.h	/^	Object *parent;$/;"	m	struct:offsetData
+parent	game/ObjProcessors/OffsetProcessor.h	/^	Object *parent;$/;"	m	struct:offsetData
 parent	game/factory/gunCreator.h	/^	Object *parent;$/;"	m	class:gunCreator
+parent	game/factory/objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
 parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon4
 paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
-phyData	core/componentSys/processor/phyProcessor.h	/^struct phyData{$/;"	s
-phyProcessor	core/componentSys/processor/phyProcessor.cpp	/^phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:phyProcessor
-phyProcessor	core/componentSys/processor/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
-physicsData	game/gameStateHelpers/playerEventHandler.h	/^	phyData *physicsData;$/;"	m	struct:playerHandlerData
+period_certification	include/noise/tinymt32.c	/^static void period_certification(tinymt32_t * random) {$/;"	f	file:
+period_certification	include/noise/tinymt64.c	/^static void period_certification(tinymt64_t * random) {$/;"	f	file:
+physicsData	game/gameStateHelpers/playerEventHandler.h	/^	PhyData *physicsData;$/;"	m	struct:playerHandlerData
 pickup	game/factory/pickupCreator.h	/^	pickupData pickup;$/;"	m	class:pickupCreator
-pickupCollisionTypes	game/ObjProcessors/pickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:pickupData
+pickupCollisionTypes	game/ObjProcessors/PickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:pickupData
 pickupCreator	game/factory/pickupCreator.h	/^	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:pickupCreator
 pickupCreator	game/factory/pickupCreator.h	/^class pickupCreator : public objectCreator{$/;"	c
-pickupData	game/ObjProcessors/pickupProcessor.h	/^	pickupData(){$/;"	f	struct:pickupData
-pickupData	game/ObjProcessors/pickupProcessor.h	/^struct pickupData{$/;"	s
-pickupProcessor	game/ObjProcessors/pickupProcessor.cpp	/^pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:pickupProcessor
-pickupProcessor	game/ObjProcessors/pickupProcessor.h	/^class pickupProcessor : public objectProcessor{$/;"	c
-player	game/gameStateHelpers/gunsManager.h	/^	Object *player;$/;"	m	class:gunsManager
+pickupData	game/ObjProcessors/PickupProcessor.h	/^	pickupData(){$/;"	f	struct:pickupData
+pickupData	game/ObjProcessors/PickupProcessor.h	/^struct pickupData{$/;"	s
+pickupProcessor	game/ObjProcessors/PickupProcessor.cpp	/^pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:pickupProcessor
+pickupProcessor	game/ObjProcessors/PickupProcessor.h	/^class pickupProcessor : public ObjectProcessor{$/;"	c
 player	game/gameStateHelpers/playerController.h	/^	Object *player;$/;"	m	class:playerController
 player	game/gameStateHelpers/playerEventHandler.h	/^	Object *player;$/;"	m	struct:playerHandlerData
-playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(eventMgr *eventManager, objectMgr *objectManager,$/;"	f	class:playerController
+playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(eventMgr *eventManager, ObjectMgr *objectManager,$/;"	f	class:playerController
 playerController	game/gameStateHelpers/playerController.h	/^class playerController{$/;"	c
 playerCreator	game/factory/playerCreator.h	/^	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:playerCreator
 playerCreator	game/factory/playerCreator.h	/^class playerCreator : public objectCreator{$/;"	c
@@ -3377,6 +3400,7 @@ playerEventHandler	game/gameStateHelpers/playerEventHandler.h	/^class playerEven
 playerHandler	game/gameStateHelpers/playerController.h	/^	playerEventHandler *playerHandler;$/;"	m	class:playerController
 playerHandlerData	game/gameStateHelpers/playerEventHandler.h	/^struct playerHandlerData{$/;"	s
 playerPos	game/gameStateHelpers/playerEventHandler.h	/^	vector2 *playerPos;$/;"	m	struct:playerHandlerData
+player_	game/gameStateHelpers/gunsManager.h	/^	Object *player_;$/;"	m	class:gunsManager
 point	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	b2Vec2 point;$/;"	m	struct:b2PositionSolverManifold	file:
 pointA	include/Box2D/Collision/b2Distance.h	/^	b2Vec2 pointA;		\/\/\/< closest point on shapeA$/;"	m	struct:b2DistanceOutput
 pointB	include/Box2D/Collision/b2Distance.h	/^	b2Vec2 pointB;		\/\/\/< closest point on shapeB$/;"	m	struct:b2DistanceOutput
@@ -3387,7 +3411,9 @@ points	include/Box2D/Collision/b2Collision.h	/^	b2ManifoldPoint points[b2_maxMan
 points	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 points[b2_maxManifoldPoints];		\/\/\/< world contact point (point of intersection)$/;"	m	struct:b2WorldManifold
 points	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2VelocityConstraintPoint points[b2_maxManifoldPoints];$/;"	m	struct:b2ContactVelocityConstraint
 polarProjection	core/math/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
-posOffset	game/ObjProcessors/offsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:offsetData
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+posOffset	game/ObjProcessors/OffsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:offsetData
 position	include/Box2D/Dynamics/b2Body.h	/^	b2Vec2 position;$/;"	m	struct:b2BodyDef
 position	include/SFML/Graphics/Vertex.hpp	/^    Vector2f  position;  \/\/\/< 2D position of the vertex$/;"	m	class:sf::Vertex
 position	include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
@@ -3395,18 +3421,18 @@ positionIterations	include/Box2D/Dynamics/b2TimeStep.h	/^	int32 positionIteratio
 positions	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Position* positions;$/;"	m	struct:b2ContactSolverDef
 positions	include/Box2D/Dynamics/b2TimeStep.h	/^	b2Position* positions;$/;"	m	struct:b2SolverData
 postDraw	core/Rendering/windowProcess.h	/^	void postDraw(){$/;"	f	class:windowProcess
-postDraw	core/componentSys/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
+postDraw	core/componentSys/ObjectMgrProcess.h	/^	void postDraw(){$/;"	f	class:ObjectMgrProcess
 postDraw	core/controlFlow/Process.h	/^	virtual void postDraw(){};$/;"	f	class:Process
 postDraw	core/controlFlow/processMgr.cpp	/^void processMgr::postDraw(){$/;"	f	class:processMgr
-postProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::postProcess(){$/;"	f	class:objectMgr
-postProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
-power	game/generators/bulletDataGenerator.h	/^	unsigned int power;$/;"	m	class:bulletDataGenerator
-power	game/generators/gunDataGenerator.h	/^	unsigned int power;$/;"	m	class:gunDataGenerator
-preProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::preProcess(){$/;"	f	class:objectMgr
-preProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
+postProcess	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::postProcess(){$/;"	f	class:ObjectMgr
+postProcess	core/componentSys/processor/ObjectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:ObjectProcessor
+power	game/generators/BulletDataGenerator.h	/^	unsigned int power;$/;"	m	class:BulletDataGenerator
+power	game/generators/GunDataGenerator.h	/^	unsigned int power;$/;"	m	class:GunDataGenerator
+preProcess	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::preProcess(){$/;"	f	class:ObjectMgr
+preProcess	core/componentSys/processor/ObjectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:ObjectProcessor
 preUpdate	core/IO/eventProcess.cpp	/^void eventProcess::preUpdate(){$/;"	f	class:eventProcess
 preUpdate	core/Rendering/windowProcess.h	/^	virtual void preUpdate(){$/;"	f	class:windowProcess
-preUpdate	core/componentSys/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
+preUpdate	core/componentSys/ObjectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:ObjectMgrProcess
 preUpdate	core/controlFlow/Process.h	/^	virtual void preUpdate(){};$/;"	f	class:Process
 preUpdate	core/controlFlow/processMgr.cpp	/^void processMgr::preUpdate(){$/;"	f	class:processMgr
 prev	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge* prev;	\/\/\/< the previous contact edge in the body's contact list$/;"	m	struct:b2ContactEdge
@@ -3439,12 +3465,10 @@ proxyB	include/Box2D/Collision/b2TimeOfImpact.h	/^	b2DistanceProxy proxyB;$/;"	m
 proxyId	include/Box2D/Dynamics/b2Fixture.h	/^	int32 proxyId;$/;"	m	struct:b2FixtureProxy
 proxyIdA	include/Box2D/Collision/b2BroadPhase.h	/^	int32 proxyIdA;$/;"	m	struct:b2Pair
 proxyIdB	include/Box2D/Collision/b2BroadPhase.h	/^	int32 proxyIdB;$/;"	m	struct:b2Pair
-ptrProp	core/componentSys/Property.h	/^	ptrProp(T *value){$/;"	f	class:ptrProp
-ptrProp	core/componentSys/Property.h	/^class ptrProp : public baseProperty{$/;"	c
 purple	include/backward/backward.hpp	/^		purple = 0,$/;"	e	enum:backward::Color::type
 purple	include/backward/backward.hpp	/^		purple = 35,$/;"	e	enum:backward::Color::type
-pushCollider	game/bulletColliders/pushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
-pushCollider	game/bulletColliders/pushCollider.h	/^class pushCollider : public bulletCollider{$/;"	c
+pushCollider	game/BulletColliders/PushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
+pushCollider	game/BulletColliders/PushCollider.h	/^class pushCollider : public BulletCollider{$/;"	c
 q	include/Box2D/Common/b2Math.h	/^	b2Rot q;$/;"	m	struct:b2Transform
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 r	include/SFML/Graphics/Color.hpp	/^    Uint8 r; \/\/\/< Red component$/;"	m	class:sf::Color
@@ -3453,6 +3477,7 @@ rB	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Vec2 rB;$/;"	m	struct:
 radius	game/factory/bulletCreator.h	/^	float radius;$/;"	m	class:bulletCreator
 radius	game/factory/dummyCreator.h	/^	float radius;$/;"	m	class:dummyCreator
 radius	game/factory/gunCreator.h	/^	float radius;$/;"	m	class:gunCreator
+radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
 radius	game/factory/pickupCreator.h	/^	float radius;$/;"	m	class:pickupCreator
 radiusA	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 radiusA, radiusB;$/;"	m	struct:b2ContactPositionConstraint	file:
 radiusB	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 radiusA, radiusB;$/;"	m	struct:b2ContactPositionConstraint	file:
@@ -3468,30 +3493,27 @@ referenceAngle	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 refer
 referenceAngle	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 referenceAngle;$/;"	m	struct:b2RevoluteJointDef
 referenceAngle	include/Box2D/Dynamics/Joints/b2WeldJoint.h	/^	float32 referenceAngle;$/;"	m	struct:b2WeldJointDef
 release	include/backward/backward.hpp	/^	T release() {$/;"	f	class:backward::details::handle
-removeCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
-removeObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::removeObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
+reloadGunPtrs_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::reloadGunPtrs_(){$/;"	f	class:gunsManager
+removeCollision	core/componentSys/processor/PhyProcessor.cpp	/^void PhyData::removeCollision(Object *obj){$/;"	f	class:PhyData
+removeObjectProcessor	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::removeObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgr
 removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){$/;"	f	class:renderProcess
-render	core/componentSys/processor/renderProcessor.h	/^	renderProcess *render;$/;"	m	class:renderProcessor
+render	core/componentSys/processor/RenderProcessor.h	/^	renderProcess *render;$/;"	m	class:RenderProcessor
 render2ScreeenCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::render2ScreeenCoord(vector2 renderCoord){$/;"	f	class:viewProcess
 render2ViewCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::render2ViewCoord(vector2 screenCoord){$/;"	f	class:viewProcess
-renderData	core/componentSys/processor/renderProcessor.h	/^	renderData() : centered(false){};$/;"	f	class:renderData
-renderData	core/componentSys/processor/renderProcessor.h	/^class renderData{$/;"	c
 renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
 renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable, int z) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
 renderNode	core/Rendering/renderProcess.h	/^	class renderNode : public baseRenderNode{$/;"	c	class:renderProcess
 renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:renderProcess
 renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
-renderProcessor	core/componentSys/processor/renderProcessor.cpp	/^renderProcessor::renderProcessor(processMgr &processManager, $/;"	f	class:renderProcessor
-renderProcessor	core/componentSys/processor/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
 renderUtil	core/Rendering/renderUtil.h	/^class renderUtil{$/;"	c
-renderers	core/componentSys/processor/renderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:renderData
+renderers	core/componentSys/processor/RenderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:RenderData
 renderingLayers	game/defines/renderingLayers.h	/^enum renderingLayers{$/;"	g
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const Hash *name) const{$/;"	f	class:Object
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
 reset	include/backward/backward.hpp	/^		reset  = 0$/;"	e	enum:backward::Color::type
 reset	include/backward/backward.hpp	/^		reset  = 39$/;"	e	enum:backward::Color::type
 reset	include/backward/backward.hpp	/^	void reset(T new_val) {$/;"	f	class:backward::details::handle
-resetJump	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::resetJump(){$/;"	f	class:groundMoveData
+resetJump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::resetJump(){$/;"	f	class:groundMoveData
 resolve	include/backward/backward.hpp	/^	ResolvedTrace resolve(ResolvedTrace t) {$/;"	f	class:backward::TraceResolverImpl
 resolve	include/backward/backward.hpp	/^	ResolvedTrace resolve(ResolvedTrace trace) {$/;"	f	class:backward::TraceResolverLinuxImpl
 resolve_trace	include/backward/backward.hpp	/^	void resolve_trace(TraceWithLocals& trace) {$/;"	f	class:backward::StackTraceWithLocalsImpl
@@ -3528,9 +3550,8 @@ scopedLog	core/IO/logObject.h	/^	class scopedLog : public baseLog{$/;"	c	namespa
 screen2RenderCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::screen2RenderCoord(vector2 screenCoord){$/;"	f	class:viewProcess
 seed	core/IO/Hash.cpp	/^unsigned int Hash::seed;$/;"	m	class:Hash	file:
 seed	core/IO/Hash.h	/^	static unsigned int seed;$/;"	m	class:Hash
-seed	game/factory/terrainCreator.h	/^	unsigned int seed;$/;"	m	class:terrainCreator
-seed	game/generators/bulletDataGenerator.h	/^	unsigned long seed;$/;"	m	class:bulletDataGenerator
-seed	game/generators/gunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:gunDataGenerator
+seed	game/generators/BulletDataGenerator.h	/^	unsigned long seed;$/;"	m	class:BulletDataGenerator
+seed	game/generators/GunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:GunDataGenerator
 segment	game/States/gameSegmentLoader.h	/^	gameSegment *segment;$/;"	m	class:gameSegmentLoader
 segmentName	game/States/gameSegmentLoader.h	/^	std::string segmentName;$/;"	m	class:gameSegmentLoader
 self	include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
@@ -3539,35 +3560,33 @@ self	include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struc
 sendEvent	core/controlFlow/eventMgr.h	/^	void sendEvent(const Hash *eventName){$/;"	f	class:eventMgr
 sendEvent	core/controlFlow/eventMgr.h	/^	void sendEvent(const Hash *eventName, T &eventData){$/;"	f	class:eventMgr
 sendEvent_	core/controlFlow/eventMgr.h	/^	void sendEvent_(const Hash *eventName, baseProperty *eventData){$/;"	f	class:eventMgr
-sensorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Sensor> sensorMap;$/;"	t	class:AI::Sensor
-sensors	core/AI/baseAI.h	/^		Sensor::sensorMap sensors;$/;"	m	class:AI::Brain
+sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {$/;"	f	class:Object
+sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, bool sendToChildren = false) {$/;"	f	class:Object
 separation	include/Box2D/Collision/b2CollideEdge.cpp	/^	float32 separation;$/;"	m	struct:b2EPAxis	file:
 separation	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 separation;$/;"	m	struct:b2PositionSolverManifold	file:
 separations	include/Box2D/Collision/b2Collision.h	/^	float32 separations[b2_maxManifoldPoints];	\/\/\/< a negative value indicates overlap, in meters$/;"	m	struct:b2WorldManifold
-setBulletCreator	game/ObjProcessors/gunProcessor.h	/^	void setBulletCreator(bulletCreator *creator){$/;"	f	struct:gunData
-setBulletData	game/ObjProcessors/gunProcessor.h	/^	void setBulletData(bulletData &data){$/;"	f	struct:gunData
-setBulletPos	game/ObjProcessors/gunProcessor.h	/^	void setBulletPos(vector2 pos){$/;"	f	struct:gunData
-setBulletRadius	game/ObjProcessors/gunProcessor.h	/^	void setBulletRadius(float radius){$/;"	f	struct:gunData
-setBulletVel	game/ObjProcessors/gunProcessor.h	/^	void setBulletVel(float vel){$/;"	f	struct:gunData
+setBulletData	game/ObjProcessors/GunProcessor.h	/^	void setBulletData(BulletData &bulletData){$/;"	f	struct:GunData
+setBulletRadius	game/ObjProcessors/GunProcessor.h	/^	void setBulletRadius(float radius){$/;"	f	struct:GunData
+setBulletVel	game/ObjProcessors/GunProcessor.h	/^	void setBulletVel(float vel){$/;"	f	struct:GunData
 setCenter	core/Rendering/viewProcess.cpp	/^void viewProcess::setCenter(vector2 center){$/;"	f	class:viewProcess
 setClearColor	core/Rendering/windowProcess.h	/^	void setClearColor(sf::Color color){$/;"	f	class:windowProcess
-setClipCooldown	game/ObjProcessors/gunProcessor.h	/^	void setClipCooldown(int totalClipCooldown){$/;"	f	struct:gunData
-setClipSize	game/ObjProcessors/gunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:gunData
+setClipCooldown	game/ObjProcessors/GunProcessor.h	/^	void setClipCooldown(float totalClipCooldown){$/;"	f	struct:GunData
+setClipSize	game/ObjProcessors/GunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:GunData
 setContactListener	core/World/worldProcess.cpp	/^ void worldProcess::setContactListener(b2ContactListener* listener){$/;"	f	class:worldProcess
-setDir	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
-setFacing	game/ObjProcessors/gunProcessor.h	/^	void setFacing(util::Angle facing){$/;"	f	struct:gunData
-setHP	game/ObjProcessors/healthProcessor.h	/^	void setHP(unsigned int HP){$/;"	f	struct:healthData
+setDir	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
+setHP	game/ObjProcessors/HealthProcessor.h	/^	void setHP(unsigned int HP){$/;"	f	struct:healthData
 setMaxHeight	game/terrainGen/terrain.h	/^	void setMaxHeight (unsigned int maxHeight) {$/;"	f	struct:Terrain
-setMoveLeft	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::setMoveLeft(bool enabled){$/;"	f	class:groundMoveData
-setMoveRight	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::setMoveRight(bool enabled){$/;"	f	class:groundMoveData
+setMoveLeft	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::setMoveLeft(bool enabled){$/;"	f	class:groundMoveData
+setMoveRight	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::setMoveRight(bool enabled){$/;"	f	class:groundMoveData
 setPosition	core/Rendering/renderProcess.h	/^		void setPosition(vector2 position){$/;"	f	class:renderProcess::renderNode
 setRad	core/math/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
 setRotation	core/Rendering/renderProcess.h	/^		void setRotation(util::Angle angle){$/;"	f	class:renderProcess::renderNode
 setRotation	core/Rendering/viewProcess.cpp	/^void viewProcess::setRotation(util::Angle angle){$/;"	f	class:viewProcess
 setSeed	core/IO/Hash.cpp	/^void Hash::setSeed(unsigned int seed){$/;"	f	class:Hash
-setShotCooldown	game/ObjProcessors/gunProcessor.h	/^	void setShotCooldown(int totalShotCooldown){$/;"	f	struct:gunData
-setSpeed	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveData::setSpeed(float speed){$/;"	f	class:airMoveData
+setShotCooldown	game/ObjProcessors/GunProcessor.h	/^	void setShotCooldown(float totalShotCooldown){$/;"	f	struct:GunData
+setSpeed	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveData::setSpeed(float speed){$/;"	f	class:airMoveData
 setThreshold	core/IO/logObject.h	/^		static void setThreshold(logLevel logThreshold){$/;"	f	class:IO::baseLog
+setTotalTime	core/controlFlow/Cooldown.h	/^	void setTotalTime(T totalTime) {$/;"	f	class:Cooldown
 setVal	core/componentSys/Property.h	/^	void setVal(T &val){$/;"	f	class:Prop
 set_color	include/backward/backward.hpp	/^	void set_color(Color::type ccode) {$/;"	f	class:backward::Colorize
 set_color	include/backward/backward.hpp	/^	void set_color(Color::type) {}$/;"	f	class:backward::Colorize
@@ -3644,20 +3663,21 @@ sf	include/SFML/Window/VideoMode.hpp	/^namespace sf$/;"	n
 sf	include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 sf	include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
 sf	include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
-sgn	core/math/mathUtil.h	/^	static int sgn(T  num){$/;"	f	namespace:util
+sgn	core/math/mathUtil.h	/^	static int sgn(T num){$/;"	f	namespace:util
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
 shader	include/SFML/Graphics/RenderStates.hpp	/^    const Shader*  shader;    \/\/\/< Shader$/;"	m	class:sf::RenderStates
 shape	include/Box2D/Dynamics/b2Fixture.h	/^	const b2Shape* shape;$/;"	m	struct:b2FixtureDef
 shapeRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> shapeRenderNode;$/;"	t
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-shotOnCooldown	game/ObjProcessors/gunProcessor.h	/^	bool shotOnCooldown;$/;"	m	struct:gunData
+shotCooldown	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> shotCooldown;$/;"	m	struct:GunData
 shouldChangeState	core/controlFlow/State.h	/^	bool shouldChangeState(){$/;"	f	class:State
+shouldSubdivide	game/terrainGen/terrainGenerator.cpp	/^bool shouldSubdivide(Terrain &terrain, int currentX, int h){$/;"	f
 sideNormal1	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 sideNormal1;$/;"	m	struct:b2ReferenceFace	file:
 sideNormal2	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 sideNormal2;$/;"	m	struct:b2ReferenceFace	file:
 sideOffset1	include/Box2D/Collision/b2CollideEdge.cpp	/^	float32 sideOffset1;$/;"	m	struct:b2ReferenceFace	file:
 sideOffset2	include/Box2D/Collision/b2CollideEdge.cpp	/^	float32 sideOffset2;$/;"	m	struct:b2ReferenceFace	file:
 sig_handler	include/backward/backward.hpp	/^	static void sig_handler(int, siginfo_t* info, void* _ctx) {$/;"	f	class:backward::SignalHandling
-simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread; $/;"	m	class:worldProcess
+simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread;$/;"	m	class:worldProcess
 sin	core/math/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 size	include/Box2D/Common/b2StackAllocator.h	/^	int32 size;$/;"	m	struct:b2StackEntry
 size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon10
@@ -3675,28 +3695,32 @@ solveVelocity	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 solveVelocity;$/;"	
 sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(baseRenderNode *first, baseRenderNode *second){$/;"	f	class:renderProcess
 source	include/backward/backward.hpp	/^	SourceLoc                      source;$/;"	m	struct:backward::ResolvedTrace
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
-speed	game/ObjProcessors/airMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
+speed	game/ObjProcessors/AirMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
 spriteRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> spriteRenderNode;$/;"	t
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stacktrace_tag	include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
+startCooldown	core/controlFlow/Cooldown.h	/^	void startCooldown() { currentCooldown_ = totalTime_; }$/;"	f	class:Cooldown
 state	include/Box2D/Collision/b2TimeOfImpact.h	/^	State state;$/;"	m	struct:b2TOIOutput
 stateProcess	core/controlFlow/stateProcess.h	/^	stateProcess(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager) :$/;"	f	class:stateProcess
 stateProcess	core/controlFlow/stateProcess.h	/^class stateProcess : public Process{$/;"	c
 stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^	stateSaveLoader(State *state){$/;"	f	class:stateSaveLoader
 stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^class stateSaveLoader{$/;"	c
 states	core/controlFlow/stateProcess.h	/^	std::map<const Hash*, State*> states;$/;"	m	class:stateProcess
+status	include/noise/tinymt32.h	/^    uint32_t status[4];$/;"	m	struct:TINYMT32_T
+status	include/noise/tinymt64.h	/^    uint64_t status[2];$/;"	m	struct:TINYMT64_T
 stencilBits	include/SFML/Window/ContextSettings.hpp	/^    unsigned int stencilBits;       \/\/\/< Bits of the stencil buffer$/;"	m	struct:sf::ContextSettings
 step	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2TimeStep step;$/;"	m	struct:b2ContactSolverDef
 step	include/Box2D/Dynamics/b2TimeStep.h	/^	b2TimeStep step;$/;"	m	struct:b2SolverData
 step	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 step;$/;"	m	struct:b2Profile
 stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
-stepSize	game/ObjProcessors/cameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
+stepSize	game/ObjProcessors/CameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
 storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon7
 strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
 swap	include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
 sweepA	include/Box2D/Collision/b2TimeOfImpact.h	/^	b2Sweep sweepA;$/;"	m	struct:b2TOIInput
 sweepB	include/Box2D/Collision/b2TimeOfImpact.h	/^	b2Sweep sweepB;$/;"	m	struct:b2TOIInput
+switchGuns_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::switchGuns_(Object *prevGun, Object *newGun){$/;"	f	class:gunsManager
 symtab	include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
 system	include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
 system_tag	include/backward/backward.hpp	/^namespace system_tag {$/;"	n	namespace:backward
@@ -3709,14 +3733,11 @@ tangentImpulses	include/Box2D/Dynamics/b2WorldCallbacks.h	/^	float32 tangentImpu
 tangentMass	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 tangentMass;$/;"	m	struct:b2VelocityConstraintPoint
 tangentSpeed	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 tangentSpeed;$/;"	m	struct:b2ContactVelocityConstraint
 target	include/Box2D/Dynamics/Joints/b2MouseJoint.h	/^	b2Vec2 target;$/;"	m	struct:b2MouseJointDef
-targetClass	core/AI/distanceSensor.h	/^	std::string targetClass;$/;"	m	class:distanceSensor
-tasks	core/AI/baseAI.h	/^		std::vector<Task *>tasks;$/;"	m	class:AI::Brain
 terrain	game/defines/renderingLayers.h	/^	terrain = -1,$/;"	e	enum:renderingLayers
-terrain	game/terrainGen/terrain.h	/^	std::vector <terrainType> terrain;$/;"	m	struct:Terrain
-terrainCreator	game/factory/terrainCreator.cpp	/^terrainCreator::terrainCreator(viewProcess *_viewProc) : viewProc(_viewProc){};$/;"	f	class:terrainCreator
-terrainCreator	game/factory/terrainCreator.h	/^class terrainCreator : public objectCreator{$/;"	c
-terrainProcessor	game/ObjProcessors/terrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:terrainProcessor
-terrainProcessor	game/ObjProcessors/terrainProcessor.h	/^class terrainProcessor : public objectProcessor{$/;"	c
+terrain	game/factory/objectFactories.h	/^	Terrain &terrain;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+terrain	game/terrainGen/terrain.h	/^	terrainType *terrain;$/;"	m	struct:Terrain
+terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:terrainProcessor
+terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^class terrainProcessor : public ObjectProcessor{$/;"	c
 terrainType	game/terrainGen/terrain.h	/^enum terrainType {$/;"	g
 texCoords	include/SFML/Graphics/Vertex.hpp	/^    Vector2f  texCoords; \/\/\/< Coordinates of the texture's pixel to map to the vertex$/;"	m	class:sf::Vertex
 text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon10
@@ -3725,10 +3746,44 @@ texture	include/SFML/Graphics/Font.hpp	/^        sf::Texture      texture; \/\/\
 texture	include/SFML/Graphics/RenderStates.hpp	/^    const Texture* texture;   \/\/\/< Texture$/;"	m	class:sf::RenderStates
 textureRect	include/SFML/Graphics/Glyph.hpp	/^    IntRect textureRect; \/\/\/< Texture coordinates of the glyph inside the font's texture$/;"	m	class:sf::Glyph
 thickness	game/factory/boundaryCreator.h	/^	float thickness;$/;"	m	class:boundaryCreator
+thickness	game/factory/objectFactories.h	/^	float thickness;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
 thread_id	include/backward/backward.hpp	/^	unsigned thread_id() const { return 0; }$/;"	f	class:backward::StackTraceImpl
 thread_id	include/backward/backward.hpp	/^	unsigned thread_id() const {$/;"	f	class:backward::StackTraceLinuxImplBase
 thresholdLevel	core/IO/logObject.cpp	/^IO::logLevel IO::baseLog::thresholdLevel;$/;"	m	class:IO::baseLog	file:
 thresholdLevel	core/IO/logObject.h	/^		static logLevel thresholdLevel; $/;"	m	class:IO::baseLog
+tinymt32_generate_32double	include/noise/tinymt32.h	/^inline static double tinymt32_generate_32double(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float01	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float01(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float12	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float12(tinymt32_t * random) {$/;"	f
+tinymt32_generate_floatOC	include/noise/tinymt32.h	/^inline static float tinymt32_generate_floatOC(tinymt32_t * random) {$/;"	f
+tinymt32_generate_floatOO	include/noise/tinymt32.h	/^inline static float tinymt32_generate_floatOO(tinymt32_t * random) {$/;"	f
+tinymt32_generate_uint32	include/noise/tinymt32.h	/^inline static uint32_t tinymt32_generate_uint32(tinymt32_t * random) {$/;"	f
+tinymt32_get_mexp	include/noise/tinymt32.h	/^inline static int tinymt32_get_mexp($/;"	f
+tinymt32_get_mexp	include/noise/tinymt32.h	/^inline static int tinymt32_get_mexp(tinymt32_t * random) {$/;"	f
+tinymt32_init	include/noise/tinymt32.c	/^void tinymt32_init(tinymt32_t * random, uint32_t seed) {$/;"	f
+tinymt32_init_by_array	include/noise/tinymt32.c	/^void tinymt32_init_by_array(tinymt32_t * random, uint32_t init_key[],$/;"	f
+tinymt32_next_state	include/noise/tinymt32.h	/^inline static void tinymt32_next_state(tinymt32_t * random) {$/;"	f
+tinymt32_t	include/noise/tinymt32.h	/^typedef struct TINYMT32_T tinymt32_t;$/;"	t	typeref:struct:TINYMT32_T
+tinymt32_temper	include/noise/tinymt32.h	/^inline static uint32_t tinymt32_temper(tinymt32_t * random) {$/;"	f
+tinymt32_temper_conv	include/noise/tinymt32.h	/^inline static float tinymt32_temper_conv(tinymt32_t * random) {$/;"	f
+tinymt32_temper_conv_open	include/noise/tinymt32.h	/^inline static float tinymt32_temper_conv_open(tinymt32_t * random) {$/;"	f
+tinymt64_generate_double	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double(tinymt64_t * random) {$/;"	f
+tinymt64_generate_double01	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double01(tinymt64_t * random) {$/;"	f
+tinymt64_generate_double12	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double12(tinymt64_t * random) {$/;"	f
+tinymt64_generate_doubleOC	include/noise/tinymt64.h	/^inline static double tinymt64_generate_doubleOC(tinymt64_t * random) {$/;"	f
+tinymt64_generate_doubleOO	include/noise/tinymt64.h	/^inline static double tinymt64_generate_doubleOO(tinymt64_t * random) {$/;"	f
+tinymt64_generate_uint64	include/noise/tinymt64.h	/^inline static uint64_t tinymt64_generate_uint64(tinymt64_t * random) {$/;"	f
+tinymt64_get_mexp	include/noise/tinymt64.h	/^inline static int tinymt64_get_mexp($/;"	f
+tinymt64_get_mexp	include/noise/tinymt64.h	/^inline static int tinymt64_get_mexp(tinymt64_t * random) {$/;"	f
+tinymt64_init	include/noise/tinymt64.c	/^void tinymt64_init(tinymt64_t * random, uint64_t seed) {$/;"	f
+tinymt64_init_by_array	include/noise/tinymt64.c	/^void tinymt64_init_by_array(tinymt64_t * random, const uint64_t init_key[],$/;"	f
+tinymt64_next_state	include/noise/tinymt64.h	/^inline static void tinymt64_next_state(tinymt64_t * random) {$/;"	f
+tinymt64_t	include/noise/tinymt64.h	/^typedef struct TINYMT64_T tinymt64_t;$/;"	t	typeref:struct:TINYMT64_T
+tinymt64_temper	include/noise/tinymt64.h	/^inline static uint64_t tinymt64_temper(tinymt64_t * random) {$/;"	f
+tinymt64_temper_conv	include/noise/tinymt64.h	/^inline static double tinymt64_temper_conv(tinymt64_t * random) {$/;"	f
+tinymt64_temper_conv_open	include/noise/tinymt64.h	/^inline static double tinymt64_temper_conv_open(tinymt64_t * random) {$/;"	f
+tmat	include/noise/tinymt32.h	/^    uint32_t tmat;$/;"	m	struct:TINYMT32_T
+tmat	include/noise/tinymt64.h	/^    uint64_t tmat;$/;"	m	struct:TINYMT64_T
 toAngle	core/math/vector.h	/^	float toAngle() const{$/;"	f	class:vector2
 toDeg	core/math/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
 toRad	core/math/mathUtil.h	/^		float toRad(){$/;"	f	class:util::Angle
@@ -3736,10 +3791,9 @@ toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	cl
 toVector	core/math/mathUtil.h	/^		vector2 toVector(){$/;"	f	class:util::Angle
 top	include/SFML/Graphics/Font.hpp	/^        unsigned int top;    \/\/\/< Y position of the row into the texture$/;"	m	struct:sf::Font::Row
 top	include/SFML/Graphics/Rect.hpp	/^    T top;    \/\/\/< Top coordinate of the rectangle$/;"	m	class:sf::Rect
-totalBounces	game/bulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	class:bounceCollider
-totalClipCooldown	game/ObjProcessors/gunProcessor.h	/^	int totalClipCooldown;$/;"	m	struct:gunData
-totalClipSize	game/ObjProcessors/gunProcessor.h	/^	int totalClipSize;$/;"	m	struct:gunData
-totalShotCooldown	game/ObjProcessors/gunProcessor.h	/^	int totalShotCooldown;$/;"	m	struct:gunData
+totalBounces	game/BulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	class:bounceCollider
+totalClipSize	game/ObjProcessors/GunProcessor.h	/^	int totalClipSize;$/;"	m	struct:GunData
+totalTime_	core/controlFlow/Cooldown.h	/^	T totalTime_;$/;"	m	class:Cooldown
 trace	include/backward/backward.hpp	/^		ResolvedTrace& trace;$/;"	m	struct:backward::TraceResolverLinuxImpl::inliners_search_cb
 trace_resolver_tag	include/backward/backward.hpp	/^namespace trace_resolver_tag {$/;"	n	namespace:backward
 transform	include/SFML/Graphics/RenderStates.hpp	/^    Transform      transform; \/\/\/< Transform$/;"	m	class:sf::RenderStates
@@ -3767,6 +3821,7 @@ uint8	include/Box2D/Common/b2Settings.h	/^typedef unsigned char uint8;$/;"	t
 unicode	include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 unwind	include/backward/backward.hpp	/^size_t unwind(F f, size_t depth) {$/;"	f	namespace:backward::details
 up	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key up;$/;"	m	struct:playerHandlerData
+updateGunAngle_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::updateGunAngle_(util::Angle &facing){$/;"	f	class:gunsManager
 upperAngle	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 upperAngle;$/;"	m	struct:b2RevoluteJointDef
 upperBound	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 upperBound;	\/\/\/< the upper vertex$/;"	m	struct:b2AABB
 upperTranslation	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 upperTranslation;$/;"	m	struct:b2PrismaticJointDef
@@ -3779,15 +3834,13 @@ userData	include/Box2D/Dynamics/b2Body.h	/^	void* userData;$/;"	m	struct:b2BodyD
 userData	include/Box2D/Dynamics/b2Fixture.h	/^	void* userData;$/;"	m	struct:b2FixtureDef
 util	core/IO/strHelper.h	/^namespace util{$/;"	n
 util	core/math/mathUtil.h	/^namespace util{$/;"	n
-v	game/ObjProcessors/cameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
+v	game/ObjProcessors/CameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
 v	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 v;$/;"	m	struct:b2ClipVertex
 v	include/Box2D/Dynamics/b2TimeStep.h	/^	b2Vec2 v;$/;"	m	struct:b2Velocity
 v1	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 v1, v2;$/;"	m	struct:b2ReferenceFace	file:
 v2	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 v1, v2;$/;"	m	struct:b2ReferenceFace	file:
 v2Prop	core/componentSys/Property.h	/^typedef Prop<vector2> v2Prop;$/;"	t
 val	core/componentSys/Property.h	/^		T val;$/;"	m	class:Prop
-val	core/componentSys/Property.h	/^	T *val;$/;"	m	class:managedProp
-val	core/componentSys/Property.h	/^	T* val;$/;"	m	class:ptrProp
 value	include/backward/backward.hpp	/^	const std::string& value() const {$/;"	f	class:backward::Variable
 value	include/backward/backward.hpp	/^	std::string& value() {$/;"	f	class:backward::Variable
 vector2	core/math/vector.h	/^	\/*inline*\/ vector2(float x, float y){$/;"	f	class:vector2
@@ -3798,7 +3851,7 @@ vector3	core/math/vector.h	/^	vector3(){ this->x = this->y = this->z = 0;};$/;"	
 vector3	core/math/vector.h	/^	vector3(float x, float y, float z){$/;"	f	class:vector3
 vector3	core/math/vector.h	/^	vector3(vector2 vec2, float z){$/;"	f	class:vector3
 vector3	core/math/vector.h	/^class vector3{$/;"	c
-velClamped	core/componentSys/processor/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
+velClamped	core/componentSys/processor/PhyProcessor.h	/^	bool velClamped;$/;"	m	struct:PhyData
 velIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
 velocities	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Velocity* velocities;$/;"	m	struct:b2ContactSolverDef
 velocities	include/Box2D/Dynamics/b2TimeStep.h	/^	b2Velocity* velocities;$/;"	m	struct:b2SolverData
@@ -3807,23 +3860,28 @@ velocityIterations	include/Box2D/Dynamics/b2TimeStep.h	/^	int32 velocityIteratio
 vertexCache	include/SFML/Graphics/RenderTarget.hpp	/^        Vertex    vertexCache[VertexCacheSize]; \/\/\/< Pre-transformed vertices cache$/;"	m	struct:sf::RenderTarget::StatesCache
 vertices	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 vertices[b2_maxPolygonVertices];$/;"	m	struct:b2TempPolygon	file:
 vertices	include/Box2D/Rope/b2Rope.h	/^	b2Vec2* vertices;$/;"	m	struct:b2RopeDef
-view	core/componentSys/processor/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
-view	core/componentSys/processor/renderProcessor.h	/^	viewProcess *view;$/;"	m	class:renderProcessor
-view	game/ObjProcessors/cameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
-view	game/ObjProcessors/terrainProcessor.h	/^	viewProcess *view;$/;"	m	class:terrainProcessor
+view	core/componentSys/processor/PhyProcessor.h	/^	viewProcess *view;$/;"	m	class:PhyProcessor
+view	core/componentSys/processor/RenderProcessor.h	/^	viewProcess *view;$/;"	m	class:RenderProcessor
+view	game/ObjProcessors/CameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
+view	game/ObjProcessors/TerrainProcessor.h	/^	viewProcess *view;$/;"	m	class:terrainProcessor
 view2GameCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::view2GameCoord(vector2 renderCoord){$/;"	f	class:viewProcess
 view2RenderCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::view2RenderCoord(vector2 renderCoord){$/;"	f	class:viewProcess
 viewChanged	include/SFML/Graphics/RenderTarget.hpp	/^        bool      viewChanged;    \/\/\/< Has the current view changed since last draw?$/;"	m	struct:sf::RenderTarget::StatesCache
+viewProc	game/ObjProcessors/GunProcessor.h	/^	viewProcess *viewProc;$/;"	m	class:GunProcessor
 viewProc	game/States/gameState.h	/^	viewProcess *viewProc;$/;"	m	class:gameState
 viewProc	game/factory/boundaryCreator.h	/^	viewProcess *viewProc;$/;"	m	class:boundaryCreator
 viewProc	game/factory/bulletCreator.h	/^	viewProcess *viewProc;$/;"	m	class:bulletCreator
 viewProc	game/factory/dummyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:dummyCreator
 viewProc	game/factory/enemyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:enemyCreator
 viewProc	game/factory/gunCreator.h	/^	viewProcess *viewProc;$/;"	m	class:gunCreator
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
 viewProc	game/factory/pickupCreator.h	/^	viewProcess *viewProc;$/;"	m	class:pickupCreator
 viewProc	game/factory/playerCreator.h	/^	viewProcess *viewProc;$/;"	m	class:playerCreator
-viewProc	game/factory/terrainCreator.h	/^	viewProcess *viewProc;$/;"	m	class:terrainCreator
 viewProc	game/gameStateHelpers/playerController.h	/^	viewProcess *viewProc;$/;"	m	class:playerController
+viewProc_	game/gameStateHelpers/gunsManager.h	/^	viewProcess *viewProc_;$/;"	m	class:gunsManager
 viewProcess	core/Rendering/viewProcess.cpp	/^viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:viewProcess
 viewProcess	core/Rendering/viewProcess.h	/^class viewProcess : public Process, public Observer{$/;"	c
 w	include/Box2D/Collision/b2Distance.cpp	/^	b2Vec2 w;		\/\/ wB - wA$/;"	m	struct:b2SimplexVertex	file:
@@ -3841,20 +3899,20 @@ window	core/IO/eventProcess.h	/^ 	sf::RenderWindow *window;$/;"	m	class:eventPro
 window	core/Rendering/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
 window	core/Rendering/viewProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:viewProcess
 window	core/Rendering/windowProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:windowProcess
-window	core/componentSys/processor/renderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcessor
-window	game/ObjProcessors/cameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
-window	game/ObjProcessors/terrainProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:terrainProcessor
+window	core/componentSys/processor/RenderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:RenderProcessor
+window	game/ObjProcessors/CameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
+window	game/ObjProcessors/TerrainProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:terrainProcessor
 windowClosed	mainLoopListener.h	/^	bool windowClosed;$/;"	m	class:mainLoopListener
 windowHeight	core/Rendering/viewProcess.h	/^	float windowHeight;$/;"	m	class:viewProcess
 windowProcess	core/Rendering/windowProcess.h	/^	windowProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) : $/;"	f	class:windowProcess
 windowProcess	core/Rendering/windowProcess.h	/^class windowProcess : public Process{$/;"	c
 world	core/World/worldProcess.h	/^	b2World *world = NULL;$/;"	m	class:worldProcess
-world	core/componentSys/processor/phyProcessor.h	/^	worldProcess *world;$/;"	m	class:phyProcessor
+world	core/componentSys/processor/PhyProcessor.h	/^	worldProcess *world;$/;"	m	class:PhyProcessor
 world	game/ObjProcessors/AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
-world	game/ObjProcessors/airMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
-world	game/ObjProcessors/bulletProcessor.h	/^	worldProcess *world;$/;"	m	class:bulletProcessor
-world	game/ObjProcessors/groundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
-world	game/ObjProcessors/terrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
+world	game/ObjProcessors/AirMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
+world	game/ObjProcessors/BulletProcessor.h	/^	worldProcess *world;$/;"	m	class:BulletProcessor
+world	game/ObjProcessors/GroundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
+world	game/ObjProcessors/TerrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
 worldAABBQuery	core/World/rayCastQuery.h	/^class worldAABBQuery : public b2QueryCallback{$/;"	c
 worldAccess	core/World/worldProcess.h	/^	std::mutex worldAccess;          $/;"	m	class:worldProcess
 worldProcess	core/World/worldProcess.cpp	/^worldProcess::worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:worldProcess
@@ -3868,8 +3926,8 @@ x	include/SFML/System/Vector3.hpp	/^    T x; \/\/\/< X coordinate of the vector$
 x	include/SFML/Window/Event.hpp	/^        int           x;      \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseButtonEvent
 x	include/SFML/Window/Event.hpp	/^        int x;     \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseWheelEvent
 x	include/SFML/Window/Event.hpp	/^        int x; \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseMoveEvent
-xAccel	game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
-xVel	game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
+xAccel	game/ObjProcessors/GroundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
+xVel	game/ObjProcessors/GroundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
 y	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 y	core/math/vector.h	/^	float x, y;$/;"	m	class:vector2
 y	include/Box2D/Common/b2Math.h	/^	float32 x, y, z;$/;"	m	struct:b2Vec3
@@ -3886,11 +3944,14 @@ z	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 z	include/Box2D/Common/b2Math.h	/^	float32 x, y, z;$/;"	m	struct:b2Vec3
 z	include/SFML/System/Vector3.hpp	/^    T z; \/\/\/< Z coordinate of the vector$/;"	m	class:sf::Vector3
 zeroVector	core/math/vector.h	146;"	d
+~BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	virtual ~BulletCollider(){};$/;"	f	class:BulletCollider
 ~Colorize	include/backward/backward.hpp	/^	~Colorize() {$/;"	f	class:backward::Colorize
 ~Drawable	include/SFML/Graphics/Drawable.hpp	/^    virtual ~Drawable() {}$/;"	f	class:sf::Drawable
 ~Generator	game/generators/Generator.h	/^		virtual ~Generator(){};$/;"	f	class:Generator
 ~InputStream	include/SFML/System/InputStream.hpp	/^    virtual ~InputStream() {}$/;"	f	class:sf::InputStream
 ~Object	core/componentSys/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
+~ObjectMgr	core/componentSys/ObjectMgr.h	/^	~ObjectMgr(){};$/;"	f	class:ObjectMgr
+~ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^	virtual ~ObjectProcessor(){};$/;"	f	class:ObjectProcessor
 ~Process	core/controlFlow/Process.h	/^	virtual ~Process(){};$/;"	f	class:Process
 ~Prop	core/componentSys/Property.h	/^	~Prop(){$/;"	f	class:Prop
 ~State	core/controlFlow/State.h	/^	virtual ~State(){};$/;"	f	class:State
@@ -3923,18 +3984,14 @@ zeroVector	core/math/vector.h	146;"	d
 ~b2World	include/Box2D/Dynamics/b2World.cpp	/^b2World::~b2World()$/;"	f	class:b2World
 ~baseLog	core/IO/logObject.cpp	/^IO::baseLog::~baseLog(){}$/;"	f	class:IO::baseLog
 ~baseProperty	core/componentSys/Property.h	/^	virtual ~baseProperty(){};$/;"	f	class:baseProperty
-~bounceCollider	game/bulletColliders/bounceCollider.h	/^	~bounceCollider(){};$/;"	f	class:bounceCollider
-~bulletCollider	game/ObjProcessors/bulletProcessor.h	/^	virtual ~bulletCollider(){};$/;"	f	class:bulletCollider
-~damageCollider	game/bulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
+~bounceCollider	game/BulletColliders/bounceCollider.h	/^	~bounceCollider(){};$/;"	f	class:bounceCollider
+~damageCollider	game/BulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
 ~dummyProp	core/componentSys/Property.h	/^	~dummyProp(){};$/;"	f	class:dummyProp
 ~dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^	~dummyStateSaveLoader(){};$/;"	f	class:dummyStateSaveLoader
 ~handle	include/backward/backward.hpp	/^	~handle() {$/;"	f	class:backward::details::handle
-~managedProp	core/componentSys/Property.h	/^	~managedProp(){$/;"	f	class:managedProp
 ~objContactListener	core/World/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
 ~objectCreator	game/factory/objectFactory.h	/^	virtual ~objectCreator(){};$/;"	f	class:objectCreator
-~objectMgr	core/componentSys/objectMgr.h	/^	~objectMgr(){};$/;"	f	class:objectMgr
-~objectProcessor	core/componentSys/processor/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
-~pushCollider	game/bulletColliders/pushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
+~pushCollider	game/BulletColliders/PushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
 ~scopedLog	core/IO/logObject.h	/^		~scopedLog(){$/;"	f	class:IO::scopedLog
 ~stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^	virtual ~stateSaveLoader(){};$/;"	f	class:stateSaveLoader
 ~vector2	core/math/vector.h	/^	~vector2(){};$/;"	f	class:vector2

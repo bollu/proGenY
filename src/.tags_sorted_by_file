@@ -3,32 +3,8 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
-Executor	core/AI/baseAI.cpp	/^Executor::Executor(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Executor
-Sensor	core/AI/baseAI.cpp	/^Sensor::Sensor(Object *_owner,std::string _name) : owner(_owner), name(_name){}$/;"	f	class:Sensor
-Task	core/AI/baseAI.cpp	/^Task::Task(Object::objectMap &_objectMap, Object *_owner) : objectMap(_objectMap), owner(_owner){};$/;"	f	class:Task
-getName	core/AI/baseAI.cpp	/^std::string Sensor::getName() const{$/;"	f	class:Sensor
-isExclusive	core/AI/baseAI.cpp	/^bool Task::isExclusive() const{$/;"	f	class:Task
 AI	core/AI/baseAI.h	/^namespace AI{$/;"	n
-Brain	core/AI/baseAI.h	/^	class Brain{$/;"	c	namespace:AI
-Executor	core/AI/baseAI.h	/^	class Executor{$/;"	c	namespace:AI
-Sensor	core/AI/baseAI.h	/^	class Sensor{$/;"	c	namespace:AI
-Task	core/AI/baseAI.h	/^	class Task{$/;"	c	namespace:AI
-executorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Executor> executorMap;$/;"	t	class:AI::Executor
-executors	core/AI/baseAI.h	/^		Executor::executorMap executors;$/;"	m	class:AI::Brain
-name	core/AI/baseAI.h	/^		std::string name;$/;"	m	class:AI::Sensor
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Executor
-objectMap	core/AI/baseAI.h	/^		Object::objectMap &objectMap;$/;"	m	class:AI::Task
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Brain
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Executor
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Sensor
-owner	core/AI/baseAI.h	/^		Object *owner;$/;"	m	class:AI::Task
-sensorMap	core/AI/baseAI.h	/^		typedef std::map<const Hash *, Sensor> sensorMap;$/;"	t	class:AI::Sensor
-sensors	core/AI/baseAI.h	/^		Sensor::sensorMap sensors;$/;"	m	class:AI::Brain
-tasks	core/AI/baseAI.h	/^		std::vector<Task *>tasks;$/;"	m	class:AI::Brain
-Sense	core/AI/distanceSensor.cpp	/^void distanceSensor::Sense(){$/;"	f	class:distanceSensor
-distanceSensor	core/AI/distanceSensor.cpp	/^distanceSensor::distanceSensor(Object *owner, b2World *world, std::string targetClass) :$/;"	f	class:distanceSensor
-distanceSensor	core/AI/distanceSensor.h	/^class distanceSensor : public AI::Sensor{$/;"	c
-targetClass	core/AI/distanceSensor.h	/^	std::string targetClass;$/;"	m	class:distanceSensor
+ThinkFunc	core/AI/baseAI.h	/^	typedef std::function<void(Object*)> ThinkFunc;$/;"	t	namespace:AI
 Hash	core/IO/Hash.cpp	/^Hash::Hash(std::string &str, unsigned int seed){$/;"	f	class:Hash
 Hash2Str	core/IO/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
 _MurmurHash64B	core/IO/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
@@ -169,14 +145,14 @@ getCollidedObjectCollision	core/World/objContactListener.cpp	/^const Hash *colli
 Type	core/World/objContactListener.h	/^	enum Type{$/;"	g	struct:collisionData
 collisionData	core/World/objContactListener.h	/^struct collisionData{$/;"	s
 myApproachVel	core/World/objContactListener.h	/^	vector2 myApproachVel;$/;"	m	struct:collisionData
-myPhy	core/World/objContactListener.h	/^	phyData *myPhy;$/;"	m	struct:collisionData
+myPhy	core/World/objContactListener.h	/^	PhyData *myPhy;$/;"	m	struct:collisionData
 normal	core/World/objContactListener.h	/^	vector2 normal;$/;"	m	struct:collisionData
 objContactListener	core/World/objContactListener.h	/^	objContactListener(){};$/;"	f	class:objContactListener
 objContactListener	core/World/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
 onBegin	core/World/objContactListener.h	/^		onBegin,$/;"	e	enum:collisionData::Type
 onEnd	core/World/objContactListener.h	/^		onEnd,$/;"	e	enum:collisionData::Type
 otherObj	core/World/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:collisionData
-otherPhy	core/World/objContactListener.h	/^	phyData *otherPhy;$/;"	m	struct:collisionData
+otherPhy	core/World/objContactListener.h	/^	PhyData *otherPhy;$/;"	m	struct:collisionData
 type	core/World/objContactListener.h	/^	} type;$/;"	m	struct:collisionData	typeref:enum:collisionData::Type
 ~objContactListener	core/World/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
 object	core/World/rayCastQuery.h	/^	std::vector<Object *> object;$/;"	m	class:worldAABBQuery
@@ -199,7 +175,7 @@ collisionIterations	core/World/worldProcess.h	/^	float velIterations, collisionI
 dtAccumilator	core/World/worldProcess.h	/^	float dtAccumilator;$/;"	m	class:worldProcess
 maxAccumilation	core/World/worldProcess.h	/^	float maxAccumilation;$/;"	m	class:worldProcess
 paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
-simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread; $/;"	m	class:worldProcess
+simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread;$/;"	m	class:worldProcess
 stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
 velIterations	core/World/worldProcess.h	/^	float velIterations, collisionIterations;$/;"	m	class:worldProcess
 world	core/World/worldProcess.h	/^	b2World *world = NULL;$/;"	m	class:worldProcess
@@ -210,6 +186,7 @@ Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(f
 _genUniqueName	core/componentSys/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
 _getBaseProp	core/componentSys/Object.cpp	/^baseProperty *Object::_getBaseProp(const Hash *name) const{$/;"	f	class:Object
 _printProperties	core/componentSys/Object.cpp	/^void Object::_printProperties() const{$/;"	f	class:Object
+addChild	core/componentSys/Object.cpp	/^void Object::addChild(Object *child){$/;"	f	class:Object
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const Hash *name, baseProperty *value){$/;"	f	class:Object
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const char *name, baseProperty *value){$/;"	f	class:Object
 getBaseName	core/componentSys/Object.cpp	/^std::string Object::getBaseName() const{$/;"	f	class:Object
@@ -226,9 +203,12 @@ _getProperty	core/componentSys/Object.h	/^	Prop<T> * _getProperty(const Hash* na
 baseName	core/componentSys/Object.h	/^	std::string baseName;$/;"	m	class:Object
 cObjMapIt	core/componentSys/Object.h	/^	typedef objectMap::const_iterator cObjMapIt;$/;"	t	class:Object
 cPropertyIt	core/componentSys/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;$/;"	t	class:Object
+children	core/componentSys/Object.h	/^	std::vector<Object *>children;$/;"	m	class:Object
 dead	core/componentSys/Object.h	/^	bool dead;$/;"	m	class:Object
+getMessage	core/componentSys/Object.h	/^	T* getMessage(const Hash *tag) {$/;"	f	class:Object
 getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const Hash *name){$/;"	f	class:Object
 getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
+messages	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > messages;$/;"	m	class:Object
 name	core/componentSys/Object.h	/^	std::string name;$/;"	m	class:Object
 nameIt	core/componentSys/Object.h	/^	typedef std::map<std::string, unsigned int>::iterator nameIt;$/;"	t	class:Object
 nameMap	core/componentSys/Object.h	/^	static std::map<std::string, unsigned int>nameMap;$/;"	m	class:Object
@@ -237,119 +217,124 @@ objectList	core/componentSys/Object.h	/^	typedef std::vector<Object *> objectLis
 objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
 propertyIt	core/componentSys/Object.h	/^	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;$/;"	t	class:Object
 propertyMap	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > propertyMap; $/;"	m	class:Object
+sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {$/;"	f	class:Object
+sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, bool sendToChildren = false) {$/;"	f	class:Object
+Process	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::Process(float dt){$/;"	f	class:ObjectMgr
+activateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::activateObject(Object &obj){$/;"	f	class:ObjectMgr
+activateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::activateObject(const char* name){$/;"	f	class:ObjectMgr
+addObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::addObject(Object *obj){$/;"	f	class:ObjectMgr
+addObjectProcessor	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::addObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgr
+deactivateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::deactivateObject(Object &obj){$/;"	f	class:ObjectMgr
+deactivateObject	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::deactivateObject(const char* name){$/;"	f	class:ObjectMgr
+getObjByName	core/componentSys/ObjectMgr.cpp	/^Object *ObjectMgr::getObjByName(const char* name){$/;"	f	class:ObjectMgr
+postProcess	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::postProcess(){$/;"	f	class:ObjectMgr
+preProcess	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::preProcess(){$/;"	f	class:ObjectMgr
+removeObjectProcessor	core/componentSys/ObjectMgr.cpp	/^void ObjectMgr::removeObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgr
+ObjectMgr	core/componentSys/ObjectMgr.h	/^	ObjectMgr(){};$/;"	f	class:ObjectMgr
+ObjectMgr	core/componentSys/ObjectMgr.h	/^class ObjectMgr{$/;"	c
+activeObjects	core/componentSys/ObjectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:ObjectMgr
+objMap	core/componentSys/ObjectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:ObjectMgr
+objProcessorIt	core/componentSys/ObjectMgr.h	/^	typedef std::vector<ObjectProcessor *>::iterator objProcessorIt;$/;"	t	class:ObjectMgr
+objProcessors	core/componentSys/ObjectMgr.h	/^	std::vector<ObjectProcessor *> objProcessors;$/;"	m	class:ObjectMgr
+~ObjectMgr	core/componentSys/ObjectMgr.h	/^	~ObjectMgr(){};$/;"	f	class:ObjectMgr
+ObjectMgrProcess	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:ObjectMgrProcess
+ObjectMgrProcess	core/componentSys/ObjectMgrProcess.h	/^class ObjectMgrProcess : public Process{$/;"	c
+Update	core/componentSys/ObjectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:ObjectMgrProcess
+addObjectProcessor	core/componentSys/ObjectMgrProcess.h	/^	void addObjectProcessor(ObjectProcessor *processor){$/;"	f	class:ObjectMgrProcess
+getObjectMgr	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgr *getObjectMgr(){$/;"	f	class:ObjectMgrProcess
+objManager	core/componentSys/ObjectMgrProcess.h	/^	ObjectMgr *objManager;$/;"	m	class:ObjectMgrProcess
+postDraw	core/componentSys/ObjectMgrProcess.h	/^	void postDraw(){$/;"	f	class:ObjectMgrProcess
+preUpdate	core/componentSys/ObjectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:ObjectMgrProcess
 Prop	core/componentSys/Property.h	/^	Prop(T value) : val(value){$/;"	f	class:Prop
 Prop	core/componentSys/Property.h	/^	Prop(const Prop<T> &other){$/;"	f	class:Prop
 Prop	core/componentSys/Property.h	/^class Prop : public baseProperty{$/;"	c
+Prop	core/componentSys/Property.h	/^class Prop<void> : public baseProperty {$/;"	c
 baseProperty	core/componentSys/Property.h	/^	baseProperty(){};$/;"	f	class:baseProperty
 baseProperty	core/componentSys/Property.h	/^class baseProperty{$/;"	c
 dummyProp	core/componentSys/Property.h	/^	dummyProp(){};$/;"	f	class:dummyProp
 dummyProp	core/componentSys/Property.h	/^class dummyProp : public baseProperty{$/;"	c
 fProp	core/componentSys/Property.h	/^typedef Prop<float> fProp;$/;"	t
 getVal	core/componentSys/Property.h	/^	T *getVal(){$/;"	f	class:Prop
-getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:managedProp
-getVal	core/componentSys/Property.h	/^	T* getVal() const{$/;"	f	class:ptrProp
+getVal	core/componentSys/Property.h	/^	void *getVal(){$/;"	f	class:Prop
 iProp	core/componentSys/Property.h	/^typedef Prop<int> iProp;$/;"	t
-managedProp	core/componentSys/Property.h	/^	managedProp(T *value){$/;"	f	class:managedProp
-managedProp	core/componentSys/Property.h	/^class managedProp : public baseProperty{$/;"	c
-ptrProp	core/componentSys/Property.h	/^	ptrProp(T *value){$/;"	f	class:ptrProp
-ptrProp	core/componentSys/Property.h	/^class ptrProp : public baseProperty{$/;"	c
 sProp	core/componentSys/Property.h	/^typedef Prop<std::string> sProp;$/;"	t
 setVal	core/componentSys/Property.h	/^	void setVal(T &val){$/;"	f	class:Prop
 v2Prop	core/componentSys/Property.h	/^typedef Prop<vector2> v2Prop;$/;"	t
 val	core/componentSys/Property.h	/^		T val;$/;"	m	class:Prop
-val	core/componentSys/Property.h	/^	T *val;$/;"	m	class:managedProp
-val	core/componentSys/Property.h	/^	T* val;$/;"	m	class:ptrProp
 ~Prop	core/componentSys/Property.h	/^	~Prop(){$/;"	f	class:Prop
 ~baseProperty	core/componentSys/Property.h	/^	virtual ~baseProperty(){};$/;"	f	class:baseProperty
 ~dummyProp	core/componentSys/Property.h	/^	~dummyProp(){};$/;"	f	class:dummyProp
-~managedProp	core/componentSys/Property.h	/^	~managedProp(){$/;"	f	class:managedProp
-Process	core/componentSys/objectMgr.cpp	/^void objectMgr::Process(float dt){$/;"	f	class:objectMgr
-activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(Object &obj){$/;"	f	class:objectMgr
-activateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::activateObject(const char* name){$/;"	f	class:objectMgr
-addObject	core/componentSys/objectMgr.cpp	/^void objectMgr::addObject(Object *obj){$/;"	f	class:objectMgr
-addObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
-deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(Object &obj){$/;"	f	class:objectMgr
-deactivateObject	core/componentSys/objectMgr.cpp	/^void objectMgr::deactivateObject(const char* name){$/;"	f	class:objectMgr
-getObjByName	core/componentSys/objectMgr.cpp	/^Object *objectMgr::getObjByName(const char* name){$/;"	f	class:objectMgr
-postProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::postProcess(){$/;"	f	class:objectMgr
-preProcess	core/componentSys/objectMgr.cpp	/^void objectMgr::preProcess(){$/;"	f	class:objectMgr
-removeObjectProcessor	core/componentSys/objectMgr.cpp	/^void objectMgr::removeObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgr
-activeObjects	core/componentSys/objectMgr.h	/^	Object::objectMap activeObjects;$/;"	m	class:objectMgr
-objMap	core/componentSys/objectMgr.h	/^	Object::objectMap objMap;$/;"	m	class:objectMgr
-objProcessorIt	core/componentSys/objectMgr.h	/^	typedef std::vector<objectProcessor *>::iterator objProcessorIt;$/;"	t	class:objectMgr
-objProcessors	core/componentSys/objectMgr.h	/^	std::vector<objectProcessor *> objProcessors;$/;"	m	class:objectMgr
-objectMgr	core/componentSys/objectMgr.h	/^	objectMgr(){};$/;"	f	class:objectMgr
-objectMgr	core/componentSys/objectMgr.h	/^class objectMgr{$/;"	c
-~objectMgr	core/componentSys/objectMgr.h	/^	~objectMgr(){};$/;"	f	class:objectMgr
-Update	core/componentSys/objectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:objectMgrProcess
-addObjectProcessor	core/componentSys/objectMgrProcess.h	/^	void addObjectProcessor(objectProcessor *processor){$/;"	f	class:objectMgrProcess
-getObjectMgr	core/componentSys/objectMgrProcess.h	/^	objectMgr *getObjectMgr(){$/;"	f	class:objectMgrProcess
-objManager	core/componentSys/objectMgrProcess.h	/^	objectMgr *objManager;$/;"	m	class:objectMgrProcess
-objectMgrProcess	core/componentSys/objectMgrProcess.h	/^	objectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :$/;"	f	class:objectMgrProcess
-objectMgrProcess	core/componentSys/objectMgrProcess.h	/^class objectMgrProcess : public Process{$/;"	c
-postDraw	core/componentSys/objectMgrProcess.h	/^	void postDraw(){$/;"	f	class:objectMgrProcess
-preUpdate	core/componentSys/objectMgrProcess.h	/^	void preUpdate(){$/;"	f	class:objectMgrProcess
-Init	core/componentSys/processor/objectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:objectProcessor
-Process	core/componentSys/processor/objectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:objectProcessor
-_Init	core/componentSys/processor/objectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:objectProcessor
-_Process	core/componentSys/processor/objectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:objectProcessor
-_onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:objectProcessor
-_onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:objectProcessor
-addProcessToken	core/componentSys/processor/objectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:objectProcessor
-hasProcessToken	core/componentSys/processor/objectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:objectProcessor
-name	core/componentSys/processor/objectProcessor.h	/^	std::string name;$/;"	m	class:objectProcessor
-objMap	core/componentSys/processor/objectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:objectProcessor
-objectProcessor	core/componentSys/processor/objectProcessor.h	/^	objectProcessor(std::string _name) : name(_name){};$/;"	f	class:objectProcessor
-objectProcessor	core/componentSys/processor/objectProcessor.h	/^class objectProcessor{$/;"	c
-onObjectActivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectAdd	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:objectProcessor
-onObjectDeactivate	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:objectProcessor
-onObjectDeath	core/componentSys/processor/objectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:objectProcessor
-postProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:objectProcessor
-preProcess	core/componentSys/processor/objectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:objectProcessor
-~objectProcessor	core/componentSys/processor/objectProcessor.h	/^	virtual ~objectProcessor(){};$/;"	f	class:objectProcessor
-_Process	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_Process(Object *obj, float dt){$/;"	f	class:phyProcessor
-_onObjectActivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectAdd	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeactivate	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:phyProcessor
-_onObjectDeath	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:phyProcessor
-_preProcess	core/componentSys/processor/phyProcessor.cpp	/^void phyProcessor::_preProcess(){$/;"	f	class:phyProcessor
-addCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::addCollision(collisionData &collision){$/;"	f	class:phyData
-phyProcessor	core/componentSys/processor/phyProcessor.cpp	/^phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:phyProcessor
-removeCollision	core/componentSys/processor/phyProcessor.cpp	/^void phyData::removeCollision(Object *obj){$/;"	f	class:phyData
-_shouldProcess	core/componentSys/processor/phyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:phyProcessor
-body	core/componentSys/processor/phyProcessor.h	/^	b2Body *body;$/;"	m	struct:phyData
-bodyDef	core/componentSys/processor/phyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:phyData
-collisionType	core/componentSys/processor/phyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:phyData
-collisions	core/componentSys/processor/phyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:phyData
-contactListener	core/componentSys/processor/phyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:phyProcessor
-fixtureDef	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:phyData
-fixtures	core/componentSys/processor/phyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:phyData
-maxVel	core/componentSys/processor/phyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:phyData
-phyData	core/componentSys/processor/phyProcessor.h	/^struct phyData{$/;"	s
-phyProcessor	core/componentSys/processor/phyProcessor.h	/^class phyProcessor : public objectProcessor{$/;"	c
-velClamped	core/componentSys/processor/phyProcessor.h	/^	bool velClamped;$/;"	m	struct:phyData
-view	core/componentSys/processor/phyProcessor.h	/^	viewProcess *view;$/;"	m	class:phyProcessor
-world	core/componentSys/processor/phyProcessor.h	/^	worldProcess *world;$/;"	m	class:phyProcessor
-_Process	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Process(Object *obj, float dt){$/;"	f	class:renderProcessor
-_Render	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:renderProcessor
-_onObjectActivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectAdd	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeactivate	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:renderProcessor
-_onObjectDeath	core/componentSys/processor/renderProcessor.cpp	/^void renderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:renderProcessor
-renderProcessor	core/componentSys/processor/renderProcessor.cpp	/^renderProcessor::renderProcessor(processMgr &processManager, $/;"	f	class:renderProcessor
-_shouldProcess	core/componentSys/processor/renderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:renderProcessor
-addRenderer	core/componentSys/processor/renderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:renderData
-centered	core/componentSys/processor/renderProcessor.h	/^	bool centered;$/;"	m	class:renderData
-render	core/componentSys/processor/renderProcessor.h	/^	renderProcess *render;$/;"	m	class:renderProcessor
-renderData	core/componentSys/processor/renderProcessor.h	/^	renderData() : centered(false){};$/;"	f	class:renderData
-renderData	core/componentSys/processor/renderProcessor.h	/^class renderData{$/;"	c
-renderProcessor	core/componentSys/processor/renderProcessor.h	/^class renderProcessor : public objectProcessor{$/;"	c
-renderers	core/componentSys/processor/renderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:renderData
-view	core/componentSys/processor/renderProcessor.h	/^	viewProcess *view;$/;"	m	class:renderProcessor
-window	core/componentSys/processor/renderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcessor
+Init	core/componentSys/processor/ObjectProcessor.h	/^	void Init(Object::objectMap *_objMap){$/;"	f	class:ObjectProcessor
+ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^	ObjectProcessor(std::string _name) : name(_name){};$/;"	f	class:ObjectProcessor
+ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^class ObjectProcessor{$/;"	c
+Process	core/componentSys/processor/ObjectProcessor.h	/^	virtual void Process(float dt){$/;"	f	class:ObjectProcessor
+_Init	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _Init(){};$/;"	f	class:ObjectProcessor
+_Process	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _Process(Object *obj, float dt){};$/;"	f	class:ObjectProcessor
+_onObjectActivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectActivate(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectAdd	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectAdd(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectDeactivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectDeactivate(Object *obj){};$/;"	f	class:ObjectProcessor
+_onObjectDeath	core/componentSys/processor/ObjectProcessor.h	/^	virtual void _onObjectDeath(Object *obj){};$/;"	f	class:ObjectProcessor
+addProcessToken	core/componentSys/processor/ObjectProcessor.h	/^	void addProcessToken(Object *obj){$/;"	f	class:ObjectProcessor
+hasProcessToken	core/componentSys/processor/ObjectProcessor.h	/^	bool hasProcessToken(Object *obj){$/;"	f	class:ObjectProcessor
+name	core/componentSys/processor/ObjectProcessor.h	/^	std::string name;$/;"	m	class:ObjectProcessor
+objMap	core/componentSys/processor/ObjectProcessor.h	/^	Object::objectMap *objMap;$/;"	m	class:ObjectProcessor
+onObjectActivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectActivate(Object *obj) {$/;"	f	class:ObjectProcessor
+onObjectAdd	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectAdd(Object *obj){$/;"	f	class:ObjectProcessor
+onObjectDeactivate	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectDeactivate(Object *obj) {$/;"	f	class:ObjectProcessor
+onObjectDeath	core/componentSys/processor/ObjectProcessor.h	/^	virtual void onObjectDeath(Object *obj){$/;"	f	class:ObjectProcessor
+postProcess	core/componentSys/processor/ObjectProcessor.h	/^	virtual void postProcess(){};$/;"	f	class:ObjectProcessor
+preProcess	core/componentSys/processor/ObjectProcessor.h	/^	virtual void preProcess(){};$/;"	f	class:ObjectProcessor
+~ObjectProcessor	core/componentSys/processor/ObjectProcessor.h	/^	virtual ~ObjectProcessor(){};$/;"	f	class:ObjectProcessor
+PhyProcessor	core/componentSys/processor/PhyProcessor.cpp	/^PhyProcessor::PhyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:PhyProcessor
+_Process	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_Process(Object *obj, float dt){$/;"	f	class:PhyProcessor
+_onObjectActivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectActivate(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectAdd	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectDeactivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:PhyProcessor
+_onObjectDeath	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PhyProcessor
+_preProcess	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_preProcess(){$/;"	f	class:PhyProcessor
+addCollision	core/componentSys/processor/PhyProcessor.cpp	/^void PhyData::addCollision(collisionData &collision){$/;"	f	class:PhyData
+removeCollision	core/componentSys/processor/PhyProcessor.cpp	/^void PhyData::removeCollision(Object *obj){$/;"	f	class:PhyData
+PhyData	core/componentSys/processor/PhyProcessor.h	/^struct PhyData{$/;"	s
+PhyProcessor	core/componentSys/processor/PhyProcessor.h	/^class PhyProcessor : public ObjectProcessor{$/;"	c
+_shouldProcess	core/componentSys/processor/PhyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:PhyProcessor
+body	core/componentSys/processor/PhyProcessor.h	/^	b2Body *body;$/;"	m	struct:PhyData
+bodyDef	core/componentSys/processor/PhyProcessor.h	/^	b2BodyDef bodyDef;$/;"	m	struct:PhyData
+collisionType	core/componentSys/processor/PhyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:PhyData
+collisions	core/componentSys/processor/PhyProcessor.h	/^	 std::vector<collisionData> collisions;$/;"	m	struct:PhyData
+contactListener	core/componentSys/processor/PhyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:PhyProcessor
+fixtureDef	core/componentSys/processor/PhyProcessor.h	/^	std::vector<b2FixtureDef> fixtureDef;$/;"	m	struct:PhyData
+fixtures	core/componentSys/processor/PhyProcessor.h	/^	std::vector<b2Fixture*>fixtures;$/;"	m	struct:PhyData
+maxVel	core/componentSys/processor/PhyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:PhyData
+velClamped	core/componentSys/processor/PhyProcessor.h	/^	bool velClamped;$/;"	m	struct:PhyData
+view	core/componentSys/processor/PhyProcessor.h	/^	viewProcess *view;$/;"	m	class:PhyProcessor
+world	core/componentSys/processor/PhyProcessor.h	/^	worldProcess *world;$/;"	m	class:PhyProcessor
+RenderProcessor	core/componentSys/processor/RenderProcessor.cpp	/^RenderProcessor::RenderProcessor(processMgr &processManager, $/;"	f	class:RenderProcessor
+_Process	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Process(Object *obj, float dt){$/;"	f	class:RenderProcessor
+_Render	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:RenderProcessor
+_onObjectActivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectAdd	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectDeactivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:RenderProcessor
+_onObjectDeath	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:RenderProcessor
+RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() : centered(false){};$/;"	f	class:RenderData
+RenderData	core/componentSys/processor/RenderProcessor.h	/^class RenderData{$/;"	c
+RenderProcessor	core/componentSys/processor/RenderProcessor.h	/^class RenderProcessor : public ObjectProcessor{$/;"	c
+_shouldProcess	core/componentSys/processor/RenderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:RenderProcessor
+addRenderer	core/componentSys/processor/RenderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:RenderData
+centered	core/componentSys/processor/RenderProcessor.h	/^	bool centered;$/;"	m	class:RenderData
+render	core/componentSys/processor/RenderProcessor.h	/^	renderProcess *render;$/;"	m	class:RenderProcessor
+renderers	core/componentSys/processor/RenderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:RenderData
+view	core/componentSys/processor/RenderProcessor.h	/^	viewProcess *view;$/;"	m	class:RenderProcessor
+window	core/componentSys/processor/RenderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:RenderProcessor
+Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown() : totalTime_(0), currentCooldown_(0) {}$/;"	f	class:Cooldown
+Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown(T totalTime) : totalTime_(totalTime), currentCooldown_(0) {}$/;"	f	class:Cooldown
+Cooldown	core/controlFlow/Cooldown.h	/^class Cooldown {$/;"	c
+Tick	core/controlFlow/Cooldown.h	/^	Cooldown& Tick(T dt) { $/;"	f	class:Cooldown
+currentCooldown_	core/controlFlow/Cooldown.h	/^	T currentCooldown_;$/;"	m	class:Cooldown
+offCooldown	core/controlFlow/Cooldown.h	/^	bool offCooldown() {return currentCooldown_ == 0; }$/;"	f	class:Cooldown
+onCooldown	core/controlFlow/Cooldown.h	/^	bool onCooldown() { return currentCooldown_ > 0; }$/;"	f	class:Cooldown
+setTotalTime	core/controlFlow/Cooldown.h	/^	void setTotalTime(T totalTime) {$/;"	f	class:Cooldown
+startCooldown	core/controlFlow/Cooldown.h	/^	void startCooldown() { currentCooldown_ = totalTime_; }$/;"	f	class:Cooldown
+totalTime_	core/controlFlow/Cooldown.h	/^	T totalTime_;$/;"	m	class:Cooldown
 Draw	core/controlFlow/Process.h	/^	virtual void Draw(){};$/;"	f	class:Process
 Pause	core/controlFlow/Process.h	/^	virtual void Pause(){};$/;"	f	class:Process
 Process	core/controlFlow/Process.h	/^	Process(std::string _name){$/;"	f	class:Process
@@ -434,6 +419,7 @@ stateSaveLoader	core/controlFlow/stateSaveLoader.h	/^class stateSaveLoader{$/;"	
 AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim) : center(0,0) , halfDim(_halfDim) {$/;"	f	class:AABB
 AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim, vector2 _center) : center(_center), halfDim(_halfDim){$/;"	f	class:AABB
 Contains	core/math/AABB.cpp	/^bool AABB::Contains(const vector2 &pt) const{$/;"	f	class:AABB
+Endpoints	core/math/AABB.cpp	/^AABB AABB::Endpoints(vector2 bottomLeft, vector2 topRight){$/;"	f	class:AABB
 Intersects	core/math/AABB.cpp	/^bool AABB::Intersects(const AABB &other) const{$/;"	f	class:AABB
 getBottomLeft	core/math/AABB.cpp	/^vector2 AABB::getBottomLeft() const{$/;"	f	class:AABB
 getBottomRight	core/math/AABB.cpp	/^vector2 AABB::getBottomRight() const{$/;"	f	class:AABB
@@ -459,6 +445,7 @@ RAD2DEG	core/math/mathUtil.h	/^	const double RAD2DEG = 180.0 \/ util::PI;$/;"	m	
 Rad	core/math/mathUtil.h	/^		static Angle Rad(float rad){$/;"	f	class:util::Angle
 TwoPI	core/math/mathUtil.h	/^	const double TwoPI = 2.0 * PI;$/;"	m	namespace:util
 angleInRad	core/math/mathUtil.h	/^		float angleInRad;$/;"	m	class:util::Angle
+clamp	core/math/mathUtil.h	/^	T clamp(const T& n, const T& lower, const T& upper) {$/;"	f	namespace:util
 cos	core/math/mathUtil.h	/^		float cos(){$/;"	f	class:util::Angle
 debugStr	core/math/mathUtil.h	/^		std::string debugStr(){$/;"	f	class:util::Angle
 lerp	core/math/mathUtil.h	/^	static T lerp(const T &begin, const T &end, float t){$/;"	f	namespace:util
@@ -473,7 +460,7 @@ operator /=	core/math/mathUtil.h	/^		void operator \/= (const float multiplier){
 polarProjection	core/math/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
 randFloat	core/math/mathUtil.h	/^	static float randFloat(const float range = 1000){$/;"	f	namespace:util
 setRad	core/math/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
-sgn	core/math/mathUtil.h	/^	static int sgn(T  num){$/;"	f	namespace:util
+sgn	core/math/mathUtil.h	/^	static int sgn(T num){$/;"	f	namespace:util
 sin	core/math/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 tan	core/math/mathUtil.h	/^		float tan(){$/;"	f	class:util::Angle
 toDeg	core/math/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
@@ -547,185 +534,194 @@ y	core/math/vector.h	/^	float x, y;$/;"	m	class:vector2
 z	core/math/vector.h	/^	float x, y, z;$/;"	m	class:vector3
 zeroVector	core/math/vector.h	146;"	d
 ~vector2	core/math/vector.h	/^	~vector2(){};$/;"	f	class:vector2
+impulseMagnitude	game/BulletColliders/PushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
+onEnemyCollision	game/BulletColliders/PushCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:pushCollider
+pushCollider	game/BulletColliders/PushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
+pushCollider	game/BulletColliders/PushCollider.h	/^class pushCollider : public BulletCollider{$/;"	c
+~pushCollider	game/BulletColliders/PushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
+bounceCollider	game/BulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
+bounceCollider	game/BulletColliders/bounceCollider.h	/^class bounceCollider : public BulletCollider{$/;"	c
+onCreate	game/BulletColliders/bounceCollider.h	/^	void onCreate(Object *bullet){$/;"	f	class:bounceCollider
+onDefaultCollision	game/BulletColliders/bounceCollider.h	/^	bool onDefaultCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
+onEnemyCollision	game/BulletColliders/bounceCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
+totalBounces	game/BulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	class:bounceCollider
+~bounceCollider	game/BulletColliders/bounceCollider.h	/^	~bounceCollider(){};$/;"	f	class:bounceCollider
+damage	game/BulletColliders/damageCollider.h	/^	float damage;$/;"	m	class:damageCollider
+damageCollider	game/BulletColliders/damageCollider.h	/^	damageCollider(float damage){$/;"	f	class:damageCollider
+damageCollider	game/BulletColliders/damageCollider.h	/^class damageCollider : public BulletCollider{$/;"	c
+onEnemyCollision	game/BulletColliders/damageCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:damageCollider
+~damageCollider	game/BulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:AIProcessor
-AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public objectProcessor{$/;"	c
+AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
 _Process	game/ObjProcessors/AIProcessor.h	/^	void _Process(Object *obj, float dt){};$/;"	f	class:AIProcessor
 _shouldProcess	game/ObjProcessors/AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
 onObjectAdd	game/ObjProcessors/AIProcessor.h	/^	void onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
 world	game/ObjProcessors/AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
-_Process	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
-_onObjectAdd	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
-setDir	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
-setSpeed	game/ObjProcessors/airMoveProcessor.cpp	/^void airMoveData::setSpeed(float speed){$/;"	f	class:airMoveData
-_shouldProcess	game/ObjProcessors/airMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:airMoveProcessor
-airMoveData	game/ObjProcessors/airMoveProcessor.h	/^struct airMoveData{$/;"	s
-airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:airMoveProcessor
-airMoveProcessor	game/ObjProcessors/airMoveProcessor.h	/^class airMoveProcessor : public objectProcessor{$/;"	c
-dir	game/ObjProcessors/airMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
-speed	game/ObjProcessors/airMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
-world	game/ObjProcessors/airMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
-_Process	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:bulletProcessor
-_handleCollision	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_handleCollision(collisionData &collision, bulletData *data, Object *bullet){$/;"	f	class:bulletProcessor
-_onObjectAdd	game/ObjProcessors/bulletProcessor.cpp	/^void bulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:bulletProcessor
-_shouldProcess	game/ObjProcessors/bulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:bulletProcessor
-addBulletCollder	game/ObjProcessors/bulletProcessor.h	/^	void addBulletCollder(bulletCollider *collider){$/;"	f	struct:bulletData
-addEnemyCollision	game/ObjProcessors/bulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:bulletData
-addIgnoreCollision	game/ObjProcessors/bulletProcessor.h	/^	void addIgnoreCollision(const Hash *collision){$/;"	f	struct:bulletData
-angle	game/ObjProcessors/bulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:bulletData
-beginVel	game/ObjProcessors/bulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:bulletData
-bulletCollider	game/ObjProcessors/bulletProcessor.h	/^	bulletCollider(){};$/;"	f	class:bulletCollider
-bulletCollider	game/ObjProcessors/bulletProcessor.h	/^class bulletCollider{$/;"	c
-bulletData	game/ObjProcessors/bulletProcessor.h	/^	bulletData(){$/;"	f	struct:bulletData
-bulletData	game/ObjProcessors/bulletProcessor.h	/^struct bulletData{$/;"	s
-bulletProcessor	game/ObjProcessors/bulletProcessor.h	/^	bulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:bulletProcessor
-bulletProcessor	game/ObjProcessors/bulletProcessor.h	/^class bulletProcessor : public objectProcessor{$/;"	c
-colliders	game/ObjProcessors/bulletProcessor.h	/^	std::vector<bulletCollider *> colliders;$/;"	m	struct:bulletData
-enemyCollisions	game/ObjProcessors/bulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:bulletData
-gravityScale	game/ObjProcessors/bulletProcessor.h	/^	float gravityScale;$/;"	m	struct:bulletData
-ignoreCollisions	game/ObjProcessors/bulletProcessor.h	/^	std::unordered_set<const Hash*> ignoreCollisions;$/;"	m	struct:bulletData
-onCreate	game/ObjProcessors/bulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:bulletCollider
-onDeath	game/ObjProcessors/bulletProcessor.h	/^	virtual void onDeath(collisionData &data, Object *bullet){};$/;"	f	class:bulletCollider
-onDefaultCollision	game/ObjProcessors/bulletProcessor.h	/^	virtual bool onDefaultCollision(collisionData &data, Object *bullet){$/;"	f	class:bulletCollider
-world	game/ObjProcessors/bulletProcessor.h	/^	worldProcess *world;$/;"	m	class:bulletProcessor
-~bulletCollider	game/ObjProcessors/bulletProcessor.h	/^	virtual ~bulletCollider(){};$/;"	f	class:bulletCollider
-_Process	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
-_calcCameraMoveAmt	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
-_limitCameraCoord	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
-_limitMoveAmt	game/ObjProcessors/cameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
-_onObjectAdd	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
-_simulateCamera	game/ObjProcessors/cameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
-_shouldProcess	game/ObjProcessors/cameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
-accumilator	game/ObjProcessors/cameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
-boxHalfH	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
-boxHalfW	game/ObjProcessors/cameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
-cameraCenter	game/ObjProcessors/cameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
-cameraData	game/ObjProcessors/cameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
-cameraData	game/ObjProcessors/cameraProcessor.h	/^struct cameraData{$/;"	s
-cameraProcessor	game/ObjProcessors/cameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:cameraProcessor
-cameraProcessor	game/ObjProcessors/cameraProcessor.h	/^class cameraProcessor : public objectProcessor{$/;"	c
-enabled	game/ObjProcessors/cameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
-maxAccumilation	game/ObjProcessors/cameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
-maxCoord	game/ObjProcessors/cameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
-maxMoveAmt	game/ObjProcessors/cameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:cameraData
-minCoord	game/ObjProcessors/cameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
-stepSize	game/ObjProcessors/cameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
-v	game/ObjProcessors/cameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
-view	game/ObjProcessors/cameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
-window	game/ObjProcessors/cameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
-Jump	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::Jump(){$/;"	f	class:groundMoveData
-_Process	game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
-_calcJumpImpulse	game/ObjProcessors/groundMoveProcessor.cpp	/^vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){$/;"	f	class:groundMoveProcessor
-_onObjectAdd	game/ObjProcessors/groundMoveProcessor.cpp	/^void groundMoveProcessor::_onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
-isJumpEnabled	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isJumpEnabled(){$/;"	f	class:groundMoveData
-isMidJump	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMidJump(){$/;"	f	class:groundMoveData
-isMovingLeft	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMovingLeft(){$/;"	f	class:groundMoveData
-isMovingRight	game/ObjProcessors/groundMoveProcessor.cpp	/^	bool groundMoveData::isMovingRight(){$/;"	f	class:groundMoveData
-resetJump	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::resetJump(){$/;"	f	class:groundMoveData
-setMoveLeft	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::setMoveLeft(bool enabled){$/;"	f	class:groundMoveData
-setMoveRight	game/ObjProcessors/groundMoveProcessor.cpp	/^	void groundMoveData::setMoveRight(bool enabled){$/;"	f	class:groundMoveData
-_shouldProcess	game/ObjProcessors/groundMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:groundMoveProcessor
-groundMoveData	game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), $/;"	f	struct:groundMoveData
-groundMoveData	game/ObjProcessors/groundMoveProcessor.h	/^struct groundMoveData{$/;"	s
-groundMoveProcessor	game/ObjProcessors/groundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:groundMoveProcessor
-groundMoveProcessor	game/ObjProcessors/groundMoveProcessor.h	/^class groundMoveProcessor : public objectProcessor{$/;"	c
-jumpDir	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpDir;$/;"	m	struct:groundMoveData
-jumpHeight	game/ObjProcessors/groundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
-jumpImpulse	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
-jumpRange	game/ObjProcessors/groundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
-jumping	game/ObjProcessors/groundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:groundMoveData
-mass	game/ObjProcessors/groundMoveProcessor.h	/^	float mass;$/;"	m	struct:groundMoveData
-moveImpulse	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
-movementDamping	game/ObjProcessors/groundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
-movingLeft	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
-movingRight	game/ObjProcessors/groundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
-onGround	game/ObjProcessors/groundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
-world	game/ObjProcessors/groundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
-xAccel	game/ObjProcessors/groundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
-xVel	game/ObjProcessors/groundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
-Fire	game/ObjProcessors/gunProcessor.cpp	/^void gunData::Fire(){$/;"	f	class:gunData
-_Cooldown	game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Cooldown(){$/;"	f	class:gunData
-_Process	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_Process(Object *obj, float dt){$/;"	f	class:gunProcessor
-_Tick	game/ObjProcessors/gunProcessor.cpp	/^void gunData::_Tick(){$/;"	f	class:gunData
-_fireShot	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_fireShot(gunData *data, vector2 pos){$/;"	f	class:gunProcessor
-_onObjectDeactivate	game/ObjProcessors/gunProcessor.cpp	/^void gunProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:gunProcessor
-gunProcessor	game/ObjProcessors/gunProcessor.cpp	/^gunProcessor::gunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) $/;"	f	class:gunProcessor
-_shouldFire	game/ObjProcessors/gunProcessor.h	/^	bool _shouldFire(){$/;"	f	struct:gunData
-_shouldProcess	game/ObjProcessors/gunProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:gunProcessor
-buletVel	game/ObjProcessors/gunProcessor.h	/^	float buletVel;$/;"	m	struct:gunData
-bullet	game/ObjProcessors/gunProcessor.h	/^	bulletData bullet;$/;"	m	struct:gunData
-bulletPos	game/ObjProcessors/gunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:gunData
-bulletRadius	game/ObjProcessors/gunProcessor.h	/^	float bulletRadius;$/;"	m	struct:gunData
-clipOnCooldown	game/ObjProcessors/gunProcessor.h	/^	bool clipOnCooldown;$/;"	m	struct:gunData
-creator	game/ObjProcessors/gunProcessor.h	/^	bulletCreator *creator;$/;"	m	struct:gunData
-currentClipCooldown	game/ObjProcessors/gunProcessor.h	/^	int currentClipCooldown;$/;"	m	struct:gunData
-currentClipSize	game/ObjProcessors/gunProcessor.h	/^	int currentClipSize;$/;"	m	struct:gunData
-currrentShotCooldown	game/ObjProcessors/gunProcessor.h	/^	int currrentShotCooldown;$/;"	m	struct:gunData
-facing	game/ObjProcessors/gunProcessor.h	/^	util::Angle facing;$/;"	m	struct:gunData
-firing	game/ObjProcessors/gunProcessor.h	/^	bool firing;$/;"	m	struct:gunData
-gunData	game/ObjProcessors/gunProcessor.h	/^	gunData(){$/;"	f	struct:gunData
-gunData	game/ObjProcessors/gunProcessor.h	/^struct gunData{$/;"	s
-gunProcessor	game/ObjProcessors/gunProcessor.h	/^class gunProcessor : public objectProcessor{$/;"	c
-objectManager	game/ObjProcessors/gunProcessor.h	/^	objectMgr *objectManager;$/;"	m	class:gunProcessor
-setBulletCreator	game/ObjProcessors/gunProcessor.h	/^	void setBulletCreator(bulletCreator *creator){$/;"	f	struct:gunData
-setBulletData	game/ObjProcessors/gunProcessor.h	/^	void setBulletData(bulletData &data){$/;"	f	struct:gunData
-setBulletPos	game/ObjProcessors/gunProcessor.h	/^	void setBulletPos(vector2 pos){$/;"	f	struct:gunData
-setBulletRadius	game/ObjProcessors/gunProcessor.h	/^	void setBulletRadius(float radius){$/;"	f	struct:gunData
-setBulletVel	game/ObjProcessors/gunProcessor.h	/^	void setBulletVel(float vel){$/;"	f	struct:gunData
-setClipCooldown	game/ObjProcessors/gunProcessor.h	/^	void setClipCooldown(int totalClipCooldown){$/;"	f	struct:gunData
-setClipSize	game/ObjProcessors/gunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:gunData
-setFacing	game/ObjProcessors/gunProcessor.h	/^	void setFacing(util::Angle facing){$/;"	f	struct:gunData
-setShotCooldown	game/ObjProcessors/gunProcessor.h	/^	void setShotCooldown(int totalShotCooldown){$/;"	f	struct:gunData
-shotOnCooldown	game/ObjProcessors/gunProcessor.h	/^	bool shotOnCooldown;$/;"	m	struct:gunData
-totalClipCooldown	game/ObjProcessors/gunProcessor.h	/^	int totalClipCooldown;$/;"	m	struct:gunData
-totalClipSize	game/ObjProcessors/gunProcessor.h	/^	int totalClipSize;$/;"	m	struct:gunData
-totalShotCooldown	game/ObjProcessors/gunProcessor.h	/^	int totalShotCooldown;$/;"	m	struct:gunData
-_Process	game/ObjProcessors/healthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
-healthProcessor	game/ObjProcessors/healthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
-Damage	game/ObjProcessors/healthProcessor.h	/^	void Damage(unsigned int damage){$/;"	f	struct:healthData
-Heal	game/ObjProcessors/healthProcessor.h	/^	void Heal(unsigned int heal){$/;"	f	struct:healthData
-_shouldProcess	game/ObjProcessors/healthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
-currentHP	game/ObjProcessors/healthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
-getHP	game/ObjProcessors/healthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
-healthData	game/ObjProcessors/healthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
-healthData	game/ObjProcessors/healthProcessor.h	/^struct healthData {$/;"	s
-healthProcessor	game/ObjProcessors/healthProcessor.h	/^class healthProcessor : public objectProcessor {$/;"	c
-invul	game/ObjProcessors/healthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
-makeInvulnerable	game/ObjProcessors/healthProcessor.h	/^	void makeInvulnerable(){$/;"	f	struct:healthData
-makeVulnerable	game/ObjProcessors/healthProcessor.h	/^	void makeVulnerable(){$/;"	f	struct:healthData
-maxHP	game/ObjProcessors/healthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
-setHP	game/ObjProcessors/healthProcessor.h	/^	void setHP(unsigned int HP){$/;"	f	struct:healthData
-_Process	game/ObjProcessors/offsetProcessor.h	/^	void _Process(Object *obj, float dt){$/;"	f	class:offsetProcessor
-_shouldProcess	game/ObjProcessors/offsetProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:offsetProcessor
-angleOffset	game/ObjProcessors/offsetProcessor.h	/^	util::Angle angleOffset;$/;"	m	struct:offsetData
-offsetAngle	game/ObjProcessors/offsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:offsetData
-offsetData	game/ObjProcessors/offsetProcessor.h	/^	offsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:offsetData
-offsetData	game/ObjProcessors/offsetProcessor.h	/^struct offsetData{$/;"	s
-offsetPos	game/ObjProcessors/offsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:offsetData
-offsetProcessor	game/ObjProcessors/offsetProcessor.h	/^	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:offsetProcessor
-offsetProcessor	game/ObjProcessors/offsetProcessor.h	/^class offsetProcessor : public objectProcessor{$/;"	c
-parent	game/ObjProcessors/offsetProcessor.h	/^	Object *parent;$/;"	m	struct:offsetData
-posOffset	game/ObjProcessors/offsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:offsetData
-_Process	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:pickupProcessor
-_handleCollision	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_handleCollision(Object *obj, pickupData *data, collisionData &collision){$/;"	f	class:pickupProcessor
-_onObjectDeath	game/ObjProcessors/pickupProcessor.cpp	/^void pickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:pickupProcessor
-pickupProcessor	game/ObjProcessors/pickupProcessor.cpp	/^pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:pickupProcessor
-_shouldProcess	game/ObjProcessors/pickupProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:pickupProcessor
-addCollisionType	game/ObjProcessors/pickupProcessor.h	/^	void addCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
-eventData	game/ObjProcessors/pickupProcessor.h	/^	baseProperty *eventData;$/;"	m	struct:pickupData
-eventManager	game/ObjProcessors/pickupProcessor.h	/^	eventMgr &eventManager;$/;"	m	class:pickupProcessor
-hasCollisionType	game/ObjProcessors/pickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
-onPickupEvent	game/ObjProcessors/pickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:pickupData
-pickupCollisionTypes	game/ObjProcessors/pickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:pickupData
-pickupData	game/ObjProcessors/pickupProcessor.h	/^	pickupData(){$/;"	f	struct:pickupData
-pickupData	game/ObjProcessors/pickupProcessor.h	/^struct pickupData{$/;"	s
-pickupProcessor	game/ObjProcessors/pickupProcessor.h	/^class pickupProcessor : public objectProcessor{$/;"	c
-_shouldProcess	game/ObjProcessors/terrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
-terrainProcessor	game/ObjProcessors/terrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:terrainProcessor
-terrainProcessor	game/ObjProcessors/terrainProcessor.h	/^class terrainProcessor : public objectProcessor{$/;"	c
-view	game/ObjProcessors/terrainProcessor.h	/^	viewProcess *view;$/;"	m	class:terrainProcessor
-window	game/ObjProcessors/terrainProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:terrainProcessor
-world	game/ObjProcessors/terrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
+_Process	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
+_onObjectAdd	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
+setDir	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
+setSpeed	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveData::setSpeed(float speed){$/;"	f	class:airMoveData
+_shouldProcess	game/ObjProcessors/AirMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:airMoveProcessor
+airMoveData	game/ObjProcessors/AirMoveProcessor.h	/^struct airMoveData{$/;"	s
+airMoveProcessor	game/ObjProcessors/AirMoveProcessor.h	/^	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:airMoveProcessor
+airMoveProcessor	game/ObjProcessors/AirMoveProcessor.h	/^class airMoveProcessor : public ObjectProcessor{$/;"	c
+dir	game/ObjProcessors/AirMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
+speed	game/ObjProcessors/AirMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
+world	game/ObjProcessors/AirMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
+_Process	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:BulletProcessor
+_handleCollision	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_handleCollision(collisionData &collision, BulletData *data, Object *bullet){$/;"	f	class:BulletProcessor
+_onObjectAdd	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:BulletProcessor
+BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	BulletCollider(){};$/;"	f	class:BulletCollider
+BulletCollider	game/ObjProcessors/BulletProcessor.h	/^class BulletCollider{$/;"	c
+BulletData	game/ObjProcessors/BulletProcessor.h	/^	BulletData(){$/;"	f	struct:BulletData
+BulletData	game/ObjProcessors/BulletProcessor.h	/^struct BulletData{$/;"	s
+BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^	BulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:BulletProcessor
+BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^class BulletProcessor : public ObjectProcessor{$/;"	c
+_shouldProcess	game/ObjProcessors/BulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:BulletProcessor
+addBulletCollder	game/ObjProcessors/BulletProcessor.h	/^	void addBulletCollder(BulletCollider *collider){$/;"	f	struct:BulletData
+addEnemyCollision	game/ObjProcessors/BulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:BulletData
+addIgnoreCollision	game/ObjProcessors/BulletProcessor.h	/^	void addIgnoreCollision(const Hash *collision){$/;"	f	struct:BulletData
+angle	game/ObjProcessors/BulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:BulletData
+beginVel	game/ObjProcessors/BulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:BulletData
+colliders	game/ObjProcessors/BulletProcessor.h	/^	std::vector<BulletCollider *> colliders;$/;"	m	struct:BulletData
+enemyCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:BulletData
+gravityScale	game/ObjProcessors/BulletProcessor.h	/^	float gravityScale;$/;"	m	struct:BulletData
+ignoreCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> ignoreCollisions;$/;"	m	struct:BulletData
+onCreate	game/ObjProcessors/BulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:BulletCollider
+onDeath	game/ObjProcessors/BulletProcessor.h	/^	virtual void onDeath(collisionData &data, Object *bullet){};$/;"	f	class:BulletCollider
+onDefaultCollision	game/ObjProcessors/BulletProcessor.h	/^	virtual bool onDefaultCollision(collisionData &data, Object *bullet){$/;"	f	class:BulletCollider
+world	game/ObjProcessors/BulletProcessor.h	/^	worldProcess *world;$/;"	m	class:BulletProcessor
+~BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	virtual ~BulletCollider(){};$/;"	f	class:BulletCollider
+_Process	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
+_calcCameraMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
+_limitCameraCoord	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
+_limitMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
+_onObjectAdd	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
+_simulateCamera	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
+_shouldProcess	game/ObjProcessors/CameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
+accumilator	game/ObjProcessors/CameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
+boxHalfH	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
+boxHalfW	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
+cameraCenter	game/ObjProcessors/CameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
+cameraData	game/ObjProcessors/CameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
+cameraData	game/ObjProcessors/CameraProcessor.h	/^struct cameraData{$/;"	s
+cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:cameraProcessor
+cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^class cameraProcessor : public ObjectProcessor{$/;"	c
+enabled	game/ObjProcessors/CameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
+maxAccumilation	game/ObjProcessors/CameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
+maxCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
+maxMoveAmt	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:cameraData
+minCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
+stepSize	game/ObjProcessors/CameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
+v	game/ObjProcessors/CameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
+view	game/ObjProcessors/CameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
+window	game/ObjProcessors/CameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
+Jump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::Jump(){$/;"	f	class:groundMoveData
+_Process	game/ObjProcessors/GroundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
+_calcJumpImpulse	game/ObjProcessors/GroundMoveProcessor.cpp	/^vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){$/;"	f	class:groundMoveProcessor
+_onObjectAdd	game/ObjProcessors/GroundMoveProcessor.cpp	/^void groundMoveProcessor::_onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
+isJumpEnabled	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isJumpEnabled(){$/;"	f	class:groundMoveData
+isMidJump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMidJump(){$/;"	f	class:groundMoveData
+isMovingLeft	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMovingLeft(){$/;"	f	class:groundMoveData
+isMovingRight	game/ObjProcessors/GroundMoveProcessor.cpp	/^	bool groundMoveData::isMovingRight(){$/;"	f	class:groundMoveData
+resetJump	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::resetJump(){$/;"	f	class:groundMoveData
+setMoveLeft	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::setMoveLeft(bool enabled){$/;"	f	class:groundMoveData
+setMoveRight	game/ObjProcessors/GroundMoveProcessor.cpp	/^	void groundMoveData::setMoveRight(bool enabled){$/;"	f	class:groundMoveData
+_shouldProcess	game/ObjProcessors/GroundMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:groundMoveProcessor
+groundMoveData	game/ObjProcessors/GroundMoveProcessor.h	/^	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), $/;"	f	struct:groundMoveData
+groundMoveData	game/ObjProcessors/GroundMoveProcessor.h	/^struct groundMoveData{$/;"	s
+groundMoveProcessor	game/ObjProcessors/GroundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:groundMoveProcessor
+groundMoveProcessor	game/ObjProcessors/GroundMoveProcessor.h	/^class groundMoveProcessor : public ObjectProcessor{$/;"	c
+jumpDir	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 jumpDir;$/;"	m	struct:groundMoveData
+jumpHeight	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
+jumpImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
+jumpRange	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
+jumping	game/ObjProcessors/GroundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:groundMoveData
+mass	game/ObjProcessors/GroundMoveProcessor.h	/^	float mass;$/;"	m	struct:groundMoveData
+moveImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
+movementDamping	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
+movingLeft	game/ObjProcessors/GroundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
+movingRight	game/ObjProcessors/GroundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
+onGround	game/ObjProcessors/GroundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
+world	game/ObjProcessors/GroundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
+xAccel	game/ObjProcessors/GroundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
+xVel	game/ObjProcessors/GroundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
+GunProcessor	game/ObjProcessors/GunProcessor.cpp	/^GunProcessor::GunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) $/;"	f	class:GunProcessor
+_Cooldown	game/ObjProcessors/GunProcessor.cpp	/^void GunData::_Cooldown(){$/;"	f	class:GunData
+_Process	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_Process(Object *obj, float dt){$/;"	f	class:GunProcessor
+_Tick	game/ObjProcessors/GunProcessor.cpp	/^void GunData::_Tick(float dt){$/;"	f	class:GunData
+_canFire	game/ObjProcessors/GunProcessor.cpp	/^bool GunData::_canFire(){$/;"	f	class:GunData
+_fireShot	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_fireShot(GunData *gunData, vector2 pos){$/;"	f	class:GunProcessor
+_onObjectDeactivate	game/ObjProcessors/GunProcessor.cpp	/^void GunProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:GunProcessor
+GunData	game/ObjProcessors/GunProcessor.h	/^	GunData(){$/;"	f	struct:GunData
+GunData	game/ObjProcessors/GunProcessor.h	/^struct GunData{$/;"	s
+GunProcessor	game/ObjProcessors/GunProcessor.h	/^class GunProcessor : public ObjectProcessor{$/;"	c
+_shouldProcess	game/ObjProcessors/GunProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:GunProcessor
+bulletData	game/ObjProcessors/GunProcessor.h	/^	BulletData bulletData;$/;"	m	struct:GunData
+bulletPos	game/ObjProcessors/GunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:GunData
+bulletRadius	game/ObjProcessors/GunProcessor.h	/^	float bulletRadius;$/;"	m	struct:GunData
+bulletVel	game/ObjProcessors/GunProcessor.h	/^	float bulletVel;$/;"	m	struct:GunData
+clipCooldown	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> clipCooldown;$/;"	m	struct:GunData
+clipSize	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> clipSize;$/;"	m	struct:GunData
+currentClipSize	game/ObjProcessors/GunProcessor.h	/^	int currentClipSize;$/;"	m	struct:GunData
+facing	game/ObjProcessors/GunProcessor.h	/^	util::Angle facing;$/;"	m	struct:GunData
+objectManager	game/ObjProcessors/GunProcessor.h	/^	ObjectMgr *objectManager;$/;"	m	class:GunProcessor
+setBulletData	game/ObjProcessors/GunProcessor.h	/^	void setBulletData(BulletData &bulletData){$/;"	f	struct:GunData
+setBulletRadius	game/ObjProcessors/GunProcessor.h	/^	void setBulletRadius(float radius){$/;"	f	struct:GunData
+setBulletVel	game/ObjProcessors/GunProcessor.h	/^	void setBulletVel(float vel){$/;"	f	struct:GunData
+setClipCooldown	game/ObjProcessors/GunProcessor.h	/^	void setClipCooldown(float totalClipCooldown){$/;"	f	struct:GunData
+setClipSize	game/ObjProcessors/GunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:GunData
+setShotCooldown	game/ObjProcessors/GunProcessor.h	/^	void setShotCooldown(float totalShotCooldown){$/;"	f	struct:GunData
+shotCooldown	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> shotCooldown;$/;"	m	struct:GunData
+totalClipSize	game/ObjProcessors/GunProcessor.h	/^	int totalClipSize;$/;"	m	struct:GunData
+viewProc	game/ObjProcessors/GunProcessor.h	/^	viewProcess *viewProc;$/;"	m	class:GunProcessor
+_Process	game/ObjProcessors/HealthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
+healthProcessor	game/ObjProcessors/HealthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
+Damage	game/ObjProcessors/HealthProcessor.h	/^	void Damage(unsigned int damage){$/;"	f	struct:healthData
+Heal	game/ObjProcessors/HealthProcessor.h	/^	void Heal(unsigned int heal){$/;"	f	struct:healthData
+_shouldProcess	game/ObjProcessors/HealthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
+currentHP	game/ObjProcessors/HealthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
+getHP	game/ObjProcessors/HealthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
+healthData	game/ObjProcessors/HealthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
+healthData	game/ObjProcessors/HealthProcessor.h	/^struct healthData {$/;"	s
+healthProcessor	game/ObjProcessors/HealthProcessor.h	/^class healthProcessor : public ObjectProcessor {$/;"	c
+invul	game/ObjProcessors/HealthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
+makeInvulnerable	game/ObjProcessors/HealthProcessor.h	/^	void makeInvulnerable(){$/;"	f	struct:healthData
+makeVulnerable	game/ObjProcessors/HealthProcessor.h	/^	void makeVulnerable(){$/;"	f	struct:healthData
+maxHP	game/ObjProcessors/HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
+setHP	game/ObjProcessors/HealthProcessor.h	/^	void setHP(unsigned int HP){$/;"	f	struct:healthData
+_Process	game/ObjProcessors/OffsetProcessor.h	/^	void _Process(Object *obj, float dt){$/;"	f	class:offsetProcessor
+_shouldProcess	game/ObjProcessors/OffsetProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:offsetProcessor
+angleOffset	game/ObjProcessors/OffsetProcessor.h	/^	util::Angle angleOffset;$/;"	m	struct:offsetData
+offsetAngle	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:offsetData
+offsetData	game/ObjProcessors/OffsetProcessor.h	/^	offsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:offsetData
+offsetData	game/ObjProcessors/OffsetProcessor.h	/^struct offsetData{$/;"	s
+offsetPos	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:offsetData
+offsetProcessor	game/ObjProcessors/OffsetProcessor.h	/^	offsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:offsetProcessor
+offsetProcessor	game/ObjProcessors/OffsetProcessor.h	/^class offsetProcessor : public ObjectProcessor{$/;"	c
+parent	game/ObjProcessors/OffsetProcessor.h	/^	Object *parent;$/;"	m	struct:offsetData
+posOffset	game/ObjProcessors/OffsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:offsetData
+_Process	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:pickupProcessor
+_handleCollision	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_handleCollision(Object *obj, pickupData *data, collisionData &collision){$/;"	f	class:pickupProcessor
+_onObjectDeath	game/ObjProcessors/PickupProcessor.cpp	/^void pickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:pickupProcessor
+pickupProcessor	game/ObjProcessors/PickupProcessor.cpp	/^pickupProcessor::pickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:pickupProcessor
+_shouldProcess	game/ObjProcessors/PickupProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:pickupProcessor
+addCollisionType	game/ObjProcessors/PickupProcessor.h	/^	void addCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
+eventData	game/ObjProcessors/PickupProcessor.h	/^	baseProperty *eventData;$/;"	m	struct:pickupData
+eventManager	game/ObjProcessors/PickupProcessor.h	/^	eventMgr &eventManager;$/;"	m	class:pickupProcessor
+hasCollisionType	game/ObjProcessors/PickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:pickupData
+onPickupEvent	game/ObjProcessors/PickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:pickupData
+pickupCollisionTypes	game/ObjProcessors/PickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:pickupData
+pickupData	game/ObjProcessors/PickupProcessor.h	/^	pickupData(){$/;"	f	struct:pickupData
+pickupData	game/ObjProcessors/PickupProcessor.h	/^struct pickupData{$/;"	s
+pickupProcessor	game/ObjProcessors/PickupProcessor.h	/^class pickupProcessor : public ObjectProcessor{$/;"	c
+_shouldProcess	game/ObjProcessors/TerrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
+terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :$/;"	f	class:terrainProcessor
+terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^class terrainProcessor : public ObjectProcessor{$/;"	c
+view	game/ObjProcessors/TerrainProcessor.h	/^	viewProcess *view;$/;"	m	class:terrainProcessor
+window	game/ObjProcessors/TerrainProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:terrainProcessor
+world	game/ObjProcessors/TerrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
 Draw	game/States/gameSegmentLoader.h	/^	void Draw(){};$/;"	f	class:gameSegmentLoader
 Update	game/States/gameSegmentLoader.h	/^	void Update(float dt){};$/;"	f	class:gameSegmentLoader
 createSaveLoader	game/States/gameSegmentLoader.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameSegmentLoader
@@ -737,10 +733,9 @@ segmentName	game/States/gameSegmentLoader.h	/^	std::string segmentName;$/;"	m	cl
 _Init	game/States/gameState.cpp	/^void gameState::_Init(){$/;"	f	class:gameState
 _createDummy	game/States/gameState.cpp	/^void gameState::_createDummy(vector2 levelDim){$/;"	f	class:gameState
 _createEnemies	game/States/gameState.cpp	/^void gameState::_createEnemies(vector2 levelDim){$/;"	f	class:gameState
-_createGuns	game/States/gameState.cpp	/^Object* gameState::_createGuns(Object *player, vector2 levelDim){$/;"	f	class:gameState
 _createPlayer	game/States/gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
 _generateBoundary	game/States/gameState.cpp	/^void gameState::_generateBoundary(vector2 levelDim){$/;"	f	class:gameState
-_generateTerrain	game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, $/;"	f	class:gameState
+_generateTerrain	game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim) {$/;"	f	class:gameState
 _initFactory	game/States/gameState.cpp	/^void gameState::_initFactory(){$/;"	f	class:gameState
 Draw	game/States/gameState.h	/^	void Draw(){};$/;"	f	class:gameState
 Update	game/States/gameState.h	/^	void Update(float dt){$/;"	f	class:gameState
@@ -749,30 +744,13 @@ createSaveLoader	game/States/gameState.h	/^	stateSaveLoader *createSaveLoader(){
 gameState	game/States/gameState.h	/^	gameState() : State("gameState"){};$/;"	f	class:gameState
 gameState	game/States/gameState.h	/^class gameState : public State{$/;"	c
 objFactory	game/States/gameState.h	/^	objectFactory objFactory; $/;"	m	class:gameState
-objectManager	game/States/gameState.h	/^	objectMgr *objectManager;$/;"	m	class:gameState
+objectManager	game/States/gameState.h	/^	ObjectMgr *objectManager;$/;"	m	class:gameState
 viewProc	game/States/gameState.h	/^	viewProcess *viewProc;$/;"	m	class:gameState
 Draw	game/States/mainMenuState.h	/^	void Draw(){};$/;"	f	class:mainMenuState
 Update	game/States/mainMenuState.h	/^	void Update(float dt){};$/;"	f	class:mainMenuState
 createSaveLoader	game/States/mainMenuState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:mainMenuState
 mainMenuState	game/States/mainMenuState.h	/^	mainMenuState() : State("mainMenuState"){};$/;"	f	class:mainMenuState
 mainMenuState	game/States/mainMenuState.h	/^class mainMenuState : public State{$/;"	c
-bounceCollider	game/bulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
-bounceCollider	game/bulletColliders/bounceCollider.h	/^class bounceCollider : public bulletCollider{$/;"	c
-onCreate	game/bulletColliders/bounceCollider.h	/^	void onCreate(Object *bullet){$/;"	f	class:bounceCollider
-onDefaultCollision	game/bulletColliders/bounceCollider.h	/^	bool onDefaultCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
-onEnemyCollision	game/bulletColliders/bounceCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
-totalBounces	game/bulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	class:bounceCollider
-~bounceCollider	game/bulletColliders/bounceCollider.h	/^	~bounceCollider(){};$/;"	f	class:bounceCollider
-damage	game/bulletColliders/damageCollider.h	/^	float damage;$/;"	m	class:damageCollider
-damageCollider	game/bulletColliders/damageCollider.h	/^	damageCollider(float damage){$/;"	f	class:damageCollider
-damageCollider	game/bulletColliders/damageCollider.h	/^class damageCollider : public bulletCollider{$/;"	c
-onEnemyCollision	game/bulletColliders/damageCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:damageCollider
-~damageCollider	game/bulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
-impulseMagnitude	game/bulletColliders/pushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
-onEnemyCollision	game/bulletColliders/pushCollider.h	/^	bool onEnemyCollision(collisionData &collision, Object *bullet){$/;"	f	class:pushCollider
-pushCollider	game/bulletColliders/pushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
-pushCollider	game/bulletColliders/pushCollider.h	/^class pushCollider : public bulletCollider{$/;"	c
-~pushCollider	game/bulletColliders/pushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
 BACK	game/defines/renderingLayers.h	/^	BACK = -100,$/;"	e	enum:renderingLayers
 HUD	game/defines/renderingLayers.h	/^	HUD = 0,$/;"	e	enum:renderingLayers
 aboveAction	game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
@@ -787,8 +765,8 @@ createObject	game/factory/boundaryCreator.h	/^	Object *createObject(vector2 play
 levelDim	game/factory/boundaryCreator.h	/^	vector2 levelDim;$/;"	m	class:boundaryCreator
 thickness	game/factory/boundaryCreator.h	/^	float thickness;$/;"	m	class:boundaryCreator
 viewProc	game/factory/boundaryCreator.h	/^	viewProcess *viewProc;$/;"	m	class:boundaryCreator
-Init	game/factory/bulletCreator.h	/^	void Init(bulletData data, float bulletRadius){$/;"	f	class:bulletCreator
-bullet	game/factory/bulletCreator.h	/^	bulletData bullet;$/;"	m	class:bulletCreator
+Init	game/factory/bulletCreator.h	/^	void Init(BulletData data, float bulletRadius){$/;"	f	class:bulletCreator
+bullet	game/factory/bulletCreator.h	/^	BulletData bullet;$/;"	m	class:bulletCreator
 bulletCreator	game/factory/bulletCreator.h	/^	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:bulletCreator
 bulletCreator	game/factory/bulletCreator.h	/^class bulletCreator : public objectCreator{$/;"	c
 createObject	game/factory/bulletCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:bulletCreator
@@ -806,15 +784,41 @@ enemyCollision	game/factory/enemyCreator.h	/^	const Hash *enemyCollision;$/;"	m	
 enemyCreator	game/factory/enemyCreator.h	/^	enemyCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:enemyCreator
 enemyCreator	game/factory/enemyCreator.h	/^class enemyCreator : public objectCreator{$/;"	c
 viewProc	game/factory/enemyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:enemyCreator
-Init	game/factory/gunCreator.h	/^	void Init(Object *parent, gunData gun, float offsetRadius = 0){$/;"	f	class:gunCreator
+Init	game/factory/gunCreator.h	/^	void Init(Object *parent, GunData gun, float offsetRadius = 0){$/;"	f	class:gunCreator
 createObject	game/factory/gunCreator.h	/^	Object *createObject(vector2 gunPos) const{$/;"	f	class:gunCreator
 enemyCollision	game/factory/gunCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:gunCreator
-gun	game/factory/gunCreator.h	/^	gunData gun;$/;"	m	class:gunCreator
+gun	game/factory/gunCreator.h	/^	GunData gun;$/;"	m	class:gunCreator
 gunCreator	game/factory/gunCreator.h	/^	gunCreator(viewProcess *_viewProc) : viewProc(_viewProc), parent(NULL), radius(0){}$/;"	f	class:gunCreator
 gunCreator	game/factory/gunCreator.h	/^class gunCreator : public objectCreator{$/;"	c
 parent	game/factory/gunCreator.h	/^	Object *parent;$/;"	m	class:gunCreator
 radius	game/factory/gunCreator.h	/^	float radius;$/;"	m	class:gunCreator
 viewProc	game/factory/gunCreator.h	/^	viewProcess *viewProc;$/;"	m	class:gunCreator
+CreateBoundary	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateBullet	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateGun	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateGun(GunFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateTerrain	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){$/;"	f	class:ObjectFactories
+BoundaryFactoryInfo	game/factory/objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
+BulletFactoryInfo	game/factory/objectFactories.h	/^struct BulletFactoryInfo {$/;"	s	namespace:ObjectFactories
+GunFactoryInfo	game/factory/objectFactories.h	/^struct GunFactoryInfo {$/;"	s	namespace:ObjectFactories
+ObjectFactories	game/factory/objectFactories.h	/^namespace ObjectFactories {$/;"	n
+PickupFactoryInfo	game/factory/objectFactories.h	/^struct PickupFactoryInfo {};$/;"	s	namespace:ObjectFactories
+PlayerFactoryInfo	game/factory/objectFactories.h	/^struct PlayerFactoryInfo {};$/;"	s	namespace:ObjectFactories
+TerrainFactoryInfo	game/factory/objectFactories.h	/^	TerrainFactoryInfo (Terrain &terrain_) : terrain(terrain_) {};$/;"	f	struct:ObjectFactories::TerrainFactoryInfo
+TerrainFactoryInfo	game/factory/objectFactories.h	/^struct TerrainFactoryInfo {$/;"	s	namespace:ObjectFactories
+blockDim	game/factory/objectFactories.h	/^	vector2 blockDim;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+bulletData	game/factory/objectFactories.h	/^	BulletData bulletData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+gunData	game/factory/objectFactories.h	/^	GunData gunData;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+levelDim	game/factory/objectFactories.h	/^	vector2 levelDim;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+parent	game/factory/objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+terrain	game/factory/objectFactories.h	/^	Terrain &terrain;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+thickness	game/factory/objectFactories.h	/^	float thickness;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
 attachObjectCreator	game/factory/objectFactory.cpp	/^void objectFactory::attachObjectCreator(const Hash *objName, objectCreator *creator){$/;"	f	class:objectFactory
 creators	game/factory/objectFactory.h	/^	std::map<const Hash *, objectCreator* >creators; 	$/;"	m	class:objectFactory
 getCreator	game/factory/objectFactory.h	/^	T *getCreator(const Hash* objName){$/;"	f	class:objectFactory
@@ -835,46 +839,32 @@ createObject	game/factory/playerCreator.h	/^	Object *createObject(vector2 player
 playerCreator	game/factory/playerCreator.h	/^	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:playerCreator
 playerCreator	game/factory/playerCreator.h	/^class playerCreator : public objectCreator{$/;"	c
 viewProc	game/factory/playerCreator.h	/^	viewProcess *viewProc;$/;"	m	class:playerCreator
-Init	game/factory/terrainCreator.cpp	/^void terrainCreator::Init(vector2 numBlocks, vector2 blockDim, unsigned int seed){$/;"	f	class:terrainCreator
-_block2World	game/factory/terrainCreator.cpp	/^vector2 terrainCreator::_block2World(vector2 blockPos) const{$/;"	f	class:terrainCreator
-_createFilledBlock	game/factory/terrainCreator.cpp	/^void terrainCreator::_createFilledBlock(phyData &phy, vector2 blockPos) const{$/;"	f	class:terrainCreator
-_createRenderer	game/factory/terrainCreator.cpp	/^renderData terrainCreator::_createRenderer(phyData &phy) const{$/;"	f	class:terrainCreator
-createObject	game/factory/terrainCreator.cpp	/^Object *terrainCreator::createObject(vector2 pos) const{$/;"	f	class:terrainCreator
-terrainCreator	game/factory/terrainCreator.cpp	/^terrainCreator::terrainCreator(viewProcess *_viewProc) : viewProc(_viewProc){};$/;"	f	class:terrainCreator
-blockDim	game/factory/terrainCreator.h	/^	vector2 blockDim;$/;"	m	class:terrainCreator
-numBlocks	game/factory/terrainCreator.h	/^	vector2 numBlocks;$/;"	m	class:terrainCreator
-seed	game/factory/terrainCreator.h	/^	unsigned int seed;$/;"	m	class:terrainCreator
-terrainCreator	game/factory/terrainCreator.h	/^class terrainCreator : public objectCreator{$/;"	c
-viewProc	game/factory/terrainCreator.h	/^	viewProcess *viewProc;$/;"	m	class:terrainCreator
-_fireGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_fireGun(){$/;"	f	class:gunsManager
-_gotoNextGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoNextGun(int skip){$/;"	f	class:gunsManager
-_gotoPrevGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_gotoPrevGun(int skip){$/;"	f	class:gunsManager
-_reloadGunPtrs	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_reloadGunPtrs(){$/;"	f	class:gunsManager
-_switchGuns	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_switchGuns(Object *prevGun, Object *newGun){$/;"	f	class:gunsManager
-_updateGunAngle	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::_updateGunAngle(util::Angle &facing){$/;"	f	class:gunsManager
-addGun	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
-gunsManager	game/gameStateHelpers/gunsManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, objectFactory &_factory, $/;"	f	class:gunsManager
+addGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun_(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
+fireGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::fireGun_(){$/;"	f	class:gunsManager
+gotoNextGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::gotoNextGun_(int skip){$/;"	f	class:gunsManager
+gotoPrevGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::gotoPrevGun_(int skip){$/;"	f	class:gunsManager
+gunsManager	game/gameStateHelpers/gunsManager.cpp	/^gunsManager::gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewProcess *viewProc, Object *player) : objectManager_(objectManager){$/;"	f	class:gunsManager
 recieveEvent	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){$/;"	f	class:gunsManager
-_bulletCreator	game/gameStateHelpers/gunsManager.h	/^	bulletCreator *_bulletCreator;$/;"	m	class:gunsManager
-_gunCreator	game/gameStateHelpers/gunsManager.h	/^	gunCreator *_gunCreator;$/;"	m	class:gunsManager
-currentGun	game/gameStateHelpers/gunsManager.h	/^	Object *currentGun;$/;"	m	class:gunsManager
-currentGunData	game/gameStateHelpers/gunsManager.h	/^	gunData *currentGunData;$/;"	m	class:gunsManager
-currentGunIndex	game/gameStateHelpers/gunsManager.h	/^	int currentGunIndex;$/;"	m	class:gunsManager
-guns	game/gameStateHelpers/gunsManager.h	/^	std::vector<Object *>guns;$/;"	m	class:gunsManager
+reloadGunPtrs_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::reloadGunPtrs_(){$/;"	f	class:gunsManager
+switchGuns_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::switchGuns_(Object *prevGun, Object *newGun){$/;"	f	class:gunsManager
+updateGunAngle_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::updateGunAngle_(util::Angle &facing){$/;"	f	class:gunsManager
+currentGunIndex_	game/gameStateHelpers/gunsManager.h	/^	int currentGunIndex_;$/;"	m	class:gunsManager
+currentGun_	game/gameStateHelpers/gunsManager.h	/^	Object *currentGun_;$/;"	m	class:gunsManager
 gunsManager	game/gameStateHelpers/gunsManager.h	/^class gunsManager : public Observer{$/;"	c
-objectManager	game/gameStateHelpers/gunsManager.h	/^	objectMgr &objectManager;$/;"	m	class:gunsManager
-player	game/gameStateHelpers/gunsManager.h	/^	Object *player;$/;"	m	class:gunsManager
+guns_	game/gameStateHelpers/gunsManager.h	/^	std::vector<Object *> guns_;$/;"	m	class:gunsManager
+objectManager_	game/gameStateHelpers/gunsManager.h	/^	ObjectMgr &objectManager_;$/;"	m	class:gunsManager
+player_	game/gameStateHelpers/gunsManager.h	/^	Object *player_;$/;"	m	class:gunsManager
+viewProc_	game/gameStateHelpers/gunsManager.h	/^	viewProcess *viewProc_;$/;"	m	class:gunsManager
 Update	game/gameStateHelpers/playerController.cpp	/^void playerController::Update(float dt)$/;"	f	class:playerController
 _createGunsManager	game/gameStateHelpers/playerController.cpp	/^void playerController::_createGunsManager(Object *player){$/;"	f	class:playerController
 _createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayer(vector2 initPos, playerCreator *creator){$/;"	f	class:playerController
 _createPlayerEventHandler	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayerEventHandler(playerHandlerData &playerData)$/;"	f	class:playerController
-addGun	game/gameStateHelpers/playerController.cpp	/^void playerController::addGun(Object *gun, bool currentGun){$/;"	f	class:playerController
 createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCreator *creator,$/;"	f	class:playerController
 getPlayer	game/gameStateHelpers/playerController.cpp	/^Object *playerController::getPlayer(){$/;"	f	class:playerController
-playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(eventMgr *eventManager, objectMgr *objectManager,$/;"	f	class:playerController
+playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(eventMgr *eventManager, ObjectMgr *objectManager,$/;"	f	class:playerController
 _eventManager	game/gameStateHelpers/playerController.h	/^	eventMgr *_eventManager;$/;"	m	class:playerController
 _objectFactory	game/gameStateHelpers/playerController.h	/^	objectFactory *_objectFactory;$/;"	m	class:playerController
-_objectManager	game/gameStateHelpers/playerController.h	/^	objectMgr *_objectManager;$/;"	m	class:playerController
+_objectManager	game/gameStateHelpers/playerController.h	/^	ObjectMgr *_objectManager;$/;"	m	class:playerController
 gunsMgr	game/gameStateHelpers/playerController.h	/^	gunsManager *gunsMgr;$/;"	m	class:playerController
 levelDim	game/gameStateHelpers/playerController.h	/^	vector2 levelDim;$/;"	m	class:playerController
 player	game/gameStateHelpers/playerController.h	/^	Object *player;$/;"	m	class:playerController
@@ -897,7 +887,7 @@ firing	game/gameStateHelpers/playerEventHandler.h	/^	bool firing;$/;"	m	class:pl
 lastMousePos	game/gameStateHelpers/playerEventHandler.h	/^	vector2 lastMousePos;$/;"	m	class:playerEventHandler
 left	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key left;$/;"	m	struct:playerHandlerData
 objMoveData	game/gameStateHelpers/playerEventHandler.h	/^	groundMoveData *objMoveData;$/;"	m	struct:playerHandlerData
-physicsData	game/gameStateHelpers/playerEventHandler.h	/^	phyData *physicsData;$/;"	m	struct:playerHandlerData
+physicsData	game/gameStateHelpers/playerEventHandler.h	/^	PhyData *physicsData;$/;"	m	struct:playerHandlerData
 player	game/gameStateHelpers/playerEventHandler.h	/^	Object *player;$/;"	m	struct:playerHandlerData
 playerData	game/gameStateHelpers/playerEventHandler.h	/^	playerHandlerData playerData;$/;"	m	class:playerEventHandler
 playerEventHandler	game/gameStateHelpers/playerEventHandler.h	/^class playerEventHandler : public Observer{$/;"	c
@@ -905,6 +895,37 @@ playerHandlerData	game/gameStateHelpers/playerEventHandler.h	/^struct playerHand
 playerPos	game/gameStateHelpers/playerEventHandler.h	/^	vector2 *playerPos;$/;"	m	struct:playerHandlerData
 right	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key right;$/;"	m	struct:playerHandlerData
 up	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key up;$/;"	m	struct:playerHandlerData
+BulletDataGenerator	game/generators/BulletDataGenerator.cpp	/^BulletDataGenerator::BulletDataGenerator(genData _data,$/;"	f	class:BulletDataGenerator
+Generate	game/generators/BulletDataGenerator.cpp	/^BulletData BulletDataGenerator::Generate(){$/;"	f	class:BulletDataGenerator
+_createBulletCollider	game/generators/BulletDataGenerator.cpp	/^BulletCollider* BulletDataGenerator::_createBulletCollider(unsigned long colliderSeed){$/;"	f	class:BulletDataGenerator
+_genDamage	game/generators/BulletDataGenerator.cpp	/^damageCollider *BulletDataGenerator::_genDamage(damageProperty &prop){$/;"	f	class:BulletDataGenerator
+_genGravity	game/generators/BulletDataGenerator.cpp	/^float BulletDataGenerator::_genGravity(gravityProperty &prop){$/;"	f	class:BulletDataGenerator
+_genKnockback	game/generators/BulletDataGenerator.cpp	/^pushCollider *BulletDataGenerator::_genKnockback(knockbackProperty &prop){$/;"	f	class:BulletDataGenerator
+BulletDataGenerator	game/generators/BulletDataGenerator.h	/^class BulletDataGenerator : public Generator{$/;"	c
+abilitySkill	game/generators/BulletDataGenerator.h	/^		int abilitySkill;$/;"	m	struct:BulletDataGenerator::genData
+damage	game/generators/BulletDataGenerator.h	/^		damageProperty	damage;$/;"	m	struct:BulletDataGenerator::genData
+damageProperty	game/generators/BulletDataGenerator.h	/^	enum damageProperty{$/;"	g	class:BulletDataGenerator
+data	game/generators/BulletDataGenerator.h	/^	genData data;$/;"	m	class:BulletDataGenerator
+defaultGravity	game/generators/BulletDataGenerator.h	/^		defaultGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
+genData	game/generators/BulletDataGenerator.h	/^		genData(knockbackProperty knockback,$/;"	f	struct:BulletDataGenerator::genData
+genData	game/generators/BulletDataGenerator.h	/^	struct genData{$/;"	s	class:BulletDataGenerator
+gravity	game/generators/BulletDataGenerator.h	/^		gravityProperty gravity;$/;"	m	struct:BulletDataGenerator::genData
+gravityProperty	game/generators/BulletDataGenerator.h	/^	enum gravityProperty{$/;"	g	class:BulletDataGenerator
+highDamage	game/generators/BulletDataGenerator.h	/^		highDamage,$/;"	e	enum:BulletDataGenerator::damageProperty
+highGravity	game/generators/BulletDataGenerator.h	/^		highGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
+highKnockback	game/generators/BulletDataGenerator.h	/^		highKnockback$/;"	e	enum:BulletDataGenerator::knockbackProperty
+knockback	game/generators/BulletDataGenerator.h	/^		knockbackProperty knockback;$/;"	m	struct:BulletDataGenerator::genData
+knockbackProperty	game/generators/BulletDataGenerator.h	/^	enum knockbackProperty{$/;"	g	class:BulletDataGenerator
+lowDamage	game/generators/BulletDataGenerator.h	/^		lowDamage = 0,$/;"	e	enum:BulletDataGenerator::damageProperty
+lowGravity	game/generators/BulletDataGenerator.h	/^		lowGravity,$/;"	e	enum:BulletDataGenerator::gravityProperty
+lowKnockback	game/generators/BulletDataGenerator.h	/^		lowKnockback,$/;"	e	enum:BulletDataGenerator::knockbackProperty
+mediumDamage	game/generators/BulletDataGenerator.h	/^		mediumDamage,$/;"	e	enum:BulletDataGenerator::damageProperty
+mediumKnockback	game/generators/BulletDataGenerator.h	/^		mediumKnockback,$/;"	e	enum:BulletDataGenerator::knockbackProperty
+noGravity	game/generators/BulletDataGenerator.h	/^		noGravity = 0,$/;"	e	enum:BulletDataGenerator::gravityProperty
+noKnockback	game/generators/BulletDataGenerator.h	/^		noKnockback = 0,$/;"	e	enum:BulletDataGenerator::knockbackProperty
+numAbilities	game/generators/BulletDataGenerator.h	/^		int numAbilities;$/;"	m	struct:BulletDataGenerator::genData
+power	game/generators/BulletDataGenerator.h	/^	unsigned int power;$/;"	m	class:BulletDataGenerator
+seed	game/generators/BulletDataGenerator.h	/^	unsigned long seed;$/;"	m	class:BulletDataGenerator
 Generator	game/generators/Generator.h	/^	Generator(){};$/;"	f	class:Generator
 Generator	game/generators/Generator.h	/^class Generator{$/;"	c
 _genFloat	game/generators/Generator.h	/^	float _genFloat(float min, float max){$/;"	f	class:Generator
@@ -913,6 +934,18 @@ _normGenFloat	game/generators/Generator.h	/^	float  _normGenFloat(float mean, fl
 _normGenInt	game/generators/Generator.h	/^	int  _normGenInt(int mean, int deviation ){$/;"	f	class:Generator
 generator	game/generators/Generator.h	/^	std::mt19937 generator;$/;"	m	class:Generator
 ~Generator	game/generators/Generator.h	/^		virtual ~Generator(){};$/;"	f	class:Generator
+Generate	game/generators/GunDataGenerator.cpp	/^GunData GunDataGenerator::Generate(){$/;"	f	class:GunDataGenerator
+GunDataGenerator	game/generators/GunDataGenerator.cpp	/^GunDataGenerator::GunDataGenerator(GunDataGenerator::Archetype archetype, $/;"	f	class:GunDataGenerator
+_genBulletData	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genBulletData(GunData &data,$/;"	f	class:GunDataGenerator
+_genMachineGun	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genMachineGun(GunData &data){$/;"	f	class:GunDataGenerator
+_genRocket	game/generators/GunDataGenerator.cpp	/^void GunDataGenerator::_genRocket(GunData &data){$/;"	f	class:GunDataGenerator
+Archetype	game/generators/GunDataGenerator.h	/^	enum Archetype{$/;"	g	class:GunDataGenerator
+GunDataGenerator	game/generators/GunDataGenerator.h	/^class GunDataGenerator : public Generator{$/;"	c
+Rocket	game/generators/GunDataGenerator.h	/^		Rocket = 1,$/;"	e	enum:GunDataGenerator::Archetype
+archetype	game/generators/GunDataGenerator.h	/^	Archetype archetype;$/;"	m	class:GunDataGenerator
+machineGun	game/generators/GunDataGenerator.h	/^		machineGun = 0,$/;"	e	enum:GunDataGenerator::Archetype
+power	game/generators/GunDataGenerator.h	/^	unsigned int power;$/;"	m	class:GunDataGenerator
+seed	game/generators/GunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:GunDataGenerator
 PerlinNoise	game/generators/PerlinNoise.cpp	/^PerlinNoise::PerlinNoise() {$/;"	f	class:PerlinNoise
 PerlinNoise	game/generators/PerlinNoise.cpp	/^PerlinNoise::PerlinNoise(unsigned int seed) {$/;"	f	class:PerlinNoise
 fade	game/generators/PerlinNoise.cpp	/^double PerlinNoise::fade(double t) { $/;"	f	class:PerlinNoise
@@ -922,49 +955,6 @@ noise	game/generators/PerlinNoise.cpp	/^double PerlinNoise::noise(double x, doub
 PERLINNOISE_H	game/generators/PerlinNoise.h	10;"	d
 PerlinNoise	game/generators/PerlinNoise.h	/^class PerlinNoise {$/;"	c
 p	game/generators/PerlinNoise.h	/^	std::vector<int> p;$/;"	m	class:PerlinNoise
-Generate	game/generators/bulletDataGenerator.cpp	/^bulletData bulletDataGenerator::Generate(){$/;"	f	class:bulletDataGenerator
-_createBulletCollider	game/generators/bulletDataGenerator.cpp	/^bulletCollider* bulletDataGenerator::_createBulletCollider(unsigned long colliderSeed){$/;"	f	class:bulletDataGenerator
-_genDamage	game/generators/bulletDataGenerator.cpp	/^damageCollider *bulletDataGenerator::_genDamage(damageProperty &prop){$/;"	f	class:bulletDataGenerator
-_genGravity	game/generators/bulletDataGenerator.cpp	/^float bulletDataGenerator::_genGravity(gravityProperty &prop){$/;"	f	class:bulletDataGenerator
-_genKnockback	game/generators/bulletDataGenerator.cpp	/^pushCollider *bulletDataGenerator::_genKnockback(knockbackProperty &prop){$/;"	f	class:bulletDataGenerator
-bulletDataGenerator	game/generators/bulletDataGenerator.cpp	/^bulletDataGenerator::bulletDataGenerator(genData _data,$/;"	f	class:bulletDataGenerator
-abilitySkill	game/generators/bulletDataGenerator.h	/^		int abilitySkill;$/;"	m	struct:bulletDataGenerator::genData
-bulletDataGenerator	game/generators/bulletDataGenerator.h	/^class bulletDataGenerator : public Generator{$/;"	c
-damage	game/generators/bulletDataGenerator.h	/^		damageProperty	damage;$/;"	m	struct:bulletDataGenerator::genData
-damageProperty	game/generators/bulletDataGenerator.h	/^	enum damageProperty{$/;"	g	class:bulletDataGenerator
-data	game/generators/bulletDataGenerator.h	/^	genData data;$/;"	m	class:bulletDataGenerator
-defaultGravity	game/generators/bulletDataGenerator.h	/^		defaultGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
-genData	game/generators/bulletDataGenerator.h	/^		genData(knockbackProperty knockback,$/;"	f	struct:bulletDataGenerator::genData
-genData	game/generators/bulletDataGenerator.h	/^	struct genData{$/;"	s	class:bulletDataGenerator
-gravity	game/generators/bulletDataGenerator.h	/^		gravityProperty gravity;$/;"	m	struct:bulletDataGenerator::genData
-gravityProperty	game/generators/bulletDataGenerator.h	/^	enum gravityProperty{$/;"	g	class:bulletDataGenerator
-highDamage	game/generators/bulletDataGenerator.h	/^		highDamage,$/;"	e	enum:bulletDataGenerator::damageProperty
-highGravity	game/generators/bulletDataGenerator.h	/^		highGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
-highKnockback	game/generators/bulletDataGenerator.h	/^		highKnockback$/;"	e	enum:bulletDataGenerator::knockbackProperty
-knockback	game/generators/bulletDataGenerator.h	/^		knockbackProperty knockback;$/;"	m	struct:bulletDataGenerator::genData
-knockbackProperty	game/generators/bulletDataGenerator.h	/^	enum knockbackProperty{$/;"	g	class:bulletDataGenerator
-lowDamage	game/generators/bulletDataGenerator.h	/^		lowDamage = 0,$/;"	e	enum:bulletDataGenerator::damageProperty
-lowGravity	game/generators/bulletDataGenerator.h	/^		lowGravity,$/;"	e	enum:bulletDataGenerator::gravityProperty
-lowKnockback	game/generators/bulletDataGenerator.h	/^		lowKnockback,$/;"	e	enum:bulletDataGenerator::knockbackProperty
-mediumDamage	game/generators/bulletDataGenerator.h	/^		mediumDamage,$/;"	e	enum:bulletDataGenerator::damageProperty
-mediumKnockback	game/generators/bulletDataGenerator.h	/^		mediumKnockback,$/;"	e	enum:bulletDataGenerator::knockbackProperty
-noGravity	game/generators/bulletDataGenerator.h	/^		noGravity = 0,$/;"	e	enum:bulletDataGenerator::gravityProperty
-noKnockback	game/generators/bulletDataGenerator.h	/^		noKnockback = 0,$/;"	e	enum:bulletDataGenerator::knockbackProperty
-numAbilities	game/generators/bulletDataGenerator.h	/^		int numAbilities;$/;"	m	struct:bulletDataGenerator::genData
-power	game/generators/bulletDataGenerator.h	/^	unsigned int power;$/;"	m	class:bulletDataGenerator
-seed	game/generators/bulletDataGenerator.h	/^	unsigned long seed;$/;"	m	class:bulletDataGenerator
-Generate	game/generators/gunDataGenerator.cpp	/^gunData gunDataGenerator::Generate(){$/;"	f	class:gunDataGenerator
-_genBulletData	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genBulletData(gunData &data,$/;"	f	class:gunDataGenerator
-_genMachineGun	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genMachineGun(gunData &data){$/;"	f	class:gunDataGenerator
-_genRocket	game/generators/gunDataGenerator.cpp	/^void gunDataGenerator::_genRocket(gunData &data){$/;"	f	class:gunDataGenerator
-gunDataGenerator	game/generators/gunDataGenerator.cpp	/^gunDataGenerator::gunDataGenerator(gunDataGenerator::Archetype archetype, $/;"	f	class:gunDataGenerator
-Archetype	game/generators/gunDataGenerator.h	/^	enum Archetype{$/;"	g	class:gunDataGenerator
-Rocket	game/generators/gunDataGenerator.h	/^		Rocket = 1,$/;"	e	enum:gunDataGenerator::Archetype
-archetype	game/generators/gunDataGenerator.h	/^	Archetype archetype;$/;"	m	class:gunDataGenerator
-gunDataGenerator	game/generators/gunDataGenerator.h	/^class gunDataGenerator : public Generator{$/;"	c
-machineGun	game/generators/gunDataGenerator.h	/^		machineGun = 0,$/;"	e	enum:gunDataGenerator::Archetype
-power	game/generators/gunDataGenerator.h	/^	unsigned int power;$/;"	m	class:gunDataGenerator
-seed	game/generators/gunDataGenerator.h	/^	unsigned long seed;$/;"	m	class:gunDataGenerator
 Level	game/level/Level.h	/^class Level{$/;"	c
 gameSegment	game/level/gameSegment.h	/^class gameSegment{$/;"	c
 At	game/terrainGen/terrain.h	/^	terrainType At(int x, int y) {$/;"	f	struct:Terrain
@@ -980,15 +970,18 @@ getWidth	game/terrainGen/terrain.h	/^	unsigned int getWidth () {$/;"	f	struct:Te
 height_	game/terrainGen/terrain.h	/^	unsigned int width_, height_;$/;"	m	struct:Terrain
 maxHeight_	game/terrainGen/terrain.h	/^	unsigned int maxHeight_;$/;"	m	struct:Terrain
 setMaxHeight	game/terrainGen/terrain.h	/^	void setMaxHeight (unsigned int maxHeight) {$/;"	f	struct:Terrain
-terrain	game/terrainGen/terrain.h	/^	std::vector <terrainType> terrain;$/;"	m	struct:Terrain
+terrain	game/terrainGen/terrain.h	/^	terrainType *terrain;$/;"	m	struct:Terrain
 terrainType	game/terrainGen/terrain.h	/^enum terrainType {$/;"	g
 width_	game/terrainGen/terrain.h	/^	unsigned int width_, height_;$/;"	m	struct:Terrain
 SetTerrain	game/terrainGen/terrainGenerator.cpp	/^void SetTerrain(Terrain &terrain, unsigned int x, unsigned int y, $/;"	f
+Subdivide_	game/terrainGen/terrainGenerator.cpp	/^AABB Subdivide_(Terrain &terrain, int &currentX, int h){$/;"	f
+float01	game/terrainGen/terrainGenerator.cpp	11;"	d	file:
+genAreas	game/terrainGen/terrainGenerator.cpp	/^void genAreas(Terrain &terrain, tinymt32_t &mt, vector2 minRoomSize){$/;"	f
 genBorders	game/terrainGen/terrainGenerator.cpp	/^void genBorders(Terrain &terrain) {$/;"	f
-genCarver	game/terrainGen/terrainGenerator.cpp	/^void genCarver(Terrain &terrain, unsigned int seed, unsigned int steps, unsigned int thickness) {$/;"	f
-genHeightShape	game/terrainGen/terrainGenerator.cpp	/^void genHeightShape(Terrain &terrain, PerlinNoise &noise) {$/;"	f
 genTerrain	game/terrainGen/terrainGenerator.cpp	/^void genTerrain(Terrain &terrain, unsigned int seed){$/;"	f
+genTerrainChunks	game/terrainGen/terrainGenerator.cpp	/^std::vector<AABB> genTerrainChunks(Terrain &terrain) {$/;"	f
 getPlayerPosTerrain	game/terrainGen/terrainGenerator.cpp	/^vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX){$/;"	f
+shouldSubdivide	game/terrainGen/terrainGenerator.cpp	/^bool shouldSubdivide(Terrain &terrain, int currentX, int h){$/;"	f
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 BOX2D_H	include/Box2D/Box2D.h	20;"	d
 Clone	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^b2Shape* b2ChainShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2ChainShape
@@ -3928,8 +3921,72 @@ yellow	include/backward/backward.hpp	/^		yellow = 0,$/;"	e	enum:backward::Color:
 yellow	include/backward/backward.hpp	/^		yellow = 33,$/;"	e	enum:backward::Color::type
 ~Colorize	include/backward/backward.hpp	/^	~Colorize() {$/;"	f	class:backward::Colorize
 ~handle	include/backward/backward.hpp	/^	~handle() {$/;"	f	class:backward::details::handle
+MIN_LOOP	include/noise/tinymt32.c	17;"	d	file:
+PRE_LOOP	include/noise/tinymt32.c	18;"	d	file:
+ini_func1	include/noise/tinymt32.c	/^static uint32_t ini_func1(uint32_t x) {$/;"	f	file:
+ini_func2	include/noise/tinymt32.c	/^static uint32_t ini_func2(uint32_t x) {$/;"	f	file:
+period_certification	include/noise/tinymt32.c	/^static void period_certification(tinymt32_t * random) {$/;"	f	file:
+tinymt32_init	include/noise/tinymt32.c	/^void tinymt32_init(tinymt32_t * random, uint32_t seed) {$/;"	f
+tinymt32_init_by_array	include/noise/tinymt32.c	/^void tinymt32_init_by_array(tinymt32_t * random, uint32_t init_key[],$/;"	f
+TINYMT32_H	include/noise/tinymt32.h	2;"	d
+TINYMT32_MASK	include/noise/tinymt32.h	26;"	d
+TINYMT32_MEXP	include/noise/tinymt32.h	22;"	d
+TINYMT32_MUL	include/noise/tinymt32.h	27;"	d
+TINYMT32_SH0	include/noise/tinymt32.h	23;"	d
+TINYMT32_SH1	include/noise/tinymt32.h	24;"	d
+TINYMT32_SH8	include/noise/tinymt32.h	25;"	d
+TINYMT32_T	include/noise/tinymt32.h	/^struct TINYMT32_T {$/;"	s
+mat1	include/noise/tinymt32.h	/^    uint32_t mat1;$/;"	m	struct:TINYMT32_T
+mat2	include/noise/tinymt32.h	/^    uint32_t mat2;$/;"	m	struct:TINYMT32_T
+status	include/noise/tinymt32.h	/^    uint32_t status[4];$/;"	m	struct:TINYMT32_T
+tinymt32_generate_32double	include/noise/tinymt32.h	/^inline static double tinymt32_generate_32double(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float01	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float01(tinymt32_t * random) {$/;"	f
+tinymt32_generate_float12	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float12(tinymt32_t * random) {$/;"	f
+tinymt32_generate_floatOC	include/noise/tinymt32.h	/^inline static float tinymt32_generate_floatOC(tinymt32_t * random) {$/;"	f
+tinymt32_generate_floatOO	include/noise/tinymt32.h	/^inline static float tinymt32_generate_floatOO(tinymt32_t * random) {$/;"	f
+tinymt32_generate_uint32	include/noise/tinymt32.h	/^inline static uint32_t tinymt32_generate_uint32(tinymt32_t * random) {$/;"	f
+tinymt32_get_mexp	include/noise/tinymt32.h	/^inline static int tinymt32_get_mexp($/;"	f
+tinymt32_get_mexp	include/noise/tinymt32.h	/^inline static int tinymt32_get_mexp(tinymt32_t * random) {$/;"	f
+tinymt32_next_state	include/noise/tinymt32.h	/^inline static void tinymt32_next_state(tinymt32_t * random) {$/;"	f
+tinymt32_t	include/noise/tinymt32.h	/^typedef struct TINYMT32_T tinymt32_t;$/;"	t	typeref:struct:TINYMT32_T
+tinymt32_temper	include/noise/tinymt32.h	/^inline static uint32_t tinymt32_temper(tinymt32_t * random) {$/;"	f
+tinymt32_temper_conv	include/noise/tinymt32.h	/^inline static float tinymt32_temper_conv(tinymt32_t * random) {$/;"	f
+tinymt32_temper_conv_open	include/noise/tinymt32.h	/^inline static float tinymt32_temper_conv_open(tinymt32_t * random) {$/;"	f
+tmat	include/noise/tinymt32.h	/^    uint32_t tmat;$/;"	m	struct:TINYMT32_T
+MIN_LOOP	include/noise/tinymt64.c	18;"	d	file:
+ini_func1	include/noise/tinymt64.c	/^static uint64_t ini_func1(uint64_t x) {$/;"	f	file:
+ini_func2	include/noise/tinymt64.c	/^static uint64_t ini_func2(uint64_t x) {$/;"	f	file:
+period_certification	include/noise/tinymt64.c	/^static void period_certification(tinymt64_t * random) {$/;"	f	file:
+tinymt64_init	include/noise/tinymt64.c	/^void tinymt64_init(tinymt64_t * random, uint64_t seed) {$/;"	f
+tinymt64_init_by_array	include/noise/tinymt64.c	/^void tinymt64_init_by_array(tinymt64_t * random, const uint64_t init_key[],$/;"	f
+TINYMT64_H	include/noise/tinymt64.h	2;"	d
+TINYMT64_MASK	include/noise/tinymt64.h	26;"	d
+TINYMT64_MEXP	include/noise/tinymt64.h	22;"	d
+TINYMT64_MUL	include/noise/tinymt64.h	27;"	d
+TINYMT64_SH0	include/noise/tinymt64.h	23;"	d
+TINYMT64_SH1	include/noise/tinymt64.h	24;"	d
+TINYMT64_SH8	include/noise/tinymt64.h	25;"	d
+TINYMT64_T	include/noise/tinymt64.h	/^struct TINYMT64_T {$/;"	s
+mat1	include/noise/tinymt64.h	/^    uint32_t mat1;$/;"	m	struct:TINYMT64_T
+mat2	include/noise/tinymt64.h	/^    uint32_t mat2;$/;"	m	struct:TINYMT64_T
+status	include/noise/tinymt64.h	/^    uint64_t status[2];$/;"	m	struct:TINYMT64_T
+tinymt64_generate_double	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double(tinymt64_t * random) {$/;"	f
+tinymt64_generate_double01	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double01(tinymt64_t * random) {$/;"	f
+tinymt64_generate_double12	include/noise/tinymt64.h	/^inline static double tinymt64_generate_double12(tinymt64_t * random) {$/;"	f
+tinymt64_generate_doubleOC	include/noise/tinymt64.h	/^inline static double tinymt64_generate_doubleOC(tinymt64_t * random) {$/;"	f
+tinymt64_generate_doubleOO	include/noise/tinymt64.h	/^inline static double tinymt64_generate_doubleOO(tinymt64_t * random) {$/;"	f
+tinymt64_generate_uint64	include/noise/tinymt64.h	/^inline static uint64_t tinymt64_generate_uint64(tinymt64_t * random) {$/;"	f
+tinymt64_get_mexp	include/noise/tinymt64.h	/^inline static int tinymt64_get_mexp($/;"	f
+tinymt64_get_mexp	include/noise/tinymt64.h	/^inline static int tinymt64_get_mexp(tinymt64_t * random) {$/;"	f
+tinymt64_next_state	include/noise/tinymt64.h	/^inline static void tinymt64_next_state(tinymt64_t * random) {$/;"	f
+tinymt64_t	include/noise/tinymt64.h	/^typedef struct TINYMT64_T tinymt64_t;$/;"	t	typeref:struct:TINYMT64_T
+tinymt64_temper	include/noise/tinymt64.h	/^inline static uint64_t tinymt64_temper(tinymt64_t * random) {$/;"	f
+tinymt64_temper_conv	include/noise/tinymt64.h	/^inline static double tinymt64_temper_conv(tinymt64_t * random) {$/;"	f
+tinymt64_temper_conv_open	include/noise/tinymt64.h	/^inline static double tinymt64_temper_conv_open(tinymt64_t * random) {$/;"	f
+tmat	include/noise/tinymt64.h	/^    uint64_t tmat;$/;"	m	struct:TINYMT64_T
 _addProcesses	main.cc	/^void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){$/;"	f
-_createObjectProcessors	main.cc	/^void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,$/;"	f
+_createObjectProcessors	main.cc	/^void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,$/;"	f
 _createStates	main.cc	/^void _createStates(stateProcess *stateProc){$/;"	f
 _loadSettings	main.cc	/^void _loadSettings(Settings &settings){$/;"	f
 main	main.cc	/^int main(){$/;"	f

@@ -19,7 +19,7 @@ include_rules
 : foreach ../src/core/Rendering/*.c* |> !cc |>%B.o
 : foreach ../src/core/World/*.c* |> !cc |>%B.o
 
-: foreach ../src/game/bulletColliders/*.c* |> !cc |> %B.o
+: foreach ../src/game/BulletColliders/*.c* |> !cc |> %B.o
 : foreach ../src/game/defines/*.c* |> !cc |> %B.o
 : foreach ../src/game/factory/*.c* |>  !cc |> %B.o
 : foreach ../src/game/gameStateHelpers/*.c* |> !cc |> %B.o
@@ -29,11 +29,4 @@ include_rules
 : foreach ../src/game/States/*.c* |> !cc |> %B.o
 : foreach ../src/game/terrainGen/*.c* |> !cc |> %B.o
 
-
-
-
-
-
-
-
-
+: foreach ../src/include/noise/*.c* |> !cc |> %B.o
