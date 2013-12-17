@@ -1,5 +1,5 @@
 #pragma once
-#include "../../core/componentSys/processor/objectProcessor.h"
+#include "../../core/componentSys/processor/ObjectProcessor.h"
 #include "../../core/math/vector.h"
 #include "../../include/SFML/Graphics.hpp"
 
@@ -19,10 +19,10 @@ struct AIData{
 };
 
 
-class AIProcessor : public objectProcessor{
+class AIProcessor : public ObjectProcessor{
 public:
 	AIProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
-		objectProcessor("AIProcessor"){
+		ObjectProcessor("AIProcessor"){
 			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 

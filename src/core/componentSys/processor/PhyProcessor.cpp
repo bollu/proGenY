@@ -1,29 +1,27 @@
 #pragma once
-#include "phyProcessor.h"
+#include "PhyProcessor.h"
 #include <type_traits>
 
 
 #include "../../World/objContactListener.h"
 
-phyProcessor::phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
-objectProcessor("phyProcessor") {
+PhyProcessor::PhyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+ObjectProcessor("PhyProcessor") {
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
 	this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 
 	world->setContactListener(&this->contactListener);
 }
 
-void phyProcessor::_onObjectAdd(Object *obj){
-
+void PhyProcessor::_onObjectAdd(Object *obj){
 	
-
-	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 	vector2* gamePos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 
 
-	//it doesn't have phyData, so chill and move on
+	//it doesn't have PhyData, so chill and move on
 	if(data == NULL){	
-		IO::infoLog<<"\n "<<obj->getName()<<" does not have phyData";
+		IO::infoLog<<"\n "<<obj->getName()<<" does not have PhyData";
 		return;
 
 	}
@@ -48,7 +46,7 @@ void phyProcessor::_onObjectAdd(Object *obj){
 
 }
 
-void phyProcessor::_preProcess(){
+void PhyProcessor::_preProcess(){
 
 	for(Object::cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
 		Object *obj = it->second;
@@ -56,7 +54,7 @@ void phyProcessor::_preProcess(){
 		assert(obj != NULL);
 
 
-		phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+		PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 		if(data == NULL){
 			continue;
 		}
@@ -66,10 +64,10 @@ void phyProcessor::_preProcess(){
 	//this->_processContacts();
 };
 
-void phyProcessor::_Process(Object *obj, float dt){
+void PhyProcessor::_Process(Object *obj, float dt){
 
 
-	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+	PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 
 	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 
@@ -82,8 +80,8 @@ void phyProcessor::_Process(Object *obj, float dt){
 }
 
 
-void phyProcessor::_onObjectDeath(Object *obj){
-	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+void PhyProcessor::_onObjectDeath(Object *obj){
+	PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 
 
 	if(data != NULL){
@@ -92,14 +90,14 @@ void phyProcessor::_onObjectDeath(Object *obj){
 	}
 }
 
-void phyProcessor::_onObjectActivate(Object *obj){
-	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+void PhyProcessor::_onObjectActivate(Object *obj){
+	PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 	if(data != NULL){
 		
 	}
 };
-void phyProcessor::_onObjectDeactivate(Object *obj){
-	phyData *data = obj->getPrimitive<phyData>(Hash::getHash("phyData"));
+void PhyProcessor::_onObjectDeactivate(Object *obj){
+	PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 	if(data != NULL){
 
 	}
@@ -108,12 +106,12 @@ void phyProcessor::_onObjectDeactivate(Object *obj){
 
 //-------------------------------------------------------------------
 
-void phyData::addCollision(collisionData &collision){
+void PhyData::addCollision(collisionData &collision){
 
 	this->collisions.push_back(collision);
 };
 
-void phyData::removeCollision(Object *obj){
+void PhyData::removeCollision(Object *obj){
 	for(auto it = this->collisions.begin(); it != this->collisions.end(); ++it){
 		if(it->otherObj == obj){
 			this->collisions.erase(it);

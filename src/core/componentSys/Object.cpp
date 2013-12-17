@@ -4,7 +4,10 @@
 
 std::map<std::string, unsigned int> Object::nameMap;
 
-Object::Object(std::string _name) : dead(false), baseName(_name){
+typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;
+typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;
+
+Object::Object(std::string _name) : dead(false), baseName(_name), parent(NULL){
 	//create a unique name from the generic name given
 	this->_genUniqueName(_name, this->name);
 
@@ -60,6 +63,16 @@ bool Object::isDead() const{
 }
 
 //setters-----------------------------------------------------------
+void Object::addChild(Object *childObj){
+	childObj->parent = this;
+	this->children.push_back(childObj);
+};
+
+Object *Object::getParent(){
+	return this->parent;
+};
+
+
 void Object::addProp(const Hash *name, baseProperty *value){
 	propertyIt it;
 	

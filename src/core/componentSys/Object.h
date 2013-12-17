@@ -11,15 +11,15 @@
 
 An Object is a collection of Property objects. it's basically a data carrier. 
 every object class has a unique name associated with it. It also has a list of
-all Properties owned by itself. An Object is modified upon by objectProcessor classes.
-the objectProcessors take the data present in Object and use that for rendering, simulation,
+all Properties owned by itself. An Object is modified upon by ObjectProcessor classes.
+the ObjectProcessors take the data present in Object and use that for rendering, simulation,
 etc. 
 
 It's a component object system. the Object can be thought of as a bag of baseProperty objects, with a unique
-key (the unique name). The objectProcessor classes "use" the data present in the Object to simulate
+key (the unique name). The ObjectProcessor classes "use" the data present in the Object to simulate
 the game
 
-\sa objectProcessor baseProperty 
+\sa ObjectProcessor baseProperty 
 */   
 class Object{
 
@@ -56,9 +56,15 @@ public:
 	void addProp(const Hash *name, baseProperty *value);
 	void addProp(const char *name, baseProperty *value);
 	
+	/*!adds a child that can receive messages from the parent*/
+	void addChild(Object *child);
+
+	/*!returns the parent of this Object*/
+	Object *getParent();
+	
 	/*!kills the Object. 
 	The Object destruction will be notified to all
-	objectProcessor classes. It will then be destroyed
+	ObjectProcessor classes. It will then be destroyed
 	*/
 	void Kill();
 
@@ -98,6 +104,71 @@ public:
 
 	}
 	
+	/*!send a one time message to the object, and optionally it's children
+
+	This is used to send a message to the object which is stored. This message
+	can be retrieved by the component which is interested and can act based on
+	messages. Basically acts as a mini observer pattern within the Object itself
+
+	@param [in] tag: The tag of the message to be sent
+	@param [in] value: The value that should go along with the tag. This can be 
+						retrieved at the component's site
+
+	\return None
+	*/
+	template<typename T>
+	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {
+		auto it = this->messages.find(tag);
+
+		if(it != this->messages.end()) {
+			delete (it->second);	
+			this->messages.erase(it);	
+		}
+
+		this->messages[tag] = new Prop<T> (value);
+
+		if(sendToChildren){
+			for (auto child : children) {
+				child->sendMessage<T>(tag, value, sendToChildren);
+			}
+		}
+	}
+
+	void sendMessage(const Hash *tag, bool sendToChildren = false) {
+	
+		auto it = this->messages.find(tag);
+
+		if(it != this->messages.end()) {
+			delete (it->second);
+			this->messages.erase(it);	
+		}
+
+		//create a stub property 
+		this->messages[tag] = new Prop<void>();
+
+		if(sendToChildren){
+			for (auto child : children) {
+				child->sendMessage(tag, sendToChildren);
+			}
+		}
+	}
+
+	//messages auto-expire once retrieved
+	template<typename T=void>
+	T* getMessage(const Hash *tag) {
+		auto it = this->messages.find(tag);
+
+		if(it == messages.end()) {
+			return NULL;
+		}
+
+		Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second);
+
+		messages.erase(it);
+		return prop->getVal();
+
+		
+	};
 	
 	/*prints a list of properties owned by the object */
 	void _printProperties() const;
@@ -109,8 +180,8 @@ public:
 	typedef objectMap::const_iterator cObjMapIt;
 
 private:
-	friend class objectProcessor;
-
+	//stores whether the Object is dead or not
+	bool dead;
 
 	//name of the object
 	std::string name;
@@ -118,21 +189,21 @@ private:
 
 	//a map of properties that can be accessed by all objects
 	std::map<const Hash*, baseProperty* > propertyMap; 
-	typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;
-	typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;
 
 
-
+	//map of messages within the object.
+	std::map<const Hash*, baseProperty* > messages;
+	
+	//array of children
+	Object *parent;
+	std::vector<Object *>children;
+		
 	//stores the number of times an object of the same name has been created
 	//to ensure all names are unique. The way war3 used to do it.
 	static std::map<std::string, unsigned int>nameMap;
 	typedef std::map<std::string, unsigned int>::iterator nameIt;
 
-
-	//stores whether the Object is dead or not
-	bool dead;
-
-	
+	friend class ObjectProcessor;
 
 	void _genUniqueName(std::string genericName, std::string &out);
 	

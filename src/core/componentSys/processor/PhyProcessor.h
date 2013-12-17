@@ -1,5 +1,5 @@
 #pragma once
-#include "objectProcessor.h"
+#include "ObjectProcessor.h"
 #include "../../IO/logObject.h"
 
 #include "../../Rendering/viewProcess.h"
@@ -9,16 +9,16 @@
 #include "../../IO/Settings.h"
 #include "../../controlFlow/eventMgr.h"
 #include "../../World/objContactListener.h"
-struct phyData;
+struct PhyData;
 
 
 //ALYWAS CREATE THE FIXTURE DEF's SHAPE ON THE STACK
-/*!Stores data used by the phyProcessor
+/*!Stores data used by the PhyProcessor
 
 stores all essential information that is needed to 
 run the physics of Objects
 */
-struct phyData{
+struct PhyData{
 	/*!the definition of the body */
 	b2BodyDef bodyDef;
 	/*!a list of definitions of all fixtures owned by the body*/
@@ -34,7 +34,7 @@ struct phyData{
 	/*!whether the velocity should be clamped between -maxVel and  maxVel or not*/
 	bool velClamped;
 	/*!the velocity to which the body's velocity should be clamped if 
-	phyData::velClamped is true*/
+	PhyData::velClamped is true*/
 	vector2 maxVel;
 	
 	/*!the name of the collisionType of the body.
@@ -60,20 +60,20 @@ private:
 
 /*!Processes physics data of Object classes.
 
-This objectProcessor acts as a proxy between box2d and the game.
+This ObjectProcessor acts as a proxy between box2d and the game.
 it is responsible for creating box2d bodies and shapes when an 
 object is first added. It is also responsible for updating the
 position and angle of the body every frame. It must also destroy
 all box2d related data when the Object is killed or removed
 */
-class phyProcessor : public objectProcessor{
+class PhyProcessor : public ObjectProcessor{
 private:
 	viewProcess *view;
 	worldProcess *world;
 	objContactListener contactListener;
 
 public:
-	phyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	PhyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
 
 protected:
 	void _onObjectAdd(Object *obj);
@@ -86,7 +86,7 @@ protected:
 	void _onObjectDeath(Object *obj);
 
 	bool _shouldProcess(Object *obj){
-		return obj->hasProperty("phyData");
+		return obj->hasProperty("PhyData");
 	};
 
 };

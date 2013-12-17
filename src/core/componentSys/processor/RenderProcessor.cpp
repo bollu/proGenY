@@ -1,8 +1,8 @@
 #pragma once
-#include "renderProcessor.h"
+#include "RenderProcessor.h"
 
-renderProcessor::renderProcessor(processMgr &processManager, 
-	Settings &settings, eventMgr &_eventManager) : objectProcessor("renderProcesor"){
+RenderProcessor::RenderProcessor(processMgr &processManager, 
+	Settings &settings, eventMgr &_eventManager) : ObjectProcessor("renderProcesor"){
 
 	this->window = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
@@ -14,8 +14,8 @@ renderProcessor::renderProcessor(processMgr &processManager,
 };
 
 
-void renderProcessor::_onObjectAdd(Object *obj){
-	renderData *data = obj->getPrimitive<renderData>(Hash::getHash("renderData"));
+void RenderProcessor::_onObjectAdd(Object *obj){
+	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	if(data == NULL){
 		return;
 	}
@@ -25,8 +25,8 @@ void renderProcessor::_onObjectAdd(Object *obj){
 	}
 }
 
-void renderProcessor::_onObjectActivate(Object *obj){
-	renderData *data = obj->getPrimitive<renderData>(Hash::getHash("renderData"));
+void RenderProcessor::_onObjectActivate(Object *obj){
+	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	assert(data != NULL);
 
 	for(renderProcess::baseRenderNode *node : data->renderers){
@@ -34,8 +34,8 @@ void renderProcessor::_onObjectActivate(Object *obj){
 	}
 
 };
-void renderProcessor::_onObjectDeactivate(Object *obj){
-	renderData *data = obj->getPrimitive<renderData>(Hash::getHash("renderData"));
+void RenderProcessor::_onObjectDeactivate(Object *obj){
+	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	assert(data != NULL);
 	
 	for(renderProcess::baseRenderNode *node : data->renderers){
@@ -44,8 +44,8 @@ void renderProcessor::_onObjectDeactivate(Object *obj){
 };
 
 
-void renderProcessor::_onObjectDeath(Object *obj){
-	renderData *data = obj->getPrimitive<renderData>(Hash::getHash("renderData"));
+void RenderProcessor::_onObjectDeath(Object *obj){
+	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	if(data == NULL){
 		return;
 	}
@@ -57,8 +57,8 @@ void renderProcessor::_onObjectDeath(Object *obj){
 	}
 };
 
-void renderProcessor::_Process(Object *obj, float dt){
-	renderData *data = obj->getPrimitive<renderData>(Hash::getHash("renderData"));
+void RenderProcessor::_Process(Object *obj, float dt){
+	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 
 	//for box2d, +ve x axis is 0 degree clockwise
 	//ffor SFML, -ve y axis 0 degree. weird...
@@ -78,8 +78,8 @@ void renderProcessor::_Process(Object *obj, float dt){
 }
 
 
-void renderProcessor::_Render(vector2 pos, util::Angle &angle, 
-	renderData *data,  bool centered){
+void RenderProcessor::_Render(vector2 pos, util::Angle &angle, 
+	RenderData *data,  bool centered){
 		//loop through the renderers
 	for(renderProcess::baseRenderNode *renderer : data->renderers){
 

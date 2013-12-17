@@ -9,7 +9,7 @@
 /*!Used to process Object classes 
 
 */ 
-class objectProcessor{
+class ObjectProcessor{
 protected:
 	//a pointer to a vector of objects. it's owned by objectManager  
 	Object::objectMap *objMap;
@@ -36,7 +36,7 @@ protected:
 	}
 
 
-	objectProcessor(std::string _name) : name(_name){};
+	ObjectProcessor(std::string _name) : name(_name){};
 
 public:
 	void Init(Object::objectMap *_objMap){
@@ -81,6 +81,6 @@ public:
 
 
 	virtual void postProcess(){};
-	virtual ~objectProcessor(){};
+	virtual ~ObjectProcessor(){};
 
 };
