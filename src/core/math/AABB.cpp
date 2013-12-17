@@ -7,6 +7,11 @@ AABB::AABB(vector2 _halfDim, vector2 _center) : center(_center), halfDim(_halfDi
 AABB::AABB(vector2 _halfDim) : center(0,0) , halfDim(_halfDim) {
 };
 
+AABB AABB::Endpoints(vector2 bottomLeft, vector2 topRight){
+	vector2 dim = topRight - bottomLeft;
+	return AABB(dim * 0.5, (bottomLeft + topRight) * 0.5); 
+}
+
 vector2 AABB::getDim() const{
 	return this->halfDim * 2;
 };

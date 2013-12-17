@@ -14,13 +14,14 @@ namespace util{
 
 
 	template<typename T>
-	static int sgn(T  num){
+	static int sgn(T num){
 		return 
 		num > 0 ? 1 :
 		num < 0 ? -1  :
 		0;
 	}
 
+	
 	template <typename T>
 	T clamp(const T& n, const T& lower, const T& upper) {
   	return std::max(lower, std::min(n, upper));

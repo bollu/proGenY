@@ -2,10 +2,14 @@
 #include "vector.h"
 
 
+
+
 class AABB{
 public:
 	AABB(vector2 halfDim, vector2 center);
 	AABB(vector2 halfDim);
+
+	static AABB Endpoints(vector2 bottomLeft, vector2 topRight);
 
 	vector2 getDim() const;
 	vector2 getHalfDim() const;
