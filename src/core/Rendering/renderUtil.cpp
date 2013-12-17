@@ -27,9 +27,6 @@ sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProces
 
 	sf::ConvexShape *polyShape = new sf::ConvexShape(b2Shape->GetVertexCount());
 
-
-	IO::infoLog<<"vertex count: "<<b2Shape->GetVertexCount();
-
 	for(int i = 0; i < b2Shape->GetVertexCount(); ++i){ 
 
 		vector2 gamePt = vector2::cast<b2Vec2>(b2Shape->GetVertex(i));
@@ -42,9 +39,6 @@ sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProces
 		vector2 renderPt = vector2(viewPt.x, -viewPt.y); //TODO: find out WHY box2d shape coordinates is the same as SFML 
 									//coordinates- IE - top left corner is (0,0) +ve x axis is right
 									//and +ve y axis is down. I have no freaking clue why it's this way
-
-
-		PRINTVECTOR2(renderPt);
 
 		polyShape->setPoint(i, renderPt);
 	}

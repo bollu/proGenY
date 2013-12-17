@@ -74,12 +74,8 @@ public:
 	void removeRenderNode(renderProcess::baseRenderNode *node);
 
 private:
-	
-
 	sf::RenderWindow *window;
 	std::list<baseRenderNode *> nodes;
-
-
 
 	/*!return true if first argument goes *before the 2nd*
 	we want things at the back to be drawn first, so return 
