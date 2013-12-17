@@ -11,9 +11,9 @@
 #include "include/SFML/Graphics.hpp"
 
 #include "core/Object.h"
-#include "core/objectMgr.h"
-#include "core/ObjProcessors/renderProcessor.h"
-#include "core/ObjProcessors/phyProcessor.h"
+#include "core/ObjectMgr.h"
+#include "core/ObjProcessors/RenderProcessor.h"
+#include "core/ObjProcessors/PhyProcessor.h"
 
 #include "util/logObject.h" 
 */
@@ -29,7 +29,7 @@
 //processes---------------------------------------
 #include "core/Rendering/windowProcess.h"
 #include "core/IO/eventProcess.h"
-#include "core/componentSys/objectMgrProcess.h"
+#include "core/componentSys/ObjectMgrProcess.h"
 #include "core/World/worldProcess.h"
 #include "core/Rendering/viewProcess.h"
 #include "core/controlFlow/stateProcess.h"
@@ -45,13 +45,13 @@
 
 void _loadSettings(Settings &);
 void _addProcesses(processMgr &, Settings &, eventMgr &);
-void _createObjectProcessors(objectMgrProcess*, processMgr&, Settings &, eventMgr&);
+void _createObjectProcessors(ObjectMgrProcess*, processMgr&, Settings &, eventMgr&);
 void _createStates(stateProcess *);
 
 
 
 
-void _createDummy(objectMgr *);
+void _createDummy(ObjectMgr *);
 
 
 int main(){
@@ -102,10 +102,10 @@ void _loadSettings(Settings &settings){
 
     settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -50.0)));
     settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
-    settings.addProp(Hash::getHash("velIterations"), new iProp(5));
-    settings.addProp(Hash::getHash("collisionIterations"), new iProp(5));
+    settings.addProp(Hash::getHash("velIterations"), new iProp(3));
+    settings.addProp(Hash::getHash("collisionIterations"), new iProp(3));
 
-    IO::baseLog::setThreshold(IO::logLevel::logLevelWarning);
+    IO::baseLog::setThreshold(IO::logLevel::logLevelInfo);
 };
 
 
@@ -122,7 +122,7 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
     processManager.addProcess(new renderProcess(processManager, settings, eventManager));
     //ALWAYS KEEP THIS LAST BUT ONE.It will depend on most other components
     //But other game states will probably rely on this.
-    objectMgrProcess *objMgrProc = new objectMgrProcess(processManager, settings, eventManager);
+    ObjectMgrProcess *objMgrProc = new ObjectMgrProcess(processManager, settings, eventManager);
     processManager.addProcess(objMgrProc);
     
     //create the object processors that are responsible for creating objects
@@ -146,15 +146,15 @@ void _createStates(stateProcess *stateProc){
 }
 
 //OBJECT PROCESSORS------------------------------------------------------------
-#include "game/ObjProcessors/terrainProcessor.h"
-#include "game/ObjProcessors/cameraProcessor.h"
-#include "game/ObjProcessors/bulletProcessor.h"
-#include "game/ObjProcessors/healthProcessor.h"
-#include "game/ObjProcessors/gunProcessor.h"
-#include "game/ObjProcessors/offsetProcessor.h"
-#include "game/ObjProcessors/pickupProcessor.h"
+#include "game/ObjProcessors/TerrainProcessor.h"
+#include "game/ObjProcessors/CameraProcessor.h"
+#include "game/ObjProcessors/BulletProcessor.h"
+#include "game/ObjProcessors/HealthProcessor.h"
+#include "game/ObjProcessors/GunProcessor.h"
+#include "game/ObjProcessors/OffsetProcessor.h"
+#include "game/ObjProcessors/PickupProcessor.h"
 #include "game/ObjProcessors/AIProcessor.h"
-void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processManager,
+void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,
                            Settings &settings, eventMgr &eventManager){
 
 
@@ -162,15 +162,15 @@ void _createObjectProcessors(objectMgrProcess *objMgrProc, processMgr &processMa
     objMgrProc->addObjectProcessor( new cameraProcessor(processManager, settings, eventManager));
      
      
-    objMgrProc->addObjectProcessor( new renderProcessor(processManager, settings, eventManager));
-    objMgrProc->addObjectProcessor( new phyProcessor(processManager, settings, eventManager));
+    objMgrProc->addObjectProcessor( new RenderProcessor(processManager, settings, eventManager));
+    objMgrProc->addObjectProcessor( new PhyProcessor(processManager, settings, eventManager));
 
     objMgrProc->addObjectProcessor(new groundMoveProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new bulletProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new BulletProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new healthProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new gunProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new offsetProcessor(processManager, settings, eventManager) );
-    objMgrProc->addObjectProcessor(new pickupProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new GunProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new OffsetProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new PickupProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new AIProcessor(processManager, settings, eventManager) );
 
 };
