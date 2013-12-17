@@ -1,7 +1,7 @@
 #pragma once
 #include "objContactListener.h"
 
-#include "../componentSys/processor/phyProcessor.h"
+#include "../componentSys/processor/PhyProcessor.h"
 
 void objContactListener::_extractPhyData(b2Contact *contact, Object **a, Object **b){
 	b2Fixture *fixtureA = contact->GetFixtureA();
@@ -32,7 +32,7 @@ void objContactListener::EndContact(b2Contact* contact){
 
 
 collisionData objContactListener::_fillCollisionData(b2Contact *contact,
-  Object *me, Object *other, phyData *myPhy, phyData *otherPhy){
+  Object *me, Object *other, PhyData *myPhy, PhyData *otherPhy){
 
 	collisionData collision;
 
@@ -95,8 +95,8 @@ void objContactListener::_handleCollision(collisionData::Type type, b2Contact *c
 	
 	assert(a != NULL && b != NULL);
 
-	phyData *aPhyData = a->getPrimitive<phyData>(Hash::getHash("phyData"));
-	phyData *bPhyData = b->getPrimitive<phyData>(Hash::getHash("phyData"));
+	PhyData *aPhyData = a->getPrimitive<PhyData>(Hash::getHash("PhyData"));
+	PhyData *bPhyData = b->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 	assert(aPhyData != NULL && bPhyData != NULL);
 
 	/* a to b */

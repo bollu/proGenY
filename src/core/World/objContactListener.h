@@ -3,7 +3,7 @@
 #include "../math/vector.h"
 #include "../IO/Hash.h"
 
-class phyData;
+class PhyData;
 class Object;
 
 struct collisionData;
@@ -21,9 +21,9 @@ struct collisionData{
 	
 	/*!the physicsData of the *other* object that this object
 	has collided with */ 
-	phyData *otherPhy;
+	PhyData *otherPhy;
 	/*!the physicsData of *this* object */
-	phyData *myPhy;
+	PhyData *myPhy;
 	/*!the *other* object that this object has collided with*/
 	Object *otherObj;	
 
@@ -44,17 +44,17 @@ if a collision meets the criteria needed for it to be considered a
 "game-level" event, the objContactListener converts the low level
 box2d event to a high level game collision event. 
 
-This class is responsible for filling phyData::collisions
+This class is responsible for filling PhyData::collisions
 
-\sa phyData
-\sa phyProcessor
+\sa PhyData
+\sa PhyProcessor
 */
 class objContactListener : public b2ContactListener{
 private:
 	void _extractPhyData(b2Contact *contact, Object **a, Object **b);
 
 	collisionData _fillCollisionData(b2Contact *contact,
-  Object *me, Object *other, phyData *myPhy, phyData *otherPhy);
+  Object *me, Object *other, PhyData *myPhy, PhyData *otherPhy);
 
 	//HACK! should be collisionData::Type, but this creates a
 	//cyclic dependency :(

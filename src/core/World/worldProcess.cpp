@@ -61,8 +61,14 @@ void worldProcess::Draw(){};
 
 void worldProcess::Shutdown(){
 
-	this->simulationThread.join();
+	while(!this->worldAccess.try_lock()) {}
+
 	delete(this->world);
+	this->world = (b2World*)(0xDEADBEEF);
+
+	this->simulationThread.join();
+	
+	this->worldAccess.unlock();
 };
 
 
@@ -71,7 +77,7 @@ void worldProcess::Shutdown(){
 #include <chrono>
 void worldProcess::_Simulate(){
 
-	while(1){
+	while(world != (b2World*)(0xDEADBEEF)){
 
 	if(!this->worldAccess.try_lock()){
 		continue;

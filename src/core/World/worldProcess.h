@@ -48,11 +48,7 @@ public:
 	 void Draw();
 	 void Shutdown();
 
-	 /*!returns the internal box2d World
-	 \return the box2d world pointer */
-	// b2World *getWorld();
-
-	 void _Simulate();
+	
 
 
 	 vector2 getGravity();
@@ -66,6 +62,8 @@ private:
 	bool paused = false;
 	
 	std::mutex worldAccess;          
+	std::thread simulationThread;
+	void _Simulate();
 	
 	float stepSize;
 
@@ -80,7 +78,8 @@ private:
 
 	float velIterations, collisionIterations;
 
-	std::thread simulationThread; 
+
+	 
 
 
 };
