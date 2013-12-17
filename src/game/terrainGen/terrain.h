@@ -9,14 +9,20 @@ enum terrainType {
 struct Terrain {
 private:	
 	unsigned int width_, height_;
-	std::vector <terrainType> terrain;
+	terrainType *terrain;
 
 	unsigned int maxHeight_;
 
 public:
 
 	Terrain(unsigned int width, unsigned int height) : width_(width), height_(height), maxHeight_(0) {
-		terrain.resize(width * height, terrainType::Empty);
+		terrain = new terrainType[width * height];
+
+		for(int y = 0; y < height; y++) {
+			for(int x = 0; x < width; x++) {
+				terrain[x + width_ * y] = terrainType::Empty;
+			}
+		}
 	}
 
 	terrainType At(int x, int y) {

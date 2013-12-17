@@ -1,48 +1,18 @@
 #pragma once
 #include "terrainGenerator.h"
-#include "../../include/noise/PerlinNoise.h"
+#include "../../include/noise/tinymt32.h"
+
 #include "../../core/IO/logObject.h"
 #include "../../core/math/mathUtil.h"
 
-//form terrain taking noise values as a heightmap first
-void genHeightShape(Terrain &terrain, PerlinNoise &noise) {
-	unsigned int w = terrain.getWidth(), h = terrain.getHeight();
-
-	unsigned int maxHeight = 0;
-
-	int prevHeight2 = 0;
-	int prevHeight1 = 0;
-
-	for(unsigned int x = 0; x < w; x++) {
-		float rawNoise = noise.noise((x * x * x)/ (float)(w * w * w), 0, 0);
-		rawNoise *= 0.45;
-		
-
-		rawNoise = util::clamp<float>(rawNoise, 0, 1);
-
-		float currentHeight = rawNoise * h;
-		currentHeight = (currentHeight + prevHeight1 + prevHeight2) * 0.333;
-
-		prevHeight2 = prevHeight1;
-		prevHeight1 = currentHeight;
-
-		if(std::floor(currentHeight) >= maxHeight) {
-			maxHeight = currentHeight;
-		}
+#include <deque>
 
 
-		//fill up an entire column based on the heightmap
-		for(int y = 0; y < std::floor(currentHeight); y++) {
-			terrain.Set(x, y, terrainType::Filled);
-		}
+#define float01 tinymt32_generate_float01
 
-	}
-	
-	terrain.setMaxHeight(maxHeight);
-}
 
 void genBorders(Terrain &terrain) {
-	unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
 
 	for(int x = 0; x < w; x++) {
 		terrain.Set(x, 0, terrainType::Filled);
@@ -61,8 +31,8 @@ void SetTerrain(Terrain &terrain, unsigned int x, unsigned int y,
 
 	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
 
-	for(int dy = -halfH; dy < halfH; dy++) {
-		for(int dx = -halfW; dx < halfW; dx++) {
+	for(int dy = -halfH; dy <= halfH; dy++) {
+		for(int dx = -halfW; dx <= halfW; dx++) {
 			int currentX = x + dx;
 			int currentY = y + dy;
 
@@ -75,76 +45,30 @@ void SetTerrain(Terrain &terrain, unsigned int x, unsigned int y,
 	}
 }
 
-void genCarver(Terrain &terrain, unsigned int seed, unsigned int steps, unsigned int thickness) {
-	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
 
-	unsigned int x = rand() % w;
-	unsigned int y = terrain.getHeightAt(x);
-
-
-
-	for (int i = 0; i < steps; i++) {
-		
-		SetTerrain(terrain, x, y, thickness / 2, thickness / 2, terrainType::Empty);
-		terrain.Set(x, y, terrainType::Empty);
-
+void genAreas(Terrain &terrain, tinymt32_t &mt, vector2 minRoomSize){
 	
-		for(int tries = 0; tries < 3; tries++) {
-			int dy = rand() % 3 - 1;
-			int dx = rand() % 3 - 1;
 
-			int newX = util::clamp<int>(x + dx, 0, w-1 );
-			int newY = util::clamp<int>(y + dy, 0, h-1 );
-			if(terrain.At(newX, newY) == terrainType::Filled) {
-				x = newX;
-				y = newY;
-			}
-		}
-	
-	}
+
 }
 
 void genTerrain(Terrain &terrain, unsigned int seed){
-	PerlinNoise noise(seed);
+	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
 
-	genHeightShape(terrain, noise);
-
-	int totalCarvers = vector2(terrain.getWidth(), terrain.getHeight()).Length();
-
-	for(int i= 0; i < totalCarvers ; i++){
-		genCarver(terrain, seed, totalCarvers / 4.0, 4);
-	}
-
-	genBorders(terrain);
+	tinymt32_t mt;
+	tinymt32_init(&mt, seed);
 
 	
-	/*unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+	genBorders(terrain);
 
-	unsigned int maxHeight = 0;
-
-	for(unsigned int y = 0; y < h; y++) {
-		for(unsigned int x = 0; x < w; x++) {
-
-			float rawNoise = noise.noise((x * x)/ (float)(w), (y * y)  / (float)(h), y);
-			util::infoLog<<rawNoise<<util::flush;
-			rawNoise -= 0.4;
-
-			if(x == 0 || x == w - 1 || y == 0 || y == h - 1) {
-				rawNoise = 1.0;
-			}
-			
-
-			terrainType type = rawNoise <= 0 ? terrainType::Empty : terrainType::Filled;
-			terrain.Set(x, y, type);
-
-			if (y > maxHeight) {
-				maxHeight = y;
+	for(int i = 0; i < w; i++) {
+		for(int j = 0; j < h; j++) {
+			if(rand() % 5 == 0){
+				terrain.Set(i, j, terrainType::Filled);
 			}
 		}
 	}
-
-	terrain.setMaxHeight(maxHeight);
-	*/
+	
 }
 
 
@@ -160,4 +84,62 @@ vector2 getPlayerPosTerrain(Terrain &terrain, int terrainX){
 			}
 		}
 	}
+};
+
+
+bool shouldSubdivide(Terrain &terrain, int currentX, int h){
+	const unsigned int w = terrain.getWidth();
+
+	for(int x = currentX; x < w; x++) {
+
+		//if it's filled, then you have to subdivide.
+		if(terrain.At(x, h) == terrainType::Filled){
+			return true;
+		}
+	}
+
+	return false;
+};
+
+
+//this assumes that subdivision exists. it modifies currentX to the latest value.
+AABB Subdivide_(Terrain &terrain, int &currentX, int h){
+	const unsigned int w = terrain.getWidth();
+
+	while(terrain.At(currentX, h) == terrainType::Empty) {
+		currentX++;
+	}
+
+	vector2 begin = vector2(currentX, h);
+
+	//keep going till you hit a block whose neighbor is empty
+	while((currentX + 1) < w && terrain.At(currentX + 1, h) == terrainType::Filled) {
+		currentX++;
+	}
+
+	vector2 end = vector2(currentX + 1, h + 1);
+
+	//step currentX one more time to escape the filled block
+	currentX++;
+
+	return AABB::Endpoints(begin, end);
+};
+
+std::vector<AABB> genTerrainChunks(Terrain &terrain) {
+	const unsigned int w = terrain.getWidth(), h = terrain.getHeight();
+
+	std::vector<AABB> AABBarr;
+
+	for(unsigned int y = 0; y < h; y++) {
+		int currentX = 0;
+
+		while(currentX < w) {
+			if(shouldSubdivide(terrain, currentX, y)){
+				AABBarr.push_back(Subdivide_(terrain, currentX, y));
+			}
+		}
+
+	}
+
+	return AABBarr;
 };
