@@ -26,8 +26,8 @@ public:
 		*pos = playerInitPos;
 
 
-		phyData phy;
-		renderData render;
+		PhyData phy;
+		RenderData render;
 		groundMoveData move;
 		
 		//physics------------------------------------------------------------
@@ -66,11 +66,11 @@ public:
 		
 
 	//final creation--------------------------------------------------------
-		playerObj->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
+		playerObj->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(phy));
 
-		playerObj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
+		playerObj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(render));
 
 		playerObj->addProp(Hash::getHash("groundMoveData"), 
 			new Prop<groundMoveData>(move));

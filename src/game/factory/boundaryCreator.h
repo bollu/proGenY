@@ -29,8 +29,8 @@ public:
 		*pos = vector2(0,0);//levelDim * 0.5; //+ vector2(thickness, thickness);
 
 		
-		phyData physicsData;
-		renderData render;
+		PhyData physicsData;
+		RenderData render;
 
 		physicsData.bodyDef.type = b2_staticBody;
 		physicsData.collisionType = Hash::getHash("terrain");
@@ -118,10 +118,10 @@ public:
 			render.addRenderer(renderer);
 		}
 
-		boundaryObject->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(physicsData));
-		boundaryObject->addProp(Hash::getHash("renderData"),
-		 new Prop<renderData>(render));
+		boundaryObject->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(physicsData));
+		boundaryObject->addProp(Hash::getHash("RenderData"),
+		 new Prop<RenderData>(render));
 
 		return boundaryObject;
 	};

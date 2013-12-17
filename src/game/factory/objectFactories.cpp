@@ -4,11 +4,11 @@
 #include "../defines/renderingLayers.h"
 
 
-#include "../ObjProcessors/gunProcessor.h"
-#include "../ObjProcessors/offsetProcessor.h"
+#include "../ObjProcessors/GunProcessor.h"
+#include "../ObjProcessors/OffsetProcessor.h"
 
-#include "../../core/componentSys/processor/renderProcessor.h"
-#include "../../core/componentSys/processor/phyProcessor.h"
+#include "../../core/componentSys/processor/RenderProcessor.h"
+#include "../../core/componentSys/processor/PhyProcessor.h"
 #include "../../core/Rendering/renderUtil.h"
 
 
@@ -24,8 +24,8 @@ Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
 	*pos = vector2(0,0);
 
 	
-	phyData physicsData;
-	renderData render;
+	PhyData physicsData;
+	RenderData render;
 
 	physicsData.bodyDef.type = b2_staticBody;
 	physicsData.collisionType = Hash::getHash("terrain");
@@ -113,18 +113,20 @@ Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
 		render.addRenderer(renderer);
 	}
 
-	boundaryObject->addProp(Hash::getHash("phyData"), 
-		new Prop<phyData>(physicsData));
+	boundaryObject->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(physicsData));
 	boundaryObject->addProp(Hash::getHash("RenderData"),
-	 new Prop<renderData>(render));
+	 new Prop<RenderData>(render));
 
 	return boundaryObject;
 };
 
 Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
-	renderData render;
-	offsetData offset;
+	RenderData render;
+	OffsetData offset;
 	
+	assert(info.parent != NULL);
+
 	Object *gun = new Object("gun");
 	info.parent->addChild(gun);
 
@@ -141,28 +143,27 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 
 	shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
 	render.addRenderer(renderer);
-	//render.centered = true;
 	
 	//offset-------------------------------------
-	assert(info.parent != NULL);
-	offset.parent = info.parent;
 	offset.offsetAngle = false;
 	
 
 	//final---------------------------------
 	gun->addProp(Hash::getHash("RenderData"), 
-		new Prop<renderData>(render));
+		new Prop<RenderData>(render));
 	gun->addProp(Hash::getHash("GunData"), 
-		new Prop<gunData>(info.gunData));
+		new Prop<GunData>(info.gunData));
+	
+	
 	gun->addProp(Hash::getHash("OffsetData"), 
-		new Prop<offsetData>(offset));
+		new Prop<OffsetData>(offset));
 	
 	return gun;	
 };
 
 Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
-	renderData render;
-	phyData phy;
+	RenderData render;
+	PhyData phy;
 	
 	
 	Object *obj = new Object("bullet");
@@ -200,74 +201,124 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	
 
 	//final---------------------------------
-	obj->addProp(Hash::getHash("renderData"), 
-		new Prop<renderData>(render));
-	obj->addProp(Hash::getHash("phyData"), 
-		new Prop<phyData>(phy));
+	obj->addProp(Hash::getHash("RenderData"), 
+		new Prop<RenderData>(render));
+	obj->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(phy));
 	obj->addProp(Hash::getHash("BulletData"), 
-		new Prop<bulletData>(info.bulletData));
+		new Prop<BulletData>(info.bulletData));
+		
+	IO::infoLog<<"bullet Created"<<IO::flush;
 	
 	return obj;
 };
 
 
+
+
 #include "../terrainGen/terrain.h"
+#include "../terrainGen/terrainGenerator.h"
 Object *CreateCell();
 Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
-	phyData phy;
+	PhyData phy;
 	phy.bodyDef.type = b2_staticBody;
 	phy.collisionType = Hash::getHash("terrain");
 
-	renderData render;
+	RenderData render;
 
-	
+	std::vector<AABB> AABBs = genTerrainChunks(info.terrain);
 
-	unsigned int w = info.terrain.getWidth(), h = info.terrain.getHeight();
+	for(auto terrainChunk : AABBs) {
+		vector2 center  = terrainChunk.getCenter();
+		vector2 halfDim = terrainChunk.getHalfDim();
 
-	for(int y = 0; y < h; y++) {
-		for(int x = 0; x < w; x++) {
+		PRINTVECTOR2(halfDim)
+
+
+		center = vector2( center.x * info.blockDim.x, center.y * info.blockDim.y);
+		halfDim = vector2(halfDim.x * info.blockDim.x, halfDim.y * info.blockDim.y);
+
+
+		//physics--------------------------------
+		b2PolygonShape *phyShape = new b2PolygonShape(); 
 			
+		phyShape->SetAsBox(halfDim.x, halfDim.y, center, 0);
 
-			auto cell = info.terrain.At(x, y);
+		b2FixtureDef fixtureDef;
+		fixtureDef.shape = phyShape;
+		fixtureDef.friction = 1.0;
 
-			if (cell == terrainType::Empty) {
-				continue;
-			}
-			vector2 center = vector2((x + 0.5) * info.blockDim.x, (y + 0.5) * info.blockDim.y);
-			
-			//physics--------------------------------
-			b2PolygonShape *phyShape = new b2PolygonShape(); 
-			
-			phyShape->SetAsBox(info.blockDim.x / 2.0, info.blockDim.y / 2.0, center, 0);
+		phy.fixtureDef.push_back(fixtureDef);
 
-			b2FixtureDef fixtureDef;
-			fixtureDef.shape = phyShape;
-			fixtureDef.friction = 1.0;
+		{
+		//renderer------------------------------------
+		sf::Shape *shape = renderUtil::createShape(phyShape, 
+		info.viewProc);
 
-			phy.fixtureDef.push_back(fixtureDef);
-			
+		shape->setFillColor(sf::Color::Blue);
 
-			{
-				//renderer------------------------------------
-				sf::Shape *shape = renderUtil::createShape(phyShape, 
-				info.viewProc);
-
-				shape->setFillColor(sf::Color::Blue);
-
-				shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
-				render.addRenderer(renderer);
-			}
-
-
+		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
+		render.addRenderer(renderer);
 		}
+
 	}
 
+
 	Object *obj = new Object("terrain");
-	obj->addProp(Hash::getHash("renderData"), 
-		new Prop<renderData>(render));
-	obj->addProp(Hash::getHash("phyData"), 
-		new Prop<phyData>(phy));
+	obj->addProp(Hash::getHash("RenderData"), 
+		new Prop<RenderData>(render));
+	obj->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(phy));
 
 	return obj;
 
+};
+
+
+Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
+	RenderData render;
+	PhyData phy;
+	
+	Object *obj = new Object("pickup");
+
+	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
+	*pos = info.pos;
+
+	//physics------------------------------------------------------------
+	phy.collisionType = Hash::getHash("pickup");
+	phy.bodyDef.type = b2_staticBody;
+
+	
+	b2CircleShape *shape = new b2CircleShape();
+	shape->m_radius = info.radius;
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = shape;
+	fixtureDef.friction = 0.0;
+	fixtureDef.restitution = 0.0;
+	fixtureDef.isSensor = true;
+
+	phy.fixtureDef.push_back(fixtureDef);
+
+
+	//renderer------------------------------------
+	float game2RenderScale = info.viewProc->getGame2RenderScale();
+	sf::Shape *sfShape = new sf::CircleShape(info.radius * game2RenderScale,
+									4);
+	
+
+	sfShape->setFillColor(sf::Color::Red);
+
+	shapeRenderNode* renderer = new shapeRenderNode(sfShape);
+	render.addRenderer(renderer);
+	
+
+	//final---------------------------------
+	obj->addProp(Hash::getHash("RenderData"), 
+		new Prop<RenderData>(render));
+	obj->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(phy));
+	obj->addProp(Hash::getHash("PickupData"), 
+		new Prop<PickupData>(info.pickup));
+	
+	return obj;
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Rendering/viewProcess.h"
-#include "../ObjProcessors/healthProcessor.h"
+#include "../ObjProcessors/HealthProcessor.h"
 #include "../defines/renderingLayers.h"
 
 class dummyCreator : public objectCreator{
@@ -20,8 +20,8 @@ public:
 	}
 
 	Object *createObject(vector2 dummyPos) const{
-		renderData render;
-		phyData phy;
+		RenderData render;
+		PhyData phy;
 		healthData health;
 		
 		Object *dummy = new Object("dummy");
@@ -59,10 +59,10 @@ public:
 		health.setHP(10);
 
 		//final---------------------------------
-		dummy->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		dummy->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
+		dummy->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(render));
+		dummy->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(phy));
 		dummy->addProp(Hash::getHash("healthData"), 
 			new Prop<healthData>(health));
 		

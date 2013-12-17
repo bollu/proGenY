@@ -1,10 +1,9 @@
 #pragma once
 #include "../../core/componentSys/Object.h"
-#include "../ObjProcessors/gunProcessor.h"
-
+#include "../ObjProcessors/GunProcessor.h"
+#include "../ObjProcessors/PickupProcessor.h"
 
 class viewProcess;
-struct GunData;
 
 
 struct Terrain;
@@ -25,13 +24,9 @@ Object *CreateBoundary(BoundaryFactoryInfo &info);
 
 struct GunFactoryInfo {
 	viewProcess *viewProc;
-	const Hash *enemyCollision;
 
 	Object *parent;
-	gunData gunData;
-
-	float radius;
-
+	GunData gunData;
 	vector2 pos;
 };
 
@@ -42,9 +37,8 @@ struct BulletFactoryInfo {
 	viewProcess *viewProc;
 	//const Hash *enemyCollision;
 
-	bulletData bulletData;
+	BulletData bulletData;
 	float radius;
-
 	vector2 pos;
 
 };
@@ -52,7 +46,13 @@ struct BulletFactoryInfo {
 Object *CreateBullet(BulletFactoryInfo &info);
 //-----------------------------------------------------------
 
-struct PickupFactoryInfo {};
+struct PickupFactoryInfo {
+	viewProcess *viewProc;
+
+	PickupData pickup;
+	float radius;
+	vector2 pos;
+};
 
 Object *CreatePickup(PickupFactoryInfo &info);
 

@@ -1,10 +1,10 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Rendering/viewProcess.h"
-#include "../ObjProcessors/offsetProcessor.h"
+#include "../ObjProcessors/OffsetProcessor.h"
 
-#include "../../core/componentSys/processor/renderProcessor.h"
-#include "../../core/componentSys/processor/phyProcessor.h"
+#include "../../core/componentSys/processor/RenderProcessor.h"
+#include "../../core/componentSys/processor/PhyProcessor.h"
 #include "../../core/Rendering/renderUtil.h"
 
 #include "../defines/renderingLayers.h"
@@ -21,8 +21,8 @@ public:
 
 
 	Object *createObject(vector2 _pos) const{
-		renderData render;
-		phyData phy;
+		RenderData render;
+		PhyData phy;
 
 		Object *enemy = new Object("enemy");
 
@@ -59,10 +59,10 @@ public:
 	
 	
 		//final---------------------------------
-		enemy->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		enemy->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
+		enemy->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(render));
+		enemy->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(phy));
 	
 		return enemy;
 	};

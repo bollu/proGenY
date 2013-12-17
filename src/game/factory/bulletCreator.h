@@ -1,9 +1,9 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Rendering/viewProcess.h"
-#include "../ObjProcessors/bulletProcessor.h"
-#include "../../core/componentSys/processor/renderProcessor.h"
-#include "../../core/componentSys/processor/phyProcessor.h"
+#include "../ObjProcessors/BulletProcessor.h"
+#include "../../core/componentSys/processor/RenderProcessor.h"
+#include "../../core/componentSys/processor/PhyProcessor.h"
 #include "../../core/Rendering/renderUtil.h"
 #include "../defines/renderingLayers.h"
 
@@ -13,7 +13,7 @@ class bulletCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
-	bulletData bullet;
+	BulletData bullet;
 
 	float radius;
 
@@ -23,14 +23,14 @@ public:
 
 	bulletCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 
-	void Init(bulletData data, float bulletRadius){
+	void Init(BulletData data, float bulletRadius){
 		this->bullet = data;
 		this->radius = bulletRadius;
 	}
 	
 	Object *createObject(vector2 _pos) const{
-		renderData render;
-		phyData phy;
+		RenderData render;
+		PhyData phy;
 		
 		Object *obj = new Object("bullet");
 
@@ -68,12 +68,12 @@ public:
 		
 	
 		//final---------------------------------
-		obj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		obj->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
-		obj->addProp(Hash::getHash("bulletData"), 
-			new Prop<bulletData>(this->bullet));
+		obj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(render));
+		obj->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(phy));
+		obj->addProp(Hash::getHash("BulletData"), 
+			new Prop<BulletData>(this->bullet));
 		
 		return obj;
 	};

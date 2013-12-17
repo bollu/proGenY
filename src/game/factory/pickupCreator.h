@@ -1,9 +1,9 @@
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Rendering/viewProcess.h"
-#include "../ObjProcessors/pickupProcessor.h"
-#include "../../core/componentSys/processor/renderProcessor.h"
-#include "../../core/componentSys/processor/phyProcessor.h"
+#include "../ObjProcessors/PickupProcessor.h"
+#include "../../core/componentSys/processor/RenderProcessor.h"
+#include "../../core/componentSys/processor/PhyProcessor.h"
 #include "../../core/Rendering/renderUtil.h"
 #include "../defines/renderingLayers.h"
 
@@ -11,21 +11,21 @@ class pickupCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
-	pickupData pickup;
+	PickupData pickup;
 	float radius;
 
 public:
 
 	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}
 	
-	void Init(pickupData data, float radius){
+	void Init(PickupData data, float radius){
 		this->pickup = data;
 		this->radius = radius;
 	}
 
 	Object *createObject(vector2 _pos) const{
-		renderData render;
-		phyData phy;
+		RenderData render;
+		PhyData phy;
 		
 		Object *obj = new Object("bullet");
 
@@ -61,12 +61,12 @@ public:
 		
 	
 		//final---------------------------------
-		obj->addProp(Hash::getHash("renderData"), 
-			new Prop<renderData>(render));
-		obj->addProp(Hash::getHash("phyData"), 
-			new Prop<phyData>(phy));
-		obj->addProp(Hash::getHash("pickupData"), 
-			new Prop<pickupData>(this->pickup));
+		obj->addProp(Hash::getHash("RenderData"), 
+			new Prop<RenderData>(render));
+		obj->addProp(Hash::getHash("PhyData"), 
+			new Prop<PhyData>(phy));
+		obj->addProp(Hash::getHash("PickupData"), 
+			new Prop<PickupData>(this->pickup));
 		
 		return obj;
 	};
