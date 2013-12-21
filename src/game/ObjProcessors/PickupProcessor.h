@@ -4,7 +4,7 @@
 
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 
 #include <unordered_set>
@@ -31,18 +31,19 @@ struct PickupData{
 
 };
 
-class collisionData;
+struct CollisionData;
 
 class PickupProcessor : public ObjectProcessor{
 public:
-	PickupProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	PickupProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 	
 private:
-	eventMgr &eventManager;
-	void _handleCollision(Object *obj, PickupData *data, collisionData &collision);
+	EventManager &eventManager;
+	void _handleCollision(Object *obj, PickupData *data, CollisionData &collision);
 
 
 protected:
+	void _onObjectAdd(Object *obj);
 	void _Process(Object *obj, float dt);
 	void _onObjectDeath(Object *obj);
 

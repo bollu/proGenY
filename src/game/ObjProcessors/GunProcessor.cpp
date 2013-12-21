@@ -3,7 +3,7 @@
 #include "../../core/componentSys/ObjectMgrProcess.h"
 
 
-GunProcessor::GunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) 
+GunProcessor::GunProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) 
 : ObjectProcessor("GunProcessor"){
 
 	ObjectMgrProcess *objMgrProc = processManager.getProcess<ObjectMgrProcess>(

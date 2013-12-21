@@ -4,40 +4,73 @@
 #include <algorithm>
 
 
+void resetJump(CollisionData &collision, void *data){
+	bool *onGround = static_cast<bool *>(data);
+	*onGround = true;
+}
+
+vector2 generateJumpImpulse(float g, float mass, float range, float height) {
+	vector2 jumpImpulse;
+
+	jumpImpulse.y = mass *  sqrt(abs(2 * g * height));
+	float halfTime = std::abs(jumpImpulse.y / g);
+	//u cos theta= R / (t)
+	jumpImpulse.x = mass * std::abs(range / (halfTime * 2));
+
+	return jumpImpulse;
+}
+
 void groundMoveProcessor::_onObjectAdd(Object *obj){
 	groundMoveData *data = obj->getPrimitive<groundMoveData>(Hash::getHash("groundMoveData"));
-	float *mass = obj->getPrimitive<float>(Hash::getHash("mass"));
 
-	if(data == NULL) return;
+	float *mass = obj->getPrimitive<float>(Hash::getHash("mass"));
 	assert(mass != NULL);
 
 	data->mass = *mass;
 	data->moveImpulse.x = *mass * abs(data->xVel);
 
-	float g = this->world->getGravity().y;
+	data->jumpImpulse = generateJumpImpulse(this->world->getGravity().y, data->mass, data->jumpRange, data->jumpHeight);
 
-	data->jumpImpulse.y = *mass *  sqrt(abs(2 * g * data->jumpHeight));
 
-	float halfTime = std::abs(data->jumpImpulse.y / g);
+	assert(data->jumpSurfaceCollision != NULL);
+	PhyData *phyData =  obj->getPrimitive<PhyData>("PhyData");
 
-	//u cos theta= R / (t)
-	data->jumpImpulse.x = *mass * std::abs(data->jumpRange / (halfTime * 2));
-	//u sin theta = sqrt(2 * g * h)
+	CollisionHandler resetJumpHandler;
+	resetJumpHandler.otherCollision = data->jumpSurfaceCollision;
+	resetJumpHandler.onBegin = resetJump;
+	resetJumpHandler.data = static_cast<void *>(&data->onGround);
+
+	phyData->collisionHandlers.push_back(resetJumpHandler);
+
 };
 
+void groundMoveProcessor::_ProcessEvents(Object *obj, groundMoveData *data) {
+	bool *moveLeft = obj->getMessage<bool>(Hash::getHash("moveLeft"));
+	bool *moveRight = obj->getMessage<bool>(Hash::getHash("moveRight"));
+	void *Jump = obj->getMessage<void>(Hash::getHash("Jump"));
+	
+	if(moveLeft != NULL){
+		data->movingLeft = *moveLeft;
+	}
+
+	if(moveRight != NULL){
+		data->movingRight = *moveRight;
+	}
+
+	//HACK
+	if(Jump != NULL /*&& data->onGround*/){
+		data->jumping = true;
+	}
+}
 
 void groundMoveProcessor::_Process(Object *obj, float dt){
 	groundMoveData *data = obj->getPrimitive<groundMoveData>(Hash::getHash("groundMoveData"));
-
-
 	PhyData *physicsData = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
+
 	b2Body *body = physicsData->body;
 
 
-
-	assert(physicsData != NULL);
-	assert(body != NULL);
-
+	_ProcessEvents(obj, data);
 
 	vector2 impulse = vector2(0, 0);
 	vector2 vel = vector2::cast(body->GetLinearVelocity());
@@ -47,15 +80,15 @@ void groundMoveProcessor::_Process(Object *obj, float dt){
 
 	
 	//you're gonna start jumping
-	if(data->jumping /*&& data->onGround*/){
+	if(data->jumping){
 
-			//set velocity to 0 for a perfect parabola
+		//set velocity to 0 for a perfect parabola
 		body->SetLinearVelocity(vector2(0, 0));
 
 		impulse += this->_calcJumpImpulse(data, vel, dt);
-		data->jumpDir = impulse.Normalize();
-
+		
 		data->onGround = false;
+		data->jumping = false;
 
 	}
 
@@ -134,48 +167,11 @@ vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 curr
 		impulse.y += data->jumpImpulse.y * jumpFraction;
 	}*/
 
-		if(impulse.x < 0){
-			impulse.x = std::max(impulse.x, -data->jumpImpulse.x);
-		}else{
-			impulse.x = std::min(impulse.x, data->jumpImpulse.x);
-		}
-		return impulse;
-
+	if(impulse.x < 0){
+		impulse.x = std::max(impulse.x, -data->jumpImpulse.x);
+	}else{
+		impulse.x = std::min(impulse.x, data->jumpImpulse.x);
 	}
+	return impulse;
 
-	void groundMoveData::setMoveLeft(bool enabled){
-		this->movingLeft = enabled;
-	};
-
-	void groundMoveData::setMoveRight(bool enabled){
-		this->movingRight = enabled;
-	};
-
-	void groundMoveData::Jump(){
-
-		if(this->onGround){
-			this->jumping = true;
-		};
-	};
-
-	void groundMoveData::resetJump(){
-
-		this->onGround = true;
-		this->jumping = false;
-	};
-
-	bool groundMoveData::isMovingLeft(){
-		return this->movingLeft;
-	};
-
-	bool groundMoveData::isMovingRight(){
-		return this->movingRight;
-	};
-
-	bool groundMoveData::isMidJump(){
-	//if you're able to jump, you're on the ground :D
-		return this->jumping;
-	};
-	bool groundMoveData::isJumpEnabled(){
-		return !this->jumping;
-	};
+}

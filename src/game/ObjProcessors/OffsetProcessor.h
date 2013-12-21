@@ -5,7 +5,7 @@
 
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 #include "../../core/Rendering/viewProcess.h"
 #include "../../core/World/worldProcess.h"
@@ -26,7 +26,7 @@ public:
 
 class OffsetProcessor : public ObjectProcessor{
 public:
-	OffsetProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	OffsetProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 	ObjectProcessor("OffsetProcessor"){
 	}
 

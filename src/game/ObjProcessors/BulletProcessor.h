@@ -5,15 +5,18 @@
 
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 #include "../../core/Rendering/viewProcess.h"
 #include "../../core/World/worldProcess.h"
 
 #include <unordered_set>
 
-struct collisionData;
+struct CollisionData;
 
+typedef bool (*onEnemyCollision)(CollisionData&, Object*);
+typedef void (*onDefaultCollision)(Object*);
+typedef void (*onBulletCreate)(Object*);
 
 class BulletCollider{
 protected:
@@ -25,14 +28,14 @@ public:
 	/*!handle the collision with an enemy
 	*return whether the bullet should be killed
 	*/
-	virtual bool onEnemyCollision(collisionData &data, Object *bullet) = 0;
+	virtual bool onEnemyCollision(CollisionData &data, Object *bullet) = 0;
 	/*! handle the collision with any other object type that is not ignored 
 	*return whether the bullet should be killed*/
-	virtual bool onDefaultCollision(collisionData &data, Object *bullet){
+	virtual bool onDefaultCollision(CollisionData &data, Object *bullet){
 		return true;
 	}	
 
-	virtual void onDeath(collisionData &data, Object *bullet){};
+	virtual void onDeath(CollisionData &data, Object *bullet){};
 
 };
 
@@ -74,7 +77,7 @@ public:
 
 class BulletProcessor : public ObjectProcessor{
 public:
-	BulletProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	BulletProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 		ObjectProcessor("BulletProcessor"){
 
 			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
@@ -90,7 +93,7 @@ protected:
 	};
 
 private:
-	void _handleCollision(collisionData &collision,BulletData *data, Object *obj);
+	void _handleCollision(CollisionData &collision,BulletData *data, Object *obj);
 	worldProcess *world;
 
 };

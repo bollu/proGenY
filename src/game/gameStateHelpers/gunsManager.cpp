@@ -1,13 +1,12 @@
-#pragma once
+
 #include "gunsManager.h"
 
 
 #include "../generators/GunDataGenerator.h"
-#include "../factory/bulletCreator.h"
-#include "../../core/componentSys/ObjectMgr.h"
+#include "../../core/componentSys/ObjectManager.h"
 
 
-gunsManager::gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewProcess *viewProc, Object *player) : objectManager_(objectManager){
+gunsManager::gunsManager(EventManager &eventManager, ObjectManager &objectManager, viewProcess *viewProc, Object *player) : objectManager_(objectManager){
 
 	eventManager.Register(Hash::getHash("nextGun"), this);
 	eventManager.Register(Hash::getHash("prevGun"), this);
@@ -18,6 +17,7 @@ gunsManager::gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewP
 	player_ = player;
 	currentGun_ = NULL;
 	viewProc_ = viewProc;
+	this->currentGunIndex_ = 0;
 
 };
 
@@ -60,11 +60,10 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 	else if(eventName == addGun){
 		assert(eventData != NULL);
 
-		Prop<GunDataGenerator> *GunDataGenProp = dynamic_cast< Prop<GunDataGenerator>* >(eventData);
-		assert(GunDataGenProp != NULL);
+		GunGenData *gunGenData = prop_cast<GunGenData>(eventData)->getVal();
 		
-		GunDataGenerator *GunDataGen = GunDataGenProp->getVal();
-		GunData data = GunDataGen->Generate();
+		assert(gunGenData != NULL);
+		GunData data = GenGunData(*gunGenData);
 	
 		ObjectFactories::GunFactoryInfo factoryInfo;
 		factoryInfo.viewProc = viewProc_;
@@ -73,6 +72,7 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 		factoryInfo.pos = *player_->getPrimitive<vector2>(Hash::getHash("position"));
 
 		Object *gun = ObjectFactories::CreateGun(factoryInfo);
+		objectManager_.addObject(gun);
 		addGun_(gun, true);
 	}
 
@@ -88,8 +88,8 @@ void gunsManager::gotoNextGun_(int skip){
 		currentGunIndex_ = 0;
 	}
 
-	std::cout<<"gun index: "<<currentGunIndex_;
-		switchGuns_(currentGun_, guns_[currentGunIndex_]);
+	IO::infoLog<<"gun index: "<<currentGunIndex_<<IO::flush;
+	switchGuns_(currentGun_, guns_[currentGunIndex_]);
 	
 };
 void gunsManager::gotoPrevGun_(int skip){
@@ -102,7 +102,7 @@ void gunsManager::gotoPrevGun_(int skip){
 		currentGunIndex_ = guns_.size() - 1;
 	}
 
-	std::cout<<"gun index: "<<currentGunIndex_;
+	IO::infoLog<<"gun index: "<<currentGunIndex_<<IO::flush;
 	switchGuns_(oldGun, guns_[currentGunIndex_]);
 };
 
@@ -112,9 +112,6 @@ void gunsManager::gotoPrevGun_(int skip){
 
 void gunsManager::addGun_(Object *gun, bool isCurrentGun){
 	guns_.push_back(gun);
-	objectManager_.addObject(gun);
-	//HACK
-	this->currentGun_ = gun;
 
 	if(isCurrentGun == true){
 		switchGuns_(currentGun_, gun);
@@ -163,15 +160,23 @@ void gunsManager::switchGuns_(Object *prevGun, Object *newGun){
 	}
 	assert(newGun != NULL);
 
+	currentGun_ = newGun;
+	
 	if(prevGun != NULL){
 		util::Angle *facing = prevGun->getPrimitive<util::Angle>(Hash::getHash("facing"));
 		updateGunAngle_(*facing);
-		
+
+		vector2 *prevGunPos = prevGun->getPrimitive<vector2>(Hash::getHash("position"));
+		vector2 *newGunPos = newGun->getPrimitive<vector2>(Hash::getHash("position"));
+
+		//copy new gun position to the previous gun position
+		*newGunPos = *prevGunPos;
+
 		objectManager_.deactivateObject(*prevGun);
 		std::cout<<"\n"<<prevGun->getName()<<" was removed";
 	};
 
-	currentGun_ = newGun;
+	
 	objectManager_.activateObject(*newGun);
 
 };

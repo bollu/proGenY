@@ -1,7 +1,7 @@
 #pragma once
 #include "../../core/controlFlow/State.h"
 #include "../../core/controlFlow/dummyStateSaveLoader.h"
-#include "../../core/componentSys/ObjectMgr.h"
+#include "../../core/componentSys/ObjectManager.h"
 #include "../../core/componentSys/ObjectMgrProcess.h"
    
         
@@ -35,7 +35,7 @@ protected:
 	void _createEnemies(vector2 levelDim);
 	void _createDummy(vector2 levelDim);
 
-	ObjectMgr *objectManager;
+	ObjectManager *objectManager;
 	viewProcess *viewProc;
 
 	playerController *_playerController;

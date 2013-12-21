@@ -5,7 +5,7 @@
 
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 #include "../../core/Rendering/viewProcess.h"
 #include "../../core/World/worldProcess.h"
@@ -74,16 +74,16 @@ public:
 
 };
 
-class ObjectMgr;
+class ObjectManager;
 
 class GunProcessor : public ObjectProcessor{
 private:
 	void _fireShot(GunData *data, vector2 pos);
-	ObjectMgr *objectManager;
+	ObjectManager *objectManager;
 	viewProcess *viewProc;
 
 public:
-	GunProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	GunProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 	
 
 protected:

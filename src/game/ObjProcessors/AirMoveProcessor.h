@@ -6,7 +6,7 @@
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/World/worldProcess.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 struct airMoveData{
 private:
@@ -22,7 +22,7 @@ public:
 
 class airMoveProcessor : public ObjectProcessor{
 public:
-	airMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	airMoveProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 			ObjectProcessor("airMoveProcessor"){
 		this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}

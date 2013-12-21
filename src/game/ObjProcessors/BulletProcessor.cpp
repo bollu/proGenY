@@ -1,4 +1,4 @@
-#pragma once
+
 #include "BulletProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
 
@@ -26,7 +26,6 @@ void BulletProcessor::_onObjectAdd(Object *obj){
 
 
 	for(BulletCollider *collider : data->colliders){
-
 		collider->onCreate(obj);
 	}
 
@@ -44,21 +43,23 @@ void BulletProcessor::_Process(Object *obj, float dt){
 	assert(physicsData != NULL);
 
 	b2Body *body = physicsData->body;		
-	for(collisionData collision : physicsData->collisions){
+	/*
+	for(CollisionData collision : physicsData->collisions){
 		this->_handleCollision(collision, data, obj);
-	}
+	}*/
 	
 
 };
 
-void BulletProcessor::_handleCollision(collisionData &collision, BulletData *data, Object *bullet){
+/*
+void BulletProcessor::_handleCollision(CollisionData &collision, BulletData *data, Object *bullet){
 
 	Object *other = collision.otherObj;
 	const Hash *collisionType = collision.getCollidedObjectCollision();
 	bool kill = true;
 
 
-	if(collision.type != collisionData::Type::onBegin){
+	if(collision.type != CollisionData::Type::onBegin){
 		return;
 	}
 	//ignore other bullets
@@ -99,3 +100,4 @@ void BulletProcessor::_handleCollision(collisionData &collision, BulletData *dat
 		bullet->Kill();
 	};
 };
+*/

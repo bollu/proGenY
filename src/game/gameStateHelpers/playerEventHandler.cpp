@@ -1,8 +1,8 @@
-#pragma once
+
 #include "playerEventHandler.h"
 
 
-playerEventHandler::playerEventHandler(eventMgr *_eventManager, playerHandlerData playerData) : 
+playerEventHandler::playerEventHandler(EventManager *_eventManager, playerHandlerData playerData) : 
 eventManager(_eventManager), playerData(playerData){
 	
 	eventManager->Register(Hash::getHash("keyPressed"), this);
@@ -14,17 +14,11 @@ eventManager(_eventManager), playerData(playerData){
 	eventManager->Register(Hash::getHash("mouseMovedGame"), this);
 
 	Object *player = playerData.player;
-
-
 	assert(player != NULL);
 
 	this->playerData.playerPos = player->getPrimitive<vector2>(Hash::getHash("position"));
-	this->playerData.objMoveData =  player->getPrimitive<groundMoveData>(Hash::getHash("groundMoveData"));
-	this->playerData.physicsData =  player->getPrimitive<PhyData>(Hash::getHash("PhyData"));
-
 	assert(this->playerData.playerPos != NULL);
-	assert(this->playerData.objMoveData != NULL);
-	assert(this->playerData.physicsData);
+
 	this->firing = false;
 
 };
@@ -39,7 +33,6 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 
 
 	if(eventName == mouseMovedGameHash){
-		
 		v2Prop *mousePos = dynamic_cast<v2Prop *>(eventData); 
 		assert(mousePos != NULL);
 		this->lastMousePos = *mousePos->getVal();
@@ -56,10 +49,8 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 	else if(eventName == keyReleasedHash){
 
 		Prop<sf::Event::KeyEvent> *eventProp = dynamic_cast< Prop<sf::Event::KeyEvent> *>(eventData); 
-
 		assert(eventProp != NULL && "\nunable to receive event data\n");
 
-		
 		this->_handleKeyRelease(eventProp->getVal());
 
 	}
@@ -75,9 +66,6 @@ void playerEventHandler::recieveEvent(const Hash *eventName, baseProperty *event
 		
 		this->_handleMouseWheelDown(wheelDelta);
 	}
-
-
-
 };
 
 
@@ -85,20 +73,19 @@ void playerEventHandler::_handleKeyPress(sf::Event::KeyEvent *event){
 	sf::Keyboard::Key key = event->code;
 
 	if(key == this->playerData.up){
-		playerData.objMoveData->Jump();
+		playerData.player->sendMessage(Hash::getHash("Jump"));
 		
 	}
 
 	else if(key == this->playerData.left){
-		playerData.objMoveData->setMoveLeft(true);
-		playerData.objMoveData->setMoveRight(false);
+		playerData.player->sendMessage<bool>(Hash::getHash("moveLeft"), true);
+		playerData.player->sendMessage<bool>(Hash::getHash("moveRight"), false);
 		
 	}
 
 	else if(key == this->playerData.right){
-		playerData.objMoveData->setMoveRight(true);
-		playerData.objMoveData->setMoveLeft(false);
-		
+		playerData.player->sendMessage<bool>(Hash::getHash("moveRight"), true);
+		playerData.player->sendMessage<bool>(Hash::getHash("moveLeft"), false);
 	}
 
 	else if(key == this->playerData.fireGun){
@@ -116,11 +103,11 @@ void playerEventHandler::_handleKeyRelease(sf::Event::KeyEvent *event){
 	}
 
 	if(key == this->playerData.left){
-		playerData.objMoveData->setMoveLeft(false);
+		playerData.player->sendMessage<bool>(Hash::getHash("moveLeft"), false);
 	}
 
 	else if(key == this->playerData.right){
-		playerData.objMoveData->setMoveRight(false);
+		playerData.player->sendMessage<bool>(Hash::getHash("moveRight"), false);
 	}
 
 	else if(key == this->playerData.fireGun){
@@ -141,34 +128,35 @@ void playerEventHandler::_handleMouseWheelDown(int ticks){
 
 void playerEventHandler::Update(){
 
-	PhyData *phy = playerData.physicsData;
+	//PhyData *phy = playerData.physicsData;
 
-	this->_updatePlayerFacing(this->lastMousePos);
+	this->_broadcastFacing(this->lastMousePos);
 
-	for(collisionData collision : phy->collisions){
+	if(this->firing){
+		this->_broadcastFireGun();
+	}
+
+	/*
+	for(CollisionData collision : phy->collisions){
 		if(collision.getCollidedObjectCollision() == Hash::getHash("terrain")){
-			if(collision.type == collisionData::Type::onBegin){
+			if(collision.type == CollisionData::Type::onBegin){
 				this->playerData.objMoveData->resetJump();
 				break;
 			}
 		}
-	}
+	}*/
 
-	if(this->firing){
-		this->_fireGun();
-	};
+	
 
 };
 
-void playerEventHandler::_updatePlayerFacing(vector2 gameMousePos){
-	 
-
+void playerEventHandler::_broadcastFacing(vector2 gameMousePos){
 	vector2 delta = (gameMousePos - *this->playerData.playerPos).Normalize();
 	util::Angle facing = util::Angle(delta);
 
 	this->eventManager->sendEvent(Hash::getHash("playerFacingChanged"), facing);
 };
 
-void playerEventHandler::_fireGun(){
+void playerEventHandler::_broadcastFireGun(){
 	this->eventManager->sendEvent(Hash::getHash("firePlayerGun"));
 };

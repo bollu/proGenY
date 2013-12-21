@@ -1,4 +1,4 @@
-#pragma once
+
 #include "playerController.h"
 #include "gunsManager.h"
 #include "playerEventHandler.h"
@@ -6,16 +6,16 @@
 #include "../../core/componentSys/Object.h"
 #include "../../core/Rendering/renderUtil.h"
 
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 #include "../ObjProcessors/GroundMoveProcessor.h"
 #include "../ObjProcessors/CameraProcessor.h"
 #include "../factory/playerCreator.h"
-#include "../../core/componentSys/ObjectMgr.h"
+#include "../../core/componentSys/ObjectManager.h"
 
 #include "../factory/objectFactory.h"
 
 
-playerController::playerController(eventMgr *eventManager, ObjectMgr *objectManager,
+playerController::playerController(EventManager *eventManager, ObjectManager *objectManager,
 	objectFactory *factory, viewProcess *viewProc){
 	
 	this->_eventManager = eventManager;

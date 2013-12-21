@@ -34,7 +34,7 @@ struct cameraData{
 class cameraProcessor : public ObjectProcessor{
 
 public:
-	cameraProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	cameraProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 		ObjectProcessor("cameraProcessor") {
 		
 		worldProcess *world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));

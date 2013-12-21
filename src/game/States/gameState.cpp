@@ -32,10 +32,7 @@ void gameState::_Init(){
 
 
 #include "../factory/playerCreator.h"
-#include "../factory/boundaryCreator.h"
 #include "../factory/dummyCreator.h"
-#include "../factory/bulletCreator.h"
-
 #include "../factory/pickupCreator.h"
 #include "../factory/enemyCreator.h"
 
@@ -47,12 +44,6 @@ void gameState::_initFactory(){
 
 	this->objFactory.attachObjectCreator(Hash::getHash("player"),
 		new playerCreator(this->viewProc));
-
-	this->objFactory.attachObjectCreator(Hash::getHash("boundary"),
-		new boundaryCreator(this->viewProc));
-
-	this->objFactory.attachObjectCreator(Hash::getHash("bullet"),
-		new bulletCreator(this->viewProc));
 
 	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
 		new pickupCreator(this->viewProc));
@@ -127,36 +118,12 @@ void gameState::_createDummy(vector2 levelDim){
 
 		creator->Init(1.0f);
 
-		vector2 pos = vector2(400, 200);
+		vector2 pos = vector2(400, 300);
 		pos *= viewProc->getRender2GameScale();
 
 		Object *dummy = creator->createObject(pos);
 		objectManager->addObject(dummy);
 	}
-
-	
-
-	{	
-
-		pickupCreator *creator = objFactory.getCreator<pickupCreator>(
-			Hash::getHash("pickup"));
-
-		PickupData data;
-		data.onPickupEvent = Hash::getHash("addGun");
-		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<GunDataGenerator>(
-			GunDataGenerator(GunDataGenerator::Archetype::Rocket, 
-				1, 10));
-
-		creator->Init(data, 0.7);
-
-		vector2 pos = vector2(600, 300);
-		pos *= viewProc->getRender2GameScale();
-
-		Object *obj = creator->createObject(pos);
-		objectManager->addObject(obj);
-	}
-
 
 	{	
 
@@ -168,9 +135,13 @@ void gameState::_createDummy(vector2 levelDim){
 		PickupData data;
 		data.onPickupEvent = Hash::getHash("addGun");
 		data.addCollisionType(Hash::getHash("player"));
-		data.eventData = new Prop<GunDataGenerator>(
-			GunDataGenerator(GunDataGenerator::Archetype::machineGun, 
-				1, 30));
+
+		GunGenData gunGenData;
+		gunGenData.type = GunType::Rocket;
+		gunGenData.power = 1;
+		gunGenData.seed = 30;
+
+		data.eventData = new Prop<GunGenData>(gunGenData);
 		
 		creator->Init(data, 0.7);
 		
@@ -184,7 +155,7 @@ void gameState::_createDummy(vector2 levelDim){
 	}
 };
 
-
+/*
 void gameState::_generateBoundary(vector2 levelDim){
 
 	boundaryCreator *creator = objFactory.getCreator<boundaryCreator>(
@@ -196,7 +167,7 @@ void gameState::_generateBoundary(vector2 levelDim){
 
 	objectManager->addObject(boundary);
 
-}
+}*/
 
 void gameState::_createEnemies(vector2 levelDim){
 

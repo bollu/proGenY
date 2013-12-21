@@ -1,16 +1,13 @@
 #pragma once
 #include "../ObjProcessors/GunProcessor.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 #include "../factory/objectFactory.h"
 
-
-class gunCreator;
-class bulletCreator;
-class ObjectMgr;
+class ObjectManager;
 
 class gunsManager : public Observer{
 public:
-	gunsManager(eventMgr &eventManager, ObjectMgr &objectManager, viewProcess *viewProc,  Object *player);
+	gunsManager(EventManager &eventManager, ObjectManager &objectManager, viewProcess *viewProc,  Object *player);
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 
 private:
@@ -19,7 +16,7 @@ private:
 	std::vector<Object *> guns_;
 	Object *currentGun_;
 
-	ObjectMgr &objectManager_;
+	ObjectManager &objectManager_;
 	viewProcess *viewProc_;
 
 	//0 to guns.size() - 1

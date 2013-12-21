@@ -6,20 +6,21 @@
 #include "../../core/controlFlow/processMgr.h"
 #include "../../core/World/worldProcess.h"
 #include "../../core/IO/Settings.h"
-#include "../../core/controlFlow/eventMgr.h"
+#include "../../core/controlFlow/EventManager.h"
 
 
 
 struct groundMoveData{
 private:
+	friend class groundMoveProcessor;
+
 	bool movingLeft;
 	bool movingRight;
 	bool jumping;
-	vector2 jumpDir;
-
+	
 	bool onGround;
 
-	friend class groundMoveProcessor;
+
 
 	vector2 moveImpulse;
 	vector2 jumpImpulse;
@@ -27,7 +28,6 @@ private:
 	float mass;
 
 public:
-		
 	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), 
 				movingLeft(false), movingRight(false), 
 				jumping(false), onGround(true){}
@@ -38,10 +38,10 @@ public:
 	float xAccel;
 	vector2 movementDamping;
 
-
 	float jumpRange;
 	float jumpHeight;
 	
+	/*
 	void setMoveLeft(bool enabled);
 	void setMoveRight(bool enabled);
 
@@ -51,28 +51,29 @@ public:
 	bool isJumpEnabled();
 
 	void Jump();
-	void resetJump();
+	void resetJump();*/
 
-
-
+	//collision type of surface that should allow jumping from and landing on
+	const Hash *jumpSurfaceCollision = NULL;
 };
 
 class groundMoveProcessor : public ObjectProcessor{
 public:
-	groundMoveProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+	groundMoveProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 		ObjectProcessor("groundMoveProcessor"){
-
 			this->world = processManager.getProcess<worldProcess>(Hash::getHash("worldProcess"));
 	}
 
 	void _onObjectAdd(Object *obj);
 	void _Process(Object *obj, float dt);
-private:
 
+private:
 	worldProcess *world;
 	vector2 _calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt);
 	
 	bool _shouldProcess(Object *obj){
 		return obj->hasProperty("groundMoveData") && obj->requireProperty("PhyData");
 	};
+
+	void _ProcessEvents(Object *obj, groundMoveData *data);
 };
