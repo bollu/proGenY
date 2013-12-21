@@ -5,7 +5,7 @@
 #include "terrain.h"
 
 struct PhyData;
-struct RenderData;
+class RenderData;
 
 class viewProcess;
 

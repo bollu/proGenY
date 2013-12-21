@@ -1,4 +1,3 @@
-#pragma once
 #include "terrainGenerator.h"
 #include "../../include/noise/tinymt32.h"
 
