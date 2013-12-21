@@ -5,7 +5,9 @@ CC = clang++ -fcolor-diagnostics
 
 # define any compile-time flags
 #for debugging
-CFLAGS =  -std=c++11  -DDEBUG -g  -w  -DDEBUG -g -O0	
+#-g = produce GCC info
+#O3 = max
+CFLAGS =  -std=c++11  -D_DEBUG -g  -Wall -O3	
 #-Wfatal-errors
 
 #for usual stuff
@@ -30,7 +32,7 @@ LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system -lbfd
 OUTPUT = a.out
 
 !cc = |>  ^ compiling %b^ $(CC)  $(CFLAGS) $(INCLUDES) -c %f -o %o |> %B.o
-!ccNoWarn = |>  ^ compiling %b^ $(CC)  $(CFLAGS_NO_WARNING) $(INCLUDES) -c %f -o %o |> %B.o
+#!cc = |>  ^ compiling %b^ $(CC)  $(CFLAGS_NO_WARNING) $(INCLUDES) -c %f -o %o |> %B.o
 
 
 
