@@ -1,5 +1,5 @@
 #pragma once
-#include "core/controlFlow/eventMgr.h"
+#include "core/controlFlow/EventManager.h"
 
 class mainLoopListener : public Observer{
 private:
@@ -7,7 +7,7 @@ private:
 
 public:
 
-	mainLoopListener(eventMgr &eventManager) : windowClosed(false){
+	mainLoopListener(EventManager &eventManager) : windowClosed(false){
 
 		eventManager.Register(Hash::getHash("windowClosed"), this);
 		eventManager.Register(Hash::getHash("keyPressed"), this);

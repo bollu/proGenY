@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <thread>
 
@@ -11,7 +10,7 @@
 #include "include/SFML/Graphics.hpp"
 
 #include "core/Object.h"
-#include "core/ObjectMgr.h"
+#include "core/ObjectManager.h"
 #include "core/ObjProcessors/RenderProcessor.h"
 #include "core/ObjProcessors/PhyProcessor.h"
 
@@ -21,7 +20,7 @@
 
 //PRODUCTION INCLUDEs-----------------------------------------
 #include "include/SFML/System/Clock.hpp"
-#include "core/controlFlow/eventMgr.h"
+#include "core/controlFlow/EventManager.h"
 
 #include "core/controlFlow/Process.h"
 #include "core/controlFlow/processMgr.h"
@@ -44,21 +43,21 @@
 #include "mainLoopListener.h"
 
 void _loadSettings(Settings &);
-void _addProcesses(processMgr &, Settings &, eventMgr &);
-void _createObjectProcessors(ObjectMgrProcess*, processMgr&, Settings &, eventMgr&);
+void _addProcesses(processMgr &, Settings &, EventManager &);
+void _createObjectProcessors(ObjectMgrProcess*, processMgr&, Settings &, EventManager&);
 void _createStates(stateProcess *);
 
 
 
 
-void _createDummy(ObjectMgr *);
+void _createDummy(ObjectManager *);
 
 
 int main(){
     
     processMgr processManager;
     Settings settings;
-    eventMgr eventManager;
+    EventManager eventManager;
     sf::Clock Clock;
 
 
@@ -70,8 +69,6 @@ int main(){
 
     mainLoopListener listener(eventManager);
 
-
-    bool done = false;
     float dt = 0.0;
 
     while(!listener.isWindowClosed()){
@@ -109,7 +106,7 @@ void _loadSettings(Settings &settings){
 };
 
 
-void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eventManager){
+void _addProcesses(processMgr &processManager, Settings &settings, EventManager &eventManager){
 
 
     //DO NOT CHANGE THE ORDER. SOME COMPONENTS DEPEND ON OTHERS
@@ -135,6 +132,8 @@ void _addProcesses(processMgr &processManager, Settings &settings, eventMgr &eve
     _createStates(stateProc);
      //add the stateProcess
     processManager.addProcess(stateProc);
+
+
 };
 
 
@@ -155,7 +154,7 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/PickupProcessor.h"
 #include "game/ObjProcessors/AIProcessor.h"
 void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,
-                           Settings &settings, eventMgr &eventManager){
+                           Settings &settings, EventManager &eventManager){
 
 
     objMgrProc->addObjectProcessor( new terrainProcessor(processManager, settings, eventManager));
