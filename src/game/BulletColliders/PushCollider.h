@@ -13,7 +13,7 @@ public:
 
 	~pushCollider(){};
 
-	bool onEnemyCollision(collisionData &collision, Object *bullet){
+	bool onEnemyCollision(CollisionData &collision, Object *bullet){
 
 		PhyData *other = collision.otherPhy;
 		PhyData *bulletPhy = bullet->getPrimitive<PhyData>(Hash::getHash("PhyData"));

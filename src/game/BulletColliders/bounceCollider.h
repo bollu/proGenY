@@ -18,14 +18,15 @@ public:
 
 	~bounceCollider(){};
 
-	bool onEnemyCollision(collisionData &collision, Object *bullet){
-
+	bool onEnemyCollision(CollisionData &collision, Object *bullet){
+		return true;
+		/*
 		
 		//vector2 normal = ->//collision.normal;
 		b2Body *myBody = collision.myPhy->body;
 
 		vector2 myVel = collision.myApproachVel;
-		//vector2::cast(myBody->GetLinearVelocity());
+
 		
 		vector2 normal = collision.normal;
 		vector2 velAlongNormal = myVel.projectOn(normal);
@@ -44,9 +45,10 @@ public:
 		*numBounces = (*numBounces  - 1);
 
 		return (*numBounces < 0);
+		*/
 	};
 
-	bool onDefaultCollision(collisionData &collision, Object *bullet){
+	bool onDefaultCollision(CollisionData &collision, Object *bullet){
 		 return  this->onEnemyCollision(collision, bullet);
 
 	}

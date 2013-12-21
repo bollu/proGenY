@@ -12,15 +12,9 @@ public:
 
 	~damageCollider(){};
 
-	bool onEnemyCollision(collisionData &collision, Object *bullet){
+	bool onEnemyCollision(CollisionData &collision, Object *bullet){
 		Object *other = collision.otherObj;
-
-		healthData *health = other->getPrimitive<healthData>(Hash::getHash("healthData"));
-		if(health == NULL)
-			return true;
-
-		health->Damage(this->damage);
-
+		other->sendMessage<int>(Hash::getHash("DamageHP"), this->damage);
 		return true;
 	}
 };
