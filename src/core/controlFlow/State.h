@@ -3,7 +3,7 @@
 #include "../IO/Hash.h"
 
 #include "../controlFlow/processMgr.h"
-#include "../controlFlow/eventMgr.h"
+#include "../controlFlow/EventManager.h"
 #include "../IO/Settings.h"
 #include "stateSaveLoader.h"
 
@@ -20,7 +20,7 @@ class State{
 public:
 
 	/*!initlaizes the State*/
-	void Init(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager){
+	void Init(processMgr &_processManager, Settings &_settings, EventManager &_eventManager){
 		this->processManager = &_processManager;
 		this->settings = &_settings;
 		this->eventManager = &_eventManager;
@@ -79,7 +79,7 @@ protected:
 	virtual void _Init(){};
 
 	processMgr *processManager;
-	eventMgr *eventManager;
+	EventManager *eventManager;
 	Settings *settings;
 private:
 	 const Hash* hashedName;

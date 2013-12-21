@@ -1,4 +1,4 @@
-#pragma once
+
 #include "logObject.h"
 
 IO::logLevel IO::baseLog::thresholdLevel;

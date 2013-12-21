@@ -2,7 +2,7 @@
 #include "RenderProcessor.h"
 
 RenderProcessor::RenderProcessor(processMgr &processManager, 
-	Settings &settings, eventMgr &_eventManager) : ObjectProcessor("renderProcesor"){
+	Settings &settings, EventManager &_eventManager) : ObjectProcessor("renderProcesor"){
 
 	this->window = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"))->getWindow();
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));
@@ -36,7 +36,6 @@ void RenderProcessor::_onObjectActivate(Object *obj){
 };
 void RenderProcessor::_onObjectDeactivate(Object *obj){
 	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
-	assert(data != NULL);
 	
 	for(renderProcess::baseRenderNode *node : data->renderers){
 		this->render->removeRenderNode(node);

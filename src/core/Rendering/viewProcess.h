@@ -2,7 +2,7 @@
 #include "../controlFlow/Process.h"
 #include "../controlFlow/processMgr.h"
 #include "../include/SFML/Graphics.hpp"
-#include "../controlFlow/eventMgr.h"
+#include "../controlFlow/EventManager.h"
 #include "../math/mathUtil.h"
 #include "windowProcess.h"
 
@@ -42,10 +42,10 @@ class viewProcess : public Process, public Observer{
 
 	float game2RenderScale;
 
-	eventMgr &eventManager;
+	EventManager &eventManager;
 
 public:
-	viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	viewProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 
 	void Update(float dt);
 	

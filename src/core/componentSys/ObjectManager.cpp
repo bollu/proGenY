@@ -1,9 +1,9 @@
-#pragma once
-#include "ObjectMgr.h"
+
+#include "ObjectManager.h"
 
 
 
-void ObjectMgr::addObject(Object *obj){
+void ObjectManager::addObject(Object *obj){
 
 	assert(obj != NULL);
 
@@ -24,11 +24,11 @@ void ObjectMgr::addObject(Object *obj){
 }
 
 
-void ObjectMgr::deactivateObject(Object &obj){
+void ObjectManager::deactivateObject(Object &obj){
 	this->deactivateObject(obj.getName().c_str());
 };
 
-void ObjectMgr::deactivateObject(const char* name){
+void ObjectManager::deactivateObject(const char* name){
 	auto it = this->activeObjects.find(std::string(name));
 
 	IO::infoLog<<"\n\ndeactivating "<<name;
@@ -45,12 +45,12 @@ void ObjectMgr::deactivateObject(const char* name){
 
 };
 
-void ObjectMgr::activateObject(Object &obj){
+void ObjectManager::activateObject(Object &obj){
 	this->activateObject(obj.getName().c_str());
 
 };
 
-void ObjectMgr::activateObject(const char* name){
+void ObjectManager::activateObject(const char* name){
 
 	auto it = this->objMap.find(std::string(name));
 	assert(it != this->objMap.end());
@@ -75,7 +75,7 @@ void ObjectMgr::activateObject(const char* name){
 }
 
 
-Object *ObjectMgr::getObjByName(const char* name){
+Object *ObjectManager::getObjByName(const char* name){
 	Object::objMapIt it = this->objMap.find(name);
 
 	if(it == this->objMap.end()){
@@ -85,24 +85,24 @@ Object *ObjectMgr::getObjByName(const char* name){
 
 }
 
-void ObjectMgr::addObjectProcessor(ObjectProcessor *processor){
+void ObjectManager::addObjectProcessor(ObjectProcessor *processor){
 	this->objProcessors.push_back(processor);
 	processor->Init(&this->activeObjects);
 }
 
 
-void ObjectMgr::removeObjectProcessor(ObjectProcessor *processor){
+void ObjectManager::removeObjectProcessor(ObjectProcessor *processor){
 		//this->objProcessors.push_back(processor);
 }
 
-void ObjectMgr::preProcess(){
+void ObjectManager::preProcess(){
 	for(ObjectProcessor* processor : objProcessors){
 		processor->preProcess();
 	}
 }
 
 
-void ObjectMgr::postProcess(){
+void ObjectManager::postProcess(){
 	for(ObjectProcessor* processor : objProcessors){
 		processor->postProcess();
 	}
@@ -130,7 +130,7 @@ void ObjectMgr::postProcess(){
 }
 
 
-void ObjectMgr::Process(float dt){
+void ObjectManager::Process(float dt){
 	
 	for(ObjectProcessor* processor : objProcessors){
 		processor->Process(dt);

@@ -17,7 +17,7 @@ transition between different States and to execute the current State
 
 class stateProcess : public Process{
 public:
-	stateProcess(processMgr &_processManager, Settings &_settings, eventMgr &_eventManager) :
+	stateProcess(processMgr &_processManager, Settings &_settings, EventManager &_eventManager) :
 	 Process("stateProcess"), processManager(_processManager), settings(_settings), eventManager(_eventManager){
 
 	 	this->transitioning = false;
@@ -59,7 +59,7 @@ public:
 private:
 	processMgr &processManager;
 	Settings &settings;
-	eventMgr &eventManager;
+	EventManager &eventManager;
 
 	std::map<const Hash*, State*> states;
 	State *currentState;

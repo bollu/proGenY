@@ -32,10 +32,12 @@ namespace util{
 		return (1.0 - t) * begin + t * end;
 	}
 
+	/*
 	static float randFloat(const float range = 1000){
 		return (rand() % (int)range) / (float)(range - 1.0);
 	}
-
+	*/
+	
 	/*!An agnostic representation of Angle
 	can be used to represent angles in both degrees and
 	radians. Internally, data is stored in radians

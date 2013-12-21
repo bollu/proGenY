@@ -16,7 +16,7 @@ class worldProcess : public Process{
 
 public:
 
-	worldProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager);
+	worldProcess(processMgr &processManager, Settings &settings, EventManager &eventManager);
 
 	/*!returns the size of each simulation step
 	\return the step size of the simulation
@@ -61,7 +61,7 @@ private:
 
 	bool paused = false;
 	
-	std::mutex worldAccess;          
+	std::recursive_mutex worldAccess;          
 	std::thread simulationThread;
 	void _Simulate();
 	

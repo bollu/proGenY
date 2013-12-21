@@ -3,39 +3,35 @@
 #include "../math/vector.h"
 #include "../IO/Hash.h"
 
-class PhyData;
+struct PhyData;
 class Object;
 
-struct collisionData;
-
-
 /*!Stores collision related data*/
-struct collisionData{
-	/*!the type of collision*/
-	enum Type{
-		/*!the collision has just begun*/
-		onBegin,
-		/*!the collision has just ended*/
-		onEnd,
-	} type;
-	
+struct CollisionData{
 	/*!the physicsData of the *other* object that this object
 	has collided with */ 
 	PhyData *otherPhy;
-	/*!the physicsData of *this* object */
-	PhyData *myPhy;
 	/*!the *other* object that this object has collided with*/
 	Object *otherObj;	
+	
+	/*!the physicsData of *this* object */
+	PhyData *myPhy;
+	Object *me;
 
-	vector2 normal;
+	b2Contact* contact;
 
-	vector2 myApproachVel;
-
-	const Hash *getCollidedObjectCollision();
+//	const Hash *getCollidedObjectCollision();
 };
 
 
+typedef void (*CollisionCallback) (CollisionData &collision, void *data);
+struct CollisionHandler{
+	const Hash *otherCollision;
+	CollisionCallback onBegin = NULL;
+	CollisionCallback onEnd = NULL;
 
+	void *data = NULL;
+};
 
 /*!converts box2d collisions to high-level game collisions.
 
@@ -50,23 +46,26 @@ This class is responsible for filling PhyData::collisions
 \sa PhyProcessor
 */
 class objContactListener : public b2ContactListener{
-private:
-	void _extractPhyData(b2Contact *contact, Object **a, Object **b);
-
-	collisionData _fillCollisionData(b2Contact *contact,
-  Object *me, Object *other, PhyData *myPhy, PhyData *otherPhy);
-
-	//HACK! should be collisionData::Type, but this creates a
-	//cyclic dependency :(
-	void _handleCollision(collisionData::Type type, b2Contact *contact);
 public:
 	objContactListener(){};
 	~objContactListener(){};
 
 	void BeginContact(b2Contact* contact);
-    void EndContact(b2Contact* contact);
+	void EndContact(b2Contact* contact);
 
+private:
+	void _extractObjects(b2Contact *contact, Object **a, Object **b);
 
+	/*CollisionData _fillCollisionData(b2Contact *contact,
+  Object *me, Object *other, PhyData *myPhy, PhyData *otherPhy);
+	*/
 
-	
+	//HACK! should be CollisionData::Type, but this creates a
+	//cyclic dependency :(
+	//void _handleCollision(CollisionData::Type type, b2Contact *contact);
+    bool _shouldHandleCollision(CollisionHandler *handler, PhyData *otherPhy);
+    void _handleCollision(bool beginHandler, b2Contact *contact);
+    void _execHandlers(bool beginHandler, b2Contact *contact, Object *me, PhyData *myData, Object *other, PhyData *otherData);
+
+   
 };

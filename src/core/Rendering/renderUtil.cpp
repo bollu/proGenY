@@ -1,4 +1,4 @@
-#pragma once
+
 #include "../Rendering/renderUtil.h"
 #include "../IO/logObject.h"
 #include "../IO/strHelper.h"

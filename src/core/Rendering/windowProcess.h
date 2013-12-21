@@ -10,7 +10,7 @@ class windowProcess : public Process{
 	sf::RenderWindow *window;
 	sf::Color clearColor;
 public:
-	windowProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) : 
+	windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) : 
 	Process("windowProcess"){
 		
 		vector2 *screenDim = settings.getPrimitive<vector2>(Hash::getHash("screenDimensions"));

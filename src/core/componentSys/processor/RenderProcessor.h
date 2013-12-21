@@ -7,7 +7,7 @@
 
 #include "../../controlFlow/processMgr.h"
 #include "../../IO/Settings.h"
-#include "../../controlFlow/eventMgr.h"
+#include "../../controlFlow/EventManager.h"
 #include "../../Rendering/viewProcess.h"
 #include "../../Rendering/renderProcess.h"
 
@@ -22,9 +22,6 @@ objects
 \sa renderProcesor Renderer
 */
 class RenderData{
-private:
-	friend class RenderProcessor;
-	std::vector< renderProcess::baseRenderNode *>renderers;
 public:
 	
 	/*! Add a Renderer the RenderData */
@@ -37,6 +34,10 @@ public:
 	bool centered;
 
 	RenderData() : centered(false){};
+
+private:
+	friend class RenderProcessor;
+	std::vector< renderProcess::baseRenderNode *>renderers;
 };
 
 /*! an ObjectProcessor that handles rendering Object
@@ -46,8 +47,9 @@ uses RenderData to draw the Object
 class RenderProcessor : public ObjectProcessor{
 public:
 
-	RenderProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	RenderProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 
+	void createRenderData();
 private:
 	sf::RenderWindow *window;
 	viewProcess *view;

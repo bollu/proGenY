@@ -7,10 +7,8 @@
 
 #include "../../controlFlow/processMgr.h"
 #include "../../IO/Settings.h"
-#include "../../controlFlow/eventMgr.h"
+#include "../../controlFlow/EventManager.h"
 #include "../../World/objContactListener.h"
-struct PhyData;
-
 
 //ALYWAS CREATE THE FIXTURE DEF's SHAPE ON THE STACK
 /*!Stores data used by the PhyProcessor
@@ -20,16 +18,16 @@ run the physics of Objects
 */
 struct PhyData{
 	/*!the definition of the body */
-	b2BodyDef bodyDef;
+	//b2BodyDef bodyDef;
 	/*!a list of definitions of all fixtures owned by the body*/
-	std::vector<b2FixtureDef> fixtureDef;
+	//std::vector<b2FixtureDef> fixtureDef;
 
 	/*!a pointer to the body
 	--don't modify this without knowing what you're doing--
 	*/
 	b2Body *body;
 	/* a list of pointers to the fixtures owned by the body*/
-	std::vector<b2Fixture*>fixtures;
+	//std::vector<b2Fixture*>fixtures;
 
 	/*!whether the velocity should be clamped between -maxVel and  maxVel or not*/
 	bool velClamped;
@@ -38,21 +36,18 @@ struct PhyData{
 	vector2 maxVel;
 	
 	/*!the name of the collisionType of the body.
-
 	Used while filtering collisions
 	*/
 	const Hash* collisionType;
-
-	/*a list of all collisions that took place this frame.
-
-	NOTE- this list is cleared every frame
-	*/
-	 std::vector<collisionData> collisions;
+	std::vector<CollisionHandler> collisionHandlers;
 
 private:
-	friend class objContactListener;
-	 void addCollision(collisionData &collision);
-	 void removeCollision(Object *obj);
+	friend class PhyProcessor;
+	//must be constructed by calling createPhyData()
+	PhyData(){};
+	//friend class objContactListener;
+	// void addCollision(CollisionData &collision);
+	// void removeCollision(Object *obj);
 };
 
 
@@ -69,11 +64,12 @@ all box2d related data when the Object is killed or removed
 class PhyProcessor : public ObjectProcessor{
 private:
 	viewProcess *view;
-	worldProcess *world;
+	static worldProcess *world;
 	objContactListener contactListener;
 
 public:
-	PhyProcessor(processMgr &processManager, Settings &settings, eventMgr &_eventManager);
+	PhyProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
+	static PhyData createPhyData(b2BodyDef *bodyDef, b2FixtureDef fixtures[], unsigned int numFixtures = 1);
 
 protected:
 	void _onObjectAdd(Object *obj);
@@ -90,4 +86,3 @@ protected:
 	};
 
 };
-

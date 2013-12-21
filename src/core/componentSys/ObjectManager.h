@@ -8,7 +8,7 @@
 
 
 /*!Manages Object class's lifecycle
-the ObjectMgr is in charge of controlling Object and running
+the ObjectManager is in charge of controlling Object and running
 ObjectProcessor on the objects. It's the heart of the component based 
 system present in the engine
 
@@ -16,7 +16,7 @@ system present in the engine
 \sa ObjectProcessor
 \sa ObjectMgrProc
 */
-class ObjectMgr{
+class ObjectManager{
 
 private:
 	
@@ -26,8 +26,8 @@ private:
 	std::vector<ObjectProcessor *> objProcessors;
 	typedef std::vector<ObjectProcessor *>::iterator objProcessorIt;
 public:
-	ObjectMgr(){};
-	~ObjectMgr(){};
+	ObjectManager(){};
+	~ObjectManager(){};
 
 	/*!add an Object to the objectManager for processing
 	once an Object is added, it is updated and drawn every frame 

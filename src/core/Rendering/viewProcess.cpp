@@ -1,7 +1,7 @@
-#pragma once
+
 #include "viewProcess.h"
 
-viewProcess::viewProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+viewProcess::viewProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
  Process("viewProcess"), eventManager(_eventManager){
 	
  	windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));

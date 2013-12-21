@@ -1,4 +1,3 @@
-#pragma once
 #include "eventProcess.h"
 #include "../componentSys/Property.h"
 

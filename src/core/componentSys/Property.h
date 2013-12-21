@@ -66,6 +66,15 @@ class Prop : public baseProperty{
 };
 
 
+/*!cast a baseProperty to the Prop */
+template <typename T>
+static Prop<T>* prop_cast(baseProperty *base) {
+	Prop<T>* prop = dynamic_cast< Prop<T>* >(base);
+	assert(prop != NULL);
+
+	return prop;
+}
+
 
 template<>
 class Prop<void> : public baseProperty {
@@ -94,7 +103,6 @@ public:
 	dummyProp(){};
 	~dummyProp(){};
 };
-
 
 
 typedef Prop<int> iProp;

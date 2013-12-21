@@ -1,17 +1,17 @@
 #pragma once
-#include "eventMgr.h"
+#include "EventManager.h"
 #include "../IO/logObject.h"
 #include "../IO/strHelper.h"
 
-eventMgr::eventMgr(){
+EventManager::EventManager(){
 
 };
 
-void eventMgr::Register(const Hash *eventName, Observer *observer){
+void EventManager::Register(const Hash *eventName, Observer *observer){
 	this->observerMap[eventName].push_back(observer);
 };
 
-void eventMgr::Unregister(const Hash *eventName, Observer *observer){
+void EventManager::Unregister(const Hash *eventName, Observer *observer){
 	auto mapIt = this->observerMap.find(eventName);
 
 	if(mapIt != this->observerMap.end()){
@@ -35,11 +35,11 @@ void eventMgr::Unregister(const Hash *eventName, Observer *observer){
 
 
 
-bool eventMgr::_observersPresent(const Hash *eventName){
+bool EventManager::_observersPresent(const Hash *eventName){
 	return  this->observerMap.find(eventName) != this->observerMap.end();
 };
 
-void eventMgr::_sendEvent(Event &event){
+void EventManager::_sendEvent(Event &event){
 
 	const Hash *currentEventName = event.name;
 	baseProperty *currentData = event.data;
@@ -57,7 +57,7 @@ void eventMgr::_sendEvent(Event &event){
 	}
 };
 
-void eventMgr::_Dispatch(Event &newEvent){
+void EventManager::_Dispatch(Event &newEvent){
 	
 	this->events.push(newEvent);
 

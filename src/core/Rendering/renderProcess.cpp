@@ -1,7 +1,7 @@
-#pragma once
+
 #include "renderProcess.h"
 
-renderProcess::renderProcess(processMgr &processManager, Settings &settings, eventMgr &_eventManager) :
+renderProcess::renderProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 Process("renderProcess"){
 
 	windowProcess *windowProc = processManager.getProcess<windowProcess>(Hash::getHash("windowProcess"));

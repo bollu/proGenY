@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "../IO/Hash.h"
-#include "eventMgr.h"
+#include "EventManager.h"
 #include "../IO/Settings.h"
 
 /*! Used to create and run core modules that the Engine needs to function

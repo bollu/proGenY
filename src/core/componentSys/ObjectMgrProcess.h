@@ -1,30 +1,30 @@
 #pragma once
 #include "../controlFlow/Process.h"
 #include "../controlFlow/processMgr.h"
-#include "ObjectMgr.h"
+#include "ObjectManager.h"
 //#include "objProcessors/RenderProcessor.h"
 //#include "objProcessors/PhyProcessor.h"
 
 #include "../Rendering/windowProcess.h"
 #include "../World/worldProcess.h"
 
-/*!Process to handle ObjectMgr 
+/*!Process to handle ObjectManager 
 
-Acts as a wrapper around ObjectMgr. this ensures that ObjectMgr is in sync with the other parts of
+Acts as a wrapper around ObjectManager. this ensures that ObjectManager is in sync with the other parts of
 the Engine.
 
-\sa ObjectMgr
+\sa ObjectManager
 */
 class ObjectMgrProcess : public Process{
 private:
-	ObjectMgr *objManager;
+	ObjectManager *objManager;
 
 
 public:
-	ObjectMgrProcess(processMgr &processManager, Settings &settings, eventMgr &eventManager) :
+	ObjectMgrProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) :
 	 Process("ObjectMgrProcess"){
 
-		this->objManager = new ObjectMgr();
+		this->objManager = new ObjectManager();
 		//this->_createObjectProcessors(processManager);
 	}
 	
@@ -40,7 +40,7 @@ public:
 	void postDraw(){
 		objManager->postProcess();
 	}
-	/*!add an ObjectProcessor to the ObjectMgr
+	/*!add an ObjectProcessor to the ObjectManager
 	@param [in] processor the ObjectProcessor to be added
 	*/
 	void addObjectProcessor(ObjectProcessor *processor){
@@ -48,9 +48,9 @@ public:
 	}
 
 	/*!returns the object Manager
-	\return the ObjectMgr 
+	\return the ObjectManager 
 	*/
-	ObjectMgr *getObjectMgr(){
+	ObjectManager *getObjectMgr(){
 		return this->objManager;
 	}
 };
