@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "objectFactory.h"
 #include "../../core/Rendering/viewProcess.h"
@@ -127,3 +128,4 @@ public:
 	};
 
 };
+*/

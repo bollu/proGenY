@@ -7,17 +7,14 @@
 #include "../../core/Rendering/renderUtil.h"
 #include "../defines/renderingLayers.h"
 
-
+/*
 
 class bulletCreator : public objectCreator{
 private:
 	viewProcess *viewProc;
 
 	BulletData bullet;
-
 	float radius;
-
-	const Hash *enemyCollision;
 
 public:
 
@@ -45,13 +42,13 @@ public:
 
 		
 		b2CircleShape *shape = new b2CircleShape();
-		shape->m_radius = this->radius;
+		shape->m_radius = 1.0f;//this->radius;
 
 		b2FixtureDef fixtureDef;
 		fixtureDef.shape = shape;
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
-		fixtureDef.isSensor = true;
+		fixtureDef.isSensor = false;
 		
 
 		phy.fixtureDef.push_back(fixtureDef);
@@ -61,9 +58,9 @@ public:
 		sf::Shape *sfShape = renderUtil::createShape(shape, 
 			viewProc);
 
-		sfShape->setFillColor(sf::Color::Red);
+		sfShape->setFillColor(sf::Color::Black);
 
-		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape, renderingLayers::aboveAction);
+		shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape, renderingLayers::action);
 		render.addRenderer(shapeRenderer);
 		
 	
@@ -78,3 +75,4 @@ public:
 		return obj;
 	};
 };
+*/

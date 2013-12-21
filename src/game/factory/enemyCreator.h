@@ -22,8 +22,7 @@ public:
 
 	Object *createObject(vector2 _pos) const{
 		RenderData render;
-		PhyData phy;
-
+		
 		Object *enemy = new Object("enemy");
 
 		vector2 *pos = enemy->getPrimitive<vector2>("position");
@@ -31,23 +30,25 @@ public:
 
 
 		//physics------------------------------------------------------------
-		phy.collisionType = Hash::getHash("enemy");
-		phy.bodyDef.type = b2_dynamicBody;
-		phy.bodyDef.gravityScale = 0.0f;
+		b2BodyDef bodyDef;
+		bodyDef.type = b2_dynamicBody;
+		bodyDef.gravityScale = 0.0f;
 
-		b2CircleShape *boundingBox = new b2CircleShape();
-		boundingBox->m_radius = 1.0f;
+		b2CircleShape enemyBoundingBox;
+		enemyBoundingBox.m_radius = 1.0f;
 
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = boundingBox;
+		fixtureDef.shape = &enemyBoundingBox;
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
 
-		phy.fixtureDef.push_back(fixtureDef);
-
+		//phy.fixtureDef.push_back(fixtureDef);
+		PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef); 
+		phy.collisionType = Hash::getHash("enemy");
+	
 
 	//SFMLShape--------------------------------------------------------------------
-		sf::Shape *SFMLShape = renderUtil::createShape(boundingBox, 
+		sf::Shape *SFMLShape = renderUtil::createShape(&enemyBoundingBox, 
 			viewProc);
 
 		SFMLShape->setFillColor(sf::Color::White);

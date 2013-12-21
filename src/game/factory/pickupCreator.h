@@ -25,27 +25,25 @@ public:
 
 	Object *createObject(vector2 _pos) const{
 		RenderData render;
-		PhyData phy;
-		
 		Object *obj = new Object("bullet");
 
 		vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = _pos;
 
 		//physics------------------------------------------------------------
-		phy.collisionType = Hash::getHash("pickup");
-		phy.bodyDef.type = b2_staticBody;
+		b2BodyDef bodyDef;
+		bodyDef.type = b2_staticBody;
 
-		
-		b2CircleShape *shape = new b2CircleShape();
-		shape->m_radius = this->radius;
+		b2CircleShape pickupBoundingBox;
+		pickupBoundingBox.m_radius = 1.0f;
+
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = shape;
-		fixtureDef.friction = 0.0;
+		fixtureDef.shape = &pickupBoundingBox;
+		fixtureDef.friction = 1.0;
 		fixtureDef.restitution = 0.0;
-		fixtureDef.isSensor = true;
 
-		phy.fixtureDef.push_back(fixtureDef);
+		PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
+		phy.collisionType = Hash::getHash("dummy");
 
 
 		//renderer------------------------------------

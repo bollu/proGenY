@@ -15,6 +15,7 @@
 using namespace ObjectFactories;
 
 
+/*
 Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
 
 	Object *boundaryObject = new Object("boundary");
@@ -120,6 +121,7 @@ Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
 
 	return boundaryObject;
 };
+*/
 
 Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 	RenderData render;
@@ -137,7 +139,7 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 	//renderer------------------------------------
 	vector2 gunDim = vector2(2,1) * info.viewProc->getGame2RenderScale();
 	sf::Shape *shape = renderUtil::createRectangleShape(gunDim);
-	shape->setFillColor(sf::Color::Blue);
+	shape->setFillColor(sf::Color(rand()% 256, rand()% 256, rand()% 256));
 	shape->setOutlineColor(sf::Color::White);
 	shape->setOutlineThickness(-2.0);
 
@@ -163,35 +165,29 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 
 Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	RenderData render;
-	PhyData phy;
-	
+
 	
 	Object *obj = new Object("bullet");
 	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
 	*pos = info.pos;
 
 	//physics------------------------------------------------------------
-	phy.collisionType = Hash::getHash("bullet");
-	phy.bodyDef.type = b2_dynamicBody;
-	//phy.bodyDef.type = b2_kinematicBody;
-	phy.bodyDef.bullet = false;
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
 
-	
-	b2CircleShape *shape = new b2CircleShape();
-	shape->m_radius = info.radius;
+	b2CircleShape bulletBoundingBox;
+	bulletBoundingBox.m_radius = info.radius;
 
 	b2FixtureDef fixtureDef;
-	fixtureDef.shape = shape;
+	fixtureDef.shape = &bulletBoundingBox;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
-	fixtureDef.isSensor = true;
+
+	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
+	phy.collisionType = Hash::getHash("bullet");
 	
-
-	phy.fixtureDef.push_back(fixtureDef);
-
-
 	//renderer------------------------------------
-	sf::Shape *sfShape = renderUtil::createShape(shape, 
+	sf::Shape *sfShape = renderUtil::createShape(&bulletBoundingBox, 
 		info.viewProc);
 
 	sfShape->setFillColor(sf::Color::Red);
@@ -220,13 +216,20 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 #include "../terrainGen/terrainGenerator.h"
 Object *CreateCell();
 Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
-	PhyData phy;
-	phy.bodyDef.type = b2_staticBody;
-	phy.collisionType = Hash::getHash("terrain");
-
+	
 	RenderData render;
 
+	
 	std::vector<AABB> AABBs = genTerrainChunks(info.terrain);
+	//HACK!-----------------------------------------
+
+	IO::infoLog<<"AABB's size: "<<AABBs.size()<<"\n";
+	assert(AABBs.size() < 2000);
+
+
+	b2PolygonShape phyShapes [2000];
+	b2FixtureDef terrainFixtures [2000];
+	int numAABBs = 0;
 
 	for(auto terrainChunk : AABBs) {
 		vector2 center  = terrainChunk.getCenter();
@@ -240,28 +243,32 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 
 		//physics--------------------------------
-		b2PolygonShape *phyShape = new b2PolygonShape(); 
-			
-		phyShape->SetAsBox(halfDim.x, halfDim.y, center, 0);
-
-		b2FixtureDef fixtureDef;
-		fixtureDef.shape = phyShape;
-		fixtureDef.friction = 1.0;
-
-		phy.fixtureDef.push_back(fixtureDef);
+		b2PolygonShape &phyShape = phyShapes[numAABBs];
+		phyShape.SetAsBox(halfDim.x, halfDim.y, center, 0);
+		
+		b2FixtureDef &terrainFixture = terrainFixtures[numAABBs];
+		terrainFixture.shape = &phyShape;
+		terrainFixture.friction = 1.0;
 
 		{
-		//renderer------------------------------------
-		sf::Shape *shape = renderUtil::createShape(phyShape, 
-		info.viewProc);
+			//renderer------------------------------------
+			sf::Shape *shape = renderUtil::createShape(&phyShape, 
+			info.viewProc);
 
-		shape->setFillColor(sf::Color::Blue);
+			shape->setFillColor(sf::Color::Blue);
 
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
-		render.addRenderer(renderer);
+			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
+			render.addRenderer(renderer);
 		}
 
+		numAABBs++;
 	}
+
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_staticBody;
+
+	PhyData phy = PhyProcessor::createPhyData(&bodyDef, terrainFixtures, numAABBs);
+	phy.collisionType = Hash::getHash("terrain");
 
 
 	Object *obj = new Object("terrain");
@@ -277,7 +284,6 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	RenderData render;
-	PhyData phy;
 	
 	Object *obj = new Object("pickup");
 
@@ -285,20 +291,20 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	*pos = info.pos;
 
 	//physics------------------------------------------------------------
-	phy.collisionType = Hash::getHash("pickup");
-	phy.bodyDef.type = b2_staticBody;
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_staticBody;
 
-	
-	b2CircleShape *shape = new b2CircleShape();
-	shape->m_radius = info.radius;
+	b2PolygonShape pickupShape;
+	pickupShape.m_radius = info.radius;
+
 	b2FixtureDef fixtureDef;
-	fixtureDef.shape = shape;
+	fixtureDef.shape = &pickupShape;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
 	fixtureDef.isSensor = true;
 
-	phy.fixtureDef.push_back(fixtureDef);
-
+	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
+	phy.collisionType = Hash::getHash("pickup");
 
 	//renderer------------------------------------
 	float game2RenderScale = info.viewProc->getGame2RenderScale();

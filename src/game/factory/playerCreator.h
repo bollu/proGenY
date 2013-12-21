@@ -26,27 +26,27 @@ public:
 		*pos = playerInitPos;
 
 
-		PhyData phy;
 		RenderData render;
 		groundMoveData move;
 		
 		//physics------------------------------------------------------------
-		phy.collisionType = Hash::getHash("player");
-		phy.bodyDef.type = b2_dynamicBody;
+		b2BodyDef bodyDef;
+		bodyDef.type = b2_dynamicBody;
 
-		b2CircleShape *playerBoundingBox = new b2CircleShape();
-		playerBoundingBox->m_radius = 1.0f;
+		b2CircleShape playerBoundingBox;
+		playerBoundingBox.m_radius = 1.0f;
 
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = playerBoundingBox;
+		fixtureDef.shape = &playerBoundingBox;
 		fixtureDef.friction = 0.0;
 		fixtureDef.restitution = 0.0;
 
-		phy.fixtureDef.push_back(fixtureDef);
-
+		//phy.fixtureDef.push_back(fixtureDef);
+		PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
+		phy.collisionType = Hash::getHash("player");
 
 	//renderNode---------------------------------------------------------------
-		sf::Shape *SFMLShape = renderUtil::createShape(playerBoundingBox, 
+		sf::Shape *SFMLShape = renderUtil::createShape(&playerBoundingBox, 
 			viewProc);
 		
 		SFMLShape->setFillColor(sf::Color::Green);
@@ -61,6 +61,7 @@ public:
 		move.movementDamping = vector2(0.05, 0.0);
 		move.jumpRange = viewProc->getRender2GameScale() * 256;
 		move.jumpHeight = viewProc->getRender2GameScale() * 128;
+		move.jumpSurfaceCollision = Hash::getHash("terrain");
 		
 	//camera---------------------------------------------------------------
 		
