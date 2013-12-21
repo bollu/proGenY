@@ -1,121 +1,91 @@
-	#pragma once
 #include "GunDataGenerator.h"
-#include "BulletDataGenerator.h"
+#include "Generator.h"
 
+void _genBulletData(GunData &gunData, BulletGenData &generationData){
 
-GunDataGenerator::GunDataGenerator(GunDataGenerator::Archetype archetype, 
-	unsigned int power, unsigned long seed){
+	BulletData bulletData = GenBulletData(generationData);
+
+	bulletData.addEnemyCollision(Hash::getHash("enemy"));
+	bulletData.addEnemyCollision(Hash::getHash("dummy"));
+
+	bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	bulletData.addIgnoreCollision(Hash::getHash("player"));
 	
-	this->power = power;
-	this->seed = seed;
-	this->archetype = archetype;
-
-	assert(this->power > 0);
-
-	//HACK
-	generator.seed(seed + rand());
-};
-
-
-GunData GunDataGenerator::Generate(){
-	GunData data;
-
-	switch(this->archetype){
-		case Archetype::Rocket:
-			this->_genRocket(data);
-			break;
-		
-		case Archetype::machineGun:
-			this->_genMachineGun(data);
-			break;
-	}
-
-
-	return data;	
-};
-
-void GunDataGenerator::_genBulletData(GunData &data,
-	BulletDataGenerator::genData &generationData){
-
-	/*BulletDataGenerator::gravityProperty gForce;
-
-	switch(archetype){
-		case Archetype::Rocket:
-			gForce = BulletDataGenerator::gravityProperty::highGravity;
-			break;
-
-		case Archetype::machineGun:
-			gForce = BulletDataGenerator::gravityProperty::defaultGravity;
-			break;
-	}*/
-
-	BulletDataGenerator BulletDataGen(generationData, this->power, this->seed);
-	BulletData _BulletData = BulletDataGen.Generate();
-
-
-	_BulletData.addEnemyCollision(Hash::getHash("enemy"));
-	_BulletData.addEnemyCollision(Hash::getHash("dummy"));
-
-	_BulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	//_BulletData.addIgnoreCollision(Hash::getHash("terrain"));
-	//_BulletData.addIgnoreCollision(Hash::getHash("boundary"));
-	_BulletData.addIgnoreCollision(Hash::getHash("player"));
-
-	data.setBulletData(_BulletData);
+	gunData.setBulletData(bulletData);
 
 };
 
 
-void GunDataGenerator::_genRocket(GunData &data){
+void _genRocket(std::mt19937 &generator, unsigned long seed, unsigned int power, GunData &gunData){
 	/* quite a low rate of fire, average
 	clip size, heavy damage
 	*/
 
 	//clip size can vary from power-6  to powe6   
-	data.setClipSize(1); //this->_normGenInt(6 + power, 1));
-	data.setShotCooldown(0);
+	gunData.setClipSize(1);
+	gunData.setShotCooldown(0);
 
 
-	int clipCD = this->_normGenInt(16 + power, 2);
-	data.setClipCooldown(clipCD);
+	float clipCD = normGenInt(generator, 16 + power, 2) * 0.01;
+	gunData.setClipCooldown(clipCD);
 
-	data.setBulletRadius(this->_genFloat(0.8, 0.9));
-	data.setBulletVel(this->_genFloat(40, 60));
+	gunData.setBulletRadius(genFloat(generator, 0.8, 0.9));
+	gunData.setBulletVel(genFloat(generator, 40, 60));
 
-	BulletDataGenerator::genData bulletGenData
-					(BulletDataGenerator::knockbackProperty::highKnockback,
-					BulletDataGenerator::gravityProperty::highGravity,
-					BulletDataGenerator::damageProperty::highDamage,
-					1,
-					1);
+	BulletGenData bulletGenData;
+	bulletGenData.seed = seed;
+	bulletGenData.power = power;
+	bulletGenData.numAbilities = 1;
+	bulletGenData.abilityPower = 1;
+	bulletGenData.gravity = gravityProperty::highGravity;
+	bulletGenData.damage = damageProperty::lowDamage;
+	bulletGenData.knockback = knockbackProperty::noKnockback;
 
-
-	this->_genBulletData(data, bulletGenData);
-
+	_genBulletData(gunData, bulletGenData);
 };
 
 
-void GunDataGenerator::_genMachineGun(GunData &data){
+void _genMachineGun(std::mt19937 &generator, unsigned long seed, unsigned int power, GunData &gunData){
 
 	/*high rate of fire, small bullets, medium clip size */
 
-	data.setClipSize( this->_normGenInt(20, 2));
+	gunData.setClipSize(normGenInt(generator, 20, 2));
 
-	int shotCooldown = this->_normGenInt(3, 1);
-	data.setShotCooldown(shotCooldown);
-	data.setClipCooldown(this->_normGenInt(shotCooldown + 20, 2));
+	int shotCooldown = normGenInt(generator, 3, 1);
+	gunData.setShotCooldown(shotCooldown);
+	gunData.setClipCooldown(normGenInt(generator, shotCooldown + 20, 2));
+	gunData.setBulletRadius(genFloat(generator, 0.4, 0.5));
+	gunData.setBulletVel(genFloat(generator, 20, 30));
+
+	BulletGenData bulletGenData;
+	bulletGenData.seed = seed;
+	bulletGenData.power = power;
+	bulletGenData.numAbilities = 1;
+	bulletGenData.abilityPower = 1;
+	bulletGenData.abilityPower = 1;
+	bulletGenData.gravity = gravityProperty::lowGravity;
+	bulletGenData.damage = damageProperty::lowDamage;
+	bulletGenData.knockback = knockbackProperty::noKnockback;
+
+	_genBulletData(gunData, bulletGenData);
+};
 
 
-	data.setBulletRadius(this->_genFloat(0.4, 0.5));
+GunData GenGunData(GunGenData &genData){
+	GunData gunData;
+	static std::mt19937 generator;
 
-	data.setBulletVel(this->_genFloat(20, 30));
+	generator.seed(genData.seed);
 
-		BulletDataGenerator::genData bulletGenData
-					(BulletDataGenerator::knockbackProperty::noKnockback,
-					BulletDataGenerator::gravityProperty::lowGravity,
-					BulletDataGenerator::damageProperty::lowDamage,
-					1,
-					1);
+	switch(genData.type) {
+		case GunType::machineGun:
+			_genMachineGun(generator, genData.seed, genData.power, gunData);
+			break;
+		
+		case GunType::Rocket:
+			_genRocket(generator, genData.seed, genData.power, gunData);
+			break;
+	}
 
-	this->_genBulletData(data, bulletGenData);
+	return gunData;
 };
