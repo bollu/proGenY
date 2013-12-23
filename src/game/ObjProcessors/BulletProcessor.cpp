@@ -43,6 +43,7 @@ void BulletProcessor::_Process(Object *obj, float dt){
 	assert(physicsData != NULL);
 
 	b2Body *body = physicsData->body;		
+
 	/*
 	for(CollisionData collision : physicsData->collisions){
 		this->_handleCollision(collision, data, obj);

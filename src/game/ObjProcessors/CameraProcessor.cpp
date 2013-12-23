@@ -131,7 +131,7 @@ void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraDat
 
 		//use a damped spring equation to move the camera
 		//science, bitch!
-		float k = 0.3;
+		float k = 1;
 		//q = 1 => critically damped spring
 		float q = 1;
 

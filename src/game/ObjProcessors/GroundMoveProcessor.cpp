@@ -120,7 +120,7 @@ void groundMoveProcessor::_Process(Object *obj, float dt){
 		float frictionX = data->mass * currentVelX * data->movementDamping.x;
 		impulse.x -= frictionX;
 
-		body->SetAngularVelocity(-currentVelX  * 0.5);
+		//body->SetAngularVelocity(-currentVelX  * 0.5);
 	};
 
 	body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
