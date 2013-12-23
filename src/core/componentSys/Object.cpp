@@ -2,36 +2,45 @@
 #include "Object.h"
 #include <sstream>
 
-std::map<std::string, unsigned int> Object::nameMap;
+UniqueNames Object::uniqueNames;
 
-typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;
-typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;
-
-Object::Object(std::string _name) : dead(false), baseName(_name), parent(NULL){
+Object::Object(std::string name) : dead(false), parent(NULL){
 	//create a unique name from the generic name given
-	this->_genUniqueName(_name, this->name);
+	//if the name map is already initialized, this does nothing
+	initUniqueNames(100, this->uniqueNames);
+	this->name =  Hash::getHash( genUniqueName(this->uniqueNames, name.c_str()) );
+	
+	this->propMap = Hash::CreateHashmap(5);
+	this->messagesMap = Hash::CreateHashmap(10);
+
+
 
 	this->addProp(Hash::getHash("position"), new Prop <vector2>(vector2(0, 0)));
 	this->addProp(Hash::getHash("facing"), new Prop <util::Angle>(util::Angle::Deg(0)));
-
 };
 
+
+bool destoyPropMap(void* key, void* value, void* context){
+	delete ((baseProperty *)value);
+	return false;
+}
+
 Object::~Object(){
-	for(auto it = this->propertyMap.begin(); it != this->propertyMap.end(); propertyMap.erase(it++)){
+	hashmapForEach(this->propMap, &destoyPropMap, NULL);
+	hashmapFree(this->propMap);
+
+	/*for(auto it = this->propertyMap.begin(); it != this->propertyMap.end(); propertyMap.erase(it++)){
 		delete ((*it).second);	
-	}
+	}*/
 
 }
 
 
 //public------------------------------------------------------------
 //getters-----------------------------------------------------------
-std::string Object::getBaseName() const{
-	return this->baseName;
-}
 
 std::string Object::getName() const{
-	return this->name;
+	return Hash::Hash2Str(this->name);
 };
 
 
@@ -74,13 +83,21 @@ Object *Object::getParent(){
 
 
 void Object::addProp(const Hash *name, baseProperty *value){
-	propertyIt it;
 	
+	//there was nothing here before
+	if ((hashmapPut(this->propMap, (void*)name, value)) == NULL){
+		return;
+	}
+	/*
+	propertyIt it;
 	if( ( it = propertyMap.find(name)) == propertyMap.end() ){
 		propertyMap[name] = value;
 		
 		return;
-	}
+	}*/
+
+
+	
 
 	IO::errorLog<<"trying to add property twice to object\n  \
 	\nProperty: "<<name<<
@@ -94,12 +111,15 @@ void Object::addProp(const char *name, baseProperty *value){
 
 baseProperty *Object::_getBaseProp(const Hash *name) const{
 
+	
+	return (baseProperty *)(hashmapGet(this->propMap, (void*)name));
+	
+	/*
 	cPropertyIt it = propertyMap.find(name);
-
 
 	if( it  != propertyMap.end() ){
 		return it->second;
-	}
+	}*/
 	return NULL;
 }
 
@@ -107,56 +127,13 @@ baseProperty *Object::_getBaseProp(const Hash *name) const{
 void Object::_printProperties() const{
 	IO::infoLog<<"\n\n"<<"name: "<<this->name<<"\n";
 
+	/*
 	for(auto it =  propertyMap.begin(); it != propertyMap.end(); ++it){
 		IO::infoLog<<it->first<<"\n";
-	}		
+	}*/		
 }
 
 
 void Object::Kill(){
 	this->dead = true;
-}
-
-
-
-
-//private-----------------------------------------------------------
-
-/*
-//privates---------------------------------------------
-void Object::_addData(const Hash *name, baseProperty* value){
-	dataMap[name] = value;
-}
-
-baseProperty* Object::_getData(const Hash *name){
-
-	dataIt it;
-	if( (it = dataMap.find(name)) != dataMap.end() ){
-		return it->second;
-	}
-	return NULL;
-}
-*/
-
-
-void Object::_genUniqueName(std::string genericName, std::string &out){
-	nameIt it = this->nameMap.find(genericName);
-	std::stringstream sstm;
-
-	//the name hasn't been stored
-	if(it == this->nameMap.end()){
-		
-		this->nameMap[genericName] = 0;
-
-
-		sstm << genericName << 0;
-		out = sstm.str();
-	}else{
-
-		//it's our responsibility to increment it
-		this->nameMap[genericName]++;
-
-		sstm << genericName << this->nameMap[genericName];
-		out = sstm.str();
-	}
 }

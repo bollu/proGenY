@@ -6,7 +6,7 @@ std::map<std::string, Hash* > Hash::hashMap;
 unsigned int Hash::seed;
 
 
-Hash::Hash(std::string &str, unsigned int seed){
+Hash::Hash(const std::string &str, unsigned int seed){
 	this->seed = seed;
 	this->hashedVal = _MurmurHash64B(str.c_str(), str.length(), seed);
 }
@@ -34,7 +34,7 @@ const Hash* Hash::getHash(const char* str){
 	}
 }
 
-const Hash* Hash::getHash(std::string &str){
+const Hash* Hash::getHash(const std::string &str){
 	hashMapIt it = hashMap.find(str);
 
 		//the hash is not present in the map. time to create a new Hash
@@ -131,3 +131,16 @@ uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){
 
 	return h;
 }   
+
+
+static int hashmapHash(void *key){
+	return (intptr_t)(key);
+}
+
+static bool hashmapEquals(void *A,void *B){
+	return A == B;
+}
+
+Hashmap* Hash::CreateHashmap(unsigned int initialCapacity){
+		return hashmapCreate(initialCapacity, &hashmapHash, &hashmapEquals);
+};

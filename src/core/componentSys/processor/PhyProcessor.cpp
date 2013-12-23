@@ -5,8 +5,9 @@
 
 #include "../../World/objContactListener.h"
 
-
+//this is sort of a HACK. need to fix this
 worldProcess *PhyProcessor::world;
+
 PhyProcessor::PhyProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :
 ObjectProcessor("PhyProcessor") {
 	this->view = processManager.getProcess<viewProcess>(Hash::getHash("viewProcess"));

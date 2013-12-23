@@ -14,31 +14,37 @@ RenderProcessor::RenderProcessor(processMgr &processManager,
 };
 
 
-void RenderProcessor::_onObjectAdd(Object *obj){
-	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
-	if(data == NULL){
-		return;
-	}
+RenderData RenderProcessor::createRenderData(_RenderNode *renderNodes, int numRenderNodes){
+	assert(numRenderNodes > 0 && renderNodes != NULL);
+	RenderData renderData;
+	renderData.renderNodes = new _RenderNode[numRenderNodes];
 
-	for(renderProcess::baseRenderNode *node : data->renderers){
-		this->render->addRenderNode(node);
+	for(int i = 0; i < numRenderNodes; i++){
+		renderData.renderNodes[i] = renderNodes[i];
 	}
-}
+	
+	renderData.numRenderNodes = numRenderNodes;
+
+	return renderData;
+
+};
+
+
 
 void RenderProcessor::_onObjectActivate(Object *obj){
 	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	assert(data != NULL);
-
-	for(renderProcess::baseRenderNode *node : data->renderers){
-		this->render->addRenderNode(node);
+	
+	assert(data->numRenderNodes > 0 && data->renderNodes != NULL);
+	for(int i = 0; i < data->numRenderNodes; i++) {
+		this->render->addRenderNode(data->renderNodes[i]);
 	}
-
 };
 void RenderProcessor::_onObjectDeactivate(Object *obj){
 	RenderData *data = obj->getPrimitive<RenderData>(Hash::getHash("RenderData"));
 	
-	for(renderProcess::baseRenderNode *node : data->renderers){
-		this->render->removeRenderNode(node);
+	for(int i = 0; i < data->numRenderNodes; i++){
+		this->render->removeRenderNode(data->renderNodes[i]);
 	}
 };
 
@@ -49,10 +55,9 @@ void RenderProcessor::_onObjectDeath(Object *obj){
 		return;
 	}
 
-
-	for(renderProcess::baseRenderNode *node : data->renderers){
-		this->render->removeRenderNode(node);
-		delete(node);
+	for(int i = 0; i < data->numRenderNodes; i++){
+		this->render->removeRenderNode(data->renderNodes[i]);
+		freeRenderNode(data->renderNodes[i]);
 	}
 };
 
@@ -72,17 +77,18 @@ void RenderProcessor::_Process(Object *obj, float dt){
 	float fAngle = angle->toDeg();
 	util::Angle gameAngle = game2RenderAngle - *angle;
 
-
-	this->_Render(renderPos, gameAngle, data, data->centered);
+	//HACK! - disabled off center
+	//this->_Render(renderPos, gameAngle, data, data->centered);
+	this->_Render(renderPos, gameAngle, data, true);
 }
 
 
-void RenderProcessor::_Render(vector2 pos, util::Angle &angle, 
-	RenderData *data,  bool centered){
-		//loop through the renderers
-	for(renderProcess::baseRenderNode *renderer : data->renderers){
+void RenderProcessor::_Render(vector2 pos, util::Angle &angle, RenderData *data,  bool centered){
 
-		renderer->setPosition(pos);
-		renderer->setRotation(angle);
+	//loop through the renderers
+	for(int i = 0; i < data->numRenderNodes; i++){
+		_RenderNode &renderer = data->renderNodes[i];
+		setRenderNodePosition(renderer, pos);
+		setRenderNodeAngle(renderer, angle);
 	}
 };

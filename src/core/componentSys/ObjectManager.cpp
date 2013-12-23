@@ -18,6 +18,7 @@ void ObjectManager::addObject(Object *obj){
 
 	for(objProcessorIt it = this->objProcessors.begin(); it != this->objProcessors.end(); ++it){
 		(*it)->onObjectAdd(obj);
+		(*it)->onObjectActivate(obj);
 	}
 	IO::infoLog<<"\n"<<obj->getName()<<"  added to objectManager";
 

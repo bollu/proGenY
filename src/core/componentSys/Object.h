@@ -5,6 +5,7 @@
 #include "../IO/Hash.h"
 #include "../math/mathUtil.h"
 #include "../IO/logObject.h"
+#include "uniqueNamer.h"
 #include <memory>
 
 /*!Represents a game Object. 
@@ -41,7 +42,7 @@ public:
 	/*!returns the base name of an object - the name that it was generated with.
 	 this name is NOT unique. this is useful to figure out to which "class" of objects
 	 this object belongs*/
-	std::string getBaseName() const;
+	//std::string getBaseName() const;
 
 	/*!returns the unique name of the Object*/
 	std::string getName() const;
@@ -180,32 +181,25 @@ public:
 	typedef objectMap::const_iterator cObjMapIt;
 
 private:
+	static UniqueNames uniqueNames;
+
 	//stores whether the Object is dead or not
 	bool dead;
 
 	//name of the object
-	std::string name;
-	std::string baseName;
-
-	//a map of properties that can be accessed by all objects
-	std::map<const Hash*, baseProperty* > propertyMap; 
-
-
+	const Hash *name;
+	
+	Hashmap *propMap;
+	Hashmap *messagesMap;
 	//map of messages within the object.
 	std::map<const Hash*, baseProperty* > messages;
 	
 	//array of children
 	Object *parent;
 	std::vector<Object *>children;
-		
-	//stores the number of times an object of the same name has been created
-	//to ensure all names are unique. The way war3 used to do it.
-	static std::map<std::string, unsigned int>nameMap;
-	typedef std::map<std::string, unsigned int>::iterator nameIt;
 
 	friend class ObjectProcessor;
 
-	void _genUniqueName(std::string genericName, std::string &out);
 	
 	template <typename T>
 	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){

@@ -21,10 +21,11 @@ objects
 
 \sa renderProcesor Renderer
 */
+/*
 class RenderData{
 public:
 	
-	/*! Add a Renderer the RenderData */
+
 	void addRenderer(renderProcess::baseRenderNode *renderer){
 		this->renderers.push_back(renderer);
 	}
@@ -39,6 +40,19 @@ private:
 	friend class RenderProcessor;
 	std::vector< renderProcess::baseRenderNode *>renderers;
 };
+*/
+
+struct RenderData {
+	_RenderNode *renderNodes;
+	int numRenderNodes;
+
+private:
+	RenderData() {
+		numRenderNodes = 0;
+		renderNodes = NULL;
+	};
+	friend class RenderProcessor;
+};
 
 /*! an ObjectProcessor that handles rendering Object
 the Object must be attached with RenderData. the ObjectProcessor
@@ -49,7 +63,7 @@ public:
 
 	RenderProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 
-	void createRenderData();
+	static RenderData createRenderData(_RenderNode *renderNodes, int numRenderNodes = 1);
 private:
 	sf::RenderWindow *window;
 	viewProcess *view;
@@ -58,8 +72,6 @@ private:
 	void _Render(vector2 pos, util::Angle &angle , RenderData *data, bool centered);
 
 protected:
-	void _onObjectAdd(Object *obj);
-
 	void _onObjectActivate(Object *obj);
 	void _onObjectDeactivate(Object *obj);
 	

@@ -2,6 +2,9 @@
 #include <map>
 #include <string>
 
+#include <stdint.h>
+#include "hashmap.h"
+
 #ifdef WIN32
 typedef unsigned long long uint64_t;
 #endif
@@ -34,7 +37,7 @@ public:
 	*/ 
 	static const Hash* getHash(const char* str);
 
-	static const Hash* getHash(std::string &str);
+	static const Hash* getHash(const std::string &str);
 
 	/*static const Hash* getHash(std::string& str){
 		Hash::getHash(str.c_str());
@@ -95,7 +98,7 @@ public:
 	*/
 	bool operator > (const Hash& other) const;
 
-
+	static Hashmap* CreateHashmap(unsigned int initialCapacity);
 
 private:
 
@@ -108,7 +111,7 @@ private:
 	uint64_t hashedVal;
 	
 
-	Hash(std::string &str, unsigned int seed);
+	Hash(const std::string &str, unsigned int seed);
 
 	uint64_t _MurmurHash64B ( const void * key, int len, unsigned int seed );
 
