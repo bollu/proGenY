@@ -24,7 +24,6 @@ public:
 	}
 
 	Object *createObject(vector2 _pos) const{
-		RenderData render;
 		Object *obj = new Object("bullet");
 
 		vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
@@ -48,19 +47,15 @@ public:
 
 		//renderer------------------------------------
 		float game2RenderScale = this->viewProc->getGame2RenderScale();
-		sf::Shape *sfShape = new sf::CircleShape(this->radius * game2RenderScale,
-										4);
-		
+		sf::Shape *SFMLShape  = new sf::CircleShape(this->radius * game2RenderScale,4);
+		SFMLShape->setFillColor(sf::Color::Red);
 
-		sfShape->setFillColor(sf::Color::Red);
-
-		shapeRenderNode* renderer = new shapeRenderNode(sfShape);
-		render.addRenderer(renderer);
-		
+		_RenderNode renderNode(SFMLShape, renderingLayers::action);
+		RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 	
 		//final---------------------------------
 		obj->addProp(Hash::getHash("RenderData"), 
-			new Prop<RenderData>(render));
+			new Prop<RenderData>(renderData));
 		obj->addProp(Hash::getHash("PhyData"), 
 			new Prop<PhyData>(phy));
 		obj->addProp(Hash::getHash("PickupData"), 

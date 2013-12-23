@@ -22,7 +22,7 @@ public:
 		const sf::VideoMode &desktopMode = sf::VideoMode::getDesktopMode();
 
 		//actually fill this up..
-		if(true){
+		if(false){
 			this->window = new sf::RenderWindow(desktopMode, 
 			"ProGenY", sf::Style::Default, context);
 		}else{

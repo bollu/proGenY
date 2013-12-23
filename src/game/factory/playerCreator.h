@@ -25,8 +25,6 @@ public:
 		vector2 *pos = playerObj->getPrimitive<vector2>(Hash::getHash("position"));
 		*pos = playerInitPos;
 
-
-		RenderData render;
 		groundMoveData move;
 		
 		//physics------------------------------------------------------------
@@ -46,14 +44,14 @@ public:
 		phy.collisionType = Hash::getHash("player");
 
 	//renderNode---------------------------------------------------------------
-		sf::Shape *SFMLShape = renderUtil::createShape(&playerBoundingBox, 
-			viewProc);
-		
+		sf::Shape *SFMLShape = renderUtil::createShape(&playerBoundingBox, viewProc);
 		SFMLShape->setFillColor(sf::Color::Green);
 
-		shapeRenderNode *renderNode = new shapeRenderNode(SFMLShape, renderingLayers::action);
+		_RenderNode renderNode(SFMLShape, renderingLayers::action);
+		RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
-		render.addRenderer(renderNode);
+		//shapeRenderNode *renderNode = new shapeRenderNode(SFMLShape, renderingLayers::action);
+		//render.addRenderer(renderNode);
 
 	//movement-----------------------------------------------------------
 		move.xVel = 60;
@@ -71,7 +69,7 @@ public:
 			new Prop<PhyData>(phy));
 
 		playerObj->addProp(Hash::getHash("RenderData"), 
-			new Prop<RenderData>(render));
+			new Prop<RenderData>(renderData));
 
 		playerObj->addProp(Hash::getHash("groundMoveData"), 
 			new Prop<groundMoveData>(move));

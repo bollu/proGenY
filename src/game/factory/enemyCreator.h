@@ -21,7 +21,6 @@ public:
 
 
 	Object *createObject(vector2 _pos) const{
-		RenderData render;
 		
 		Object *enemy = new Object("enemy");
 
@@ -48,20 +47,19 @@ public:
 	
 
 	//SFMLShape--------------------------------------------------------------------
-		sf::Shape *SFMLShape = renderUtil::createShape(&enemyBoundingBox, 
-			viewProc);
 
+		sf::Shape *SFMLShape = renderUtil::createShape(&enemyBoundingBox, viewProc);
 		SFMLShape->setFillColor(sf::Color::White);
 		SFMLShape->setOutlineColor(sf::Color::Black);
 		SFMLShape->setOutlineThickness(-3.0);
 
-		shapeRenderNode* renderNode = new shapeRenderNode(SFMLShape, renderingLayers::aboveAction);
-		render.addRenderer(renderNode);
-	
+		_RenderNode renderNode(SFMLShape, renderingLayers::action);
+		RenderData renderData = RenderProcessor::createRenderData(&renderNode);
+
 	
 		//final---------------------------------
 		enemy->addProp(Hash::getHash("RenderData"), 
-			new Prop<RenderData>(render));
+			new Prop<RenderData>(renderData));
 		enemy->addProp(Hash::getHash("PhyData"), 
 			new Prop<PhyData>(phy));
 	

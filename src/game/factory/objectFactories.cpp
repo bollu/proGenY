@@ -124,7 +124,6 @@ Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
 */
 
 Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
-	RenderData render;
 	OffsetData offset;
 	
 	assert(info.parent != NULL);
@@ -138,21 +137,24 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 
 	//renderer------------------------------------
 	vector2 gunDim = vector2(2,1) * info.viewProc->getGame2RenderScale();
-	sf::Shape *shape = renderUtil::createRectangleShape(gunDim);
-	shape->setFillColor(sf::Color(rand()% 256, rand()% 256, rand()% 256));
-	shape->setOutlineColor(sf::Color::White);
-	shape->setOutlineThickness(-2.0);
 
-	shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::aboveAction);
-	render.addRenderer(renderer);
-	
+
+	sf::Shape *SFMLShape  = renderUtil::createRectangleShape(gunDim);
+	SFMLShape->setFillColor(sf::Color::Red);
+	SFMLShape->setFillColor(sf::Color(rand()% 256, rand()% 256, rand()% 256));
+	SFMLShape->setOutlineColor(sf::Color::White);
+	SFMLShape->setOutlineThickness(-2.0);
+
+	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
+
 	//offset-------------------------------------
 	offset.offsetAngle = false;
 	
 
 	//final---------------------------------
 	gun->addProp(Hash::getHash("RenderData"), 
-		new Prop<RenderData>(render));
+		new Prop<RenderData>(renderData));
 	gun->addProp(Hash::getHash("GunData"), 
 		new Prop<GunData>(info.gunData));
 	
@@ -164,8 +166,6 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 };
 
 Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
-	RenderData render;
-
 	
 	Object *obj = new Object("bullet");
 	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
@@ -187,18 +187,15 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	phy.collisionType = Hash::getHash("bullet");
 	
 	//renderer------------------------------------
-	sf::Shape *sfShape = renderUtil::createShape(&bulletBoundingBox, 
-		info.viewProc);
+	sf::Shape *SFMLShape  =renderUtil::createShape(&bulletBoundingBox, info.viewProc);
+	SFMLShape->setFillColor(sf::Color::Red);
 
-	sfShape->setFillColor(sf::Color::Red);
-
-	shapeRenderNode *shapeRenderer = new shapeRenderNode(sfShape);
-	render.addRenderer(shapeRenderer);
-	
+	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
 	obj->addProp(Hash::getHash("RenderData"), 
-		new Prop<RenderData>(render));
+		new Prop<RenderData>(renderData));
 	obj->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
 	obj->addProp(Hash::getHash("BulletData"), 
@@ -217,9 +214,6 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 Object *CreateCell();
 Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 	
-	RenderData render;
-
-	
 	std::vector<AABB> AABBs = genTerrainChunks(info.terrain);
 	//HACK!-----------------------------------------
 
@@ -229,6 +223,9 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 	b2PolygonShape phyShapes [2000];
 	b2FixtureDef terrainFixtures [2000];
+	_RenderNode renderNodes [2000];
+
+
 	int numAABBs = 0;
 
 	for(auto terrainChunk : AABBs) {
@@ -252,13 +249,12 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 		{
 			//renderer------------------------------------
-			sf::Shape *shape = renderUtil::createShape(&phyShape, 
-			info.viewProc);
+			float game2RenderScale = info.viewProc->getGame2RenderScale();
+			sf::Shape *SFMLShape  = renderUtil::createShape(&phyShape, info.viewProc);
+			SFMLShape->setFillColor(sf::Color::Blue);
 
-			shape->setFillColor(sf::Color::Blue);
-
-			shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
-			render.addRenderer(renderer);
+			renderNodes[numAABBs].setRenderer(SFMLShape, renderingLayers::HUD);
+			//_RenderNode renderNode(SFMLShape, renderingLayers::HUD);
 		}
 
 		numAABBs++;
@@ -270,10 +266,11 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 	PhyData phy = PhyProcessor::createPhyData(&bodyDef, terrainFixtures, numAABBs);
 	phy.collisionType = Hash::getHash("terrain");
 
+	RenderData renderData = RenderProcessor::createRenderData(renderNodes, numAABBs);
 
 	Object *obj = new Object("terrain");
 	obj->addProp(Hash::getHash("RenderData"), 
-		new Prop<RenderData>(render));
+		new Prop<RenderData>(renderData));
 	obj->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
 
@@ -283,8 +280,6 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 
 Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
-	RenderData render;
-	
 	Object *obj = new Object("pickup");
 
 	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
@@ -308,19 +303,15 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 
 	//renderer------------------------------------
 	float game2RenderScale = info.viewProc->getGame2RenderScale();
-	sf::Shape *sfShape = new sf::CircleShape(info.radius * game2RenderScale,
-									4);
-	
+	sf::Shape *SFMLShape  = new sf::CircleShape(info.radius * game2RenderScale, 4);
+	SFMLShape->setFillColor(sf::Color::Red);
 
-	sfShape->setFillColor(sf::Color::Red);
-
-	shapeRenderNode* renderer = new shapeRenderNode(sfShape);
-	render.addRenderer(renderer);
-	
+	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
 	obj->addProp(Hash::getHash("RenderData"), 
-		new Prop<RenderData>(render));
+		new Prop<RenderData>(renderData));
 	obj->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
 	obj->addProp(Hash::getHash("PickupData"), 

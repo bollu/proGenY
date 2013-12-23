@@ -19,7 +19,6 @@ public:
 	}
 
 	Object *createObject(vector2 dummyPos) const{
-		RenderData render;
 		healthData health;
 		
 		Object *dummy = new Object("dummy");
@@ -45,20 +44,19 @@ public:
 
 
 		//renderer------------------------------------
-		sf::Shape *shape = renderUtil::createShape(&dummyShape, 
-			viewProc);
+			sf::Shape *SFMLShape = renderUtil::createShape(&dummyShape, viewProc);
+			SFMLShape->setFillColor(sf::Color::Red);
 
-		shape->setFillColor(sf::Color::Red);
+			_RenderNode renderNode(SFMLShape, renderingLayers::action);
+			RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::HUD);
-		render.addRenderer(renderer);
 		
 		//health-----------------------------------------
 		health.maxHP = 10;
 
 		//final---------------------------------
 		dummy->addProp(Hash::getHash("RenderData"), 
-			new Prop<RenderData>(render));
+			new Prop<RenderData>(renderData));
 		dummy->addProp(Hash::getHash("PhyData"), 
 			new Prop<PhyData>(phy));
 		dummy->addProp(Hash::getHash("healthData"), 
