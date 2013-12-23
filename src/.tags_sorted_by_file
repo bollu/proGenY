@@ -5,13 +5,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 AI	core/AI/baseAI.h	/^namespace AI{$/;"	n
 ThinkFunc	core/AI/baseAI.h	/^	typedef std::function<void(Object*)> ThinkFunc;$/;"	t	namespace:AI
-Hash	core/IO/Hash.cpp	/^Hash::Hash(std::string &str, unsigned int seed){$/;"	f	class:Hash
+CreateHashmap	core/IO/Hash.cpp	/^Hashmap* Hash::CreateHashmap(unsigned int initialCapacity){$/;"	f	class:Hash
+Hash	core/IO/Hash.cpp	/^Hash::Hash(const std::string &str, unsigned int seed){$/;"	f	class:Hash
 Hash2Str	core/IO/Hash.cpp	/^std::string Hash::Hash2Str(const Hash *hash){$/;"	f	class:Hash
 _MurmurHash64B	core/IO/Hash.cpp	/^uint64_t Hash::_MurmurHash64B ( const void * key, int len, unsigned int seed ){$/;"	f	class:Hash
 getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(const char* str){$/;"	f	class:Hash
-getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(std::string &str){$/;"	f	class:Hash
+getHash	core/IO/Hash.cpp	/^const Hash* Hash::getHash(const std::string &str){$/;"	f	class:Hash
 getVal	core/IO/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
 hashMap	core/IO/Hash.cpp	/^std::map<std::string, Hash* > Hash::hashMap;$/;"	m	class:Hash	file:
+hashmapEquals	core/IO/Hash.cpp	/^static bool hashmapEquals(void *A,void *B){$/;"	f	file:
+hashmapHash	core/IO/Hash.cpp	/^static int hashmapHash(void *key){$/;"	f	file:
 operator <	core/IO/Hash.cpp	/^bool Hash::operator < (const Hash &other) const{$/;"	f	class:Hash
 operator ==	core/IO/Hash.cpp	/^bool Hash::operator == (const Hash &other) const{$/;"	f	class:Hash
 operator >	core/IO/Hash.cpp	/^bool Hash::operator > (const Hash &other) const{$/;"	f	class:Hash
@@ -44,6 +47,39 @@ eventManager	core/IO/eventProcess.h	/^ 	EventManager &eventManager;$/;"	m	class:
 eventProcess	core/IO/eventProcess.h	/^ 	eventProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:eventProcess
 eventProcess	core/IO/eventProcess.h	/^ class eventProcess : public Process{$/;"	c
 window	core/IO/eventProcess.h	/^ 	sf::RenderWindow *window;$/;"	m	class:eventProcess
+Entry	core/IO/hashmap.c	/^struct Entry {$/;"	s	file:
+Entry	core/IO/hashmap.c	/^typedef struct Entry Entry;$/;"	t	typeref:struct:Entry	file:
+Hashmap	core/IO/hashmap.c	/^struct Hashmap {$/;"	s	file:
+bucketCount	core/IO/hashmap.c	/^    size_t bucketCount;$/;"	m	struct:Hashmap	file:
+buckets	core/IO/hashmap.c	/^    Entry** buckets;$/;"	m	struct:Hashmap	file:
+calculateIndex	core/IO/hashmap.c	/^static inline size_t calculateIndex(size_t bucketCount, int hash) {$/;"	f	file:
+createEntry	core/IO/hashmap.c	/^static Entry* createEntry(void* key, int hash, void* value) {$/;"	f	file:
+equalKeys	core/IO/hashmap.c	/^static inline bool equalKeys(void* keyA, int hashA, void* keyB, int hashB,$/;"	f	file:
+equals	core/IO/hashmap.c	/^    bool (*equals)(void* keyA, void* keyB);$/;"	m	struct:Hashmap	file:
+expandIfNecessary	core/IO/hashmap.c	/^static void expandIfNecessary(Hashmap* map) {$/;"	f	file:
+hash	core/IO/hashmap.c	/^    int (*hash)(void* key);$/;"	m	struct:Hashmap	file:
+hash	core/IO/hashmap.c	/^    int hash;$/;"	m	struct:Entry	file:
+hashKey	core/IO/hashmap.c	/^static inline int hashKey(Hashmap* map, void* key) {$/;"	f	file:
+hashmapContainsKey	core/IO/hashmap.c	/^bool hashmapContainsKey(Hashmap* map, void* key) {$/;"	f
+hashmapCountCollisions	core/IO/hashmap.c	/^size_t hashmapCountCollisions(Hashmap* map) {$/;"	f
+hashmapCreate	core/IO/hashmap.c	/^Hashmap* hashmapCreate(size_t initialCapacity,$/;"	f
+hashmapCurrentCapacity	core/IO/hashmap.c	/^size_t hashmapCurrentCapacity(Hashmap* map) {$/;"	f
+hashmapForEach	core/IO/hashmap.c	/^void hashmapForEach(Hashmap* map, $/;"	f
+hashmapFree	core/IO/hashmap.c	/^void hashmapFree(Hashmap* map) {$/;"	f
+hashmapGet	core/IO/hashmap.c	/^void* hashmapGet(Hashmap* map, void* key) {$/;"	f
+hashmapHash	core/IO/hashmap.c	/^int hashmapHash(void* key, size_t keySize) {$/;"	f
+hashmapIntEquals	core/IO/hashmap.c	/^bool hashmapIntEquals(void* keyA, void* keyB) {$/;"	f
+hashmapIntHash	core/IO/hashmap.c	/^int hashmapIntHash(void* key) {$/;"	f
+hashmapMemoize	core/IO/hashmap.c	/^void* hashmapMemoize(Hashmap* map, void* key, $/;"	f
+hashmapPut	core/IO/hashmap.c	/^void* hashmapPut(Hashmap* map, void* key, void* value) {$/;"	f
+hashmapRemove	core/IO/hashmap.c	/^void* hashmapRemove(Hashmap* map, void* key) {$/;"	f
+hashmapSize	core/IO/hashmap.c	/^size_t hashmapSize(Hashmap* map) {$/;"	f
+key	core/IO/hashmap.c	/^    void* key;$/;"	m	struct:Entry	file:
+next	core/IO/hashmap.c	/^    Entry* next;$/;"	m	struct:Entry	file:
+size	core/IO/hashmap.c	/^    size_t size;$/;"	m	struct:Hashmap	file:
+value	core/IO/hashmap.c	/^    void* value;$/;"	m	struct:Entry	file:
+Hashmap	core/IO/hashmap.h	/^typedef struct Hashmap Hashmap;$/;"	t	typeref:struct:Hashmap
+__HASHMAP_H	core/IO/hashmap.h	2;"	d
 baseLog	core/IO/logObject.cpp	/^IO::baseLog::baseLog(){};$/;"	f	class:IO::baseLog
 thresholdLevel	core/IO/logObject.cpp	/^IO::logLevel IO::baseLog::thresholdLevel;$/;"	m	class:IO::baseLog	file:
 ~baseLog	core/IO/logObject.cpp	/^IO::baseLog::~baseLog(){}$/;"	f	class:IO::baseLog
@@ -80,27 +116,34 @@ strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
 util	core/IO/strHelper.h	/^namespace util{$/;"	n
 Draw	core/Rendering/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
-addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(renderProcess::baseRenderNode *node){$/;"	f	class:renderProcess
-removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(renderProcess::baseRenderNode *toRemove){$/;"	f	class:renderProcess
+addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(_RenderNode &node){$/;"	f	class:renderProcess
+drawShape_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawShape_(_RenderNode &node){$/;"	f	class:renderProcess
+drawSprite_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawSprite_(_RenderNode &node){$/;"	f	class:renderProcess
+drawText_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawText_(_RenderNode &node){$/;"	f	class:renderProcess
+freeRenderNode	core/Rendering/renderProcess.cpp	/^void freeRenderNode(_RenderNode &node){$/;"	f
+removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(_RenderNode &toRemove){$/;"	f	class:renderProcess
 renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:renderProcess
-Draw	core/Rendering/renderProcess.h	/^		void Draw(sf::RenderWindow *window){$/;"	f	class:renderProcess::renderNode
-baseRenderNode	core/Rendering/renderProcess.h	/^		baseRenderNode(){$/;"	f	class:renderProcess::baseRenderNode
-baseRenderNode	core/Rendering/renderProcess.h	/^	class baseRenderNode{$/;"	c	class:renderProcess
-drawDisabled	core/Rendering/renderProcess.h	/^		bool drawDisabled;$/;"	m	class:renderProcess::baseRenderNode
-drawable	core/Rendering/renderProcess.h	/^		T *drawable;$/;"	m	class:renderProcess::renderNode
-nodes	core/Rendering/renderProcess.h	/^	std::list<baseRenderNode *> nodes;$/;"	m	class:renderProcess
-renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
-renderNode	core/Rendering/renderProcess.h	/^		renderNode(T *_drawable, int z) : drawable(_drawable){$/;"	f	class:renderProcess::renderNode
-renderNode	core/Rendering/renderProcess.h	/^	class renderNode : public baseRenderNode{$/;"	c	class:renderProcess
+setRenderNodeAngle	core/Rendering/renderProcess.cpp	/^void setRenderNodeAngle(_RenderNode &node, util::Angle angle){$/;"	f
+setRenderNodePosition	core/Rendering/renderProcess.cpp	/^void setRenderNodePosition(_RenderNode &node, vector2 position){$/;"	f
+Shape	core/Rendering/renderProcess.h	/^		Shape$/;"	e	enum:_RenderNode::Type
+Sprite	core/Rendering/renderProcess.h	/^		Sprite,$/;"	e	enum:_RenderNode::Type
+Text	core/Rendering/renderProcess.h	/^		Text,$/;"	e	enum:_RenderNode::Type
+Type	core/Rendering/renderProcess.h	/^	enum Type{$/;"	g	struct:_RenderNode
+_RenderNode	core/Rendering/renderProcess.h	/^	_RenderNode() {$/;"	f	struct:_RenderNode
+_RenderNode	core/Rendering/renderProcess.h	/^	_RenderNode(sf::Shape *shape, int z) {$/;"	f	struct:_RenderNode
+_RenderNode	core/Rendering/renderProcess.h	/^struct _RenderNode{$/;"	s
+disabled_	core/Rendering/renderProcess.h	/^	bool disabled_;$/;"	m	struct:_RenderNode
+nodes	core/Rendering/renderProcess.h	/^	std::list<_RenderNode *> nodes;$/;"	m	class:renderProcess
 renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
-setPosition	core/Rendering/renderProcess.h	/^		void setPosition(vector2 position){$/;"	f	class:renderProcess::renderNode
-setRotation	core/Rendering/renderProcess.h	/^		void setRotation(util::Angle angle){$/;"	f	class:renderProcess::renderNode
-shapeRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> shapeRenderNode;$/;"	t
-sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(baseRenderNode *first, baseRenderNode *second){$/;"	f	class:renderProcess
-spriteRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> spriteRenderNode;$/;"	t
-textRenderNode	core/Rendering/renderProcess.h	/^typedef renderProcess::renderNode<sf::Shape> textRenderNode;$/;"	t
+renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:_RenderNode	typeref:union:_RenderNode::__anon1
+setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(sf::Shape *shape, int z) {$/;"	f	struct:_RenderNode
+shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:_RenderNode::__anon1
+sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(_RenderNode *first, _RenderNode *second){$/;"	f	class:renderProcess
+sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:_RenderNode::__anon1
+text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:_RenderNode::__anon1
+type_	core/Rendering/renderProcess.h	/^	} type_;$/;"	m	struct:_RenderNode	typeref:enum:_RenderNode::Type
 window	core/Rendering/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
-z	core/Rendering/renderProcess.h	/^		int z;$/;"	m	class:renderProcess::baseRenderNode
+z_	core/Rendering/renderProcess.h	/^	int z_;$/;"	m	struct:_RenderNode
 createCircleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createCircleShape(const b2CircleShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
 createPolyShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
 createRectangleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){$/;"	f	class:renderUtil
@@ -184,28 +227,24 @@ world	core/World/worldProcess.h	/^	b2World *world = NULL;$/;"	m	class:worldProce
 worldAccess	core/World/worldProcess.h	/^	std::recursive_mutex worldAccess;          $/;"	m	class:worldProcess
 worldProcess	core/World/worldProcess.h	/^class worldProcess : public Process{$/;"	c
 Kill	core/componentSys/Object.cpp	/^void Object::Kill(){$/;"	f	class:Object
-Object	core/componentSys/Object.cpp	/^Object::Object(std::string _name) : dead(false), baseName(_name), parent(NULL){$/;"	f	class:Object
-_genUniqueName	core/componentSys/Object.cpp	/^void Object::_genUniqueName(std::string genericName, std::string &out){$/;"	f	class:Object
+Object	core/componentSys/Object.cpp	/^Object::Object(std::string name) : dead(false), parent(NULL){$/;"	f	class:Object
 _getBaseProp	core/componentSys/Object.cpp	/^baseProperty *Object::_getBaseProp(const Hash *name) const{$/;"	f	class:Object
 _printProperties	core/componentSys/Object.cpp	/^void Object::_printProperties() const{$/;"	f	class:Object
 addChild	core/componentSys/Object.cpp	/^void Object::addChild(Object *childObj){$/;"	f	class:Object
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const Hash *name, baseProperty *value){$/;"	f	class:Object
 addProp	core/componentSys/Object.cpp	/^void Object::addProp(const char *name, baseProperty *value){$/;"	f	class:Object
-cPropertyIt	core/componentSys/Object.cpp	/^typedef std::map<const Hash*, baseProperty* >::const_iterator cPropertyIt;$/;"	t	file:
-getBaseName	core/componentSys/Object.cpp	/^std::string Object::getBaseName() const{$/;"	f	class:Object
+destoyPropMap	core/componentSys/Object.cpp	/^bool destoyPropMap(void* key, void* value, void* context){$/;"	f
 getName	core/componentSys/Object.cpp	/^std::string Object::getName() const{$/;"	f	class:Object
 getParent	core/componentSys/Object.cpp	/^Object *Object::getParent(){$/;"	f	class:Object
 hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const Hash *name) const{$/;"	f	class:Object
 hasProperty	core/componentSys/Object.cpp	/^bool Object::hasProperty(const char *name) const{$/;"	f	class:Object
 isDead	core/componentSys/Object.cpp	/^bool Object::isDead() const{$/;"	f	class:Object
-nameMap	core/componentSys/Object.cpp	/^std::map<std::string, unsigned int> Object::nameMap;$/;"	m	class:Object	file:
-propertyIt	core/componentSys/Object.cpp	/^typedef std::map<const Hash*, baseProperty* >::iterator propertyIt;$/;"	t	file:
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const Hash *name) const{$/;"	f	class:Object
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
+uniqueNames	core/componentSys/Object.cpp	/^UniqueNames Object::uniqueNames;$/;"	m	class:Object	file:
 ~Object	core/componentSys/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
 Object	core/componentSys/Object.h	/^class Object{$/;"	c
 _getProperty	core/componentSys/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
-baseName	core/componentSys/Object.h	/^	std::string baseName;$/;"	m	class:Object
 cObjMapIt	core/componentSys/Object.h	/^	typedef objectMap::const_iterator cObjMapIt;$/;"	t	class:Object
 children	core/componentSys/Object.h	/^	std::vector<Object *>children;$/;"	m	class:Object
 dead	core/componentSys/Object.h	/^	bool dead;$/;"	m	class:Object
@@ -213,16 +252,16 @@ getMessage	core/componentSys/Object.h	/^	T* getMessage(const Hash *tag) {$/;"	f	
 getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const Hash *name){$/;"	f	class:Object
 getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
 messages	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > messages;$/;"	m	class:Object
-name	core/componentSys/Object.h	/^	std::string name;$/;"	m	class:Object
-nameIt	core/componentSys/Object.h	/^	typedef std::map<std::string, unsigned int>::iterator nameIt;$/;"	t	class:Object
-nameMap	core/componentSys/Object.h	/^	static std::map<std::string, unsigned int>nameMap;$/;"	m	class:Object
+messagesMap	core/componentSys/Object.h	/^	Hashmap *messagesMap;$/;"	m	class:Object
+name	core/componentSys/Object.h	/^	const Hash *name;$/;"	m	class:Object
 objMapIt	core/componentSys/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"	t	class:Object
 objectList	core/componentSys/Object.h	/^	typedef std::vector<Object *> objectList;$/;"	t	class:Object
 objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
 parent	core/componentSys/Object.h	/^	Object *parent;$/;"	m	class:Object
-propertyMap	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > propertyMap; $/;"	m	class:Object
+propMap	core/componentSys/Object.h	/^	Hashmap *propMap;$/;"	m	class:Object
 sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {$/;"	f	class:Object
 sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, bool sendToChildren = false) {$/;"	f	class:Object
+uniqueNames	core/componentSys/Object.h	/^	static UniqueNames uniqueNames;$/;"	m	class:Object
 Process	core/componentSys/ObjectManager.cpp	/^void ObjectManager::Process(float dt){$/;"	f	class:ObjectManager
 activateObject	core/componentSys/ObjectManager.cpp	/^void ObjectManager::activateObject(Object &obj){$/;"	f	class:ObjectManager
 activateObject	core/componentSys/ObjectManager.cpp	/^void ObjectManager::activateObject(const char* name){$/;"	f	class:ObjectManager
@@ -297,7 +336,9 @@ _onObjectAdd	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_
 _onObjectDeactivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:PhyProcessor
 _onObjectDeath	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PhyProcessor
 _preProcess	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_preProcess(){$/;"	f	class:PhyProcessor
-createPhyData	core/componentSys/processor/PhyProcessor.cpp	/^PhyData PhyProcessor::createPhyData(b2BodyDef *bodyDef, b2FixtureDef fixtures[], unsigned int numFixtures = 1){$/;"	f	class:PhyProcessor
+createPhyData	core/componentSys/processor/PhyProcessor.cpp	/^PhyData PhyProcessor::createPhyData(b2BodyDef *bodyDef, b2FixtureDef fixtures[], unsigned int numFixtures){$/;"	f	class:PhyProcessor
+world	core/componentSys/processor/PhyProcessor.cpp	/^worldProcess *PhyProcessor::world;$/;"	m	class:PhyProcessor	file:
+PhyData	core/componentSys/processor/PhyProcessor.h	/^	PhyData(){};$/;"	f	struct:PhyData
 PhyData	core/componentSys/processor/PhyProcessor.h	/^struct PhyData{$/;"	s
 PhyProcessor	core/componentSys/processor/PhyProcessor.h	/^class PhyProcessor : public ObjectProcessor{$/;"	c
 _shouldProcess	core/componentSys/processor/PhyProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:PhyProcessor
@@ -308,24 +349,29 @@ contactListener	core/componentSys/processor/PhyProcessor.h	/^	objContactListener
 maxVel	core/componentSys/processor/PhyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:PhyData
 velClamped	core/componentSys/processor/PhyProcessor.h	/^	bool velClamped;$/;"	m	struct:PhyData
 view	core/componentSys/processor/PhyProcessor.h	/^	viewProcess *view;$/;"	m	class:PhyProcessor
-world	core/componentSys/processor/PhyProcessor.h	/^	worldProcess *world;$/;"	m	class:PhyProcessor
+world	core/componentSys/processor/PhyProcessor.h	/^	static worldProcess *world;$/;"	m	class:PhyProcessor
 RenderProcessor	core/componentSys/processor/RenderProcessor.cpp	/^RenderProcessor::RenderProcessor(processMgr &processManager, $/;"	f	class:RenderProcessor
 _Process	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Process(Object *obj, float dt){$/;"	f	class:RenderProcessor
-_Render	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Render(vector2 pos, util::Angle &angle, $/;"	f	class:RenderProcessor
+_Render	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_Render(vector2 pos, util::Angle &angle, RenderData *data,  bool centered){$/;"	f	class:RenderProcessor
 _onObjectActivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:RenderProcessor
-_onObjectAdd	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectAdd(Object *obj){$/;"	f	class:RenderProcessor
 _onObjectDeactivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:RenderProcessor
 _onObjectDeath	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:RenderProcessor
-RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() : centered(false){};$/;"	f	class:RenderData
-RenderData	core/componentSys/processor/RenderProcessor.h	/^class RenderData{$/;"	c
+createRenderData	core/componentSys/processor/RenderProcessor.cpp	/^RenderData RenderProcessor::createRenderData(_RenderNode *renderNodes, int numRenderNodes){$/;"	f	class:RenderProcessor
+RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() {$/;"	f	struct:RenderData
+RenderData	core/componentSys/processor/RenderProcessor.h	/^struct RenderData {$/;"	s
 RenderProcessor	core/componentSys/processor/RenderProcessor.h	/^class RenderProcessor : public ObjectProcessor{$/;"	c
 _shouldProcess	core/componentSys/processor/RenderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:RenderProcessor
-addRenderer	core/componentSys/processor/RenderProcessor.h	/^	void addRenderer(renderProcess::baseRenderNode *renderer){$/;"	f	class:RenderData
-centered	core/componentSys/processor/RenderProcessor.h	/^	bool centered;$/;"	m	class:RenderData
+numRenderNodes	core/componentSys/processor/RenderProcessor.h	/^	int numRenderNodes;$/;"	m	struct:RenderData
 render	core/componentSys/processor/RenderProcessor.h	/^	renderProcess *render;$/;"	m	class:RenderProcessor
-renderers	core/componentSys/processor/RenderProcessor.h	/^	std::vector< renderProcess::baseRenderNode *>renderers;$/;"	m	class:RenderData
+renderNodes	core/componentSys/processor/RenderProcessor.h	/^	_RenderNode *renderNodes;$/;"	m	struct:RenderData
 view	core/componentSys/processor/RenderProcessor.h	/^	viewProcess *view;$/;"	m	class:RenderProcessor
 window	core/componentSys/processor/RenderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:RenderProcessor
+destoyNameMap	core/componentSys/uniqueNamer.cpp	/^bool destoyNameMap(void* key, void* value, void* context){$/;"	f
+destroyUniqueNames	core/componentSys/uniqueNamer.cpp	/^void destroyUniqueNames(UniqueNames &names){$/;"	f
+genUniqueName	core/componentSys/uniqueNamer.cpp	/^std::string genUniqueName(UniqueNames &names, const char *baseName){$/;"	f
+initUniqueNames	core/componentSys/uniqueNamer.cpp	/^void initUniqueNames(int initialCapacity, UniqueNames &names){$/;"	f
+UniqueNames	core/componentSys/uniqueNamer.h	/^struct UniqueNames{$/;"	s
+nameMap	core/componentSys/uniqueNamer.h	/^	Hashmap *nameMap = NULL;$/;"	m	struct:UniqueNames
 Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown() : totalTime_(0), currentCooldown_(0) {}$/;"	f	class:Cooldown
 Cooldown	core/controlFlow/Cooldown.h	/^	Cooldown(T totalTime) : totalTime_(totalTime), currentCooldown_(0) {}$/;"	f	class:Cooldown
 Cooldown	core/controlFlow/Cooldown.h	/^class Cooldown {$/;"	c
@@ -1053,7 +1099,7 @@ UpdatePairs	include/Box2D/Collision/b2BroadPhase.h	/^void b2BroadPhase::UpdatePa
 b2BroadPhase	include/Box2D/Collision/b2BroadPhase.h	/^class b2BroadPhase$/;"	c
 b2Pair	include/Box2D/Collision/b2BroadPhase.h	/^struct b2Pair$/;"	s
 b2PairLessThan	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2PairLessThan(const b2Pair& pair1, const b2Pair& pair2)$/;"	f
-e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon5
+e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon6
 m_moveBuffer	include/Box2D/Collision/b2BroadPhase.h	/^	int32* m_moveBuffer;$/;"	m	class:b2BroadPhase
 m_moveCapacity	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCapacity;$/;"	m	class:b2BroadPhase
 m_moveCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCount;$/;"	m	class:b2BroadPhase
@@ -1274,8 +1320,8 @@ m_nodeCount	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_nodeCount;$/;"	m	
 m_nodes	include/Box2D/Collision/b2DynamicTree.h	/^	b2TreeNode* m_nodes;$/;"	m	class:b2DynamicTree
 m_path	include/Box2D/Collision/b2DynamicTree.h	/^	uint32 m_path;$/;"	m	class:b2DynamicTree
 m_root	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_root;$/;"	m	class:b2DynamicTree
-next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon4
-parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon4
+next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon5
+parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon5
 userData	include/Box2D/Collision/b2DynamicTree.h	/^	void* userData;$/;"	m	struct:b2TreeNode
 Evaluate	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Evaluate(int32 indexA, int32 indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
@@ -1354,11 +1400,11 @@ b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color() {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color(float32 r, float32 g, float32 b) : r(r), g(g), b(b) {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^struct b2Color$/;"	s
 b2Draw	include/Box2D/Common/b2Draw.h	/^class b2Draw$/;"	c
-e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon6
-e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon6
-e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon6
-e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon6
-e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon6
+e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon7
+e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon7
+e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon7
+e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon7
+e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon7
 g	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 m_drawFlags	include/Box2D/Common/b2Draw.h	/^	uint32 m_drawFlags;$/;"	m	class:b2Draw
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
@@ -1637,12 +1683,12 @@ b2MixRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2
 contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 createFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactCreateFcn* createFcn;$/;"	m	struct:b2ContactRegister
 destroyFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactDestroyFcn* destroyFcn;$/;"	m	struct:b2ContactRegister
-e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon1
-e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon1
-e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon1
-e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon1
-e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon1
-e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon1
+e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon2
+e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon2
+e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon2
+e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon2
+e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon2
+e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon2
 m_fixtureA	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureA;$/;"	m	class:b2Contact
 m_fixtureB	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureB;$/;"	m	class:b2Contact
 m_flags	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	uint32 m_flags;$/;"	m	class:b2Contact
@@ -2489,13 +2535,13 @@ b2_dynamicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_dynamicBody$/;"	e	enum:b2Bo
 b2_kinematicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_kinematicBody,$/;"	e	enum:b2BodyType
 b2_staticBody	include/Box2D/Dynamics/b2Body.h	/^	b2_staticBody = 0,$/;"	e	enum:b2BodyType
 bullet	include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon2
-e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon2
-e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon2
-e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon2
-e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon2
-e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon2
-e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon2
+e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon3
+e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon3
+e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon3
+e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon3
+e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon3
+e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon3
+e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon3
 fixedRotation	include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 gravityScale	include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 linearDamping	include/Box2D/Dynamics/b2Body.h	/^	float32 linearDamping;$/;"	m	struct:b2BodyDef
@@ -2716,9 +2762,9 @@ SetGravity	include/Box2D/Dynamics/b2World.h	/^inline void b2World::SetGravity(co
 SetSubStepping	include/Box2D/Dynamics/b2World.h	/^	void SetSubStepping(bool flag) { m_subStepping = flag; }$/;"	f	class:b2World
 SetWarmStarting	include/Box2D/Dynamics/b2World.h	/^	void SetWarmStarting(bool flag) { m_warmStarting = flag; }$/;"	f	class:b2World
 b2World	include/Box2D/Dynamics/b2World.h	/^class b2World$/;"	c
-e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon3
-e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon3
-e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon3
+e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon4
+e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon4
+e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon4
 m_allowSleep	include/Box2D/Dynamics/b2World.h	/^	bool m_allowSleep;$/;"	m	class:b2World
 m_blockAllocator	include/Box2D/Dynamics/b2World.h	/^	b2BlockAllocator m_blockAllocator;$/;"	m	class:b2World
 m_bodyCount	include/Box2D/Dynamics/b2World.h	/^	int32 m_bodyCount;$/;"	m	class:b2World
@@ -2837,7 +2883,7 @@ Status	include/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::Soun
 Stopped	include/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	include/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	include/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon14
+BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon15
 Chunk	include/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	include/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	include/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -2988,7 +3034,7 @@ transform	include/SFML/Graphics/RenderStates.hpp	/^    Transform      transform;
 RenderTarget	include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	include/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	include/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon8
+VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon9
 glStatesSet	include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -3233,7 +3279,7 @@ m_data	include/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/\/\/
 m_isValid	include/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	include/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	include/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon12
+AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon13
 Disconnected	include/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -3266,7 +3312,7 @@ SizeReceived	include/SFML/Network/TcpSocket.hpp	/^        std::size_t       Size
 TcpSocket	include/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
 m_pendingPacket	include/SFML/Network/TcpSocket.hpp	/^    PendingPacket m_pendingPacket; \/\/\/< Temporary data of the packet currently being received$/;"	m	class:sf::TcpSocket
 sf	include/SFML/Network/TcpSocket.hpp	/^namespace sf$/;"	n
-MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon13
+MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon14
 SFML_UDPSOCKET_HPP	include/SFML/Network/UdpSocket.hpp	26;"	d
 UdpSocket	include/SFML/Network/UdpSocket.hpp	/^class SFML_NETWORK_API UdpSocket : public Socket$/;"	c	namespace:sf
 m_buffer	include/SFML/Network/UdpSocket.hpp	/^    std::vector<char> m_buffer; \/\/\/< Temporary buffer holding the received data in Receive(Packet)$/;"	m	class:sf::UdpSocket
@@ -3405,22 +3451,22 @@ code	include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code
 control	include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	include/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon10
-joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon10
+joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon11
+joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon11
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon10
-key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon10
-mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon10
-mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon10
-mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon10
+joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon11
+key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon11
+mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon11
+mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon11
+mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon11
 position	include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	include/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon10
+size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon11
 system	include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon10
+text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon11
 type	include/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	include/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -3437,9 +3483,9 @@ GlResource	include/SFML/Window/GlResource.hpp	/^class SFML_WINDOW_API GlResource
 SFML_GLRESOURCE_HPP	include/SFML/Window/GlResource.hpp	26;"	d
 sf	include/SFML/Window/GlResource.hpp	/^namespace sf$/;"	n
 Axis	include/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
-AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon9
-ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon9
-Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon9
+AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon10
+ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon10
+Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon10
 Joystick	include/SFML/Window/Joystick.hpp	/^class SFML_WINDOW_API Joystick$/;"	c	namespace:sf
 PovX	include/SFML/Window/Joystick.hpp	/^        PovX, \/\/\/< The X axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
 PovY	include/SFML/Window/Joystick.hpp	/^        PovY  \/\/\/< The Y axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
@@ -3586,14 +3632,14 @@ sf	include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	include/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	include/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon11
-Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon11
-Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon11
-None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon11
-Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon11
+Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon12
+Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon12
+Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon12
+None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon12
+Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon12
 SFML_WINDOWSTYLE_HPP	include/SFML/Window/WindowStyle.hpp	26;"	d
 Style	include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon11
+Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon12
 sf	include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 backward	include/backward/backward.cpp	/^namespace backward {$/;"	n	file:
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
@@ -3839,9 +3885,9 @@ result	include/backward/backward.hpp	/^		find_sym_result result;$/;"	m	struct:ba
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	s	namespace:backward::details
-s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon7
-s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon7
-s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon7
+s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon8
+s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon8
+s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon8
 self	include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
 self	include/backward/backward.hpp	/^		StackTraceWithLocalsImpl& self;$/;"	m	struct:backward::StackTraceWithLocalsImpl::callback
 self	include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
@@ -3858,7 +3904,7 @@ source	include/backward/backward.hpp	/^	SourceLoc                      source;$/
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stacktrace_tag	include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
-storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon7
+storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon8
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
 swap	include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
 symtab	include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
