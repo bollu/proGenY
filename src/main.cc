@@ -99,8 +99,8 @@ void _loadSettings(Settings &settings){
 
     settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -50.0)));
     settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
-    settings.addProp(Hash::getHash("velIterations"), new iProp(3));
-    settings.addProp(Hash::getHash("collisionIterations"), new iProp(3));
+    settings.addProp(Hash::getHash("velIterations"), new iProp(10));
+    settings.addProp(Hash::getHash("collisionIterations"), new iProp(10));
 
     IO::baseLog::setThreshold(IO::logLevel::logLevelInfo);
 };
