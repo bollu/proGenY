@@ -7,7 +7,8 @@ build:
 	@sudo tup upd
 
 run: $(OUTPUT)
-	python tools/runner.py $(OUTPUT)
+	./$(OUTPUT)
+	#python tools/runner.py $(OUTPUT)
 
 clean:
 	rm -rf obj/*.o
