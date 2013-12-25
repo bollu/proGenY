@@ -145,6 +145,8 @@ void _createStates(stateProcess *stateProc){
 }
 
 //OBJECT PROCESSORS------------------------------------------------------------
+#include "core/componentSys/processor/RenderProcessor.h"
+
 #include "game/ObjProcessors/TerrainProcessor.h"
 #include "game/ObjProcessors/CameraProcessor.h"
 #include "game/ObjProcessors/BulletProcessor.h"
