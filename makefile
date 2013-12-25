@@ -19,5 +19,8 @@ monitor:
 
 docs: $(OUTPUT)
 
+git:
+	git add .swp .tup/* .ycm_*
+	git commit -m "updating dotfiles"  
 
 
