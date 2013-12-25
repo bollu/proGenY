@@ -95,12 +95,14 @@ void _loadSettings(Settings &settings){
     //TODO: actually load settings here. for now, just create the settings
     //and just load it back.
 
-    settings.addProp(Hash::getHash("screenDimensions"), new v2Prop(vector2(1280, 720)));
+    settings.loadSettingsFromFile("data//Settings");
+    
+    settings.addSetting(Hash::getHash("screenDimensions"), vector2(1280, 720));
 
-    settings.addProp(Hash::getHash("gravity"), new v2Prop(vector2(0, -50.0)));
-    settings.addProp(Hash::getHash("stepSize"), new fProp(1.0f / 60.0f));
-    settings.addProp(Hash::getHash("velIterations"), new iProp(10));
-    settings.addProp(Hash::getHash("collisionIterations"), new iProp(10));
+    settings.addSetting(Hash::getHash("gravity"), vector2(0, -50.0));
+    settings.addSetting(Hash::getHash("stepSize"), (1.0f / 60.0f));
+    settings.addSetting<int>(Hash::getHash("velIterations"), 10);
+    settings.addSetting<int>(Hash::getHash("collisionIterations"), 10);
 
     IO::baseLog::setThreshold(IO::logLevel::logLevelInfo);
 };

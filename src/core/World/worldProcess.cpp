@@ -1,4 +1,3 @@
-
 #include "worldProcess.h"
 
 
@@ -6,11 +5,11 @@ worldProcess::worldProcess(processMgr &processManager, Settings &settings, Event
 Process("worldProcess"){
 		//world = new b2World(settings.getPrimitive<vector2>("worldGravity")->getVal());
 
-	vector2 *gravity = settings.getPrimitive<vector2>(Hash::getHash("gravity"));
-	this->stepSize = *settings.getPrimitive<float>(Hash::getHash("stepSize"));
+	vector2 *gravity = settings.getSetting<vector2>(Hash::getHash("gravity"));
+	this->stepSize = *settings.getSetting<float>(Hash::getHash("stepSize"));
 
-	this->velIterations = *settings.getPrimitive<int>(Hash::getHash("velIterations"));
-	this->collisionIterations = *settings.getPrimitive<int>(Hash::getHash("collisionIterations"));
+	this->velIterations = *settings.getSetting<int>(Hash::getHash("velIterations"));
+	this->collisionIterations = *settings.getSetting<int>(Hash::getHash("collisionIterations"));
 
 	world = new b2World(*gravity);
 	//world->SetContinuousPhysics(true);

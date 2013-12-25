@@ -7,7 +7,7 @@
 windowProcess::windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) : 
 Process("windowProcess"){
 	
-	vector2 *screenDim = settings.getPrimitive<vector2>(Hash::getHash("screenDimensions"));
+	vector2 *screenDim = settings.getSetting<vector2>(Hash::getHash("screenDimensions"));
 
 	sf::ContextSettings context;
 	context.antialiasingLevel = 8;
