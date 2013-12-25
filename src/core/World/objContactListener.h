@@ -13,20 +13,23 @@ struct CollisionData{
 	PhyData *otherPhy;
 	/*!the *other* object that this object has collided with*/
 	Object *otherObj;	
-	
+
+
 	/*!the physicsData of *this* object */
 	PhyData *myPhy;
 	Object *me;
 
 	b2Contact* contact;
 
-//	const Hash *getCollidedObjectCollision();
+	//const Hash *getCollidedObjectCollision();
 };
 
 
 typedef void (*CollisionCallback) (CollisionData &collision, void *data);
 struct CollisionHandler{
-	const Hash *otherCollision;
+	//!the collision type of the object you want to hit.
+	//if this is ***NULL**, then the collisionHandler will be called for all collisions
+	const Hash *otherCollision = (const Hash*)(0xDEADBEEF);
 	CollisionCallback onBegin = NULL;
 	CollisionCallback onEnd = NULL;
 

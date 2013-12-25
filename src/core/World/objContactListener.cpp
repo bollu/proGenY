@@ -45,7 +45,7 @@ void objContactListener::_handleCollision(bool beginHandler, b2Contact *contact)
 
 
 bool objContactListener::_shouldHandleCollision(CollisionHandler *handler, PhyData *otherPhy){
-	return handler->otherCollision == otherPhy->collisionType;
+	return handler->otherCollision == otherPhy->collisionType || handler->otherCollision == NULL;
 };
 
 
