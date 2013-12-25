@@ -1,4 +1,3 @@
-#pragma once
 #include "processMgr.h"
 #include "Process.h"
 #include <typeinfo>

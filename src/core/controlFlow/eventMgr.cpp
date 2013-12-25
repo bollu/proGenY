@@ -1,4 +1,4 @@
-#pragma once
+
 #include "EventManager.h"
 #include "../IO/logObject.h"
 #include "../IO/strHelper.h"
