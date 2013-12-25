@@ -10,8 +10,7 @@
 #include "../../core/Rendering/viewProcess.h"
 #include "../../core/World/worldProcess.h"
 
-
-#include "../factory/bulletCreator.h"
+#include "BulletProcessor.h"
 
 #include "../../core/math/mathUtil.h"
 #include "../../core/controlFlow/Cooldown.h"

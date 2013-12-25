@@ -11,95 +11,95 @@ Process("renderProcess"){
 };
 
 void renderProcess::Draw(){
-	for(_RenderNode *node : nodes){
+	for(RenderNode *node : nodes){
 		//if (node->disabled_) continue;
 		drawShape_(*node);
 
 		switch(node->type_) {
-			case _RenderNode::Type::Sprite:
+			case RenderNode::Type::Sprite:
 				drawSprite_(*node);
 				break;
 
-			case _RenderNode::Type::Text:
+			case RenderNode::Type::Text:
 				drawText_(*node);
 				break;
 
-			case _RenderNode::Type::Shape:
+			case RenderNode::Type::Shape:
 				drawShape_(*node);
 				break;
 		}
 	}
 };
 
-void renderProcess::addRenderNode(_RenderNode &node){
+void renderProcess::addRenderNode(RenderNode &node){
 	this->nodes.sort(renderProcess::sortFn);
 	this->nodes.push_back(&node);
 };
 
-void renderProcess::removeRenderNode(_RenderNode &toRemove){
+void renderProcess::removeRenderNode(RenderNode &toRemove){
 	this->nodes.remove(&toRemove);
 }
 
 
-void renderProcess::drawSprite_(_RenderNode &node){
+void renderProcess::drawSprite_(RenderNode &node){
 	window->draw(*node.renderer_.sprite);
 };
 
-void renderProcess::drawShape_(_RenderNode &node){
+void renderProcess::drawShape_(RenderNode &node){
 	window->draw(*node.renderer_.shape);
 };
 
-void renderProcess::drawText_(_RenderNode &node){
+void renderProcess::drawText_(RenderNode &node){
 	window->draw(*node.renderer_.text);
 
 };
 
 
 
-void setRenderNodePosition(_RenderNode &node, vector2 position){
+void setRenderNodePosition(RenderNode &node, vector2 position){
 	switch(node.type_) {
-		case _RenderNode::Type::Sprite:
+		case RenderNode::Type::Sprite:
 			node.renderer_.sprite->setPosition(position);
 			break;
 
-		case _RenderNode::Type::Text:
+		case RenderNode::Type::Text:
 			node.renderer_.text->setPosition(position);
 			break;
 
-		case _RenderNode::Type::Shape:
+		case RenderNode::Type::Shape:
 			node.renderer_.shape->setPosition(position);
 			break;
 	}
 };
 
-void setRenderNodeAngle(_RenderNode &node, util::Angle angle){
+void setRenderNodeAngle(RenderNode &node, util::Angle angle){
 	switch(node.type_) {
-		case _RenderNode::Type::Sprite:
+		case RenderNode::Type::Sprite:
 			node.renderer_.sprite->setRotation(angle.toDeg());
 			break;
 
-		case _RenderNode::Type::Text:
+		case RenderNode::Type::Text:
 			node.renderer_.text->setRotation(angle.toDeg());
 			break;
 
-		case _RenderNode::Type::Shape:
+		case RenderNode::Type::Shape:
 			node.renderer_.shape->setRotation(angle.toDeg());
 			break;
 	}
 };
 
 
-void freeRenderNode(_RenderNode &node){
+void freeRenderNode(RenderNode &node){
 	switch(node.type_) {
-		case _RenderNode::Type::Sprite:
+		case RenderNode::Type::Sprite:
 			delete node.renderer_.sprite;
 			break;
 
-		case _RenderNode::Type::Text:
+		case RenderNode::Type::Text:
 			delete node.renderer_.text;
 			break;
 
-		case _RenderNode::Type::Shape:
+		case RenderNode::Type::Shape:
 			delete node.renderer_.shape;
 			break;
 	}

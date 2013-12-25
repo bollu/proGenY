@@ -22,7 +22,7 @@ public:
 		const sf::VideoMode &desktopMode = sf::VideoMode::getDesktopMode();
 
 		//actually fill this up..
-		if(false){
+		if(true){
 			this->window = new sf::RenderWindow(desktopMode, 
 			"ProGenY", sf::Style::Default, context);
 		}else{
@@ -40,7 +40,6 @@ public:
 	
 	/*!flips the buffer and renders the back buffer */
 	void postDraw(){
-	//	util::msgLog("-------------------------Flippingwindow");
 		window->display();
 	}
 

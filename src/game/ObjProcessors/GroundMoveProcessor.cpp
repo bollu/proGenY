@@ -1,4 +1,4 @@
-#pragma once
+
 #include "GroundMoveProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
 #include <algorithm>

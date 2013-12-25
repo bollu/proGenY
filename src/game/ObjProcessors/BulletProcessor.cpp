@@ -1,7 +1,31 @@
-
+#include "../defines/Collisions.h"
 #include "BulletProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
 
+
+void bulletCollisionCallback(CollisionData &collision, void *data){
+	Object *obj = collision.me;
+	assert(obj != NULL);
+
+	Object *other = collision.otherObj;
+	const Hash *otherCollision = collision.otherPhy->collisionType;
+
+	BulletData *bulletData = obj->getPrimitive<BulletData>(Hash::getHash("BulletData"));
+	assert(bulletData != NULL);
+
+
+	//ignore other bullets, and stuff we're instructed to ignore
+	if(other->hasProperty(Hash::getHash("BulletData"))) {
+
+		collision.contact->SetEnabled(false);
+		return;
+	}
+
+	//send the event with the PickupData
+	
+	//after this, the evenData is deleted
+	obj->Kill();
+}
 
 void BulletProcessor::_onObjectAdd(Object *obj){
 	
@@ -17,6 +41,8 @@ void BulletProcessor::_onObjectAdd(Object *obj){
 	b2Body *body = physicsData->body;
 	assert(body != NULL);
 
+
+
 	//vector2 g = vector2::cast(world->GetGravity());
 	body->ApplyLinearImpulse(body->GetMass() * data->beginVel, body->GetWorldCenter(), true);
 	body->SetTransform(body->GetPosition(), data->angle.toRad());
@@ -29,6 +55,20 @@ void BulletProcessor::_onObjectAdd(Object *obj){
 		collider->onCreate(obj);
 	}
 
+	for(BulletModifier &modifier : data->modifiers) {
+		if(modifier.bulletCreateFunction != NULL) {
+			modifier.bulletCreateFunction(obj, modifier.createData);
+		}
+	}
+
+
+	CollisionHandler bulletCollisionHandler;
+	//if otherCollision is NULL, it lets us collide against ANYTHING
+	bulletCollisionHandler.otherCollision = NULL;
+	bulletCollisionHandler.onBegin = bulletCollisionCallback;
+	bulletCollisionHandler.data = NULL;
+
+	physicsData->collisionHandlers.push_back(bulletCollisionHandler);
 
 	
 

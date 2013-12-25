@@ -14,9 +14,20 @@
 
 struct CollisionData;
 
-typedef bool (*onEnemyCollision)(CollisionData&, Object*);
-typedef void (*onDefaultCollision)(Object*);
-typedef void (*onBulletCreate)(Object*);
+typedef bool (*onEnemyCollision)(CollisionData& collision, Object* bullet, void* data);
+typedef void (*onDefaultCollision)(Object* bullet, void *data);
+typedef void (*onBulletCreate)(Object* bullet, void *data);
+typedef void (*onBulletThink)(Object* bullet, void *data);
+
+struct BulletModifier {
+	onEnemyCollision enemyCollisionFunc = NULL;
+	onDefaultCollision defaultCollisionFunc = NULL;
+	onBulletCreate bulletCreateFunction = NULL;
+	onBulletThink bulletThinkFunction = NULL;
+
+	void *enemyCollisionData, *defaultCollisionData, *createData, *thinkData;
+
+};
 
 class BulletCollider{
 protected:
@@ -52,10 +63,11 @@ public:
 	//! BulletColliders that handle what happens during collision
 	std::vector<BulletCollider *> colliders;
 
+	std::vector<BulletModifier> modifiers;
+
+
 	//collision types considered to be enemies
 	std::unordered_set<const Hash*> enemyCollisions;
-	//collision types to be ignored
-	std::unordered_set<const Hash*> ignoreCollisions;
 		
 	BulletData(){
 		gravityScale = 3.0;
@@ -65,12 +77,12 @@ public:
 		this->enemyCollisions.insert(collision);
 	}
 
-	void addIgnoreCollision(const Hash *collision){
-		this->ignoreCollisions.insert(collision);
-	}
-
 	void addBulletCollder(BulletCollider *collider){
 		this->colliders.push_back(collider);
+	}
+
+	void addBulletModifier(BulletModifier &modifier){
+		this->modifiers.push_back(modifier);
 	}
 };
 

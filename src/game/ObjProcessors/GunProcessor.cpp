@@ -1,4 +1,3 @@
-#pragma once
 #include "GunProcessor.h"
 #include "../../core/componentSys/ObjectMgrProcess.h"
 

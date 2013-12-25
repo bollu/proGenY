@@ -5,7 +5,7 @@
 #include "../../core/Rendering/viewProcess.h"
 #include "../../core/World/worldProcess.h"
 
-struct cameraData{
+struct CameraData{
 	bool enabled;
 	vector2 cameraCenter;
 
@@ -29,7 +29,7 @@ struct cameraData{
 	float accumilator;
 
 
-	cameraData(){};
+	CameraData(){};
 };
 class cameraProcessor : public ObjectProcessor{
 
@@ -54,18 +54,18 @@ private:
 	sf::RenderWindow *window;
 	viewProcess *view;
 
-	vector2 _limitCameraCoord(vector2 cameraCoord, cameraData *data);
+	vector2 _limitCameraCoord(vector2 cameraCoord, CameraData *data);
 	vector2 _limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt);
 
-	vector2 _calcCameraMoveAmt(Object *obj, cameraData *data);
-	void _simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data);
+	vector2 _calcCameraMoveAmt(Object *obj, CameraData *data);
+	void _simulateCamera(vector2 cameraMoveAmt, float dt, CameraData *data);
 
 protected:
 	void _onObjectAdd(Object *obj);
 	void _Process(Object *obj, float dt);
 
 	bool _shouldProcess(Object *obj){
-		return obj->hasProperty("cameraData");
+		return obj->hasProperty("CameraData");
 	};
 
 };

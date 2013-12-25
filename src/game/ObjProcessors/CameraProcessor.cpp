@@ -1,4 +1,3 @@
-#pragma once
 #include "CameraProcessor.h"
 
 
@@ -6,7 +5,7 @@ void cameraProcessor::_onObjectAdd(Object *obj){
 
 	IO::infoLog<<"\nObject added to cameraProcessor";
 	
-	cameraData *data = obj->getPrimitive<cameraData>(Hash::getHash("cameraData"));
+	CameraData *data = obj->getPrimitive<CameraData>(Hash::getHash("CameraData"));
 
 	if(!data){
 		return;
@@ -23,7 +22,7 @@ void cameraProcessor::_onObjectAdd(Object *obj){
 };
 
 void cameraProcessor::_Process(Object *obj, float dt){
-	cameraData *data = obj->getPrimitive<cameraData>(Hash::getHash("cameraData"));
+	CameraData *data = obj->getPrimitive<CameraData>(Hash::getHash("CameraData"));
 
 	/*
 	if(!data){
@@ -39,7 +38,7 @@ void cameraProcessor::_Process(Object *obj, float dt){
 	this->_simulateCamera(cameraMoveAmt, dt, data);
 }
 
-vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){
+vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, CameraData *data){
 	vector2 limitedCameraCoord = cameraCoord;
 
 	if(cameraCoord.x < data->minCoord.x){
@@ -86,7 +85,7 @@ vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){
 	return limitedMoveAmt;
 };
 
-vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
+vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, CameraData *data){
 
 	vector2 windowDim = vector2::cast(window->getSize());
 	vector2 *gamePos = obj->getPrimitive<vector2>(Hash::getHash("position"));
@@ -118,7 +117,7 @@ vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){
 	return cameraMoveAmt;
 };
 
-void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){
+void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, CameraData *data){
 	vector2 newCameraCenter = view->getCenter();
 
 	data->accumilator += dt;

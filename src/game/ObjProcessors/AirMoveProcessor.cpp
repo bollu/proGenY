@@ -1,4 +1,4 @@
-#pragma once
+
 #include "AirMoveProcessor.h"
 
 void airMoveProcessor::_onObjectAdd(Object *obj){};
