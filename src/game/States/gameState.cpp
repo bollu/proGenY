@@ -1,4 +1,3 @@
-#pragma once
 #include "gameState.h"
 #include "../../core/componentSys/Object.h"
 #include "../../core/Rendering/renderUtil.h"
@@ -7,6 +6,7 @@
 #include "../ObjProcessors/CameraProcessor.h"
 
 #include "../../core/math/AABB.h"
+#include "../factory/objectFactories.h"
 
 
 void gameState::_Init(){
@@ -19,40 +19,15 @@ void gameState::_Init(){
 	this->viewProc = this->processManager->getProcess<viewProcess>(
 		Hash::getHash("viewProcess"));
 	
-	this->_initFactory();
 
 	vector2 levelDim, playerInitPos;
 	this->_generateTerrain(0, playerInitPos, levelDim);
-	
-	//this->_generateBoundary(levelDim);	
 	this->_createEnemies(levelDim);
 	this->_createDummy(levelDim);
 	this->_createPlayer(playerInitPos, levelDim);
 }
 
 
-#include "../factory/playerCreator.h"
-#include "../factory/dummyCreator.h"
-#include "../factory/pickupCreator.h"
-#include "../factory/enemyCreator.h"
-
-void gameState::_initFactory(){
-
-	
-	this->objFactory.attachObjectCreator(Hash::getHash("dummy"),
-		new dummyCreator(this->viewProc));
-
-	this->objFactory.attachObjectCreator(Hash::getHash("player"),
-		new playerCreator(this->viewProc));
-
-	this->objFactory.attachObjectCreator(Hash::getHash("pickup"),
-		new pickupCreator(this->viewProc));
-
-	this->objFactory.attachObjectCreator(Hash::getHash("enemy"),
-		new enemyCreator(this->viewProc));
-};
-
-#include "../factory/objectFactories.h"
 #include "../terrainGen/terrain.h"
 #include "../terrainGen/terrainGenerator.h"
 
@@ -87,11 +62,7 @@ void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos
 
 
 void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
-
-	playerCreator *creator = objFactory.getCreator<playerCreator>(
-		Hash::getHash("player"));
-
-	//players handlers--------------------------------------------------
+	//TODO - load Config >_<
 	playerHandlerData playerData;
 	playerData.left = sf::Keyboard::Key::A;
 	playerData.right = sf::Keyboard::Key::D;
@@ -100,18 +71,15 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 
 
 
-	this->_playerController = new playerController(this->eventManager, this->objectManager,
-		&this->objFactory, this->viewProc);
-
-	this->_playerController->createPlayer(levelDim, playerInitPos, creator,
-		playerData);
+	this->_playerController = new playerController(eventManager, objectManager, viewProc);
+	this->_playerController->createPlayer(levelDim, playerInitPos, playerData);
 	
 };
 
 
 #include "../generators/GunDataGenerator.h"
 void gameState::_createDummy(vector2 levelDim){
-	{
+	/*{
 
 		dummyCreator *creator = objFactory.getCreator<dummyCreator>(
 			Hash::getHash("dummy"));
@@ -152,31 +120,17 @@ void gameState::_createDummy(vector2 levelDim){
 		objectManager->addObject(obj);
 
 
-	}
+	}*/
 };
-
-/*
-void gameState::_generateBoundary(vector2 levelDim){
-
-	boundaryCreator *creator = objFactory.getCreator<boundaryCreator>(
-		Hash::getHash("boundary"));
-
-	creator->Init(levelDim, 3.0f);
-	Object *boundary = creator->createObject(vector2(0, -200));
-
-
-	objectManager->addObject(boundary);
-
-}*/
 
 void gameState::_createEnemies(vector2 levelDim){
 
 	
 
-	enemyCreator *creator = objFactory.getCreator<enemyCreator>(
+	/*enemyCreator *creator = objFactory.getCreator<enemyCreator>(
 		Hash::getHash("enemy"));
 
 	Object *enemy = creator->createObject(vector2(400, 400) * viewProc->getRender2GameScale());
-	objectManager->addObject(enemy);
+	objectManager->addObject(enemy);*/
 
 };
