@@ -2,6 +2,7 @@
 #include "../../core/componentSys/Object.h"
 #include "../ObjProcessors/GunProcessor.h"
 #include "../ObjProcessors/PickupProcessor.h"
+#include "../ObjProcessors/CameraProcessor.h"
 
 class viewProcess;
 
@@ -44,6 +45,15 @@ struct BulletFactoryInfo {
 };
 
 Object *CreateBullet(BulletFactoryInfo &info);
+
+//-----------------------------------------------------------
+struct EnemyFactoryInfo {
+	viewProcess *viewProc;
+	vector2 pos;
+
+};
+
+Object *CreateEnemy(EnemyFactoryInfo &info);
 //-----------------------------------------------------------
 
 struct PickupFactoryInfo {
@@ -58,7 +68,12 @@ Object *CreatePickup(PickupFactoryInfo &info);
 
 //-----------------------------------------------------------
 
-struct PlayerFactoryInfo {};
+struct PlayerFactoryInfo {
+	viewProcess *viewProc;
+	CameraData cameraData;
+
+	vector2 pos;
+};
 
 Object *CreatePlayer(PlayerFactoryInfo &info);
 

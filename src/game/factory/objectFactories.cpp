@@ -1,3 +1,4 @@
+#include "../defines/Collisions.h"
 #include "objectFactories.h"
 
 #include "../../core/Rendering/viewProcess.h"
@@ -6,9 +7,11 @@
 
 #include "../ObjProcessors/GunProcessor.h"
 #include "../ObjProcessors/OffsetProcessor.h"
+#include "../ObjProcessors/GroundMoveProcessor.h"
 
 #include "../../core/componentSys/processor/RenderProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
+
 #include "../../core/Rendering/renderUtil.h"
 
 
@@ -145,7 +148,7 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 	SFMLShape->setOutlineColor(sf::Color::White);
 	SFMLShape->setOutlineThickness(-2.0);
 
-	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//offset-------------------------------------
@@ -167,8 +170,8 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 
 Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	
-	Object *obj = new Object("bullet");
-	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
+	Object *bullet = new Object("bullet");
+	vector2 *pos = bullet->getPrimitive<vector2>(Hash::getHash("position"));
 	*pos = info.pos;
 
 	//physics------------------------------------------------------------
@@ -178,34 +181,82 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	b2CircleShape bulletBoundingBox;
 	bulletBoundingBox.m_radius = info.radius;
 
+
+	b2Filter collisionFilter;
+	collisionFilter.categoryBits = CollisionGroups::BULLET;
+
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &bulletBoundingBox;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
+	fixtureDef.filter = collisionFilter;
 
 	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
 	phy.collisionType = Hash::getHash("bullet");
 	
 	//renderer------------------------------------
-	sf::Shape *SFMLShape  =renderUtil::createShape(&bulletBoundingBox, info.viewProc);
+	sf::Shape *SFMLShape  = renderUtil::createShape(&bulletBoundingBox, info.viewProc);
 	SFMLShape->setFillColor(sf::Color::Red);
 
-	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
-	obj->addProp(Hash::getHash("RenderData"), 
+	bullet->addProp(Hash::getHash("RenderData"), 
 		new Prop<RenderData>(renderData));
-	obj->addProp(Hash::getHash("PhyData"), 
+	bullet->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
-	obj->addProp(Hash::getHash("BulletData"), 
+	bullet->addProp(Hash::getHash("BulletData"), 
 		new Prop<BulletData>(info.bulletData));
-		
-	IO::infoLog<<"bullet Created"<<IO::flush;
-	
-	return obj;
+			
+	return bullet;
 };
 
+
+Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
+
+	Object *enemy = new Object("enemy");
+
+	*enemy->getPrimitive<vector2>("position") = info.pos;
+
+
+	//physics------------------------------------------------------------
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.gravityScale = 0.0f;
+
+	b2CircleShape enemyBoundingBox;
+	enemyBoundingBox.m_radius = 1.0f;
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &enemyBoundingBox;
+	fixtureDef.friction = 0.0;
+	fixtureDef.restitution = 0.0;
+
+	//phy.fixtureDef.push_back(fixtureDef);
+	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef); 
+	phy.collisionType = Hash::getHash("enemy");
+
+
+	//SFMLShape--------------------------------------------------------------------
+
+	sf::Shape *SFMLShape = renderUtil::createShape(&enemyBoundingBox, info.viewProc);
+	SFMLShape->setFillColor(sf::Color::White);
+	SFMLShape->setOutlineColor(sf::Color::Black);
+	SFMLShape->setOutlineThickness(-3.0);
+
+	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
+
+
+	//final---------------------------------
+	enemy->addProp(Hash::getHash("RenderData"), 
+		new Prop<RenderData>(renderData));
+	enemy->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(phy));
+
+	return enemy;
+};
 
 
 
@@ -223,7 +274,7 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 
 	b2PolygonShape phyShapes [2000];
 	b2FixtureDef terrainFixtures [2000];
-	_RenderNode renderNodes [2000];
+	RenderNode renderNodes [2000];
 
 
 	int numAABBs = 0;
@@ -254,7 +305,7 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 			SFMLShape->setFillColor(sf::Color::Blue);
 
 			renderNodes[numAABBs].setRenderer(SFMLShape, renderingLayers::HUD);
-			//_RenderNode renderNode(SFMLShape, renderingLayers::HUD);
+			//RenderNode renderNode(SFMLShape, renderingLayers::HUD);
 		}
 
 		numAABBs++;
@@ -292,11 +343,15 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	b2PolygonShape pickupShape;
 	pickupShape.m_radius = info.radius;
 
+	b2Filter collisionFilter;
+	collisionFilter.categoryBits = CollisionGroups::PICKUP;
+
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &pickupShape;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
 	fixtureDef.isSensor = true;
+	fixtureDef.filter = collisionFilter;
 
 	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
 	phy.collisionType = Hash::getHash("pickup");
@@ -306,7 +361,7 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	sf::Shape *SFMLShape  = new sf::CircleShape(info.radius * game2RenderScale, 4);
 	SFMLShape->setFillColor(sf::Color::Red);
 
-	_RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
@@ -317,5 +372,66 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	obj->addProp(Hash::getHash("PickupData"), 
 		new Prop<PickupData>(info.pickup));
 	
+	return obj;
+};
+
+
+
+Object *ObjectFactories::CreatePlayer(PlayerFactoryInfo &info) {
+
+	Object *obj = new Object("player");
+	
+	vector2 *pos = obj->getPrimitive<vector2>(Hash::getHash("position"));
+	*pos = info.pos;
+
+	
+	//physics------------------------------------------------------------
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+
+	b2CircleShape playerBoundingBox;
+	playerBoundingBox.m_radius = 1.0f;
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &playerBoundingBox;
+	fixtureDef.friction = 0.0;
+	fixtureDef.restitution = 0.0;
+
+	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef);
+	phy.collisionType = Hash::getHash("player");
+
+	//renderNode---------------------------------------------------------------
+	sf::Shape *SFMLShape = renderUtil::createShape(&playerBoundingBox, info.viewProc);
+	SFMLShape->setFillColor(sf::Color::Green);
+
+	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
+	//movement-----------------------------------------------------------
+	groundMoveData moveData;
+	moveData.xVel = 60;
+	moveData.xAccel = 3;
+	moveData.movementDamping = vector2(0.05, 0.0);
+	moveData.jumpRange = info.viewProc->getRender2GameScale() * 256;
+	moveData.jumpHeight = info.viewProc->getRender2GameScale() * 128;
+	moveData.jumpSurfaceCollision = Hash::getHash("terrain");
+	
+	//camera---------------------------------------------------------------
+	info.cameraData.enabled = true;
+
+
+	//final creation--------------------------------------------------------
+	obj->addProp(Hash::getHash("PhyData"), 
+		new Prop<PhyData>(phy));
+
+	obj->addProp(Hash::getHash("RenderData"), 
+		new Prop<RenderData>(renderData));
+
+	obj->addProp(Hash::getHash("groundMoveData"), 
+		new Prop<groundMoveData>(moveData));
+
+	obj->addProp(Hash::getHash("CameraData"), 
+		new Prop<CameraData>(info.cameraData));
+
+
 	return obj;
 };
