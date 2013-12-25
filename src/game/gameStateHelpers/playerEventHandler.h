@@ -22,7 +22,7 @@ private:
 
 class playerEventHandler : public Observer{
 public:
-	playerEventHandler(EventManager *_eventManager, playerHandlerData playerData);
+	playerEventHandler(EventManager *eventManager, playerHandlerData playerData);
 	void recieveEvent(const Hash *eventName, baseProperty *eventData);
 	void Update();
 

@@ -7,83 +7,70 @@
 #include "../../core/Rendering/renderUtil.h"
 
 #include "../../core/controlFlow/EventManager.h"
-#include "../ObjProcessors/GroundMoveProcessor.h"
-#include "../ObjProcessors/CameraProcessor.h"
-#include "../factory/playerCreator.h"
 #include "../../core/componentSys/ObjectManager.h"
 
-#include "../factory/objectFactory.h"
+#include "../factory/objectFactories.h"
 
 
-playerController::playerController(EventManager *eventManager, ObjectManager *objectManager,
-	objectFactory *factory, viewProcess *viewProc){
+playerController::playerController(EventManager *eventManager, ObjectManager *objectManager, viewProcess *viewProc){
 	
-	this->_eventManager = eventManager;
-	this->_objectManager = objectManager;
-	this->_objectFactory = factory; 
-	this->viewProc = viewProc;
+	this->eventManager_ = eventManager;
+	this->objectManager_ = objectManager;
+	this->viewProc_ = viewProc;
 
-	//this->gunsMgr = new gunsManager(*_eventManager);
-	this->gunsMgr = NULL;
-	this->playerHandler = NULL;
+	this->gunsMgr_ = NULL;
+	this->playerHandler_ = NULL;
 
 	
 };
 
-void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCreator *creator,
-	playerHandlerData playerData){
+void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerHandlerData playerData){
 
 
 	//camera data--------------------------------------
+	ObjectFactories::PlayerFactoryInfo playerFactoryInfo;
+	playerFactoryInfo.viewProc = this->viewProc_;
 
-	cameraData camera;
-	camera.enabled = true;
-	camera.maxCoord = (viewProc->game2ViewCoord(levelDim));
-	camera.maxMoveAmt = vector2(30, 60);
-	camera.boxHalfW = 360;
-	camera.boxHalfH = 200;
-
-	creator->Init(camera);
+	CameraData &cameraData = playerFactoryInfo.cameraData;
+	cameraData.enabled = true;
+	cameraData.maxCoord = (viewProc_->game2ViewCoord(levelDim));
+	cameraData.maxMoveAmt = vector2(30, 60);
+	cameraData.boxHalfW = 360;
+	cameraData.boxHalfH = 200;
 
 	//player created--------------------------------------------
-	this->_createPlayer(initPos, creator);
+	playerFactoryInfo.pos = initPos;
+
+	player_ = ObjectFactories::CreatePlayer(playerFactoryInfo);
 	IO::infoLog<<"player created";
 
 	//create guns
-	this->_createGunsManager(this->player);
+	_createGunsManager(player_);
 
 	//create playerEventHandler
-	playerData.player = this->player;
-	this->_createPlayerEventHandler(playerData);
+	playerData.player = player_;
+	_createPlayerEventHandler(playerData);
 	IO::infoLog<<"player event handler created";
 
 	//add player
-	this->_objectManager->addObject(this->player);
+	objectManager_->addObject(player_);
 	IO::infoLog<<"added to object manager";
 
 };
 
 
-Object *playerController::getPlayer(){
-	return this->player;
-};
-
 void playerController::Update(float dt)
 {
-	assert(this->playerHandler != NULL);
-	this->playerHandler->Update();
-};
-
-void playerController::_createPlayer(vector2 initPos, playerCreator *creator){
-	this->player = creator->createObject(initPos);
+	assert(this->playerHandler_ != NULL);
+	playerHandler_->Update();
 };
 
 void playerController::_createGunsManager(Object *player){
- 	this->gunsMgr = new gunsManager(*this->_eventManager, *this->_objectManager, this->viewProc, player);
+ 	gunsMgr_ = new gunsManager(*this->eventManager_, *this->objectManager_, viewProc_, player);
 };
 
 void playerController::_createPlayerEventHandler(playerHandlerData &playerData)
 {
-	this->playerHandler = new playerEventHandler(this->_eventManager, playerData); 
+	this->playerHandler_ = new playerEventHandler(this->eventManager_, playerData); 
 
 };

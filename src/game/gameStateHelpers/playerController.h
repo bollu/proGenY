@@ -8,33 +8,24 @@ class playerCreator;
 struct playerHandlerData;
 class ObjectManager;
 class Object;
-class objectFactory;
 
 class playerController{
 public:
-	playerController(EventManager *_eventManager, ObjectManager *objectManager, objectFactory *factory, 
-		viewProcess *viewProc);
+	playerController(EventManager *_eventManager, ObjectManager *objectManager, viewProcess *viewProc);
 
-	void createPlayer(vector2 levelDim, 
-		vector2 initPos, playerCreator *creator, playerHandlerData playerData);	
-	
-	
+	void createPlayer(vector2 levelDim, vector2 initPos, playerHandlerData playerData);
 	void Update(float dt);
-
-	Object *getPlayer();
 
 private:
 
-	EventManager *_eventManager;
-	ObjectManager *_objectManager;
-	objectFactory *_objectFactory;
-	viewProcess *viewProc;
+	EventManager *eventManager_;
+	ObjectManager *objectManager_;
+	viewProcess *viewProc_;
 	
-	Object *player;
-	gunsManager *gunsMgr;
-	playerEventHandler *playerHandler;
+	Object *player_;
+	gunsManager *gunsMgr_;
+	playerEventHandler *playerHandler_;
 
-	vector2 levelDim;
 
 	void _createPlayer(vector2 initPos, playerCreator *creator);
 	void _createGunsManager(Object *player);

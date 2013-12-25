@@ -1,7 +1,6 @@
 #pragma once
 #include "../ObjProcessors/GunProcessor.h"
 #include "../../core/controlFlow/EventManager.h"
-#include "../factory/objectFactory.h"
 
 class ObjectManager;
 
