@@ -10,52 +10,20 @@ class windowProcess : public Process{
 	sf::RenderWindow *window;
 	sf::Color clearColor;
 public:
-	windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) : 
-	Process("windowProcess"){
-		
-		vector2 *screenDim = settings.getPrimitive<vector2>(Hash::getHash("screenDimensions"));
-
-		sf::ContextSettings context;
-		context.antialiasingLevel = 8;
-
-		const sf::VideoMode &fullscreenMode = sf::VideoMode::getFullscreenModes()[0];
-		const sf::VideoMode &desktopMode = sf::VideoMode::getDesktopMode();
-
-		//actually fill this up..
-		if(true){
-			this->window = new sf::RenderWindow(desktopMode, 
-			"ProGenY", sf::Style::Default, context);
-		}else{
-			this->window = new sf::RenderWindow(fullscreenMode, 
-			"ProGenY", sf::Style::Fullscreen, context);
-		}
-		
-		clearColor = sf::Color(0, 0, 0, 255);
-	}
+	windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager);
 
 	/*!clears the window and gets it ready for rendering */
-	virtual void preUpdate(){
-		window->clear(this->clearColor);
-	};
+	virtual void preUpdate();
 	
 	/*!flips the buffer and renders the back buffer */
-	void postDraw(){
-		window->display();
-	}
+	void postDraw();
 
-	void Shudown(){
-		window->close();
-	}
+	void Shudown();
 	
-	sf::RenderWindow *getWindow(){
-		return this->window;
-	}
+	/*!returns the instance of the SFML Window*/
+	sf::RenderWindow *getWindow();
 
-	void setClearColor(sf::Color color){
-		this->clearColor = color;
-	}
-
-
-
+	/*!sets the background color of the window on refreshing*/
+	void setClearColor(sf::Color color);
 
 };
