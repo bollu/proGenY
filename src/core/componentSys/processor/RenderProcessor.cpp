@@ -1,4 +1,3 @@
-#pragma once
 #include "RenderProcessor.h"
 
 RenderProcessor::RenderProcessor(processMgr &processManager, 
@@ -14,10 +13,10 @@ RenderProcessor::RenderProcessor(processMgr &processManager,
 };
 
 
-RenderData RenderProcessor::createRenderData(_RenderNode *renderNodes, int numRenderNodes){
+RenderData RenderProcessor::createRenderData(RenderNode *renderNodes, int numRenderNodes){
 	assert(numRenderNodes > 0 && renderNodes != NULL);
 	RenderData renderData;
-	renderData.renderNodes = new _RenderNode[numRenderNodes];
+	renderData.renderNodes = new RenderNode[numRenderNodes];
 
 	for(int i = 0; i < numRenderNodes; i++){
 		renderData.renderNodes[i] = renderNodes[i];
@@ -87,7 +86,7 @@ void RenderProcessor::_Render(vector2 pos, util::Angle &angle, RenderData *data,
 
 	//loop through the renderers
 	for(int i = 0; i < data->numRenderNodes; i++){
-		_RenderNode &renderer = data->renderNodes[i];
+		RenderNode &renderer = data->renderNodes[i];
 		setRenderNodePosition(renderer, pos);
 		setRenderNodeAngle(renderer, angle);
 	}

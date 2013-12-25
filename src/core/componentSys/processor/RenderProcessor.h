@@ -43,7 +43,7 @@ private:
 */
 
 struct RenderData {
-	_RenderNode *renderNodes;
+	RenderNode *renderNodes;
 	int numRenderNodes;
 
 private:
@@ -63,7 +63,7 @@ public:
 
 	RenderProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager);
 
-	static RenderData createRenderData(_RenderNode *renderNodes, int numRenderNodes = 1);
+	static RenderData createRenderData(RenderNode *renderNodes, int numRenderNodes = 1);
 private:
 	sf::RenderWindow *window;
 	viewProcess *view;
