@@ -1,19 +1,44 @@
+#pragma once
 #include "logObject.h"
 
-template<typename T>
-T* Settings::getPrimitive(const Hash *propertyName){
-	auto it = settingsMap.find(propertyName);
 
-	if(it == settingsMap.end()){
-		IO::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<
-		propertyName<<IO::flush;
-	};
 
-	Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second); 
+template <typename T>
+inline void Settings::addSetting(const Hash *propertyName, T value) {
+	Setting setting(new T(value));
 
-	if(prop == NULL){
-		IO::errorLog<<"trying to get a setting that does not exist.\nSetting Name: "<<
-		propertyName<<IO::flush;
-	}
-	return prop->getVal();
+	assert(this->settings.find(propertyName) == this->settings.end());
+	this->settings.insert(std::pair<const Hash*, Setting>(propertyName,setting));
+};
+
+template <>
+inline float *Settings::getSetting(const Hash *propertyName) {
+	assert(this->settings.find(propertyName) != this->settings.end());
+	Setting &setting = this->settings.at(propertyName);
+
+	return (float *)(setting.value);
+};
+
+template <>
+inline int *Settings::getSetting(const Hash *propertyName) {
+	assert(this->settings.find(propertyName) != this->settings.end());
+	Setting &setting = this->settings.at(propertyName);
+
+	return (int *)(setting.value);
+};
+
+template <>
+inline bool *Settings::getSetting(const Hash *propertyName) {
+	assert(this->settings.find(propertyName) != this->settings.end());
+	Setting &setting = this->settings.at(propertyName);
+
+	return (bool *)(setting.value);
+};
+
+template <>
+inline vector2 *Settings::getSetting(const Hash *propertyName) {
+	assert(this->settings.find(propertyName) != this->settings.end());
+	Setting &setting = this->settings.at(propertyName);
+
+	return (vector2 *)(setting.value);
 };
