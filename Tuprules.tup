@@ -19,14 +19,20 @@ CFLAGS_NO_WARNING = -std=c++11 -w -Wfatal-errors
 
 # define any directories containing header files other than /usr/include
 #hack needed for clang 3.4 hope this is resolved soon
-INCLUDES_HACK= -I/usr/include/i386-linux-gnu/c++/4.7/
+#INCLUDES_HACK= -I/usr/include/i386-linux-gnu/c++/4.7/
 INCLUDES = $(INCLUDES_HACK) -I../src/include/   -I../src/core/
 
 
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
 #   option, something like -llibname (this will link  to libname.so)
-LIBS = -L../lib/ -lBox2D -lsfml-graphics -lsfml-window -lsfml-system -lbfd
+LIBS_PATHS =  -L../lib/ -L.
+LIBS_STATIC = -lBox2D
+LIBS_DYNAMIC =-lsfml-graphics -lsfml-window -lsfml-system -lbfd
+LOAD_PATH = -rpath ../lib/
+
+#-Wl,-Bstatic
+LIBS =  $(LOAD_PATH)  $(LIBS_PATHS) $(LIBS_STATIC) -Wl, -Bdynamic $(LIBS_DYNAMIC)
 
 #name of the output file
 OUTPUT = a.out
