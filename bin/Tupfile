@@ -7,7 +7,9 @@ include_rules
 # define the path executable file 
 OUTPUT = a.out
 
-#			           clang++   std11-o a.out   -I/includes   -Llib/ glew.lib ./obj/*     a.out
-: ../obj/*.o |>   $(CC) $(CFLAGS) -v -o %o  $(INCLUDES)  $(LIBS) %f -v  |> $(OUTPUT)
+LIBS_PATH=,rpath=../lib/
+
+#			 clang++   std11      -o a.out   -Llib/ glew.lib -I/includes
+: ../obj/*.o |>   $(CC) $(CFLAGS) -v -o %o  $(LIBS) $(INCLUDES) %f  |> $(OUTPUT)
 
 	
