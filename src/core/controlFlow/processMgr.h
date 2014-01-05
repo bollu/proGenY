@@ -55,8 +55,8 @@ public:
 	@param [in] processType the derived class type of Process
 
 	\return returns the corresponding derived Process, or NULL if no process was found of the
-			given name
-	*/
+    given name
+    */
 	template <typename processType>
 	processType *getProcess(const Hash* processName){
 		processType *proc = dynamic_cast< processType * >(this->_getProcess(processName));

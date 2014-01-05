@@ -282,10 +282,7 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 	for(auto terrainChunk : AABBs) {
 		vector2 center  = terrainChunk.getCenter();
 		vector2 halfDim = terrainChunk.getHalfDim();
-
-		PRINTVECTOR2(halfDim)
-
-
+		
 		center = vector2( center.x * info.blockDim.x, center.y * info.blockDim.y);
 		halfDim = vector2(halfDim.x * info.blockDim.x, halfDim.y * info.blockDim.y);
 

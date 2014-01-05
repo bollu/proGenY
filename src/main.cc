@@ -54,12 +54,11 @@ void _createDummy(ObjectManager *);
 
 
 int main(){
-    
+
     processMgr processManager;
     Settings settings;
     EventManager eventManager;
     sf::Clock Clock;
-
 
     _loadSettings(settings);
     //settings.loadSettingsFromFile(".settings.ini");
@@ -77,7 +76,6 @@ int main(){
 
 
        processManager.preUpdate();
-
        processManager.Update(dt);
        processManager.Draw();
        processManager.postDraw();
@@ -96,7 +94,6 @@ void _loadSettings(Settings &settings){
     //and just load it back.
 
     settings.loadSettingsFromFile("data//Settings");
-    
     settings.addSetting(Hash::getHash("screenDimensions"), vector2(1280, 720));
 
     settings.addSetting(Hash::getHash("gravity"), vector2(0, -50.0));
@@ -123,7 +120,7 @@ void _addProcesses(processMgr &processManager, Settings &settings, EventManager 
     //But other game states will probably rely on this.
     ObjectMgrProcess *objMgrProc = new ObjectMgrProcess(processManager, settings, eventManager);
     processManager.addProcess(objMgrProc);
-    
+
     //create the object processors that are responsible for creating objects
     _createObjectProcessors(objMgrProc, processManager, settings, eventManager);
 
@@ -163,8 +160,7 @@ void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processMa
 
     objMgrProc->addObjectProcessor( new terrainProcessor(processManager, settings, eventManager));
     objMgrProc->addObjectProcessor( new cameraProcessor(processManager, settings, eventManager));
-     
-     
+
     objMgrProc->addObjectProcessor( new RenderProcessor(processManager, settings, eventManager));
     objMgrProc->addObjectProcessor( new PhyProcessor(processManager, settings, eventManager));
 

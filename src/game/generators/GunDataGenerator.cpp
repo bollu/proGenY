@@ -8,9 +8,9 @@ void _genBulletData(GunData &gunData, BulletGenData &generationData){
 	bulletData.addEnemyCollision(Hash::getHash("enemy"));
 	bulletData.addEnemyCollision(Hash::getHash("dummy"));
 
-	bulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	bulletData.addIgnoreCollision(Hash::getHash("player"));
-	
+	//bulletData.addIgnoreCollision(Hash::getHash("bullet"));
+	//bulletData.addIgnoreCollision(Hash::getHash("player"));
+
 	gunData.setBulletData(bulletData);
 
 };
@@ -21,7 +21,7 @@ void _genRocket(std::mt19937 &generator, unsigned long seed, unsigned int power,
 	clip size, heavy damage
 	*/
 
-	//clip size can vary from power-6  to powe6   
+	//clip size can vary from power-6  to powe6
 	gunData.setClipSize(1);
 	gunData.setShotCooldown(0);
 
@@ -81,7 +81,7 @@ GunData GenGunData(GunGenData &genData){
 		case GunType::machineGun:
 			_genMachineGun(generator, genData.seed, genData.power, gunData);
 			break;
-		
+
 		case GunType::Rocket:
 			_genRocket(generator, genData.seed, genData.power, gunData);
 			break;
