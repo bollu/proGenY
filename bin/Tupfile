@@ -10,6 +10,6 @@ OUTPUT = a.out
 LIBS_PATH=,rpath=../lib/
 
 #			 clang++   std11      -o a.out   -Llib/ glew.lib -I/includes
-: ../obj/*.o |>   $(CC) $(CFLAGS) -v -o %o  $(LIBS) $(INCLUDES) %f  |> $(OUTPUT)
+: ../obj/*.o |>   $(CC) $(CFLAGS) -v -o %o  $(LIBS) $(INCLUDES) %f  -v |> $(OUTPUT)
 
 	

@@ -89,9 +89,10 @@ public:
 	\return the value associated with the Prop, NULL if the property does not exist,
 				NULL if the value is stored in some other derived class member of baseProperty
 	*/
-	template<typename Type>
-	Type* getPrimitive(const Hash *name){
-		Prop<Type> *prop =_getProperty<Type>(name, false);
+	template<typename T>
+	T* getPrimitive(const Hash *name){
+			
+		Prop<T> *prop = prop_cast<T>(this->_getBaseProp(name));
 		if(prop == NULL){
 			return NULL;
 		}else{
@@ -99,12 +100,8 @@ public:
 		};
 	}
 
-	template<typename Type>
-	Type* getPrimitive(const char *name){
-		return this->getPrimitive<Type>(Hash::getHash(name));
 
-	}
-	
+
 	/*!send a one time message to the object, and optionally it's children
 
 	This is used to send a message to the object which is stored. This message
@@ -113,12 +110,12 @@ public:
 
 	@param [in] tag: The tag of the message to be sent
 	@param [in] value: The value that should go along with the tag. This can be 
-						retrieved at the component's site
+						retrieved at the component's site. CAREFUL - value is deleted 
+						by Object once used.
 
 	\return None
 	*/
-	template<typename T>
-	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {
+	void sendMessage(const Hash *tag, baseProperty* value, bool sendToChildren = false) {
 		auto it = this->messages.find(tag);
 
 		if(it != this->messages.end()) {
@@ -126,32 +123,23 @@ public:
 			this->messages.erase(it);	
 		}
 
-		this->messages[tag] = new Prop<T> (value);
+		this->messages[tag] = value;
 
 		if(sendToChildren){
 			for (auto child : children) {
-				child->sendMessage<T>(tag, value, sendToChildren);
+				child->sendMessage(tag, value, sendToChildren);
 			}
 		}
 	}
 
+	template<typename T>
+	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {
+		sendMessage(tag, (baseProperty*)(new Prop<T>(value)), sendToChildren);
+	}
+
 	void sendMessage(const Hash *tag, bool sendToChildren = false) {
-	
-		auto it = this->messages.find(tag);
-
-		if(it != this->messages.end()) {
-			delete (it->second);
-			this->messages.erase(it);	
-		}
-
 		//create a stub property 
-		this->messages[tag] = new Prop<void>();
-
-		if(sendToChildren){
-			for (auto child : children) {
-				child->sendMessage(tag, sendToChildren);
-			}
-		}
+		sendMessage(tag, (baseProperty*)(new Prop<void>()), sendToChildren);
 	}
 
 	//messages auto-expire once retrieved
@@ -163,7 +151,7 @@ public:
 			return NULL;
 		}
 
-		Prop<T> *prop = dynamic_cast< Prop<T>* >(it->second);
+		Prop<T> *prop = prop_cast<T>(it->second);
 
 		messages.erase(it);
 		return prop->getVal();
@@ -185,37 +173,16 @@ private:
 
 	//stores whether the Object is dead or not
 	bool dead;
-
 	//name of the object
 	const Hash *name;
-	
-	Hashmap *propMap;
-	Hashmap *messagesMap;
-	//map of messages within the object.
-	std::map<const Hash*, baseProperty* > messages;
-	
 	//array of children
 	Object *parent;
 	std::vector<Object *>children;
 
-	friend class ObjectProcessor;
-
+	Hashmap *propMap;
+	std::map<const Hash*, baseProperty*>messages;
 	
-	template <typename T>
-	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){
-
-
-		Prop<T> *prop = dynamic_cast<Prop<T> *>(this->_getBaseProp(name));
-		
-		if(prop == NULL && warnIfNull){
-			IO::errorLog<<"unable to find property. \
-							\nObject: "<<this->getName()<<"\nProperty: "<<name<<IO::flush;
-			
-			return NULL;
-		}
-
-		return prop;
-	};
+	friend class ObjectProcessor;
 
 	/*!returns the baseProperty associated with the name
 	It is not advisable to use this function. it is better to just use

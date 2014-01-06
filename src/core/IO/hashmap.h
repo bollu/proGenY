@@ -11,6 +11,7 @@ extern "C" {
 /** A hash map. */
 typedef struct Hashmap Hashmap;
 
+
 /**
  * Creates a new hash map. Returns NULL if memory allocation fails.
  *

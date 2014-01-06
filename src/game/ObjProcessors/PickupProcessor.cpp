@@ -8,17 +8,24 @@ PickupProcessor::PickupProcessor(processMgr &processManager, Settings &settings,
 };
 
 void pickupCollisionCallback(CollisionData &collision, void *data){
-	EventManager *eventManager = static_cast<EventManager *>(data);
-	Object *obj = collision.me;
-	assert(obj != NULL);
 
-	PickupData *pickupData = obj->getPrimitive<PickupData>(Hash::getHash("PickupData"));
+	//EventManager *eventManager = static_cast<EventManager *>(data);
+	Object *me = collision.me;
+	Object *other = collision.otherObj;
+
+	assert(me != NULL);
+	assert(other != NULL);
+
+	PickupData *pickupData = me->getPrimitive<PickupData>(Hash::getHash("PickupData"));
 	assert(pickupData != NULL);
 
+	other->sendMessage(pickupData->onPickupEvent, pickupData->eventData, true);
+	//HACK
 	//send the event with the PickupData
-	eventManager->sendEvent_(pickupData->onPickupEvent, pickupData->eventData);
+	//eventManager->sendEvent_(pickupData->onPickupEvent, pickupData->eventData);
+	
 	//after this, the evenData is deleted
-	obj->Kill();
+	me->Kill();
 }
 
 void PickupProcessor::_onObjectAdd(Object *obj){
@@ -30,24 +37,8 @@ void PickupProcessor::_onObjectAdd(Object *obj){
 		CollisionHandler pickupCollisionHandler;
 		pickupCollisionHandler.otherCollision = collisionType;
 		pickupCollisionHandler.onBegin = pickupCollisionCallback;
-		pickupCollisionHandler.data = static_cast<void *>(&this->eventManager);
-
 		phy->collisionHandlers.push_back(pickupCollisionHandler);
 	}
-};
-
-void PickupProcessor::_Process(Object *obj, float dt){
-
-	PickupData *data = obj->getPrimitive<PickupData>(Hash::getHash("PickupData"));
-	PhyData *phy = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
-
-	assert(data != NULL && phy != NULL);
-	
-	/*
-	for(CollisionData &collision : phy->collisions){
-		this->_handleCollision(obj, data, collision);
-	}*/
-
 };
 
 
@@ -58,14 +49,3 @@ void PickupProcessor::_onObjectDeath(Object *obj){
 		//delete(data->eventData);
 	}
 };
-
-/*
-void PickupProcessor::_handleCollision(Object *obj, PickupData *data, CollisionData &collision){
-	if(data->hasCollisionType(collision.getCollidedObjectCollision())){
-		//send the event with the PickupData
-		this->eventManager.sendEvent_(data->onPickupEvent, data->eventData);
-		//after this, the evenData is deleted
-		obj->Kill();
-	}
-};
-*/

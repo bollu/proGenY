@@ -5,8 +5,6 @@
 #include "../ObjProcessors/CameraProcessor.h"
 
 class viewProcess;
-
-
 struct Terrain;
 
 namespace ObjectFactories {
@@ -59,7 +57,7 @@ Object *CreateEnemy(EnemyFactoryInfo &info);
 struct PickupFactoryInfo {
 	viewProcess *viewProc;
 
-	PickupData pickup;
+	PickupData pickupData;
 	float radius;
 	vector2 pos;
 };

@@ -20,9 +20,6 @@ ObjectProcessor("PhyProcessor") {
 
 PhyData PhyProcessor::createPhyData(b2BodyDef *bodyDef, b2FixtureDef fixtures[], unsigned int numFixtures){
 	PhyData phyData; 
-
-	//phy.bodyDef.type = b2_dynamicBody;
-
 	IO::infoLog<<"\nnumFixtures: "<<numFixtures<<IO::flush;
 
 	b2Body *body = world->createBody(bodyDef);
@@ -51,52 +48,8 @@ void PhyProcessor::_onObjectAdd(Object *obj){
 	body->SetTransform(gamePos->cast<b2Vec2>(), 0);
 	body->SetUserData(obj);
 	obj->addProp(Hash::getHash("mass"), new fProp(body->GetMass()) );
-
-	//it doesn't have PhyData, so chill and move on
-	/*if(data == NULL){	
-		IO::infoLog<<"\n "<<obj->getName()<<" does not have PhyData";
-		return;
-
-	}*/
-
-	
-	/*data->bodyDef.position = *gamePos;
-	b2Body *body = world->createBody(&data->bodyDef);
-	data->body = body;
-	data->body->SetUserData(obj);
-	
-	for(auto it = data->fixtureDef.begin(); it != data->fixtureDef.end(); ++it){
-		b2FixtureDef fixtureDef = *it;
-
-		b2Fixture *fixture = body->CreateFixture(&fixtureDef);
-		data->fixtures.push_back(fixture);
-		
-		//the fixture def's shape. the fixture def's shape
-		//has to be_ created on the heap.
-		delete(fixtureDef.shape);
-	}*/
-
-
-
 }
 
-void PhyProcessor::_preProcess(){
-
-	for(Object::cObjMapIt it= this->objMap->begin(); it != this->objMap->end(); ++it){
-		Object *obj = it->second;
-		
-		assert(obj != NULL);
-
-
-		PhyData *data = obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
-		if(data == NULL){
-			continue;
-		}
-		
-		//data->collisions.clear();
-	};
-	//this->_processContacts();
-};
 
 void PhyProcessor::_Process(Object *obj, float dt){
 
@@ -135,22 +88,5 @@ void PhyProcessor::_onObjectDeactivate(Object *obj){
 
 	}
 };
-
-
-//-------------------------------------------------------------------
-/*
-void PhyData::addCollision(CollisionData &collision){
-
-	this->collisions.push_back(collision);
-};
-
-void PhyData::removeCollision(Object *obj){
-	for(auto it = this->collisions.begin(); it != this->collisions.end(); ++it){
-		if(it->otherObj == obj){
-			this->collisions.erase(it);
-			break;
-		}
-	};
-};*/
 
 

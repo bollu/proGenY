@@ -27,9 +27,10 @@ struct CollisionData{
 
 typedef void (*CollisionCallback) (CollisionData &collision, void *data);
 struct CollisionHandler{
+	static const Hash *ALL_COLLISIONS;
 	//!the collision type of the object you want to hit.
-	//if this is ***NULL**, then the collisionHandler will be called for all collisions
-	const Hash *otherCollision = (const Hash*)(0xDEADBEEF);
+	//if this is ***ALL_COLLISIONS**, then the collisionHandler will be called for all collisions
+	const Hash *otherCollision = NULL;
 	CollisionCallback onBegin = NULL;
 	CollisionCallback onEnd = NULL;
 
@@ -59,13 +60,6 @@ public:
 private:
 	void _extractObjects(b2Contact *contact, Object **a, Object **b);
 
-	/*CollisionData _fillCollisionData(b2Contact *contact,
-  Object *me, Object *other, PhyData *myPhy, PhyData *otherPhy);
-	*/
-
-	//HACK! should be CollisionData::Type, but this creates a
-	//cyclic dependency :(
-	//void _handleCollision(CollisionData::Type type, b2Contact *contact);
     bool _shouldHandleCollision(CollisionHandler *handler, PhyData *otherPhy);
     void _handleCollision(bool beginHandler, b2Contact *contact);
     void _execHandlers(bool beginHandler, b2Contact *contact, Object *me, PhyData *myData, Object *other, PhyData *otherData);

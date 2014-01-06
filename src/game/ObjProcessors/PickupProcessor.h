@@ -39,12 +39,8 @@ public:
 	
 private:
 	EventManager &eventManager;
-	void _handleCollision(Object *obj, PickupData *data, CollisionData &collision);
-
-
 protected:
 	void _onObjectAdd(Object *obj);
-	void _Process(Object *obj, float dt);
 	void _onObjectDeath(Object *obj);
 
 	bool _shouldProcess(Object *obj){

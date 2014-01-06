@@ -33,7 +33,7 @@ void groundMoveProcessor::_onObjectAdd(Object *obj){
 
 
 	assert(data->jumpSurfaceCollision != NULL);
-	PhyData *phyData =  obj->getPrimitive<PhyData>("PhyData");
+	PhyData *phyData =  obj->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 
 	CollisionHandler resetJumpHandler;
 	resetJumpHandler.otherCollision = data->jumpSurfaceCollision;

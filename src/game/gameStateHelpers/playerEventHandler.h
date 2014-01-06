@@ -12,8 +12,7 @@ public:
 	sf::Keyboard::Key left;
 	sf::Keyboard::Key right;
 	sf::Keyboard::Key fireGun;
-	
-	//Object *currentGun;
+
 	Object *player;
 private:
 	friend class playerEventHandler;
@@ -34,7 +33,6 @@ private:
 	//the last known mouse position
 	vector2 lastMousePos;
 	bool firing;
-
 
 	void _handleKeyPress(sf::Event::KeyEvent *event);
 	void _handleKeyRelease(sf::Event::KeyEvent *event);

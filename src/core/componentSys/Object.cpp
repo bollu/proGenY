@@ -11,9 +11,7 @@ Object::Object(std::string name) : dead(false), parent(NULL){
 	this->name =  Hash::getHash( genUniqueName(this->uniqueNames, name.c_str()) );
 	
 	this->propMap = Hash::CreateHashmap(5);
-	this->messagesMap = Hash::CreateHashmap(10);
-
-
+	
 
 	this->addProp(Hash::getHash("position"), new Prop <vector2>(vector2(0, 0)));
 	this->addProp(Hash::getHash("facing"), new Prop <util::Angle>(util::Angle::Deg(0)));

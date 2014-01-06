@@ -26,15 +26,7 @@ struct PhyData{
 	--don't modify this without knowing what you're doing--
 	*/
 	b2Body *body;
-	/* a list of pointers to the fixtures owned by the body*/
-	//std::vector<b2Fixture*>fixtures;
 
-	/*!whether the velocity should be clamped between -maxVel and  maxVel or not*/
-	bool velClamped;
-	/*!the velocity to which the body's velocity should be clamped if 
-	PhyData::velClamped is true*/
-	vector2 maxVel;
-	
 	/*!the name of the collisionType of the body.
 	Used while filtering collisions
 	*/
@@ -45,9 +37,6 @@ private:
 	friend class PhyProcessor;
 	//must be constructed by calling createPhyData()
 	PhyData(){};
-	//friend class objContactListener;
-	// void addCollision(CollisionData &collision);
-	// void removeCollision(Object *obj);
 };
 
 
@@ -77,7 +66,6 @@ protected:
 	void _onObjectActivate(Object *obj);
 	void _onObjectDeactivate(Object *obj);
 
-	void _preProcess();
 	void _Process(Object *obj, float dt);
 	void _onObjectDeath(Object *obj);
 

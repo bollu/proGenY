@@ -18,114 +18,6 @@
 using namespace ObjectFactories;
 
 
-/*
-Object *ObjectFactories::CreateBoundary(BoundaryFactoryInfo &info){
-
-	Object *boundaryObject = new Object("boundary");
-
-	vector2 *pos = boundaryObject->getPrimitive<vector2>(
-		Hash::getHash("position"));
-	*pos = vector2(0,0);
-
-	
-	PhyData physicsData;
-	RenderData render;
-
-	physicsData.bodyDef.type = b2_staticBody;
-	physicsData.collisionType = Hash::getHash("terrain");
-
-	{
-		//BOTTOM---------------------------------------------------------
-		b2PolygonShape *bottom = new b2PolygonShape(); 
-		vector2 bottomCenter = vector2(info.levelDim.x / 2.0, 0);//vector2(info.levelDim.x / 2.0, 0);
-		bottom->SetAsBox(info.levelDim.x / 2.0, info.thickness, bottomCenter, 0);
-
-		b2FixtureDef bottomFixtureDef;
-		bottomFixtureDef.shape = bottom;
-		bottomFixtureDef.friction = 1.0;
-
-		physicsData.fixtureDef.push_back(bottomFixtureDef);
-
-		sf::Shape *shape = renderUtil::createShape(bottom, 
-			info.viewProc);
-		shape->setFillColor(sf::Color::Blue);
-		
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-		render.addRenderer(renderer);
-
-	}
-
-	{
-		//TOP---------------------------------------------------------
-		b2PolygonShape *top = new b2PolygonShape(); 
-		vector2 topCenter = vector2(info.levelDim.x / 2.0, info.levelDim.y);//vector2(info.levelDim.x / 2.0, info.levelDim.y / 2.0);
-		top->SetAsBox(info.levelDim.x / 2.0, info.thickness, topCenter, 0);
-
-		b2FixtureDef topFixtureDef;
-		topFixtureDef.shape = top;
-		topFixtureDef.friction = 1.0;
-		topFixtureDef.restitution = 0.0;
-
-		physicsData.fixtureDef.push_back(topFixtureDef);
-
-
-		sf::Shape *shape = renderUtil::createShape(top, 
-			info.viewProc);
-		shape->setFillColor(sf::Color::Blue);
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-		render.addRenderer(renderer);
-
-	}
-
-	
-	{
-		//LEFT---------------------------------------------------------
-		b2PolygonShape *left = new b2PolygonShape(); 
-		vector2 leftCenter = vector2(0, info.levelDim.y / 2.0);//vector2(0, info.levelDim.y / 2.0);
-		left->SetAsBox(info.thickness, info.levelDim.y / 2.0, leftCenter, 0);
-
-		b2FixtureDef leftFixtureDef;
-		leftFixtureDef.shape = left;
-		leftFixtureDef.friction = 1.0;
-
-		physicsData.fixtureDef.push_back(leftFixtureDef);
-
-		sf::Shape *shape = renderUtil::createShape(left, 
-			info.viewProc);
-		shape->setFillColor(sf::Color::Blue);
-		
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-		render.addRenderer(renderer);
-	}
-
-	{
-		//RIGHT---------------------------------------------------------
-		b2PolygonShape *right = new b2PolygonShape(); 
-		vector2 rightCenter = vector2(info.levelDim.x, info.levelDim.y / 2.0);
-		right->SetAsBox(info.thickness, info.levelDim.y / 2.0, rightCenter, 0);
-
-		b2FixtureDef rightFixtureDef;
-		rightFixtureDef.shape = right;
-		rightFixtureDef.friction = 1.0;
-
-		physicsData.fixtureDef.push_back(rightFixtureDef);
-
-		sf::Shape *shape = renderUtil::createShape(right, 
-			info.viewProc);
-		shape->setFillColor(sf::Color::Blue);
-		shapeRenderNode* renderer = new shapeRenderNode(shape, renderingLayers::terrain);
-		render.addRenderer(renderer);
-	}
-
-	boundaryObject->addProp(Hash::getHash("PhyData"), 
-		new Prop<PhyData>(physicsData));
-	boundaryObject->addProp(Hash::getHash("RenderData"),
-	 new Prop<RenderData>(render));
-
-	return boundaryObject;
-};
-*/
-
 Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 	OffsetData offset;
 	
@@ -217,7 +109,7 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 
 	Object *enemy = new Object("enemy");
 
-	*enemy->getPrimitive<vector2>("position") = info.pos;
+	*enemy->getPrimitive<vector2>(Hash::getHash("position")) = info.pos;
 
 
 	//physics------------------------------------------------------------
@@ -337,7 +229,7 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_staticBody;
 
-	b2PolygonShape pickupShape;
+	b2CircleShape pickupShape;
 	pickupShape.m_radius = info.radius;
 
 	b2Filter collisionFilter;
@@ -367,7 +259,7 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	obj->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
 	obj->addProp(Hash::getHash("PickupData"), 
-		new Prop<PickupData>(info.pickup));
+		new Prop<PickupData>(info.pickupData));
 	
 	return obj;
 };

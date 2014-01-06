@@ -79,6 +79,24 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 
 #include "../generators/GunDataGenerator.h"
 void gameState::_createDummy(vector2 levelDim){
+	ObjectFactories::PickupFactoryInfo pickupInfo;
+	pickupInfo.viewProc = this->viewProc;
+	pickupInfo.radius = 1.0;
+	pickupInfo.pos = vector2(400, 300) * viewProc->getRender2GameScale();;
+
+	PickupData &data = pickupInfo.pickupData;
+	data.onPickupEvent = Hash::getHash("addGun");
+	data.addCollisionType(Hash::getHash("player"));
+
+	GunGenData gunGenData;
+	gunGenData.type = GunType::Rocket;
+	gunGenData.power = 1;
+	gunGenData.seed = 30;
+
+	data.eventData = new Prop<GunGenData>(gunGenData);
+
+	Object *pickup = ObjectFactories::CreatePickup(pickupInfo);
+	objectManager->addObject(pickup);
 	/*{
 
 		dummyCreator *creator = objFactory.getCreator<dummyCreator>(

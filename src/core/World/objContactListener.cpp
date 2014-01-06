@@ -3,6 +3,8 @@
 
 #include "../componentSys/processor/PhyProcessor.h"
 
+const Hash *CollisionHandler::ALL_COLLISIONS = (const Hash*)(0xCAFEBABE);
+
 void objContactListener::_extractObjects(b2Contact *contact, Object **a, Object **b){
 	b2Fixture *fixtureA = contact->GetFixtureA();
 	b2Fixture *fixtureB = contact->GetFixtureB();
@@ -34,6 +36,7 @@ void objContactListener::_handleCollision(bool beginHandler, b2Contact *contact)
 	PhyData *bPhyData = b->getPrimitive<PhyData>(Hash::getHash("PhyData"));
 	assert(aPhyData != NULL && bPhyData != NULL);
 
+
 	if (aPhyData->collisionHandlers.size() > 0) {
 		this->_execHandlers(beginHandler, contact, a, aPhyData, b, bPhyData);
 	}
@@ -45,7 +48,7 @@ void objContactListener::_handleCollision(bool beginHandler, b2Contact *contact)
 
 
 bool objContactListener::_shouldHandleCollision(CollisionHandler *handler, PhyData *otherPhy){
-	return handler->otherCollision == otherPhy->collisionType || handler->otherCollision == NULL;
+	return handler->otherCollision == otherPhy->collisionType || handler->otherCollision == CollisionHandler::ALL_COLLISIONS;
 };
 
 

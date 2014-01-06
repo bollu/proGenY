@@ -1,0 +1,179 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AIData	AIProcessor.h	/^struct AIData{$/;"	s
+AIProcessor	AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:AIProcessor
+AIProcessor	AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
+BulletCollider	BulletProcessor.h	/^	BulletCollider(){};$/;"	f	class:BulletCollider
+BulletCollider	BulletProcessor.h	/^class BulletCollider{$/;"	c
+BulletData	BulletProcessor.h	/^	BulletData(){$/;"	f	struct:BulletData
+BulletData	BulletProcessor.h	/^struct BulletData{$/;"	s
+BulletModifier	BulletProcessor.h	/^struct BulletModifier {$/;"	s
+BulletProcessor	BulletProcessor.h	/^	BulletProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:BulletProcessor
+BulletProcessor	BulletProcessor.h	/^class BulletProcessor : public ObjectProcessor{$/;"	c
+CameraData	CameraProcessor.h	/^	CameraData(){};$/;"	f	struct:CameraData
+CameraData	CameraProcessor.h	/^struct CameraData{$/;"	s
+GunData	GunProcessor.h	/^	GunData(){$/;"	f	struct:GunData
+GunData	GunProcessor.h	/^struct GunData{$/;"	s
+GunProcessor	GunProcessor.cpp	/^GunProcessor::GunProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) $/;"	f	class:GunProcessor
+GunProcessor	GunProcessor.h	/^class GunProcessor : public ObjectProcessor{$/;"	c
+OffsetData	OffsetProcessor.h	/^	OffsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:OffsetData
+OffsetData	OffsetProcessor.h	/^struct OffsetData{$/;"	s
+OffsetProcessor	OffsetProcessor.h	/^	OffsetProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:OffsetProcessor
+OffsetProcessor	OffsetProcessor.h	/^class OffsetProcessor : public ObjectProcessor{$/;"	c
+PickupData	PickupProcessor.h	/^	PickupData(){$/;"	f	struct:PickupData
+PickupData	PickupProcessor.h	/^struct PickupData{$/;"	s
+PickupProcessor	PickupProcessor.cpp	/^PickupProcessor::PickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:PickupProcessor
+PickupProcessor	PickupProcessor.h	/^class PickupProcessor : public ObjectProcessor{$/;"	c
+_Cooldown	GunProcessor.cpp	/^void GunData::_Cooldown(){$/;"	f	class:GunData
+_Process	AIProcessor.h	/^	void _Process(Object *obj, float dt){};$/;"	f	class:AIProcessor
+_Process	AirMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
+_Process	BulletProcessor.cpp	/^void BulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:BulletProcessor
+_Process	CameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
+_Process	GroundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
+_Process	GunProcessor.cpp	/^void GunProcessor::_Process(Object *obj, float dt){$/;"	f	class:GunProcessor
+_Process	HealthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
+_Process	OffsetProcessor.cpp	/^void OffsetProcessor::_Process(Object *obj, float dt){$/;"	f	class:OffsetProcessor
+_Process	PickupProcessor.cpp	/^void PickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:PickupProcessor
+_ProcessEvents	GroundMoveProcessor.cpp	/^void groundMoveProcessor::_ProcessEvents(Object *obj, groundMoveData *data) {$/;"	f	class:groundMoveProcessor
+_Tick	GunProcessor.cpp	/^void GunData::_Tick(float dt){$/;"	f	class:GunData
+_calcCameraMoveAmt	CameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, CameraData *data){$/;"	f	class:cameraProcessor
+_calcJumpImpulse	GroundMoveProcessor.cpp	/^vector2 groundMoveProcessor::_calcJumpImpulse(groundMoveData *data, vector2 currentVel, float dt){$/;"	f	class:groundMoveProcessor
+_canFire	GunProcessor.cpp	/^bool GunData::_canFire(){$/;"	f	class:GunData
+_fireShot	GunProcessor.cpp	/^void GunProcessor::_fireShot(GunData *gunData, vector2 pos){$/;"	f	class:GunProcessor
+_limitCameraCoord	CameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, CameraData *data){$/;"	f	class:cameraProcessor
+_limitMoveAmt	CameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
+_onObjectAdd	AirMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
+_onObjectAdd	BulletProcessor.cpp	/^void BulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:BulletProcessor
+_onObjectAdd	CameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
+_onObjectAdd	GroundMoveProcessor.cpp	/^void groundMoveProcessor::_onObjectAdd(Object *obj){$/;"	f	class:groundMoveProcessor
+_onObjectAdd	HealthProcessor.cpp	/^void healthProcessor::_onObjectAdd(Object *obj){$/;"	f	class:healthProcessor
+_onObjectAdd	PickupProcessor.cpp	/^void PickupProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PickupProcessor
+_onObjectDeactivate	GunProcessor.cpp	/^void GunProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:GunProcessor
+_onObjectDeath	PickupProcessor.cpp	/^void PickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PickupProcessor
+_shouldProcess	AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
+_shouldProcess	AirMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:airMoveProcessor
+_shouldProcess	BulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:BulletProcessor
+_shouldProcess	CameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
+_shouldProcess	GroundMoveProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:groundMoveProcessor
+_shouldProcess	GunProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:GunProcessor
+_shouldProcess	HealthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
+_shouldProcess	OffsetProcessor.cpp	/^bool OffsetProcessor::_shouldProcess(Object *obj){$/;"	f	class:OffsetProcessor
+_shouldProcess	PickupProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:PickupProcessor
+_shouldProcess	TerrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
+_simulateCamera	CameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, CameraData *data){$/;"	f	class:cameraProcessor
+accumilator	CameraProcessor.h	/^	float accumilator;$/;"	m	struct:CameraData
+addBulletCollder	BulletProcessor.h	/^	void addBulletCollder(BulletCollider *collider){$/;"	f	struct:BulletData
+addBulletModifier	BulletProcessor.h	/^	void addBulletModifier(BulletModifier &modifier){$/;"	f	struct:BulletData
+addCollisionType	PickupProcessor.h	/^	void addCollisionType(const Hash *collisionType){$/;"	f	struct:PickupData
+addEnemyCollision	BulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:BulletData
+airMoveData	AirMoveProcessor.h	/^struct airMoveData{$/;"	s
+airMoveProcessor	AirMoveProcessor.h	/^	airMoveProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:airMoveProcessor
+airMoveProcessor	AirMoveProcessor.h	/^class airMoveProcessor : public ObjectProcessor{$/;"	c
+angle	BulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:BulletData
+angleOffset	OffsetProcessor.h	/^	util::Angle angleOffset;$/;"	m	struct:OffsetData
+beginVel	BulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:BulletData
+boxHalfH	CameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:CameraData
+boxHalfW	CameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:CameraData
+bulletCollisionCallback	BulletProcessor.cpp	/^void bulletCollisionCallback(CollisionData &collision, void *data){$/;"	f
+bulletCreateFunction	BulletProcessor.h	/^	onBulletCreate bulletCreateFunction = NULL;$/;"	m	struct:BulletModifier
+bulletData	GunProcessor.h	/^	BulletData bulletData;$/;"	m	struct:GunData
+bulletPos	GunProcessor.h	/^	vector2 bulletPos;$/;"	m	struct:GunData
+bulletRadius	GunProcessor.h	/^	float bulletRadius;$/;"	m	struct:GunData
+bulletThinkFunction	BulletProcessor.h	/^	onBulletThink bulletThinkFunction = NULL;$/;"	m	struct:BulletModifier
+bulletVel	GunProcessor.h	/^	float bulletVel;$/;"	m	struct:GunData
+cameraCenter	CameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:CameraData
+cameraProcessor	CameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:cameraProcessor
+cameraProcessor	CameraProcessor.h	/^class cameraProcessor : public ObjectProcessor{$/;"	c
+clipCooldown	GunProcessor.h	/^	Cooldown<float> clipCooldown;$/;"	m	struct:GunData
+clipSize	GunProcessor.h	/^	Cooldown<float> clipSize;$/;"	m	struct:GunData
+colliders	BulletProcessor.h	/^	std::vector<BulletCollider *> colliders;$/;"	m	struct:BulletData
+createData	BulletProcessor.h	/^	void *enemyCollisionData, *defaultCollisionData, *createData, *thinkData;$/;"	m	struct:BulletModifier
+currentClipSize	GunProcessor.h	/^	int currentClipSize;$/;"	m	struct:GunData
+currentHP	HealthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
+defaultCollisionData	BulletProcessor.h	/^	void *enemyCollisionData, *defaultCollisionData, *createData, *thinkData;$/;"	m	struct:BulletModifier
+defaultCollisionFunc	BulletProcessor.h	/^	onDefaultCollision defaultCollisionFunc = NULL;$/;"	m	struct:BulletModifier
+dir	AirMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
+enabled	CameraProcessor.h	/^	bool enabled;$/;"	m	struct:CameraData
+enemyCollisionData	BulletProcessor.h	/^	void *enemyCollisionData, *defaultCollisionData, *createData, *thinkData;$/;"	m	struct:BulletModifier
+enemyCollisionFunc	BulletProcessor.h	/^	onEnemyCollision enemyCollisionFunc = NULL;$/;"	m	struct:BulletModifier
+enemyCollisions	BulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:BulletData
+eventData	PickupProcessor.h	/^	baseProperty *eventData;$/;"	m	struct:PickupData
+eventManager	PickupProcessor.h	/^	EventManager &eventManager;$/;"	m	class:PickupProcessor
+facing	GunProcessor.h	/^	util::Angle facing;$/;"	m	struct:GunData
+generateJumpImpulse	GroundMoveProcessor.cpp	/^vector2 generateJumpImpulse(float g, float mass, float range, float height) {$/;"	f
+getHP	HealthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
+gravityScale	BulletProcessor.h	/^	float gravityScale;$/;"	m	struct:BulletData
+groundMoveData	GroundMoveProcessor.h	/^	groundMoveData() : xVel(0), xAccel(0), jumpRange(0), jumpHeight(0), $/;"	f	struct:groundMoveData
+groundMoveData	GroundMoveProcessor.h	/^struct groundMoveData{$/;"	s
+groundMoveProcessor	GroundMoveProcessor.h	/^	groundMoveProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:groundMoveProcessor
+groundMoveProcessor	GroundMoveProcessor.h	/^class groundMoveProcessor : public ObjectProcessor{$/;"	c
+hasCollisionType	PickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:PickupData
+healthData	HealthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
+healthData	HealthProcessor.h	/^struct healthData {$/;"	s
+healthProcessor	HealthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
+healthProcessor	HealthProcessor.h	/^class healthProcessor : public ObjectProcessor {$/;"	c
+invul	HealthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
+jumpHeight	GroundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
+jumpImpulse	GroundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
+jumpRange	GroundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
+jumpSurfaceCollision	GroundMoveProcessor.h	/^	const Hash *jumpSurfaceCollision = NULL;$/;"	m	struct:groundMoveData
+jumping	GroundMoveProcessor.h	/^	bool jumping;$/;"	m	struct:groundMoveData
+mass	GroundMoveProcessor.h	/^	float mass;$/;"	m	struct:groundMoveData
+maxAccumilation	CameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
+maxCoord	CameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:CameraData
+maxHP	HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
+maxMoveAmt	CameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:CameraData
+minCoord	CameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:CameraData
+modifiers	BulletProcessor.h	/^	std::vector<BulletModifier> modifiers;$/;"	m	struct:BulletData
+moveImpulse	GroundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
+movementDamping	GroundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
+movingLeft	GroundMoveProcessor.h	/^	bool movingLeft;$/;"	m	struct:groundMoveData
+movingRight	GroundMoveProcessor.h	/^	bool movingRight;$/;"	m	struct:groundMoveData
+objectManager	GunProcessor.h	/^	ObjectManager *objectManager;$/;"	m	class:GunProcessor
+offsetAngle	OffsetProcessor.h	/^	bool offsetAngle;$/;"	m	struct:OffsetData
+offsetPos	OffsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:OffsetData
+onBulletCreate	BulletProcessor.h	/^typedef void (*onBulletCreate)(Object* bullet, void *data);$/;"	t
+onBulletThink	BulletProcessor.h	/^typedef void (*onBulletThink)(Object* bullet, void *data);$/;"	t
+onCreate	BulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:BulletCollider
+onDeath	BulletProcessor.h	/^	virtual void onDeath(CollisionData &data, Object *bullet){};$/;"	f	class:BulletCollider
+onDefaultCollision	BulletProcessor.h	/^	virtual bool onDefaultCollision(CollisionData &data, Object *bullet){$/;"	f	class:BulletCollider
+onDefaultCollision	BulletProcessor.h	/^typedef void (*onDefaultCollision)(Object* bullet, void *data);$/;"	t
+onEnemyCollision	BulletProcessor.h	/^typedef bool (*onEnemyCollision)(CollisionData& collision, Object* bullet, void* data);$/;"	t
+onGround	GroundMoveProcessor.h	/^	bool onGround;$/;"	m	struct:groundMoveData
+onObjectAdd	AIProcessor.h	/^	void onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
+onPickupEvent	PickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:PickupData
+pickupCollisionCallback	PickupProcessor.cpp	/^void pickupCollisionCallback(CollisionData &collision, void *data){$/;"	f
+pickupCollisionTypes	PickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:PickupData
+posOffset	OffsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:OffsetData
+resetJump	GroundMoveProcessor.cpp	/^void resetJump(CollisionData &collision, void *data){$/;"	f
+setBulletData	GunProcessor.h	/^	void setBulletData(BulletData &bulletData){$/;"	f	struct:GunData
+setBulletRadius	GunProcessor.h	/^	void setBulletRadius(float radius){$/;"	f	struct:GunData
+setBulletVel	GunProcessor.h	/^	void setBulletVel(float vel){$/;"	f	struct:GunData
+setClipCooldown	GunProcessor.h	/^	void setClipCooldown(float totalClipCooldown){$/;"	f	struct:GunData
+setClipSize	GunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:GunData
+setDir	AirMoveProcessor.cpp	/^void airMoveData::setDir(vector2 dir){$/;"	f	class:airMoveData
+setShotCooldown	GunProcessor.h	/^	void setShotCooldown(float totalShotCooldown){$/;"	f	struct:GunData
+setSpeed	AirMoveProcessor.cpp	/^void airMoveData::setSpeed(float speed){$/;"	f	class:airMoveData
+shotCooldown	GunProcessor.h	/^	Cooldown<float> shotCooldown;$/;"	m	struct:GunData
+speed	AirMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
+stepSize	CameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
+terrainProcessor	TerrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:terrainProcessor
+terrainProcessor	TerrainProcessor.h	/^class terrainProcessor : public ObjectProcessor{$/;"	c
+thinkData	BulletProcessor.h	/^	void *enemyCollisionData, *defaultCollisionData, *createData, *thinkData;$/;"	m	struct:BulletModifier
+totalClipSize	GunProcessor.h	/^	int totalClipSize;$/;"	m	struct:GunData
+v	CameraProcessor.h	/^	vector2 v;$/;"	m	struct:CameraData
+view	CameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
+viewProc	GunProcessor.h	/^	viewProcess *viewProc;$/;"	m	class:GunProcessor
+window	CameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
+world	AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
+world	AirMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
+world	BulletProcessor.h	/^	worldProcess *world;$/;"	m	class:BulletProcessor
+world	GroundMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:groundMoveProcessor
+world	TerrainProcessor.h	/^	b2World *world;$/;"	m	class:terrainProcessor
+xAccel	GroundMoveProcessor.h	/^	float xAccel;$/;"	m	struct:groundMoveData
+xVel	GroundMoveProcessor.h	/^	float xVel;$/;"	m	struct:groundMoveData
+~BulletCollider	BulletProcessor.h	/^	virtual ~BulletCollider(){};$/;"	f	class:BulletCollider
