@@ -118,16 +118,30 @@ public:
 	void sendMessage(const Hash *tag, baseProperty* value, bool sendToChildren = false) {
 		auto it = this->messages.find(tag);
 
+
 		if(it != this->messages.end()) {
-			delete (it->second);	
-			this->messages.erase(it);	
+			Message &msg = it->second;
+			delete(msg.prop);
+
+			msg.read = false;
+			msg.prop = value;
+
+			if(sendToChildren){
+				for (auto child : children) {
+					child->sendMessage(tag, value, sendToChildren);
+				}
+			}
 		}
+		else{
+			Message &msg = this->messages[tag];
+			
+			msg.read = false;
+			msg.prop = value;
 
-		this->messages[tag] = value;
-
-		if(sendToChildren){
-			for (auto child : children) {
-				child->sendMessage(tag, value, sendToChildren);
+			if(sendToChildren){
+				for (auto child : children) {
+					child->sendMessage(tag, value, sendToChildren);
+				}
 			}
 		}
 	}
@@ -151,11 +165,17 @@ public:
 			return NULL;
 		}
 
-		Prop<T> *prop = prop_cast<T>(it->second);
+		
+		Message &msg = it->second;
 
-		messages.erase(it);
-		return prop->getVal();
+		if(msg.read){
+			return NULL;
+		}else{
+			msg.read = true;
 
+			Prop<T> *prop = prop_cast<T>(msg.prop);
+			return prop->getVal();
+		}
 		
 	};
 	
@@ -180,7 +200,12 @@ private:
 	std::vector<Object *>children;
 
 	Hashmap *propMap;
-	std::map<const Hash*, baseProperty*>messages;
+
+	struct Message {
+		bool read = false;
+		baseProperty *prop = NULL;
+	};
+	std::map<const Hash*, Message>messages;
 	
 	friend class ObjectProcessor;
 

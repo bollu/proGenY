@@ -33,12 +33,11 @@ void PickupProcessor::_onObjectAdd(Object *obj){
 	PickupData *data = obj->getPrimitive<PickupData>(Hash::getHash("PickupData"));
 
 
-	for(const Hash *collisionType : data->pickupCollisionTypes) {
 		CollisionHandler pickupCollisionHandler;
-		pickupCollisionHandler.otherCollision = collisionType;
+		pickupCollisionHandler.otherCollision = CollisionHandler::ALL_COLLISIONS;
+		
 		pickupCollisionHandler.onBegin = pickupCollisionCallback;
 		phy->collisionHandlers.push_back(pickupCollisionHandler);
-	}
 };
 
 

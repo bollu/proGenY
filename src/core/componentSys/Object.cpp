@@ -27,10 +27,6 @@ Object::~Object(){
 	hashmapForEach(this->propMap, &destoyPropMap, NULL);
 	hashmapFree(this->propMap);
 
-	/*for(auto it = this->propertyMap.begin(); it != this->propertyMap.end(); propertyMap.erase(it++)){
-		delete ((*it).second);	
-	}*/
-
 }
 
 
@@ -86,16 +82,6 @@ void Object::addProp(const Hash *name, baseProperty *value){
 	if ((hashmapPut(this->propMap, (void*)name, value)) == NULL){
 		return;
 	}
-	/*
-	propertyIt it;
-	if( ( it = propertyMap.find(name)) == propertyMap.end() ){
-		propertyMap[name] = value;
-		
-		return;
-	}*/
-
-
-	
 
 	IO::errorLog<<"trying to add property twice to object\n  \
 	\nProperty: "<<name<<
@@ -111,24 +97,12 @@ baseProperty *Object::_getBaseProp(const Hash *name) const{
 
 	
 	return (baseProperty *)(hashmapGet(this->propMap, (void*)name));
-	
-	/*
-	cPropertyIt it = propertyMap.find(name);
-
-	if( it  != propertyMap.end() ){
-		return it->second;
-	}*/
 	return NULL;
 }
 
 
 void Object::_printProperties() const{
 	IO::infoLog<<"\n\n"<<"name: "<<this->name<<"\n";
-
-	/*
-	for(auto it =  propertyMap.begin(); it != propertyMap.end(); ++it){
-		IO::infoLog<<it->first<<"\n";
-	}*/		
 }
 
 

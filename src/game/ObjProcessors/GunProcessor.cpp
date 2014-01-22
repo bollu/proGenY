@@ -54,6 +54,7 @@ void GunProcessor::_fireShot(GunData *gunData, vector2 pos){
 	Object *bullet = ObjectFactories::CreateBullet(factoryInfo);
 	this->objectManager->addObject(bullet);
 
+
 };
 
 

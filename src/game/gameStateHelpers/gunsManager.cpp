@@ -76,6 +76,24 @@ void gunsManager::recieveEvent(const Hash *eventName, baseProperty *eventData){
 		addGun_(gun, true);
 	}
 
+
+	GunGenData* gunGenData = this->player_->getMessage<GunGenData>(addGun);
+	if(gunGenData != NULL) {
+		GunData data = GenGunData(*gunGenData);
+	
+		ObjectFactories::GunFactoryInfo factoryInfo;
+		factoryInfo.viewProc = viewProc_;
+		factoryInfo.parent = player_;
+		factoryInfo.gunData = data;
+		factoryInfo.pos = *player_->getPrimitive<vector2>(Hash::getHash("position"));
+
+		Object *gun = ObjectFactories::CreateGun(factoryInfo);
+		objectManager_.addObject(gun);
+		addGun_(gun, true);
+
+	}
+	
+
 };
 
 

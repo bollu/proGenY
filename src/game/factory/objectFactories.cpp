@@ -76,6 +76,7 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 
 	b2Filter collisionFilter;
 	collisionFilter.categoryBits = CollisionGroups::BULLET;
+	collisionFilter.groupIndex = -CollisionGroups::BULLET;
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &bulletBoundingBox;

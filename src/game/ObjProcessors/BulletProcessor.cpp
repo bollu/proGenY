@@ -64,7 +64,7 @@ void BulletProcessor::_onObjectAdd(Object *obj){
 
 	CollisionHandler bulletCollisionHandler;
 	//if otherCollision is NULL, it lets us collide against ANYTHING
-	bulletCollisionHandler.otherCollision = NULL;
+	bulletCollisionHandler.otherCollision = CollisionHandler::ALL_COLLISIONS;
 	bulletCollisionHandler.onBegin = bulletCollisionCallback;
 	bulletCollisionHandler.data = NULL;
 
