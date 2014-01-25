@@ -15,7 +15,11 @@
 
 
 struct AIData{
+	Object *target;
+	float separation;
+	float speed;
 	
+
 };
 
 
@@ -27,8 +31,8 @@ public:
 	}
 
 protected:
-	void onObjectAdd(Object *obj){};
-	void _Process(Object *obj, float dt){};
+	void onObjectAdd(Object *obj);
+	void _Process(Object *obj, float dt);
 
 	bool _shouldProcess(Object *obj){
 		return obj->hasProperty("AIData");

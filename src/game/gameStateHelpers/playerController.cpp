@@ -65,6 +65,12 @@ void playerController::Update(float dt)
 	playerHandler_->Update();
 };
 
+Object *playerController::getPlayer(){
+	assert(this->player_ != NULL);
+	return this->player_;
+};
+
+
 void playerController::_createGunsManager(Object *player){
  	gunsMgr_ = new gunsManager(*this->eventManager_, *this->objectManager_, viewProc_, player);
 };

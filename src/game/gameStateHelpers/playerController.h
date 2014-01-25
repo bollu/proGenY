@@ -16,6 +16,8 @@ public:
 	void createPlayer(vector2 levelDim, vector2 initPos, playerHandlerData playerData);
 	void Update(float dt);
 
+	Object *getPlayer();
+	
 private:
 
 	EventManager *eventManager_;

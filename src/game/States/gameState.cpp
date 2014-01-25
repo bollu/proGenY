@@ -22,9 +22,10 @@ void gameState::_Init(){
 
 	vector2 levelDim, playerInitPos;
 	this->_generateTerrain(0, playerInitPos, levelDim);
-	this->_createEnemies(levelDim);
+	Object *player = this->_createPlayer(playerInitPos, levelDim);
+	this->_createEnemies(levelDim, player);
 	this->_createDummy(levelDim);
-	this->_createPlayer(playerInitPos, levelDim);
+	
 }
 
 
@@ -61,7 +62,7 @@ void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos
 
 
 
-void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
+Object* gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 	//TODO - load Config >_<
 	playerHandlerData playerData;
 	playerData.left = sf::Keyboard::Key::A;
@@ -74,6 +75,7 @@ void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){
 	this->_playerController = new playerController(eventManager, objectManager, viewProc);
 	this->_playerController->createPlayer(levelDim, playerInitPos, playerData);
 	
+	return this->_playerController->getPlayer();
 };
 
 
@@ -141,8 +143,15 @@ void gameState::_createDummy(vector2 levelDim){
 	}*/
 };
 
-void gameState::_createEnemies(vector2 levelDim){
+void gameState::_createEnemies(vector2 levelDim, Object *player){
+	ObjectFactories::EnemyFactoryInfo enemyInfo;
 
+	enemyInfo.viewProc = this->viewProc;
+	enemyInfo.pos = vector2(600, 400) * this->viewProc->getRender2GameScale();
+	enemyInfo.target = player;
+
+	Object *enemy = ObjectFactories::CreateEnemy(enemyInfo);
+	objectManager->addObject(enemy);
 	
 
 	/*enemyCreator *creator = objFactory.getCreator<enemyCreator>(

@@ -8,6 +8,7 @@
 #include "../ObjProcessors/GunProcessor.h"
 #include "../ObjProcessors/OffsetProcessor.h"
 #include "../ObjProcessors/GroundMoveProcessor.h"
+#include "../ObjProcessors/AIProcessor.h"
 
 #include "../../core/componentSys/processor/RenderProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
@@ -109,7 +110,6 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 
 	Object *enemy = new Object("enemy");
-
 	*enemy->getPrimitive<vector2>(Hash::getHash("position")) = info.pos;
 
 
@@ -142,11 +142,20 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 
+	//AI
+	AIData aiData;
+	aiData.target = info.target;
+	//HACK
+	aiData.separation = -20;
+	aiData.speed = 3;
+
 	//final---------------------------------
 	enemy->addProp(Hash::getHash("RenderData"), 
 		new Prop<RenderData>(renderData));
 	enemy->addProp(Hash::getHash("PhyData"), 
 		new Prop<PhyData>(phy));
+	enemy->addProp(Hash::getHash("AIData"), 
+		new Prop<AIData>(aiData));
 
 	return enemy;
 };

@@ -49,6 +49,8 @@ struct EnemyFactoryInfo {
 	viewProcess *viewProc;
 	vector2 pos;
 
+	Object *target;
+
 };
 
 Object *CreateEnemy(EnemyFactoryInfo &info);
