@@ -92,7 +92,7 @@ void gameState::_createDummy(vector2 levelDim){
 
 	GunGenData gunGenData;
 	gunGenData.type = GunType::Rocket;
-	gunGenData.power = 1;
+	gunGenData.power = 10;
 	gunGenData.seed = 30;
 
 	data.eventData = new Prop<GunGenData>(gunGenData);

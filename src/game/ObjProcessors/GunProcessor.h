@@ -11,6 +11,7 @@
 #include "../../core/World/worldProcess.h"
 
 #include "BulletProcessor.h"
+#include "StabProcessor.h"
 
 #include "../../core/math/mathUtil.h"
 #include "../../core/controlFlow/Cooldown.h"
@@ -34,6 +35,7 @@ private:
 	float bulletVel;
 
 	BulletData bulletData;
+	StabData stabData;
 
 	void _Cooldown();
 	void _Tick(float dt);
@@ -69,6 +71,10 @@ public:
 
 	void setBulletData(BulletData &bulletData){
 		this->bulletData = bulletData;
+	}
+
+	void setStabData(StabData &stabData){
+		this->stabData = stabData;
 	}
 
 };

@@ -7,4 +7,5 @@ enum CollisionGroups {
 	ENEMY = 4,
 	PLAYER = 8,
 	PICKUP = 16,
+	TERRAIN = 32,
 };

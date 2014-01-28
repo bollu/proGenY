@@ -27,12 +27,31 @@ hashMapIt	core/IO/Hash.h	/^	typedef HashMap::iterator hashMapIt;$/;"	t	class:Has
 hashedVal	core/IO/Hash.h	/^	uint64_t hashedVal;$/;"	m	class:Hash
 seed	core/IO/Hash.h	/^	static unsigned int seed;$/;"	m	class:Hash
 uint64_t	core/IO/Hash.h	/^typedef unsigned long long uint64_t;$/;"	t
-Settings	core/IO/Settings.h	/^	Settings(){};$/;"	f	class:Settings
+Settings	core/IO/Settings.cpp	/^Settings::Settings(){$/;"	f	class:Settings
+dbgLog	core/IO/Settings.cpp	/^void Settings::Setting::dbgLog() {$/;"	f	class:Settings::Setting
+loadSettingsFromFile	core/IO/Settings.cpp	/^void Settings::loadSettingsFromFile(std::string filePath){$/;"	f	class:Settings
+parseSetting	core/IO/Settings.cpp	/^Settings::Setting Settings::parseSetting(const char *serializedStr) {$/;"	f	class:Settings
+saveSettingsToFile	core/IO/Settings.cpp	/^void Settings::saveSettingsToFile(std::string filePath){$/;"	f	class:Settings
+string2vector	core/IO/Settings.cpp	/^vector2 string2vector(const char *str) {$/;"	f
+BOOL	core/IO/Settings.h	/^			BOOL,$/;"	e	enum:Settings::Setting::Type
+FLOAT	core/IO/Settings.h	/^			FLOAT,$/;"	e	enum:Settings::Setting::Type
+INT	core/IO/Settings.h	/^			INT = 0,$/;"	e	enum:Settings::Setting::Type
+Setting	core/IO/Settings.h	/^		Setting (float *f) {$/;"	f	struct:Settings::Setting
+Setting	core/IO/Settings.h	/^		Setting (int *i) {$/;"	f	struct:Settings::Setting
+Setting	core/IO/Settings.h	/^		Setting(bool *b) {$/;"	f	struct:Settings::Setting
+Setting	core/IO/Settings.h	/^		Setting(vector2 *v) {$/;"	f	struct:Settings::Setting
+Setting	core/IO/Settings.h	/^	struct Setting {$/;"	s	class:Settings
 Settings	core/IO/Settings.h	/^class Settings{$/;"	c
-addProp	core/IO/Settings.h	/^	void addProp(const Hash *propertyName, baseProperty* property){$/;"	f	class:Settings
-getPrimitive	core/IO/Settings.h	/^	T* getPrimitive(const Hash *propertyName){$/;"	f	class:Settings
-loadSettingsFromFile	core/IO/Settings.h	/^	void loadSettingsFromFile(std::string filePath){};$/;"	f	class:Settings
-settingsMap	core/IO/Settings.h	/^	std::map<const Hash *, baseProperty*>settingsMap; $/;"	m	class:Settings
+Type	core/IO/Settings.h	/^		enum Type {$/;"	g	struct:Settings::Setting
+VECTOR2	core/IO/Settings.h	/^			VECTOR2,$/;"	e	enum:Settings::Setting::Type
+settings	core/IO/Settings.h	/^	std::map<const Hash *,Setting> settings; $/;"	m	class:Settings
+type	core/IO/Settings.h	/^		Type type;$/;"	m	struct:Settings::Setting
+value	core/IO/Settings.h	/^		void *value;$/;"	m	struct:Settings::Setting
+addSetting	core/IO/Settings.hpp	/^inline void Settings::addSetting(const Hash *propertyName, T value) {$/;"	f	class:Settings
+getSetting	core/IO/Settings.hpp	/^inline bool *Settings::getSetting(const Hash *propertyName) {$/;"	f	class:Settings
+getSetting	core/IO/Settings.hpp	/^inline float *Settings::getSetting(const Hash *propertyName) {$/;"	f	class:Settings
+getSetting	core/IO/Settings.hpp	/^inline int *Settings::getSetting(const Hash *propertyName) {$/;"	f	class:Settings
+getSetting	core/IO/Settings.hpp	/^inline vector2 *Settings::getSetting(const Hash *propertyName) {$/;"	f	class:Settings
 _handleEvent	core/IO/eventProcess.cpp	/^void eventProcess::_handleEvent(){$/;"	f	class:eventProcess
 _handleKeyboardPressed	core/IO/eventProcess.cpp	/^void eventProcess::_handleKeyboardPressed(){$/;"	f	class:eventProcess
 _handleKeyboardReleased	core/IO/eventProcess.cpp	/^void eventProcess::_handleKeyboardReleased(){$/;"	f	class:eventProcess
@@ -116,34 +135,34 @@ strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
 util	core/IO/strHelper.h	/^namespace util{$/;"	n
 Draw	core/Rendering/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
-addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(_RenderNode &node){$/;"	f	class:renderProcess
-drawShape_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawShape_(_RenderNode &node){$/;"	f	class:renderProcess
-drawSprite_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawSprite_(_RenderNode &node){$/;"	f	class:renderProcess
-drawText_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawText_(_RenderNode &node){$/;"	f	class:renderProcess
-freeRenderNode	core/Rendering/renderProcess.cpp	/^void freeRenderNode(_RenderNode &node){$/;"	f
-removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(_RenderNode &toRemove){$/;"	f	class:renderProcess
+addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(RenderNode &node){$/;"	f	class:renderProcess
+drawShape_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawShape_(RenderNode &node){$/;"	f	class:renderProcess
+drawSprite_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawSprite_(RenderNode &node){$/;"	f	class:renderProcess
+drawText_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawText_(RenderNode &node){$/;"	f	class:renderProcess
+freeRenderNode	core/Rendering/renderProcess.cpp	/^void freeRenderNode(RenderNode &node){$/;"	f
+removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRenderNode(RenderNode &toRemove){$/;"	f	class:renderProcess
 renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:renderProcess
-setRenderNodeAngle	core/Rendering/renderProcess.cpp	/^void setRenderNodeAngle(_RenderNode &node, util::Angle angle){$/;"	f
-setRenderNodePosition	core/Rendering/renderProcess.cpp	/^void setRenderNodePosition(_RenderNode &node, vector2 position){$/;"	f
-Shape	core/Rendering/renderProcess.h	/^		Shape$/;"	e	enum:_RenderNode::Type
-Sprite	core/Rendering/renderProcess.h	/^		Sprite,$/;"	e	enum:_RenderNode::Type
-Text	core/Rendering/renderProcess.h	/^		Text,$/;"	e	enum:_RenderNode::Type
-Type	core/Rendering/renderProcess.h	/^	enum Type{$/;"	g	struct:_RenderNode
-_RenderNode	core/Rendering/renderProcess.h	/^	_RenderNode() {$/;"	f	struct:_RenderNode
-_RenderNode	core/Rendering/renderProcess.h	/^	_RenderNode(sf::Shape *shape, int z) {$/;"	f	struct:_RenderNode
-_RenderNode	core/Rendering/renderProcess.h	/^struct _RenderNode{$/;"	s
-disabled_	core/Rendering/renderProcess.h	/^	bool disabled_;$/;"	m	struct:_RenderNode
-nodes	core/Rendering/renderProcess.h	/^	std::list<_RenderNode *> nodes;$/;"	m	class:renderProcess
+setRenderNodeAngle	core/Rendering/renderProcess.cpp	/^void setRenderNodeAngle(RenderNode &node, util::Angle angle){$/;"	f
+setRenderNodePosition	core/Rendering/renderProcess.cpp	/^void setRenderNodePosition(RenderNode &node, vector2 position){$/;"	f
+RenderNode	core/Rendering/renderProcess.h	/^	RenderNode() {$/;"	f	struct:RenderNode
+RenderNode	core/Rendering/renderProcess.h	/^	RenderNode(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
+RenderNode	core/Rendering/renderProcess.h	/^struct RenderNode{$/;"	s
+Shape	core/Rendering/renderProcess.h	/^		Shape$/;"	e	enum:RenderNode::Type
+Sprite	core/Rendering/renderProcess.h	/^		Sprite,$/;"	e	enum:RenderNode::Type
+Text	core/Rendering/renderProcess.h	/^		Text,$/;"	e	enum:RenderNode::Type
+Type	core/Rendering/renderProcess.h	/^	enum Type{$/;"	g	struct:RenderNode
+disabled_	core/Rendering/renderProcess.h	/^	bool disabled_;$/;"	m	struct:RenderNode
+nodes	core/Rendering/renderProcess.h	/^	std::list<RenderNode *> nodes;$/;"	m	class:renderProcess
 renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
-renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:_RenderNode	typeref:union:_RenderNode::__anon1
-setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(sf::Shape *shape, int z) {$/;"	f	struct:_RenderNode
-shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:_RenderNode::__anon1
-sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(_RenderNode *first, _RenderNode *second){$/;"	f	class:renderProcess
-sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:_RenderNode::__anon1
-text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:_RenderNode::__anon1
-type_	core/Rendering/renderProcess.h	/^	} type_;$/;"	m	struct:_RenderNode	typeref:enum:_RenderNode::Type
+renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:RenderNode	typeref:union:RenderNode::__anon22
+setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
+shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:RenderNode::__anon22
+sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(RenderNode *first, RenderNode *second){$/;"	f	class:renderProcess
+sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:RenderNode::__anon22
+text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:RenderNode::__anon22
+type_	core/Rendering/renderProcess.h	/^	} type_;$/;"	m	struct:RenderNode	typeref:enum:RenderNode::Type
 window	core/Rendering/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
-z_	core/Rendering/renderProcess.h	/^	int z_;$/;"	m	struct:_RenderNode
+z_	core/Rendering/renderProcess.h	/^	int z_;$/;"	m	struct:RenderNode
 createCircleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createCircleShape(const b2CircleShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
 createPolyShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createPolyShape(const b2PolygonShape *b2Shape, viewProcess *view){$/;"	f	class:renderUtil
 createRectangleShape	core/Rendering/renderUtil.cpp	/^sf::Shape *renderUtil::createRectangleShape(const vector2 &dim){$/;"	f	class:renderUtil
@@ -170,21 +189,23 @@ game2RenderScale	core/Rendering/viewProcess.h	/^	float game2RenderScale;$/;"	m	c
 viewProcess	core/Rendering/viewProcess.h	/^class viewProcess : public Process, public Observer{$/;"	c
 window	core/Rendering/viewProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:viewProcess
 windowHeight	core/Rendering/viewProcess.h	/^	float windowHeight;$/;"	m	class:viewProcess
-Shudown	core/Rendering/windowProcess.h	/^	void Shudown(){$/;"	f	class:windowProcess
+Shudown	core/Rendering/windowProcess.cpp	/^void windowProcess::Shudown(){$/;"	f	class:windowProcess
+getWindow	core/Rendering/windowProcess.cpp	/^sf::RenderWindow *windowProcess::getWindow(){$/;"	f	class:windowProcess
+postDraw	core/Rendering/windowProcess.cpp	/^void windowProcess::postDraw(){$/;"	f	class:windowProcess
+preUpdate	core/Rendering/windowProcess.cpp	/^void windowProcess::preUpdate(){$/;"	f	class:windowProcess
+setClearColor	core/Rendering/windowProcess.cpp	/^void windowProcess::setClearColor(sf::Color color){$/;"	f	class:windowProcess
+windowProcess	core/Rendering/windowProcess.cpp	/^windowProcess::windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) : $/;"	f	class:windowProcess
 clearColor	core/Rendering/windowProcess.h	/^	sf::Color clearColor;$/;"	m	class:windowProcess
-getWindow	core/Rendering/windowProcess.h	/^	sf::RenderWindow *getWindow(){$/;"	f	class:windowProcess
-postDraw	core/Rendering/windowProcess.h	/^	void postDraw(){$/;"	f	class:windowProcess
-preUpdate	core/Rendering/windowProcess.h	/^	virtual void preUpdate(){$/;"	f	class:windowProcess
-setClearColor	core/Rendering/windowProcess.h	/^	void setClearColor(sf::Color color){$/;"	f	class:windowProcess
 window	core/Rendering/windowProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:windowProcess
-windowProcess	core/Rendering/windowProcess.h	/^	windowProcess(processMgr &processManager, Settings &settings, EventManager &eventManager) : $/;"	f	class:windowProcess
 windowProcess	core/Rendering/windowProcess.h	/^class windowProcess : public Process{$/;"	c
+ALL_COLLISIONS	core/World/objContactListener.cpp	/^const Hash *CollisionHandler::ALL_COLLISIONS = (const Hash*)(0xCAFEBABE);$/;"	m	class:CollisionHandler	file:
 BeginContact	core/World/objContactListener.cpp	/^void objContactListener::BeginContact(b2Contact* contact){$/;"	f	class:objContactListener
 EndContact	core/World/objContactListener.cpp	/^void objContactListener::EndContact(b2Contact* contact){$/;"	f	class:objContactListener
 _execHandlers	core/World/objContactListener.cpp	/^void objContactListener::_execHandlers(bool beginHandler, b2Contact *contact, Object *me, PhyData *myPhy, Object *other, PhyData *otherPhy){$/;"	f	class:objContactListener
 _extractObjects	core/World/objContactListener.cpp	/^void objContactListener::_extractObjects(b2Contact *contact, Object **a, Object **b){$/;"	f	class:objContactListener
 _handleCollision	core/World/objContactListener.cpp	/^void objContactListener::_handleCollision(bool beginHandler, b2Contact *contact){$/;"	f	class:objContactListener
 _shouldHandleCollision	core/World/objContactListener.cpp	/^bool objContactListener::_shouldHandleCollision(CollisionHandler *handler, PhyData *otherPhy){$/;"	f	class:objContactListener
+ALL_COLLISIONS	core/World/objContactListener.h	/^	static const Hash *ALL_COLLISIONS;$/;"	m	struct:CollisionHandler
 CollisionCallback	core/World/objContactListener.h	/^typedef void (*CollisionCallback) (CollisionData &collision, void *data);$/;"	t
 CollisionData	core/World/objContactListener.h	/^struct CollisionData{$/;"	s
 CollisionHandler	core/World/objContactListener.h	/^struct CollisionHandler{$/;"	s
@@ -196,7 +217,7 @@ objContactListener	core/World/objContactListener.h	/^	objContactListener(){};$/;
 objContactListener	core/World/objContactListener.h	/^class objContactListener : public b2ContactListener{$/;"	c
 onBegin	core/World/objContactListener.h	/^	CollisionCallback onBegin = NULL;$/;"	m	struct:CollisionHandler
 onEnd	core/World/objContactListener.h	/^	CollisionCallback onEnd = NULL;$/;"	m	struct:CollisionHandler
-otherCollision	core/World/objContactListener.h	/^	const Hash *otherCollision;$/;"	m	struct:CollisionHandler
+otherCollision	core/World/objContactListener.h	/^	const Hash *otherCollision = NULL;$/;"	m	struct:CollisionHandler
 otherObj	core/World/objContactListener.h	/^	Object *otherObj;	$/;"	m	struct:CollisionData
 otherPhy	core/World/objContactListener.h	/^	PhyData *otherPhy;$/;"	m	struct:CollisionData
 ~objContactListener	core/World/objContactListener.h	/^	~objContactListener(){};$/;"	f	class:objContactListener
@@ -243,23 +264,24 @@ requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(cons
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
 uniqueNames	core/componentSys/Object.cpp	/^UniqueNames Object::uniqueNames;$/;"	m	class:Object	file:
 ~Object	core/componentSys/Object.cpp	/^Object::~Object(){$/;"	f	class:Object
+Message	core/componentSys/Object.h	/^	struct Message {$/;"	s	class:Object
 Object	core/componentSys/Object.h	/^class Object{$/;"	c
-_getProperty	core/componentSys/Object.h	/^	Prop<T> * _getProperty(const Hash* name, bool warnIfNull = true){$/;"	f	class:Object
 cObjMapIt	core/componentSys/Object.h	/^	typedef objectMap::const_iterator cObjMapIt;$/;"	t	class:Object
 children	core/componentSys/Object.h	/^	std::vector<Object *>children;$/;"	m	class:Object
 dead	core/componentSys/Object.h	/^	bool dead;$/;"	m	class:Object
 getMessage	core/componentSys/Object.h	/^	T* getMessage(const Hash *tag) {$/;"	f	class:Object
-getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const Hash *name){$/;"	f	class:Object
-getPrimitive	core/componentSys/Object.h	/^	Type* getPrimitive(const char *name){$/;"	f	class:Object
-messages	core/componentSys/Object.h	/^	std::map<const Hash*, baseProperty* > messages;$/;"	m	class:Object
-messagesMap	core/componentSys/Object.h	/^	Hashmap *messagesMap;$/;"	m	class:Object
+getPrimitive	core/componentSys/Object.h	/^	T* getPrimitive(const Hash *name){$/;"	f	class:Object
+messages	core/componentSys/Object.h	/^	std::map<const Hash*, Message>messages;$/;"	m	class:Object
 name	core/componentSys/Object.h	/^	const Hash *name;$/;"	m	class:Object
 objMapIt	core/componentSys/Object.h	/^	typedef objectMap::iterator objMapIt;$/;"	t	class:Object
 objectList	core/componentSys/Object.h	/^	typedef std::vector<Object *> objectList;$/;"	t	class:Object
 objectMap	core/componentSys/Object.h	/^	typedef std::map<std::string, Object *> objectMap;$/;"	t	class:Object
 parent	core/componentSys/Object.h	/^	Object *parent;$/;"	m	class:Object
+prop	core/componentSys/Object.h	/^		baseProperty *prop = NULL;$/;"	m	struct:Object::Message
 propMap	core/componentSys/Object.h	/^	Hashmap *propMap;$/;"	m	class:Object
+read	core/componentSys/Object.h	/^		bool read = false;$/;"	m	struct:Object::Message
 sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, T value, bool sendToChildren = false) {$/;"	f	class:Object
+sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, baseProperty* value, bool sendToChildren = false) {$/;"	f	class:Object
 sendMessage	core/componentSys/Object.h	/^	void sendMessage(const Hash *tag, bool sendToChildren = false) {$/;"	f	class:Object
 uniqueNames	core/componentSys/Object.h	/^	static UniqueNames uniqueNames;$/;"	m	class:Object
 Process	core/componentSys/ObjectManager.cpp	/^void ObjectManager::Process(float dt){$/;"	f	class:ObjectManager
@@ -335,7 +357,6 @@ _onObjectActivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcess
 _onObjectAdd	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PhyProcessor
 _onObjectDeactivate	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:PhyProcessor
 _onObjectDeath	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PhyProcessor
-_preProcess	core/componentSys/processor/PhyProcessor.cpp	/^void PhyProcessor::_preProcess(){$/;"	f	class:PhyProcessor
 createPhyData	core/componentSys/processor/PhyProcessor.cpp	/^PhyData PhyProcessor::createPhyData(b2BodyDef *bodyDef, b2FixtureDef fixtures[], unsigned int numFixtures){$/;"	f	class:PhyProcessor
 world	core/componentSys/processor/PhyProcessor.cpp	/^worldProcess *PhyProcessor::world;$/;"	m	class:PhyProcessor	file:
 PhyData	core/componentSys/processor/PhyProcessor.h	/^	PhyData(){};$/;"	f	struct:PhyData
@@ -346,8 +367,6 @@ body	core/componentSys/processor/PhyProcessor.h	/^	b2Body *body;$/;"	m	struct:Ph
 collisionHandlers	core/componentSys/processor/PhyProcessor.h	/^	std::vector<CollisionHandler> collisionHandlers;$/;"	m	struct:PhyData
 collisionType	core/componentSys/processor/PhyProcessor.h	/^	const Hash* collisionType;$/;"	m	struct:PhyData
 contactListener	core/componentSys/processor/PhyProcessor.h	/^	objContactListener contactListener;$/;"	m	class:PhyProcessor
-maxVel	core/componentSys/processor/PhyProcessor.h	/^	vector2 maxVel;$/;"	m	struct:PhyData
-velClamped	core/componentSys/processor/PhyProcessor.h	/^	bool velClamped;$/;"	m	struct:PhyData
 view	core/componentSys/processor/PhyProcessor.h	/^	viewProcess *view;$/;"	m	class:PhyProcessor
 world	core/componentSys/processor/PhyProcessor.h	/^	static worldProcess *world;$/;"	m	class:PhyProcessor
 RenderProcessor	core/componentSys/processor/RenderProcessor.cpp	/^RenderProcessor::RenderProcessor(processMgr &processManager, $/;"	f	class:RenderProcessor
@@ -356,14 +375,14 @@ _Render	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::
 _onObjectActivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectActivate(Object *obj){$/;"	f	class:RenderProcessor
 _onObjectDeactivate	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeactivate(Object *obj){$/;"	f	class:RenderProcessor
 _onObjectDeath	core/componentSys/processor/RenderProcessor.cpp	/^void RenderProcessor::_onObjectDeath(Object *obj){$/;"	f	class:RenderProcessor
-createRenderData	core/componentSys/processor/RenderProcessor.cpp	/^RenderData RenderProcessor::createRenderData(_RenderNode *renderNodes, int numRenderNodes){$/;"	f	class:RenderProcessor
+createRenderData	core/componentSys/processor/RenderProcessor.cpp	/^RenderData RenderProcessor::createRenderData(RenderNode *renderNodes, int numRenderNodes){$/;"	f	class:RenderProcessor
 RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() {$/;"	f	struct:RenderData
 RenderData	core/componentSys/processor/RenderProcessor.h	/^struct RenderData {$/;"	s
 RenderProcessor	core/componentSys/processor/RenderProcessor.h	/^class RenderProcessor : public ObjectProcessor{$/;"	c
 _shouldProcess	core/componentSys/processor/RenderProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:RenderProcessor
 numRenderNodes	core/componentSys/processor/RenderProcessor.h	/^	int numRenderNodes;$/;"	m	struct:RenderData
 render	core/componentSys/processor/RenderProcessor.h	/^	renderProcess *render;$/;"	m	class:RenderProcessor
-renderNodes	core/componentSys/processor/RenderProcessor.h	/^	_RenderNode *renderNodes;$/;"	m	struct:RenderData
+renderNodes	core/componentSys/processor/RenderProcessor.h	/^	RenderNode *renderNodes;$/;"	m	struct:RenderData
 view	core/componentSys/processor/RenderProcessor.h	/^	viewProcess *view;$/;"	m	class:RenderProcessor
 window	core/componentSys/processor/RenderProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:RenderProcessor
 destoyNameMap	core/componentSys/uniqueNamer.cpp	/^bool destoyNameMap(void* key, void* value, void* context){$/;"	f
@@ -583,10 +602,10 @@ zeroVector	core/math/vector.h	146;"	d
 impulseMagnitude	game/BulletColliders/PushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
 onEnemyCollision	game/BulletColliders/PushCollider.h	/^	bool onEnemyCollision(CollisionData &collision, Object *bullet){$/;"	f	class:pushCollider
 pushCollider	game/BulletColliders/PushCollider.h	/^	pushCollider(float impulseMagnitude){$/;"	f	class:pushCollider
-pushCollider	game/BulletColliders/PushCollider.h	/^class pushCollider : public BulletCollider{$/;"	c
+pushCollider	game/BulletColliders/PushCollider.h	/^class pushCollider : public StabCollider{$/;"	c
 ~pushCollider	game/BulletColliders/PushCollider.h	/^	~pushCollider(){};$/;"	f	class:pushCollider
 bounceCollider	game/BulletColliders/bounceCollider.h	/^	bounceCollider(unsigned int numBounces){$/;"	f	class:bounceCollider
-bounceCollider	game/BulletColliders/bounceCollider.h	/^class bounceCollider : public BulletCollider{$/;"	c
+bounceCollider	game/BulletColliders/bounceCollider.h	/^class bounceCollider : public StabCollider{$/;"	c
 onCreate	game/BulletColliders/bounceCollider.h	/^	void onCreate(Object *bullet){$/;"	f	class:bounceCollider
 onDefaultCollision	game/BulletColliders/bounceCollider.h	/^	bool onDefaultCollision(CollisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
 onEnemyCollision	game/BulletColliders/bounceCollider.h	/^	bool onEnemyCollision(CollisionData &collision, Object *bullet){$/;"	f	class:bounceCollider
@@ -594,15 +613,20 @@ totalBounces	game/BulletColliders/bounceCollider.h	/^	int totalBounces;$/;"	m	cl
 ~bounceCollider	game/BulletColliders/bounceCollider.h	/^	~bounceCollider(){};$/;"	f	class:bounceCollider
 damage	game/BulletColliders/damageCollider.h	/^	float damage;$/;"	m	class:damageCollider
 damageCollider	game/BulletColliders/damageCollider.h	/^	damageCollider(float damage){$/;"	f	class:damageCollider
-damageCollider	game/BulletColliders/damageCollider.h	/^class damageCollider : public BulletCollider{$/;"	c
+damageCollider	game/BulletColliders/damageCollider.h	/^class damageCollider : public StabCollider{$/;"	c
 onEnemyCollision	game/BulletColliders/damageCollider.h	/^	bool onEnemyCollision(CollisionData &collision, Object *bullet){$/;"	f	class:damageCollider
 ~damageCollider	game/BulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
+_Process	game/ObjProcessors/AIProcessor.cpp	/^void AIProcessor::_Process(Object *obj, float dt){$/;"	f	class:AIProcessor
+onObjectAdd	game/ObjProcessors/AIProcessor.cpp	/^void AIProcessor::onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:AIProcessor
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
-_Process	game/ObjProcessors/AIProcessor.h	/^	void _Process(Object *obj, float dt){};$/;"	f	class:AIProcessor
 _shouldProcess	game/ObjProcessors/AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
-onObjectAdd	game/ObjProcessors/AIProcessor.h	/^	void onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
+separation	game/ObjProcessors/AIProcessor.h	/^	float separation;$/;"	m	struct:AIData
+separationCoeff	game/ObjProcessors/AIProcessor.h	/^	float separationCoeff;$/;"	m	struct:AIData
+speed	game/ObjProcessors/AIProcessor.h	/^	float speed;$/;"	m	struct:AIData
+target	game/ObjProcessors/AIProcessor.h	/^	Object *target;$/;"	m	struct:AIData
+velCoeff	game/ObjProcessors/AIProcessor.h	/^	float velCoeff;$/;"	m	struct:AIData
 world	game/ObjProcessors/AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
 _Process	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:airMoveProcessor
 _onObjectAdd	game/ObjProcessors/AirMoveProcessor.cpp	/^void airMoveProcessor::_onObjectAdd(Object *obj){};$/;"	f	class:airMoveProcessor
@@ -615,54 +639,38 @@ airMoveProcessor	game/ObjProcessors/AirMoveProcessor.h	/^class airMoveProcessor 
 dir	game/ObjProcessors/AirMoveProcessor.h	/^	vector2 dir;$/;"	m	struct:airMoveData
 speed	game/ObjProcessors/AirMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
 world	game/ObjProcessors/AirMoveProcessor.h	/^	worldProcess *world;$/;"	m	class:airMoveProcessor
-_Process	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_Process(Object *obj, float dt){$/;"	f	class:BulletProcessor
 _onObjectAdd	game/ObjProcessors/BulletProcessor.cpp	/^void BulletProcessor::_onObjectAdd(Object *obj){$/;"	f	class:BulletProcessor
-BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	BulletCollider(){};$/;"	f	class:BulletCollider
-BulletCollider	game/ObjProcessors/BulletProcessor.h	/^class BulletCollider{$/;"	c
 BulletData	game/ObjProcessors/BulletProcessor.h	/^	BulletData(){$/;"	f	struct:BulletData
 BulletData	game/ObjProcessors/BulletProcessor.h	/^struct BulletData{$/;"	s
 BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^	BulletProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:BulletProcessor
 BulletProcessor	game/ObjProcessors/BulletProcessor.h	/^class BulletProcessor : public ObjectProcessor{$/;"	c
 _shouldProcess	game/ObjProcessors/BulletProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:BulletProcessor
-addBulletCollder	game/ObjProcessors/BulletProcessor.h	/^	void addBulletCollder(BulletCollider *collider){$/;"	f	struct:BulletData
-addEnemyCollision	game/ObjProcessors/BulletProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:BulletData
-addIgnoreCollision	game/ObjProcessors/BulletProcessor.h	/^	void addIgnoreCollision(const Hash *collision){$/;"	f	struct:BulletData
 angle	game/ObjProcessors/BulletProcessor.h	/^	util::Angle angle;$/;"	m	struct:BulletData
 beginVel	game/ObjProcessors/BulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:BulletData
-colliders	game/ObjProcessors/BulletProcessor.h	/^	std::vector<BulletCollider *> colliders;$/;"	m	struct:BulletData
-enemyCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:BulletData
 gravityScale	game/ObjProcessors/BulletProcessor.h	/^	float gravityScale;$/;"	m	struct:BulletData
-ignoreCollisions	game/ObjProcessors/BulletProcessor.h	/^	std::unordered_set<const Hash*> ignoreCollisions;$/;"	m	struct:BulletData
-onBulletCreate	game/ObjProcessors/BulletProcessor.h	/^typedef void (*onBulletCreate)(Object*);$/;"	t
-onCreate	game/ObjProcessors/BulletProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:BulletCollider
-onDeath	game/ObjProcessors/BulletProcessor.h	/^	virtual void onDeath(CollisionData &data, Object *bullet){};$/;"	f	class:BulletCollider
-onDefaultCollision	game/ObjProcessors/BulletProcessor.h	/^	virtual bool onDefaultCollision(CollisionData &data, Object *bullet){$/;"	f	class:BulletCollider
-onDefaultCollision	game/ObjProcessors/BulletProcessor.h	/^typedef void (*onDefaultCollision)(Object*);$/;"	t
-onEnemyCollision	game/ObjProcessors/BulletProcessor.h	/^typedef bool (*onEnemyCollision)(CollisionData&, Object*);$/;"	t
 world	game/ObjProcessors/BulletProcessor.h	/^	worldProcess *world;$/;"	m	class:BulletProcessor
-~BulletCollider	game/ObjProcessors/BulletProcessor.h	/^	virtual ~BulletCollider(){};$/;"	f	class:BulletCollider
 _Process	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_Process(Object *obj, float dt){$/;"	f	class:cameraProcessor
-_calcCameraMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, cameraData *data){$/;"	f	class:cameraProcessor
-_limitCameraCoord	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, cameraData *data){$/;"	f	class:cameraProcessor
+_calcCameraMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_calcCameraMoveAmt(Object *obj, CameraData *data){$/;"	f	class:cameraProcessor
+_limitCameraCoord	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitCameraCoord(vector2 cameraCoord, CameraData *data){$/;"	f	class:cameraProcessor
 _limitMoveAmt	game/ObjProcessors/CameraProcessor.cpp	/^vector2 cameraProcessor::_limitMoveAmt(vector2 moveAmt, vector2 maxMoveAmt){$/;"	f	class:cameraProcessor
 _onObjectAdd	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_onObjectAdd(Object *obj){$/;"	f	class:cameraProcessor
-_simulateCamera	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, cameraData *data){$/;"	f	class:cameraProcessor
+_simulateCamera	game/ObjProcessors/CameraProcessor.cpp	/^void cameraProcessor::_simulateCamera(vector2 cameraMoveAmt, float dt, CameraData *data){$/;"	f	class:cameraProcessor
+CameraData	game/ObjProcessors/CameraProcessor.h	/^	CameraData(){};$/;"	f	struct:CameraData
+CameraData	game/ObjProcessors/CameraProcessor.h	/^struct CameraData{$/;"	s
 _shouldProcess	game/ObjProcessors/CameraProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:cameraProcessor
-accumilator	game/ObjProcessors/CameraProcessor.h	/^	float accumilator;$/;"	m	struct:cameraData
-boxHalfH	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:cameraData
-boxHalfW	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:cameraData
-cameraCenter	game/ObjProcessors/CameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:cameraData
-cameraData	game/ObjProcessors/CameraProcessor.h	/^	cameraData(){};$/;"	f	struct:cameraData
-cameraData	game/ObjProcessors/CameraProcessor.h	/^struct cameraData{$/;"	s
+accumilator	game/ObjProcessors/CameraProcessor.h	/^	float accumilator;$/;"	m	struct:CameraData
+boxHalfH	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfH;$/;"	m	struct:CameraData
+boxHalfW	game/ObjProcessors/CameraProcessor.h	/^	float boxHalfW;$/;"	m	struct:CameraData
+cameraCenter	game/ObjProcessors/CameraProcessor.h	/^	vector2 cameraCenter;$/;"	m	struct:CameraData
 cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^	cameraProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:cameraProcessor
 cameraProcessor	game/ObjProcessors/CameraProcessor.h	/^class cameraProcessor : public ObjectProcessor{$/;"	c
-enabled	game/ObjProcessors/CameraProcessor.h	/^	bool enabled;$/;"	m	struct:cameraData
+enabled	game/ObjProcessors/CameraProcessor.h	/^	bool enabled;$/;"	m	struct:CameraData
 maxAccumilation	game/ObjProcessors/CameraProcessor.h	/^	float maxAccumilation;$/;"	m	class:cameraProcessor
-maxCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:cameraData
-maxMoveAmt	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:cameraData
-minCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:cameraData
+maxCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxCoord;$/;"	m	struct:CameraData
+maxMoveAmt	game/ObjProcessors/CameraProcessor.h	/^	vector2 maxMoveAmt; $/;"	m	struct:CameraData
+minCoord	game/ObjProcessors/CameraProcessor.h	/^	vector2 minCoord;$/;"	m	struct:CameraData
 stepSize	game/ObjProcessors/CameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
-v	game/ObjProcessors/CameraProcessor.h	/^	vector2 v;$/;"	m	struct:cameraData
+v	game/ObjProcessors/CameraProcessor.h	/^	vector2 v;$/;"	m	struct:CameraData
 view	game/ObjProcessors/CameraProcessor.h	/^	viewProcess *view;$/;"	m	class:cameraProcessor
 window	game/ObjProcessors/CameraProcessor.h	/^	sf::RenderWindow *window;$/;"	m	class:cameraProcessor
 _Process	game/ObjProcessors/GroundMoveProcessor.cpp	/^void groundMoveProcessor::_Process(Object *obj, float dt){$/;"	f	class:groundMoveProcessor
@@ -716,20 +724,22 @@ setBulletVel	game/ObjProcessors/GunProcessor.h	/^	void setBulletVel(float vel){$
 setClipCooldown	game/ObjProcessors/GunProcessor.h	/^	void setClipCooldown(float totalClipCooldown){$/;"	f	struct:GunData
 setClipSize	game/ObjProcessors/GunProcessor.h	/^	void setClipSize(int totalClipSize){$/;"	f	struct:GunData
 setShotCooldown	game/ObjProcessors/GunProcessor.h	/^	void setShotCooldown(float totalShotCooldown){$/;"	f	struct:GunData
+setStabData	game/ObjProcessors/GunProcessor.h	/^	void setStabData(StabData &stabData){$/;"	f	struct:GunData
 shotCooldown	game/ObjProcessors/GunProcessor.h	/^	Cooldown<float> shotCooldown;$/;"	m	struct:GunData
+stabData	game/ObjProcessors/GunProcessor.h	/^	StabData stabData;$/;"	m	struct:GunData
 totalClipSize	game/ObjProcessors/GunProcessor.h	/^	int totalClipSize;$/;"	m	struct:GunData
 viewProc	game/ObjProcessors/GunProcessor.h	/^	viewProcess *viewProc;$/;"	m	class:GunProcessor
 _Process	game/ObjProcessors/HealthProcessor.cpp	/^void healthProcessor::_Process(Object *obj, float dt){$/;"	f	class:healthProcessor
 _onObjectAdd	game/ObjProcessors/HealthProcessor.cpp	/^void healthProcessor::_onObjectAdd(Object *obj){$/;"	f	class:healthProcessor
 healthProcessor	game/ObjProcessors/HealthProcessor.cpp	/^healthProcessor::healthProcessor(processMgr &processManager, Settings &settings, $/;"	f	class:healthProcessor
+HealthData	game/ObjProcessors/HealthProcessor.h	/^	HealthData(){$/;"	f	struct:HealthData
+HealthData	game/ObjProcessors/HealthProcessor.h	/^struct HealthData {$/;"	s
 _shouldProcess	game/ObjProcessors/HealthProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:healthProcessor
-currentHP	game/ObjProcessors/HealthProcessor.h	/^	int currentHP;$/;"	m	struct:healthData
-getHP	game/ObjProcessors/HealthProcessor.h	/^	int getHP(){$/;"	f	struct:healthData
-healthData	game/ObjProcessors/HealthProcessor.h	/^	healthData(){$/;"	f	struct:healthData
-healthData	game/ObjProcessors/HealthProcessor.h	/^struct healthData {$/;"	s
+currentHP	game/ObjProcessors/HealthProcessor.h	/^	int currentHP;$/;"	m	struct:HealthData
+getHP	game/ObjProcessors/HealthProcessor.h	/^	int getHP(){$/;"	f	struct:HealthData
 healthProcessor	game/ObjProcessors/HealthProcessor.h	/^class healthProcessor : public ObjectProcessor {$/;"	c
-invul	game/ObjProcessors/HealthProcessor.h	/^	bool invul;$/;"	m	struct:healthData
-maxHP	game/ObjProcessors/HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:healthData
+invul	game/ObjProcessors/HealthProcessor.h	/^	bool invul;$/;"	m	struct:HealthData
+maxHP	game/ObjProcessors/HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:HealthData
 _Process	game/ObjProcessors/OffsetProcessor.cpp	/^void OffsetProcessor::_Process(Object *obj, float dt){$/;"	f	class:OffsetProcessor
 _shouldProcess	game/ObjProcessors/OffsetProcessor.cpp	/^bool OffsetProcessor::_shouldProcess(Object *obj){$/;"	f	class:OffsetProcessor
 OffsetData	game/ObjProcessors/OffsetProcessor.h	/^	OffsetData() : offsetPos(true), offsetAngle(true){}$/;"	f	struct:OffsetData
@@ -741,7 +751,6 @@ offsetAngle	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetAngle;$/;"	m	stru
 offsetPos	game/ObjProcessors/OffsetProcessor.h	/^	bool offsetPos;$/;"	m	struct:OffsetData
 posOffset	game/ObjProcessors/OffsetProcessor.h	/^	vector2 posOffset;$/;"	m	struct:OffsetData
 PickupProcessor	game/ObjProcessors/PickupProcessor.cpp	/^PickupProcessor::PickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:PickupProcessor
-_Process	game/ObjProcessors/PickupProcessor.cpp	/^void PickupProcessor::_Process(Object *obj, float dt){$/;"	f	class:PickupProcessor
 _onObjectAdd	game/ObjProcessors/PickupProcessor.cpp	/^void PickupProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PickupProcessor
 _onObjectDeath	game/ObjProcessors/PickupProcessor.cpp	/^void PickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PickupProcessor
 pickupCollisionCallback	game/ObjProcessors/PickupProcessor.cpp	/^void pickupCollisionCallback(CollisionData &collision, void *data){$/;"	f
@@ -755,6 +764,25 @@ eventManager	game/ObjProcessors/PickupProcessor.h	/^	EventManager &eventManager;
 hasCollisionType	game/ObjProcessors/PickupProcessor.h	/^	bool hasCollisionType(const Hash *collisionType){$/;"	f	struct:PickupData
 onPickupEvent	game/ObjProcessors/PickupProcessor.h	/^	const Hash *onPickupEvent;$/;"	m	struct:PickupData
 pickupCollisionTypes	game/ObjProcessors/PickupProcessor.h	/^	std::unordered_set<const Hash *> pickupCollisionTypes;$/;"	m	struct:PickupData
+_onObjectAdd	game/ObjProcessors/StabProcessor.cpp	/^void StabProcessor::_onObjectAdd(Object *obj){$/;"	f	class:StabProcessor
+isEnemy	game/ObjProcessors/StabProcessor.cpp	/^bool isEnemy(std::unordered_set<const Hash*> &enemyCollisions, const Hash *objCollisionType) {$/;"	f
+stabCollisionCallback	game/ObjProcessors/StabProcessor.cpp	/^void stabCollisionCallback(CollisionData &collision, void *data){$/;"	f
+StabCollider	game/ObjProcessors/StabProcessor.h	/^	StabCollider(){};$/;"	f	class:StabCollider
+StabCollider	game/ObjProcessors/StabProcessor.h	/^class StabCollider{$/;"	c
+StabData	game/ObjProcessors/StabProcessor.h	/^struct StabData { $/;"	s
+StabProcessor	game/ObjProcessors/StabProcessor.h	/^	StabProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:StabProcessor
+StabProcessor	game/ObjProcessors/StabProcessor.h	/^class StabProcessor : public ObjectProcessor {$/;"	c
+_shouldProcess	game/ObjProcessors/StabProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:StabProcessor
+addCollider	game/ObjProcessors/StabProcessor.h	/^	void addCollider(StabCollider *collider){$/;"	f	struct:StabData
+addEnemyCollision	game/ObjProcessors/StabProcessor.h	/^	void addEnemyCollision(const Hash *collision){$/;"	f	struct:StabData
+colliders	game/ObjProcessors/StabProcessor.h	/^	std::vector<StabCollider *> colliders;$/;"	m	struct:StabData
+enemyCollisions	game/ObjProcessors/StabProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:StabData
+killOnHit	game/ObjProcessors/StabProcessor.h	/^	bool killOnHit;$/;"	m	struct:StabData
+onCreate	game/ObjProcessors/StabProcessor.h	/^	virtual void onCreate(Object *bullet){};$/;"	f	class:StabCollider
+onDeath	game/ObjProcessors/StabProcessor.h	/^	virtual void onDeath(CollisionData &data, Object *stabber){};$/;"	f	class:StabCollider
+onDefaultCollision	game/ObjProcessors/StabProcessor.h	/^	virtual bool onDefaultCollision(CollisionData &data, Object *stabber){$/;"	f	class:StabCollider
+world	game/ObjProcessors/StabProcessor.h	/^	worldProcess *world;$/;"	m	class:StabProcessor
+~StabCollider	game/ObjProcessors/StabProcessor.h	/^	virtual ~StabCollider(){};$/;"	f	class:StabCollider
 _shouldProcess	game/ObjProcessors/TerrainProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:terrainProcessor
 terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^	terrainProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:terrainProcessor
 terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^class terrainProcessor : public ObjectProcessor{$/;"	c
@@ -769,17 +797,15 @@ segment	game/States/gameSegmentLoader.h	/^	gameSegment *segment;$/;"	m	class:gam
 segmentName	game/States/gameSegmentLoader.h	/^	std::string segmentName;$/;"	m	class:gameSegmentLoader
 _Init	game/States/gameState.cpp	/^void gameState::_Init(){$/;"	f	class:gameState
 _createDummy	game/States/gameState.cpp	/^void gameState::_createDummy(vector2 levelDim){$/;"	f	class:gameState
-_createEnemies	game/States/gameState.cpp	/^void gameState::_createEnemies(vector2 levelDim){$/;"	f	class:gameState
-_createPlayer	game/States/gameState.cpp	/^void gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
+_createEnemies	game/States/gameState.cpp	/^void gameState::_createEnemies(vector2 levelDim, Object *player){$/;"	f	class:gameState
+_createPlayer	game/States/gameState.cpp	/^Object* gameState::_createPlayer(vector2 playerInitPos, vector2 levelDim){$/;"	f	class:gameState
 _generateTerrain	game/States/gameState.cpp	/^void gameState::_generateTerrain(unsigned long long seed, vector2& playerInitPos, vector2& levelDim) {$/;"	f	class:gameState
-_initFactory	game/States/gameState.cpp	/^void gameState::_initFactory(){$/;"	f	class:gameState
 Draw	game/States/gameState.h	/^	void Draw(){};$/;"	f	class:gameState
 Update	game/States/gameState.h	/^	void Update(float dt){$/;"	f	class:gameState
 _playerController	game/States/gameState.h	/^	playerController *_playerController;$/;"	m	class:gameState
 createSaveLoader	game/States/gameState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:gameState
 gameState	game/States/gameState.h	/^	gameState() : State("gameState"){};$/;"	f	class:gameState
 gameState	game/States/gameState.h	/^class gameState : public State{$/;"	c
-objFactory	game/States/gameState.h	/^	objectFactory objFactory; $/;"	m	class:gameState
 objectManager	game/States/gameState.h	/^	ObjectManager *objectManager;$/;"	m	class:gameState
 viewProc	game/States/gameState.h	/^	viewProcess *viewProc;$/;"	m	class:gameState
 Draw	game/States/mainMenuState.h	/^	void Draw(){};$/;"	f	class:mainMenuState
@@ -787,6 +813,11 @@ Update	game/States/mainMenuState.h	/^	void Update(float dt){};$/;"	f	class:mainM
 createSaveLoader	game/States/mainMenuState.h	/^	stateSaveLoader *createSaveLoader(){$/;"	f	class:mainMenuState
 mainMenuState	game/States/mainMenuState.h	/^	mainMenuState() : State("mainMenuState"){};$/;"	f	class:mainMenuState
 mainMenuState	game/States/mainMenuState.h	/^class mainMenuState : public State{$/;"	c
+BULLET	game/defines/Collisions.h	/^	BULLET = 2,$/;"	e	enum:CollisionGroups
+CollisionGroups	game/defines/Collisions.h	/^enum CollisionGroups {$/;"	g
+ENEMY	game/defines/Collisions.h	/^	ENEMY = 4,$/;"	e	enum:CollisionGroups
+PICKUP	game/defines/Collisions.h	/^	PICKUP = 16,$/;"	e	enum:CollisionGroups
+PLAYER	game/defines/Collisions.h	/^	PLAYER = 8,$/;"	e	enum:CollisionGroups
 BACK	game/defines/renderingLayers.h	/^	BACK = -100,$/;"	e	enum:renderingLayers
 HUD	game/defines/renderingLayers.h	/^	HUD = 0,$/;"	e	enum:renderingLayers
 aboveAction	game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
@@ -794,67 +825,46 @@ action	game/defines/renderingLayers.h	/^	action = -10,$/;"	e	enum:renderingLayer
 belowAction	game/defines/renderingLayers.h	/^	belowAction = -11,$/;"	e	enum:renderingLayers
 renderingLayers	game/defines/renderingLayers.h	/^enum renderingLayers{$/;"	g
 terrain	game/defines/renderingLayers.h	/^	terrain = -1,$/;"	e	enum:renderingLayers
-Init	game/factory/dummyCreator.h	/^	void Init(float gRadius){$/;"	f	class:dummyCreator
-createObject	game/factory/dummyCreator.h	/^	Object *createObject(vector2 dummyPos) const{$/;"	f	class:dummyCreator
-dummyCreator	game/factory/dummyCreator.h	/^	dummyCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:dummyCreator
-dummyCreator	game/factory/dummyCreator.h	/^class dummyCreator : public objectCreator{$/;"	c
-radius	game/factory/dummyCreator.h	/^	float radius;$/;"	m	class:dummyCreator
-viewProc	game/factory/dummyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:dummyCreator
-createObject	game/factory/enemyCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:enemyCreator
-enemyCollision	game/factory/enemyCreator.h	/^	const Hash *enemyCollision;$/;"	m	class:enemyCreator
-enemyCreator	game/factory/enemyCreator.h	/^	enemyCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:enemyCreator
-enemyCreator	game/factory/enemyCreator.h	/^class enemyCreator : public objectCreator{$/;"	c
-viewProc	game/factory/enemyCreator.h	/^	viewProcess *viewProc;$/;"	m	class:enemyCreator
 CreateBullet	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateEnemy	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {$/;"	f	class:ObjectFactories
 CreateGun	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateGun(GunFactoryInfo &info){$/;"	f	class:ObjectFactories
 CreatePickup	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreatePlayer	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreatePlayer(PlayerFactoryInfo &info) {$/;"	f	class:ObjectFactories
 CreateTerrain	game/factory/objectFactories.cpp	/^Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){$/;"	f	class:ObjectFactories
 BoundaryFactoryInfo	game/factory/objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
 BulletFactoryInfo	game/factory/objectFactories.h	/^struct BulletFactoryInfo {$/;"	s	namespace:ObjectFactories
+EnemyFactoryInfo	game/factory/objectFactories.h	/^struct EnemyFactoryInfo {$/;"	s	namespace:ObjectFactories
 GunFactoryInfo	game/factory/objectFactories.h	/^struct GunFactoryInfo {$/;"	s	namespace:ObjectFactories
 ObjectFactories	game/factory/objectFactories.h	/^namespace ObjectFactories {$/;"	n
 PickupFactoryInfo	game/factory/objectFactories.h	/^struct PickupFactoryInfo {$/;"	s	namespace:ObjectFactories
-PlayerFactoryInfo	game/factory/objectFactories.h	/^struct PlayerFactoryInfo {};$/;"	s	namespace:ObjectFactories
+PlayerFactoryInfo	game/factory/objectFactories.h	/^struct PlayerFactoryInfo {$/;"	s	namespace:ObjectFactories
 TerrainFactoryInfo	game/factory/objectFactories.h	/^	TerrainFactoryInfo (Terrain &terrain_) : terrain(terrain_) {};$/;"	f	struct:ObjectFactories::TerrainFactoryInfo
 TerrainFactoryInfo	game/factory/objectFactories.h	/^struct TerrainFactoryInfo {$/;"	s	namespace:ObjectFactories
 blockDim	game/factory/objectFactories.h	/^	vector2 blockDim;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
 bulletData	game/factory/objectFactories.h	/^	BulletData bulletData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+cameraData	game/factory/objectFactories.h	/^	CameraData cameraData;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
 gunData	game/factory/objectFactories.h	/^	GunData gunData;$/;"	m	struct:ObjectFactories::GunFactoryInfo
 levelDim	game/factory/objectFactories.h	/^	vector2 levelDim;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
 parent	game/factory/objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
-pickup	game/factory/objectFactories.h	/^	PickupData pickup;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+pickupData	game/factory/objectFactories.h	/^	PickupData pickupData;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
 pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
 pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::GunFactoryInfo
 pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
 radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
 radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+stabData	game/factory/objectFactories.h	/^	StabData stabData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+target	game/factory/objectFactories.h	/^	Object *target;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
 terrain	game/factory/objectFactories.h	/^	Terrain &terrain;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
 thickness	game/factory/objectFactories.h	/^	float thickness;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
 viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
 viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
 viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::GunFactoryInfo
 viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
 viewProc	game/factory/objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
-attachObjectCreator	game/factory/objectFactory.cpp	/^void objectFactory::attachObjectCreator(const Hash *objName, objectCreator *creator){$/;"	f	class:objectFactory
-creators	game/factory/objectFactory.h	/^	std::map<const Hash *, objectCreator* >creators; 	$/;"	m	class:objectFactory
-getCreator	game/factory/objectFactory.h	/^	T *getCreator(const Hash* objName){$/;"	f	class:objectFactory
-objectCreator	game/factory/objectFactory.h	/^	objectCreator(){}$/;"	f	class:objectCreator
-objectCreator	game/factory/objectFactory.h	/^class objectCreator{$/;"	c
-objectFactory	game/factory/objectFactory.h	/^class objectFactory{$/;"	c
-~objectCreator	game/factory/objectFactory.h	/^	virtual ~objectCreator(){};$/;"	f	class:objectCreator
-Init	game/factory/pickupCreator.h	/^	void Init(PickupData data, float radius){$/;"	f	class:pickupCreator
-createObject	game/factory/pickupCreator.h	/^	Object *createObject(vector2 _pos) const{$/;"	f	class:pickupCreator
-pickup	game/factory/pickupCreator.h	/^	PickupData pickup;$/;"	m	class:pickupCreator
-pickupCreator	game/factory/pickupCreator.h	/^	pickupCreator(viewProcess *_viewProc) : viewProc(_viewProc), radius(0){}$/;"	f	class:pickupCreator
-pickupCreator	game/factory/pickupCreator.h	/^class pickupCreator : public objectCreator{$/;"	c
-radius	game/factory/pickupCreator.h	/^	float radius;$/;"	m	class:pickupCreator
-viewProc	game/factory/pickupCreator.h	/^	viewProcess *viewProc;$/;"	m	class:pickupCreator
-Init	game/factory/playerCreator.h	/^	void Init(cameraData &camData){$/;"	f	class:playerCreator
-camData	game/factory/playerCreator.h	/^	cameraData camData;$/;"	m	class:playerCreator
-createObject	game/factory/playerCreator.h	/^	Object *createObject(vector2 playerInitPos) const{$/;"	f	class:playerCreator
-playerCreator	game/factory/playerCreator.h	/^	playerCreator(viewProcess *_viewProc) : viewProc(_viewProc){}$/;"	f	class:playerCreator
-playerCreator	game/factory/playerCreator.h	/^class playerCreator : public objectCreator{$/;"	c
-viewProc	game/factory/playerCreator.h	/^	viewProcess *viewProc;$/;"	m	class:playerCreator
 addGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::addGun_(Object *gun, bool isCurrentGun){$/;"	f	class:gunsManager
 fireGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::fireGun_(){$/;"	f	class:gunsManager
 gotoNextGun_	game/gameStateHelpers/gunsManager.cpp	/^void gunsManager::gotoNextGun_(int skip){$/;"	f	class:gunsManager
@@ -873,20 +883,17 @@ player_	game/gameStateHelpers/gunsManager.h	/^	Object *player_;$/;"	m	class:guns
 viewProc_	game/gameStateHelpers/gunsManager.h	/^	viewProcess *viewProc_;$/;"	m	class:gunsManager
 Update	game/gameStateHelpers/playerController.cpp	/^void playerController::Update(float dt)$/;"	f	class:playerController
 _createGunsManager	game/gameStateHelpers/playerController.cpp	/^void playerController::_createGunsManager(Object *player){$/;"	f	class:playerController
-_createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayer(vector2 initPos, playerCreator *creator){$/;"	f	class:playerController
 _createPlayerEventHandler	game/gameStateHelpers/playerController.cpp	/^void playerController::_createPlayerEventHandler(playerHandlerData &playerData)$/;"	f	class:playerController
-createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerCreator *creator,$/;"	f	class:playerController
+createPlayer	game/gameStateHelpers/playerController.cpp	/^void playerController::createPlayer(vector2 levelDim, vector2 initPos, playerHandlerData playerData){$/;"	f	class:playerController
 getPlayer	game/gameStateHelpers/playerController.cpp	/^Object *playerController::getPlayer(){$/;"	f	class:playerController
-playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(EventManager *eventManager, ObjectManager *objectManager,$/;"	f	class:playerController
-_eventManager	game/gameStateHelpers/playerController.h	/^	EventManager *_eventManager;$/;"	m	class:playerController
-_objectFactory	game/gameStateHelpers/playerController.h	/^	objectFactory *_objectFactory;$/;"	m	class:playerController
-_objectManager	game/gameStateHelpers/playerController.h	/^	ObjectManager *_objectManager;$/;"	m	class:playerController
-gunsMgr	game/gameStateHelpers/playerController.h	/^	gunsManager *gunsMgr;$/;"	m	class:playerController
-levelDim	game/gameStateHelpers/playerController.h	/^	vector2 levelDim;$/;"	m	class:playerController
-player	game/gameStateHelpers/playerController.h	/^	Object *player;$/;"	m	class:playerController
+playerController	game/gameStateHelpers/playerController.cpp	/^playerController::playerController(EventManager *eventManager, ObjectManager *objectManager, viewProcess *viewProc){$/;"	f	class:playerController
+eventManager_	game/gameStateHelpers/playerController.h	/^	EventManager *eventManager_;$/;"	m	class:playerController
+gunsMgr_	game/gameStateHelpers/playerController.h	/^	gunsManager *gunsMgr_;$/;"	m	class:playerController
+objectManager_	game/gameStateHelpers/playerController.h	/^	ObjectManager *objectManager_;$/;"	m	class:playerController
 playerController	game/gameStateHelpers/playerController.h	/^class playerController{$/;"	c
-playerHandler	game/gameStateHelpers/playerController.h	/^	playerEventHandler *playerHandler;$/;"	m	class:playerController
-viewProc	game/gameStateHelpers/playerController.h	/^	viewProcess *viewProc;$/;"	m	class:playerController
+playerHandler_	game/gameStateHelpers/playerController.h	/^	playerEventHandler *playerHandler_;$/;"	m	class:playerController
+player_	game/gameStateHelpers/playerController.h	/^	Object *player_;$/;"	m	class:playerController
+viewProc_	game/gameStateHelpers/playerController.h	/^	viewProcess *viewProc_;$/;"	m	class:playerController
 Update	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::Update(){$/;"	f	class:playerEventHandler
 _broadcastFacing	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_broadcastFacing(vector2 gameMousePos){$/;"	f	class:playerEventHandler
 _broadcastFireGun	game/gameStateHelpers/playerEventHandler.cpp	/^void playerEventHandler::_broadcastFireGun(){$/;"	f	class:playerEventHandler
@@ -910,7 +917,8 @@ playerPos	game/gameStateHelpers/playerEventHandler.h	/^	vector2 *playerPos;$/;"	
 right	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key right;$/;"	m	struct:playerHandlerData
 up	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key up;$/;"	m	struct:playerHandlerData
 GenBulletData	game/generators/BulletDataGenerator.cpp	/^BulletData GenBulletData(BulletGenData &data){$/;"	f
-_createBulletCollider	game/generators/BulletDataGenerator.cpp	/^BulletCollider* _createBulletCollider(std::mt19937 &generator, unsigned int abilityPower){$/;"	f
+GenStabData	game/generators/BulletDataGenerator.cpp	/^StabData GenStabData(BulletGenData &data) {$/;"	f
+_createAbility	game/generators/BulletDataGenerator.cpp	/^StabCollider* _createAbility(std::mt19937 &generator, unsigned int abilityPower){$/;"	f
 _genDamage	game/generators/BulletDataGenerator.cpp	/^damageCollider *_genDamage(std::mt19937 &generator, damageProperty &prop){$/;"	f
 _genGravity	game/generators/BulletDataGenerator.cpp	/^float _genGravity(std::mt19937 &generator, gravityProperty &prop){$/;"	f
 _genKnockback	game/generators/BulletDataGenerator.cpp	/^pushCollider *_genKnockback(std::mt19937 &generator, knockbackProperty &prop){$/;"	f
@@ -943,6 +951,7 @@ GenGunData	game/generators/GunDataGenerator.cpp	/^GunData GenGunData(GunGenData 
 _genBulletData	game/generators/GunDataGenerator.cpp	/^void _genBulletData(GunData &gunData, BulletGenData &generationData){$/;"	f
 _genMachineGun	game/generators/GunDataGenerator.cpp	/^void _genMachineGun(std::mt19937 &generator, unsigned long seed, unsigned int power, GunData &gunData){$/;"	f
 _genRocket	game/generators/GunDataGenerator.cpp	/^void _genRocket(std::mt19937 &generator, unsigned long seed, unsigned int power, GunData &gunData){$/;"	f
+_genStabData	game/generators/GunDataGenerator.cpp	/^void _genStabData(GunData &gunData, BulletGenData &generationData){$/;"	f
 GunGenData	game/generators/GunDataGenerator.h	/^struct GunGenData {$/;"	s
 GunType	game/generators/GunDataGenerator.h	/^enum GunType{$/;"	g
 Rocket	game/generators/GunDataGenerator.h	/^		Rocket = 1,$/;"	e	enum:GunType
@@ -1099,7 +1108,7 @@ UpdatePairs	include/Box2D/Collision/b2BroadPhase.h	/^void b2BroadPhase::UpdatePa
 b2BroadPhase	include/Box2D/Collision/b2BroadPhase.h	/^class b2BroadPhase$/;"	c
 b2Pair	include/Box2D/Collision/b2BroadPhase.h	/^struct b2Pair$/;"	s
 b2PairLessThan	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2PairLessThan(const b2Pair& pair1, const b2Pair& pair2)$/;"	f
-e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon6
+e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon18
 m_moveBuffer	include/Box2D/Collision/b2BroadPhase.h	/^	int32* m_moveBuffer;$/;"	m	class:b2BroadPhase
 m_moveCapacity	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCapacity;$/;"	m	class:b2BroadPhase
 m_moveCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCount;$/;"	m	class:b2BroadPhase
@@ -1320,8 +1329,8 @@ m_nodeCount	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_nodeCount;$/;"	m	
 m_nodes	include/Box2D/Collision/b2DynamicTree.h	/^	b2TreeNode* m_nodes;$/;"	m	class:b2DynamicTree
 m_path	include/Box2D/Collision/b2DynamicTree.h	/^	uint32 m_path;$/;"	m	class:b2DynamicTree
 m_root	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_root;$/;"	m	class:b2DynamicTree
-next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon5
-parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon5
+next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon19
+parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon19
 userData	include/Box2D/Collision/b2DynamicTree.h	/^	void* userData;$/;"	m	struct:b2TreeNode
 Evaluate	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Evaluate(int32 indexA, int32 indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
@@ -1400,11 +1409,11 @@ b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color() {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color(float32 r, float32 g, float32 b) : r(r), g(g), b(b) {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^struct b2Color$/;"	s
 b2Draw	include/Box2D/Common/b2Draw.h	/^class b2Draw$/;"	c
-e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon7
-e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon7
-e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon7
-e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon7
-e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon7
+e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon20
+e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon20
+e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon20
+e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon20
+e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon20
 g	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 m_drawFlags	include/Box2D/Common/b2Draw.h	/^	uint32 m_drawFlags;$/;"	m	class:b2Draw
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
@@ -1683,12 +1692,12 @@ b2MixRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2
 contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 createFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactCreateFcn* createFcn;$/;"	m	struct:b2ContactRegister
 destroyFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactDestroyFcn* destroyFcn;$/;"	m	struct:b2ContactRegister
-e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon2
-e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon2
-e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon2
-e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon2
-e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon2
-e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon2
+e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon17
+e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon17
+e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon17
+e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon17
+e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon17
+e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon17
 m_fixtureA	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureA;$/;"	m	class:b2Contact
 m_fixtureB	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureB;$/;"	m	class:b2Contact
 m_flags	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	uint32 m_flags;$/;"	m	class:b2Contact
@@ -2535,13 +2544,13 @@ b2_dynamicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_dynamicBody$/;"	e	enum:b2Bo
 b2_kinematicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_kinematicBody,$/;"	e	enum:b2BodyType
 b2_staticBody	include/Box2D/Dynamics/b2Body.h	/^	b2_staticBody = 0,$/;"	e	enum:b2BodyType
 bullet	include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon3
-e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon3
-e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon3
-e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon3
-e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon3
-e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon3
-e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon3
+e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon16
+e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon16
+e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon16
+e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon16
+e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon16
+e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon16
+e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon16
 fixedRotation	include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 gravityScale	include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 linearDamping	include/Box2D/Dynamics/b2Body.h	/^	float32 linearDamping;$/;"	m	struct:b2BodyDef
@@ -2762,9 +2771,9 @@ SetGravity	include/Box2D/Dynamics/b2World.h	/^inline void b2World::SetGravity(co
 SetSubStepping	include/Box2D/Dynamics/b2World.h	/^	void SetSubStepping(bool flag) { m_subStepping = flag; }$/;"	f	class:b2World
 SetWarmStarting	include/Box2D/Dynamics/b2World.h	/^	void SetWarmStarting(bool flag) { m_warmStarting = flag; }$/;"	f	class:b2World
 b2World	include/Box2D/Dynamics/b2World.h	/^class b2World$/;"	c
-e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon4
-e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon4
-e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon4
+e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon15
+e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon15
+e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon15
 m_allowSleep	include/Box2D/Dynamics/b2World.h	/^	bool m_allowSleep;$/;"	m	class:b2World
 m_blockAllocator	include/Box2D/Dynamics/b2World.h	/^	b2BlockAllocator m_blockAllocator;$/;"	m	class:b2World
 m_bodyCount	include/Box2D/Dynamics/b2World.h	/^	int32 m_bodyCount;$/;"	m	class:b2World
@@ -2883,7 +2892,7 @@ Status	include/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::Soun
 Stopped	include/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	include/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	include/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon15
+BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon10
 Chunk	include/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	include/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	include/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -3034,7 +3043,7 @@ transform	include/SFML/Graphics/RenderStates.hpp	/^    Transform      transform;
 RenderTarget	include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	include/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	include/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon9
+VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon11
 glStatesSet	include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -3279,7 +3288,7 @@ m_data	include/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/\/\/
 m_isValid	include/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	include/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	include/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon13
+AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon1
 Disconnected	include/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -3312,12 +3321,818 @@ SizeReceived	include/SFML/Network/TcpSocket.hpp	/^        std::size_t       Size
 TcpSocket	include/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
 m_pendingPacket	include/SFML/Network/TcpSocket.hpp	/^    PendingPacket m_pendingPacket; \/\/\/< Temporary data of the packet currently being received$/;"	m	class:sf::TcpSocket
 sf	include/SFML/Network/TcpSocket.hpp	/^namespace sf$/;"	n
-MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon14
+MaxDatagramSize	include/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon2
 SFML_UDPSOCKET_HPP	include/SFML/Network/UdpSocket.hpp	26;"	d
 UdpSocket	include/SFML/Network/UdpSocket.hpp	/^class SFML_NETWORK_API UdpSocket : public Socket$/;"	c	namespace:sf
 m_buffer	include/SFML/Network/UdpSocket.hpp	/^    std::vector<char> m_buffer; \/\/\/< Temporary buffer holding the received data in Receive(Packet)$/;"	m	class:sf::UdpSocket
 sf	include/SFML/Network/UdpSocket.hpp	/^namespace sf$/;"	n
 SFML_OPENGL_HPP	include/SFML/OpenGL.hpp	26;"	d
+SFML_AUDIO_HPP	include/SFML/SFML/Audio.hpp	26;"	d
+SFML_AUDIO_API	include/SFML/SFML/Audio/Export.hpp	39;"	d
+SFML_AUDIO_API	include/SFML/SFML/Audio/Export.hpp	43;"	d
+SFML_AUDIO_EXPORT_HPP	include/SFML/SFML/Audio/Export.hpp	26;"	d
+Listener	include/SFML/SFML/Audio/Listener.hpp	/^class SFML_AUDIO_API Listener$/;"	c	namespace:sf
+SFML_LISTENER_HPP	include/SFML/SFML/Audio/Listener.hpp	26;"	d
+sf	include/SFML/SFML/Audio/Listener.hpp	/^namespace sf$/;"	n
+Music	include/SFML/SFML/Audio/Music.hpp	/^class SFML_AUDIO_API Music : public SoundStream$/;"	c	namespace:sf
+SFML_MUSIC_HPP	include/SFML/SFML/Audio/Music.hpp	26;"	d
+m_duration	include/SFML/SFML/Audio/Music.hpp	/^    Time               m_duration; \/\/\/< Music duration$/;"	m	class:sf::Music
+m_file	include/SFML/SFML/Audio/Music.hpp	/^    priv::SoundFile*   m_file;     \/\/\/< Sound file$/;"	m	class:sf::Music
+m_mutex	include/SFML/SFML/Audio/Music.hpp	/^    Mutex              m_mutex;    \/\/\/< Mutex protecting the data$/;"	m	class:sf::Music
+m_samples	include/SFML/SFML/Audio/Music.hpp	/^    std::vector<Int16> m_samples;  \/\/\/< Temporary buffer of samples$/;"	m	class:sf::Music
+priv	include/SFML/SFML/Audio/Music.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/Audio/Music.hpp	/^namespace sf$/;"	n
+SFML_SOUND_HPP	include/SFML/SFML/Audio/Sound.hpp	26;"	d
+Sound	include/SFML/SFML/Audio/Sound.hpp	/^class SFML_AUDIO_API Sound : public SoundSource$/;"	c	namespace:sf
+m_buffer	include/SFML/SFML/Audio/Sound.hpp	/^    const SoundBuffer* m_buffer; \/\/\/< Sound buffer bound to the source$/;"	m	class:sf::Sound
+sf	include/SFML/SFML/Audio/Sound.hpp	/^namespace sf$/;"	n
+SFML_SOUNDBUFFER_HPP	include/SFML/SFML/Audio/SoundBuffer.hpp	26;"	d
+SoundBuffer	include/SFML/SFML/Audio/SoundBuffer.hpp	/^class SFML_AUDIO_API SoundBuffer$/;"	c	namespace:sf
+SoundList	include/SFML/SFML/Audio/SoundBuffer.hpp	/^    typedef std::set<Sound*> SoundList; \/\/\/< Set of unique sound instances$/;"	t	class:sf::SoundBuffer
+m_buffer	include/SFML/SFML/Audio/SoundBuffer.hpp	/^    unsigned int       m_buffer;   \/\/\/< OpenAL buffer identifier$/;"	m	class:sf::SoundBuffer
+m_duration	include/SFML/SFML/Audio/SoundBuffer.hpp	/^    Time               m_duration; \/\/\/< Sound duration$/;"	m	class:sf::SoundBuffer
+m_samples	include/SFML/SFML/Audio/SoundBuffer.hpp	/^    std::vector<Int16> m_samples;  \/\/\/< Samples buffer$/;"	m	class:sf::SoundBuffer
+m_sounds	include/SFML/SFML/Audio/SoundBuffer.hpp	/^    mutable SoundList  m_sounds;   \/\/\/< List of sounds that are using this buffer$/;"	m	class:sf::SoundBuffer
+priv	include/SFML/SFML/Audio/SoundBuffer.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/Audio/SoundBuffer.hpp	/^namespace sf$/;"	n
+SFML_SOUNDBUFFERRECORDER_HPP	include/SFML/SFML/Audio/SoundBufferRecorder.hpp	26;"	d
+SoundBufferRecorder	include/SFML/SFML/Audio/SoundBufferRecorder.hpp	/^class SFML_AUDIO_API SoundBufferRecorder : public SoundRecorder$/;"	c	namespace:sf
+m_buffer	include/SFML/SFML/Audio/SoundBufferRecorder.hpp	/^    SoundBuffer        m_buffer;  \/\/\/< Sound buffer that will contain the recorded data$/;"	m	class:sf::SoundBufferRecorder
+m_samples	include/SFML/SFML/Audio/SoundBufferRecorder.hpp	/^    std::vector<Int16> m_samples; \/\/\/< Temporary sample buffer to hold the recorded data$/;"	m	class:sf::SoundBufferRecorder
+sf	include/SFML/SFML/Audio/SoundBufferRecorder.hpp	/^namespace sf$/;"	n
+SFML_SOUNDRECORDER_HPP	include/SFML/SFML/Audio/SoundRecorder.hpp	26;"	d
+SoundRecorder	include/SFML/SFML/Audio/SoundRecorder.hpp	/^class SFML_AUDIO_API SoundRecorder$/;"	c	namespace:sf
+m_isCapturing	include/SFML/SFML/Audio/SoundRecorder.hpp	/^    bool               m_isCapturing; \/\/\/< Capturing state$/;"	m	class:sf::SoundRecorder
+m_sampleRate	include/SFML/SFML/Audio/SoundRecorder.hpp	/^    unsigned int       m_sampleRate;  \/\/\/< Sample rate$/;"	m	class:sf::SoundRecorder
+m_samples	include/SFML/SFML/Audio/SoundRecorder.hpp	/^    std::vector<Int16> m_samples;     \/\/\/< Buffer to store captured samples$/;"	m	class:sf::SoundRecorder
+m_thread	include/SFML/SFML/Audio/SoundRecorder.hpp	/^    Thread             m_thread;      \/\/\/< Thread running the background recording task$/;"	m	class:sf::SoundRecorder
+sf	include/SFML/SFML/Audio/SoundRecorder.hpp	/^namespace sf$/;"	n
+Paused	include/SFML/SFML/Audio/SoundSource.hpp	/^        Paused,  \/\/\/< Sound is paused$/;"	e	enum:sf::SoundSource::Status
+Playing	include/SFML/SFML/Audio/SoundSource.hpp	/^        Playing  \/\/\/< Sound is playing$/;"	e	enum:sf::SoundSource::Status
+SFML_SOUNDSOURCE_HPP	include/SFML/SFML/Audio/SoundSource.hpp	26;"	d
+SoundSource	include/SFML/SFML/Audio/SoundSource.hpp	/^class SFML_AUDIO_API SoundSource$/;"	c	namespace:sf
+Status	include/SFML/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::SoundSource
+Stopped	include/SFML/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
+m_source	include/SFML/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
+sf	include/SFML/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
+BufferCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon5
+Chunk	include/SFML/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
+SFML_SOUNDSTREAM_HPP	include/SFML/SFML/Audio/SoundStream.hpp	26;"	d
+SoundStream	include/SFML/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
+m_buffers	include/SFML/SFML/Audio/SoundStream.hpp	/^    unsigned int  m_buffers[BufferCount];    \/\/\/< Sound buffers used to store temporary audio data$/;"	m	class:sf::SoundStream
+m_channelCount	include/SFML/SFML/Audio/SoundStream.hpp	/^    unsigned int  m_channelCount;            \/\/\/< Number of channels (1 = mono, 2 = stereo, ...)$/;"	m	class:sf::SoundStream
+m_endBuffers	include/SFML/SFML/Audio/SoundStream.hpp	/^    bool          m_endBuffers[BufferCount]; \/\/\/< Each buffer is marked as "end buffer" or not, for proper duration calculation$/;"	m	class:sf::SoundStream
+m_format	include/SFML/SFML/Audio/SoundStream.hpp	/^    Uint32        m_format;                  \/\/\/< Format of the internal sound buffers$/;"	m	class:sf::SoundStream
+m_isStreaming	include/SFML/SFML/Audio/SoundStream.hpp	/^    bool          m_isStreaming;             \/\/\/< Streaming state (true = playing, false = stopped)$/;"	m	class:sf::SoundStream
+m_loop	include/SFML/SFML/Audio/SoundStream.hpp	/^    bool          m_loop;                    \/\/\/< Loop flag (true to loop, false to play once)$/;"	m	class:sf::SoundStream
+m_sampleRate	include/SFML/SFML/Audio/SoundStream.hpp	/^    unsigned int  m_sampleRate;              \/\/\/< Frequency (samples \/ second)$/;"	m	class:sf::SoundStream
+m_samplesProcessed	include/SFML/SFML/Audio/SoundStream.hpp	/^    Uint64        m_samplesProcessed;        \/\/\/< Number of buffers processed since beginning of the stream$/;"	m	class:sf::SoundStream
+m_thread	include/SFML/SFML/Audio/SoundStream.hpp	/^    Thread        m_thread;                  \/\/\/< Thread running the background tasks$/;"	m	class:sf::SoundStream
+sampleCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        std::size_t  sampleCount; \/\/\/< Number of samples pointed by Samples$/;"	m	struct:sf::SoundStream::Chunk
+samples	include/SFML/SFML/Audio/SoundStream.hpp	/^        const Int16* samples;     \/\/\/< Pointer to the audio samples$/;"	m	struct:sf::SoundStream::Chunk
+sf	include/SFML/SFML/Audio/SoundStream.hpp	/^namespace sf$/;"	n
+Int16	include/SFML/SFML/Config.hpp	/^    typedef signed   short Int16;$/;"	t	namespace:sf
+Int32	include/SFML/SFML/Config.hpp	/^    typedef signed   int Int32;$/;"	t	namespace:sf
+Int64	include/SFML/SFML/Config.hpp	/^        typedef signed   __int64 Int64;$/;"	t	namespace:sf
+Int64	include/SFML/SFML/Config.hpp	/^        typedef signed   long long Int64;$/;"	t	namespace:sf
+Int8	include/SFML/SFML/Config.hpp	/^    typedef signed   char Int8;$/;"	t	namespace:sf
+NOMINMAX	include/SFML/SFML/Config.hpp	44;"	d
+SFML_API_EXPORT	include/SFML/SFML/Config.hpp	104;"	d
+SFML_API_EXPORT	include/SFML/SFML/Config.hpp	110;"	d
+SFML_API_EXPORT	include/SFML/SFML/Config.hpp	120;"	d
+SFML_API_EXPORT	include/SFML/SFML/Config.hpp	88;"	d
+SFML_API_IMPORT	include/SFML/SFML/Config.hpp	105;"	d
+SFML_API_IMPORT	include/SFML/SFML/Config.hpp	111;"	d
+SFML_API_IMPORT	include/SFML/SFML/Config.hpp	121;"	d
+SFML_API_IMPORT	include/SFML/SFML/Config.hpp	89;"	d
+SFML_CONFIG_HPP	include/SFML/SFML/Config.hpp	26;"	d
+SFML_DEBUG	include/SFML/SFML/Config.hpp	75;"	d
+SFML_SYSTEM_FREEBSD	include/SFML/SFML/Config.hpp	60;"	d
+SFML_SYSTEM_LINUX	include/SFML/SFML/Config.hpp	50;"	d
+SFML_SYSTEM_MACOS	include/SFML/SFML/Config.hpp	55;"	d
+SFML_SYSTEM_WINDOWS	include/SFML/SFML/Config.hpp	42;"	d
+SFML_VERSION_MAJOR	include/SFML/SFML/Config.hpp	32;"	d
+SFML_VERSION_MINOR	include/SFML/SFML/Config.hpp	33;"	d
+Uint16	include/SFML/SFML/Config.hpp	/^    typedef unsigned short Uint16;$/;"	t	namespace:sf
+Uint32	include/SFML/SFML/Config.hpp	/^    typedef unsigned int Uint32;$/;"	t	namespace:sf
+Uint64	include/SFML/SFML/Config.hpp	/^        typedef unsigned __int64 Uint64;$/;"	t	namespace:sf
+Uint64	include/SFML/SFML/Config.hpp	/^        typedef unsigned long long Uint64;$/;"	t	namespace:sf
+Uint8	include/SFML/SFML/Config.hpp	/^    typedef unsigned char Uint8;$/;"	t	namespace:sf
+sf	include/SFML/SFML/Config.hpp	/^namespace sf$/;"	n
+SFML_GRAPHICS_HPP	include/SFML/SFML/Graphics.hpp	26;"	d
+BlendAdd	include/SFML/SFML/Graphics/BlendMode.hpp	/^    BlendAdd,      \/\/\/< Pixel = Source + Dest$/;"	e	enum:sf::BlendMode
+BlendAlpha	include/SFML/SFML/Graphics/BlendMode.hpp	/^    BlendAlpha,    \/\/\/< Pixel = Source * Source.a + Dest * (1 - Source.a)$/;"	e	enum:sf::BlendMode
+BlendMode	include/SFML/SFML/Graphics/BlendMode.hpp	/^enum BlendMode$/;"	g	namespace:sf
+BlendMultiply	include/SFML/SFML/Graphics/BlendMode.hpp	/^    BlendMultiply, \/\/\/< Pixel = Source * Dest$/;"	e	enum:sf::BlendMode
+BlendNone	include/SFML/SFML/Graphics/BlendMode.hpp	/^    BlendNone      \/\/\/< Pixel = Source$/;"	e	enum:sf::BlendMode
+SFML_BLENDMODE_HPP	include/SFML/SFML/Graphics/BlendMode.hpp	26;"	d
+sf	include/SFML/SFML/Graphics/BlendMode.hpp	/^namespace sf$/;"	n
+CircleShape	include/SFML/SFML/Graphics/CircleShape.hpp	/^class SFML_GRAPHICS_API CircleShape : public Shape$/;"	c	namespace:sf
+SFML_CIRCLESHAPE_HPP	include/SFML/SFML/Graphics/CircleShape.hpp	26;"	d
+m_pointCount	include/SFML/SFML/Graphics/CircleShape.hpp	/^    unsigned int m_pointCount; \/\/\/< Number of points composing the circle$/;"	m	class:sf::CircleShape
+m_radius	include/SFML/SFML/Graphics/CircleShape.hpp	/^    float        m_radius;     \/\/\/< Radius of the circle$/;"	m	class:sf::CircleShape
+sf	include/SFML/SFML/Graphics/CircleShape.hpp	/^namespace sf$/;"	n
+Black	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Black;       \/\/\/< Black predefined color$/;"	m	class:sf::Color
+Blue	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Blue;        \/\/\/< Blue predefined color$/;"	m	class:sf::Color
+Color	include/SFML/SFML/Graphics/Color.hpp	/^class SFML_GRAPHICS_API Color$/;"	c	namespace:sf
+Cyan	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Cyan;        \/\/\/< Cyan predefined color$/;"	m	class:sf::Color
+Green	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Green;       \/\/\/< Green predefined color$/;"	m	class:sf::Color
+Magenta	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Magenta;     \/\/\/< Magenta predefined color$/;"	m	class:sf::Color
+Red	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Red;         \/\/\/< Red predefined color$/;"	m	class:sf::Color
+SFML_COLOR_HPP	include/SFML/SFML/Graphics/Color.hpp	26;"	d
+Transparent	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Transparent; \/\/\/< Transparent (black) predefined color$/;"	m	class:sf::Color
+White	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color White;       \/\/\/< White predefined color$/;"	m	class:sf::Color
+Yellow	include/SFML/SFML/Graphics/Color.hpp	/^    static const Color Yellow;      \/\/\/< Yellow predefined color$/;"	m	class:sf::Color
+a	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 a; \/\/\/< Alpha (opacity) component$/;"	m	class:sf::Color
+b	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 b; \/\/\/< Blue component$/;"	m	class:sf::Color
+g	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 g; \/\/\/< Green component$/;"	m	class:sf::Color
+r	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 r; \/\/\/< Red component$/;"	m	class:sf::Color
+sf	include/SFML/SFML/Graphics/Color.hpp	/^namespace sf$/;"	n
+ConvexShape	include/SFML/SFML/Graphics/ConvexShape.hpp	/^class SFML_GRAPHICS_API ConvexShape : public Shape$/;"	c	namespace:sf
+SFML_CONVEXSHAPE_HPP	include/SFML/SFML/Graphics/ConvexShape.hpp	26;"	d
+m_points	include/SFML/SFML/Graphics/ConvexShape.hpp	/^    std::vector<Vector2f> m_points; \/\/\/< Points composing the convex polygon$/;"	m	class:sf::ConvexShape
+sf	include/SFML/SFML/Graphics/ConvexShape.hpp	/^namespace sf$/;"	n
+Drawable	include/SFML/SFML/Graphics/Drawable.hpp	/^class SFML_GRAPHICS_API Drawable$/;"	c	namespace:sf
+SFML_DRAWABLE_HPP	include/SFML/SFML/Graphics/Drawable.hpp	26;"	d
+sf	include/SFML/SFML/Graphics/Drawable.hpp	/^namespace sf$/;"	n
+~Drawable	include/SFML/SFML/Graphics/Drawable.hpp	/^    virtual ~Drawable() {}$/;"	f	class:sf::Drawable
+SFML_GRAPHICS_API	include/SFML/SFML/Graphics/Export.hpp	39;"	d
+SFML_GRAPHICS_API	include/SFML/SFML/Graphics/Export.hpp	43;"	d
+SFML_GRAPHICS_EXPORT_HPP	include/SFML/SFML/Graphics/Export.hpp	26;"	d
+Font	include/SFML/SFML/Graphics/Font.hpp	/^class SFML_GRAPHICS_API Font$/;"	c	namespace:sf
+GlyphTable	include/SFML/SFML/Graphics/Font.hpp	/^    typedef std::map<Uint32, Glyph> GlyphTable; \/\/\/< Table mapping a codepoint to its glyph$/;"	t	class:sf::Font
+Page	include/SFML/SFML/Graphics/Font.hpp	/^    struct Page$/;"	s	class:sf::Font
+PageTable	include/SFML/SFML/Graphics/Font.hpp	/^    typedef std::map<unsigned int, Page> PageTable; \/\/\/< Table mapping a character size to its page (texture)$/;"	t	class:sf::Font
+Row	include/SFML/SFML/Graphics/Font.hpp	/^        Row(unsigned int rowTop, unsigned int rowHeight) : width(0), top(rowTop), height(rowHeight) {}$/;"	f	struct:sf::Font::Row
+Row	include/SFML/SFML/Graphics/Font.hpp	/^    struct Row$/;"	s	class:sf::Font
+SFML_FONT_HPP	include/SFML/SFML/Graphics/Font.hpp	26;"	d
+glyphs	include/SFML/SFML/Graphics/Font.hpp	/^        GlyphTable       glyphs;  \/\/\/< Table mapping code points to their corresponding glyph$/;"	m	struct:sf::Font::Page
+height	include/SFML/SFML/Graphics/Font.hpp	/^        unsigned int height; \/\/\/< Height of the row$/;"	m	struct:sf::Font::Row
+m_face	include/SFML/SFML/Graphics/Font.hpp	/^    void*                      m_face;        \/\/\/< Pointer to the internal font face (it is typeless to avoid exposing implementation details)$/;"	m	class:sf::Font
+m_library	include/SFML/SFML/Graphics/Font.hpp	/^    void*                      m_library;     \/\/\/< Pointer to the internal library interface (it is typeless to avoid exposing implementation details)$/;"	m	class:sf::Font
+m_pages	include/SFML/SFML/Graphics/Font.hpp	/^    mutable PageTable          m_pages;       \/\/\/< Table containing the glyphs pages by character size$/;"	m	class:sf::Font
+m_pixelBuffer	include/SFML/SFML/Graphics/Font.hpp	/^    mutable std::vector<Uint8> m_pixelBuffer; \/\/\/< Pixel buffer holding a glyph's pixels before being written to the texture$/;"	m	class:sf::Font
+m_refCount	include/SFML/SFML/Graphics/Font.hpp	/^    int*                       m_refCount;    \/\/\/< Reference counter used by implicit sharing$/;"	m	class:sf::Font
+m_streamRec	include/SFML/SFML/Graphics/Font.hpp	/^    void*                      m_streamRec;   \/\/\/< Pointer to the stream rec instance (it is typeless to avoid exposing implementation details)$/;"	m	class:sf::Font
+nextRow	include/SFML/SFML/Graphics/Font.hpp	/^        unsigned int     nextRow; \/\/\/< Y position of the next new row in the texture$/;"	m	struct:sf::Font::Page
+rows	include/SFML/SFML/Graphics/Font.hpp	/^        std::vector<Row> rows;    \/\/\/< List containing the position of all the existing rows$/;"	m	struct:sf::Font::Page
+sf	include/SFML/SFML/Graphics/Font.hpp	/^namespace sf$/;"	n
+texture	include/SFML/SFML/Graphics/Font.hpp	/^        sf::Texture      texture; \/\/\/< Texture containing the pixels of the glyphs$/;"	m	struct:sf::Font::Page
+top	include/SFML/SFML/Graphics/Font.hpp	/^        unsigned int top;    \/\/\/< Y position of the row into the texture$/;"	m	struct:sf::Font::Row
+width	include/SFML/SFML/Graphics/Font.hpp	/^        unsigned int width;  \/\/\/< Current width of the row$/;"	m	struct:sf::Font::Row
+Glyph	include/SFML/SFML/Graphics/Glyph.hpp	/^    Glyph() : advance(0) {}$/;"	f	class:sf::Glyph
+Glyph	include/SFML/SFML/Graphics/Glyph.hpp	/^class SFML_GRAPHICS_API Glyph$/;"	c	namespace:sf
+SFML_GLYPH_HPP	include/SFML/SFML/Graphics/Glyph.hpp	26;"	d
+advance	include/SFML/SFML/Graphics/Glyph.hpp	/^    int     advance;     \/\/\/< Offset to move horizontically to the next character$/;"	m	class:sf::Glyph
+bounds	include/SFML/SFML/Graphics/Glyph.hpp	/^    IntRect bounds;      \/\/\/< Bounding rectangle of the glyph, in coordinates relative to the baseline$/;"	m	class:sf::Glyph
+sf	include/SFML/SFML/Graphics/Glyph.hpp	/^namespace sf$/;"	n
+textureRect	include/SFML/SFML/Graphics/Glyph.hpp	/^    IntRect textureRect; \/\/\/< Texture coordinates of the glyph inside the font's texture$/;"	m	class:sf::Glyph
+Image	include/SFML/SFML/Graphics/Image.hpp	/^class SFML_GRAPHICS_API Image$/;"	c	namespace:sf
+SFML_IMAGE_HPP	include/SFML/SFML/Graphics/Image.hpp	26;"	d
+m_pixels	include/SFML/SFML/Graphics/Image.hpp	/^    std::vector<Uint8> m_pixels; \/\/\/< Pixels of the image$/;"	m	class:sf::Image
+m_size	include/SFML/SFML/Graphics/Image.hpp	/^    Vector2u           m_size;   \/\/\/< Image size$/;"	m	class:sf::Image
+sf	include/SFML/SFML/Graphics/Image.hpp	/^namespace sf$/;"	n
+Lines	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    Lines,          \/\/\/< List of individual lines$/;"	e	enum:sf::PrimitiveType
+LinesStrip	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    LinesStrip,     \/\/\/< List of connected lines, a point uses the previous point to form a line$/;"	e	enum:sf::PrimitiveType
+Points	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    Points,         \/\/\/< List of individual points$/;"	e	enum:sf::PrimitiveType
+PrimitiveType	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^enum PrimitiveType$/;"	g	namespace:sf
+Quads	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    Quads           \/\/\/< List of individual quads$/;"	e	enum:sf::PrimitiveType
+SFML_PRIMITIVETYPE_HPP	include/SFML/SFML/Graphics/PrimitiveType.hpp	26;"	d
+Triangles	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    Triangles,      \/\/\/< List of individual triangles$/;"	e	enum:sf::PrimitiveType
+TrianglesFan	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    TrianglesFan,   \/\/\/< List of connected triangles, a point uses the common center and the previous point to form a triangle$/;"	e	enum:sf::PrimitiveType
+TrianglesStrip	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^    TrianglesStrip, \/\/\/< List of connected triangles, a point uses the two previous points to form a triangle$/;"	e	enum:sf::PrimitiveType
+sf	include/SFML/SFML/Graphics/PrimitiveType.hpp	/^namespace sf$/;"	n
+FloatRect	include/SFML/SFML/Graphics/Rect.hpp	/^typedef Rect<float> FloatRect;$/;"	t	namespace:sf
+IntRect	include/SFML/SFML/Graphics/Rect.hpp	/^typedef Rect<int>   IntRect;$/;"	t	namespace:sf
+Rect	include/SFML/SFML/Graphics/Rect.hpp	/^class Rect$/;"	c	namespace:sf
+SFML_RECT_HPP	include/SFML/SFML/Graphics/Rect.hpp	26;"	d
+height	include/SFML/SFML/Graphics/Rect.hpp	/^    T height; \/\/\/< Height of the rectangle$/;"	m	class:sf::Rect
+left	include/SFML/SFML/Graphics/Rect.hpp	/^    T left;   \/\/\/< Left coordinate of the rectangle$/;"	m	class:sf::Rect
+sf	include/SFML/SFML/Graphics/Rect.hpp	/^namespace sf$/;"	n
+top	include/SFML/SFML/Graphics/Rect.hpp	/^    T top;    \/\/\/< Top coordinate of the rectangle$/;"	m	class:sf::Rect
+width	include/SFML/SFML/Graphics/Rect.hpp	/^    T width;  \/\/\/< Width of the rectangle$/;"	m	class:sf::Rect
+RectangleShape	include/SFML/SFML/Graphics/RectangleShape.hpp	/^class SFML_GRAPHICS_API RectangleShape : public Shape$/;"	c	namespace:sf
+SFML_RECTANGLESHAPE_HPP	include/SFML/SFML/Graphics/RectangleShape.hpp	26;"	d
+m_size	include/SFML/SFML/Graphics/RectangleShape.hpp	/^    Vector2f m_size; \/\/\/< Size of the rectangle$/;"	m	class:sf::RectangleShape
+sf	include/SFML/SFML/Graphics/RectangleShape.hpp	/^namespace sf$/;"	n
+Default	include/SFML/SFML/Graphics/RenderStates.hpp	/^    static const RenderStates Default; \/\/\/< Special instance holding the default render states$/;"	m	class:sf::RenderStates
+RenderStates	include/SFML/SFML/Graphics/RenderStates.hpp	/^class SFML_GRAPHICS_API RenderStates$/;"	c	namespace:sf
+SFML_RENDERSTATES_HPP	include/SFML/SFML/Graphics/RenderStates.hpp	26;"	d
+blendMode	include/SFML/SFML/Graphics/RenderStates.hpp	/^    BlendMode      blendMode; \/\/\/< Blending mode$/;"	m	class:sf::RenderStates
+sf	include/SFML/SFML/Graphics/RenderStates.hpp	/^namespace sf$/;"	n
+shader	include/SFML/SFML/Graphics/RenderStates.hpp	/^    const Shader*  shader;    \/\/\/< Shader$/;"	m	class:sf::RenderStates
+texture	include/SFML/SFML/Graphics/RenderStates.hpp	/^    const Texture* texture;   \/\/\/< Texture$/;"	m	class:sf::RenderStates
+transform	include/SFML/SFML/Graphics/RenderStates.hpp	/^    Transform      transform; \/\/\/< Transform$/;"	m	class:sf::RenderStates
+RenderTarget	include/SFML/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
+SFML_RENDERTARGET_HPP	include/SFML/SFML/Graphics/RenderTarget.hpp	26;"	d
+StatesCache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
+VertexCacheSize	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon6
+glStatesSet	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
+lastBlendMode	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
+lastTextureId	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
+m_cache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^    StatesCache m_cache;       \/\/\/< Render states cache$/;"	m	class:sf::RenderTarget
+m_defaultView	include/SFML/SFML/Graphics/RenderTarget.hpp	/^    View        m_defaultView; \/\/\/< Default view$/;"	m	class:sf::RenderTarget
+m_view	include/SFML/SFML/Graphics/RenderTarget.hpp	/^    View        m_view;        \/\/\/< Current view$/;"	m	class:sf::RenderTarget
+sf	include/SFML/SFML/Graphics/RenderTarget.hpp	/^namespace sf$/;"	n
+useVertexCache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        bool      useVertexCache; \/\/\/< Did we previously use the vertex cache?$/;"	m	struct:sf::RenderTarget::StatesCache
+vertexCache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        Vertex    vertexCache[VertexCacheSize]; \/\/\/< Pre-transformed vertices cache$/;"	m	struct:sf::RenderTarget::StatesCache
+viewChanged	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        bool      viewChanged;    \/\/\/< Has the current view changed since last draw?$/;"	m	struct:sf::RenderTarget::StatesCache
+RenderTexture	include/SFML/SFML/Graphics/RenderTexture.hpp	/^class SFML_GRAPHICS_API RenderTexture : public RenderTarget$/;"	c	namespace:sf
+SFML_RENDERTEXTURE_HPP	include/SFML/SFML/Graphics/RenderTexture.hpp	26;"	d
+m_impl	include/SFML/SFML/Graphics/RenderTexture.hpp	/^    priv::RenderTextureImpl* m_impl;    \/\/\/< Platform\/hardware specific implementation$/;"	m	class:sf::RenderTexture
+m_texture	include/SFML/SFML/Graphics/RenderTexture.hpp	/^    Texture                  m_texture; \/\/\/< Target texture to draw on$/;"	m	class:sf::RenderTexture
+priv	include/SFML/SFML/Graphics/RenderTexture.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/Graphics/RenderTexture.hpp	/^namespace sf$/;"	n
+RenderWindow	include/SFML/SFML/Graphics/RenderWindow.hpp	/^class SFML_GRAPHICS_API RenderWindow : public Window, public RenderTarget$/;"	c	namespace:sf
+SFML_RENDERWINDOW_HPP	include/SFML/SFML/Graphics/RenderWindow.hpp	26;"	d
+sf	include/SFML/SFML/Graphics/RenderWindow.hpp	/^namespace sf$/;"	n
+CurrentTexture	include/SFML/SFML/Graphics/Shader.hpp	/^    static CurrentTextureType CurrentTexture;$/;"	m	class:sf::Shader
+CurrentTextureType	include/SFML/SFML/Graphics/Shader.hpp	/^    struct CurrentTextureType {};$/;"	s	class:sf::Shader
+Fragment	include/SFML/SFML/Graphics/Shader.hpp	/^        Fragment \/\/\/< Fragment (pixel) shader$/;"	e	enum:sf::Shader::Type
+ParamTable	include/SFML/SFML/Graphics/Shader.hpp	/^    typedef std::map<std::string, int> ParamTable;$/;"	t	class:sf::Shader
+SFML_SHADER_HPP	include/SFML/SFML/Graphics/Shader.hpp	26;"	d
+Shader	include/SFML/SFML/Graphics/Shader.hpp	/^class SFML_GRAPHICS_API Shader : GlResource, NonCopyable$/;"	c	namespace:sf
+TextureTable	include/SFML/SFML/Graphics/Shader.hpp	/^    typedef std::map<int, const Texture*> TextureTable;$/;"	t	class:sf::Shader
+Type	include/SFML/SFML/Graphics/Shader.hpp	/^    enum Type$/;"	g	class:sf::Shader
+Vertex	include/SFML/SFML/Graphics/Shader.hpp	/^        Vertex,  \/\/\/< Vertex shader$/;"	e	enum:sf::Shader::Type
+m_currentTexture	include/SFML/SFML/Graphics/Shader.hpp	/^    int          m_currentTexture; \/\/\/< Location of the current texture in the shader$/;"	m	class:sf::Shader
+m_params	include/SFML/SFML/Graphics/Shader.hpp	/^    ParamTable   m_params;         \/\/\/< Parameters location cache$/;"	m	class:sf::Shader
+m_shaderProgram	include/SFML/SFML/Graphics/Shader.hpp	/^    unsigned int m_shaderProgram;  \/\/\/< OpenGL identifier for the program$/;"	m	class:sf::Shader
+m_textures	include/SFML/SFML/Graphics/Shader.hpp	/^    TextureTable m_textures;       \/\/\/< Texture variables in the shader, mapped to their location$/;"	m	class:sf::Shader
+sf	include/SFML/SFML/Graphics/Shader.hpp	/^namespace sf$/;"	n
+SFML_SHAPE_HPP	include/SFML/SFML/Graphics/Shape.hpp	26;"	d
+Shape	include/SFML/SFML/Graphics/Shape.hpp	/^class SFML_GRAPHICS_API Shape : public Drawable, public Transformable$/;"	c	namespace:sf
+m_bounds	include/SFML/SFML/Graphics/Shape.hpp	/^    FloatRect      m_bounds;           \/\/\/< Bounding rectangle of the whole shape (outline + fill)$/;"	m	class:sf::Shape
+m_fillColor	include/SFML/SFML/Graphics/Shape.hpp	/^    Color          m_fillColor;        \/\/\/< Fill color$/;"	m	class:sf::Shape
+m_insideBounds	include/SFML/SFML/Graphics/Shape.hpp	/^    FloatRect      m_insideBounds;     \/\/\/< Bounding rectangle of the inside (fill)$/;"	m	class:sf::Shape
+m_outlineColor	include/SFML/SFML/Graphics/Shape.hpp	/^    Color          m_outlineColor;     \/\/\/< Outline color$/;"	m	class:sf::Shape
+m_outlineThickness	include/SFML/SFML/Graphics/Shape.hpp	/^    float          m_outlineThickness; \/\/\/< Thickness of the shape's outline$/;"	m	class:sf::Shape
+m_outlineVertices	include/SFML/SFML/Graphics/Shape.hpp	/^    VertexArray    m_outlineVertices;  \/\/\/< Vertex array containing the outline geometry$/;"	m	class:sf::Shape
+m_texture	include/SFML/SFML/Graphics/Shape.hpp	/^    const Texture* m_texture;          \/\/\/< Texture of the shape$/;"	m	class:sf::Shape
+m_textureRect	include/SFML/SFML/Graphics/Shape.hpp	/^    IntRect        m_textureRect;      \/\/\/< Rectangle defining the area of the source texture to display$/;"	m	class:sf::Shape
+m_vertices	include/SFML/SFML/Graphics/Shape.hpp	/^    VertexArray    m_vertices;         \/\/\/< Vertex array containing the fill geometry$/;"	m	class:sf::Shape
+sf	include/SFML/SFML/Graphics/Shape.hpp	/^namespace sf$/;"	n
+SFML_SPRITE_HPP	include/SFML/SFML/Graphics/Sprite.hpp	26;"	d
+Sprite	include/SFML/SFML/Graphics/Sprite.hpp	/^class SFML_GRAPHICS_API Sprite : public Drawable, public Transformable$/;"	c	namespace:sf
+m_texture	include/SFML/SFML/Graphics/Sprite.hpp	/^    const Texture* m_texture;     \/\/\/< Texture of the sprite$/;"	m	class:sf::Sprite
+m_textureRect	include/SFML/SFML/Graphics/Sprite.hpp	/^    IntRect        m_textureRect; \/\/\/< Rectangle defining the area of the source texture to display$/;"	m	class:sf::Sprite
+m_vertices	include/SFML/SFML/Graphics/Sprite.hpp	/^    Vertex         m_vertices[4]; \/\/\/< Vertices defining the sprite's geometry$/;"	m	class:sf::Sprite
+sf	include/SFML/SFML/Graphics/Sprite.hpp	/^namespace sf$/;"	n
+Bold	include/SFML/SFML/Graphics/Text.hpp	/^        Bold       = 1 << 0, \/\/\/< Bold characters$/;"	e	enum:sf::Text::Style
+Italic	include/SFML/SFML/Graphics/Text.hpp	/^        Italic     = 1 << 1, \/\/\/< Italic characters$/;"	e	enum:sf::Text::Style
+Regular	include/SFML/SFML/Graphics/Text.hpp	/^        Regular    = 0,      \/\/\/< Regular characters, no style$/;"	e	enum:sf::Text::Style
+SFML_TEXT_HPP	include/SFML/SFML/Graphics/Text.hpp	26;"	d
+Style	include/SFML/SFML/Graphics/Text.hpp	/^    enum Style$/;"	g	class:sf::Text
+Text	include/SFML/SFML/Graphics/Text.hpp	/^class SFML_GRAPHICS_API Text : public Drawable, public Transformable$/;"	c	namespace:sf
+Underlined	include/SFML/SFML/Graphics/Text.hpp	/^        Underlined = 1 << 2  \/\/\/< Underlined characters$/;"	e	enum:sf::Text::Style
+m_bounds	include/SFML/SFML/Graphics/Text.hpp	/^    FloatRect     m_bounds;        \/\/\/< Bounding rectangle of the text (in local coordinates)$/;"	m	class:sf::Text
+m_characterSize	include/SFML/SFML/Graphics/Text.hpp	/^    unsigned int  m_characterSize; \/\/\/< Base size of characters, in pixels$/;"	m	class:sf::Text
+m_color	include/SFML/SFML/Graphics/Text.hpp	/^    Color         m_color;         \/\/\/< Text color$/;"	m	class:sf::Text
+m_font	include/SFML/SFML/Graphics/Text.hpp	/^    const Font*   m_font;          \/\/\/< Font used to display the string$/;"	m	class:sf::Text
+m_string	include/SFML/SFML/Graphics/Text.hpp	/^    String        m_string;        \/\/\/< String to display$/;"	m	class:sf::Text
+m_style	include/SFML/SFML/Graphics/Text.hpp	/^    Uint32        m_style;         \/\/\/< Text style (see Style enum)$/;"	m	class:sf::Text
+m_vertices	include/SFML/SFML/Graphics/Text.hpp	/^    VertexArray   m_vertices;      \/\/\/< Vertex array containing the text's geometry$/;"	m	class:sf::Text
+sf	include/SFML/SFML/Graphics/Text.hpp	/^namespace sf$/;"	n
+CoordinateType	include/SFML/SFML/Graphics/Texture.hpp	/^    enum CoordinateType$/;"	g	class:sf::Texture
+Normalized	include/SFML/SFML/Graphics/Texture.hpp	/^        Normalized, \/\/\/< Texture coordinates in range [0 .. 1]$/;"	e	enum:sf::Texture::CoordinateType
+Pixels	include/SFML/SFML/Graphics/Texture.hpp	/^        Pixels      \/\/\/< Texture coordinates in range [0 .. size]$/;"	e	enum:sf::Texture::CoordinateType
+SFML_TEXTURE_HPP	include/SFML/SFML/Graphics/Texture.hpp	26;"	d
+Texture	include/SFML/SFML/Graphics/Texture.hpp	/^class SFML_GRAPHICS_API Texture : GlResource$/;"	c	namespace:sf
+m_actualSize	include/SFML/SFML/Graphics/Texture.hpp	/^    Vector2u     m_actualSize;    \/\/\/< Actual texture size (can be greater than public size because of padding)$/;"	m	class:sf::Texture
+m_cacheId	include/SFML/SFML/Graphics/Texture.hpp	/^    Uint64       m_cacheId;       \/\/\/< Unique number that identifies the texture to the render target's cache$/;"	m	class:sf::Texture
+m_isRepeated	include/SFML/SFML/Graphics/Texture.hpp	/^    bool         m_isRepeated;    \/\/\/< Is the texture in repeat mode?$/;"	m	class:sf::Texture
+m_isSmooth	include/SFML/SFML/Graphics/Texture.hpp	/^    bool         m_isSmooth;      \/\/\/< Status of the smooth filter$/;"	m	class:sf::Texture
+m_pixelsFlipped	include/SFML/SFML/Graphics/Texture.hpp	/^    mutable bool m_pixelsFlipped; \/\/\/< To work around the inconsistency in Y orientation$/;"	m	class:sf::Texture
+m_size	include/SFML/SFML/Graphics/Texture.hpp	/^    Vector2u     m_size;          \/\/\/< Public texture size$/;"	m	class:sf::Texture
+m_texture	include/SFML/SFML/Graphics/Texture.hpp	/^    unsigned int m_texture;       \/\/\/< Internal texture identifier$/;"	m	class:sf::Texture
+sf	include/SFML/SFML/Graphics/Texture.hpp	/^namespace sf$/;"	n
+Identity	include/SFML/SFML/Graphics/Transform.hpp	/^    static const Transform Identity; \/\/\/< The identity transform (does nothing)$/;"	m	class:sf::Transform
+SFML_TRANSFORM_HPP	include/SFML/SFML/Graphics/Transform.hpp	26;"	d
+Transform	include/SFML/SFML/Graphics/Transform.hpp	/^class SFML_GRAPHICS_API Transform$/;"	c	namespace:sf
+m_matrix	include/SFML/SFML/Graphics/Transform.hpp	/^    float m_matrix[16]; \/\/\/< 4x4 matrix defining the transformation$/;"	m	class:sf::Transform
+sf	include/SFML/SFML/Graphics/Transform.hpp	/^namespace sf$/;"	n
+SFML_TRANSFORMABLE_HPP	include/SFML/SFML/Graphics/Transformable.hpp	26;"	d
+Transformable	include/SFML/SFML/Graphics/Transformable.hpp	/^class SFML_GRAPHICS_API Transformable$/;"	c	namespace:sf
+m_inverseTransform	include/SFML/SFML/Graphics/Transformable.hpp	/^    mutable Transform m_inverseTransform;           \/\/\/< Combined transformation of the object$/;"	m	class:sf::Transformable
+m_inverseTransformNeedUpdate	include/SFML/SFML/Graphics/Transformable.hpp	/^    mutable bool      m_inverseTransformNeedUpdate; \/\/\/< Does the transform need to be recomputed?$/;"	m	class:sf::Transformable
+m_origin	include/SFML/SFML/Graphics/Transformable.hpp	/^    Vector2f          m_origin;                     \/\/\/< Origin of translation\/rotation\/scaling of the object$/;"	m	class:sf::Transformable
+m_position	include/SFML/SFML/Graphics/Transformable.hpp	/^    Vector2f          m_position;                   \/\/\/< Position of the object in the 2D world$/;"	m	class:sf::Transformable
+m_rotation	include/SFML/SFML/Graphics/Transformable.hpp	/^    float             m_rotation;                   \/\/\/< Orientation of the object, in degrees$/;"	m	class:sf::Transformable
+m_scale	include/SFML/SFML/Graphics/Transformable.hpp	/^    Vector2f          m_scale;                      \/\/\/< Scale of the object$/;"	m	class:sf::Transformable
+m_transform	include/SFML/SFML/Graphics/Transformable.hpp	/^    mutable Transform m_transform;                  \/\/\/< Combined transformation of the object$/;"	m	class:sf::Transformable
+m_transformNeedUpdate	include/SFML/SFML/Graphics/Transformable.hpp	/^    mutable bool      m_transformNeedUpdate;        \/\/\/< Does the transform need to be recomputed?$/;"	m	class:sf::Transformable
+sf	include/SFML/SFML/Graphics/Transformable.hpp	/^namespace sf$/;"	n
+SFML_VERTEX_HPP	include/SFML/SFML/Graphics/Vertex.hpp	26;"	d
+Vertex	include/SFML/SFML/Graphics/Vertex.hpp	/^class SFML_GRAPHICS_API Vertex$/;"	c	namespace:sf
+color	include/SFML/SFML/Graphics/Vertex.hpp	/^    Color     color;     \/\/\/< Color of the vertex$/;"	m	class:sf::Vertex
+position	include/SFML/SFML/Graphics/Vertex.hpp	/^    Vector2f  position;  \/\/\/< 2D position of the vertex$/;"	m	class:sf::Vertex
+sf	include/SFML/SFML/Graphics/Vertex.hpp	/^namespace sf$/;"	n
+texCoords	include/SFML/SFML/Graphics/Vertex.hpp	/^    Vector2f  texCoords; \/\/\/< Coordinates of the texture's pixel to map to the vertex$/;"	m	class:sf::Vertex
+SFML_VERTEXARRAY_HPP	include/SFML/SFML/Graphics/VertexArray.hpp	26;"	d
+VertexArray	include/SFML/SFML/Graphics/VertexArray.hpp	/^class SFML_GRAPHICS_API VertexArray : public Drawable$/;"	c	namespace:sf
+m_primitiveType	include/SFML/SFML/Graphics/VertexArray.hpp	/^    PrimitiveType       m_primitiveType; \/\/\/< Type of primitives to draw$/;"	m	class:sf::VertexArray
+m_vertices	include/SFML/SFML/Graphics/VertexArray.hpp	/^    std::vector<Vertex> m_vertices;      \/\/\/< Vertices contained in the array$/;"	m	class:sf::VertexArray
+sf	include/SFML/SFML/Graphics/VertexArray.hpp	/^namespace sf$/;"	n
+SFML_VIEW_HPP	include/SFML/SFML/Graphics/View.hpp	26;"	d
+View	include/SFML/SFML/Graphics/View.hpp	/^class SFML_GRAPHICS_API View$/;"	c	namespace:sf
+m_center	include/SFML/SFML/Graphics/View.hpp	/^    Vector2f          m_center;              \/\/\/< Center of the view, in scene coordinates$/;"	m	class:sf::View
+m_invTransformUpdated	include/SFML/SFML/Graphics/View.hpp	/^    mutable bool      m_invTransformUpdated; \/\/\/< Internal state telling if the inverse transform needs to be updated$/;"	m	class:sf::View
+m_inverseTransform	include/SFML/SFML/Graphics/View.hpp	/^    mutable Transform m_inverseTransform;    \/\/\/< Precomputed inverse projection transform corresponding to the view$/;"	m	class:sf::View
+m_rotation	include/SFML/SFML/Graphics/View.hpp	/^    float             m_rotation;            \/\/\/< Angle of rotation of the view rectangle, in degrees$/;"	m	class:sf::View
+m_size	include/SFML/SFML/Graphics/View.hpp	/^    Vector2f          m_size;                \/\/\/< Size of the view, in scene coordinates$/;"	m	class:sf::View
+m_transform	include/SFML/SFML/Graphics/View.hpp	/^    mutable Transform m_transform;           \/\/\/< Precomputed projection transform corresponding to the view$/;"	m	class:sf::View
+m_transformUpdated	include/SFML/SFML/Graphics/View.hpp	/^    mutable bool      m_transformUpdated;    \/\/\/< Internal state telling if the transform needs to be updated$/;"	m	class:sf::View
+m_viewport	include/SFML/SFML/Graphics/View.hpp	/^    FloatRect         m_viewport;            \/\/\/< Viewport rectangle, expressed as a factor of the render-target's size$/;"	m	class:sf::View
+sf	include/SFML/SFML/Graphics/View.hpp	/^namespace sf$/;"	n
+SFML_NETWORK_HPP	include/SFML/SFML/Network.hpp	26;"	d
+SFML_NETWORK_API	include/SFML/SFML/Network/Export.hpp	39;"	d
+SFML_NETWORK_API	include/SFML/SFML/Network/Export.hpp	43;"	d
+SFML_NETWORK_EXPORT_HPP	include/SFML/SFML/Network/Export.hpp	26;"	d
+Ascii	include/SFML/SFML/Network/Ftp.hpp	/^        Ascii,  \/\/\/< Text mode using ASCII encoding$/;"	e	enum:sf::Ftp::TransferMode
+BadCommandSequence	include/SFML/SFML/Network/Ftp.hpp	/^            BadCommandSequence      = 503, \/\/\/< Bad sequence of commands$/;"	e	enum:sf::Ftp::Response::Status
+Binary	include/SFML/SFML/Network/Ftp.hpp	/^        Binary, \/\/\/< Binary mode (file is transfered as a sequence of bytes)$/;"	e	enum:sf::Ftp::TransferMode
+ClosingConnection	include/SFML/SFML/Network/Ftp.hpp	/^            ClosingConnection     = 221, \/\/\/< Service closing control connection$/;"	e	enum:sf::Ftp::Response::Status
+ClosingDataConnection	include/SFML/SFML/Network/Ftp.hpp	/^            ClosingDataConnection = 226, \/\/\/< Closing data connection, requested file action successful$/;"	e	enum:sf::Ftp::Response::Status
+CommandNotImplemented	include/SFML/SFML/Network/Ftp.hpp	/^            CommandNotImplemented   = 502, \/\/\/< Command not implemented$/;"	e	enum:sf::Ftp::Response::Status
+CommandUnknown	include/SFML/SFML/Network/Ftp.hpp	/^            CommandUnknown          = 500, \/\/\/< Syntax error, command unrecognized$/;"	e	enum:sf::Ftp::Response::Status
+ConnectionClosed	include/SFML/SFML/Network/Ftp.hpp	/^            ConnectionClosed = 1002, \/\/\/< Connection with server closed$/;"	e	enum:sf::Ftp::Response::Status
+ConnectionFailed	include/SFML/SFML/Network/Ftp.hpp	/^            ConnectionFailed = 1001, \/\/\/< Connection with server failed$/;"	e	enum:sf::Ftp::Response::Status
+DataConnectionAlreadyOpened	include/SFML/SFML/Network/Ftp.hpp	/^            DataConnectionAlreadyOpened = 125, \/\/\/< Data connection already opened, transfer starting$/;"	e	enum:sf::Ftp::Response::Status
+DataConnectionOpened	include/SFML/SFML/Network/Ftp.hpp	/^            DataConnectionOpened  = 225, \/\/\/< Data connection open, no transfer in progress$/;"	e	enum:sf::Ftp::Response::Status
+DataConnectionUnavailable	include/SFML/SFML/Network/Ftp.hpp	/^            DataConnectionUnavailable = 425, \/\/\/< Can't open data connection$/;"	e	enum:sf::Ftp::Response::Status
+DirectoryOk	include/SFML/SFML/Network/Ftp.hpp	/^            DirectoryOk           = 257, \/\/\/< PATHNAME created$/;"	e	enum:sf::Ftp::Response::Status
+DirectoryResponse	include/SFML/SFML/Network/Ftp.hpp	/^    class SFML_NETWORK_API DirectoryResponse : public Response$/;"	c	class:sf::Ftp
+DirectoryStatus	include/SFML/SFML/Network/Ftp.hpp	/^            DirectoryStatus       = 212, \/\/\/< Directory status$/;"	e	enum:sf::Ftp::Response::Status
+Ebcdic	include/SFML/SFML/Network/Ftp.hpp	/^        Ebcdic  \/\/\/< Text mode using EBCDIC encoding$/;"	e	enum:sf::Ftp::TransferMode
+EnteringPassiveMode	include/SFML/SFML/Network/Ftp.hpp	/^            EnteringPassiveMode   = 227, \/\/\/< Entering passive mode$/;"	e	enum:sf::Ftp::Response::Status
+FileActionAborted	include/SFML/SFML/Network/Ftp.hpp	/^            FileActionAborted         = 450, \/\/\/< Requested file action not taken$/;"	e	enum:sf::Ftp::Response::Status
+FileActionOk	include/SFML/SFML/Network/Ftp.hpp	/^            FileActionOk          = 250, \/\/\/< Requested file action ok$/;"	e	enum:sf::Ftp::Response::Status
+FileStatus	include/SFML/SFML/Network/Ftp.hpp	/^            FileStatus            = 213, \/\/\/< File status$/;"	e	enum:sf::Ftp::Response::Status
+FileUnavailable	include/SFML/SFML/Network/Ftp.hpp	/^            FileUnavailable         = 550, \/\/\/< Requested action not taken, file unavailable$/;"	e	enum:sf::Ftp::Response::Status
+FilenameNotAllowed	include/SFML/SFML/Network/Ftp.hpp	/^            FilenameNotAllowed      = 553, \/\/\/< Requested action not taken, file name not allowed$/;"	e	enum:sf::Ftp::Response::Status
+Ftp	include/SFML/SFML/Network/Ftp.hpp	/^class SFML_NETWORK_API Ftp : NonCopyable$/;"	c	namespace:sf
+HelpMessage	include/SFML/SFML/Network/Ftp.hpp	/^            HelpMessage           = 214, \/\/\/< Help message$/;"	e	enum:sf::Ftp::Response::Status
+InsufficientStorageSpace	include/SFML/SFML/Network/Ftp.hpp	/^            InsufficientStorageSpace  = 452, \/\/\/< Requested action not taken; insufficient storage space in system, file unavailable$/;"	e	enum:sf::Ftp::Response::Status
+InvalidFile	include/SFML/SFML/Network/Ftp.hpp	/^            InvalidFile      = 1003  \/\/\/< Invalid file to upload \/ download$/;"	e	enum:sf::Ftp::Response::Status
+InvalidResponse	include/SFML/SFML/Network/Ftp.hpp	/^            InvalidResponse  = 1000, \/\/\/< Response is not a valid FTP one$/;"	e	enum:sf::Ftp::Response::Status
+ListingResponse	include/SFML/SFML/Network/Ftp.hpp	/^    class SFML_NETWORK_API ListingResponse : public Response$/;"	c	class:sf::Ftp
+LocalError	include/SFML/SFML/Network/Ftp.hpp	/^            LocalError                = 451, \/\/\/< Requested action aborted, local error in processing$/;"	e	enum:sf::Ftp::Response::Status
+LoggedIn	include/SFML/SFML/Network/Ftp.hpp	/^            LoggedIn              = 230, \/\/\/< User logged in, proceed. Logged out if appropriate$/;"	e	enum:sf::Ftp::Response::Status
+NeedAccountToLogIn	include/SFML/SFML/Network/Ftp.hpp	/^            NeedAccountToLogIn = 332, \/\/\/< Need account for login$/;"	e	enum:sf::Ftp::Response::Status
+NeedAccountToStore	include/SFML/SFML/Network/Ftp.hpp	/^            NeedAccountToStore      = 532, \/\/\/< Need account for storing files$/;"	e	enum:sf::Ftp::Response::Status
+NeedInformation	include/SFML/SFML/Network/Ftp.hpp	/^            NeedInformation    = 350, \/\/\/< Requested file action pending further information$/;"	e	enum:sf::Ftp::Response::Status
+NeedPassword	include/SFML/SFML/Network/Ftp.hpp	/^            NeedPassword       = 331, \/\/\/< User name ok, need password$/;"	e	enum:sf::Ftp::Response::Status
+NotEnoughMemory	include/SFML/SFML/Network/Ftp.hpp	/^            NotEnoughMemory         = 552, \/\/\/< Requested file action aborted, exceeded storage allocation$/;"	e	enum:sf::Ftp::Response::Status
+NotLoggedIn	include/SFML/SFML/Network/Ftp.hpp	/^            NotLoggedIn             = 530, \/\/\/< Not logged in$/;"	e	enum:sf::Ftp::Response::Status
+Ok	include/SFML/SFML/Network/Ftp.hpp	/^            Ok                    = 200, \/\/\/< Command ok$/;"	e	enum:sf::Ftp::Response::Status
+OpeningDataConnection	include/SFML/SFML/Network/Ftp.hpp	/^            OpeningDataConnection       = 150, \/\/\/< File status ok, about to open data connection$/;"	e	enum:sf::Ftp::Response::Status
+PageTypeUnknown	include/SFML/SFML/Network/Ftp.hpp	/^            PageTypeUnknown         = 551, \/\/\/< Requested action aborted, page type unknown$/;"	e	enum:sf::Ftp::Response::Status
+ParameterNotImplemented	include/SFML/SFML/Network/Ftp.hpp	/^            ParameterNotImplemented = 504, \/\/\/< Command not implemented for that parameter$/;"	e	enum:sf::Ftp::Response::Status
+ParametersUnknown	include/SFML/SFML/Network/Ftp.hpp	/^            ParametersUnknown       = 501, \/\/\/< Syntax error in parameters or arguments$/;"	e	enum:sf::Ftp::Response::Status
+PointlessCommand	include/SFML/SFML/Network/Ftp.hpp	/^            PointlessCommand      = 202, \/\/\/< Command not implemented$/;"	e	enum:sf::Ftp::Response::Status
+Response	include/SFML/SFML/Network/Ftp.hpp	/^    class SFML_NETWORK_API Response$/;"	c	class:sf::Ftp
+RestartMarkerReply	include/SFML/SFML/Network/Ftp.hpp	/^            RestartMarkerReply          = 110, \/\/\/< Restart marker reply$/;"	e	enum:sf::Ftp::Response::Status
+SFML_FTP_HPP	include/SFML/SFML/Network/Ftp.hpp	26;"	d
+ServiceReady	include/SFML/SFML/Network/Ftp.hpp	/^            ServiceReady          = 220, \/\/\/< Service ready for new user$/;"	e	enum:sf::Ftp::Response::Status
+ServiceReadySoon	include/SFML/SFML/Network/Ftp.hpp	/^            ServiceReadySoon            = 120, \/\/\/< Service ready in N minutes$/;"	e	enum:sf::Ftp::Response::Status
+ServiceUnavailable	include/SFML/SFML/Network/Ftp.hpp	/^            ServiceUnavailable        = 421, \/\/\/< Service not available, closing control connection$/;"	e	enum:sf::Ftp::Response::Status
+Status	include/SFML/SFML/Network/Ftp.hpp	/^        enum Status$/;"	g	class:sf::Ftp::Response
+SystemStatus	include/SFML/SFML/Network/Ftp.hpp	/^            SystemStatus          = 211, \/\/\/< System status, or system help reply$/;"	e	enum:sf::Ftp::Response::Status
+SystemType	include/SFML/SFML/Network/Ftp.hpp	/^            SystemType            = 215, \/\/\/< NAME system type, where NAME is an official system name from the list in the Assigned Numbers document$/;"	e	enum:sf::Ftp::Response::Status
+TransferAborted	include/SFML/SFML/Network/Ftp.hpp	/^            TransferAborted           = 426, \/\/\/< Connection closed, transfer aborted$/;"	e	enum:sf::Ftp::Response::Status
+TransferMode	include/SFML/SFML/Network/Ftp.hpp	/^    enum TransferMode$/;"	g	class:sf::Ftp
+m_commandSocket	include/SFML/SFML/Network/Ftp.hpp	/^    TcpSocket m_commandSocket; \/\/\/< Socket holding the control connection with the server$/;"	m	class:sf::Ftp
+m_directory	include/SFML/SFML/Network/Ftp.hpp	/^        std::string m_directory; \/\/\/< Directory extracted from the response message$/;"	m	class:sf::Ftp::DirectoryResponse
+m_listing	include/SFML/SFML/Network/Ftp.hpp	/^        std::vector<std::string> m_listing; \/\/\/< Directory\/file names extracted from the data$/;"	m	class:sf::Ftp::ListingResponse
+m_message	include/SFML/SFML/Network/Ftp.hpp	/^        std::string m_message; \/\/\/< Last message received from the server$/;"	m	class:sf::Ftp::Response
+m_status	include/SFML/SFML/Network/Ftp.hpp	/^        Status      m_status;  \/\/\/< Status code returned from the server$/;"	m	class:sf::Ftp::Response
+sf	include/SFML/SFML/Network/Ftp.hpp	/^namespace sf$/;"	n
+Accepted	include/SFML/SFML/Network/Http.hpp	/^            Accepted       = 202, \/\/\/< The request has been accepted, but will be processed later by the server$/;"	e	enum:sf::Http::Response::Status
+BadGateway	include/SFML/SFML/Network/Http.hpp	/^            BadGateway          = 502, \/\/\/< The gateway server has received an error from the source server$/;"	e	enum:sf::Http::Response::Status
+BadRequest	include/SFML/SFML/Network/Http.hpp	/^            BadRequest          = 400, \/\/\/< The server couldn't understand the request (syntax error)$/;"	e	enum:sf::Http::Response::Status
+ConnectionFailed	include/SFML/SFML/Network/Http.hpp	/^            ConnectionFailed = 1001  \/\/\/< Connection with server failed$/;"	e	enum:sf::Http::Response::Status
+Created	include/SFML/SFML/Network/Http.hpp	/^            Created        = 201, \/\/\/< The resource has successfully been created$/;"	e	enum:sf::Http::Response::Status
+FieldTable	include/SFML/SFML/Network/Http.hpp	/^        typedef std::map<std::string, std::string> FieldTable;$/;"	t	class:sf::Http::Request
+FieldTable	include/SFML/SFML/Network/Http.hpp	/^        typedef std::map<std::string, std::string> FieldTable;$/;"	t	class:sf::Http::Response
+Forbidden	include/SFML/SFML/Network/Http.hpp	/^            Forbidden           = 403, \/\/\/< The requested page cannot be accessed at all, even with authentification$/;"	e	enum:sf::Http::Response::Status
+GatewayTimeout	include/SFML/SFML/Network/Http.hpp	/^            GatewayTimeout      = 504, \/\/\/< The gateway server couldn't receive a response from the source server$/;"	e	enum:sf::Http::Response::Status
+Get	include/SFML/SFML/Network/Http.hpp	/^            Get,  \/\/\/< Request in get mode, standard method to retrieve a page$/;"	e	enum:sf::Http::Request::Method
+Head	include/SFML/SFML/Network/Http.hpp	/^            Head  \/\/\/< Request a page's header only$/;"	e	enum:sf::Http::Request::Method
+Http	include/SFML/SFML/Network/Http.hpp	/^class SFML_NETWORK_API Http : NonCopyable$/;"	c	namespace:sf
+InternalServerError	include/SFML/SFML/Network/Http.hpp	/^            InternalServerError = 500, \/\/\/< The server encountered an unexpected error$/;"	e	enum:sf::Http::Response::Status
+InvalidResponse	include/SFML/SFML/Network/Http.hpp	/^            InvalidResponse  = 1000, \/\/\/< Response is not a valid HTTP one$/;"	e	enum:sf::Http::Response::Status
+Method	include/SFML/SFML/Network/Http.hpp	/^        enum Method$/;"	g	class:sf::Http::Request
+MovedPermanently	include/SFML/SFML/Network/Http.hpp	/^            MovedPermanently = 301, \/\/\/< The requested page has permanently moved to a new location$/;"	e	enum:sf::Http::Response::Status
+MovedTemporarily	include/SFML/SFML/Network/Http.hpp	/^            MovedTemporarily = 302, \/\/\/< The requested page has temporarily moved to a new location$/;"	e	enum:sf::Http::Response::Status
+MultipleChoices	include/SFML/SFML/Network/Http.hpp	/^            MultipleChoices  = 300, \/\/\/< The requested page can be accessed from several locations$/;"	e	enum:sf::Http::Response::Status
+NoContent	include/SFML/SFML/Network/Http.hpp	/^            NoContent      = 204, \/\/\/< The server didn't send any data in return$/;"	e	enum:sf::Http::Response::Status
+NotFound	include/SFML/SFML/Network/Http.hpp	/^            NotFound            = 404, \/\/\/< The requested page doesn't exist$/;"	e	enum:sf::Http::Response::Status
+NotImplemented	include/SFML/SFML/Network/Http.hpp	/^            NotImplemented      = 501, \/\/\/< The server doesn't implement a requested feature$/;"	e	enum:sf::Http::Response::Status
+NotModified	include/SFML/SFML/Network/Http.hpp	/^            NotModified      = 304, \/\/\/< For conditionnal requests, means the requested page hasn't changed and doesn't need to be refreshed$/;"	e	enum:sf::Http::Response::Status
+Ok	include/SFML/SFML/Network/Http.hpp	/^            Ok             = 200, \/\/\/< Most common code returned when operation was successful$/;"	e	enum:sf::Http::Response::Status
+PartialContent	include/SFML/SFML/Network/Http.hpp	/^            PartialContent = 206, \/\/\/< The server has sent a part of the resource, as a response to a partial GET request$/;"	e	enum:sf::Http::Response::Status
+Post	include/SFML/SFML/Network/Http.hpp	/^            Post, \/\/\/< Request in post mode, usually to send data to a page$/;"	e	enum:sf::Http::Request::Method
+RangeNotSatisfiable	include/SFML/SFML/Network/Http.hpp	/^            RangeNotSatisfiable = 407, \/\/\/< The server can't satisfy the partial GET request (with a "Range" header field)$/;"	e	enum:sf::Http::Response::Status
+Request	include/SFML/SFML/Network/Http.hpp	/^    class SFML_NETWORK_API Request$/;"	c	class:sf::Http
+ResetContent	include/SFML/SFML/Network/Http.hpp	/^            ResetContent   = 205, \/\/\/< The server informs the client that it should clear the view (form) that caused the request to be sent$/;"	e	enum:sf::Http::Response::Status
+Response	include/SFML/SFML/Network/Http.hpp	/^    class SFML_NETWORK_API Response$/;"	c	class:sf::Http
+SFML_HTTP_HPP	include/SFML/SFML/Network/Http.hpp	26;"	d
+ServiceNotAvailable	include/SFML/SFML/Network/Http.hpp	/^            ServiceNotAvailable = 503, \/\/\/< The server is temporarily unavailable (overloaded, in maintenance, ...)$/;"	e	enum:sf::Http::Response::Status
+Status	include/SFML/SFML/Network/Http.hpp	/^        enum Status$/;"	g	class:sf::Http::Response
+Unauthorized	include/SFML/SFML/Network/Http.hpp	/^            Unauthorized        = 401, \/\/\/< The requested page needs an authentification to be accessed$/;"	e	enum:sf::Http::Response::Status
+VersionNotSupported	include/SFML/SFML/Network/Http.hpp	/^            VersionNotSupported = 505, \/\/\/< The server doesn't support the requested HTTP version$/;"	e	enum:sf::Http::Response::Status
+m_body	include/SFML/SFML/Network/Http.hpp	/^        std::string  m_body;         \/\/\/< Body of the request$/;"	m	class:sf::Http::Request
+m_body	include/SFML/SFML/Network/Http.hpp	/^        std::string  m_body;         \/\/\/< Body of the response$/;"	m	class:sf::Http::Response
+m_connection	include/SFML/SFML/Network/Http.hpp	/^    TcpSocket      m_connection; \/\/\/< Connection to the host$/;"	m	class:sf::Http
+m_fields	include/SFML/SFML/Network/Http.hpp	/^        FieldTable   m_fields;       \/\/\/< Fields of the header associated to their value$/;"	m	class:sf::Http::Request
+m_fields	include/SFML/SFML/Network/Http.hpp	/^        FieldTable   m_fields;       \/\/\/< Fields of the header$/;"	m	class:sf::Http::Response
+m_host	include/SFML/SFML/Network/Http.hpp	/^    IpAddress      m_host;       \/\/\/< Web host address$/;"	m	class:sf::Http
+m_hostName	include/SFML/SFML/Network/Http.hpp	/^    std::string    m_hostName;   \/\/\/< Web host name$/;"	m	class:sf::Http
+m_majorVersion	include/SFML/SFML/Network/Http.hpp	/^        unsigned int m_majorVersion; \/\/\/< Major HTTP version$/;"	m	class:sf::Http::Request
+m_majorVersion	include/SFML/SFML/Network/Http.hpp	/^        unsigned int m_majorVersion; \/\/\/< Major HTTP version$/;"	m	class:sf::Http::Response
+m_method	include/SFML/SFML/Network/Http.hpp	/^        Method       m_method;       \/\/\/< Method to use for the request$/;"	m	class:sf::Http::Request
+m_minorVersion	include/SFML/SFML/Network/Http.hpp	/^        unsigned int m_minorVersion; \/\/\/< Minor HTTP version$/;"	m	class:sf::Http::Request
+m_minorVersion	include/SFML/SFML/Network/Http.hpp	/^        unsigned int m_minorVersion; \/\/\/< Minor HTTP version$/;"	m	class:sf::Http::Response
+m_port	include/SFML/SFML/Network/Http.hpp	/^    unsigned short m_port;       \/\/\/< Port used for connection with host$/;"	m	class:sf::Http
+m_status	include/SFML/SFML/Network/Http.hpp	/^        Status       m_status;       \/\/\/< Status code$/;"	m	class:sf::Http::Response
+m_uri	include/SFML/SFML/Network/Http.hpp	/^        std::string  m_uri;          \/\/\/< Target URI of the request$/;"	m	class:sf::Http::Request
+sf	include/SFML/SFML/Network/Http.hpp	/^namespace sf$/;"	n
+Broadcast	include/SFML/SFML/Network/IpAddress.hpp	/^    static const IpAddress Broadcast; \/\/\/< The "broadcast" address (for sending UDP messages to everyone on a local network)$/;"	m	class:sf::IpAddress
+IpAddress	include/SFML/SFML/Network/IpAddress.hpp	/^class SFML_NETWORK_API IpAddress$/;"	c	namespace:sf
+LocalHost	include/SFML/SFML/Network/IpAddress.hpp	/^    static const IpAddress LocalHost; \/\/\/< The "localhost" address (for connecting a computer to itself locally)$/;"	m	class:sf::IpAddress
+None	include/SFML/SFML/Network/IpAddress.hpp	/^    static const IpAddress None;      \/\/\/< Value representing an empty\/invalid address$/;"	m	class:sf::IpAddress
+SFML_IPADDRESS_HPP	include/SFML/SFML/Network/IpAddress.hpp	26;"	d
+m_address	include/SFML/SFML/Network/IpAddress.hpp	/^    Uint32 m_address; \/\/\/< Address stored as an unsigned 32 bits integer$/;"	m	class:sf::IpAddress
+sf	include/SFML/SFML/Network/IpAddress.hpp	/^namespace sf$/;"	n
+BoolType	include/SFML/SFML/Network/Packet.hpp	/^    typedef bool (Packet::*BoolType)(std::size_t);$/;"	t	class:sf::Packet
+Packet	include/SFML/SFML/Network/Packet.hpp	/^class SFML_NETWORK_API Packet$/;"	c	namespace:sf
+SFML_PACKET_HPP	include/SFML/SFML/Network/Packet.hpp	26;"	d
+m_data	include/SFML/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/\/\/< Data stored in the packet$/;"	m	class:sf::Packet
+m_isValid	include/SFML/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
+m_readPos	include/SFML/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
+sf	include/SFML/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
+AnyPort	include/SFML/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
+Disconnected	include/SFML/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
+Done	include/SFML/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
+Error	include/SFML/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
+NotReady	include/SFML/SFML/Network/Socket.hpp	/^        NotReady,     \/\/\/< The socket is not ready to send \/ receive data yet$/;"	e	enum:sf::Socket::Status
+SFML_SOCKET_HPP	include/SFML/SFML/Network/Socket.hpp	26;"	d
+Socket	include/SFML/SFML/Network/Socket.hpp	/^class SFML_NETWORK_API Socket : NonCopyable$/;"	c	namespace:sf
+Status	include/SFML/SFML/Network/Socket.hpp	/^    enum Status$/;"	g	class:sf::Socket
+Tcp	include/SFML/SFML/Network/Socket.hpp	/^        Tcp, \/\/\/< TCP protocol$/;"	e	enum:sf::Socket::Type
+Type	include/SFML/SFML/Network/Socket.hpp	/^    enum Type$/;"	g	class:sf::Socket
+Udp	include/SFML/SFML/Network/Socket.hpp	/^        Udp  \/\/\/< UDP protocol$/;"	e	enum:sf::Socket::Type
+m_isBlocking	include/SFML/SFML/Network/Socket.hpp	/^    bool         m_isBlocking; \/\/\/< Current blocking mode of the socket$/;"	m	class:sf::Socket
+m_socket	include/SFML/SFML/Network/Socket.hpp	/^    SocketHandle m_socket;     \/\/\/< Socket descriptor$/;"	m	class:sf::Socket
+m_type	include/SFML/SFML/Network/Socket.hpp	/^    Type         m_type;       \/\/\/< Type of the socket (TCP or UDP)$/;"	m	class:sf::Socket
+sf	include/SFML/SFML/Network/Socket.hpp	/^namespace sf$/;"	n
+SFML_SOCKETHANDLE_HPP	include/SFML/SFML/Network/SocketHandle.hpp	26;"	d
+SocketHandle	include/SFML/SFML/Network/SocketHandle.hpp	/^    typedef UINT_PTR SocketHandle;$/;"	t	namespace:sf
+sf	include/SFML/SFML/Network/SocketHandle.hpp	/^namespace sf$/;"	n
+SFML_SOCKETSELECTOR_HPP	include/SFML/SFML/Network/SocketSelector.hpp	26;"	d
+SocketSelector	include/SFML/SFML/Network/SocketSelector.hpp	/^class SFML_NETWORK_API SocketSelector$/;"	c	namespace:sf
+m_impl	include/SFML/SFML/Network/SocketSelector.hpp	/^    SocketSelectorImpl* m_impl; \/\/\/< Opaque pointer to the implementation (which requires OS-specific types)$/;"	m	class:sf::SocketSelector
+sf	include/SFML/SFML/Network/SocketSelector.hpp	/^namespace sf$/;"	n
+SFML_TCPLISTENER_HPP	include/SFML/SFML/Network/TcpListener.hpp	26;"	d
+TcpListener	include/SFML/SFML/Network/TcpListener.hpp	/^class SFML_NETWORK_API TcpListener : public Socket$/;"	c	namespace:sf
+sf	include/SFML/SFML/Network/TcpListener.hpp	/^namespace sf$/;"	n
+Data	include/SFML/SFML/Network/TcpSocket.hpp	/^        std::vector<char> Data;         \/\/\/< Data of the packet$/;"	m	struct:sf::TcpSocket::PendingPacket
+PendingPacket	include/SFML/SFML/Network/TcpSocket.hpp	/^    struct PendingPacket$/;"	s	class:sf::TcpSocket
+SFML_TCPSOCKET_HPP	include/SFML/SFML/Network/TcpSocket.hpp	26;"	d
+Size	include/SFML/SFML/Network/TcpSocket.hpp	/^        Uint32            Size;         \/\/\/< Data of packet size$/;"	m	struct:sf::TcpSocket::PendingPacket
+SizeReceived	include/SFML/SFML/Network/TcpSocket.hpp	/^        std::size_t       SizeReceived; \/\/\/< Number of size bytes received so far$/;"	m	struct:sf::TcpSocket::PendingPacket
+TcpSocket	include/SFML/SFML/Network/TcpSocket.hpp	/^class SFML_NETWORK_API TcpSocket : public Socket$/;"	c	namespace:sf
+m_pendingPacket	include/SFML/SFML/Network/TcpSocket.hpp	/^    PendingPacket m_pendingPacket; \/\/\/< Temporary data of the packet currently being received$/;"	m	class:sf::TcpSocket
+sf	include/SFML/SFML/Network/TcpSocket.hpp	/^namespace sf$/;"	n
+MaxDatagramSize	include/SFML/SFML/Network/UdpSocket.hpp	/^        MaxDatagramSize = 65507 \/\/\/< The maximum number of bytes that can be sent in a single UDP datagram$/;"	e	enum:sf::UdpSocket::__anon4
+SFML_UDPSOCKET_HPP	include/SFML/SFML/Network/UdpSocket.hpp	26;"	d
+UdpSocket	include/SFML/SFML/Network/UdpSocket.hpp	/^class SFML_NETWORK_API UdpSocket : public Socket$/;"	c	namespace:sf
+m_buffer	include/SFML/SFML/Network/UdpSocket.hpp	/^    std::vector<char> m_buffer; \/\/\/< Temporary buffer holding the received data in Receive(Packet)$/;"	m	class:sf::UdpSocket
+sf	include/SFML/SFML/Network/UdpSocket.hpp	/^namespace sf$/;"	n
+SFML_OPENGL_HPP	include/SFML/SFML/OpenGL.hpp	26;"	d
+SFML_SYSTEM_HPP	include/SFML/SFML/System.hpp	26;"	d
+Clock	include/SFML/SFML/System/Clock.hpp	/^class SFML_SYSTEM_API Clock$/;"	c	namespace:sf
+SFML_CLOCK_HPP	include/SFML/SFML/System/Clock.hpp	26;"	d
+m_startTime	include/SFML/SFML/System/Clock.hpp	/^    Time m_startTime; \/\/\/< Time of last reset, in microseconds$/;"	m	class:sf::Clock
+sf	include/SFML/SFML/System/Clock.hpp	/^namespace sf$/;"	n
+SFML_ERR_HPP	include/SFML/SFML/System/Err.hpp	26;"	d
+sf	include/SFML/SFML/System/Err.hpp	/^namespace sf$/;"	n
+SFML_SYSTEM_API	include/SFML/SFML/System/Export.hpp	39;"	d
+SFML_SYSTEM_API	include/SFML/SFML/System/Export.hpp	43;"	d
+SFML_SYSTEM_EXPORT_HPP	include/SFML/SFML/System/Export.hpp	26;"	d
+InputStream	include/SFML/SFML/System/InputStream.hpp	/^class InputStream$/;"	c	namespace:sf
+SFML_INPUTSTREAM_HPP	include/SFML/SFML/System/InputStream.hpp	26;"	d
+sf	include/SFML/SFML/System/InputStream.hpp	/^namespace sf$/;"	n
+~InputStream	include/SFML/SFML/System/InputStream.hpp	/^    virtual ~InputStream() {}$/;"	f	class:sf::InputStream
+Lock	include/SFML/SFML/System/Lock.hpp	/^class SFML_SYSTEM_API Lock : NonCopyable$/;"	c	namespace:sf
+SFML_LOCK_HPP	include/SFML/SFML/System/Lock.hpp	26;"	d
+m_mutex	include/SFML/SFML/System/Lock.hpp	/^    Mutex& m_mutex; \/\/\/< Mutex to lock \/ unlock$/;"	m	class:sf::Lock
+sf	include/SFML/SFML/System/Lock.hpp	/^namespace sf$/;"	n
+Mutex	include/SFML/SFML/System/Mutex.hpp	/^class SFML_SYSTEM_API Mutex : NonCopyable$/;"	c	namespace:sf
+SFML_MUTEX_HPP	include/SFML/SFML/System/Mutex.hpp	26;"	d
+m_mutexImpl	include/SFML/SFML/System/Mutex.hpp	/^    priv::MutexImpl* m_mutexImpl; \/\/\/< OS-specific implementation$/;"	m	class:sf::Mutex
+priv	include/SFML/SFML/System/Mutex.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/System/Mutex.hpp	/^namespace sf$/;"	n
+NonCopyable	include/SFML/SFML/System/NonCopyable.hpp	/^    NonCopyable() {}$/;"	f	class:sf::NonCopyable
+NonCopyable	include/SFML/SFML/System/NonCopyable.hpp	/^class SFML_SYSTEM_API NonCopyable$/;"	c	namespace:sf
+SFML_NONCOPYABLE_HPP	include/SFML/SFML/System/NonCopyable.hpp	26;"	d
+sf	include/SFML/SFML/System/NonCopyable.hpp	/^namespace sf$/;"	n
+SFML_SLEEP_HPP	include/SFML/SFML/System/Sleep.hpp	26;"	d
+sf	include/SFML/SFML/System/Sleep.hpp	/^namespace sf$/;"	n
+ConstIterator	include/SFML/SFML/System/String.hpp	/^    typedef std::basic_string<Uint32>::const_iterator ConstIterator; \/\/\/< Constant iterator type$/;"	t	class:sf::String
+InvalidPos	include/SFML/SFML/System/String.hpp	/^    static const std::size_t InvalidPos; \/\/\/< Represents an invalid position in the string$/;"	m	class:sf::String
+Iterator	include/SFML/SFML/System/String.hpp	/^    typedef std::basic_string<Uint32>::iterator       Iterator;      \/\/\/< Iterator type$/;"	t	class:sf::String
+SFML_STRING_HPP	include/SFML/SFML/System/String.hpp	26;"	d
+String	include/SFML/SFML/System/String.hpp	/^class SFML_SYSTEM_API String$/;"	c	namespace:sf
+m_string	include/SFML/SFML/System/String.hpp	/^    std::basic_string<Uint32> m_string; \/\/\/< Internal string of UTF-32 characters$/;"	m	class:sf::String
+sf	include/SFML/SFML/System/String.hpp	/^namespace sf$/;"	n
+SFML_THREAD_HPP	include/SFML/SFML/System/Thread.hpp	26;"	d
+Thread	include/SFML/SFML/System/Thread.hpp	/^class SFML_SYSTEM_API Thread : NonCopyable$/;"	c	namespace:sf
+m_entryPoint	include/SFML/SFML/System/Thread.hpp	/^    priv::ThreadFunc* m_entryPoint; \/\/\/< Abstraction of the function to run$/;"	m	class:sf::Thread
+m_impl	include/SFML/SFML/System/Thread.hpp	/^    priv::ThreadImpl* m_impl;       \/\/\/< OS-specific implementation of the thread$/;"	m	class:sf::Thread
+priv	include/SFML/SFML/System/Thread.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/System/Thread.hpp	/^namespace sf$/;"	n
+SFML_THREADLOCAL_HPP	include/SFML/SFML/System/ThreadLocal.hpp	26;"	d
+ThreadLocal	include/SFML/SFML/System/ThreadLocal.hpp	/^class SFML_SYSTEM_API ThreadLocal : NonCopyable$/;"	c	namespace:sf
+m_impl	include/SFML/SFML/System/ThreadLocal.hpp	/^    priv::ThreadLocalImpl* m_impl; \/\/\/< Pointer to the OS specific implementation$/;"	m	class:sf::ThreadLocal
+priv	include/SFML/SFML/System/ThreadLocal.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/System/ThreadLocal.hpp	/^namespace sf$/;"	n
+SFML_THREADLOCALPTR_HPP	include/SFML/SFML/System/ThreadLocalPtr.hpp	26;"	d
+ThreadLocalPtr	include/SFML/SFML/System/ThreadLocalPtr.hpp	/^class ThreadLocalPtr : private ThreadLocal$/;"	c	namespace:sf
+sf	include/SFML/SFML/System/ThreadLocalPtr.hpp	/^namespace sf$/;"	n
+SFML_TIME_HPP	include/SFML/SFML/System/Time.hpp	26;"	d
+Time	include/SFML/SFML/System/Time.hpp	/^class SFML_SYSTEM_API Time$/;"	c	namespace:sf
+Zero	include/SFML/SFML/System/Time.hpp	/^    static const Time Zero; \/\/\/< Predefined "zero" time value $/;"	m	class:sf::Time
+m_microseconds	include/SFML/SFML/System/Time.hpp	/^    Int64 m_microseconds; \/\/\/< Time value stored as microseconds$/;"	m	class:sf::Time
+sf	include/SFML/SFML/System/Time.hpp	/^namespace sf$/;"	n
+SFML_UTF_HPP	include/SFML/SFML/System/Utf.hpp	26;"	d
+Utf	include/SFML/SFML/System/Utf.hpp	/^class Utf<16>$/;"	c	namespace:sf
+Utf	include/SFML/SFML/System/Utf.hpp	/^class Utf<32>$/;"	c	namespace:sf
+Utf	include/SFML/SFML/System/Utf.hpp	/^class Utf<8>$/;"	c	namespace:sf
+Utf16	include/SFML/SFML/System/Utf.hpp	/^typedef Utf<16> Utf16;$/;"	t	namespace:sf
+Utf32	include/SFML/SFML/System/Utf.hpp	/^typedef Utf<32> Utf32;$/;"	t	namespace:sf
+Utf8	include/SFML/SFML/System/Utf.hpp	/^typedef Utf<8>  Utf8;$/;"	t	namespace:sf
+sf	include/SFML/SFML/System/Utf.hpp	/^namespace sf$/;"	n
+SFML_VECTOR2_HPP	include/SFML/SFML/System/Vector2.hpp	26;"	d
+Vector2	include/SFML/SFML/System/Vector2.hpp	/^class Vector2$/;"	c	namespace:sf
+Vector2f	include/SFML/SFML/System/Vector2.hpp	/^typedef Vector2<float>        Vector2f;$/;"	t	namespace:sf
+Vector2i	include/SFML/SFML/System/Vector2.hpp	/^typedef Vector2<int>          Vector2i;$/;"	t	namespace:sf
+Vector2u	include/SFML/SFML/System/Vector2.hpp	/^typedef Vector2<unsigned int> Vector2u;$/;"	t	namespace:sf
+sf	include/SFML/SFML/System/Vector2.hpp	/^namespace sf$/;"	n
+x	include/SFML/SFML/System/Vector2.hpp	/^    T x; \/\/\/< X coordinate of the vector$/;"	m	class:sf::Vector2
+y	include/SFML/SFML/System/Vector2.hpp	/^    T y; \/\/\/< Y coordinate of the vector$/;"	m	class:sf::Vector2
+SFML_VECTOR3_HPP	include/SFML/SFML/System/Vector3.hpp	26;"	d
+Vector3	include/SFML/SFML/System/Vector3.hpp	/^class Vector3$/;"	c	namespace:sf
+Vector3f	include/SFML/SFML/System/Vector3.hpp	/^typedef Vector3<float> Vector3f;$/;"	t	namespace:sf
+Vector3i	include/SFML/SFML/System/Vector3.hpp	/^typedef Vector3<int>   Vector3i;$/;"	t	namespace:sf
+sf	include/SFML/SFML/System/Vector3.hpp	/^namespace sf$/;"	n
+x	include/SFML/SFML/System/Vector3.hpp	/^    T x; \/\/\/< X coordinate of the vector$/;"	m	class:sf::Vector3
+y	include/SFML/SFML/System/Vector3.hpp	/^    T y; \/\/\/< Y coordinate of the vector$/;"	m	class:sf::Vector3
+z	include/SFML/SFML/System/Vector3.hpp	/^    T z; \/\/\/< Z coordinate of the vector$/;"	m	class:sf::Vector3
+SFML_SFML_WINDOW_HPP	include/SFML/SFML/Window.hpp	26;"	d
+Context	include/SFML/SFML/Window/Context.hpp	/^class SFML_WINDOW_API Context : GlResource, NonCopyable$/;"	c	namespace:sf
+SFML_CONTEXT_HPP	include/SFML/SFML/Window/Context.hpp	26;"	d
+m_context	include/SFML/SFML/Window/Context.hpp	/^    priv::GlContext* m_context; \/\/\/< Internal OpenGL context$/;"	m	class:sf::Context
+priv	include/SFML/SFML/Window/Context.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/Window/Context.hpp	/^namespace sf$/;"	n
+ContextSettings	include/SFML/SFML/Window/ContextSettings.hpp	/^    explicit ContextSettings(unsigned int depth = 0, unsigned int stencil = 0, unsigned int antialiasing = 0, unsigned int major = 2, unsigned int minor = 0) :$/;"	f	struct:sf::ContextSettings
+ContextSettings	include/SFML/SFML/Window/ContextSettings.hpp	/^struct ContextSettings$/;"	s	namespace:sf
+SFML_CONTEXTSETTINGS_HPP	include/SFML/SFML/Window/ContextSettings.hpp	26;"	d
+antialiasingLevel	include/SFML/SFML/Window/ContextSettings.hpp	/^    unsigned int antialiasingLevel; \/\/\/< Level of antialiasing$/;"	m	struct:sf::ContextSettings
+depthBits	include/SFML/SFML/Window/ContextSettings.hpp	/^    unsigned int depthBits;         \/\/\/< Bits of the depth buffer$/;"	m	struct:sf::ContextSettings
+majorVersion	include/SFML/SFML/Window/ContextSettings.hpp	/^    unsigned int majorVersion;      \/\/\/< Major number of the context version to create$/;"	m	struct:sf::ContextSettings
+minorVersion	include/SFML/SFML/Window/ContextSettings.hpp	/^    unsigned int minorVersion;      \/\/\/< Minor number of the context version to create$/;"	m	struct:sf::ContextSettings
+sf	include/SFML/SFML/Window/ContextSettings.hpp	/^namespace sf$/;"	n
+stencilBits	include/SFML/SFML/Window/ContextSettings.hpp	/^    unsigned int stencilBits;       \/\/\/< Bits of the stencil buffer$/;"	m	struct:sf::ContextSettings
+Closed	include/SFML/SFML/Window/Event.hpp	/^        Closed,                 \/\/\/< The window requested to be closed (no data)$/;"	e	enum:sf::Event::EventType
+Count	include/SFML/SFML/Window/Event.hpp	/^        Count                   \/\/\/< Keep last -- the total number of event types$/;"	e	enum:sf::Event::EventType
+Event	include/SFML/SFML/Window/Event.hpp	/^class Event$/;"	c	namespace:sf
+EventType	include/SFML/SFML/Window/Event.hpp	/^    enum EventType$/;"	g	class:sf::Event
+GainedFocus	include/SFML/SFML/Window/Event.hpp	/^        GainedFocus,            \/\/\/< The window gained the focus (no data)$/;"	e	enum:sf::Event::EventType
+JoystickButtonEvent	include/SFML/SFML/Window/Event.hpp	/^    struct JoystickButtonEvent$/;"	s	class:sf::Event
+JoystickButtonPressed	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonPressed,  \/\/\/< A joystick button was pressed (data in event.joystickButton)$/;"	e	enum:sf::Event::EventType
+JoystickButtonReleased	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonReleased, \/\/\/< A joystick button was released (data in event.joystickButton)$/;"	e	enum:sf::Event::EventType
+JoystickConnectEvent	include/SFML/SFML/Window/Event.hpp	/^    struct JoystickConnectEvent$/;"	s	class:sf::Event
+JoystickConnected	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnected,      \/\/\/< A joystick was connected (data in event.joystickConnect)$/;"	e	enum:sf::Event::EventType
+JoystickDisconnected	include/SFML/SFML/Window/Event.hpp	/^        JoystickDisconnected,   \/\/\/< A joystick was disconnected (data in event.joystickConnect)$/;"	e	enum:sf::Event::EventType
+JoystickMoveEvent	include/SFML/SFML/Window/Event.hpp	/^    struct JoystickMoveEvent$/;"	s	class:sf::Event
+JoystickMoved	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoved,          \/\/\/< The joystick moved along an axis (data in event.joystickMove)$/;"	e	enum:sf::Event::EventType
+KeyEvent	include/SFML/SFML/Window/Event.hpp	/^    struct KeyEvent$/;"	s	class:sf::Event
+KeyPressed	include/SFML/SFML/Window/Event.hpp	/^        KeyPressed,             \/\/\/< A key was pressed (data in event.key)$/;"	e	enum:sf::Event::EventType
+KeyReleased	include/SFML/SFML/Window/Event.hpp	/^        KeyReleased,            \/\/\/< A key was released (data in event.key)$/;"	e	enum:sf::Event::EventType
+LostFocus	include/SFML/SFML/Window/Event.hpp	/^        LostFocus,              \/\/\/< The window lost the focus (no data)$/;"	e	enum:sf::Event::EventType
+MouseButtonEvent	include/SFML/SFML/Window/Event.hpp	/^    struct MouseButtonEvent$/;"	s	class:sf::Event
+MouseButtonPressed	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonPressed,     \/\/\/< A mouse button was pressed (data in event.mouseButton)$/;"	e	enum:sf::Event::EventType
+MouseButtonReleased	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonReleased,    \/\/\/< A mouse button was released (data in event.mouseButton)$/;"	e	enum:sf::Event::EventType
+MouseEntered	include/SFML/SFML/Window/Event.hpp	/^        MouseEntered,           \/\/\/< The mouse cursor entered the area of the window (no data)$/;"	e	enum:sf::Event::EventType
+MouseLeft	include/SFML/SFML/Window/Event.hpp	/^        MouseLeft,              \/\/\/< The mouse cursor left the area of the window (no data)$/;"	e	enum:sf::Event::EventType
+MouseMoveEvent	include/SFML/SFML/Window/Event.hpp	/^    struct MouseMoveEvent$/;"	s	class:sf::Event
+MouseMoved	include/SFML/SFML/Window/Event.hpp	/^        MouseMoved,             \/\/\/< The mouse cursor moved (data in event.mouseMove)$/;"	e	enum:sf::Event::EventType
+MouseWheelEvent	include/SFML/SFML/Window/Event.hpp	/^    struct MouseWheelEvent$/;"	s	class:sf::Event
+MouseWheelMoved	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelMoved,        \/\/\/< The mouse wheel was scrolled (data in event.mouseWheel)$/;"	e	enum:sf::Event::EventType
+Resized	include/SFML/SFML/Window/Event.hpp	/^        Resized,                \/\/\/< The window was resized (data in event.size)$/;"	e	enum:sf::Event::EventType
+SFML_EVENT_HPP	include/SFML/SFML/Window/Event.hpp	26;"	d
+SizeEvent	include/SFML/SFML/Window/Event.hpp	/^    struct SizeEvent$/;"	s	class:sf::Event
+TextEntered	include/SFML/SFML/Window/Event.hpp	/^        TextEntered,            \/\/\/< A character was entered (data in event.text)$/;"	e	enum:sf::Event::EventType
+TextEvent	include/SFML/SFML/Window/Event.hpp	/^    struct TextEvent$/;"	s	class:sf::Event
+alt	include/SFML/SFML/Window/Event.hpp	/^        bool          alt;     \/\/\/< Is the Alt key pressed?$/;"	m	struct:sf::Event::KeyEvent
+axis	include/SFML/SFML/Window/Event.hpp	/^        Joystick::Axis axis;       \/\/\/< Axis on which the joystick moved$/;"	m	struct:sf::Event::JoystickMoveEvent
+button	include/SFML/SFML/Window/Event.hpp	/^        Mouse::Button button; \/\/\/< Code of the button that has been pressed$/;"	m	struct:sf::Event::MouseButtonEvent
+button	include/SFML/SFML/Window/Event.hpp	/^        unsigned int button;     \/\/\/< Index of the button that has been pressed (in range [0 .. Joystick::ButtonCount - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
+code	include/SFML/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code of the key that has been pressed$/;"	m	struct:sf::Event::KeyEvent
+control	include/SFML/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
+delta	include/SFML/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
+height	include/SFML/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
+joystickButton	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon9
+joystickConnect	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon9
+joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
+joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
+joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
+joystickMove	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon9
+key	include/SFML/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon9
+mouseButton	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon9
+mouseMove	include/SFML/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon9
+mouseWheel	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon9
+position	include/SFML/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
+sf	include/SFML/SFML/Window/Event.hpp	/^namespace sf$/;"	n
+shift	include/SFML/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
+size	include/SFML/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon9
+system	include/SFML/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
+text	include/SFML/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon9
+type	include/SFML/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
+unicode	include/SFML/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
+width	include/SFML/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
+x	include/SFML/SFML/Window/Event.hpp	/^        int           x;      \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseButtonEvent
+x	include/SFML/SFML/Window/Event.hpp	/^        int x;     \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseWheelEvent
+x	include/SFML/SFML/Window/Event.hpp	/^        int x; \/\/\/< X position of the mouse pointer, relative to the left of the owner window$/;"	m	struct:sf::Event::MouseMoveEvent
+y	include/SFML/SFML/Window/Event.hpp	/^        int           y;      \/\/\/< Y position of the mouse pointer, relative to the top of the owner window$/;"	m	struct:sf::Event::MouseButtonEvent
+y	include/SFML/SFML/Window/Event.hpp	/^        int y;     \/\/\/< Y position of the mouse pointer, relative to the top of the owner window$/;"	m	struct:sf::Event::MouseWheelEvent
+y	include/SFML/SFML/Window/Event.hpp	/^        int y; \/\/\/< Y position of the mouse pointer, relative to the top of the owner window$/;"	m	struct:sf::Event::MouseMoveEvent
+SFML_WINDOW_API	include/SFML/SFML/Window/Export.hpp	39;"	d
+SFML_WINDOW_API	include/SFML/SFML/Window/Export.hpp	43;"	d
+SFML_WINDOW_EXPORT_HPP	include/SFML/SFML/Window/Export.hpp	26;"	d
+GlResource	include/SFML/SFML/Window/GlResource.hpp	/^class SFML_WINDOW_API GlResource$/;"	c	namespace:sf
+SFML_GLRESOURCE_HPP	include/SFML/SFML/Window/GlResource.hpp	26;"	d
+sf	include/SFML/SFML/Window/GlResource.hpp	/^namespace sf$/;"	n
+Axis	include/SFML/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
+AxisCount	include/SFML/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon7
+ButtonCount	include/SFML/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon7
+Count	include/SFML/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon7
+Joystick	include/SFML/SFML/Window/Joystick.hpp	/^class SFML_WINDOW_API Joystick$/;"	c	namespace:sf
+PovX	include/SFML/SFML/Window/Joystick.hpp	/^        PovX, \/\/\/< The X axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
+PovY	include/SFML/SFML/Window/Joystick.hpp	/^        PovY  \/\/\/< The Y axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
+R	include/SFML/SFML/Window/Joystick.hpp	/^        R,    \/\/\/< The R axis$/;"	e	enum:sf::Joystick::Axis
+SFML_JOYSTICK_HPP	include/SFML/SFML/Window/Joystick.hpp	26;"	d
+U	include/SFML/SFML/Window/Joystick.hpp	/^        U,    \/\/\/< The U axis$/;"	e	enum:sf::Joystick::Axis
+V	include/SFML/SFML/Window/Joystick.hpp	/^        V,    \/\/\/< The V axis$/;"	e	enum:sf::Joystick::Axis
+X	include/SFML/SFML/Window/Joystick.hpp	/^        X,    \/\/\/< The X axis$/;"	e	enum:sf::Joystick::Axis
+Y	include/SFML/SFML/Window/Joystick.hpp	/^        Y,    \/\/\/< The Y axis$/;"	e	enum:sf::Joystick::Axis
+Z	include/SFML/SFML/Window/Joystick.hpp	/^        Z,    \/\/\/< The Z axis$/;"	e	enum:sf::Joystick::Axis
+sf	include/SFML/SFML/Window/Joystick.hpp	/^namespace sf$/;"	n
+A	include/SFML/SFML/Window/Keyboard.hpp	/^        A = 0,        \/\/\/< The A key$/;"	e	enum:sf::Keyboard::Key
+Add	include/SFML/SFML/Window/Keyboard.hpp	/^        Add,          \/\/\/< The + key$/;"	e	enum:sf::Keyboard::Key
+B	include/SFML/SFML/Window/Keyboard.hpp	/^        B,            \/\/\/< The B key$/;"	e	enum:sf::Keyboard::Key
+BackSlash	include/SFML/SFML/Window/Keyboard.hpp	/^        BackSlash,    \/\/\/< The \\ key$/;"	e	enum:sf::Keyboard::Key
+BackSpace	include/SFML/SFML/Window/Keyboard.hpp	/^        BackSpace,    \/\/\/< The Backspace key$/;"	e	enum:sf::Keyboard::Key
+C	include/SFML/SFML/Window/Keyboard.hpp	/^        C,            \/\/\/< The C key$/;"	e	enum:sf::Keyboard::Key
+Comma	include/SFML/SFML/Window/Keyboard.hpp	/^        Comma,        \/\/\/< The , key$/;"	e	enum:sf::Keyboard::Key
+D	include/SFML/SFML/Window/Keyboard.hpp	/^        D,            \/\/\/< The D key$/;"	e	enum:sf::Keyboard::Key
+Dash	include/SFML/SFML/Window/Keyboard.hpp	/^        Dash,         \/\/\/< The - key$/;"	e	enum:sf::Keyboard::Key
+Delete	include/SFML/SFML/Window/Keyboard.hpp	/^        Delete,       \/\/\/< The Delete key$/;"	e	enum:sf::Keyboard::Key
+Divide	include/SFML/SFML/Window/Keyboard.hpp	/^        Divide,       \/\/\/< The \/ key$/;"	e	enum:sf::Keyboard::Key
+Down	include/SFML/SFML/Window/Keyboard.hpp	/^        Down,         \/\/\/< Down arrow$/;"	e	enum:sf::Keyboard::Key
+E	include/SFML/SFML/Window/Keyboard.hpp	/^        E,            \/\/\/< The E key$/;"	e	enum:sf::Keyboard::Key
+End	include/SFML/SFML/Window/Keyboard.hpp	/^        End,          \/\/\/< The End key$/;"	e	enum:sf::Keyboard::Key
+Equal	include/SFML/SFML/Window/Keyboard.hpp	/^        Equal,        \/\/\/< The = key$/;"	e	enum:sf::Keyboard::Key
+Escape	include/SFML/SFML/Window/Keyboard.hpp	/^        Escape,       \/\/\/< The Escape key$/;"	e	enum:sf::Keyboard::Key
+F	include/SFML/SFML/Window/Keyboard.hpp	/^        F,            \/\/\/< The F key$/;"	e	enum:sf::Keyboard::Key
+F1	include/SFML/SFML/Window/Keyboard.hpp	/^        F1,           \/\/\/< The F1 key$/;"	e	enum:sf::Keyboard::Key
+F10	include/SFML/SFML/Window/Keyboard.hpp	/^        F10,          \/\/\/< The F10 key$/;"	e	enum:sf::Keyboard::Key
+F11	include/SFML/SFML/Window/Keyboard.hpp	/^        F11,          \/\/\/< The F11 key$/;"	e	enum:sf::Keyboard::Key
+F12	include/SFML/SFML/Window/Keyboard.hpp	/^        F12,          \/\/\/< The F12 key$/;"	e	enum:sf::Keyboard::Key
+F13	include/SFML/SFML/Window/Keyboard.hpp	/^        F13,          \/\/\/< The F13 key$/;"	e	enum:sf::Keyboard::Key
+F14	include/SFML/SFML/Window/Keyboard.hpp	/^        F14,          \/\/\/< The F14 key$/;"	e	enum:sf::Keyboard::Key
+F15	include/SFML/SFML/Window/Keyboard.hpp	/^        F15,          \/\/\/< The F15 key$/;"	e	enum:sf::Keyboard::Key
+F2	include/SFML/SFML/Window/Keyboard.hpp	/^        F2,           \/\/\/< The F2 key$/;"	e	enum:sf::Keyboard::Key
+F3	include/SFML/SFML/Window/Keyboard.hpp	/^        F3,           \/\/\/< The F3 key$/;"	e	enum:sf::Keyboard::Key
+F4	include/SFML/SFML/Window/Keyboard.hpp	/^        F4,           \/\/\/< The F4 key$/;"	e	enum:sf::Keyboard::Key
+F5	include/SFML/SFML/Window/Keyboard.hpp	/^        F5,           \/\/\/< The F5 key$/;"	e	enum:sf::Keyboard::Key
+F6	include/SFML/SFML/Window/Keyboard.hpp	/^        F6,           \/\/\/< The F6 key$/;"	e	enum:sf::Keyboard::Key
+F7	include/SFML/SFML/Window/Keyboard.hpp	/^        F7,           \/\/\/< The F7 key$/;"	e	enum:sf::Keyboard::Key
+F8	include/SFML/SFML/Window/Keyboard.hpp	/^        F8,           \/\/\/< The F8 key$/;"	e	enum:sf::Keyboard::Key
+F9	include/SFML/SFML/Window/Keyboard.hpp	/^        F9,           \/\/\/< The F9 key$/;"	e	enum:sf::Keyboard::Key
+G	include/SFML/SFML/Window/Keyboard.hpp	/^        G,            \/\/\/< The G key$/;"	e	enum:sf::Keyboard::Key
+H	include/SFML/SFML/Window/Keyboard.hpp	/^        H,            \/\/\/< The H key$/;"	e	enum:sf::Keyboard::Key
+Home	include/SFML/SFML/Window/Keyboard.hpp	/^        Home,         \/\/\/< The Home key$/;"	e	enum:sf::Keyboard::Key
+I	include/SFML/SFML/Window/Keyboard.hpp	/^        I,            \/\/\/< The I key$/;"	e	enum:sf::Keyboard::Key
+Insert	include/SFML/SFML/Window/Keyboard.hpp	/^        Insert,       \/\/\/< The Insert key$/;"	e	enum:sf::Keyboard::Key
+J	include/SFML/SFML/Window/Keyboard.hpp	/^        J,            \/\/\/< The J key$/;"	e	enum:sf::Keyboard::Key
+K	include/SFML/SFML/Window/Keyboard.hpp	/^        K,            \/\/\/< The K key$/;"	e	enum:sf::Keyboard::Key
+Key	include/SFML/SFML/Window/Keyboard.hpp	/^    enum Key$/;"	g	class:sf::Keyboard
+KeyCount	include/SFML/SFML/Window/Keyboard.hpp	/^        KeyCount      \/\/\/< Keep last -- the total number of keyboard keys$/;"	e	enum:sf::Keyboard::Key
+Keyboard	include/SFML/SFML/Window/Keyboard.hpp	/^class SFML_WINDOW_API Keyboard$/;"	c	namespace:sf
+L	include/SFML/SFML/Window/Keyboard.hpp	/^        L,            \/\/\/< The L key$/;"	e	enum:sf::Keyboard::Key
+LAlt	include/SFML/SFML/Window/Keyboard.hpp	/^        LAlt,         \/\/\/< The left Alt key$/;"	e	enum:sf::Keyboard::Key
+LBracket	include/SFML/SFML/Window/Keyboard.hpp	/^        LBracket,     \/\/\/< The [ key$/;"	e	enum:sf::Keyboard::Key
+LControl	include/SFML/SFML/Window/Keyboard.hpp	/^        LControl,     \/\/\/< The left Control key$/;"	e	enum:sf::Keyboard::Key
+LShift	include/SFML/SFML/Window/Keyboard.hpp	/^        LShift,       \/\/\/< The left Shift key$/;"	e	enum:sf::Keyboard::Key
+LSystem	include/SFML/SFML/Window/Keyboard.hpp	/^        LSystem,      \/\/\/< The left OS specific key: window (Windows and Linux), apple (MacOS X), ...$/;"	e	enum:sf::Keyboard::Key
+Left	include/SFML/SFML/Window/Keyboard.hpp	/^        Left,         \/\/\/< Left arrow$/;"	e	enum:sf::Keyboard::Key
+M	include/SFML/SFML/Window/Keyboard.hpp	/^        M,            \/\/\/< The M key$/;"	e	enum:sf::Keyboard::Key
+Menu	include/SFML/SFML/Window/Keyboard.hpp	/^        Menu,         \/\/\/< The Menu key$/;"	e	enum:sf::Keyboard::Key
+Multiply	include/SFML/SFML/Window/Keyboard.hpp	/^        Multiply,     \/\/\/< The * key$/;"	e	enum:sf::Keyboard::Key
+N	include/SFML/SFML/Window/Keyboard.hpp	/^        N,            \/\/\/< The N key$/;"	e	enum:sf::Keyboard::Key
+Num0	include/SFML/SFML/Window/Keyboard.hpp	/^        Num0,         \/\/\/< The 0 key$/;"	e	enum:sf::Keyboard::Key
+Num1	include/SFML/SFML/Window/Keyboard.hpp	/^        Num1,         \/\/\/< The 1 key$/;"	e	enum:sf::Keyboard::Key
+Num2	include/SFML/SFML/Window/Keyboard.hpp	/^        Num2,         \/\/\/< The 2 key$/;"	e	enum:sf::Keyboard::Key
+Num3	include/SFML/SFML/Window/Keyboard.hpp	/^        Num3,         \/\/\/< The 3 key$/;"	e	enum:sf::Keyboard::Key
+Num4	include/SFML/SFML/Window/Keyboard.hpp	/^        Num4,         \/\/\/< The 4 key$/;"	e	enum:sf::Keyboard::Key
+Num5	include/SFML/SFML/Window/Keyboard.hpp	/^        Num5,         \/\/\/< The 5 key$/;"	e	enum:sf::Keyboard::Key
+Num6	include/SFML/SFML/Window/Keyboard.hpp	/^        Num6,         \/\/\/< The 6 key$/;"	e	enum:sf::Keyboard::Key
+Num7	include/SFML/SFML/Window/Keyboard.hpp	/^        Num7,         \/\/\/< The 7 key$/;"	e	enum:sf::Keyboard::Key
+Num8	include/SFML/SFML/Window/Keyboard.hpp	/^        Num8,         \/\/\/< The 8 key$/;"	e	enum:sf::Keyboard::Key
+Num9	include/SFML/SFML/Window/Keyboard.hpp	/^        Num9,         \/\/\/< The 9 key$/;"	e	enum:sf::Keyboard::Key
+Numpad0	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad0,      \/\/\/< The numpad 0 key$/;"	e	enum:sf::Keyboard::Key
+Numpad1	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad1,      \/\/\/< The numpad 1 key$/;"	e	enum:sf::Keyboard::Key
+Numpad2	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad2,      \/\/\/< The numpad 2 key$/;"	e	enum:sf::Keyboard::Key
+Numpad3	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad3,      \/\/\/< The numpad 3 key$/;"	e	enum:sf::Keyboard::Key
+Numpad4	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad4,      \/\/\/< The numpad 4 key$/;"	e	enum:sf::Keyboard::Key
+Numpad5	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad5,      \/\/\/< The numpad 5 key$/;"	e	enum:sf::Keyboard::Key
+Numpad6	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad6,      \/\/\/< The numpad 6 key$/;"	e	enum:sf::Keyboard::Key
+Numpad7	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad7,      \/\/\/< The numpad 7 key$/;"	e	enum:sf::Keyboard::Key
+Numpad8	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad8,      \/\/\/< The numpad 8 key$/;"	e	enum:sf::Keyboard::Key
+Numpad9	include/SFML/SFML/Window/Keyboard.hpp	/^        Numpad9,      \/\/\/< The numpad 9 key$/;"	e	enum:sf::Keyboard::Key
+O	include/SFML/SFML/Window/Keyboard.hpp	/^        O,            \/\/\/< The O key$/;"	e	enum:sf::Keyboard::Key
+P	include/SFML/SFML/Window/Keyboard.hpp	/^        P,            \/\/\/< The P key$/;"	e	enum:sf::Keyboard::Key
+PageDown	include/SFML/SFML/Window/Keyboard.hpp	/^        PageDown,     \/\/\/< The Page down key$/;"	e	enum:sf::Keyboard::Key
+PageUp	include/SFML/SFML/Window/Keyboard.hpp	/^        PageUp,       \/\/\/< The Page up key$/;"	e	enum:sf::Keyboard::Key
+Pause	include/SFML/SFML/Window/Keyboard.hpp	/^        Pause,        \/\/\/< The Pause key$/;"	e	enum:sf::Keyboard::Key
+Period	include/SFML/SFML/Window/Keyboard.hpp	/^        Period,       \/\/\/< The . key$/;"	e	enum:sf::Keyboard::Key
+Q	include/SFML/SFML/Window/Keyboard.hpp	/^        Q,            \/\/\/< The Q key$/;"	e	enum:sf::Keyboard::Key
+Quote	include/SFML/SFML/Window/Keyboard.hpp	/^        Quote,        \/\/\/< The ' key$/;"	e	enum:sf::Keyboard::Key
+R	include/SFML/SFML/Window/Keyboard.hpp	/^        R,            \/\/\/< The R key$/;"	e	enum:sf::Keyboard::Key
+RAlt	include/SFML/SFML/Window/Keyboard.hpp	/^        RAlt,         \/\/\/< The right Alt key$/;"	e	enum:sf::Keyboard::Key
+RBracket	include/SFML/SFML/Window/Keyboard.hpp	/^        RBracket,     \/\/\/< The ] key$/;"	e	enum:sf::Keyboard::Key
+RControl	include/SFML/SFML/Window/Keyboard.hpp	/^        RControl,     \/\/\/< The right Control key$/;"	e	enum:sf::Keyboard::Key
+RShift	include/SFML/SFML/Window/Keyboard.hpp	/^        RShift,       \/\/\/< The right Shift key$/;"	e	enum:sf::Keyboard::Key
+RSystem	include/SFML/SFML/Window/Keyboard.hpp	/^        RSystem,      \/\/\/< The right OS specific key: window (Windows and Linux), apple (MacOS X), ...$/;"	e	enum:sf::Keyboard::Key
+Return	include/SFML/SFML/Window/Keyboard.hpp	/^        Return,       \/\/\/< The Return key$/;"	e	enum:sf::Keyboard::Key
+Right	include/SFML/SFML/Window/Keyboard.hpp	/^        Right,        \/\/\/< Right arrow$/;"	e	enum:sf::Keyboard::Key
+S	include/SFML/SFML/Window/Keyboard.hpp	/^        S,            \/\/\/< The S key$/;"	e	enum:sf::Keyboard::Key
+SFML_KEYBOARD_HPP	include/SFML/SFML/Window/Keyboard.hpp	26;"	d
+SemiColon	include/SFML/SFML/Window/Keyboard.hpp	/^        SemiColon,    \/\/\/< The ; key$/;"	e	enum:sf::Keyboard::Key
+Slash	include/SFML/SFML/Window/Keyboard.hpp	/^        Slash,        \/\/\/< The \/ key$/;"	e	enum:sf::Keyboard::Key
+Space	include/SFML/SFML/Window/Keyboard.hpp	/^        Space,        \/\/\/< The Space key$/;"	e	enum:sf::Keyboard::Key
+Subtract	include/SFML/SFML/Window/Keyboard.hpp	/^        Subtract,     \/\/\/< The - key$/;"	e	enum:sf::Keyboard::Key
+T	include/SFML/SFML/Window/Keyboard.hpp	/^        T,            \/\/\/< The T key$/;"	e	enum:sf::Keyboard::Key
+Tab	include/SFML/SFML/Window/Keyboard.hpp	/^        Tab,          \/\/\/< The Tabulation key$/;"	e	enum:sf::Keyboard::Key
+Tilde	include/SFML/SFML/Window/Keyboard.hpp	/^        Tilde,        \/\/\/< The ~ key$/;"	e	enum:sf::Keyboard::Key
+U	include/SFML/SFML/Window/Keyboard.hpp	/^        U,            \/\/\/< The U key$/;"	e	enum:sf::Keyboard::Key
+Unknown	include/SFML/SFML/Window/Keyboard.hpp	/^        Unknown = -1, \/\/\/< Unhandled key$/;"	e	enum:sf::Keyboard::Key
+Up	include/SFML/SFML/Window/Keyboard.hpp	/^        Up,           \/\/\/< Up arrow$/;"	e	enum:sf::Keyboard::Key
+V	include/SFML/SFML/Window/Keyboard.hpp	/^        V,            \/\/\/< The V key$/;"	e	enum:sf::Keyboard::Key
+W	include/SFML/SFML/Window/Keyboard.hpp	/^        W,            \/\/\/< The W key$/;"	e	enum:sf::Keyboard::Key
+X	include/SFML/SFML/Window/Keyboard.hpp	/^        X,            \/\/\/< The X key$/;"	e	enum:sf::Keyboard::Key
+Y	include/SFML/SFML/Window/Keyboard.hpp	/^        Y,            \/\/\/< The Y key$/;"	e	enum:sf::Keyboard::Key
+Z	include/SFML/SFML/Window/Keyboard.hpp	/^        Z,            \/\/\/< The Z key$/;"	e	enum:sf::Keyboard::Key
+sf	include/SFML/SFML/Window/Keyboard.hpp	/^namespace sf$/;"	n
+Button	include/SFML/SFML/Window/Mouse.hpp	/^    enum Button$/;"	g	class:sf::Mouse
+ButtonCount	include/SFML/SFML/Window/Mouse.hpp	/^        ButtonCount \/\/\/< Keep last -- the total number of mouse buttons$/;"	e	enum:sf::Mouse::Button
+Left	include/SFML/SFML/Window/Mouse.hpp	/^        Left,       \/\/\/< The left mouse button$/;"	e	enum:sf::Mouse::Button
+Middle	include/SFML/SFML/Window/Mouse.hpp	/^        Middle,     \/\/\/< The middle (wheel) mouse button$/;"	e	enum:sf::Mouse::Button
+Mouse	include/SFML/SFML/Window/Mouse.hpp	/^class SFML_WINDOW_API Mouse$/;"	c	namespace:sf
+Right	include/SFML/SFML/Window/Mouse.hpp	/^        Right,      \/\/\/< The right mouse button$/;"	e	enum:sf::Mouse::Button
+SFML_MOUSE_HPP	include/SFML/SFML/Window/Mouse.hpp	26;"	d
+XButton1	include/SFML/SFML/Window/Mouse.hpp	/^        XButton1,   \/\/\/< The first extra mouse button$/;"	e	enum:sf::Mouse::Button
+XButton2	include/SFML/SFML/Window/Mouse.hpp	/^        XButton2,   \/\/\/< The second extra mouse button$/;"	e	enum:sf::Mouse::Button
+sf	include/SFML/SFML/Window/Mouse.hpp	/^namespace sf$/;"	n
+SFML_VIDEOMODE_HPP	include/SFML/SFML/Window/VideoMode.hpp	26;"	d
+VideoMode	include/SFML/SFML/Window/VideoMode.hpp	/^class SFML_WINDOW_API VideoMode$/;"	c	namespace:sf
+bitsPerPixel	include/SFML/SFML/Window/VideoMode.hpp	/^    unsigned int bitsPerPixel; \/\/\/< Video mode pixel depth, in bits per pixels$/;"	m	class:sf::VideoMode
+height	include/SFML/SFML/Window/VideoMode.hpp	/^    unsigned int height;       \/\/\/< Video mode height, in pixels$/;"	m	class:sf::VideoMode
+sf	include/SFML/SFML/Window/VideoMode.hpp	/^namespace sf$/;"	n
+width	include/SFML/SFML/Window/VideoMode.hpp	/^    unsigned int width;        \/\/\/< Video mode width, in pixels$/;"	m	class:sf::VideoMode
+SFML_WINDOW_HPP	include/SFML/SFML/Window/Window.hpp	26;"	d
+Window	include/SFML/SFML/Window/Window.hpp	/^class SFML_WINDOW_API Window : GlResource, NonCopyable$/;"	c	namespace:sf
+m_clock	include/SFML/SFML/Window/Window.hpp	/^    Clock             m_clock;          \/\/\/< Clock for measuring the elapsed time between frames$/;"	m	class:sf::Window
+m_context	include/SFML/SFML/Window/Window.hpp	/^    priv::GlContext*  m_context;        \/\/\/< Platform-specific implementation of the OpenGL context$/;"	m	class:sf::Window
+m_frameTimeLimit	include/SFML/SFML/Window/Window.hpp	/^    Time              m_frameTimeLimit; \/\/\/< Current framerate limit$/;"	m	class:sf::Window
+m_impl	include/SFML/SFML/Window/Window.hpp	/^    priv::WindowImpl* m_impl;           \/\/\/< Platform-specific implementation of the window$/;"	m	class:sf::Window
+m_size	include/SFML/SFML/Window/Window.hpp	/^    Vector2u          m_size;           \/\/\/< Current size of the window$/;"	m	class:sf::Window
+priv	include/SFML/SFML/Window/Window.hpp	/^namespace priv$/;"	n	namespace:sf
+sf	include/SFML/SFML/Window/Window.hpp	/^namespace sf$/;"	n
+SFML_WINDOWHANDLE_HPP	include/SFML/SFML/Window/WindowHandle.hpp	26;"	d
+WindowHandle	include/SFML/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
+sf	include/SFML/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
+Close	include/SFML/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon8
+Default	include/SFML/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon8
+Fullscreen	include/SFML/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
+None	include/SFML/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
+Resize	include/SFML/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon8
+SFML_WINDOWSTYLE_HPP	include/SFML/SFML/Window/WindowStyle.hpp	26;"	d
+Style	include/SFML/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
+Titlebar	include/SFML/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon8
+sf	include/SFML/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 SFML_SYSTEM_HPP	include/SFML/System.hpp	26;"	d
 Clock	include/SFML/System/Clock.hpp	/^class SFML_SYSTEM_API Clock$/;"	c	namespace:sf
 SFML_CLOCK_HPP	include/SFML/System/Clock.hpp	26;"	d
@@ -3451,22 +4266,22 @@ code	include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code
 control	include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	include/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon11
-joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon11
+joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon14
+joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon14
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon11
-key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon11
-mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon11
-mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon11
-mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon11
+joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon14
+key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon14
+mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon14
+mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon14
+mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon14
 position	include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	include/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon11
+size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon14
 system	include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon11
+text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon14
 type	include/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	include/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -3483,9 +4298,9 @@ GlResource	include/SFML/Window/GlResource.hpp	/^class SFML_WINDOW_API GlResource
 SFML_GLRESOURCE_HPP	include/SFML/Window/GlResource.hpp	26;"	d
 sf	include/SFML/Window/GlResource.hpp	/^namespace sf$/;"	n
 Axis	include/SFML/Window/Joystick.hpp	/^    enum Axis$/;"	g	class:sf::Joystick
-AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon10
-ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon10
-Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon10
+AxisCount	include/SFML/Window/Joystick.hpp	/^        AxisCount   = 8   \/\/\/< Maximum number of supported axes$/;"	e	enum:sf::Joystick::__anon12
+ButtonCount	include/SFML/Window/Joystick.hpp	/^        ButtonCount = 32, \/\/\/< Maximum number of supported buttons$/;"	e	enum:sf::Joystick::__anon12
+Count	include/SFML/Window/Joystick.hpp	/^        Count       = 8,  \/\/\/< Maximum number of supported joysticks$/;"	e	enum:sf::Joystick::__anon12
 Joystick	include/SFML/Window/Joystick.hpp	/^class SFML_WINDOW_API Joystick$/;"	c	namespace:sf
 PovX	include/SFML/Window/Joystick.hpp	/^        PovX, \/\/\/< The X axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
 PovY	include/SFML/Window/Joystick.hpp	/^        PovY  \/\/\/< The Y axis of the point-of-view hat$/;"	e	enum:sf::Joystick::Axis
@@ -3632,14 +4447,14 @@ sf	include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	include/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	include/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon12
-Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon12
-Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon12
-None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon12
-Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon12
+Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon13
+Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon13
+Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
+None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
+Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon13
 SFML_WINDOWSTYLE_HPP	include/SFML/Window/WindowStyle.hpp	26;"	d
 Style	include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon12
+Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon13
 sf	include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 backward	include/backward/backward.cpp	/^namespace backward {$/;"	n	file:
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
@@ -3885,9 +4700,9 @@ result	include/backward/backward.hpp	/^		find_sym_result result;$/;"	m	struct:ba
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	s	namespace:backward::details
-s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon8
-s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon8
-s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon8
+s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon21
+s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon21
+s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon21
 self	include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
 self	include/backward/backward.hpp	/^		StackTraceWithLocalsImpl& self;$/;"	m	struct:backward::StackTraceWithLocalsImpl::callback
 self	include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
@@ -3904,7 +4719,7 @@ source	include/backward/backward.hpp	/^	SourceLoc                      source;$/
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stacktrace_tag	include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
-storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon8
+storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon21
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
 swap	include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
 symtab	include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject

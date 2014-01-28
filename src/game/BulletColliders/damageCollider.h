@@ -1,8 +1,8 @@
 #pragma once
-#include "../ObjProcessors/BulletProcessor.h"
+#include "../ObjProcessors/StabProcessor.h"
 #include "../ObjProcessors/HealthProcessor.h"
 
-class damageCollider : public BulletCollider{
+class damageCollider : public StabCollider{
 private:
 	float damage;
 public:

@@ -22,6 +22,8 @@ float _genGravity(std::mt19937 &generator, gravityProperty &prop){
 	};
 };
 
+
+
 #include "../BulletColliders/damageCollider.h"
 damageCollider *_genDamage(std::mt19937 &generator, damageProperty &prop){
 	float damage;
@@ -78,7 +80,10 @@ pushCollider *_genKnockback(std::mt19937 &generator, knockbackProperty &prop){
 
 
 #include "../BulletColliders/bounceCollider.h"
-BulletCollider* _createBulletCollider(std::mt19937 &generator, unsigned int abilityPower){
+StabCollider* _createAbility(std::mt19937 &generator, unsigned int abilityPower){
+	//HACK!!!
+	return new bounceCollider(abilityPower);
+
 
 	static const int totalAbilities = 1;
 	int type = genInt(generator, 0.0, totalAbilities - 1);
@@ -95,13 +100,41 @@ BulletCollider* _createBulletCollider(std::mt19937 &generator, unsigned int abil
 
 };
 
+
+StabData GenStabData(BulletGenData &data) {
+	static std::mt19937 generator;
+	generator.seed(data.seed);
+	
+	StabData stabData;
+
+	pushCollider *push =  _genKnockback(generator, data.knockback);
+	damageCollider *damage = _genDamage(generator, data.damage);
+
+	if(push != NULL){
+		stabData.addCollider(push);
+	}
+	if(damage != NULL){
+		stabData.addCollider(damage);
+	}
+
+	//HACK!
+	/*
+	for(int i = 0; i < data.numAbilities; i++){
+		stabData.addCollider(_createAbility(generator, data.abilityPower));
+	}*/
+
+	stabData.addCollider(new bounceCollider(2));
+	return stabData;
+}
+
 BulletData GenBulletData(BulletGenData &data){
 	static std::mt19937 generator;
 	generator.seed(data.seed);
 	
 	BulletData bulletData;
 	bulletData.gravityScale = _genGravity(generator, data.gravity);
-
+	
+	/*
 	pushCollider *push =  _genKnockback(generator, data.knockback);
 	damageCollider *damage = _genDamage(generator, data.damage);
 
@@ -116,5 +149,6 @@ BulletData GenBulletData(BulletGenData &data){
 	for(int i = 0; i < data.numAbilities; i++){
 		bulletData.addBulletCollder(_createBulletCollider(generator, data.abilityPower));
 	}	
+	*/
 	return bulletData;
 };

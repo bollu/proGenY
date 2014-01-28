@@ -9,6 +9,8 @@
 #include "../ObjProcessors/OffsetProcessor.h"
 #include "../ObjProcessors/GroundMoveProcessor.h"
 #include "../ObjProcessors/AIProcessor.h"
+#include "../ObjProcessors/HealthProcessor.h"
+
 
 #include "../../core/componentSys/processor/RenderProcessor.h"
 #include "../../core/componentSys/processor/PhyProcessor.h"
@@ -77,7 +79,7 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 
 	b2Filter collisionFilter;
 	collisionFilter.categoryBits = CollisionGroups::BULLET;
-	collisionFilter.groupIndex = -CollisionGroups::BULLET;
+	collisionFilter.maskBits = CollisionGroups::ENEMY | CollisionGroups::TERRAIN;
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &bulletBoundingBox;
@@ -102,7 +104,8 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 		new Prop<PhyData>(phy));
 	bullet->addProp(Hash::getHash("BulletData"), 
 		new Prop<BulletData>(info.bulletData));
-			
+	bullet->addProp(Hash::getHash("StabData"), 
+		new Prop<StabData>(info.stabData));		
 	return bullet;
 };
 
@@ -121,10 +124,16 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 	b2CircleShape enemyBoundingBox;
 	enemyBoundingBox.m_radius = 1.0f;
 
+	b2Filter collisionFilter;
+	collisionFilter.categoryBits = CollisionGroups::ENEMY;
+	collisionFilter.maskBits =  CollisionGroups::BULLET | CollisionGroups::PLAYER;
+
+
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &enemyBoundingBox;
 	fixtureDef.friction = 0.0;
 	fixtureDef.restitution = 0.0;
+	fixtureDef.filter = collisionFilter;
 
 	//phy.fixtureDef.push_back(fixtureDef);
 	PhyData phy = PhyProcessor::createPhyData(&bodyDef, &fixtureDef); 
@@ -142,12 +151,17 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 
-	//AI
+	//AI--------------------------------------------------------------------------
 	AIData aiData;
 	aiData.target = info.target;
 	//HACK
-	aiData.separation = -20;
+	aiData.separation = 1;
 	aiData.speed = 3;
+
+	//HP-----------------------------------------------------------------------------
+	HealthData healthData;
+	healthData.maxHP = 10; //<-HACK
+
 
 	//final---------------------------------
 	enemy->addProp(Hash::getHash("RenderData"), 
@@ -156,6 +170,8 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 		new Prop<PhyData>(phy));
 	enemy->addProp(Hash::getHash("AIData"), 
 		new Prop<AIData>(aiData));
+	enemy->addProp(Hash::getHash("HealthData"), 
+		new Prop<HealthData>(healthData));
 
 	return enemy;
 };
@@ -194,8 +210,13 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 		phyShape.SetAsBox(halfDim.x, halfDim.y, center, 0);
 		
 		b2FixtureDef &terrainFixture = terrainFixtures[numAABBs];
+		
+		b2Filter collisionFilter;
+		collisionFilter.categoryBits = CollisionGroups::TERRAIN;
+
 		terrainFixture.shape = &phyShape;
 		terrainFixture.friction = 1.0;
+		terrainFixture.filter = collisionFilter;
 
 		{
 			//renderer------------------------------------
@@ -244,7 +265,7 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 
 	b2Filter collisionFilter;
 	collisionFilter.categoryBits = CollisionGroups::PICKUP;
-
+	
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &pickupShape;
 	fixtureDef.friction = 0.0;

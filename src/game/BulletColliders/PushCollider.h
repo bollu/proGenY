@@ -1,9 +1,9 @@
 #pragma once
-#include "../ObjProcessors/BulletProcessor.h"
+#include "../ObjProcessors/StabProcessor.h"
 
 
 
-class pushCollider : public BulletCollider{
+class pushCollider : public StabCollider{
 private:
 	float impulseMagnitude;
 public:

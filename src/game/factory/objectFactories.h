@@ -37,6 +37,7 @@ struct BulletFactoryInfo {
 	//const Hash *enemyCollision;
 
 	BulletData bulletData;
+	StabData stabData;
 	float radius;
 	vector2 pos;
 

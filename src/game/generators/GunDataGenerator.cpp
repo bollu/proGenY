@@ -4,17 +4,17 @@
 void _genBulletData(GunData &gunData, BulletGenData &generationData){
 
 	BulletData bulletData = GenBulletData(generationData);
-
-	bulletData.addEnemyCollision(Hash::getHash("enemy"));
-	bulletData.addEnemyCollision(Hash::getHash("dummy"));
-
-	//bulletData.addIgnoreCollision(Hash::getHash("bullet"));
-	//bulletData.addIgnoreCollision(Hash::getHash("player"));
-
 	gunData.setBulletData(bulletData);
 
 };
 
+
+void _genStabData(GunData &gunData, BulletGenData &generationData){
+	StabData stabData = GenStabData(generationData);
+	stabData.killOnHit = true;
+	stabData.addEnemyCollision(Hash::getHash("enemy"));
+	gunData.setStabData(stabData);
+}
 
 void _genRocket(std::mt19937 &generator, unsigned long seed, unsigned int power, GunData &gunData){
 	/* quite a low rate of fire, average
@@ -42,6 +42,7 @@ void _genRocket(std::mt19937 &generator, unsigned long seed, unsigned int power,
 	bulletGenData.knockback = knockbackProperty::noKnockback;
 
 	_genBulletData(gunData, bulletGenData);
+	_genStabData(gunData, bulletGenData);
 };
 
 
@@ -68,6 +69,7 @@ void _genMachineGun(std::mt19937 &generator, unsigned long seed, unsigned int po
 	bulletGenData.knockback = knockbackProperty::noKnockback;
 
 	_genBulletData(gunData, bulletGenData);
+	_genStabData(gunData, bulletGenData);
 };
 
 

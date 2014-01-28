@@ -19,6 +19,9 @@ struct AIData{
 	float separation;
 	float speed;
 	
+	float separationCoeff;
+	float velCoeff;
+	
 
 };
 

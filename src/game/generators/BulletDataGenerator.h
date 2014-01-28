@@ -1,6 +1,6 @@
 #pragma once
 #include "../ObjProcessors/BulletProcessor.h"
-
+#include "../ObjProcessors/StabProcessor.h"
 
 
 class damageCollider;
@@ -12,6 +12,7 @@ enum gravityProperty{
 		defaultGravity,
 		highGravity,
 };
+
 
 enum damageProperty{
 	lowDamage = 0,
@@ -26,6 +27,7 @@ enum knockbackProperty{
 	highKnockback
 };
 
+
 struct BulletGenData {
 	unsigned long seed;
 	unsigned  int power;
@@ -39,3 +41,4 @@ struct BulletGenData {
 };
 
 BulletData GenBulletData(BulletGenData &data);
+StabData GenStabData(BulletGenData &data);

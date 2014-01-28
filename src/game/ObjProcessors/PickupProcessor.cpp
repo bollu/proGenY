@@ -7,6 +7,10 @@ PickupProcessor::PickupProcessor(processMgr &processManager, Settings &settings,
 
 };
 
+bool isValidCollision(std::unordered_set<const Hash*> &pickupCollisions, const Hash *objCollisionType) {
+	return pickupCollisions.find(objCollisionType) != pickupCollisions.end();
+}
+
 void pickupCollisionCallback(CollisionData &collision, void *data){
 
 	//EventManager *eventManager = static_cast<EventManager *>(data);
@@ -19,13 +23,10 @@ void pickupCollisionCallback(CollisionData &collision, void *data){
 	PickupData *pickupData = me->getPrimitive<PickupData>(Hash::getHash("PickupData"));
 	assert(pickupData != NULL);
 
-	other->sendMessage(pickupData->onPickupEvent, pickupData->eventData, true);
-	//HACK
-	//send the event with the PickupData
-	//eventManager->sendEvent_(pickupData->onPickupEvent, pickupData->eventData);
-	
-	//after this, the evenData is deleted
-	me->Kill();
+	if (isValidCollision(pickupData->pickupCollisionTypes, collision.otherPhy->collisionType)) {
+		other->sendMessage(pickupData->onPickupEvent, pickupData->eventData, true);
+		me->Kill();
+	};
 }
 
 void PickupProcessor::_onObjectAdd(Object *obj){
@@ -45,6 +46,6 @@ void PickupProcessor::_onObjectDeath(Object *obj){
 	PickupData *data = obj->getPrimitive<PickupData>(Hash::getHash("PickupData"));
 
 	if(data->eventData != NULL){
-		//delete(data->eventData);
+		delete(data->eventData);
 	}
 };

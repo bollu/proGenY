@@ -154,6 +154,7 @@ void _createStates(stateProcess *stateProc){
 #include "game/ObjProcessors/OffsetProcessor.h"
 #include "game/ObjProcessors/PickupProcessor.h"
 #include "game/ObjProcessors/AIProcessor.h"
+#include "game/ObjProcessors/StabProcessor.h"
 void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processManager,
                            Settings &settings, EventManager &eventManager){
 
@@ -171,5 +172,6 @@ void _createObjectProcessors(ObjectMgrProcess *objMgrProc, processMgr &processMa
     objMgrProc->addObjectProcessor(new OffsetProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new PickupProcessor(processManager, settings, eventManager) );
     objMgrProc->addObjectProcessor(new AIProcessor(processManager, settings, eventManager) );
+    objMgrProc->addObjectProcessor(new StabProcessor(processManager, settings, eventManager) );
 
 };

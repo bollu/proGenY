@@ -8,7 +8,7 @@
 
 
 
-struct healthData {
+struct HealthData {
 private:
 	friend class healthProcessor;
 	//HP may go below zero.
@@ -18,7 +18,7 @@ public:
 	bool invul;
 	unsigned int maxHP;
 
-	healthData(){
+	HealthData(){
 		this->maxHP = this->currentHP = -1;
 		this->invul = false;
 	}
@@ -36,6 +36,6 @@ protected:
 	void _Process(Object *obj, float dt);
 	void _onObjectAdd(Object *obj);
 	bool _shouldProcess(Object *obj){
-		return obj->hasProperty("healthData");
+		return obj->hasProperty("HealthData");
 	};
 };

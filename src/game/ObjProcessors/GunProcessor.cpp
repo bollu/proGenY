@@ -51,6 +51,9 @@ void GunProcessor::_fireShot(GunData *gunData, vector2 pos){
 	factoryInfo.bulletData.beginVel = gunData->facing.toVector() * gunData->bulletVel;
 	factoryInfo.bulletData.angle = util::Angle(gunData->facing);
 
+	factoryInfo.stabData = gunData->stabData;
+	factoryInfo.stabData.killOnHit = true;
+
 	Object *bullet = ObjectFactories::CreateBullet(factoryInfo);
 	this->objectManager->addObject(bullet);
 

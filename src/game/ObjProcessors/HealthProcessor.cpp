@@ -6,13 +6,13 @@ healthProcessor::healthProcessor(processMgr &processManager, Settings &settings,
 	EventManager &_eventManager) : ObjectProcessor("healthProcessor"){};
 
 void healthProcessor::_onObjectAdd(Object *obj){
-	healthData *data = obj->getPrimitive<healthData>(Hash::getHash("healthData"));
+	HealthData *data = obj->getPrimitive<HealthData>(Hash::getHash("HealthData"));
 	data->currentHP = data->maxHP;
 };
 
 void healthProcessor::_Process(Object *obj, float dt){
 
-	healthData *data = obj->getPrimitive<healthData>(Hash::getHash("healthData"));
+	HealthData *data = obj->getPrimitive<HealthData>(Hash::getHash("HealthData"));
 	if(data->getHP() <= 0){
 		obj->Kill();
 	}
