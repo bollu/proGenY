@@ -29,7 +29,7 @@ namespace util{
 
 	template <typename T>
 	static T lerp(const T &begin, const T &end, float t){
-		return (1.0 - t) * begin + t * end;
+		return begin * (1.0 - t)  +  end * t;
 	}
 
 	/*
@@ -151,20 +151,20 @@ namespace util{
 			return vector2(this->cos() * radius, this->sin() * radius);
 		}
 
-		Angle operator + (const Angle & other){
+		Angle operator + (const Angle & other) const{
 			return Angle(this->angleInRad + other.angleInRad);
 		}
 
-		Angle operator - (const Angle & other){
+		Angle operator - (const Angle & other) const{
 			return Angle(this->angleInRad - other.angleInRad);
 		}
 
-		Angle operator * (const float multiplier){
+		Angle operator * (const float multiplier) const{
 			return Angle(this->angleInRad * multiplier);
 
 		}
 
-		Angle operator / (const float multiplier){
+		Angle operator / (const float multiplier) const{
 			return Angle(this->angleInRad / multiplier);
 		}
 

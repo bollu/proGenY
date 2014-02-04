@@ -12,36 +12,6 @@
 #include "../../Rendering/renderProcess.h"
 
 
-
-
-/*!The data that is used by the RenderProcessor to render objects
-It's a collection of Renderer objects. as one Object may like to render
-multiple things, the RenderData class acts as a "bag" to hold multiple Renderer
-objects
-
-\sa renderProcesor Renderer
-*/
-/*
-class RenderData{
-public:
-	
-
-	void addRenderer(renderProcess::baseRenderNode *renderer){
-		this->renderers.push_back(renderer);
-	}
-
-	//whether the renderer should be shifted by half.
-	//useful when manually setting positions / screwing around
-	bool centered;
-
-	RenderData() : centered(false){};
-
-private:
-	friend class RenderProcessor;
-	std::vector< renderProcess::baseRenderNode *>renderers;
-};
-*/
-
 struct RenderData {
 	RenderNode *renderNodes;
 	int numRenderNodes;

@@ -10,6 +10,7 @@ AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim) : center(0,0) , halfDim(_
 AABB	core/math/AABB.cpp	/^AABB::AABB(vector2 _halfDim, vector2 _center) : center(_center), halfDim(_halfDim){$/;"	f	class:AABB
 AABB	core/math/AABB.h	/^class AABB{$/;"	c
 AI	core/AI/baseAI.h	/^namespace AI{$/;"	n
+AIData	game/ObjProcessors/AIProcessor.h	/^	AIData() {$/;"	f	struct:AIData
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:AIProcessor
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
@@ -33,8 +34,8 @@ Angle	core/math/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
 Angle	core/math/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
 Angle	core/math/mathUtil.h	/^		Angle(vector2 vec){$/;"	f	class:util::Angle
 Angle	core/math/mathUtil.h	/^	class Angle{$/;"	c	namespace:util
-AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon1
-AnyPort	include/SFML/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
+AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
+AnyPort	include/SFML/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon5
 AppendFlags	include/Box2D/Common/b2Draw.cpp	/^void b2Draw::AppendFlags(uint32 flags)$/;"	f	class:b2Draw
 ApplyAngularImpulse	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyAngularImpulse(float32 impulse, bool wake)$/;"	f	class:b2Body
 ApplyForce	include/Box2D/Dynamics/b2Body.h	/^inline void b2Body::ApplyForce(const b2Vec2& force, const b2Vec2& point, bool wake)$/;"	f	class:b2Body
@@ -152,8 +153,8 @@ BoolType	include/SFML/SFML/Network/Packet.hpp	/^    typedef bool (Packet::*BoolT
 BoundaryFactoryInfo	game/factory/objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
 Broadcast	include/SFML/Network/IpAddress.hpp	/^    static const IpAddress Broadcast; \/\/\/< The "broadcast" address (for sending UDP messages to everyone on a local network)$/;"	m	class:sf::IpAddress
 Broadcast	include/SFML/SFML/Network/IpAddress.hpp	/^    static const IpAddress Broadcast; \/\/\/< The "broadcast" address (for sending UDP messages to everyone on a local network)$/;"	m	class:sf::IpAddress
-BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon10
-BufferCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon5
+BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon11
+BufferCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon6
 BufferMove	include/Box2D/Collision/b2BroadPhase.cpp	/^void b2BroadPhase::BufferMove(int32 proxyId)$/;"	f	class:b2BroadPhase
 BulletData	game/ObjProcessors/BulletProcessor.h	/^	BulletData(){$/;"	f	struct:BulletData
 BulletData	game/ObjProcessors/BulletProcessor.h	/^struct BulletData{$/;"	s
@@ -185,8 +186,8 @@ Clone	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^b2Shape* b2ChainShape::C
 Clone	include/Box2D/Collision/Shapes/b2CircleShape.cpp	/^b2Shape* b2CircleShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2CircleShape
 Clone	include/Box2D/Collision/Shapes/b2EdgeShape.cpp	/^b2Shape* b2EdgeShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2EdgeShape
 Clone	include/Box2D/Collision/Shapes/b2PolygonShape.cpp	/^b2Shape* b2PolygonShape::Clone(b2BlockAllocator* allocator) const$/;"	f	class:b2PolygonShape
-Close	include/SFML/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon8
-Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon13
+Close	include/SFML/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon9
+Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon14
 Closed	include/SFML/SFML/Window/Event.hpp	/^        Closed,                 \/\/\/< The window requested to be closed (no data)$/;"	e	enum:sf::Event::EventType
 Closed	include/SFML/Window/Event.hpp	/^        Closed,                 \/\/\/< The window requested to be closed (no data)$/;"	e	enum:sf::Event::EventType
 ClosingConnection	include/SFML/Network/Ftp.hpp	/^            ClosingConnection     = 221, \/\/\/< Service closing control connection$/;"	e	enum:sf::Ftp::Response::Status
@@ -199,6 +200,8 @@ CollisionCallback	core/World/objContactListener.h	/^typedef void (*CollisionCall
 CollisionData	core/World/objContactListener.h	/^struct CollisionData{$/;"	s
 CollisionGroups	game/defines/Collisions.h	/^enum CollisionGroups {$/;"	g
 CollisionHandler	core/World/objContactListener.h	/^struct CollisionHandler{$/;"	s
+Color	core/Rendering/Color.h	/^	Color(float r, float g, float b, float a) {$/;"	f	struct:Color
+Color	core/Rendering/Color.h	/^struct Color {$/;"	s
 Color	include/SFML/Graphics/Color.hpp	/^class SFML_GRAPHICS_API Color$/;"	c	namespace:sf
 Color	include/SFML/SFML/Graphics/Color.hpp	/^class SFML_GRAPHICS_API Color$/;"	c	namespace:sf
 Color	include/backward/backward.hpp	/^namespace Color {$/;"	n	namespace:backward
@@ -302,8 +305,8 @@ DataConnectionUnavailable	include/SFML/Network/Ftp.hpp	/^            DataConnect
 DataConnectionUnavailable	include/SFML/SFML/Network/Ftp.hpp	/^            DataConnectionUnavailable = 425, \/\/\/< Can't open data connection$/;"	e	enum:sf::Ftp::Response::Status
 Default	include/SFML/Graphics/RenderStates.hpp	/^    static const RenderStates Default; \/\/\/< Special instance holding the default render states$/;"	m	class:sf::RenderStates
 Default	include/SFML/SFML/Graphics/RenderStates.hpp	/^    static const RenderStates Default; \/\/\/< Special instance holding the default render states$/;"	m	class:sf::RenderStates
-Default	include/SFML/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon8
-Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon13
+Default	include/SFML/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon9
+Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon14
 Deg	core/math/mathUtil.h	/^		static Angle Deg(float deg){$/;"	f	class:util::Angle
 Delete	include/SFML/SFML/Window/Keyboard.hpp	/^        Delete,       \/\/\/< The Delete key$/;"	e	enum:sf::Keyboard::Key
 Delete	include/SFML/Window/Keyboard.hpp	/^        Delete,       \/\/\/< The Delete key$/;"	e	enum:sf::Keyboard::Key
@@ -372,6 +375,7 @@ E	include/SFML/Window/Keyboard.hpp	/^        E,            \/\/\/< The E key$/;"
 ENEMY	game/defines/Collisions.h	/^	ENEMY = 4,$/;"	e	enum:CollisionGroups
 Ebcdic	include/SFML/Network/Ftp.hpp	/^        Ebcdic  \/\/\/< Text mode using EBCDIC encoding$/;"	e	enum:sf::Ftp::TransferMode
 Ebcdic	include/SFML/SFML/Network/Ftp.hpp	/^        Ebcdic  \/\/\/< Text mode using EBCDIC encoding$/;"	e	enum:sf::Ftp::TransferMode
+Emitter	core/Rendering/ParticleSystem.h	/^struct Emitter {$/;"	s
 Empty	game/terrainGen/terrain.h	/^	Empty = 0,$/;"	e	enum:terrainType
 EnableLimit	include/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp	/^void b2PrismaticJoint::EnableLimit(bool flag)$/;"	f	class:b2PrismaticJoint
 EnableLimit	include/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp	/^void b2RevoluteJoint::EnableLimit(bool flag)$/;"	f	class:b2RevoluteJoint
@@ -460,6 +464,7 @@ Filled	game/terrainGen/terrain.h	/^	Filled$/;"	e	enum:terrainType
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindNewContacts	include/Box2D/Dynamics/b2ContactManager.cpp	/^void b2ContactManager::FindNewContacts()$/;"	f	class:b2ContactManager
 FlagForFiltering	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::FlagForFiltering()$/;"	f	class:b2Contact
+Float	core/Rendering/Color.h	/^	static Color Float(float r, float g, float b, float a) {$/;"	f	struct:Color
 FloatRect	include/SFML/Graphics/Rect.hpp	/^typedef Rect<float> FloatRect;$/;"	t	namespace:sf
 FloatRect	include/SFML/SFML/Graphics/Rect.hpp	/^typedef Rect<float> FloatRect;$/;"	t	namespace:sf
 Font	include/SFML/Graphics/Font.hpp	/^class SFML_GRAPHICS_API Font$/;"	c	namespace:sf
@@ -473,8 +478,8 @@ Free	include/Box2D/Common/b2StackAllocator.cpp	/^void b2StackAllocator::Free(voi
 FreeNode	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::FreeNode(int32 nodeId)$/;"	f	class:b2DynamicTree
 Ftp	include/SFML/Network/Ftp.hpp	/^class SFML_NETWORK_API Ftp : NonCopyable$/;"	c	namespace:sf
 Ftp	include/SFML/SFML/Network/Ftp.hpp	/^class SFML_NETWORK_API Ftp : NonCopyable$/;"	c	namespace:sf
-Fullscreen	include/SFML/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
-Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
+Fullscreen	include/SFML/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon9
+Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon14
 G	include/SFML/SFML/Window/Keyboard.hpp	/^        G,            \/\/\/< The G key$/;"	e	enum:sf::Keyboard::Key
 G	include/SFML/Window/Keyboard.hpp	/^        G,            \/\/\/< The G key$/;"	e	enum:sf::Keyboard::Key
 GainedFocus	include/SFML/SFML/Window/Event.hpp	/^        GainedFocus,            \/\/\/< The window gained the focus (no data)$/;"	e	enum:sf::Event::EventType
@@ -812,6 +817,7 @@ Insert	include/SFML/Window/Keyboard.hpp	/^        Insert,       \/\/\/< The Inse
 InsertLeaf	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::InsertLeaf(int32 leaf)$/;"	f	class:b2DynamicTree
 InsufficientStorageSpace	include/SFML/Network/Ftp.hpp	/^            InsufficientStorageSpace  = 452, \/\/\/< Requested action not taken; insufficient storage space in system, file unavailable$/;"	e	enum:sf::Ftp::Response::Status
 InsufficientStorageSpace	include/SFML/SFML/Network/Ftp.hpp	/^            InsufficientStorageSpace  = 452, \/\/\/< Requested action not taken; insufficient storage space in system, file unavailable$/;"	e	enum:sf::Ftp::Response::Status
+Int	core/Rendering/Color.h	/^	static Color Int(uint8_t r, uint8_t g, uint8_t b, uint8_t a){$/;"	f	struct:Color
 Int16	include/SFML/Config.hpp	/^    typedef signed   short Int16;$/;"	t	namespace:sf
 Int16	include/SFML/SFML/Config.hpp	/^    typedef signed   short Int16;$/;"	t	namespace:sf
 Int32	include/SFML/Config.hpp	/^    typedef signed   int Int32;$/;"	t	namespace:sf
@@ -1010,8 +1016,8 @@ NonCopyable	include/SFML/System/NonCopyable.hpp	/^    NonCopyable() {}$/;"	f	cla
 NonCopyable	include/SFML/System/NonCopyable.hpp	/^class SFML_SYSTEM_API NonCopyable$/;"	c	namespace:sf
 None	include/SFML/Network/IpAddress.hpp	/^    static const IpAddress None;      \/\/\/< Value representing an empty\/invalid address$/;"	m	class:sf::IpAddress
 None	include/SFML/SFML/Network/IpAddress.hpp	/^    static const IpAddress None;      \/\/\/< Value representing an empty\/invalid address$/;"	m	class:sf::IpAddress
-None	include/SFML/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
-None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
+None	include/SFML/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon9
+None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon14
 Normalize	core/math/vector.h	/^	vector2 Normalize() const{	$/;"	f	class:vector2
 Normalize	core/math/vector.h	/^	vector3 Normalize(){	$/;"	f	class:vector3
 Normalize	include/Box2D/Common/b2Math.h	/^	float32 Normalize()$/;"	f	struct:b2Vec2
@@ -1122,6 +1128,11 @@ ParametersUnknown	include/SFML/Network/Ftp.hpp	/^            ParametersUnknown  
 ParametersUnknown	include/SFML/SFML/Network/Ftp.hpp	/^            ParametersUnknown       = 501, \/\/\/< Syntax error in parameters or arguments$/;"	e	enum:sf::Ftp::Response::Status
 PartialContent	include/SFML/Network/Http.hpp	/^            PartialContent = 206, \/\/\/< The server has sent a part of the resource, as a response to a partial GET request$/;"	e	enum:sf::Http::Response::Status
 PartialContent	include/SFML/SFML/Network/Http.hpp	/^            PartialContent = 206, \/\/\/< The server has sent a part of the resource, as a response to a partial GET request$/;"	e	enum:sf::Http::Response::Status
+Particle	core/Rendering/ParticleSystem.h	/^struct Particle {$/;"	s
+Particle	core/Rendering/renderProcess.h	/^		Particle,$/;"	e	enum:RenderNode::Type
+ParticleProp	core/Rendering/ParticleSystem.h	/^struct ParticleProp{$/;"	s
+ParticleSystem	core/Rendering/ParticleSystem.cpp	/^ParticleSystem::ParticleSystem(ParticleProp prop) : $/;"	f	class:ParticleSystem
+ParticleSystem	core/Rendering/ParticleSystem.h	/^class ParticleSystem : public sf::Transformable, public sf::Drawable {$/;"	c
 Pause	core/World/worldProcess.cpp	/^void worldProcess::Pause(){$/;"	f	class:worldProcess
 Pause	core/controlFlow/Process.h	/^	virtual void Pause(){};$/;"	f	class:Process
 Pause	include/SFML/SFML/Window/Keyboard.hpp	/^        Pause,        \/\/\/< The Pause key$/;"	e	enum:sf::Keyboard::Key
@@ -1203,6 +1214,10 @@ RShift	include/SFML/Window/Keyboard.hpp	/^        RShift,       \/\/\/< The righ
 RSystem	include/SFML/SFML/Window/Keyboard.hpp	/^        RSystem,      \/\/\/< The right OS specific key: window (Windows and Linux), apple (MacOS X), ...$/;"	e	enum:sf::Keyboard::Key
 RSystem	include/SFML/Window/Keyboard.hpp	/^        RSystem,      \/\/\/< The right OS specific key: window (Windows and Linux), apple (MacOS X), ...$/;"	e	enum:sf::Keyboard::Key
 Rad	core/math/mathUtil.h	/^		static Angle Rad(float rad){$/;"	f	class:util::Angle
+Randomizer	core/math/Randomizer.h	/^        Randomizer() {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^        Randomizer(T begin, T end) : begin_(begin), end_(end) {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^        Randomizer(T uniValue) : begin_(uniValue), end_(uniValue) {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^class Randomizer {$/;"	c
 RangeNotSatisfiable	include/SFML/Network/Http.hpp	/^            RangeNotSatisfiable = 407, \/\/\/< The server can't satisfy the partial GET request (with a "Range" header field)$/;"	e	enum:sf::Http::Response::Status
 RangeNotSatisfiable	include/SFML/SFML/Network/Http.hpp	/^            RangeNotSatisfiable = 407, \/\/\/< The server can't satisfy the partial GET request (with a "Range" header field)$/;"	e	enum:sf::Http::Response::Status
 RayCast	include/Box2D/Collision/Shapes/b2ChainShape.cpp	/^bool b2ChainShape::RayCast(b2RayCastOutput* output, const b2RayCastInput& input,$/;"	f	class:b2ChainShape
@@ -1231,6 +1246,7 @@ RemoveLeaf	include/Box2D/Collision/b2DynamicTree.cpp	/^void b2DynamicTree::Remov
 RenderData	core/componentSys/processor/RenderProcessor.h	/^	RenderData() {$/;"	f	struct:RenderData
 RenderData	core/componentSys/processor/RenderProcessor.h	/^struct RenderData {$/;"	s
 RenderNode	core/Rendering/renderProcess.h	/^	RenderNode() {$/;"	f	struct:RenderNode
+RenderNode	core/Rendering/renderProcess.h	/^	RenderNode(ParticleSystem *particleSystem, int z) {$/;"	f	struct:RenderNode
 RenderNode	core/Rendering/renderProcess.h	/^	RenderNode(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
 RenderNode	core/Rendering/renderProcess.h	/^struct RenderNode{$/;"	s
 RenderProcessor	core/componentSys/processor/RenderProcessor.cpp	/^RenderProcessor::RenderProcessor(processMgr &processManager, $/;"	f	class:RenderProcessor
@@ -1252,8 +1268,8 @@ ResetContent	include/SFML/SFML/Network/Http.hpp	/^            ResetContent   = 2
 ResetFriction	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::ResetFriction()$/;"	f	class:b2Contact
 ResetMassData	include/Box2D/Dynamics/b2Body.cpp	/^void b2Body::ResetMassData()$/;"	f	class:b2Body
 ResetRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline void b2Contact::ResetRestitution()$/;"	f	class:b2Contact
-Resize	include/SFML/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon8
-Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon13
+Resize	include/SFML/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon9
+Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon14
 Resized	include/SFML/SFML/Window/Event.hpp	/^        Resized,                \/\/\/< The window was resized (data in event.size)$/;"	e	enum:sf::Event::EventType
 Resized	include/SFML/Window/Event.hpp	/^        Resized,                \/\/\/< The window was resized (data in event.size)$/;"	e	enum:sf::Event::EventType
 ResolvedTrace	include/backward/backward.hpp	/^	ResolvedTrace(const Trace& mini_trace):$/;"	f	struct:backward::ResolvedTrace
@@ -1600,7 +1616,7 @@ Settings	core/IO/Settings.cpp	/^Settings::Settings(){$/;"	f	class:Settings
 Settings	core/IO/Settings.h	/^class Settings{$/;"	c
 Shader	include/SFML/Graphics/Shader.hpp	/^class SFML_GRAPHICS_API Shader : GlResource, NonCopyable$/;"	c	namespace:sf
 Shader	include/SFML/SFML/Graphics/Shader.hpp	/^class SFML_GRAPHICS_API Shader : GlResource, NonCopyable$/;"	c	namespace:sf
-Shape	core/Rendering/renderProcess.h	/^		Shape$/;"	e	enum:RenderNode::Type
+Shape	core/Rendering/renderProcess.h	/^		Shape,$/;"	e	enum:RenderNode::Type
 Shape	include/SFML/Graphics/Shape.hpp	/^class SFML_GRAPHICS_API Shape : public Drawable, public Transformable$/;"	c	namespace:sf
 Shape	include/SFML/SFML/Graphics/Shape.hpp	/^class SFML_GRAPHICS_API Shape : public Drawable, public Transformable$/;"	c	namespace:sf
 ShiftOrigin	include/Box2D/Collision/b2BroadPhase.h	/^inline void b2BroadPhase::ShiftOrigin(const b2Vec2& newOrigin)$/;"	f	class:b2BroadPhase
@@ -1694,6 +1710,8 @@ SourceLoc	include/backward/backward.hpp	/^		SourceLoc(): line(0), col(0) {}$/;"	
 SourceLoc	include/backward/backward.hpp	/^	struct SourceLoc {$/;"	s	struct:backward::ResolvedTrace
 Space	include/SFML/SFML/Window/Keyboard.hpp	/^        Space,        \/\/\/< The Space key$/;"	e	enum:sf::Keyboard::Key
 Space	include/SFML/Window/Keyboard.hpp	/^        Space,        \/\/\/< The Space key$/;"	e	enum:sf::Keyboard::Key
+Spawn	core/Rendering/ParticleSystem.h	/^    void Spawn(vector2 vel, vector2 acc, float lifetime) {$/;"	f	struct:Particle
+SpawnParticle	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::SpawnParticle(Particle &particle) {$/;"	f	class:ParticleSystem
 Sprite	core/Rendering/renderProcess.h	/^		Sprite,$/;"	e	enum:RenderNode::Type
 Sprite	include/SFML/Graphics/Sprite.hpp	/^class SFML_GRAPHICS_API Sprite : public Drawable, public Transformable$/;"	c	namespace:sf
 Sprite	include/SFML/SFML/Graphics/Sprite.hpp	/^class SFML_GRAPHICS_API Sprite : public Drawable, public Transformable$/;"	c	namespace:sf
@@ -1749,6 +1767,7 @@ SystemType	include/SFML/Network/Ftp.hpp	/^            SystemType            = 21
 SystemType	include/SFML/SFML/Network/Ftp.hpp	/^            SystemType            = 215, \/\/\/< NAME system type, where NAME is an official system name from the list in the Assigned Numbers document$/;"	e	enum:sf::Ftp::Response::Status
 T	include/SFML/SFML/Window/Keyboard.hpp	/^        T,            \/\/\/< The T key$/;"	e	enum:sf::Keyboard::Key
 T	include/SFML/Window/Keyboard.hpp	/^        T,            \/\/\/< The T key$/;"	e	enum:sf::Keyboard::Key
+TERRAIN	game/defines/Collisions.h	/^	TERRAIN = 32,$/;"	e	enum:CollisionGroups
 TINYMT32_H	include/noise/tinymt32.h	2;"	d
 TINYMT32_MASK	include/noise/tinymt32.h	26;"	d
 TINYMT32_MEXP	include/noise/tinymt32.h	22;"	d
@@ -1807,8 +1826,8 @@ Tilde	include/SFML/SFML/Window/Keyboard.hpp	/^        Tilde,        \/\/\/< The 
 Tilde	include/SFML/Window/Keyboard.hpp	/^        Tilde,        \/\/\/< The ~ key$/;"	e	enum:sf::Keyboard::Key
 Time	include/SFML/SFML/System/Time.hpp	/^class SFML_SYSTEM_API Time$/;"	c	namespace:sf
 Time	include/SFML/System/Time.hpp	/^class SFML_SYSTEM_API Time$/;"	c	namespace:sf
-Titlebar	include/SFML/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon8
-Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon13
+Titlebar	include/SFML/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon9
+Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon14
 TouchProxy	include/Box2D/Collision/b2BroadPhase.cpp	/^void b2BroadPhase::TouchProxy(int32 proxyId)$/;"	f	class:b2BroadPhase
 Trace	include/backward/backward.hpp	/^	Trace():$/;"	f	struct:backward::Trace
 Trace	include/backward/backward.hpp	/^	explicit Trace(void* addr, size_t idx):$/;"	f	struct:backward::Trace
@@ -1825,6 +1844,8 @@ TraceResolverLinuxImplBase	include/backward/backward.hpp	/^class TraceResolverLi
 TraceWithLocals	include/backward/backward.hpp	/^	TraceWithLocals(): Trace() {}$/;"	f	struct:backward::TraceWithLocals
 TraceWithLocals	include/backward/backward.hpp	/^	TraceWithLocals(const Trace& mini_trace):$/;"	f	struct:backward::TraceWithLocals
 TraceWithLocals	include/backward/backward.hpp	/^struct TraceWithLocals: public Trace {$/;"	s	namespace:backward
+Trail	core/Rendering/renderProcess.h	/^		Trail,$/;"	e	enum:RenderNode::Type
+TrailRenderer	core/Rendering/TrailRenderer.h	/^class TrailRenderer : public sf::Drawable, public sf::Transformable{$/;"	c
 TransferAborted	include/SFML/Network/Ftp.hpp	/^            TransferAborted           = 426, \/\/\/< Connection closed, transfer aborted$/;"	e	enum:sf::Ftp::Response::Status
 TransferAborted	include/SFML/SFML/Network/Ftp.hpp	/^            TransferAborted           = 426, \/\/\/< Connection closed, transfer aborted$/;"	e	enum:sf::Ftp::Response::Status
 TransferMode	include/SFML/Network/Ftp.hpp	/^    enum TransferMode$/;"	g	class:sf::Ftp
@@ -1883,6 +1904,9 @@ Unregister	core/controlFlow/eventMgr.cpp	/^void EventManager::Unregister(const H
 Unwinder	include/backward/backward.hpp	/^class Unwinder {$/;"	c	namespace:backward::details
 Up	include/SFML/SFML/Window/Keyboard.hpp	/^        Up,           \/\/\/< Up arrow$/;"	e	enum:sf::Keyboard::Key
 Up	include/SFML/Window/Keyboard.hpp	/^        Up,           \/\/\/< Up arrow$/;"	e	enum:sf::Keyboard::Key
+Update	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::Update(float dt) {$/;"	f	class:ParticleSystem
+Update	core/Rendering/ParticleSystem.h	/^    void Update(sf::Vertex &particle, float dt) {$/;"	f	struct:Particle
+Update	core/Rendering/TrailRenderer.cpp	/^void TrailRenderer::Update(float dt) {$/;"	f	class:TrailRenderer
 Update	core/Rendering/viewProcess.cpp	/^void viewProcess::Update(float dt){$/;"	f	class:viewProcess
 Update	core/World/worldProcess.cpp	/^void worldProcess::Update(float dt){$/;"	f	class:worldProcess
 Update	core/componentSys/ObjectMgrProcess.h	/^	void Update(float dt){$/;"	f	class:ObjectMgrProcess
@@ -1942,8 +1966,8 @@ Vertex	include/SFML/SFML/Graphics/Shader.hpp	/^        Vertex,  \/\/\/< Vertex s
 Vertex	include/SFML/SFML/Graphics/Vertex.hpp	/^class SFML_GRAPHICS_API Vertex$/;"	c	namespace:sf
 VertexArray	include/SFML/Graphics/VertexArray.hpp	/^class SFML_GRAPHICS_API VertexArray : public Drawable$/;"	c	namespace:sf
 VertexArray	include/SFML/SFML/Graphics/VertexArray.hpp	/^class SFML_GRAPHICS_API VertexArray : public Drawable$/;"	c	namespace:sf
-VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon11
-VertexCacheSize	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon6
+VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon15
+VertexCacheSize	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon10
 VertexType	include/Box2D/Collision/b2CollideEdge.cpp	/^	enum VertexType$/;"	g	struct:b2EPCollider	file:
 VideoMode	include/SFML/SFML/Window/VideoMode.hpp	/^class SFML_WINDOW_API VideoMode$/;"	c	namespace:sf
 VideoMode	include/SFML/Window/VideoMode.hpp	/^class SFML_WINDOW_API VideoMode$/;"	c	namespace:sf
@@ -2115,16 +2139,19 @@ _stacktrace	include/backward/backward.hpp	/^	std::vector<void*> _stacktrace;$/;"
 _symbols	include/backward/backward.hpp	/^	details::handle<char**> _symbols;$/;"	m	class:backward::TraceResolverLinuxImpl
 _thread_id	include/backward/backward.hpp	/^	size_t _thread_id;$/;"	m	class:backward::StackTraceLinuxImplBase
 _val	include/backward/backward.hpp	/^	T    _val;$/;"	m	class:backward::details::handle
+a	core/Rendering/ParticleSystem.h	/^    vector2 a;$/;"	m	struct:Particle
 a	include/Box2D/Collision/b2Distance.cpp	/^	float32 a;		\/\/ barycentric coordinate for closest point$/;"	m	struct:b2SimplexVertex	file:
 a	include/Box2D/Common/b2Math.h	/^	float32 a0, a;		\/\/\/< world angles$/;"	m	struct:b2Sweep
 a	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 a;$/;"	m	struct:b2Position
 a	include/SFML/Graphics/Color.hpp	/^    Uint8 a; \/\/\/< Alpha (opacity) component$/;"	m	class:sf::Color
 a	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 a; \/\/\/< Alpha (opacity) component$/;"	m	class:sf::Color
 a0	include/Box2D/Common/b2Math.h	/^	float32 a0, a;		\/\/\/< world angles$/;"	m	struct:b2Sweep
+a_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
 aabb	include/Box2D/Collision/b2DynamicTree.h	/^	b2AABB aabb;$/;"	m	struct:b2TreeNode
 aabb	include/Box2D/Dynamics/b2Fixture.h	/^	b2AABB aabb;$/;"	m	struct:b2FixtureProxy
 abilityPower	game/generators/BulletDataGenerator.h	/^	unsigned int abilityPower;$/;"	m	struct:BulletGenData
 aboveAction	game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
+acc	core/Rendering/ParticleSystem.h	/^    Randomizer<vector2> acc = Randomizer<vector2>(nullVector);$/;"	m	struct:ParticleProp
 accumilator	game/ObjProcessors/CameraProcessor.h	/^	float accumilator;$/;"	m	struct:CameraData
 action	game/defines/renderingLayers.h	/^	action = -10,$/;"	e	enum:renderingLayers
 activateObject	core/componentSys/ObjectManager.cpp	/^void ObjectManager::activateObject(Object &obj){$/;"	f	class:ObjectManager
@@ -2479,6 +2506,7 @@ b2_toiRootIters	include/Box2D/Collision/b2TimeOfImpact.cpp	/^int32 b2_toiRootIte
 b2_toiTime	include/Box2D/Collision/b2TimeOfImpact.cpp	/^float32 b2_toiTime, b2_toiMaxTime;$/;"	v
 b2_velocityThreshold	include/Box2D/Common/b2Settings.h	90;"	d
 b2_version	include/Box2D/Common/b2Settings.cpp	/^b2Version b2_version = {2, 3, 0};$/;"	v
+b_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
 backtrace	include/backward/backward.hpp	/^	_Unwind_Reason_Code backtrace(_Unwind_Context* ctx) {$/;"	f	class:backward::details::Unwinder
 backtrace_inliners	include/backward/backward.hpp	/^	ResolvedTrace::source_locs_t backtrace_inliners(bfd_fileobject& fobj,$/;"	f	class:backward::TraceResolverLinuxImpl
 backtrace_trampoline	include/backward/backward.hpp	/^	static _Unwind_Reason_Code backtrace_trampoline($/;"	f	class:backward::details::Unwinder
@@ -2492,7 +2520,11 @@ baseProperty	core/componentSys/Property.h	/^class baseProperty{$/;"	c
 base_addr	include/backward/backward.hpp	/^		bfd_vma      base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
 base_addr	include/backward/backward.hpp	/^		void* base_addr;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
 begin	include/backward/backward.hpp	/^	void** begin() {$/;"	f	class:backward::StackTraceLinuxImplHolder
+beginColor	core/Rendering/ParticleSystem.h	/^    Randomizer<Color> beginColor;$/;"	m	struct:ParticleProp
+beginVel	core/Rendering/ParticleSystem.h	/^    Randomizer<vector2> beginVel = Randomizer<vector2>(nullVector);$/;"	m	struct:ParticleProp
 beginVel	game/ObjProcessors/BulletProcessor.h	/^	vector2 beginVel;$/;"	m	struct:BulletData
+begin_	core/Rendering/TrailRenderer.h	/^	Color begin_, end_;$/;"	m	class:TrailRenderer
+begin_	core/math/Randomizer.h	/^        T begin_, end_;$/;"	m	class:Randomizer
 belowAction	game/defines/renderingLayers.h	/^	belowAction = -11,$/;"	e	enum:renderingLayers
 bfd_fileobject	include/backward/backward.hpp	/^	struct bfd_fileobject {$/;"	s	class:backward::TraceResolverLinuxImpl
 bfd_handle_t	include/backward/backward.hpp	/^				> bfd_handle_t;$/;"	t	class:backward::TraceResolverLinuxImpl
@@ -2659,6 +2691,9 @@ doneLoading	game/States/gameSegmentLoader.h	/^	bool doneLoading;$/;"	m	class:gam
 doneSaving	core/controlFlow/stateSaveLoader.h	/^	bool doneSaving;$/;"	m	class:stateSaveLoader
 dotProduct	core/math/vector.h	/^	float dotProduct(const vector2 &other){$/;"	f	class:vector2
 down	game/gameStateHelpers/playerEventHandler.h	/^	sf::Keyboard::Key down;$/;"	m	struct:playerHandlerData
+draw	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::draw(sf::RenderTarget& target, sf::RenderStates states) const$/;"	f	class:ParticleSystem
+draw	core/Rendering/TrailRenderer.cpp	/^void TrailRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const {$/;"	f	class:TrailRenderer
+drawParticleSystem_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawParticleSystem_(RenderNode &node) {$/;"	f	class:renderProcess
 drawShape_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawShape_(RenderNode &node){$/;"	f	class:renderProcess
 drawSprite_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawSprite_(RenderNode &node){$/;"	f	class:renderProcess
 drawText_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawText_(RenderNode &node){$/;"	f	class:renderProcess
@@ -2671,26 +2706,26 @@ dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^	dummyStateSaveLo
 dummyStateSaveLoader	core/controlFlow/dummyStateSaveLoader.h	/^class dummyStateSaveLoader : public stateSaveLoader{$/;"	c
 dwfl_handle_t	include/backward/backward.hpp	/^		dwfl_handle_t;$/;"	t	class:backward::TraceResolverLinuxImpl
 dynamic_symtab	include/backward/backward.hpp	/^		bfd_symtab_t dynamic_symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
-e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon20
-e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon16
+e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon21
+e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon17
 e_atLowerLimit	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_atLowerLimit,$/;"	e	enum:b2LimitState
 e_atUpperLimit	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_atUpperLimit,$/;"	e	enum:b2LimitState
-e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon16
-e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon16
-e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon16
-e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon17
-e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon20
+e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon17
+e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon17
+e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon17
+e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon18
+e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon21
 e_chain	include/Box2D/Collision/Shapes/b2Shape.h	/^		e_chain = 3,$/;"	e	enum:b2Shape::Type
 e_circle	include/Box2D/Collision/Shapes/b2Shape.h	/^		e_circle = 0,$/;"	e	enum:b2Shape::Type
 e_circles	include/Box2D/Collision/b2Collision.h	/^		e_circles,$/;"	e	enum:b2Manifold::Type
-e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon15
+e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon16
 e_concave	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_concave,$/;"	e	enum:b2EPCollider::VertexType	file:
 e_convex	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_convex$/;"	e	enum:b2EPCollider::VertexType	file:
 e_distanceJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_distanceJoint,$/;"	e	enum:b2JointType
 e_edge	include/Box2D/Collision/Shapes/b2Shape.h	/^		e_edge = 1,$/;"	e	enum:b2Shape::Type
 e_edgeA	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_edgeA,$/;"	e	enum:b2EPAxis::Type	file:
 e_edgeB	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_edgeB$/;"	e	enum:b2EPAxis::Type	file:
-e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon17
+e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon18
 e_equalLimits	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_equalLimits$/;"	e	enum:b2LimitState
 e_face	include/Box2D/Collision/b2Collision.h	/^		e_face = 1$/;"	e	enum:b2ContactFeature::Type
 e_faceA	include/Box2D/Collision/b2Collision.h	/^		e_faceA,$/;"	e	enum:b2Manifold::Type
@@ -2698,22 +2733,22 @@ e_faceA	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_faceA,$/;"	e	enum:b2Sep
 e_faceB	include/Box2D/Collision/b2Collision.h	/^		e_faceB$/;"	e	enum:b2Manifold::Type
 e_faceB	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_faceB$/;"	e	enum:b2SeparationFunction::Type	file:
 e_failed	include/Box2D/Collision/b2TimeOfImpact.h	/^		e_failed,$/;"	e	enum:b2TOIOutput::State
-e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon17
-e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon16
+e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon18
+e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon17
 e_frictionJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_frictionJoint,$/;"	e	enum:b2JointType
 e_gearJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_gearJoint,$/;"	e	enum:b2JointType
 e_inactiveLimit	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_inactiveLimit,$/;"	e	enum:b2LimitState
-e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon17
-e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon16
+e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon18
+e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon17
 e_isolated	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_isolated,$/;"	e	enum:b2EPCollider::VertexType	file:
-e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon20
-e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon15
+e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon21
+e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon16
 e_motorJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_motorJoint$/;"	e	enum:b2JointType
 e_mouseJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_mouseJoint,$/;"	e	enum:b2JointType
-e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon15
-e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon18
+e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon16
+e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon19
 e_overlapped	include/Box2D/Collision/b2TimeOfImpact.h	/^		e_overlapped,$/;"	e	enum:b2TOIOutput::State
-e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon20
+e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon21
 e_points	include/Box2D/Collision/b2TimeOfImpact.cpp	/^		e_points,$/;"	e	enum:b2SeparationFunction::Type	file:
 e_polygon	include/Box2D/Collision/Shapes/b2Shape.h	/^		e_polygon = 2,$/;"	e	enum:b2Shape::Type
 e_prismaticJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_prismaticJoint,$/;"	e	enum:b2JointType
@@ -2721,11 +2756,11 @@ e_pulleyJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_pulleyJoint,$/;"	e	en
 e_revoluteJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_revoluteJoint,$/;"	e	enum:b2JointType
 e_ropeJoint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	e_ropeJoint,$/;"	e	enum:b2JointType
 e_separated	include/Box2D/Collision/b2TimeOfImpact.h	/^		e_separated$/;"	e	enum:b2TOIOutput::State
-e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon20
-e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon17
-e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon16
+e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon21
+e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon18
+e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon17
 e_touching	include/Box2D/Collision/b2TimeOfImpact.h	/^		e_touching,$/;"	e	enum:b2TOIOutput::State
-e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon17
+e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon18
 e_typeCount	include/Box2D/Collision/Shapes/b2Shape.h	/^		e_typeCount = 4$/;"	e	enum:b2Shape::Type
 e_unknown	include/Box2D/Collision/b2CollideEdge.cpp	/^		e_unknown,$/;"	e	enum:b2EPAxis::Type	file:
 e_unknown	include/Box2D/Collision/b2TimeOfImpact.h	/^		e_unknown,$/;"	e	enum:b2TOIOutput::State
@@ -2740,6 +2775,9 @@ enableMotor	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	bool enableMotor;
 enableMotor	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	bool enableMotor;$/;"	m	struct:b2WheelJointDef
 enabled	core/IO/logObject.h	/^		bool enabled;$/;"	m	class:IO::scopedLog
 enabled	game/ObjProcessors/CameraProcessor.h	/^	bool enabled;$/;"	m	struct:CameraData
+endColor	core/Rendering/ParticleSystem.h	/^    Randomizer<Color> endColor;$/;"	m	struct:ParticleProp
+end_	core/Rendering/TrailRenderer.h	/^	Color begin_, end_;$/;"	m	class:TrailRenderer
+end_	core/math/Randomizer.h	/^        T begin_, end_;$/;"	m	class:Randomizer
 enemyCollisions	game/ObjProcessors/StabProcessor.h	/^	std::unordered_set<const Hash*> enemyCollisions;$/;"	m	struct:StabData
 equalKeys	core/IO/hashmap.c	/^static inline bool equalKeys(void* keyA, int hashA, void* keyB, int hashB,$/;"	f	file:
 equals	core/IO/hashmap.c	/^    bool (*equals)(void* keyA, void* keyB);$/;"	m	struct:Hashmap	file:
@@ -2763,8 +2801,11 @@ ey	include/Box2D/Common/b2Math.h	/^	b2Vec2 ex, ey;$/;"	m	struct:b2Mat22
 ey	include/Box2D/Common/b2Math.h	/^	b2Vec3 ex, ey, ez;$/;"	m	struct:b2Mat33
 ez	include/Box2D/Common/b2Math.h	/^	b2Vec3 ex, ey, ez;$/;"	m	struct:b2Mat33
 fProp	core/componentSys/Property.h	/^typedef Prop<float> fProp;$/;"	t
+fa	core/Rendering/Color.h	/^	float fa() {  return a_; };$/;"	f	struct:Color
 facing	game/ObjProcessors/GunProcessor.h	/^	util::Angle facing;$/;"	m	struct:GunData
 fade	game/generators/PerlinNoise.cpp	/^double PerlinNoise::fade(double t) { $/;"	f	class:PerlinNoise
+fb	core/Rendering/Color.h	/^	float fb() {  return b_; };$/;"	f	struct:Color
+fg	core/Rendering/Color.h	/^	float fg() {  return g_; };$/;"	f	struct:Color
 filename	include/backward/backward.hpp	/^		const char* filename;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
 filename	include/backward/backward.hpp	/^		std::string filename;$/;"	m	struct:backward::ResolvedTrace::SourceLoc
 filter	include/Box2D/Dynamics/b2Fixture.h	/^	b2Filter filter;$/;"	m	struct:b2FixtureDef
@@ -2783,9 +2824,12 @@ float01	game/terrainGen/terrainGenerator.cpp	10;"	d	file:
 float32	include/Box2D/Common/b2Settings.h	/^typedef float float32;$/;"	t
 float64	include/Box2D/Common/b2Settings.h	/^typedef double float64;$/;"	t
 flush	core/IO/logObject.h	/^	static const _Flush flush;$/;"	m	namespace:IO
+fo	core/Rendering/Color.h	/^	float fo() {  return (1.0f - a_); };$/;"	f	struct:Color
 fobj	include/backward/backward.hpp	/^		bfd_fileobject* fobj;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
 fobj_bfd_map_t	include/backward/backward.hpp	/^		fobj_bfd_map_t;$/;"	t	class:backward::TraceResolverLinuxImpl
+forceScaling	game/ObjProcessors/AIProcessor.h	/^	float forceScaling;$/;"	m	struct:AIData
 found	include/backward/backward.hpp	/^		bool found;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_result
+fr	core/Rendering/Color.h	/^	float fr() {  return r_; };$/;"	f	struct:Color
 fraction	include/Box2D/Collision/b2Collision.h	/^	float32 fraction;$/;"	m	struct:b2RayCastOutput
 freeRenderNode	core/Rendering/renderProcess.cpp	/^void freeRenderNode(RenderNode &node){$/;"	f
 frequencyHz	include/Box2D/Dynamics/Joints/b2DistanceJoint.h	/^	float32 frequencyHz;$/;"	m	struct:b2DistanceJointDef
@@ -2799,6 +2843,7 @@ function	include/backward/backward.hpp	/^		std::string function;$/;"	m	struct:ba
 g	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 g	include/SFML/Graphics/Color.hpp	/^    Uint8 g; \/\/\/< Green component$/;"	m	class:sf::Color
 g	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 g; \/\/\/< Green component$/;"	m	class:sf::Color
+g_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
 game2RenderScale	core/Rendering/viewProcess.h	/^	float game2RenderScale;$/;"	m	class:viewProcess
 game2ViewCoord	core/Rendering/viewProcess.cpp	/^vector2 viewProcess::game2ViewCoord(vector2 gameCoord){$/;"	f	class:viewProcess
 gameSegment	game/level/gameSegment.h	/^class gameSegment{$/;"	c
@@ -2853,6 +2898,7 @@ getTopRight	core/math/AABB.cpp	/^vector2 AABB::getTopRight() const{$/;"	f	class:
 getVal	core/IO/Hash.cpp	/^uint64_t Hash::getVal() const{$/;"	f	class:Hash
 getVal	core/componentSys/Property.h	/^	T *getVal(){$/;"	f	class:Prop
 getVal	core/componentSys/Property.h	/^	void *getVal(){$/;"	f	class:Prop
+getValue	core/math/Randomizer.h	/^        T getValue (float normalizedRand) {$/;"	f	class:Randomizer
 getWidth	game/terrainGen/terrain.h	/^	unsigned int getWidth () {$/;"	f	struct:Terrain
 getWindow	core/Rendering/windowProcess.cpp	/^sf::RenderWindow *windowProcess::getWindow(){$/;"	f	class:windowProcess
 get_coalesced_snippet	include/backward/backward.hpp	/^	lines_t get_coalesced_snippet(const std::string& filename,$/;"	f	class:backward::SnippetFactory
@@ -2939,9 +2985,12 @@ highKnockback	game/generators/BulletDataGenerator.h	/^	highKnockback$/;"	e	enum:
 i1	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 i1, i2;$/;"	m	struct:b2ReferenceFace	file:
 i2	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 i1, i2;$/;"	m	struct:b2ReferenceFace	file:
 iProp	core/componentSys/Property.h	/^typedef Prop<int> iProp;$/;"	t
+ia	core/Rendering/Color.h	/^	uint8_t ia() { return a_ * 255.0f; };$/;"	f	struct:Color
+ib	core/Rendering/Color.h	/^	uint8_t ib() { return b_ * 255.0f; };$/;"	f	struct:Color
 id	include/Box2D/Collision/b2Collision.h	/^	b2ContactID id;			\/\/\/< uniquely identifies a contact point between two shapes$/;"	m	struct:b2ManifoldPoint
 id	include/Box2D/Collision/b2Collision.h	/^	b2ContactID id;$/;"	m	struct:b2ClipVertex
 idx	include/backward/backward.hpp	/^	size_t idx;$/;"	m	struct:backward::Trace
+ig	core/Rendering/Color.h	/^	uint8_t ig() { return g_ * 255.0f; };$/;"	f	struct:Color
 impulseMagnitude	game/BulletColliders/PushCollider.h	/^	float impulseMagnitude;$/;"	m	class:pushCollider
 index	include/Box2D/Collision/b2CollideEdge.cpp	/^	int32 index;$/;"	m	struct:b2EPAxis	file:
 indexA	include/Box2D/Collision/b2Collision.h	/^	uint8 indexA;		\/\/\/< Feature index on shapeA$/;"	m	struct:b2ContactFeature
@@ -2979,29 +3028,33 @@ invMassB	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 invMassA
 invMassB	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 invMassA, invMassB;$/;"	m	struct:b2ContactVelocityConstraint
 inv_dt	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 inv_dt;		\/\/ inverse time step (0 if dt == 0).$/;"	m	struct:b2TimeStep
 invul	game/ObjProcessors/HealthProcessor.h	/^	bool invul;$/;"	m	struct:HealthData
+io	core/Rendering/Color.h	/^	uint8_t io() { return (1.0f - a_) * 255.0f; };$/;"	f	struct:Color
+ir	core/Rendering/Color.h	/^	uint8_t ir() { return r_ * 255.0f; };$/;"	f	struct:Color
+isDead	core/Rendering/ParticleSystem.h	/^    bool isDead() {$/;"	f	struct:Particle
 isDead	core/componentSys/Object.cpp	/^bool Object::isDead() const{$/;"	f	class:Object
 isDoneLoading	core/controlFlow/stateSaveLoader.h	/^	bool isDoneLoading(){$/;"	f	class:stateSaveLoader
 isDoneSaving	core/controlFlow/stateSaveLoader.h	/^	bool isDoneSaving(){$/;"	f	class:stateSaveLoader
 isEnemy	game/ObjProcessors/StabProcessor.cpp	/^bool isEnemy(std::unordered_set<const Hash*> &enemyCollisions, const Hash *objCollisionType) {$/;"	f
 isSensor	include/Box2D/Dynamics/b2Fixture.h	/^	bool isSensor;$/;"	m	struct:b2FixtureDef
+isValidCollision	game/ObjProcessors/PickupProcessor.cpp	/^bool isValidCollision(std::unordered_set<const Hash*> &pickupCollisions, const Hash *objCollisionType) {$/;"	f
 isWindowClosed	mainLoopListener.h	/^	bool isWindowClosed(){$/;"	f	class:mainLoopListener
 is_open	include/backward/backward.hpp	/^	bool is_open() const { return _file->is_open(); }$/;"	f	class:backward::SourceFile
 iterations	include/Box2D/Collision/b2Distance.h	/^	int32 iterations;	\/\/\/< number of GJK iterations used$/;"	m	struct:b2DistanceOutput
 joint	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2Joint* joint;			\/\/\/< the joint$/;"	m	struct:b2JointEdge
 joint1	include/Box2D/Dynamics/Joints/b2GearJoint.h	/^	b2Joint* joint1;$/;"	m	struct:b2GearJointDef
 joint2	include/Box2D/Dynamics/Joints/b2GearJoint.h	/^	b2Joint* joint2;$/;"	m	struct:b2GearJointDef
-joystickButton	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon9
-joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon14
-joystickConnect	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon9
-joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon14
+joystickButton	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon8
+joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon13
+joystickConnect	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon8
+joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon13
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon9
-joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon14
+joystickMove	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon8
+joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon13
 jumpHeight	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpHeight;$/;"	m	struct:groundMoveData
 jumpImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 jumpImpulse;$/;"	m	struct:groundMoveData
 jumpRange	game/ObjProcessors/GroundMoveProcessor.h	/^	float jumpRange;$/;"	m	struct:groundMoveData
@@ -3011,8 +3064,8 @@ k2	include/Box2D/Rope/b2Rope.h	/^	float32 k2;$/;"	m	struct:b2RopeDef
 k3	include/Box2D/Rope/b2Rope.h	/^	float32 k3;$/;"	m	struct:b2RopeDef
 key	core/IO/hashmap.c	/^    void* key;$/;"	m	struct:Entry	file:
 key	include/Box2D/Collision/b2Collision.h	/^	uint32 key;					\/\/\/< Used to quickly compare contact ids.$/;"	m	union:b2ContactID
-key	include/SFML/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon9
-key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon14
+key	include/SFML/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon8
+key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon13
 killOnHit	game/ObjProcessors/StabProcessor.h	/^	bool killOnHit;$/;"	m	struct:StabData
 kind	include/backward/backward.hpp	/^	Kind kind;$/;"	m	class:backward::Variable
 knockback	game/generators/BulletDataGenerator.h	/^	knockbackProperty knockback;$/;"	m	struct:BulletGenData
@@ -3043,6 +3096,7 @@ lines_t	include/backward/backward.hpp	/^	typedef std::vector<std::pair<unsigned,
 list	include/backward/backward.hpp	/^	const list_t& list() const {$/;"	f	class:backward::Variable
 list	include/backward/backward.hpp	/^	list_t& list() {$/;"	f	class:backward::Variable
 list_t	include/backward/backward.hpp	/^	typedef std::vector<std::string> list_t;$/;"	t	class:backward::Variable
+liveTime_	core/Rendering/TrailRenderer.h	/^	Cooldown<float> liveTime_;$/;"	m	class:TrailRenderer
 loadSettingsFromFile	core/IO/Settings.cpp	/^void Settings::loadSettingsFromFile(std::string filePath){$/;"	f	class:Settings
 load_from	include/backward/backward.hpp	/^	size_t load_from(void* addr, size_t depth=32) {$/;"	f	class:backward::StackTraceImpl
 load_from	include/backward/backward.hpp	/^	size_t load_from(void* addr, size_t depth=32) {$/;"	f	class:backward::StackTraceWithLocalsImpl
@@ -3858,6 +3912,7 @@ maxFraction	include/Box2D/Collision/b2Collision.h	/^	float32 maxFraction;$/;"	m	
 maxHP	game/ObjProcessors/HealthProcessor.h	/^	unsigned int maxHP;$/;"	m	struct:HealthData
 maxHeight_	game/terrainGen/terrain.h	/^	unsigned int maxHeight_;$/;"	m	struct:Terrain
 maxLength	include/Box2D/Dynamics/Joints/b2RopeJoint.h	/^	float32 maxLength;$/;"	m	struct:b2RopeJointDef
+maxLockonRange	game/ObjProcessors/AIProcessor.h	/^	float maxLockonRange;$/;"	m	struct:AIData
 maxMotorForce	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 maxMotorForce;$/;"	m	struct:b2PrismaticJointDef
 maxMotorTorque	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2RevoluteJointDef
 maxMotorTorque	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 maxMotorTorque;$/;"	m	struct:b2WheelJointDef
@@ -3876,12 +3931,12 @@ minorVersion	include/SFML/Window/ContextSettings.hpp	/^    unsigned int minorVer
 motorSpeed	include/Box2D/Dynamics/Joints/b2PrismaticJoint.h	/^	float32 motorSpeed;$/;"	m	struct:b2PrismaticJointDef
 motorSpeed	include/Box2D/Dynamics/Joints/b2RevoluteJoint.h	/^	float32 motorSpeed;$/;"	m	struct:b2RevoluteJointDef
 motorSpeed	include/Box2D/Dynamics/Joints/b2WheelJoint.h	/^	float32 motorSpeed;$/;"	m	struct:b2WheelJointDef
-mouseButton	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon9
-mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon14
-mouseMove	include/SFML/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon9
-mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon14
-mouseWheel	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon9
-mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon14
+mouseButton	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon8
+mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon13
+mouseMove	include/SFML/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon8
+mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon13
+mouseWheel	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon8
+mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon13
 move	core/Rendering/viewProcess.cpp	/^void viewProcess::move(vector2 offset){$/;"	f	class:viewProcess
 moveImpulse	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 moveImpulse;$/;"	m	struct:groundMoveData
 movementDamping	game/ObjProcessors/GroundMoveProcessor.h	/^	vector2 movementDamping;$/;"	m	struct:groundMoveData
@@ -3899,7 +3954,7 @@ name	include/backward/backward.hpp	/^	std::string name;$/;"	m	class:backward::Va
 nameHash	core/controlFlow/Process.h	/^	const Hash *nameHash;$/;"	m	class:Process
 nameMap	core/componentSys/uniqueNamer.h	/^	Hashmap *nameMap = NULL;$/;"	m	struct:UniqueNames
 next	core/IO/hashmap.c	/^    Entry* next;$/;"	m	struct:Entry	file:
-next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon19
+next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon20
 next	include/Box2D/Common/b2BlockAllocator.cpp	/^	b2Block* next;$/;"	m	struct:b2Block	file:
 next	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactEdge* next;	\/\/\/< the next contact edge in the body's contact list$/;"	m	struct:b2ContactEdge
 next	include/Box2D/Dynamics/Joints/b2Joint.h	/^	b2JointEdge* next;		\/\/\/< the next joint edge in the body's joint list$/;"	m	struct:b2JointEdge
@@ -3921,6 +3976,7 @@ normalImpulse	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 norma
 normalImpulses	include/Box2D/Dynamics/b2WorldCallbacks.h	/^	float32 normalImpulses[b2_maxManifoldPoints];$/;"	m	struct:b2ContactImpulse
 normalMass	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Mat22 normalMass;$/;"	m	struct:b2ContactVelocityConstraint
 normalMass	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 normalMass;$/;"	m	struct:b2VelocityConstraintPoint
+normalizeComponent	core/Rendering/Color.h	/^	float normalizeComponent (float component) {$/;"	f	struct:Color
 normals	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 normals[b2_maxPolygonVertices];$/;"	m	struct:b2TempPolygon	file:
 not_isempty	include/backward/backward.hpp	/^	struct not_isempty {$/;"	s	class:backward::SourceFile
 not_isspace	include/backward/backward.hpp	/^	struct not_isspace {$/;"	s	class:backward::SourceFile
@@ -3982,6 +4038,7 @@ operator ()	include/backward/backward.hpp	/^		void operator()(size_t idx, void* 
 operator ()	include/backward/backward.hpp	/^		void operator()(size_t idx, void* addr) {$/;"	f	struct:backward::StackTraceWithLocalsImpl::callback
 operator ()	include/backward/backward.hpp	/^	size_t operator()(F& f, size_t depth) {$/;"	f	class:backward::details::Unwinder
 operator ()	include/backward/backward.hpp	/^	void operator()(T& ptr) const {$/;"	f	struct:backward::details::default_delete
+operator *	core/Rendering/Color.h	/^	Color operator *(const float f) const {$/;"	f	struct:Color
 operator *	core/math/mathUtil.h	/^		Angle operator * (const float multiplier){$/;"	f	class:util::Angle
 operator *	core/math/vector.h	/^	inline vector2 operator * (float scale)		 const { return vector2(x * scale, y * scale); };$/;"	f	class:vector2
 operator *	core/math/vector.h	/^inline vector2 operator * (const TYPE s, const vector2& a) { return vector2(a.x * s  , a.y * s);    };	$/;"	f
@@ -3997,6 +4054,7 @@ operator *=	core/math/vector.h	/^	inline void operator *= (float a){ x *= a; y *
 operator *=	core/math/vector.h	/^	inline void operator *= (float a){ x *= a; y *= a; };$/;"	f	class:vector2
 operator *=	include/Box2D/Common/b2Math.h	/^	void operator *= (float32 a)$/;"	f	struct:b2Vec2
 operator *=	include/Box2D/Common/b2Math.h	/^	void operator *= (float32 s)$/;"	f	struct:b2Vec3
+operator +	core/Rendering/Color.h	/^	Color operator +(const Color &other) const {$/;"	f	struct:Color
 operator +	core/math/mathUtil.h	/^		Angle operator + (const Angle & other){$/;"	f	class:util::Angle
 operator +	core/math/vector.h	/^	inline vector2 operator + (const vector2& a) const { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector2
 operator +	core/math/vector.h	/^	inline vector2 operator + (const vector2& a) { return vector2(x + a.x, y + a.y); };$/;"	f	class:vector3
@@ -4010,6 +4068,7 @@ operator +=	core/math/vector.h	/^	inline void operator += (const vector2& v){ x 
 operator +=	core/math/vector.h	/^	inline void operator += (const vector3& v){ x += v.x; y += v.y; z += v.z; };$/;"	f	class:vector3
 operator +=	include/Box2D/Common/b2Math.h	/^	void operator += (const b2Vec2& v)$/;"	f	struct:b2Vec2
 operator +=	include/Box2D/Common/b2Math.h	/^	void operator += (const b2Vec3& v)$/;"	f	struct:b2Vec3
+operator -	core/Rendering/Color.h	/^	Color operator -(const Color &other) const {$/;"	f	struct:Color
 operator -	core/math/mathUtil.h	/^		Angle operator - (const Angle & other){$/;"	f	class:util::Angle
 operator -	core/math/vector.h	/^	inline vector2 operator - (const vector2& a) const { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector2
 operator -	core/math/vector.h	/^	inline vector2 operator - (const vector2& a) { return vector2(x - a.x, y - a.y); };$/;"	f	class:vector3
@@ -4028,6 +4087,7 @@ operator -=	include/Box2D/Common/b2Math.h	/^	void operator -= (const b2Vec2& v)$
 operator -=	include/Box2D/Common/b2Math.h	/^	void operator -= (const b2Vec3& v)$/;"	f	struct:b2Vec3
 operator ->	include/backward/backward.hpp	/^	T operator->() { return _val; }$/;"	f	class:backward::details::handle
 operator ->	include/backward/backward.hpp	/^	const T operator->() const { return _val; }$/;"	f	class:backward::details::handle
+operator /	core/Rendering/Color.h	/^	Color operator \/(const float f) const {$/;"	f	struct:Color
 operator /	core/math/mathUtil.h	/^		Angle operator \/ (const float multiplier){$/;"	f	class:util::Angle
 operator /	core/math/vector.h	/^	inline vector2 operator \/ (const vector2& a) const { return vector2(x \/ a.x, y \/ a.y); };$/;"	f	class:vector2
 operator /=	core/math/mathUtil.h	/^		void operator \/= (const float multiplier){$/;"	f	class:util::Angle
@@ -4074,8 +4134,12 @@ p1	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCas
 p2	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 p1, p2;$/;"	m	struct:b2RayCastInput
 parent	core/componentSys/Object.h	/^	Object *parent;$/;"	m	class:Object
 parent	game/factory/objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
-parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon19
+parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon20
 parseSetting	core/IO/Settings.cpp	/^Settings::Setting Settings::parseSetting(const char *serializedStr) {$/;"	f	class:Settings
+particleCount	core/Rendering/ParticleSystem.h	/^    unsigned int particleCount = 0;$/;"	m	struct:ParticleProp
+particleLife	core/Rendering/ParticleSystem.h	/^    Randomizer<float> particleLife = 0;$/;"	m	struct:ParticleProp
+particleSystem	core/Rendering/renderProcess.h	/^		ParticleSystem *particleSystem;$/;"	m	union:RenderNode::__anon1
+particles_	core/Rendering/ParticleSystem.h	/^    Particle *particles_;$/;"	m	class:ParticleSystem
 paused	core/World/worldProcess.h	/^	bool paused = false;$/;"	m	class:worldProcess
 period_certification	include/noise/tinymt32.c	/^static void period_certification(tinymt32_t * random) {$/;"	f	file:
 period_certification	include/noise/tinymt64.c	/^static void period_certification(tinymt64_t * random) {$/;"	f	file:
@@ -4102,6 +4166,7 @@ pointCount	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	int32 pointCount
 points	include/Box2D/Collision/b2Collision.h	/^	b2ManifoldPoint points[b2_maxManifoldPoints];	\/\/\/< the points of contact$/;"	m	struct:b2Manifold
 points	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 points[b2_maxManifoldPoints];		\/\/\/< world contact point (point of intersection)$/;"	m	struct:b2WorldManifold
 points	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2VelocityConstraintPoint points[b2_maxManifoldPoints];$/;"	m	struct:b2ContactVelocityConstraint
+points_	core/Rendering/ParticleSystem.h	/^    sf::VertexArray points_;$/;"	m	class:ParticleSystem
 polarProjection	core/math/mathUtil.h	/^		vector2 polarProjection(float radius){$/;"	f	class:util::Angle
 pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
 pos	game/factory/objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
@@ -4163,6 +4228,7 @@ processes	core/controlFlow/processMgr.h	/^	std::map<const Hash*, Process *>proce
 projectOn	core/math/vector.h	/^	vector2 projectOn(const vector2 &projectDir){$/;"	f	class:vector2
 prop	core/componentSys/Object.h	/^		baseProperty *prop = NULL;$/;"	m	struct:Object::Message
 propMap	core/componentSys/Object.h	/^	Hashmap *propMap;$/;"	m	class:Object
+prop_	core/Rendering/ParticleSystem.h	/^    ParticleProp prop_;$/;"	m	class:ParticleSystem
 prop_cast	core/componentSys/Property.h	/^static Prop<T>* prop_cast(baseProperty *base) {$/;"	f
 proxyA	include/Box2D/Collision/b2Distance.h	/^	b2DistanceProxy proxyA;$/;"	m	struct:b2DistanceInput
 proxyA	include/Box2D/Collision/b2TimeOfImpact.h	/^	b2DistanceProxy proxyA;$/;"	m	struct:b2TOIInput
@@ -4181,6 +4247,8 @@ r	include/SFML/Graphics/Color.hpp	/^    Uint8 r; \/\/\/< Red component$/;"	m	cla
 r	include/SFML/SFML/Graphics/Color.hpp	/^    Uint8 r; \/\/\/< Red component$/;"	m	class:sf::Color
 rA	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Vec2 rA;$/;"	m	struct:b2VelocityConstraintPoint
 rB	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	b2Vec2 rB;$/;"	m	struct:b2VelocityConstraintPoint
+r_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
+radius	core/Rendering/ParticleSystem.h	/^    float radius = 0.0;$/;"	m	struct:Emitter
 radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
 radius	game/factory/objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
 radiusA	include/Box2D/Dynamics/Contacts/b2ContactSolver.cpp	/^	float32 radiusA, radiusB;$/;"	m	struct:b2ContactPositionConstraint	file:
@@ -4207,7 +4275,7 @@ renderNodes	core/componentSys/processor/RenderProcessor.h	/^	RenderNode *renderN
 renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:renderProcess
 renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
 renderUtil	core/Rendering/renderUtil.h	/^class renderUtil{$/;"	c
-renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:RenderNode	typeref:union:RenderNode::__anon22
+renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:RenderNode	typeref:union:RenderNode::__anon1
 renderingLayers	game/defines/renderingLayers.h	/^enum renderingLayers{$/;"	g
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const Hash *name) const{$/;"	f	class:Object
 requireProperty	core/componentSys/Object.cpp	/^bool Object::requireProperty(const char *name) const{$/;"	f	class:Object
@@ -4229,9 +4297,9 @@ rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const 
 rows	include/SFML/Graphics/Font.hpp	/^        std::vector<Row> rows;    \/\/\/< List containing the position of all the existing rows$/;"	m	struct:sf::Font::Page
 rows	include/SFML/SFML/Graphics/Font.hpp	/^        std::vector<Row> rows;    \/\/\/< List containing the position of all the existing rows$/;"	m	struct:sf::Font::Page
 s	include/Box2D/Common/b2Math.h	/^	float32 s, c;$/;"	m	struct:b2Rot
-s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon21
-s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon21
-s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon21
+s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon22
+s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon22
+s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon22
 sProp	core/componentSys/Property.h	/^typedef Prop<std::string> sProp;$/;"	t
 s_blockSizeLookup	include/Box2D/Common/b2BlockAllocator.cpp	/^uint8 b2BlockAllocator::s_blockSizeLookup[b2_maxBlockSize + 1];$/;"	m	class:b2BlockAllocator	file:
 s_blockSizeLookup	include/Box2D/Common/b2BlockAllocator.h	/^	static uint8 s_blockSizeLookup[b2_maxBlockSize + 1];$/;"	m	class:b2BlockAllocator
@@ -4286,6 +4354,7 @@ setMaxHeight	game/terrainGen/terrain.h	/^	void setMaxHeight (unsigned int maxHei
 setRad	core/math/mathUtil.h	/^		void setRad(float angleInRad){$/;"	f	class:util::Angle
 setRenderNodeAngle	core/Rendering/renderProcess.cpp	/^void setRenderNodeAngle(RenderNode &node, util::Angle angle){$/;"	f
 setRenderNodePosition	core/Rendering/renderProcess.cpp	/^void setRenderNodePosition(RenderNode &node, vector2 position){$/;"	f
+setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(ParticleSystem *particleSystem, int z) {$/;"	f	struct:RenderNode
 setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
 setRotation	core/Rendering/viewProcess.cpp	/^void viewProcess::setRotation(util::Angle angle){$/;"	f	class:viewProcess
 setSeed	core/IO/Hash.cpp	/^void Hash::setSeed(unsigned int seed){$/;"	f	class:Hash
@@ -4444,7 +4513,7 @@ sgn	core/math/mathUtil.h	/^	static int sgn(T num){$/;"	f	namespace:util
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
 shader	include/SFML/Graphics/RenderStates.hpp	/^    const Shader*  shader;    \/\/\/< Shader$/;"	m	class:sf::RenderStates
 shader	include/SFML/SFML/Graphics/RenderStates.hpp	/^    const Shader*  shader;    \/\/\/< Shader$/;"	m	class:sf::RenderStates
-shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:RenderNode::__anon22
+shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:RenderNode::__anon1
 shape	include/Box2D/Dynamics/b2Fixture.h	/^	const b2Shape* shape;$/;"	m	struct:b2FixtureDef
 shift	include/SFML/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
@@ -4460,8 +4529,8 @@ simulationThread	core/World/worldProcess.h	/^	std::thread simulationThread;$/;"	
 sin	core/math/mathUtil.h	/^		float sin(){$/;"	f	class:util::Angle
 size	core/IO/hashmap.c	/^    size_t size;$/;"	m	struct:Hashmap	file:
 size	include/Box2D/Common/b2StackAllocator.h	/^	int32 size;$/;"	m	struct:b2StackEntry
-size	include/SFML/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon9
-size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon14
+size	include/SFML/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon8
+size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon13
 size	include/backward/backward.hpp	/^	size_t size() const { return 0; }$/;"	f	class:backward::StackTraceImpl
 size	include/backward/backward.hpp	/^	size_t size() const {$/;"	f	class:backward::StackTraceLinuxImplHolder
 size	include/backward/backward.hpp	/^	size_t size() const {$/;"	f	class:backward::StackTraceWithLocalsImpl
@@ -4476,9 +4545,8 @@ solveVelocity	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 solveVelocity;$/;"	
 sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(RenderNode *first, RenderNode *second){$/;"	f	class:renderProcess
 source	include/backward/backward.hpp	/^	SourceLoc                      source;$/;"	m	struct:backward::ResolvedTrace
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
-speed	game/ObjProcessors/AIProcessor.h	/^	float speed;$/;"	m	struct:AIData
 speed	game/ObjProcessors/AirMoveProcessor.h	/^	float speed;$/;"	m	struct:airMoveData
-sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:RenderNode::__anon22
+sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:RenderNode::__anon1
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stabCollisionCallback	game/ObjProcessors/StabProcessor.cpp	/^void stabCollisionCallback(CollisionData &collision, void *data){$/;"	f
 stabData	game/ObjProcessors/GunProcessor.h	/^	StabData stabData;$/;"	m	struct:GunData
@@ -4500,7 +4568,7 @@ step	include/Box2D/Dynamics/b2TimeStep.h	/^	b2TimeStep step;$/;"	m	struct:b2Solv
 step	include/Box2D/Dynamics/b2TimeStep.h	/^	float32 step;$/;"	m	struct:b2Profile
 stepSize	core/World/worldProcess.h	/^	float stepSize;$/;"	m	class:worldProcess
 stepSize	game/ObjProcessors/CameraProcessor.h	/^	float stepSize;$/;"	m	class:cameraProcessor
-storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon21
+storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon22
 strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 string2vector	core/IO/Settings.cpp	/^vector2 string2vector(const char *str) {$/;"	f
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
@@ -4531,9 +4599,9 @@ terrainProcessor	game/ObjProcessors/TerrainProcessor.h	/^class terrainProcessor 
 terrainType	game/terrainGen/terrain.h	/^enum terrainType {$/;"	g
 texCoords	include/SFML/Graphics/Vertex.hpp	/^    Vector2f  texCoords; \/\/\/< Coordinates of the texture's pixel to map to the vertex$/;"	m	class:sf::Vertex
 texCoords	include/SFML/SFML/Graphics/Vertex.hpp	/^    Vector2f  texCoords; \/\/\/< Coordinates of the texture's pixel to map to the vertex$/;"	m	class:sf::Vertex
-text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:RenderNode::__anon22
-text	include/SFML/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon9
-text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon14
+text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:RenderNode::__anon1
+text	include/SFML/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon8
+text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon13
 texture	include/SFML/Graphics/Font.hpp	/^        sf::Texture      texture; \/\/\/< Texture containing the pixels of the glyphs$/;"	m	struct:sf::Font::Page
 texture	include/SFML/Graphics/RenderStates.hpp	/^    const Texture* texture;   \/\/\/< Texture$/;"	m	class:sf::RenderStates
 texture	include/SFML/SFML/Graphics/Font.hpp	/^        sf::Texture      texture; \/\/\/< Texture containing the pixels of the glyphs$/;"	m	struct:sf::Font::Page
@@ -4545,6 +4613,7 @@ thread_id	include/backward/backward.hpp	/^	unsigned thread_id() const { return 0
 thread_id	include/backward/backward.hpp	/^	unsigned thread_id() const {$/;"	f	class:backward::StackTraceLinuxImplBase
 thresholdLevel	core/IO/logObject.cpp	/^IO::logLevel IO::baseLog::thresholdLevel;$/;"	m	class:IO::baseLog	file:
 thresholdLevel	core/IO/logObject.h	/^		static logLevel thresholdLevel; $/;"	m	class:IO::baseLog
+timeLeft	core/Rendering/ParticleSystem.h	/^    float timeLeft = 0;$/;"	m	struct:Particle
 tinymt32_generate_32double	include/noise/tinymt32.h	/^inline static double tinymt32_generate_32double(tinymt32_t * random) {$/;"	f
 tinymt32_generate_float	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float(tinymt32_t * random) {$/;"	f
 tinymt32_generate_float01	include/noise/tinymt32.h	/^inline static float tinymt32_generate_float01(tinymt32_t * random) {$/;"	f
@@ -4579,6 +4648,8 @@ tinymt64_temper_conv_open	include/noise/tinymt64.h	/^inline static double tinymt
 tmat	include/noise/tinymt32.h	/^    uint32_t tmat;$/;"	m	struct:TINYMT32_T
 tmat	include/noise/tinymt64.h	/^    uint64_t tmat;$/;"	m	struct:TINYMT64_T
 toAngle	core/math/vector.h	/^	float toAngle() const{$/;"	f	class:vector2
+toArray	core/Rendering/Color.h	/^	void toArray(float arr[4]) {$/;"	f	struct:Color
+toArray	core/Rendering/Color.h	/^	void toArray(int arr[4]) {$/;"	f	struct:Color
 toDeg	core/math/mathUtil.h	/^		float toDeg(){$/;"	f	class:util::Angle
 toRad	core/math/mathUtil.h	/^		float toRad(){$/;"	f	class:util::Angle
 toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
@@ -4638,6 +4709,7 @@ userData	include/Box2D/Dynamics/b2Body.h	/^	void* userData;$/;"	m	struct:b2BodyD
 userData	include/Box2D/Dynamics/b2Fixture.h	/^	void* userData;$/;"	m	struct:b2FixtureDef
 util	core/IO/strHelper.h	/^namespace util{$/;"	n
 util	core/math/mathUtil.h	/^namespace util{$/;"	n
+v	core/Rendering/ParticleSystem.h	/^    vector2 v;$/;"	m	struct:Particle
 v	game/ObjProcessors/CameraProcessor.h	/^	vector2 v;$/;"	m	struct:CameraData
 v	include/Box2D/Collision/b2Collision.h	/^	b2Vec2 v;$/;"	m	struct:b2ClipVertex
 v	include/Box2D/Dynamics/b2TimeStep.h	/^	b2Vec2 v;$/;"	m	struct:b2Velocity
@@ -4665,6 +4737,7 @@ velocityBias	include/Box2D/Dynamics/Contacts/b2ContactSolver.h	/^	float32 veloci
 velocityIterations	include/Box2D/Dynamics/b2TimeStep.h	/^	int32 velocityIterations;$/;"	m	struct:b2TimeStep
 vertexCache	include/SFML/Graphics/RenderTarget.hpp	/^        Vertex    vertexCache[VertexCacheSize]; \/\/\/< Pre-transformed vertices cache$/;"	m	struct:sf::RenderTarget::StatesCache
 vertexCache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        Vertex    vertexCache[VertexCacheSize]; \/\/\/< Pre-transformed vertices cache$/;"	m	struct:sf::RenderTarget::StatesCache
+vertices	core/Rendering/TrailRenderer.h	/^	sf::VertexArray vertices;$/;"	m	class:TrailRenderer
 vertices	include/Box2D/Collision/b2CollideEdge.cpp	/^	b2Vec2 vertices[b2_maxPolygonVertices];$/;"	m	struct:b2TempPolygon	file:
 vertices	include/Box2D/Rope/b2Rope.h	/^	b2Vec2* vertices;$/;"	m	struct:b2RopeDef
 view	core/componentSys/processor/PhyProcessor.h	/^	viewProcess *view;$/;"	m	class:PhyProcessor

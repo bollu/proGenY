@@ -43,7 +43,7 @@ Object *ObjectFactories::CreateGun(GunFactoryInfo &info){
 	SFMLShape->setOutlineColor(sf::Color::White);
 	SFMLShape->setOutlineThickness(-2.0);
 
-	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode = RenderNode::ShapeNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//offset-------------------------------------
@@ -94,7 +94,7 @@ Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){
 	sf::Shape *SFMLShape  = renderUtil::createShape(&bulletBoundingBox, info.viewProc);
 	SFMLShape->setFillColor(sf::Color::Red);
 
-	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode = RenderNode::ShapeNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
@@ -141,15 +141,36 @@ Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {
 
 
 	//SFMLShape--------------------------------------------------------------------
+	RenderNode renderNodes[2];
 
 	sf::Shape *SFMLShape = renderUtil::createShape(&enemyBoundingBox, info.viewProc);
 	SFMLShape->setFillColor(sf::Color::White);
 	SFMLShape->setOutlineColor(sf::Color::Black);
 	SFMLShape->setOutlineThickness(-3.0);
+	
+	renderNodes[0] =  RenderNode::ShapeNode(SFMLShape, renderingLayers::action);
+	
 
-	RenderNode renderNode(SFMLShape, renderingLayers::action);
-	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
+	//particleSystem------------------------------------------------------	
+	ParticleProp prop;
+	prop.beginVel =  Randomizer<vector2>(20 * vector2(-1, -3), vector2(1, -5));
+	//prop.acc = Randomizer<vector2>(20 * vector2(0, 100));
+	prop.baseShape = new sf::CircleShape(5);
 
+	prop.particleLife = 3;
+	prop.particleCount = 1000;
+	prop.particleReleaseDelay = 1.0 / 50.0;
+	prop.beginColor = sf::Color::Red;//(255, 0, 0, 0);
+	prop.endColor = sf::Color(0, 0, 255, 0);
+	prop.relativeOrigin = false;
+
+
+	ParticleSystem *particleSystem = new ParticleSystem(prop);
+	
+	renderNodes[1] = RenderNode::ParticleSystemNode(particleSystem, renderingLayers::belowAction);
+
+	//create render Data-------------------------------------------------
+	RenderData renderData = RenderProcessor::createRenderData(renderNodes, 2);
 
 	//AI--------------------------------------------------------------------------
 	AIData aiData;
@@ -226,8 +247,8 @@ Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){
 			sf::Shape *SFMLShape  = renderUtil::createShape(&phyShape, info.viewProc);
 			SFMLShape->setFillColor(sf::Color::Blue);
 
-			renderNodes[numAABBs].setRenderer(SFMLShape, renderingLayers::HUD);
-			//RenderNode renderNode(SFMLShape, renderingLayers::HUD);
+			renderNodes[numAABBs].setShape(SFMLShape, renderingLayers::aboveAction);
+
 		}
 
 		numAABBs++;
@@ -283,7 +304,7 @@ Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){
 	sf::Shape *SFMLShape  = new sf::CircleShape(info.radius * game2RenderScale, 4);
 	SFMLShape->setFillColor(sf::Color::Red);
 
-	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode = RenderNode::ShapeNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 
 	//final---------------------------------
@@ -330,7 +351,7 @@ Object *ObjectFactories::CreatePlayer(PlayerFactoryInfo &info) {
 	sf::Shape *SFMLShape = renderUtil::createShape(&playerBoundingBox, info.viewProc);
 	SFMLShape->setFillColor(sf::Color::Green);
 
-	RenderNode renderNode(SFMLShape, renderingLayers::action);
+	RenderNode renderNode = RenderNode::ShapeNode(SFMLShape, renderingLayers::action);
 	RenderData renderData = RenderProcessor::createRenderData(&renderNode);
 	//movement-----------------------------------------------------------
 	groundMoveData moveData;

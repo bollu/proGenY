@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../../include/SFML/Graphics/Color.hpp"
 
 struct Color {
 private:
@@ -15,6 +15,7 @@ private:
 
 		return component;
 	}
+
 	Color(float r, float g, float b, float a) {
 		r_ = normalizeComponent(r);
 		g_ = normalizeComponent(g);
@@ -23,6 +24,8 @@ private:
 	};
 
 public:
+	
+	Color() { r_ = g_ = b_ = a_ = 0.0f; }
 
 	static Color Int(uint8_t r, uint8_t g, uint8_t b, uint8_t a){
 		return Color(r / 255.0, g / 255.0, b / 255.0, a / 255.0);
@@ -79,6 +82,10 @@ public:
 
 	Color operator /(const float f) const {
 		return Color(r_ / f, g_ / f, b_ / f, a_ / f);
+	}
+
+	sf::Color cast() {
+		return sf::Color(r_ * 255.0, g_ * 255.0, b_ * 255.0, a_ * 255.0);
 	}
 };
 

@@ -1,0 +1,46 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+CreateBullet	objectFactories.cpp	/^Object *ObjectFactories::CreateBullet(BulletFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreateEnemy	objectFactories.cpp	/^Object *ObjectFactories::CreateEnemy(EnemyFactoryInfo &info) {$/;"	f	class:ObjectFactories
+CreateGun	objectFactories.cpp	/^Object *ObjectFactories::CreateGun(GunFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreatePickup	objectFactories.cpp	/^Object *ObjectFactories::CreatePickup(PickupFactoryInfo &info){$/;"	f	class:ObjectFactories
+CreatePlayer	objectFactories.cpp	/^Object *ObjectFactories::CreatePlayer(PlayerFactoryInfo &info) {$/;"	f	class:ObjectFactories
+CreateTerrain	objectFactories.cpp	/^Object *ObjectFactories::CreateTerrain(TerrainFactoryInfo &info){$/;"	f	class:ObjectFactories
+BoundaryFactoryInfo	objectFactories.h	/^struct BoundaryFactoryInfo {$/;"	s	namespace:ObjectFactories
+BulletFactoryInfo	objectFactories.h	/^struct BulletFactoryInfo {$/;"	s	namespace:ObjectFactories
+EnemyFactoryInfo	objectFactories.h	/^struct EnemyFactoryInfo {$/;"	s	namespace:ObjectFactories
+GunFactoryInfo	objectFactories.h	/^struct GunFactoryInfo {$/;"	s	namespace:ObjectFactories
+ObjectFactories	objectFactories.h	/^namespace ObjectFactories {$/;"	n
+PickupFactoryInfo	objectFactories.h	/^struct PickupFactoryInfo {$/;"	s	namespace:ObjectFactories
+PlayerFactoryInfo	objectFactories.h	/^struct PlayerFactoryInfo {$/;"	s	namespace:ObjectFactories
+TerrainFactoryInfo	objectFactories.h	/^	TerrainFactoryInfo (Terrain &terrain_) : terrain(terrain_) {};$/;"	f	struct:ObjectFactories::TerrainFactoryInfo
+TerrainFactoryInfo	objectFactories.h	/^struct TerrainFactoryInfo {$/;"	s	namespace:ObjectFactories
+blockDim	objectFactories.h	/^	vector2 blockDim;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+bulletData	objectFactories.h	/^	BulletData bulletData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+cameraData	objectFactories.h	/^	CameraData cameraData;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
+gunData	objectFactories.h	/^	GunData gunData;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+levelDim	objectFactories.h	/^	vector2 levelDim;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+parent	objectFactories.h	/^	Object *parent;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+pickupData	objectFactories.h	/^	PickupData pickupData;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+pos	objectFactories.h	/^	vector2 pos;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
+radius	objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+radius	objectFactories.h	/^	float radius;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+stabData	objectFactories.h	/^	StabData stabData;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+target	objectFactories.h	/^	Object *target;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
+terrain	objectFactories.h	/^	Terrain &terrain;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo
+thickness	objectFactories.h	/^	float thickness;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BoundaryFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::BulletFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::EnemyFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::GunFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::PickupFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::PlayerFactoryInfo
+viewProc	objectFactories.h	/^	viewProcess *viewProc;$/;"	m	struct:ObjectFactories::TerrainFactoryInfo

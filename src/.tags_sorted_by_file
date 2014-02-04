@@ -134,8 +134,65 @@ warningLog	core/IO/logObject.h	/^	static 	IO::msgLog<logLevelWarning> warningLog
 strHelper	core/IO/strHelper.h	/^	class strHelper{$/;"	c	namespace:util
 toStr	core/IO/strHelper.h	/^		static std::string toStr(const T &value){$/;"	f	class:util::strHelper
 util	core/IO/strHelper.h	/^namespace util{$/;"	n
+Color	core/Rendering/Color.h	/^	Color(float r, float g, float b, float a) {$/;"	f	struct:Color
+Color	core/Rendering/Color.h	/^struct Color {$/;"	s
+Float	core/Rendering/Color.h	/^	static Color Float(float r, float g, float b, float a) {$/;"	f	struct:Color
+Int	core/Rendering/Color.h	/^	static Color Int(uint8_t r, uint8_t g, uint8_t b, uint8_t a){$/;"	f	struct:Color
+a_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
+b_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
+fa	core/Rendering/Color.h	/^	float fa() {  return a_; };$/;"	f	struct:Color
+fb	core/Rendering/Color.h	/^	float fb() {  return b_; };$/;"	f	struct:Color
+fg	core/Rendering/Color.h	/^	float fg() {  return g_; };$/;"	f	struct:Color
+fo	core/Rendering/Color.h	/^	float fo() {  return (1.0f - a_); };$/;"	f	struct:Color
+fr	core/Rendering/Color.h	/^	float fr() {  return r_; };$/;"	f	struct:Color
+g_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
+ia	core/Rendering/Color.h	/^	uint8_t ia() { return a_ * 255.0f; };$/;"	f	struct:Color
+ib	core/Rendering/Color.h	/^	uint8_t ib() { return b_ * 255.0f; };$/;"	f	struct:Color
+ig	core/Rendering/Color.h	/^	uint8_t ig() { return g_ * 255.0f; };$/;"	f	struct:Color
+io	core/Rendering/Color.h	/^	uint8_t io() { return (1.0f - a_) * 255.0f; };$/;"	f	struct:Color
+ir	core/Rendering/Color.h	/^	uint8_t ir() { return r_ * 255.0f; };$/;"	f	struct:Color
+normalizeComponent	core/Rendering/Color.h	/^	float normalizeComponent (float component) {$/;"	f	struct:Color
+operator *	core/Rendering/Color.h	/^	Color operator *(const float f) const {$/;"	f	struct:Color
+operator +	core/Rendering/Color.h	/^	Color operator +(const Color &other) const {$/;"	f	struct:Color
+operator -	core/Rendering/Color.h	/^	Color operator -(const Color &other) const {$/;"	f	struct:Color
+operator /	core/Rendering/Color.h	/^	Color operator \/(const float f) const {$/;"	f	struct:Color
+r_	core/Rendering/Color.h	/^	float r_, g_, b_, a_;$/;"	m	struct:Color
+toArray	core/Rendering/Color.h	/^	void toArray(float arr[4]) {$/;"	f	struct:Color
+toArray	core/Rendering/Color.h	/^	void toArray(int arr[4]) {$/;"	f	struct:Color
+ParticleSystem	core/Rendering/ParticleSystem.cpp	/^ParticleSystem::ParticleSystem(ParticleProp prop) : $/;"	f	class:ParticleSystem
+SpawnParticle	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::SpawnParticle(Particle &particle) {$/;"	f	class:ParticleSystem
+Update	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::Update(float dt) {$/;"	f	class:ParticleSystem
+draw	core/Rendering/ParticleSystem.cpp	/^void ParticleSystem::draw(sf::RenderTarget& target, sf::RenderStates states) const$/;"	f	class:ParticleSystem
+Emitter	core/Rendering/ParticleSystem.h	/^struct Emitter {$/;"	s
+Particle	core/Rendering/ParticleSystem.h	/^struct Particle {$/;"	s
+ParticleProp	core/Rendering/ParticleSystem.h	/^struct ParticleProp{$/;"	s
+ParticleSystem	core/Rendering/ParticleSystem.h	/^class ParticleSystem : public sf::Transformable, public sf::Drawable {$/;"	c
+Spawn	core/Rendering/ParticleSystem.h	/^    void Spawn(vector2 vel, vector2 acc, float lifetime) {$/;"	f	struct:Particle
+Update	core/Rendering/ParticleSystem.h	/^    void Update(sf::Vertex &particle, float dt) {$/;"	f	struct:Particle
+a	core/Rendering/ParticleSystem.h	/^    vector2 a;$/;"	m	struct:Particle
+acc	core/Rendering/ParticleSystem.h	/^    Randomizer<vector2> acc = Randomizer<vector2>(nullVector);$/;"	m	struct:ParticleProp
+beginColor	core/Rendering/ParticleSystem.h	/^    Randomizer<Color> beginColor;$/;"	m	struct:ParticleProp
+beginVel	core/Rendering/ParticleSystem.h	/^    Randomizer<vector2> beginVel = Randomizer<vector2>(nullVector);$/;"	m	struct:ParticleProp
+endColor	core/Rendering/ParticleSystem.h	/^    Randomizer<Color> endColor;$/;"	m	struct:ParticleProp
+isDead	core/Rendering/ParticleSystem.h	/^    bool isDead() {$/;"	f	struct:Particle
+particleCount	core/Rendering/ParticleSystem.h	/^    unsigned int particleCount = 0;$/;"	m	struct:ParticleProp
+particleLife	core/Rendering/ParticleSystem.h	/^    Randomizer<float> particleLife = 0;$/;"	m	struct:ParticleProp
+particles_	core/Rendering/ParticleSystem.h	/^    Particle *particles_;$/;"	m	class:ParticleSystem
+points_	core/Rendering/ParticleSystem.h	/^    sf::VertexArray points_;$/;"	m	class:ParticleSystem
+prop_	core/Rendering/ParticleSystem.h	/^    ParticleProp prop_;$/;"	m	class:ParticleSystem
+radius	core/Rendering/ParticleSystem.h	/^    float radius = 0.0;$/;"	m	struct:Emitter
+timeLeft	core/Rendering/ParticleSystem.h	/^    float timeLeft = 0;$/;"	m	struct:Particle
+v	core/Rendering/ParticleSystem.h	/^    vector2 v;$/;"	m	struct:Particle
+Update	core/Rendering/TrailRenderer.cpp	/^void TrailRenderer::Update(float dt) {$/;"	f	class:TrailRenderer
+draw	core/Rendering/TrailRenderer.cpp	/^void TrailRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const {$/;"	f	class:TrailRenderer
+TrailRenderer	core/Rendering/TrailRenderer.h	/^class TrailRenderer : public sf::Drawable, public sf::Transformable{$/;"	c
+begin_	core/Rendering/TrailRenderer.h	/^	Color begin_, end_;$/;"	m	class:TrailRenderer
+end_	core/Rendering/TrailRenderer.h	/^	Color begin_, end_;$/;"	m	class:TrailRenderer
+liveTime_	core/Rendering/TrailRenderer.h	/^	Cooldown<float> liveTime_;$/;"	m	class:TrailRenderer
+vertices	core/Rendering/TrailRenderer.h	/^	sf::VertexArray vertices;$/;"	m	class:TrailRenderer
 Draw	core/Rendering/renderProcess.cpp	/^void renderProcess::Draw(){$/;"	f	class:renderProcess
 addRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::addRenderNode(RenderNode &node){$/;"	f	class:renderProcess
+drawParticleSystem_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawParticleSystem_(RenderNode &node) {$/;"	f	class:renderProcess
 drawShape_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawShape_(RenderNode &node){$/;"	f	class:renderProcess
 drawSprite_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawSprite_(RenderNode &node){$/;"	f	class:renderProcess
 drawText_	core/Rendering/renderProcess.cpp	/^void renderProcess::drawText_(RenderNode &node){$/;"	f	class:renderProcess
@@ -144,22 +201,27 @@ removeRenderNode	core/Rendering/renderProcess.cpp	/^void renderProcess::removeRe
 renderProcess	core/Rendering/renderProcess.cpp	/^renderProcess::renderProcess(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:renderProcess
 setRenderNodeAngle	core/Rendering/renderProcess.cpp	/^void setRenderNodeAngle(RenderNode &node, util::Angle angle){$/;"	f
 setRenderNodePosition	core/Rendering/renderProcess.cpp	/^void setRenderNodePosition(RenderNode &node, vector2 position){$/;"	f
+Particle	core/Rendering/renderProcess.h	/^		Particle,$/;"	e	enum:RenderNode::Type
 RenderNode	core/Rendering/renderProcess.h	/^	RenderNode() {$/;"	f	struct:RenderNode
+RenderNode	core/Rendering/renderProcess.h	/^	RenderNode(ParticleSystem *particleSystem, int z) {$/;"	f	struct:RenderNode
 RenderNode	core/Rendering/renderProcess.h	/^	RenderNode(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
 RenderNode	core/Rendering/renderProcess.h	/^struct RenderNode{$/;"	s
-Shape	core/Rendering/renderProcess.h	/^		Shape$/;"	e	enum:RenderNode::Type
+Shape	core/Rendering/renderProcess.h	/^		Shape,$/;"	e	enum:RenderNode::Type
 Sprite	core/Rendering/renderProcess.h	/^		Sprite,$/;"	e	enum:RenderNode::Type
 Text	core/Rendering/renderProcess.h	/^		Text,$/;"	e	enum:RenderNode::Type
+Trail	core/Rendering/renderProcess.h	/^		Trail,$/;"	e	enum:RenderNode::Type
 Type	core/Rendering/renderProcess.h	/^	enum Type{$/;"	g	struct:RenderNode
 disabled_	core/Rendering/renderProcess.h	/^	bool disabled_;$/;"	m	struct:RenderNode
 nodes	core/Rendering/renderProcess.h	/^	std::list<RenderNode *> nodes;$/;"	m	class:renderProcess
+particleSystem	core/Rendering/renderProcess.h	/^		ParticleSystem *particleSystem;$/;"	m	union:RenderNode::__anon1
 renderProcess	core/Rendering/renderProcess.h	/^class renderProcess: public Process{$/;"	c
-renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:RenderNode	typeref:union:RenderNode::__anon22
+renderer_	core/Rendering/renderProcess.h	/^	} renderer_;$/;"	m	struct:RenderNode	typeref:union:RenderNode::__anon1
+setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(ParticleSystem *particleSystem, int z) {$/;"	f	struct:RenderNode
 setRenderer	core/Rendering/renderProcess.h	/^	void setRenderer(sf::Shape *shape, int z) {$/;"	f	struct:RenderNode
-shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:RenderNode::__anon22
+shape	core/Rendering/renderProcess.h	/^		sf::Shape *shape;$/;"	m	union:RenderNode::__anon1
 sortFn	core/Rendering/renderProcess.h	/^	static bool sortFn(RenderNode *first, RenderNode *second){$/;"	f	class:renderProcess
-sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:RenderNode::__anon22
-text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:RenderNode::__anon22
+sprite	core/Rendering/renderProcess.h	/^		sf::Sprite *sprite;$/;"	m	union:RenderNode::__anon1
+text	core/Rendering/renderProcess.h	/^		sf::Text *text;$/;"	m	union:RenderNode::__anon1
 type_	core/Rendering/renderProcess.h	/^	} type_;$/;"	m	struct:RenderNode	typeref:enum:RenderNode::Type
 window	core/Rendering/renderProcess.h	/^	sf::RenderWindow *window;$/;"	m	class:renderProcess
 z_	core/Rendering/renderProcess.h	/^	int z_;$/;"	m	struct:RenderNode
@@ -498,6 +560,13 @@ liesOn	core/math/AABB.cpp	/^bool AABB::liesOn(const vector2 &pt) const{$/;"	f	cl
 AABB	core/math/AABB.h	/^class AABB{$/;"	c
 center	core/math/AABB.h	/^	vector2 center;$/;"	m	class:AABB
 halfDim	core/math/AABB.h	/^	vector2 halfDim;$/;"	m	class:AABB
+Randomizer	core/math/Randomizer.h	/^        Randomizer() {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^        Randomizer(T begin, T end) : begin_(begin), end_(end) {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^        Randomizer(T uniValue) : begin_(uniValue), end_(uniValue) {}$/;"	f	class:Randomizer
+Randomizer	core/math/Randomizer.h	/^class Randomizer {$/;"	c
+begin_	core/math/Randomizer.h	/^        T begin_, end_;$/;"	m	class:Randomizer
+end_	core/math/Randomizer.h	/^        T begin_, end_;$/;"	m	class:Randomizer
+getValue	core/math/Randomizer.h	/^        T getValue (float normalizedRand) {$/;"	f	class:Randomizer
 Angle	core/math/mathUtil.h	/^		Angle(){$/;"	f	class:util::Angle
 Angle	core/math/mathUtil.h	/^		Angle(float rad){$/;"	f	class:util::Angle
 Angle	core/math/mathUtil.h	/^		Angle(vector2 vec){$/;"	f	class:util::Angle
@@ -618,13 +687,15 @@ onEnemyCollision	game/BulletColliders/damageCollider.h	/^	bool onEnemyCollision(
 ~damageCollider	game/BulletColliders/damageCollider.h	/^	~damageCollider(){};$/;"	f	class:damageCollider
 _Process	game/ObjProcessors/AIProcessor.cpp	/^void AIProcessor::_Process(Object *obj, float dt){$/;"	f	class:AIProcessor
 onObjectAdd	game/ObjProcessors/AIProcessor.cpp	/^void AIProcessor::onObjectAdd(Object *obj){};$/;"	f	class:AIProcessor
+AIData	game/ObjProcessors/AIProcessor.h	/^	AIData() {$/;"	f	struct:AIData
 AIData	game/ObjProcessors/AIProcessor.h	/^struct AIData{$/;"	s
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^	AIProcessor(processMgr &processManager, Settings &settings, EventManager &_eventManager) :$/;"	f	class:AIProcessor
 AIProcessor	game/ObjProcessors/AIProcessor.h	/^class AIProcessor : public ObjectProcessor{$/;"	c
 _shouldProcess	game/ObjProcessors/AIProcessor.h	/^	bool _shouldProcess(Object *obj){$/;"	f	class:AIProcessor
+forceScaling	game/ObjProcessors/AIProcessor.h	/^	float forceScaling;$/;"	m	struct:AIData
+maxLockonRange	game/ObjProcessors/AIProcessor.h	/^	float maxLockonRange;$/;"	m	struct:AIData
 separation	game/ObjProcessors/AIProcessor.h	/^	float separation;$/;"	m	struct:AIData
 separationCoeff	game/ObjProcessors/AIProcessor.h	/^	float separationCoeff;$/;"	m	struct:AIData
-speed	game/ObjProcessors/AIProcessor.h	/^	float speed;$/;"	m	struct:AIData
 target	game/ObjProcessors/AIProcessor.h	/^	Object *target;$/;"	m	struct:AIData
 velCoeff	game/ObjProcessors/AIProcessor.h	/^	float velCoeff;$/;"	m	struct:AIData
 world	game/ObjProcessors/AIProcessor.h	/^	worldProcess *world;$/;"	m	class:AIProcessor
@@ -753,6 +824,7 @@ posOffset	game/ObjProcessors/OffsetProcessor.h	/^	vector2 posOffset;$/;"	m	struc
 PickupProcessor	game/ObjProcessors/PickupProcessor.cpp	/^PickupProcessor::PickupProcessor(processMgr &processManager, Settings &settings,$/;"	f	class:PickupProcessor
 _onObjectAdd	game/ObjProcessors/PickupProcessor.cpp	/^void PickupProcessor::_onObjectAdd(Object *obj){$/;"	f	class:PickupProcessor
 _onObjectDeath	game/ObjProcessors/PickupProcessor.cpp	/^void PickupProcessor::_onObjectDeath(Object *obj){$/;"	f	class:PickupProcessor
+isValidCollision	game/ObjProcessors/PickupProcessor.cpp	/^bool isValidCollision(std::unordered_set<const Hash*> &pickupCollisions, const Hash *objCollisionType) {$/;"	f
 pickupCollisionCallback	game/ObjProcessors/PickupProcessor.cpp	/^void pickupCollisionCallback(CollisionData &collision, void *data){$/;"	f
 PickupData	game/ObjProcessors/PickupProcessor.h	/^	PickupData(){$/;"	f	struct:PickupData
 PickupData	game/ObjProcessors/PickupProcessor.h	/^struct PickupData{$/;"	s
@@ -818,6 +890,7 @@ CollisionGroups	game/defines/Collisions.h	/^enum CollisionGroups {$/;"	g
 ENEMY	game/defines/Collisions.h	/^	ENEMY = 4,$/;"	e	enum:CollisionGroups
 PICKUP	game/defines/Collisions.h	/^	PICKUP = 16,$/;"	e	enum:CollisionGroups
 PLAYER	game/defines/Collisions.h	/^	PLAYER = 8,$/;"	e	enum:CollisionGroups
+TERRAIN	game/defines/Collisions.h	/^	TERRAIN = 32,$/;"	e	enum:CollisionGroups
 BACK	game/defines/renderingLayers.h	/^	BACK = -100,$/;"	e	enum:renderingLayers
 HUD	game/defines/renderingLayers.h	/^	HUD = 0,$/;"	e	enum:renderingLayers
 aboveAction	game/defines/renderingLayers.h	/^	aboveAction = -9,$/;"	e	enum:renderingLayers
@@ -1108,7 +1181,7 @@ UpdatePairs	include/Box2D/Collision/b2BroadPhase.h	/^void b2BroadPhase::UpdatePa
 b2BroadPhase	include/Box2D/Collision/b2BroadPhase.h	/^class b2BroadPhase$/;"	c
 b2Pair	include/Box2D/Collision/b2BroadPhase.h	/^struct b2Pair$/;"	s
 b2PairLessThan	include/Box2D/Collision/b2BroadPhase.h	/^inline bool b2PairLessThan(const b2Pair& pair1, const b2Pair& pair2)$/;"	f
-e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon18
+e_nullProxy	include/Box2D/Collision/b2BroadPhase.h	/^		e_nullProxy = -1$/;"	e	enum:b2BroadPhase::__anon19
 m_moveBuffer	include/Box2D/Collision/b2BroadPhase.h	/^	int32* m_moveBuffer;$/;"	m	class:b2BroadPhase
 m_moveCapacity	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCapacity;$/;"	m	class:b2BroadPhase
 m_moveCount	include/Box2D/Collision/b2BroadPhase.h	/^	int32 m_moveCount;$/;"	m	class:b2BroadPhase
@@ -1329,8 +1402,8 @@ m_nodeCount	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_nodeCount;$/;"	m	
 m_nodes	include/Box2D/Collision/b2DynamicTree.h	/^	b2TreeNode* m_nodes;$/;"	m	class:b2DynamicTree
 m_path	include/Box2D/Collision/b2DynamicTree.h	/^	uint32 m_path;$/;"	m	class:b2DynamicTree
 m_root	include/Box2D/Collision/b2DynamicTree.h	/^	int32 m_root;$/;"	m	class:b2DynamicTree
-next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon19
-parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon19
+next	include/Box2D/Collision/b2DynamicTree.h	/^		int32 next;$/;"	m	union:b2TreeNode::__anon20
+parent	include/Box2D/Collision/b2DynamicTree.h	/^		int32 parent;$/;"	m	union:b2TreeNode::__anon20
 userData	include/Box2D/Collision/b2DynamicTree.h	/^	void* userData;$/;"	m	struct:b2TreeNode
 Evaluate	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 Evaluate(int32 indexA, int32 indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
 FindMinSeparation	include/Box2D/Collision/b2TimeOfImpact.cpp	/^	float32 FindMinSeparation(int32* indexA, int32* indexB, float32 t) const$/;"	f	struct:b2SeparationFunction
@@ -1409,11 +1482,11 @@ b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color() {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^	b2Color(float32 r, float32 g, float32 b) : r(r), g(g), b(b) {}$/;"	f	struct:b2Color
 b2Color	include/Box2D/Common/b2Draw.h	/^struct b2Color$/;"	s
 b2Draw	include/Box2D/Common/b2Draw.h	/^class b2Draw$/;"	c
-e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon20
-e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon20
-e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon20
-e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon20
-e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon20
+e_aabbBit	include/Box2D/Common/b2Draw.h	/^		e_aabbBit				= 0x0004,	\/\/\/< draw axis aligned bounding boxes$/;"	e	enum:b2Draw::__anon21
+e_centerOfMassBit	include/Box2D/Common/b2Draw.h	/^		e_centerOfMassBit		= 0x0010	\/\/\/< draw center of mass frame$/;"	e	enum:b2Draw::__anon21
+e_jointBit	include/Box2D/Common/b2Draw.h	/^		e_jointBit				= 0x0002,	\/\/\/< draw joint connections$/;"	e	enum:b2Draw::__anon21
+e_pairBit	include/Box2D/Common/b2Draw.h	/^		e_pairBit				= 0x0008,	\/\/\/< draw broad-phase pairs$/;"	e	enum:b2Draw::__anon21
+e_shapeBit	include/Box2D/Common/b2Draw.h	/^		e_shapeBit				= 0x0001,	\/\/\/< draw shapes$/;"	e	enum:b2Draw::__anon21
 g	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
 m_drawFlags	include/Box2D/Common/b2Draw.h	/^	uint32 m_drawFlags;$/;"	m	class:b2Draw
 r	include/Box2D/Common/b2Draw.h	/^	float32 r, g, b;$/;"	m	struct:b2Color
@@ -1692,12 +1765,12 @@ b2MixRestitution	include/Box2D/Dynamics/Contacts/b2Contact.h	/^inline float32 b2
 contact	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Contact* contact;		\/\/\/< the contact$/;"	m	struct:b2ContactEdge
 createFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactCreateFcn* createFcn;$/;"	m	struct:b2ContactRegister
 destroyFcn	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2ContactDestroyFcn* destroyFcn;$/;"	m	struct:b2ContactRegister
-e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon17
-e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon17
-e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon17
-e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon17
-e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon17
-e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon17
+e_bulletHitFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_bulletHitFlag		= 0x0010,$/;"	e	enum:b2Contact::__anon18
+e_enabledFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_enabledFlag		= 0x0004,$/;"	e	enum:b2Contact::__anon18
+e_filterFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_filterFlag		= 0x0008,$/;"	e	enum:b2Contact::__anon18
+e_islandFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Contact::__anon18
+e_toiFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_toiFlag			= 0x0020$/;"	e	enum:b2Contact::__anon18
+e_touchingFlag	include/Box2D/Dynamics/Contacts/b2Contact.h	/^		e_touchingFlag		= 0x0002,$/;"	e	enum:b2Contact::__anon18
 m_fixtureA	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureA;$/;"	m	class:b2Contact
 m_fixtureB	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	b2Fixture* m_fixtureB;$/;"	m	class:b2Contact
 m_flags	include/Box2D/Dynamics/Contacts/b2Contact.h	/^	uint32 m_flags;$/;"	m	class:b2Contact
@@ -2544,13 +2617,13 @@ b2_dynamicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_dynamicBody$/;"	e	enum:b2Bo
 b2_kinematicBody	include/Box2D/Dynamics/b2Body.h	/^	b2_kinematicBody,$/;"	e	enum:b2BodyType
 b2_staticBody	include/Box2D/Dynamics/b2Body.h	/^	b2_staticBody = 0,$/;"	e	enum:b2BodyType
 bullet	include/Box2D/Dynamics/b2Body.h	/^	bool bullet;$/;"	m	struct:b2BodyDef
-e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon16
-e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon16
-e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon16
-e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon16
-e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon16
-e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon16
-e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon16
+e_activeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_activeFlag		= 0x0020,$/;"	e	enum:b2Body::__anon17
+e_autoSleepFlag	include/Box2D/Dynamics/b2Body.h	/^		e_autoSleepFlag		= 0x0004,$/;"	e	enum:b2Body::__anon17
+e_awakeFlag	include/Box2D/Dynamics/b2Body.h	/^		e_awakeFlag			= 0x0002,$/;"	e	enum:b2Body::__anon17
+e_bulletFlag	include/Box2D/Dynamics/b2Body.h	/^		e_bulletFlag		= 0x0008,$/;"	e	enum:b2Body::__anon17
+e_fixedRotationFlag	include/Box2D/Dynamics/b2Body.h	/^		e_fixedRotationFlag	= 0x0010,$/;"	e	enum:b2Body::__anon17
+e_islandFlag	include/Box2D/Dynamics/b2Body.h	/^		e_islandFlag		= 0x0001,$/;"	e	enum:b2Body::__anon17
+e_toiFlag	include/Box2D/Dynamics/b2Body.h	/^		e_toiFlag			= 0x0040$/;"	e	enum:b2Body::__anon17
 fixedRotation	include/Box2D/Dynamics/b2Body.h	/^	bool fixedRotation;$/;"	m	struct:b2BodyDef
 gravityScale	include/Box2D/Dynamics/b2Body.h	/^	float32 gravityScale;$/;"	m	struct:b2BodyDef
 linearDamping	include/Box2D/Dynamics/b2Body.h	/^	float32 linearDamping;$/;"	m	struct:b2BodyDef
@@ -2771,9 +2844,9 @@ SetGravity	include/Box2D/Dynamics/b2World.h	/^inline void b2World::SetGravity(co
 SetSubStepping	include/Box2D/Dynamics/b2World.h	/^	void SetSubStepping(bool flag) { m_subStepping = flag; }$/;"	f	class:b2World
 SetWarmStarting	include/Box2D/Dynamics/b2World.h	/^	void SetWarmStarting(bool flag) { m_warmStarting = flag; }$/;"	f	class:b2World
 b2World	include/Box2D/Dynamics/b2World.h	/^class b2World$/;"	c
-e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon15
-e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon15
-e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon15
+e_clearForces	include/Box2D/Dynamics/b2World.h	/^		e_clearForces	= 0x0004$/;"	e	enum:b2World::__anon16
+e_locked	include/Box2D/Dynamics/b2World.h	/^		e_locked		= 0x0002,$/;"	e	enum:b2World::__anon16
+e_newFixture	include/Box2D/Dynamics/b2World.h	/^		e_newFixture	= 0x0001,$/;"	e	enum:b2World::__anon16
 m_allowSleep	include/Box2D/Dynamics/b2World.h	/^	bool m_allowSleep;$/;"	m	class:b2World
 m_blockAllocator	include/Box2D/Dynamics/b2World.h	/^	b2BlockAllocator m_blockAllocator;$/;"	m	class:b2World
 m_bodyCount	include/Box2D/Dynamics/b2World.h	/^	int32 m_bodyCount;$/;"	m	class:b2World
@@ -2892,7 +2965,7 @@ Status	include/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf::Soun
 Stopped	include/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	include/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	include/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon10
+BufferCount	include/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon11
 Chunk	include/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	include/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	include/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -3043,7 +3116,7 @@ transform	include/SFML/Graphics/RenderStates.hpp	/^    Transform      transform;
 RenderTarget	include/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	include/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	include/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon11
+VertexCacheSize	include/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon15
 glStatesSet	include/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	include/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	include/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -3288,7 +3361,7 @@ m_data	include/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \/\/\/
 m_isValid	include/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	include/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	include/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon1
+AnyPort	include/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
 Disconnected	include/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	include/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	include/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -3375,7 +3448,7 @@ Status	include/SFML/SFML/Audio/SoundSource.hpp	/^    enum Status$/;"	g	class:sf:
 Stopped	include/SFML/SFML/Audio/SoundSource.hpp	/^        Stopped, \/\/\/< Sound is not playing$/;"	e	enum:sf::SoundSource::Status
 m_source	include/SFML/SFML/Audio/SoundSource.hpp	/^    unsigned int m_source; \/\/\/< OpenAL source identifier$/;"	m	class:sf::SoundSource
 sf	include/SFML/SFML/Audio/SoundSource.hpp	/^namespace sf$/;"	n
-BufferCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon5
+BufferCount	include/SFML/SFML/Audio/SoundStream.hpp	/^        BufferCount = 3 \/\/\/< Number of audio buffers used by the streaming loop$/;"	e	enum:sf::SoundStream::__anon6
 Chunk	include/SFML/SFML/Audio/SoundStream.hpp	/^    struct Chunk$/;"	s	class:sf::SoundStream
 SFML_SOUNDSTREAM_HPP	include/SFML/SFML/Audio/SoundStream.hpp	26;"	d
 SoundStream	include/SFML/SFML/Audio/SoundStream.hpp	/^class SFML_AUDIO_API SoundStream : public SoundSource$/;"	c	namespace:sf
@@ -3526,7 +3599,7 @@ transform	include/SFML/SFML/Graphics/RenderStates.hpp	/^    Transform      trans
 RenderTarget	include/SFML/SFML/Graphics/RenderTarget.hpp	/^class SFML_GRAPHICS_API RenderTarget : NonCopyable$/;"	c	namespace:sf
 SFML_RENDERTARGET_HPP	include/SFML/SFML/Graphics/RenderTarget.hpp	26;"	d
 StatesCache	include/SFML/SFML/Graphics/RenderTarget.hpp	/^    struct StatesCache$/;"	s	class:sf::RenderTarget
-VertexCacheSize	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon6
+VertexCacheSize	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        enum {VertexCacheSize = 4};$/;"	e	enum:sf::RenderTarget::StatesCache::__anon10
 glStatesSet	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        bool      glStatesSet;    \/\/\/< Are our internal GL states set yet?$/;"	m	struct:sf::RenderTarget::StatesCache
 lastBlendMode	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        BlendMode lastBlendMode;  \/\/\/< Cached blending mode$/;"	m	struct:sf::RenderTarget::StatesCache
 lastTextureId	include/SFML/SFML/Graphics/RenderTarget.hpp	/^        Uint64    lastTextureId;  \/\/\/< Cached texture$/;"	m	struct:sf::RenderTarget::StatesCache
@@ -3771,7 +3844,7 @@ m_data	include/SFML/SFML/Network/Packet.hpp	/^    std::vector<char> m_data;    \
 m_isValid	include/SFML/SFML/Network/Packet.hpp	/^    bool              m_isValid; \/\/\/< Reading state of the packet$/;"	m	class:sf::Packet
 m_readPos	include/SFML/SFML/Network/Packet.hpp	/^    std::size_t       m_readPos; \/\/\/< Current reading position in the packet$/;"	m	class:sf::Packet
 sf	include/SFML/SFML/Network/Packet.hpp	/^namespace sf$/;"	n
-AnyPort	include/SFML/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon3
+AnyPort	include/SFML/SFML/Network/Socket.hpp	/^        AnyPort = 0 \/\/\/< Special value that tells the system to pick any available port$/;"	e	enum:sf::Socket::__anon5
 Disconnected	include/SFML/SFML/Network/Socket.hpp	/^        Disconnected, \/\/\/< The TCP socket has been disconnected$/;"	e	enum:sf::Socket::Status
 Done	include/SFML/SFML/Network/Socket.hpp	/^        Done,         \/\/\/< The socket has sent \/ received the data$/;"	e	enum:sf::Socket::Status
 Error	include/SFML/SFML/Network/Socket.hpp	/^        Error         \/\/\/< An unexpected error happened$/;"	e	enum:sf::Socket::Status
@@ -3943,22 +4016,22 @@ code	include/SFML/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/<
 control	include/SFML/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	include/SFML/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	include/SFML/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon9
-joystickConnect	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon9
+joystickButton	include/SFML/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon8
+joystickConnect	include/SFML/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon8
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon9
-key	include/SFML/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon9
-mouseButton	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon9
-mouseMove	include/SFML/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon9
-mouseWheel	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon9
+joystickMove	include/SFML/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon8
+key	include/SFML/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon8
+mouseButton	include/SFML/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon8
+mouseMove	include/SFML/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon8
+mouseWheel	include/SFML/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon8
 position	include/SFML/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	include/SFML/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	include/SFML/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	include/SFML/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon9
+size	include/SFML/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon8
 system	include/SFML/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	include/SFML/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon9
+text	include/SFML/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon8
 type	include/SFML/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	include/SFML/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	include/SFML/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -4124,14 +4197,14 @@ sf	include/SFML/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	include/SFML/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	include/SFML/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	include/SFML/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	include/SFML/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon8
-Default	include/SFML/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon8
-Fullscreen	include/SFML/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
-None	include/SFML/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon8
-Resize	include/SFML/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon8
+Close	include/SFML/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon9
+Default	include/SFML/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon9
+Fullscreen	include/SFML/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon9
+None	include/SFML/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon9
+Resize	include/SFML/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon9
 SFML_WINDOWSTYLE_HPP	include/SFML/SFML/Window/WindowStyle.hpp	26;"	d
 Style	include/SFML/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	include/SFML/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon8
+Titlebar	include/SFML/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon9
 sf	include/SFML/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 SFML_SYSTEM_HPP	include/SFML/System.hpp	26;"	d
 Clock	include/SFML/System/Clock.hpp	/^class SFML_SYSTEM_API Clock$/;"	c	namespace:sf
@@ -4266,22 +4339,22 @@ code	include/SFML/Window/Event.hpp	/^        Keyboard::Key code;    \/\/\/< Code
 control	include/SFML/Window/Event.hpp	/^        bool          control; \/\/\/< Is the Control key pressed?$/;"	m	struct:sf::Event::KeyEvent
 delta	include/SFML/Window/Event.hpp	/^        int delta; \/\/\/< Number of ticks the wheel has moved (positive is up, negative is down)$/;"	m	struct:sf::Event::MouseWheelEvent
 height	include/SFML/Window/Event.hpp	/^        unsigned int height; \/\/\/< New height, in pixels$/;"	m	struct:sf::Event::SizeEvent
-joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon14
-joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon14
+joystickButton	include/SFML/Window/Event.hpp	/^        JoystickButtonEvent  joystickButton;  \/\/\/< Joystick button event parameters (Event::JoystickButtonPressed, Event::JoystickButtonReleased)$/;"	m	union:sf::Event::__anon13
+joystickConnect	include/SFML/Window/Event.hpp	/^        JoystickConnectEvent joystickConnect; \/\/\/< Joystick (dis)connect event parameters (Event::JoystickConnected, Event::JoystickDisconnected)$/;"	m	union:sf::Event::__anon13
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int   joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickMoveEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickButtonEvent
 joystickId	include/SFML/Window/Event.hpp	/^        unsigned int joystickId; \/\/\/< Index of the joystick (in range [0 .. Joystick::Count - 1])$/;"	m	struct:sf::Event::JoystickConnectEvent
-joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon14
-key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon14
-mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon14
-mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon14
-mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon14
+joystickMove	include/SFML/Window/Event.hpp	/^        JoystickMoveEvent    joystickMove;    \/\/\/< Joystick move event parameters (Event::JoystickMoved)$/;"	m	union:sf::Event::__anon13
+key	include/SFML/Window/Event.hpp	/^        KeyEvent             key;             \/\/\/< Key event parameters (Event::KeyPressed, Event::KeyReleased)$/;"	m	union:sf::Event::__anon13
+mouseButton	include/SFML/Window/Event.hpp	/^        MouseButtonEvent     mouseButton;     \/\/\/< Mouse button event parameters (Event::MouseButtonPressed, Event::MouseButtonReleased)$/;"	m	union:sf::Event::__anon13
+mouseMove	include/SFML/Window/Event.hpp	/^        MouseMoveEvent       mouseMove;       \/\/\/< Mouse move event parameters (Event::MouseMoved)$/;"	m	union:sf::Event::__anon13
+mouseWheel	include/SFML/Window/Event.hpp	/^        MouseWheelEvent      mouseWheel;      \/\/\/< Mouse wheel event parameters (Event::MouseWheelMoved)$/;"	m	union:sf::Event::__anon13
 position	include/SFML/Window/Event.hpp	/^        float          position;   \/\/\/< New position on the axis (in range [-100 .. 100])$/;"	m	struct:sf::Event::JoystickMoveEvent
 sf	include/SFML/Window/Event.hpp	/^namespace sf$/;"	n
 shift	include/SFML/Window/Event.hpp	/^        bool          shift;   \/\/\/< Is the Shift key pressed?$/;"	m	struct:sf::Event::KeyEvent
-size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon14
+size	include/SFML/Window/Event.hpp	/^        SizeEvent            size;            \/\/\/< Size event parameters (Event::Resized)$/;"	m	union:sf::Event::__anon13
 system	include/SFML/Window/Event.hpp	/^        bool          system;  \/\/\/< Is the System key pressed?$/;"	m	struct:sf::Event::KeyEvent
-text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon14
+text	include/SFML/Window/Event.hpp	/^        TextEvent            text;            \/\/\/< Text event parameters (Event::TextEntered)$/;"	m	union:sf::Event::__anon13
 type	include/SFML/Window/Event.hpp	/^    EventType type; \/\/\/< Type of the event$/;"	m	class:sf::Event
 unicode	include/SFML/Window/Event.hpp	/^        Uint32 unicode; \/\/\/< UTF-32 unicode value of the character$/;"	m	struct:sf::Event::TextEvent
 width	include/SFML/Window/Event.hpp	/^        unsigned int width;  \/\/\/< New width, in pixels$/;"	m	struct:sf::Event::SizeEvent
@@ -4447,14 +4520,14 @@ sf	include/SFML/Window/Window.hpp	/^namespace sf$/;"	n
 SFML_WINDOWHANDLE_HPP	include/SFML/Window/WindowHandle.hpp	26;"	d
 WindowHandle	include/SFML/Window/WindowHandle.hpp	/^    typedef HWND__* WindowHandle;$/;"	t	namespace:sf
 sf	include/SFML/Window/WindowHandle.hpp	/^namespace sf$/;"	n
-Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon13
-Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon13
-Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
-None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon13
-Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon13
+Close	include/SFML/Window/WindowStyle.hpp	/^        Close      = 1 << 2, \/\/\/< Titlebar + close button$/;"	e	enum:sf::Style::__anon14
+Default	include/SFML/Window/WindowStyle.hpp	/^        Default = Titlebar | Resize | Close \/\/\/< Default window style$/;"	e	enum:sf::Style::__anon14
+Fullscreen	include/SFML/Window/WindowStyle.hpp	/^        Fullscreen = 1 << 3, \/\/\/< Fullscreen mode (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon14
+None	include/SFML/Window/WindowStyle.hpp	/^        None       = 0,      \/\/\/< No border \/ title bar (this flag and all others are mutually exclusive)$/;"	e	enum:sf::Style::__anon14
+Resize	include/SFML/Window/WindowStyle.hpp	/^        Resize     = 1 << 1, \/\/\/< Titlebar + resizable border + maximize button$/;"	e	enum:sf::Style::__anon14
 SFML_WINDOWSTYLE_HPP	include/SFML/Window/WindowStyle.hpp	26;"	d
 Style	include/SFML/Window/WindowStyle.hpp	/^namespace Style$/;"	n	namespace:sf
-Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon13
+Titlebar	include/SFML/Window/WindowStyle.hpp	/^        Titlebar   = 1 << 0, \/\/\/< Title bar + fixed border$/;"	e	enum:sf::Style::__anon14
 sf	include/SFML/Window/WindowStyle.hpp	/^namespace sf$/;"	n
 backward	include/backward/backward.cpp	/^namespace backward {$/;"	n	file:
 sh	include/backward/backward.cpp	/^backward::SignalHandling sh;$/;"	m	namespace:backward	file:
@@ -4700,9 +4773,9 @@ result	include/backward/backward.hpp	/^		find_sym_result result;$/;"	m	struct:ba
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<T*> { typedef T type; };$/;"	s	namespace:backward::details
 rm_ptr	include/backward/backward.hpp	/^	struct rm_ptr<const T*> { typedef const T type; };$/;"	s	namespace:backward::details
-s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon21
-s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon21
-s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon21
+s1	include/backward/backward.hpp	/^		char s1[sizeof (std::string)];$/;"	m	union:backward::Variable::__anon22
+s2	include/backward/backward.hpp	/^		char s2[sizeof (list_t)];$/;"	m	union:backward::Variable::__anon22
+s3	include/backward/backward.hpp	/^		char s3[sizeof (map_t)];$/;"	m	union:backward::Variable::__anon22
 self	include/backward/backward.hpp	/^		StackTraceImpl& self;$/;"	m	struct:backward::StackTraceImpl::callback
 self	include/backward/backward.hpp	/^		StackTraceWithLocalsImpl& self;$/;"	m	struct:backward::StackTraceWithLocalsImpl::callback
 self	include/backward/backward.hpp	/^		TraceResolverLinuxImpl* self;$/;"	m	struct:backward::TraceResolverLinuxImpl::find_sym_context
@@ -4719,7 +4792,7 @@ source	include/backward/backward.hpp	/^	SourceLoc                      source;$/
 source_locs_t	include/backward/backward.hpp	/^	typedef std::vector<SourceLoc> source_locs_t;$/;"	t	struct:backward::ResolvedTrace
 src_files_t	include/backward/backward.hpp	/^	typedef details::hashtable<std::string, SourceFile>::type src_files_t;$/;"	t	class:backward::SnippetFactory
 stacktrace_tag	include/backward/backward.hpp	/^namespace stacktrace_tag {$/;"	n	namespace:backward
-storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon21
+storage	include/backward/backward.hpp	/^	} storage;$/;"	m	class:backward::Variable	typeref:union:backward::Variable::__anon22
 swap	include/backward/backward.hpp	/^	void swap(SourceFile& b) {$/;"	f	class:backward::SourceFile
 swap	include/backward/backward.hpp	/^	void swap(handle& b) {$/;"	f	class:backward::details::handle
 symtab	include/backward/backward.hpp	/^		bfd_symtab_t symtab;$/;"	m	struct:backward::TraceResolverLinuxImpl::bfd_fileobject
